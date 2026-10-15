@@ -1,7 +1,7 @@
 {
  "name": "norapi",
  "version": "0.1.0",
- "generated_at": "2026-10-15T11:59:46+00:00",
+ "generated_at": "2026-10-15T12:05:49+00:00",
  "count": 1115,
  "sources": {
   "curated": 43,
@@ -76,7 +76,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:04+00:00",
+    "checked_at": "2026-10-15T12:05:10+00:00",
     "docs_url": {
      "url": "https://docs.altinn.studio/nb/api/",
      "status": 200,
@@ -141,7 +141,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:06+00:00",
+    "checked_at": "2026-10-15T12:05:13+00:00",
     "docs_url": {
      "url": "https://avinor.no/konsern/tjenester/flydata/",
      "status": 200,
@@ -203,7 +203,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:07+00:00",
+    "checked_at": "2026-10-15T12:05:14+00:00",
     "docs_url": {
      "url": "https://www.brreg.no/produkter-og-tjenester/apne-data/",
      "status": 200,
@@ -267,7 +267,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:07+00:00",
+    "checked_at": "2026-10-15T12:05:14+00:00",
     "docs_url": {
      "url": "https://docs.digdir.no/docs/idporten/",
      "status": 200,
@@ -331,7 +331,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:08+00:00",
+    "checked_at": "2026-10-15T12:05:15+00:00",
     "docs_url": {
      "url": "https://docs.digdir.no/docs/Kontaktregisteret/",
      "status": 200,
@@ -342,7 +342,7 @@
      "url": "https://kontaktregisteret.no/",
      "status": 200,
      "verdict": "ok",
-     "final_url": "https://login.microsoftonline.com/008e560f-08af-4cec-a056-b35447503991/oauth2/v2.0/authorize?response_type=code&client_id=23dddf29-f904-40b4-866c-2262a50f176e&scope=openid%20profile%20offline_access&state=29V4GylvkbVejakbijei5oYCZ1d6TOrN-3_lX8JGn0g%3D&redirect_uri=https://kontaktregisteret.no/login/oauth2/code/&nonce=8I6tUTP9O4jRsdr7oNVqKPKFH3kpBYimmS3z-BpG3pA&code_challenge=cukFJHti0ErPO77GSr93BYb3DoTl23R-5xwYCj97ARw&code_challenge_method=S256"
+     "final_url": "https://login.microsoftonline.com/008e560f-08af-4cec-a056-b35447503991/oauth2/v2.0/authorize?response_type=code&client_id=23dddf29-f904-40b4-866c-2262a50f176e&scope=openid%20profile%20offline_access&state=Soe-SCt97xL_QR-1jXogh_uyeedmGvl5IzHpMOmqUxQ%3D&redirect_uri=https://kontaktregisteret.no/login/oauth2/code/&nonce=m2FYSafYcyRV_L7KPp1e6GO774GWByWIzshxsJmX5V8&code_challenge=ZVTxhYhkTMi-CVkZZoaSvgBr76JaciPJ35B3f6qqMPg&code_challenge_method=S256"
     }
    }
   },
@@ -395,7 +395,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:08+00:00",
+    "checked_at": "2026-10-15T12:05:16+00:00",
     "docs_url": {
      "url": "https://docs.digdir.no/docs/Maskinporten/",
      "status": 200,
@@ -15153,7 +15153,7 @@
     "operations": 11,
     "tags": [],
     "source_url": "https://ws.geonorge.no/kommuneinfo/v1/static/openapi_doc.json",
-    "fetched_at": "2026-10-15T11:49:27+00:00"
+    "fetched_at": "2026-10-15T12:05:17+00:00"
    },
    "license": "CC BY 4.0",
    "keywords": [

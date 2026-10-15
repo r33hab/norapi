@@ -14,7 +14,7 @@ from typing import Any
 import httpx
 
 from norapi.model import ApiEntry
-from norapi.netguard import is_public_url
+from norapi.netguard import get_capped
 
 log = logging.getLogger(__name__)
 USER_AGENT = "norapi-linkcheck/0.1 (+https://github.com/r33hAB/norapi)"
@@ -22,9 +22,7 @@ USER_AGENT = "norapi-linkcheck/0.1 (+https://github.com/r33hAB/norapi)"
 
 def check_entries(entries: list[ApiEntry], timeout: float = 15.0, limit: int | None = None) -> int:
     checked = 0
-    with httpx.Client(
-        timeout=timeout, follow_redirects=True, headers={"User-Agent": USER_AGENT}
-    ) as client:
+    with httpx.Client(timeout=timeout, headers={"User-Agent": USER_AGENT}) as client:
         for entry in entries:
             if limit is not None and checked >= limit:
                 break
@@ -60,21 +58,17 @@ def verdict(status: int | None) -> str:
 
 
 def _probe(client: httpx.Client, url: str) -> dict[str, Any]:
-    if not is_public_url(url):
+    try:
+        fetched = get_capped(client, url, limit=256 * 1024)
+    except httpx.HTTPError as exc:
+        return {"url": url, "status": None, "verdict": "missing", "error": type(exc).__name__}
+    if fetched is None:
         return {
             "url": url,
             "status": None,
             "verdict": "missing",
-            "error": "not a public http(s) URL",
+            "error": "not a public http(s) URL, or a redirect into one",
         }
-    try:
-        response = client.get(url)
-        status = response.status_code
-        return {
-            "url": url,
-            "status": status,
-            "verdict": verdict(status),
-            "final_url": str(response.url),
-        }
-    except httpx.HTTPError as exc:
-        return {"url": url, "status": None, "verdict": "missing", "error": type(exc).__name__}
+    response, _, final_url = fetched
+    status = response.status_code
+    return {"url": url, "status": status, "verdict": verdict(status), "final_url": final_url}

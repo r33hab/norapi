@@ -18,12 +18,17 @@ def snapshot() -> dict:
 
 @pytest.fixture(autouse=True)
 def allow_test_hosts(monkeypatch):
-    """Fetcher tests use made-up hosts behind a mock transport; let them past the SSRF guard."""
+    """Fetcher tests use made-up hosts behind a mock transport; pin them to themselves."""
+    from urllib.parse import urlparse
+
     from norapi import netguard
 
-    original = netguard.is_public_url
+    original = netguard.resolve_public
 
-    def guard(url: str) -> bool:
-        return url.startswith(("https://x.no/", "https://feed.test/")) or original(url)
+    def resolve(url: str):
+        if url.startswith(("https://x.no/", "https://x.no?", "https://feed.test/")):
+            host = urlparse(url).hostname
+            return netguard.PinnedTarget(host=host, port=443, connect_host=host)
+        return original(url)
 
-    monkeypatch.setattr(netguard, "is_public_url", guard)
+    monkeypatch.setattr(netguard, "resolve_public", resolve)

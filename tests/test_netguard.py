@@ -36,9 +36,9 @@ def test_get_capped_stops_at_the_limit():
         return httpx.Response(200, content=big)
 
     client = httpx.Client(transport=httpx.MockTransport(handler))
-    response, body = get_capped(client, "https://x.no/spec.json", limit=100)
+    response, body, _ = get_capped(client, "https://x.no/spec.json", limit=100)
     assert body is None, "larger than the cap: dropped, not buffered"
-    response, body = get_capped(client, "https://x.no/spec.json", limit=MAX_BODY_BYTES)
+    response, body, _ = get_capped(client, "https://x.no/spec.json", limit=MAX_BODY_BYTES)
     assert body == big
 
 
@@ -82,3 +82,38 @@ def test_safe_href_only_renders_http_links():
     assert safe_href("javascript:alert(1)") == "#"
     assert safe_href(None) == "#"
     assert safe_href('https://x.no/?a=1&b="2"') == "https://x.no/?a=1&amp;b=&quot;2&quot;"
+
+
+def test_redirect_into_a_private_host_is_refused_before_it_is_requested():
+    calls = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls.append(str(request.url))
+        if request.url.path == "/start":
+            return httpx.Response(302, headers={"location": "http://169.254.169.254/latest/"})
+        return httpx.Response(200, content=b"secret")
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    assert get_capped(client, "https://x.no/start") is None
+    assert calls == ["https://x.no/start"], "the private hop was never requested"
+
+
+def test_public_redirects_are_followed_and_the_logical_url_is_returned():
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/old":
+            return httpx.Response(301, headers={"location": "/new/openapi.json"})
+        assert request.headers["host"] == "x.no"
+        return httpx.Response(200, content=b'{"openapi":"3.0.0","paths":{}}')
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    response, body, final_url = get_capped(client, "https://x.no/old")
+    assert response.status_code == 200 and body.startswith(b"{")
+    assert final_url == "https://x.no/new/openapi.json"
+
+
+def test_redirect_loops_give_up():
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(302, headers={"location": "https://x.no/loop"})
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    assert get_capped(client, "https://x.no/loop") is None

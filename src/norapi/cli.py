@@ -121,7 +121,7 @@ def cmd_build(args: argparse.Namespace) -> int:
 
 
 def cmd_enrich(args: argparse.Namespace) -> int:
-    from norapi.enrich import SpecFetcher, enrich_entries, write_enrichment
+    from norapi.enrich import SpecFetcher, enrich_entries, load_specs, write_enrichment
 
     entries = _load_entries()
     summaries, ops = enrich_entries(
@@ -132,6 +132,15 @@ def cmd_enrich(args: argparse.Namespace) -> int:
         limit=args.limit,
         refresh=args.refresh,
     )
+    if args.limit is not None:
+        # A partial run refreshes the entries it touched and keeps everything else.
+        from norapi.enrich import load_operations
+
+        merged = load_specs(REGISTRY_DIR)
+        merged.update(summaries)
+        touched = set(summaries)
+        kept = [op for op in load_operations(REGISTRY_DIR) if op["api_id"] not in touched]
+        summaries, ops = merged, kept + ops
     write_enrichment(summaries, ops, REGISTRY_DIR)
     attach_specs(entries, summaries)
     write_registry(entries)

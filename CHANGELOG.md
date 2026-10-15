@@ -13,6 +13,12 @@ All notable changes to this project are documented here. The format follows
 ### Changed
 - Pages workflow now generates the site with `norapi site`; the weekly harvest also runs `norapi enrich`.
 - Link checker reports verdicts (ok / answers / missing) instead of raw status codes.
+- README rewritten as a proper front page: banner, live badges from registry.json, screenshot, the four front doors, pipeline and entry shape.
+### Security
+- All outbound fetches (spec fetcher, link checker) go through `netguard`: http(s) only, hosts resolved and checked against private, loopback and link-local ranges, the validated address pinned for the connect (no DNS rebinding window), every redirect hop validated before it is requested, bodies read through a streamed cap.
+- JSON-LD escapes angle brackets and ampersands; external links render only for http(s) URLs; operation methods from third-party specs are escaped in the client-side search; entry ids must be slugs before they become file paths.
+### Fixed
+- `norapi enrich --limit N` merges into the existing specs and operations instead of overwriting them with the subset.
 - Harvester for Felles datakatalog (data.norge.no): search API for the list, SPARQL per predicate for endpoints, specs, docs, licences and keywords, joined on the data service URI.
 - Curated entries for about 35 well-known APIs (BRREG, SSB, Entur, MET, Kartverket, Nav, Skatteetaten, Digdir, Altinn, Vegvesen, Norges Bank, Stortinget, NVE and more) with access, auth, formats, docs and quick-start calls.
 - Merge rules: curated fields win, harvested fields fill gaps, matched by FDK URI or identical endpoint.

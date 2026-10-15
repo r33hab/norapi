@@ -59,7 +59,6 @@ class SpecFetcher:
     def __init__(self, client: httpx.Client | None = None, timeout: float = 15.0) -> None:
         self._http = client or httpx.Client(
             timeout=timeout,
-            follow_redirects=True,
             headers={
                 "User-Agent": USER_AGENT,
                 "Accept": "application/json, application/yaml, text/yaml, text/plain, "
@@ -85,19 +84,19 @@ class SpecFetcher:
             if fetched is None:
                 log.debug("%s: not a public http(s) URL, skipped", candidate)
                 continue
-            response, body = fetched
+            response, body, final_url = fetched
             if response.status_code >= 400 or body is None:
                 continue
             text = body.decode(response.encoding or "utf-8", errors="replace")
             document = parse_document(text, response.headers.get("content-type", ""))
-            if document is not None and not is_sample(document, str(response.url)):
-                return str(response.url), document
+            if document is not None and not is_sample(document, final_url):
+                return final_url, document
             if document is not None:
                 log.debug("%s: sample document, ignored", candidate)
                 continue
             # Not a document: maybe a UI page that tells us where the document is. What the
             # page itself points at goes to the front of the queue; guessed neighbours last.
-            discovered = [u for u in urls_from_page(text, str(response.url)) if u not in tried]
+            discovered = [u for u in urls_from_page(text, final_url) if u not in tried]
             queue = discovered + queue
             if looks_like_ui(candidate):
                 queue.extend(u for u in neighbour_urls(candidate) if u not in tried)
