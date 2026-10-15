@@ -1,0 +1,36 @@
+updated: 2026-10-15
+provider:
+  name: Skatteetaten
+  orgnr: "974761076"
+  sector: stat
+apis:
+  - id: skatteetaten-api-portal
+    title: Skatteetatens API-er (oversikt)
+    description: >-
+      Samlet dokumentasjon for Skatteetatens API-er: summert skattegrunnlag, inntektsmottakere, a-melding,
+      mva-melding, skattemelding, tjenestepensjon og mer. Nesten alt krever Maskinporten med et scope som
+      tildeles etter søknad, og mange er avgrenset til bestemte brukergrupper (banker, kommuner, NAV).
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.skatteetaten.no/
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/
+    keywords: [skatt, skattemelding, inntekt, a-melding, mva, summert skattegrunnlag, tjenestepensjon, tax]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-folkeregisteret
+    title: Folkeregisteret API
+    description: >-
+      Oppslag og hendelsesfeed fra Folkeregisteret: personer, identitetsnummer, bosted, familierelasjoner
+      og statuser. Tilgang gis etter rettsgrunnlag, med Maskinporten og ulike rettighetspakker.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.skatteetaten.no/folkeregisteret
+    docs_url: https://skatteetaten.github.io/folkeregisteret-api-dokumentasjon/
+    keywords: [folkeregister, fødselsnummer, d-nummer, bosted, personopplysninger, population register]
+    tags: [agreement, maskinporten, personal-data]

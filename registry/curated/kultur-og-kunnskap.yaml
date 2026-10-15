@@ -1,0 +1,23 @@
+updated: 2026-10-15
+provider:
+  name: Nasjonalbiblioteket
+  orgnr: "976029100"
+  sector: stat
+apis:
+  - id: nb-api
+    title: Nasjonalbibliotekets API (nb.no)
+    description: >-
+      Søk i digitaliserte bøker, aviser, bilder, kart og tidsskrifter i nb.no, med metadata, fulltekst der
+      rettighetene tillater, og IIIF for bilder.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON, IIIF]
+    endpoints:
+      - https://api.nb.no/catalog/v1/items
+    docs_url: https://api.nb.no/
+    probe_url: https://api.nb.no/catalog/v1/items?q=Ibsen&size=1
+    keywords: [bibliotek, bøker, aviser, bilder, digitalisert, iiif, fulltekst, library]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://api.nb.no/catalog/v1/items?q=Ibsen&size=3"

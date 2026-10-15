@@ -1,0 +1,24 @@
+updated: 2026-10-15
+provider:
+  name: Norges Bank
+  orgnr: "937884117"
+  sector: stat
+apis:
+  - id: norges-bank-open-data
+    title: Norges Bank åpne data (valutakurser og renter)
+    description: >-
+      Daglige valutakurser, styringsrente, statsobligasjoner og andre tidsserier som SDMX-REST:
+      velg datasett, nøkkel og periode i URL-en, få JSON eller CSV.
+    category: finans
+    access: open
+    auth: none
+    formats: [JSON, CSV, XML]
+    endpoints:
+      - https://data.norges-bank.no/api/data/
+    docs_url: https://www.norges-bank.no/en/topics/Statistics/open-data/
+    probe_url: https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=sdmx-json&lastNObservations=1
+    license: NLOD 2.0
+    keywords: [valutakurs, valuta, rente, styringsrente, eur, usd, sdmx, exchange rate]
+    tags: [starter, no-auth]
+    quick_start: |
+      curl "https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=sdmx-json&lastNObservations=1"

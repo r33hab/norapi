@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>norapi: norske offentlige API-er</title>
+<meta name="description" content="Søkbart register over norske offentlige API-er, for utviklere og KI-agenter.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%230b5fa5%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-size=%2718%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27%3EN%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #f7f7f5; --fg: #1b1f23; --muted: #5c6670; --card: #ffffff; --line: #e1e4e8;
+    --accent: #0b5fa5; --open: #1f7a3d; --restricted: #a65d00; --chip: #eef1f4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #111417; --fg: #e6e8eb; --muted: #9aa4ae; --card: #1a1f24; --line: #2b323a;
+            --accent: #6cb4ff; --open: #5fd38a; --restricted: #f0b25a; --chip: #242a31; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, Inter, sans-serif; }
+  header, main, footer { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+  header { padding-top: 32px; }
+  h1 { font-size: 28px; margin: 0 0 4px; }
+  .lead { color: var(--muted); margin: 0 0 20px; }
+  .search { display: flex; gap: 8px; }
+  .search input { flex: 1; font-size: 18px; padding: 12px 14px; border: 1px solid var(--line);
+                  border-radius: 8px; background: var(--card); color: var(--fg); }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 8px; }
+  select { padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px;
+           background: var(--card); color: var(--fg); font-size: 14px; }
+  .meta { color: var(--muted); font-size: 14px; margin: 8px 0 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+          padding: 14px 16px; margin-bottom: 10px; }
+  .card h2 { font-size: 17px; margin: 0 0 2px; }
+  .card h2 a { color: var(--accent); text-decoration: none; }
+  .card h2 a:hover { text-decoration: underline; }
+  .provider { color: var(--muted); font-size: 14px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+  .badge { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--chip); }
+  .badge.open { color: var(--open); } .badge.restricted, .badge.non-public { color: var(--restricted); }
+  .summary { margin: 6px 0; }
+  .links a { margin-right: 14px; font-size: 14px; color: var(--accent); }
+  pre { background: var(--chip); padding: 10px 12px; border-radius: 6px; overflow-x: auto;
+        font-size: 13px; }
+  details summary { cursor: pointer; color: var(--muted); font-size: 14px; }
+  footer { color: var(--muted); font-size: 14px; padding: 24px 16px 40px; }
+  footer code { background: var(--chip); padding: 1px 5px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Norske offentlige API-er</h1>
+  <p class="lead">Søkbart register fra Felles datakatalog pluss håndplukkede oppføringer med eksempler.
+    Lages av <a href="https://github.com/r33hAB/norapi">norapi</a>, som også er en MCP-server for KI-agenter.</p>
+  <div class="search"><input id="q" type="search" placeholder="Søk: kjøretøy, adresse, vær, selskap, stillinger …" autofocus></div>
+  <div class="filters">
+    <select id="access"><option value="">Tilgang: alle</option><option value="open">Åpen</option>
+      <option value="restricted">Begrenset</option><option value="unknown">Ukjent</option></select>
+    <select id="auth"><option value="">Autentisering: alle</option><option value="none">Ingen</option>
+      <option value="api-key">API-nøkkel</option><option value="maskinporten">Maskinporten</option>
+      <option value="oauth2">OAuth2</option><option value="unknown">Ukjent</option></select>
+    <select id="source"><option value="">Kilde: alle</option><option value="curated">Kun håndplukkede</option></select>
+    <select id="category"><option value="">Kategori: alle</option></select>
+    <select id="provider"><option value="">Leverandør: alle</option></select>
+  </div>
+  <div class="meta" id="meta">Laster register …</div>
+</header>
+<main id="results"></main>
+<footer>
+  Data: <a href="registry.json">registry.json</a> · <a href="llms.txt">llms.txt</a> for språkmodeller ·
+  MCP for Claude Code: <code>claude mcp add norapi -- uv run --directory &lt;repo&gt; norapi-mcp</code>.
+  Metadata fra <a href="https://data.norge.no/data-services">data.norge.no</a>; hvert API har egne vilkår.
+</footer>
+<script>
+(async function () {
+  const $ = (id) => document.getElementById(id);
+  const res = await fetch("registry.json");
+  const data = await res.json();
+  const apis = data.apis;
+
+  for (const [id, label] of Object.entries(data.categories || {})) {
+    $("category").insertAdjacentHTML("beforeend", `<option value="${id}">${label}</option>`);
+  }
+  const providers = new Map();
+  for (const a of apis) providers.set(a.provider.name, (providers.get(a.provider.name) || 0) + 1);
+  [...providers.entries()].sort((x, y) => y[1] - x[1]).forEach(([name, n]) =>
+    $("provider").insertAdjacentHTML("beforeend", `<option value="${esc(name)}">${esc(name)} (${n})</option>`));
+
+  function esc(s) { return String(s ?? "").replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+  function norm(s) { return String(s ?? "").toLowerCase(); }
+  function score(a, terms) {
+    if (!terms.length) return a.source.kind === "fdk" ? 0 : 1;
+    const title = norm(a.title + " " + (a.title_en || ""));
+    const keywords = norm((a.keywords || []).join(" ") + " " + (a.tags || []).join(" "));
+    const provider = norm(a.provider.name);
+    const text = norm((a.summary || "") + " " + (a.description || "") + " " + (a.endpoints || []).join(" "));
+    let total = 0;
+    for (const t of terms) {
+      let s = 0;
+      if (title.includes(t)) s += 6;
+      if (keywords.includes(t)) s += 4;
+      if (provider.includes(t)) s += 3;
+      if (text.includes(t)) s += 1;
+      if (!s) return 0;
+      total += s;
+    }
+    return total + (a.source.kind === "fdk" ? 0 : 2);
+  }
+  function badge(text, cls) { return `<span class="badge ${cls || ""}">${esc(text)}</span>`; }
+  function card(a) {
+    const link = a.docs_url || a.spec_url || (a.endpoints || [])[0] || a.source.catalogue_url || "#";
+    const badges = [badge({open:"åpen", restricted:"begrenset", "non-public":"ikke offentlig", unknown:"tilgang ukjent"}[a.access], a.access)];
+    if (a.auth !== "unknown") badges.push(badge("auth: " + a.auth));
+    (a.formats || []).slice(0, 4).forEach((f) => badges.push(badge(f)));
+    if (a.category && data.categories[a.category]) badges.push(badge(data.categories[a.category]));
+    if (a.source.kind !== "fdk") badges.push(badge("håndplukket"));
+    const links = [];
+    if (a.docs_url) links.push(`<a href="${esc(a.docs_url)}">Dokumentasjon</a>`);
+    if (a.spec_url) links.push(`<a href="${esc(a.spec_url)}">Spesifikasjon</a>`);
+    if ((a.endpoints || [])[0]) links.push(`<a href="${esc(a.endpoints[0])}">Endepunkt</a>`);
+    if (a.source.catalogue_url) links.push(`<a href="${esc(a.source.catalogue_url)}">data.norge.no</a>`);
+    const quick = a.quick_start ? `<details><summary>Prøv</summary><pre>${esc(a.quick_start.trim())}</pre></details>` : "";
+    return `<article class="card">
+      <h2><a href="${esc(link)}">${esc(a.title)}</a></h2>
+      <div class="provider">${esc(a.provider.name)}</div>
+      <div class="badges">${badges.join("")}</div>
+      <p class="summary">${esc(a.summary || "")}</p>
+      <div class="links">${links.join("")}</div>${quick}
+    </article>`;
+  }
+  function render() {
+    const terms = norm($("q").value).split(/\s+/).filter(Boolean);
+    const f = { access: $("access").value, auth: $("auth").value, source: $("source").value,
+                category: $("category").value, provider: $("provider").value };
+    const hits = apis
+      .filter((a) => (!f.access || a.access === f.access) && (!f.auth || a.auth === f.auth)
+        && (!f.category || a.category === f.category) && (!f.provider || a.provider.name === f.provider)
+        && (!f.source || a.source.kind !== "fdk"))
+      .map((a) => [score(a, terms), a]).filter(([s]) => s > 0)
+      .sort((x, y) => y[0] - x[0] || x[1].title.localeCompare(y[1].title, "nb"));
+    $("meta").textContent = `${hits.length} av ${apis.length} API-er · register generert ${data.generated_at.slice(0, 10)}`;
+    $("results").innerHTML = hits.slice(0, 60).map(([, a]) => card(a)).join("");
+  }
+  for (const id of ["q", "access", "auth", "source", "category", "provider"]) $(id).addEventListener("input", render);
+  const params = new URLSearchParams(location.search);
+  if (params.get("q")) $("q").value = params.get("q");
+  render();
+})();
+</script>
+</body>
+</html>

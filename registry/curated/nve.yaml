@@ -1,0 +1,37 @@
+updated: 2026-10-15
+provider:
+  name: Norges vassdrags- og energidirektorat
+  orgnr: "970205039"
+  sector: stat
+apis:
+  - id: nve-api
+    title: NVE API-portal
+    description: >-
+      NVEs åpne API-er samlet: kraftverk og magasinstatistikk, nettselskap, skredvarsler (varsom),
+      flomvarsel, snødata og vassdrag. Dokumentert per tjeneste på api.nve.no.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.nve.no/
+    docs_url: https://api.nve.no/doc/
+    license: NLOD 2.0
+    keywords: [kraftverk, magasin, vannkraft, skred, flom, snø, vassdrag, energi, nettselskap]
+    tags: [no-auth]
+
+  - id: nve-hydapi
+    title: HydAPI (hydrologiske observasjoner)
+    description: >-
+      Vannføring, vannstand, vanntemperatur og snø fra NVEs målestasjoner, historisk og sanntid.
+      Gratis API-nøkkel ved registrering.
+    category: natur-og-miljo
+    access: open
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://hydapi.nve.no/api/v1/Stations
+    docs_url: https://hydapi.nve.no/UserDocumentation/
+    license: NLOD 2.0
+    keywords: [vannføring, vannstand, hydrologi, målestasjon, elv, snødybde]
+    tags: [registration]

@@ -1,0 +1,46 @@
+updated: 2026-10-15
+provider:
+  name: Brønnøysundregistrene
+  orgnr: "974760673"
+  sector: stat
+apis:
+  - id: brreg-enhetsregisteret
+    title: Enhetsregisteret API
+    title_en: Central Coordinating Register for Legal Entities API
+    description: >-
+      Oppslag og søk i alle norske enheter og underenheter: organisasjonsnummer, navn, organisasjonsform,
+      adresser, næringskoder, antall ansatte, roller og oppdateringer. Ingen autentisering, ingen nøkkel.
+      Den vanligste inngangen til norske virksomhetsdata.
+    category: bedrift-og-organisasjon
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://data.brreg.no/enhetsregisteret/api
+    docs_url: https://data.brreg.no/enhetsregisteret/api/docs/index.html
+    license: NLOD 2.0
+    keywords: [organisasjonsnummer, enheter, underenheter, roller, bedrift, selskap, firma, orgnr, company register]
+    tags: [starter, no-auth, high-volume]
+    quick_start: |
+      curl "https://data.brreg.no/enhetsregisteret/api/enheter?navn=Digitaliseringsdirektoratet"
+      curl "https://data.brreg.no/enhetsregisteret/api/enheter/991825827"
+
+  - id: brreg-regnskapsregisteret
+    title: Regnskapsregisteret API
+    description: >-
+      Siste innsendte årsregnskap per organisasjonsnummer som strukturert JSON: resultat, balanse,
+      egenkapital og nøkkelfelt fra regnskapet.
+    category: bedrift-og-organisasjon
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://data.brreg.no/regnskapsregisteret/regnskap
+    docs_url: https://www.brreg.no/produkter-og-tjenester/apne-data/
+    probe_url: https://data.brreg.no/regnskapsregisteret/regnskap/923609016
+    license: NLOD 2.0
+    keywords: [årsregnskap, regnskap, resultat, balanse, nøkkeltall]
+    tags: [no-auth]
+    quick_start: |
+      # siste årsregnskap for Equinor ASA (404 betyr at enheten ikke har levert regnskap)
+      curl "https://data.brreg.no/regnskapsregisteret/regnskap/923609016"

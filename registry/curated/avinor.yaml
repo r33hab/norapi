@@ -1,0 +1,22 @@
+updated: 2026-10-15
+provider:
+  name: Avinor
+  orgnr: "985198292"
+  sector: statlig-selskap
+apis:
+  - id: avinor-flydata
+    title: Avinor flydata (XML-feed)
+    description: >-
+      Ankomster og avganger for alle Avinors lufthavner med rutenummer, flyselskap, planlagt og
+      estimert tid, gate og status. XML uten nøkkel; maks ett kall per lufthavn per tre minutter.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://asrv.avinor.no/XmlFeed/v1.0
+    docs_url: https://avinor.no/konsern/tjenester/flydata/
+    keywords: [fly, flyplass, avganger, ankomster, lufthavn, gardermoen, flights, airport]
+    tags: [no-auth, rate-limited]
+    quick_start: |
+      curl "https://asrv.avinor.no/XmlFeed/v1.0?airport=OSL&direction=D&TimeFrom=0&TimeTo=2"

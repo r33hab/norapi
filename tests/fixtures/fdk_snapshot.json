@@ -1,0 +1,74 @@
+{
+  "harvested_at": "2026-10-15T10:00:00+00:00",
+  "hits": [
+    {
+      "id": "fdk-a",
+      "uri": "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/aaa",
+      "accessRights": {"code": "RESTRICTED"},
+      "organization": {"id": "974761076", "orgPath": "/STAT/972417807/974761076", "name": "Skatteetaten", "prefLabel": {"nb": "Skatteetaten"}},
+      "title": {"nb": "Mva-melding API", "en": "VAT return API"},
+      "description": {"nb": "Tjenesten leverer fastsatte mva-meldinger. Krever Maskinporten."},
+      "fdkFormatPrefixed": ["MEDIA_TYPE application/json"],
+      "metadata": {"modified": "2026-07-30T12:29:35.989Z"},
+      "searchType": "DATA_SERVICE"
+    },
+    {
+      "id": "fdk-b",
+      "uri": "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/bbb",
+      "accessRights": {"code": "PUBLIC"},
+      "organization": {"id": "971040238", "orgPath": "/STAT/972417858/971040238", "name": "Kartverket"},
+      "title": {"nb": "Kommuneinfo"},
+      "description": {"nb": "Kommuner og fylker med nummer og navn, og oppslag fra punkt til kommune."},
+      "fdkFormatPrefixed": [],
+      "metadata": {"modified": "2026-01-01T00:00:00Z"}
+    },
+    {
+      "id": "fdk-c",
+      "uri": "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/ccc",
+      "accessRights": {"code": "PUBLIC"},
+      "organization": {"id": "971040238", "orgPath": "/STAT/972417858/971040238", "name": "Kartverket"},
+      "title": {"nb": "Kommuneinfo"},
+      "description": {"nb": "En eldre versjon med samme tittel, registrert separat."},
+      "fdkFormatPrefixed": ["FILE_TYPE XML"],
+      "metadata": {"modified": "2025-01-01T00:00:00Z"}
+    },
+    {
+      "id": "fdk-d",
+      "uri": "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/ddd",
+      "organization": {"id": "958935420", "orgPath": "/KOMMUNE/958935420", "name": "Oslo kommune"},
+      "title": {"nn": "Byrådssaker"},
+      "fdkFormatPrefixed": []
+    }
+  ],
+  "extras": {
+    "endpoints": [
+      ["https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/aaa", "https://api.skatteetaten.no/mva"],
+      ["https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/bbb", "https://ws.geonorge.no/kommuneinfo/v1/"],
+      ["https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/ccc", "https://ws.geonorge.no/kommuneinfo/v0/"],
+      ["https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/ddd", "https://example.oslo.kommune.no/api"]
+    ],
+    "endpoint_descriptions": [
+      ["https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/aaa", "https://api.swaggerhub.com/apis/skatteetaten/mva-melding-api/1.0.0"],
+      ["https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/bbb", "https://ws.geonorge.no/kommuneinfo/v1/static/openapi_doc.json"],
+      ["https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/ddd", "https://example.oslo.kommune.no/om-apiet"]
+    ],
+    "pages": [
+      ["https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/aaa", "https://skatteetaten.github.io/api-dokumentasjon/"]
+    ],
+    "landing_pages": [],
+    "licenses": [
+      ["https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/bbb", "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0"]
+    ],
+    "formats": [
+      ["https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/bbb", "http://publications.europa.eu/resource/authority/file-type/JSON"],
+      ["https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/bbb", "MEDIA_TYPE application/json"]
+    ],
+    "media_types": [],
+    "keywords": [
+      ["https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/aaa", "mva"],
+      ["https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/aaa", "merverdiavgift"]
+    ],
+    "status": [],
+    "versions": []
+  }
+}

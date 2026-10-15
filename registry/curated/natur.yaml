@@ -1,0 +1,21 @@
+updated: 2026-10-15
+provider:
+  name: Artsdatabanken
+  orgnr: "919666102"
+  sector: stat
+apis:
+  - id: artsdatabanken-artskart
+    title: Artskart API
+    description: >-
+      Artsobservasjoner og funn fra hele landet: hvor en art er registrert, når og av hvem, med
+      rødlistestatus og fremmedartsstatus. Åpent lese-API bak artskart.artsdatabanken.no.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://artskart.artsdatabanken.no/publicapi/
+    docs_url: https://artskart.artsdatabanken.no/publicapi/
+    license: CC BY 4.0
+    keywords: [arter, artsobservasjoner, rødliste, fremmede arter, biologisk mangfold, species]
+    tags: [no-auth]

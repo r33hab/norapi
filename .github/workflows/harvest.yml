@@ -1,0 +1,30 @@
+name: harvest
+
+on:
+  schedule:
+    - cron: "17 4 * * 1"   # Mondays 04:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked
+      - name: Harvest Felles datakatalog and rebuild the registry
+        run: |
+          uv run norapi harvest
+          uv run norapi build
+          uv run norapi check --curated-only
+      - name: Commit the new registry if it changed
+        run: |
+          if git diff --quiet -- registry/registry.json registry/llms.txt; then
+            echo "registry unchanged"; exit 0
+          fi
+          git -c user.name=r33hAB -c user.email=48438582+r33hAB@users.noreply.github.com \
+            commit -am "Weekly harvest: refresh registry from Felles datakatalog"
+          git push

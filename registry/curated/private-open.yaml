@@ -1,0 +1,22 @@
+updated: 2026-10-15
+provider:
+  name: Hva koster strømmen (privat)
+  sector: privat
+apis:
+  - id: hvakosterstrommen-api
+    title: Strømpris-API (hvakosterstrommen.no)
+    description: >-
+      Dagens og morgendagens spotpris per time for de fem norske prisområdene (NO1 til NO5), hentet fra
+      Nord Pool og publisert som enkle JSON-filer. Privat tjeneste, gratis, krever kildehenvisning.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.hvakosterstrommen.no/api/v1/prices/
+    docs_url: https://www.hvakosterstrommen.no/strompris-api
+    license: Gratis med kildehenvisning, se dokumentasjon
+    keywords: [strømpris, spotpris, strøm, nord pool, prisområde, no1, elektrisitet, electricity price]
+    tags: [no-auth, private-provider]
+    quick_start: |
+      curl "https://www.hvakosterstrommen.no/api/v1/prices/2026/10-15_NO1.json"

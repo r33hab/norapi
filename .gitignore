@@ -1,0 +1,18 @@
+# raw harvest snapshots and the derived search index (registry.json is committed)
+data/
+registry/.index.sqlite
+registry/.index.tmp
+site/registry.json
+site/llms.txt
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+dist/
+
+.DS_Store
+.idea/
+.vscode/

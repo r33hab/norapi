@@ -1,0 +1,58 @@
+updated: 2026-10-15
+provider:
+  name: Digitaliseringsdirektoratet
+  orgnr: "991825827"
+  sector: stat
+apis:
+  - id: digdir-felles-datakatalog
+    title: Felles datakatalog (søk og SPARQL)
+    title_en: National data catalogue API
+    description: >-
+      Metadata om alle datasett, API-er, begreper og tjenester i offentlig sektor, som et søke-API
+      (JSON, POST med fritekst og filtre) og et SPARQL-endepunkt over DCAT-AP-NO. Det er denne
+      katalogen norapi henter sine harvested-oppføringer fra.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON, RDF, Turtle, JSON-LD]
+    endpoints:
+      - https://search.api.fellesdatakatalog.digdir.no/search
+      - https://sparql.fellesdatakatalog.digdir.no/
+    docs_url: https://github.com/Informasjonsforvaltning/fdk-search-service
+    keywords: [datakatalog, metadata, dcat, datasett, api-katalog, data.norge.no, sparql]
+    tags: [no-auth, catalogue]
+    quick_start: |
+      curl -X POST https://search.api.fellesdatakatalog.digdir.no/search/data-services \
+        -H "Content-Type: application/json" -d '{"query":"kjøretøy","pagination":{"size":5,"page":0}}'
+
+  - id: digdir-maskinporten
+    title: Maskinporten
+    description: >-
+      Felles innloggingstjeneste for maskin-til-maskin-integrasjoner i offentlig sektor. En virksomhet
+      registrerer en klient, signerer et JWT-grant med egen nøkkel eller virksomhetssertifikat og bytter
+      det i et access token med scopes som API-eieren har tildelt. Forutsetning for de fleste begrensede
+      API-ene i dette registeret.
+    category: identitet-og-tilgang
+    access: restricted
+    auth: oauth2
+    formats: [JSON, JWT]
+    endpoints:
+      - https://maskinporten.no/.well-known/oauth-authorization-server
+    docs_url: https://docs.digdir.no/docs/Maskinporten/
+    keywords: [maskinporten, oauth2, jwt, scopes, virksomhetssertifikat, maskin-til-maskin, m2m]
+    tags: [infrastructure]
+
+  - id: digdir-id-porten
+    title: ID-porten
+    description: >-
+      Felles innlogging for innbyggere til offentlige tjenester (BankID, Buypass, Commfides, MinID).
+      OpenID Connect med autorisasjonskode-flyt; gir identitet på sikkerhetsnivå substansielt eller høyt.
+    category: identitet-og-tilgang
+    access: restricted
+    auth: oauth2
+    formats: [JSON, JWT]
+    endpoints:
+      - https://idporten.no/.well-known/openid-configuration
+    docs_url: https://docs.digdir.no/docs/idporten/
+    keywords: [id-porten, innlogging, openid connect, oidc, bankid, minid, innbygger]
+    tags: [infrastructure]

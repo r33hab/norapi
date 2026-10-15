@@ -1,0 +1,22 @@
+updated: 2026-10-15
+provider:
+  name: Oslo Bysykkel
+  sector: privat
+apis:
+  - id: oslobysykkel-gbfs
+    title: Oslo Bysykkel sanntid (GBFS)
+    description: >-
+      Stasjoner, ledige sykler og låser i sanntid etter GBFS-standarden. Samme format brukes av
+      Bergen Bysykkel og Trondheim Bysykkel på tilsvarende adresser. Send en Client-Identifier-header.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GBFS]
+    endpoints:
+      - https://gbfs.urbansharing.com/oslobysykkel.no/gbfs.json
+    docs_url: https://oslobysykkel.no/apne-data/sanntid
+    license: NLOD 2.0
+    keywords: [bysykkel, sykkel, gbfs, stasjoner, sanntid, bike share]
+    tags: [no-auth, private-provider]
+    quick_start: |
+      curl -H "Client-Identifier: norapi-demo" "https://gbfs.urbansharing.com/oslobysykkel.no/station_status.json"

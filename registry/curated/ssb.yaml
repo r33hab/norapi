@@ -1,0 +1,46 @@
+updated: 2026-10-15
+provider:
+  name: Statistisk sentralbyrå
+  orgnr: "971526920"
+  sector: stat
+apis:
+  - id: ssb-statbank-api
+    title: Statistikkbanken API (PxWeb)
+    title_en: Statbank API
+    description: >-
+      Alle tabeller i Statistikkbanken: befolkning, arbeidsmarked, priser, næringsliv, kommuner og mer.
+      Hent metadata for en tabell med GET, hent tall med en POST-spørring som velger variabler og verdier.
+      Svar som JSON-stat2, CSV eller Excel.
+    category: statistikk
+    access: open
+    auth: none
+    formats: [JSON, JSON-stat, CSV]
+    endpoints:
+      - https://data.ssb.no/api/v0/no/table/
+    docs_url: https://www.ssb.no/api/pxwebapi
+    license: CC BY 4.0
+    keywords: [statistikk, befolkning, arbeidsledighet, kpi, konsumprisindeks, kommuner, tabeller, pxweb, json-stat]
+    tags: [starter, no-auth]
+    quick_start: |
+      # metadata for tabell 07459 (befolkning per kommune)
+      curl "https://data.ssb.no/api/v0/no/table/07459"
+      # søk etter tabeller
+      curl "https://data.ssb.no/api/v0/no/table/?query=befolkning"
+
+  - id: ssb-klass
+    title: KLASS kodeverk og klassifikasjoner
+    description: >-
+      Offisielle kodeverk og klassifikasjoner med gyldighetsperioder og endringer: kommunenummer, fylker,
+      næringskoder (NACE/SN2007), yrkeskoder (STYRK), land og valuta.
+    category: statistikk
+    access: open
+    auth: none
+    formats: [JSON, XML, CSV]
+    endpoints:
+      - https://data.ssb.no/api/klass/v1/
+    docs_url: https://data.ssb.no/api/klass/v1/api-guide.html
+    license: CC BY 4.0
+    keywords: [kodeverk, klassifikasjon, kommunenummer, fylkesnummer, nace, styrk, næringskode, codelist]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      curl -H "Accept: application/json" "https://data.ssb.no/api/klass/v1/classifications?query=kommune"

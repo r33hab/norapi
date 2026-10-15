@@ -1,0 +1,28 @@
+updated: 2026-10-15
+provider:
+  name: Nav
+  orgnr: "889640782"
+  sector: stat
+apis:
+  - id: nav-stillingsfeed
+    title: Stillingsfeed fra arbeidsplassen.nav.no
+    title_en: Job vacancy feed
+    description: >-
+      Alle stillingsannonser på arbeidsplassen.nav.no som en paginert feed med 1000 oppføringer per side,
+      pluss full annonsetekst per oppføring. Et offentlig testtoken hentes fra /api/publicToken; produksjon
+      krever eget token tildelt av Nav. Finn.no-annonser er ikke med. Inaktive annonser skal ikke vises videre.
+    category: arbeid-og-velferd
+    access: open
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://pam-stilling-feed.nav.no/api/v1/feed
+    docs_url: https://navikt.github.io/pam-stilling-feed/
+    license: Vilkår på https://arbeidsplassen.nav.no/vilkar-api
+    keywords: [stillinger, stillingsannonser, ledige stillinger, jobb, rekruttering, arbeidsmarked, job ads, vacancies]
+    tags: [starter, feed]
+    quick_start: |
+      TOKEN=$(curl -s https://pam-stilling-feed.nav.no/api/publicToken | grep -oE '[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}')
+      curl -H "Authorization: Bearer $TOKEN" -H "Accept: application/json" \
+        -H "If-Modified-Since: $(date -u -v-1d '+%a, %d %b %Y %H:%M:%S GMT')" \
+        "https://pam-stilling-feed.nav.no/api/v1/feed"

@@ -1,0 +1,20 @@
+updated: 2026-10-15
+provider:
+  name: BarentsWatch (Kystverket)
+  orgnr: "874783242"
+  sector: stat
+apis:
+  - id: barentswatch-api
+    title: BarentsWatch API (AIS, fiskeri og hav)
+    description: >-
+      Skipsposisjoner (AIS) i sanntid og historisk, fiskehelse og lakselus per oppdrettslokalitet,
+      bølgevarsel, iskart og andre hav- og kystdata. Gratis klient-registrering, OAuth2 client credentials.
+    category: natur-og-miljo
+    access: open
+    auth: oauth2
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://www.barentswatch.no/bwapi/
+    docs_url: https://developer.barentswatch.no/
+    keywords: [ais, skip, fartøy, fiskeri, lakselus, oppdrett, bølger, hav, kyst, vessel]
+    tags: [registration, oauth2]

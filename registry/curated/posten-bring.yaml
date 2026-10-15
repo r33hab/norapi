@@ -1,0 +1,20 @@
+updated: 2026-10-15
+provider:
+  name: Posten Bring
+  orgnr: "984661185"
+  sector: statlig-selskap
+apis:
+  - id: bring-developer-api
+    title: Bring API (postnummer, sporing, frakt)
+    description: >-
+      Postnummeroppslag, pakkesporing, fraktpriser og leveringstid, hentesteder og booking av sendinger.
+      Gratis utviklerkonto gir API-nøkkel; booking krever kundeavtale.
+    category: transport-og-samferdsel
+    access: open
+    auth: api-key
+    formats: [JSON, XML]
+    endpoints:
+      - https://api.bring.com/
+    docs_url: https://developer.bring.com/
+    keywords: [postnummer, sporing, pakke, frakt, levering, hentested, shipping, tracking]
+    tags: [registration]

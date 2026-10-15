@@ -1,0 +1,22 @@
+updated: 2026-10-15
+provider:
+  name: Valgdirektoratet
+  sector: stat
+apis:
+  - id: valgresultat-api
+    title: Valgresultat API
+    description: >-
+      Resultater fra stortings-, kommunestyre- og fylkestingsvalg, nasjonalt og ned til krets, med
+      mandatfordeling og stemmer per parti. Oppdateres fortløpende på valgnatten.
+    category: politikk-og-valg
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://valgresultat.no/api
+    docs_url: https://valgresultat.no/api
+    license: NLOD 2.0
+    keywords: [valg, valgresultat, stortingsvalg, kommunevalg, mandater, stemmer, election]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://valgresultat.no/api/2025/st"

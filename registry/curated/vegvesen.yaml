@@ -1,0 +1,62 @@
+updated: 2026-10-15
+provider:
+  name: Statens vegvesen
+  orgnr: "971032081"
+  sector: stat
+apis:
+  - id: vegvesen-nvdb
+    title: NVDB API Les v4 (Nasjonal vegdatabank)
+    description: >-
+      Hele vegnettet med egenskaper: fartsgrenser, trafikkmengde (ÅDT), bruer, tunneler, skilt, vegbredde
+      og hundrevis av andre objekttyper, med geometri og vegreferanser. Lesetilgang uten nøkkel, egne
+      OpenAPI-dokumenter per del (vegobjekter, vegnett, datakatalog, områder). V3 finnes fortsatt, men v4 er gjeldende.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://nvdbapiles.atlas.vegvesen.no/
+    docs_url: https://nvdb-docs.atlas.vegvesen.no/category/nvdb-api-les-v4/
+    probe_url: https://nvdbapiles.atlas.vegvesen.no/vegobjekter/api/v4/vegobjekter/105?kommune=0301&antall=1
+    license: NLOD 2.0
+    keywords: [veg, vei, fartsgrense, ådt, vegnett, vegobjekter, bru, tunnel, nvdb, road]
+    tags: [no-auth]
+    quick_start: |
+      # fartsgrenser (objekttype 105) i Oslo kommune
+      curl -H "Accept: application/json" -H "X-Client: norapi-demo" \
+        "https://nvdbapiles.atlas.vegvesen.no/vegobjekter/api/v4/vegobjekter/105?kommune=0301&antall=3"
+
+  - id: vegvesen-trafikkdata
+    title: Trafikkdata API (GraphQL)
+    description: >-
+      Trafikkvolum fra tellepunkter på riks- og fylkesveger: timer, døgn, måneder og år, fordelt på
+      kjøretøylengde og retning, pluss metadata om tellepunktene. GraphQL uten nøkkel.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GraphQL]
+    endpoints:
+      - https://trafikkdata-api.atlas.vegvesen.no/
+    docs_url: https://trafikkdata.atlas.vegvesen.no/
+    probe_url: https://trafikkdata.atlas.vegvesen.no/
+    license: NLOD 2.0
+    keywords: [trafikk, trafikkmengde, tellepunkt, ådt, trafikkregistrering, traffic counts]
+    tags: [no-auth, graphql]
+
+  - id: vegvesen-kjoretoyopplysninger
+    title: Kjøretøyopplysninger API (tekniske data)
+    description: >-
+      Tekniske kjøretøyopplysninger fra kjøretøyregisteret per registreringsnummer eller understellsnummer:
+      merke, modell, motor, vekter, EU-kontroll. Gratis API-nøkkel bestilles med BankID og tildeles
+      automatisk. Eieropplysninger inngår ikke; de ligger i et eget, avtalebasert API med personvernkrav.
+    category: transport-og-samferdsel
+    access: open
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://autosys-kjoretoy-api.atlas.vegvesen.no/
+    spec_url: https://autosys-kjoretoy-api.atlas.vegvesen.no/swagger-ui/index-enkeltoppslag.html
+    docs_url: https://www.vegvesen.no/kjoretoy/kjop-og-salg/kjoretoyopplysninger/api-er-for-tekniske-kjoretoyopplysninger/
+    license: NLOD 2.0
+    keywords: [kjøretøy, bil, registreringsnummer, understellsnummer, vin, eu-kontroll, vehicle]
+    tags: [registration]

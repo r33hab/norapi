@@ -1,0 +1,76 @@
+updated: 2026-10-15
+provider:
+  name: Entur
+  orgnr: "917422575"
+  sector: statlig-selskap
+apis:
+  - id: entur-journey-planner
+    title: Journey Planner v3 (GraphQL)
+    description: >-
+      Reiseplanlegging og rutedata for all kollektivtransport i Norge: reisesøk mellom steder, avgangstavler
+      per stoppested, linjer, turer og sanntid. Ett GraphQL-endepunkt. Krever bare en ET-Client-Name-header
+      som identifiserer applikasjonen din.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GraphQL]
+    endpoints:
+      - https://api.entur.io/journey-planner/v3/graphql
+    docs_url: https://developer.entur.org/pages-journeyplanner-journeyplanner
+    license: NLOD 2.0
+    keywords: [kollektiv, rutetider, reiseplanlegger, avganger, buss, tog, trikk, ferge, stoppested, public transport, transit]
+    tags: [starter, no-auth, graphql]
+    quick_start: |
+      curl -X POST https://api.entur.io/journey-planner/v3/graphql \
+        -H "Content-Type: application/json" -H "ET-Client-Name: norapi-demo" \
+        -d '{"query":"{ stopPlace(id: \"NSR:StopPlace:58366\") { name estimatedCalls(numberOfDepartures: 3) { expectedDepartureTime destinationDisplay { frontText } } } }"}'
+
+  - id: entur-geocoder
+    title: Geocoder (stedssøk)
+    description: >-
+      Autofullfør og søk på stoppesteder, adresser og steder i Norge, med koordinater og kategorier.
+      Bygger på Pelias og Nasjonalt stoppestedsregister.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://api.entur.io/geocoder/v1/autocomplete
+    docs_url: https://developer.entur.org/pages-geocoder-intro
+    license: NLOD 2.0
+    keywords: [geokoding, stedssøk, autocomplete, stoppested, adresse]
+    tags: [no-auth]
+    quick_start: |
+      curl -H "ET-Client-Name: norapi-demo" "https://api.entur.io/geocoder/v1/autocomplete?text=Oslo%20S&lang=no"
+
+  - id: entur-realtime
+    title: Sanntidsdata (SIRI og GTFS-RT)
+    description: >-
+      Sanntid for hele landet: forventede avgangstider (SIRI ET), kjøretøyposisjoner (SIRI VM) og
+      avviksmeldinger (SIRI SX), også som GTFS-Realtime. Strømmer for alt eller per operatør.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [XML, Protobuf, JSON]
+    endpoints:
+      - https://api.entur.io/realtime/v1/rest/et
+    docs_url: https://developer.entur.org/pages-real-time-intro
+    license: NLOD 2.0
+    keywords: [sanntid, siri, gtfs-rt, forsinkelser, kjøretøyposisjon, avvik, realtime]
+    tags: [no-auth, streaming]
+
+  - id: entur-stop-places
+    title: Nasjonalt stoppestedsregister (NSR)
+    description: >-
+      Alle stoppesteder, plattformer og knutepunkt i Norge med id-er, navn, koordinater og
+      transportmåte. Grunnlaget for id-ene som brukes i Journey Planner og sanntid.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, XML]
+    endpoints:
+      - https://api.entur.io/stop-places/v1
+    docs_url: https://developer.entur.org/pages-nsr-nsr
+    license: NLOD 2.0
+    keywords: [stoppested, holdeplass, nsr, knutepunkt, plattform]
+    tags: [no-auth, reference-data]

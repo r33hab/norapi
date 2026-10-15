@@ -1,0 +1,22 @@
+updated: 2026-10-15
+provider:
+  name: Norsk Polarinstitutt
+  orgnr: "971022264"
+  sector: stat
+apis:
+  - id: npolar-api
+    title: Norsk Polarinstitutt API
+    description: >-
+      Datasett, publikasjoner, stedsnavn på Svalbard og i Antarktis, ekspedisjoner og måleserier fra
+      polarområdene som JSON.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.npolar.no/placename/
+    docs_url: https://github.com/npolar/api.npolar.no
+    probe_url: https://api.npolar.no/placename/?q=Longyear
+    license: CC BY 4.0
+    keywords: [svalbard, antarktis, polar, stedsnavn, ekspedisjon, arktis]
+    tags: [no-auth]

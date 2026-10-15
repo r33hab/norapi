@@ -1,0 +1,93 @@
+updated: 2026-10-15
+provider:
+  name: Kartverket
+  orgnr: "971040238"
+  sector: stat
+apis:
+  - id: geonorge-adresser
+    title: Adresse-API (Geonorge)
+    description: >-
+      Søk og oppslag i alle offisielle adresser i Norge fra matrikkelen: fritekstsøk, punktsøk innenfor en
+      radius, og strukturert søk på kommune, gate og nummer. Returnerer koordinater, postnummer og
+      matrikkelnummer.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://ws.geonorge.no/adresser/v1/
+    docs_url: https://ws.geonorge.no/adresser/v1/
+    license: CC BY 4.0
+    keywords: [adresse, adressesøk, geokoding, postnummer, matrikkel, koordinater, address]
+    tags: [starter, no-auth]
+    quick_start: |
+      curl "https://ws.geonorge.no/adresser/v1/sok?sok=Karl%20Johans%20gate%201&treffPerSide=3"
+
+  - id: geonorge-stedsnavn
+    title: Stedsnavn-API (Geonorge)
+    description: >-
+      Søk i Sentralt stedsnavnregister: fjell, vann, gårder, byer og øvrige navn med koordinater,
+      navnetype og status.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://ws.geonorge.no/stedsnavn/v1/
+    docs_url: https://ws.geonorge.no/stedsnavn/v1/
+    license: CC BY 4.0
+    keywords: [stedsnavn, navn, fjell, innsjø, ssr]
+    tags: [no-auth]
+
+  - id: geonorge-kommuneinfo
+    title: Kommuneinfo-API (Geonorge)
+    description: >-
+      Kommuner og fylker med nummer, navn, kommunesenter og omriss, og oppslag fra koordinat til kommune.
+      Den enkleste måten å slå opp hvilken kommune et punkt ligger i.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://ws.geonorge.no/kommuneinfo/v1/
+    spec_url: https://ws.geonorge.no/kommuneinfo/v1/static/openapi_doc.json
+    docs_url: https://ws.geonorge.no/kommuneinfo/v1/
+    license: CC BY 4.0
+    keywords: [kommune, fylke, kommunenummer, punkt, omriss]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      curl "https://ws.geonorge.no/kommuneinfo/v1/punkt?nord=59.91&ost=10.75&koordsys=4258"
+
+  - id: geonorge-kartkatalog
+    title: Kartkatalogen API (Geonorge)
+    description: >-
+      Søk i den nasjonale geodatakatalogen: datasett, WMS/WFS-tjenester og nedlastinger fra alle
+      norske geodataeiere, med metadata etter ISO 19115.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://kartkatalog.geonorge.no/api/search
+    docs_url: https://kartkatalog.geonorge.no/swagger/index.html
+    probe_url: https://kartkatalog.geonorge.no/api/search?text=adresse
+    license: CC BY 4.0
+    keywords: [geodata, kartlag, wms, wfs, metadata, datasett, katalog]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://kartkatalog.geonorge.no/api/search?text=adresse&limit=3"
+
+  - id: kartverket-matrikkel
+    title: Matrikkel-API
+    description: >-
+      Eiendomsregisteret: eiendommer, bygninger, adresser og eierforhold. Krever avtale med Kartverket,
+      og eierdata er underlagt tilgangsstyring. Adresser uten eier er fritt tilgjengelige gjennom Adresse-API.
+    category: kart-og-geodata
+    access: restricted
+    auth: unknown
+    formats: [XML, JSON]
+    endpoints:
+      - https://www.kartverket.no/api-og-data/eiendomsdata
+    docs_url: https://www.kartverket.no/api-og-data/eiendomsdata
+    keywords: [matrikkel, eiendom, bygning, grunnbok, hjemmelshaver, tomt]
+    tags: [agreement]

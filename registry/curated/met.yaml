@@ -1,0 +1,59 @@
+updated: 2026-10-15
+provider:
+  name: Meteorologisk institutt
+  orgnr: "971274042"
+  sector: stat
+apis:
+  - id: met-locationforecast
+    title: Locationforecast 2.0 (værvarsel)
+    title_en: Locationforecast 2.0 (weather forecast)
+    description: >-
+      Værvarsel for et koordinat, time for time i opptil ti dager: temperatur, nedbør, vind, symbol.
+      Dataene bak Yr. Krever en identifiserende User-Agent, ellers ingen nøkkel. Respekter
+      Expires-headeren og cache svarene.
+    category: vaer-og-klima
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.met.no/weatherapi/locationforecast/2.0/
+    docs_url: https://api.met.no/weatherapi/locationforecast/2.0/documentation
+    license: CC BY 4.0
+    keywords: [vær, værvarsel, temperatur, nedbør, vind, yr, weather, forecast]
+    tags: [starter, no-auth]
+    quick_start: |
+      curl -H "User-Agent: norapi-demo/0.1 github.com/r33hAB/norapi" \
+        "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=59.91&lon=10.75"
+
+  - id: met-weatherapi
+    title: MET Weather API (alle produkter)
+    description: >-
+      Samleportalen for MET sine API-produkter: Locationforecast, Nowcast (nedbør neste to timer),
+      Oceanforecast, Sunrise, MetAlerts (farevarsler), Airqualityforecast og flere. Samme vilkår og
+      User-Agent-krav for alle.
+    category: vaer-og-klima
+    access: open
+    auth: none
+    formats: [JSON, XML]
+    endpoints:
+      - https://api.met.no/
+    docs_url: https://api.met.no/
+    license: CC BY 4.0
+    keywords: [farevarsel, nowcast, soloppgang, luftkvalitet, bølger, havvarsel, metalerts]
+    tags: [no-auth]
+
+  - id: met-frost
+    title: Frost API (observasjoner og klimadata)
+    description: >-
+      Historiske værobservasjoner fra MET sine målestasjoner: temperatur, nedbør, vind og snø tilbake til
+      1800-tallet, pluss klimanormaler. Gratis klient-id ved registrering.
+    category: vaer-og-klima
+    access: open
+    auth: api-key
+    formats: [JSON, CSV]
+    endpoints:
+      - https://frost.met.no/
+    docs_url: https://frost.met.no/index.html
+    license: CC BY 4.0
+    keywords: [observasjoner, klima, målestasjon, historisk vær, nedbør, temperatur, climate]
+    tags: [registration]

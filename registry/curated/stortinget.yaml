@@ -1,0 +1,24 @@
+updated: 2026-10-15
+provider:
+  name: Stortinget
+  orgnr: "971524960"
+  sector: stat
+apis:
+  - id: stortinget-data
+    title: Stortingets data-API
+    description: >-
+      Representanter, partier, komiteer, saker, voteringer, spørsmål og publikasjoner fra Stortinget,
+      per sesjon. XML som standard, JSON med format=json.
+    category: politikk-og-valg
+    access: open
+    auth: none
+    formats: [XML, JSON]
+    endpoints:
+      - https://data.stortinget.no/eksport/
+    docs_url: https://data.stortinget.no/
+    probe_url: https://data.stortinget.no/eksport/representanter?format=json
+    license: NLOD 2.0
+    keywords: [stortinget, representanter, voteringer, saker, partier, komiteer, parliament]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://data.stortinget.no/eksport/representanter?format=json"

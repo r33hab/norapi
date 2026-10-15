@@ -1,0 +1,23 @@
+updated: 2026-10-15
+provider:
+  name: Altinn (Digitaliseringsdirektoratet)
+  orgnr: "991825827"
+  sector: stat
+apis:
+  - id: altinn-platform-api
+    title: Altinn 3 plattform-API
+    description: >-
+      API-ene bak Altinn: skjema- og meldingsinnsending (Apps og Storage), roller og rettigheter
+      (Authorization, Register, Profile), varslinger og Dialogporten. Innlogging via ID-porten for
+      personer og Maskinporten for virksomheter.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://platform.altinn.no/storage/api/v1/instances
+      - https://platform.altinn.no/authentication/api/v1/
+    docs_url: https://docs.altinn.studio/nb/api/
+    probe_url: https://platform.altinn.no/authentication/api/v1/openid/.well-known/openid-configuration
+    keywords: [altinn, skjema, innsending, roller, rettigheter, dialogporten, varsling, meldingsboks]
+    tags: [agreement, maskinporten]

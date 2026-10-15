@@ -1,0 +1,30 @@
+updated: 2026-10-15
+provider:
+  name: Kartverket
+  orgnr: "971040238"
+  sector: stat
+apis:
+  - id: geonorge-kommuneinfo
+    title: Kommuneinfo-API (Geonorge)
+    description: Kommuner og fylker, og oppslag fra koordinat til kommune.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [GeoJSON]
+    endpoints:
+      - https://ws.geonorge.no/kommuneinfo/v1
+    keywords: [kommune, fylke]
+    tags: [no-auth]
+    quick_start: curl "https://ws.geonorge.no/kommuneinfo/v1/kommuner"
+
+  - id: test-standalone
+    title: Stedsnavn-API
+    description: >-
+      Søk i stedsnavn. Denne oppføringen matcher ingenting i katalogen og står alene.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://ws.geonorge.no/stedsnavn/v1/
+    docs_url: https://ws.geonorge.no/stedsnavn/v1/
