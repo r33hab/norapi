@@ -1,0 +1,25 @@
+updated: 2026-10-15
+provider:
+  name: Universitetet i Bergen og Språkrådet
+  orgnr: "874789542"
+  sector: stat
+apis:
+  - id: uib-ordbokene-api
+    title: Ordbøkene (Bokmålsordboka og Nynorskordboka)
+    description: >-
+      Oppslag i de offisielle rettskrivningsordbøkene: artikler med betydninger, bøyning og uttrykk, søk med
+      ulike treffregler, og ordlister. Det er API-et nettstedet ordbokene.no selv bruker; det er åpent, men
+      uten egen utviklerdokumentasjon, så studer svarene fra nettsiden før du bygger på det.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://ord.uib.no/api/articles
+    docs_url: https://ordbokene.no/nob/about
+    probe_url: https://ord.uib.no/api/articles?w=hus&dict=bm&scope=e
+    keywords: [ordbok, bokmål, nynorsk, rettskriving, bøyning, ordliste, dictionary, norsk]
+    tags: [no-auth, undocumented]
+    quick_start: |
+      curl "https://ord.uib.no/api/articles?w=hus&dict=bm,nn&scope=e"
+      curl "https://ord.uib.no/bm/article/5513.json"

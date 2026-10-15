@@ -77,6 +77,62 @@ apis:
     quick_start: |
       curl "https://kartkatalog.geonorge.no/api/search?text=adresse&limit=3"
 
+  - id: geonorge-hoydedata
+    title: Høydedata-API (Geonorge)
+    description: >-
+      Terrenghøyde for et punkt eller en linje fra den nasjonale høydemodellen, med angitt datakilde og
+      oppløsning. Ett kall, ingen nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://ws.geonorge.no/hoydedata/v1/
+    docs_url: https://ws.geonorge.no/hoydedata/v1/
+    license: CC BY 4.0
+    keywords: [høyde, terreng, høydemodell, dtm, elevation, moh]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://ws.geonorge.no/hoydedata/v1/punkt?koordsys=4258&nord=59.91&ost=10.75"
+
+  - id: kartverket-wmts-bakgrunnskart
+    title: Bakgrunnskart som WMTS (cache.kartverket.no)
+    description: >-
+      Kartverkets bakgrunnskart som flisetjeneste: topografisk kart i farger og gråtone, sjøkart og flere,
+      i WebMercator og UTM. Åpent for bruk i egne kartapplikasjoner, med CORS og CC BY 4.0.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [WMTS, PNG]
+    endpoints:
+      - https://cache.kartverket.no/v1/wmts/1.0.0/WMTSCapabilities.xml
+    docs_url: https://kartkatalog.geonorge.no/metadata/topografisk-norgeskart-wmts-cache/8f381180-1a47-4453-bee7-9a3d64843efa
+    license: CC BY 4.0
+    keywords: [bakgrunnskart, wmts, fliser, topografisk, kart, basemap, tiles]
+    tags: [no-auth]
+    quick_start: |
+      # én flis, zoom 5, Sør-Norge
+      curl -o flis.png "https://cache.kartverket.no/v1/wmts/1.0.0/topo/default/webmercator/5/9/17.png"
+
+  - id: kartverket-vannstand
+    title: Vannstand og tidevann (Se havnivå)
+    description: >-
+      Observert og varslet vannstand, tidevannstabeller og stasjonsliste for norskekysten, som XML fra
+      Kartverkets sjødivisjon. Spør per koordinat eller stasjon og tidsrom.
+    category: vaer-og-klima
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://vannstand.kartverket.no/tideapi.php
+    docs_url: https://www.kartverket.no/til-sjos/se-havniva
+    probe_url: https://vannstand.kartverket.no/tideapi.php?tide_request=stationlist&type=perm
+    license: CC BY 4.0
+    keywords: [tidevann, vannstand, havnivå, flo, fjære, tide, sjø]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://vannstand.kartverket.no/tideapi.php?tide_request=stationlist&type=perm"
+
   - id: kartverket-matrikkel
     title: Matrikkel-API
     description: >-

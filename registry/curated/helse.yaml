@@ -1,0 +1,24 @@
+updated: 2026-10-15
+provider:
+  name: Folkehelseinstituttet
+  orgnr: "983744516"
+  sector: stat
+apis:
+  - id: fhi-statistikk-open-api
+    title: FHI Statistikk Open API
+    description: >-
+      Maskinlesbar helsestatistikk fra FHI: folkehelse- og kommunehelsestatistikk, legemiddelstatistikk og
+      utvalgte registre, med flere tabeller som legges til fortløpende. Dokumentert med Swagger og
+      kodeeksempler på GitHub.
+    category: arbeid-og-velferd
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://statistikk-data.fhi.no/api/open/v1/
+    spec_url: https://statistikk-data.fhi.no/swagger/index.html
+    docs_url: https://github.com/folkehelseinstituttet/Fhi.Statistikk.OpenAPI
+    probe_url: https://statistikk-data.fhi.no/swagger/index.html
+    license: NLOD 2.0
+    keywords: [helse, folkehelse, statistikk, legemidler, sykdom, kommunehelse, health statistics]
+    tags: [no-auth]

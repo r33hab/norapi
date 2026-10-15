@@ -14,7 +14,10 @@ jobs:
       - run: uv sync --locked
       - run: uv run ruff check src tests
       - run: uv run pytest -q
-      - name: Registry smoke test (index builds, search answers)
+      - name: Registry smoke test (index builds, search answers, site generates)
         run: |
           uv run norapi stats
           uv run norapi search "adresse" --limit 3
+          uv run norapi ops "enheter" --limit 3 || true
+          uv run norapi site --out _site
+          test -f _site/index.html && test -f _site/sitemap.xml

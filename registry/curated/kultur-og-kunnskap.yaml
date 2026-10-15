@@ -21,3 +21,19 @@ apis:
     tags: [no-auth]
     quick_start: |
       curl "https://api.nb.no/catalog/v1/items?q=Ibsen&size=3"
+
+  - id: digitaltmuseum-api
+    title: DigitaltMuseum API (KulturIT)
+    description: >-
+      Gjenstander, fotografier og samlinger fra over 200 norske og svenske museer, med metadata, bilder og
+      lisens per objekt. Solr-basert søk med gratis API-nøkkel som fås fra KulturIT. Driftes av KulturIT,
+      som eies av museene, og er oppført her under Nasjonalbiblioteket-filen av praktiske grunner.
+    category: kultur-og-kunnskap
+    access: open
+    auth: api-key
+    formats: [JSON, XML]
+    endpoints:
+      - https://api.dimu.org/api/solr/select
+    docs_url: https://api.dimu.org/doc/
+    keywords: [museum, gjenstander, fotografi, samling, kulturarv, digitaltmuseum, dimu]
+    tags: [registration]

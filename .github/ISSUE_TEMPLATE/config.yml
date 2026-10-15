@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Søk i registeret
+    url: https://r33hab.github.io/norapi/
+    about: Sjekk om API-et allerede finnes før du foreslår det.
+  - name: Registrer API-et i Felles datakatalog
+    url: https://data.norge.no/data-services
+    about: Er du leverandøren? Registrer API-et hos Digdir også, det er kilden alle andre bruker.

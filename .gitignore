@@ -1,9 +1,9 @@
-# raw harvest snapshots and the derived search index (registry.json is committed)
+# raw harvest snapshots, cached OpenAPI documents, the derived search index, the generated site
+# (registry/*.json and llms.txt are committed)
 data/
+_site/
 registry/.index.sqlite
 registry/.index.tmp
-site/registry.json
-site/llms.txt
 
 # python
 .venv/

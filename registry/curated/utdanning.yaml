@@ -1,0 +1,26 @@
+updated: 2026-10-15
+provider:
+  name: Utdanningsdirektoratet
+  orgnr: "970018131"
+  sector: stat
+apis:
+  - id: udir-grep
+    title: Grep (læreplaner og kompetansemål)
+    description: >-
+      Alle læreplaner i Kunnskapsløftet 2020 som data: fag, kompetansemål, kjerneelementer, tverrfaglige
+      temaer og koder (NOR01-06 og lignende). REST med JSON eller XML, pluss et SPARQL-endepunkt. Oppdateres
+      nattlig. Ingen nøkkel, NLOD-lisens.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON, XML, RDF]
+    endpoints:
+      - https://data.udir.no/kl06/v201906/
+    docs_url: https://data.udir.no/kl06
+    probe_url: https://data.udir.no/kl06/v201906/laereplaner-lk20
+    license: NLOD 2.0
+    keywords: [læreplan, kompetansemål, grep, skole, fag, kunnskapsløftet, lk20, curriculum]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      curl -H "Accept: application/json" "https://data.udir.no/kl06/v201906/laereplaner-lk20"
+      curl -H "Accept: application/json" "https://data.udir.no/kl06/v201906/laereplaner-lk20/NOR01-06"

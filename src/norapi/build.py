@@ -17,6 +17,14 @@ LLMS_TXT = REGISTRY_DIR / "llms.txt"
 INDEX_DB = REGISTRY_DIR / ".index.sqlite"
 
 
+def attach_specs(entries: list[ApiEntry], specs: dict[str, dict[str, Any]]) -> None:
+    """Put the OpenAPI summaries from `norapi enrich` onto their entries (in place)."""
+    for entry in entries:
+        summary = specs.get(entry.id)
+        if summary:
+            entry.spec = summary
+
+
 def write_registry(entries: list[ApiEntry], registry_json: Path = REGISTRY_JSON) -> dict[str, Any]:
     entries = sorted(
         entries, key=lambda e: (e.source.get("kind") != "curated", e.provider.name, e.title)
@@ -46,7 +54,8 @@ def write_llms_txt(entries: list[ApiEntry], path: Path) -> None:
         "# Norske offentlige API-er (norapi)",
         "",
         "> Registry of Norwegian public APIs. One line per API: title, provider, access, formats, "
-        "then docs and endpoint. Full data in registry.json. Source and licence per API apply.",
+        "then docs and endpoint. Full data in registry.json, operations in operations.json. "
+        "Source and licence per API apply.",
         "",
     ]
     curated = [e for e in entries if e.source.get("kind", "").startswith("curated")]
@@ -67,6 +76,8 @@ def _llms_line(entry: ApiEntry) -> str:
         parts[0] += f", auth: {entry.auth}"
     if entry.formats:
         parts[0] += f"; {', '.join(entry.formats[:4])}"
+    if entry.spec and entry.spec.get("operations"):
+        parts[0] += f"; {entry.spec['operations']} operations"
     parts[0] += f"): {entry.summary or ''}"
     links = []
     if entry.docs_url:
@@ -81,8 +92,13 @@ def _llms_line(entry: ApiEntry) -> str:
 
 
 def build_index(registry_json: Path = REGISTRY_JSON, index_db: Path = INDEX_DB) -> Path:
-    """Create the SQLite FTS5 index from registry.json. About a second for a thousand rows."""
+    """Create the SQLite FTS5 index from registry.json (+ operations.json next to it)."""
     document = json.loads(registry_json.read_text(encoding="utf-8"))
+    operations_file = registry_json.with_name("operations.json")
+    operations = []
+    if operations_file.exists():
+        operations = json.loads(operations_file.read_text(encoding="utf-8")).get("operations", [])
+
     tmp = index_db.with_suffix(".tmp")
     if tmp.exists():
         tmp.unlink()
@@ -99,10 +115,17 @@ def build_index(registry_json: Path = REGISTRY_JSON, index_db: Path = INDEX_DB) 
                 formats, endpoints, tags,
                 tokenize = 'unicode61 remove_diacritics 2'
             );
+            create virtual table op_fts using fts5(
+                api_id unindexed, method unindexed, path, summary, description, tags,
+                api_title, provider,
+                tokenize = 'unicode61 remove_diacritics 2 tokenchars ''{}_-'''
+            );
             create table meta (key text primary key, value text);
             """
         )
+        titles: dict[str, tuple[str, str]] = {}
         for api in document["apis"]:
+            titles[api["id"]] = (api["title"], api["provider"]["name"])
             con.execute(
                 "insert into apis values (?,?,?,?,?,?,?,?,?)",
                 (
@@ -132,8 +155,26 @@ def build_index(registry_json: Path = REGISTRY_JSON, index_db: Path = INDEX_DB) 
                     " ".join(api.get("tags") or []),
                 ),
             )
+        for op in operations:
+            title, provider = titles.get(op["api_id"], ("", ""))
+            if not title:
+                continue
+            con.execute(
+                "insert into op_fts values (?,?,?,?,?,?,?,?)",
+                (
+                    op["api_id"],
+                    op["method"],
+                    op["path"],
+                    op.get("summary") or "",
+                    op.get("description") or "",
+                    " ".join(op.get("tags") or []),
+                    title,
+                    provider,
+                ),
+            )
         con.execute("insert into meta values ('generated_at', ?)", (document["generated_at"],))
         con.execute("insert into meta values ('count', ?)", (str(document["count"]),))
+        con.execute("insert into meta values ('operations', ?)", (str(len(operations)),))
         con.commit()
     finally:
         con.close()
@@ -142,9 +183,13 @@ def build_index(registry_json: Path = REGISTRY_JSON, index_db: Path = INDEX_DB) 
 
 
 def ensure_index(registry_json: Path = REGISTRY_JSON, index_db: Path = INDEX_DB) -> Path:
-    """Rebuild the index when it is missing or older than registry.json."""
+    """Rebuild the index when it is missing or older than registry.json / operations.json."""
     if not registry_json.exists():
         raise FileNotFoundError(f"{registry_json} does not exist; run `norapi build` first")
-    if not index_db.exists() or index_db.stat().st_mtime < registry_json.stat().st_mtime:
+    newest = registry_json.stat().st_mtime
+    operations_file = registry_json.with_name("operations.json")
+    if operations_file.exists():
+        newest = max(newest, operations_file.stat().st_mtime)
+    if not index_db.exists() or index_db.stat().st_mtime < newest:
         build_index(registry_json, index_db)
     return index_db

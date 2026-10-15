@@ -18,8 +18,10 @@ INSTRUCTIONS = (
     "Use search_apis with Norwegian or English words for the data you need (for example "
     "'kjøretøy', 'company register', 'weather forecast'). Filter access='open' and "
     "auth='none' when the caller wants something usable without an agreement. Every result "
-    "carries docs_url, spec_url and endpoints; curated results also carry quick_start. The "
-    "registry is metadata: always read the API's own documentation and terms before use."
+    "carries docs_url, spec_url and endpoints; curated results also carry quick_start. "
+    "search_operations finds a concrete endpoint (method + path) inside the OpenAPI documents "
+    "that were indexed. The registry is metadata: always read the API's own documentation "
+    "and terms before use."
 )
 
 mcp = FastMCP("norapi", instructions=INSTRUCTIONS)
@@ -58,11 +60,29 @@ def search_apis(
 
 
 @mcp.tool()
+def search_operations(
+    query: str, limit: int = 20, api_id: str | None = None
+) -> list[dict[str, Any]]:
+    """Find a concrete endpoint: method, path and summary from indexed OpenAPI documents.
+
+    query: words from the path or summary, for example 'vegobjekter', 'enheter orgnr',
+    'stations'. api_id narrows to one API (id from search_apis).
+    """
+    registry = Registry.open()
+    try:
+        return registry.search_operations(query, limit=limit, api_id=api_id)
+    finally:
+        registry.close()
+
+
+@mcp.tool()
 def get_api(id: str) -> dict[str, Any]:
     """Everything the registry knows about one API, by its id from search_apis."""
     registry = Registry.open()
     try:
         api = registry.get(id)
+        if api is not None:
+            api["operations"] = registry.operations_for(id)[:200]
     finally:
         registry.close()
     return api or {"error": f"no API with id {id!r}"}
@@ -105,6 +125,8 @@ def _compact(api: dict[str, Any]) -> dict[str, Any]:
     )
     compact = {k: api.get(k) for k in keys if api.get(k) not in (None, [], "")}
     compact["provider"] = api["provider"]["name"]
+    if api.get("spec"):
+        compact["operations"] = api["spec"].get("operations")
     return compact
 
 

@@ -74,3 +74,19 @@ apis:
     license: NLOD 2.0
     keywords: [stoppested, holdeplass, nsr, knutepunkt, plattform]
     tags: [no-auth, reference-data]
+
+  - id: entur-timetable-data
+    title: Rutedata som filer (NeTEx og GTFS)
+    description: >-
+      Komplette rutedatasett for hele landet eller per operatør som NeTEx (den nasjonale standarden) og GTFS,
+      oppdatert daglig. Riktig inngang når du vil ha alle rutene lokalt i stedet for å spørre Journey Planner.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [NeTEx, GTFS, ZIP]
+    endpoints:
+      - https://developer.entur.org/stops-and-timetable-data
+    docs_url: https://developer.entur.org/stops-and-timetable-data
+    license: NLOD 2.0
+    keywords: [rutedata, netex, gtfs, rutetabell, datasett, timetable]
+    tags: [no-auth, data-files]

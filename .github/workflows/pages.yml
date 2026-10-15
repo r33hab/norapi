@@ -22,11 +22,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - name: Assemble site
-        run: |
-          cp registry/registry.json registry/llms.txt site/
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked
+      - name: Generate the site
+        run: uv run norapi site --out _site --base-url https://r33hab.github.io/norapi/
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4

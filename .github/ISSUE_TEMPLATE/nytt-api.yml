@@ -1,0 +1,75 @@
+name: Foreslå et API
+description: Et norsk offentlig eller åpent API som mangler i registeret.
+title: "Nytt API: "
+labels: ["nytt-api"]
+body:
+  - type: markdown
+    attributes:
+      value: Takk! Fyll ut det du vet. Vi verifiserer og legger det inn.
+  - type: input
+    id: title
+    attributes:
+      label: Navn på API-et
+      placeholder: Enhetsregisteret API
+    validations:
+      required: true
+  - type: input
+    id: provider
+    attributes:
+      label: Leverandør
+      description: Etat, kommune, selskap. Gjerne med organisasjonsnummer.
+      placeholder: Brønnøysundregistrene (974760673)
+    validations:
+      required: true
+  - type: input
+    id: docs
+    attributes:
+      label: Dokumentasjon
+      placeholder: https://…
+    validations:
+      required: true
+  - type: input
+    id: endpoint
+    attributes:
+      label: Endepunkt eller base-URL
+      placeholder: https://api.…/v1
+  - type: dropdown
+    id: access
+    attributes:
+      label: Tilgang
+      options:
+        - Åpen (open)
+        - Begrenset, krever avtale (restricted)
+        - Ikke offentlig (non-public)
+        - Vet ikke
+    validations:
+      required: true
+  - type: dropdown
+    id: auth
+    attributes:
+      label: Autentisering
+      options:
+        - Ingen
+        - API-nøkkel
+        - Maskinporten
+        - ID-porten
+        - OAuth2
+        - Vet ikke
+  - type: textarea
+    id: description
+    attributes:
+      label: Hva gir API-et, og hva bør en utvikler vite?
+      placeholder: To til fire setninger. Ingen markedsføring.
+    validations:
+      required: true
+  - type: textarea
+    id: quick_start
+    attributes:
+      label: Et kall som virker
+      description: En curl-kommando som svarer. Hvis det trengs nøkkel, si hvor den fås.
+      render: shell
+  - type: input
+    id: license
+    attributes:
+      label: Lisens eller vilkår
+      placeholder: NLOD 2.0 / CC BY 4.0 / lenke til vilkår

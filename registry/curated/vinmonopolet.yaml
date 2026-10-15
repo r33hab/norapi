@@ -1,0 +1,22 @@
+updated: 2026-10-15
+provider:
+  name: Vinmonopolet
+  orgnr: "817209882"
+  sector: statlig-selskap
+apis:
+  - id: vinmonopolet-open-api
+    title: Vinmonopolets åpne API (produkter og butikker)
+    description: >-
+      Produktkatalogen med detaljer per vare, salgstall per butikk og produktgruppe, og butikkliste.
+      Registrer deg i API-portalen og abonner på produktet «Open»; ingen søknad, men vilkårene må godtas.
+      Egne lukkede API-er for grossister og presse.
+    category: bedrift-og-organisasjon
+    access: open
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.vinmonopolet.no/
+    docs_url: https://api.vinmonopolet.no/
+    license: Vilkår på https://api.vinmonopolet.no/terms-of-service
+    keywords: [vin, øl, brennevin, produkter, butikker, polet, alkohol, varekatalog]
+    tags: [registration]

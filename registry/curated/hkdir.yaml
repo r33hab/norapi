@@ -1,0 +1,27 @@
+updated: 2026-10-15
+provider:
+  name: Direktoratet for høyere utdanning og kompetanse
+  orgnr: "974788985"
+  sector: stat
+apis:
+  - id: hkdir-dbh-api
+    title: DBH API (statistikk om høyere utdanning)
+    description: >-
+      Database for statistikk om høyere utdanning: studenter, søkere, kandidater, doktorgrader, ansatte,
+      økonomi og studietilbud per institusjon. Tabellene hentes med en POST som beskriver utvalg, filter
+      og gruppering; svaret kommer som JSON eller CSV. Testklient med ferdige spørringer på nettsiden.
+    category: statistikk
+    access: open
+    auth: none
+    formats: [JSON, CSV]
+    endpoints:
+      - https://dbh.hkdir.no/api/Tabeller/hentJSONTabellData
+    docs_url: https://dbh.hkdir.no/static/files/dokumenter/api/api_dokumentasjon.pdf
+    probe_url: https://dbh.hkdir.no/dbhapiklient/
+    license: NLOD 2.0
+    keywords: [universitet, høgskole, studenter, doktorgrad, studietilbud, dbh, higher education]
+    tags: [no-auth]
+    quick_start: |
+      # tabell 211: registrerte studenter, for 2024
+      curl -X POST "https://dbh.hkdir.no/api/Tabeller/hentJSONTabellData" -H "Content-Type: application/json" \
+        -d '{"tabell_id":211,"api_versjon":1,"statuslinje":"N","kodetekst":"J","desimal_separator":".","variabler":["*"],"sortBy":["Årstall"],"filter":[{"variabel":"Årstall","selection":{"filter":"item","values":["2024"]}}],"groupBy":["Årstall"]}'

@@ -19,10 +19,11 @@ jobs:
         run: |
           uv run norapi harvest
           uv run norapi build
+          uv run norapi enrich --workers 6
           uv run norapi check --curated-only
       - name: Commit the new registry if it changed
         run: |
-          if git diff --quiet -- registry/registry.json registry/llms.txt; then
+          if git diff --quiet -- registry/; then
             echo "registry unchanged"; exit 0
           fi
           git -c user.name=r33hAB -c user.email=48438582+r33hAB@users.noreply.github.com \

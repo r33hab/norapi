@@ -1,0 +1,31 @@
+name: Meld en feil i en oppføring
+description: Død lenke, feil tilgangsnivå, utdatert beskrivelse eller lignende.
+title: "Rettelse: "
+labels: ["rettelse"]
+body:
+  - type: input
+    id: api_id
+    attributes:
+      label: API-ets id
+      description: Står i adressen på nettstedet, for eksempel brreg-enhetsregisteret.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Hva er galt?
+      options:
+        - Død eller feil lenke
+        - Feil tilgang eller autentisering
+        - Utdatert eller feil beskrivelse
+        - quick_start virker ikke
+        - API-et finnes ikke lenger
+        - Annet
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Beskriv feilen, og gjerne hva som er riktig
+    validations:
+      required: true

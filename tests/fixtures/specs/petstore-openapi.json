@@ -1,0 +1,21 @@
+{
+  "openapi": "3.0.1",
+  "info": {"title": "Kjøretøy API", "version": "2.1.0"},
+  "servers": [{"url": "https://api.example.invalid/kjoretoy/v2"}],
+  "paths": {
+    "/kjoretoy/{kjennemerke}": {
+      "get": {
+        "summary": "Hent kjøretøy etter kjennemerke",
+        "description": "Tekniske data for ett kjøretøy.\n\nKrever API-nøkkel.",
+        "operationId": "hentKjoretoy",
+        "tags": ["Kjøretøy"]
+      },
+      "parameters": [{"name": "kjennemerke", "in": "path"}]
+    },
+    "/kjoretoy": {
+      "post": {"summary": "Bulkoppslag", "tags": ["Kjøretøy"], "deprecated": true},
+      "get": {"summary": "Søk", "tags": ["Søk"]}
+    },
+    "/health": {"get": {"summary": "Helsesjekk"}}
+  }
+}

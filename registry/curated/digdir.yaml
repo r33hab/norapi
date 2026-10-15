@@ -56,3 +56,19 @@ apis:
     docs_url: https://docs.digdir.no/docs/idporten/
     keywords: [id-porten, innlogging, openid connect, oidc, bankid, minid, innbygger]
     tags: [infrastructure]
+
+  - id: digdir-kontaktregisteret
+    title: Kontakt- og reservasjonsregisteret (KRR)
+    description: >-
+      Innbyggernes digitale kontaktinformasjon (e-post, mobil, digital postkasse, språk) og om de har
+      reservert seg mot digital kommunikasjon. For offentlige virksomheter som skal varsle innbyggere;
+      tilgang via Maskinporten med eget scope.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://kontaktregisteret.no/
+    docs_url: https://docs.digdir.no/docs/Kontaktregisteret/
+    keywords: [krr, kontaktinformasjon, reservasjon, digital postkasse, varsling, innbygger]
+    tags: [agreement, maskinporten, personal-data]

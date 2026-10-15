@@ -67,6 +67,7 @@ class ApiEntry:
     spec_url: str | None = None
     docs_url: str | None = None
     probe_url: str | None = None  # a call that answers anonymously, for `norapi check`
+    spec: dict[str, Any] | None = None  # OpenAPI summary from `norapi enrich`
     license: str | None = None
     keywords: list[str] = field(default_factory=list)
     category: str | None = None

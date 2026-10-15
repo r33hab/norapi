@@ -1,4 +1,4 @@
-"""Query the FTS5 index. Used by the CLI and the MCP server alike."""
+"""Query the FTS5 index. Used by the CLI, the MCP server and the site generator alike."""
 
 from __future__ import annotations
 
@@ -11,12 +11,12 @@ from typing import Any
 from norapi.build import INDEX_DB, REGISTRY_JSON, ensure_index
 from norapi.model import CATEGORIES
 
-_TOKEN = re.compile(r"[\wæøåÆØÅ\-\.]+", re.UNICODE)
+_TOKEN = re.compile(r"[\wæøåÆØÅ\-\.{}/]+", re.UNICODE)
 
 
 def fts_query(text: str) -> str:
     """Turn free text into an FTS5 query: every term quoted, prefix-matched, all required."""
-    terms = [t.strip("-.") for t in _TOKEN.findall(text or "")]
+    terms = [t.strip("-./{}") for t in _TOKEN.findall(text or "")]
     terms = [t for t in terms if t]
     if not terms:
         return ""
@@ -87,6 +87,47 @@ class Registry:
             results.append(api)
         return results
 
+    def search_operations(
+        self, query: str, limit: int = 20, api_id: str | None = None
+    ) -> list[dict[str, Any]]:
+        """Operations (method + path + summary) from indexed OpenAPI documents."""
+        match = fts_query(query)
+        if not match:
+            return []
+        params: list[Any] = [match]
+        filters = ""
+        if api_id:
+            filters = " and api_id = ?"
+            params.append(api_id)
+        sql = (
+            "select api_id, method, path, summary, description, tags, api_title, provider, "
+            "bm25(op_fts, 0, 0, 6.0, 8.0, 2.0, 3.0, 4.0, 2.0) as rank "
+            f"from op_fts where op_fts match ?{filters} order by rank limit ?"
+        )
+        rows = self._con.execute(sql, [*params, limit]).fetchall()
+        return [
+            {
+                "api_id": r["api_id"],
+                "api_title": r["api_title"],
+                "provider": r["provider"],
+                "method": r["method"],
+                "path": r["path"],
+                "summary": r["summary"] or None,
+                "description": r["description"] or None,
+                "tags": r["tags"].split() if r["tags"] else [],
+                "_rank": round(float(r["rank"]), 3),
+            }
+            for r in rows
+        ]
+
+    def operations_for(self, api_id: str) -> list[dict[str, Any]]:
+        rows = self._con.execute(
+            "select method, path, summary, description, tags from op_fts where api_id = ? "
+            "order by path, method",
+            (api_id,),
+        ).fetchall()
+        return [dict(r) for r in rows]
+
     def get(self, api_id: str) -> dict[str, Any] | None:
         row = self._con.execute("select json from apis where id = ?", (api_id,)).fetchone()
         return json.loads(row["json"]) if row else None
@@ -118,6 +159,7 @@ class Registry:
         return {
             "generated_at": meta.get("generated_at"),
             "count": int(meta.get("count", 0)),
+            "operations": int(meta.get("operations", 0)),
             "by_access": by_access,
             "by_source": by_kind,
         }

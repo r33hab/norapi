@@ -1,0 +1,22 @@
+updated: 2026-10-15
+provider:
+  name: Helsedirektoratet
+  orgnr: "983544622"
+  sector: stat
+apis:
+  - id: helsedirektoratet-apne-data
+    title: Helsedirektoratets åpne data (HAPI)
+    description: >-
+      Innholdet på helsedirektoratet.no som data: nasjonale faglige retningslinjer, pakkeforløp, rundskriv,
+      tilskudd og nyheter, pluss nasjonale kvalitetsindikatorer og legemiddeldata som ATC-registeret. Leveres som
+      JSON, Markdown og HTML under NLOD, med krav om kildehenvisning og om at faglig innhold ikke endres.
+    category: arbeid-og-velferd
+    access: open
+    auth: none
+    formats: [JSON, Markdown, HTML]
+    endpoints:
+      - https://utvikler.helsedirektoratet.no/
+    docs_url: https://www.helsedirektoratet.no/om-oss/apne-data-api/om-api-tjenesten
+    license: NLOD 2.0
+    keywords: [retningslinjer, pakkeforløp, kvalitetsindikatorer, atc, legemidler, helse, rundskriv]
+    tags: [no-auth]

@@ -1,24 +1,27 @@
 # norapi
 
 > **Status: unfinished and under active development.** The harvester, the curated entries,
-> the search index, the CLI and the MCP server work. Entry ids and the JSON shape may still
-> change, and the curated list is short. See the roadmap.
+> the OpenAPI enrichment, the search index, the CLI, the MCP server and the site work.
+> Entry ids and the JSON shape may still change, and the curated list wants to grow:
+> see [Bidra](https://r33hab.github.io/norapi/bidra/) and [CONTRIBUTING.md](CONTRIBUTING.md).
 
 A fast, searchable registry of Norwegian public APIs, for developers and AI agents.
+**Live site: [r33hab.github.io/norapi](https://r33hab.github.io/norapi/)**
 
 - **About a thousand APIs** harvested from [Felles datakatalog](https://data.norge.no/data-services),
   the national catalogue where agencies register their data services.
 - **Curated entries** for the APIs people actually reach for (Brønnøysundregistrene, SSB, Entur,
-  MET, Kartverket, Nav, Skatteetaten, Digdir, Vegvesen, Norges Bank, Stortinget …) with access,
-  authentication, formats, docs and a first call that works.
-- **Three front doors:** a CLI, an MCP server for AI assistants, and a static web page.
-  Plus `registry/llms.txt` for pasting into a language model's context.
+  MET, Kartverket, Nav, Skatteetaten, Digdir, Vegvesen, Norges Bank, Stortinget, Udir, FHI …)
+  with access, authentication, formats, docs and a first call that works.
+- **Operations, not only APIs.** Where an entry links an OpenAPI document, the document is fetched
+  and every operation is indexed, so a search can land on `GET /vegobjekter/{id}`.
+- **Four front doors:** a CLI, an MCP server for AI assistants, a static site with one page per
+  API, and `registry/llms.txt` for pasting into a language model's context.
 
 ```
-registry/curated/*.yaml ──┐
-                          ├─▶ norapi build ─▶ registry/registry.json ─┬─▶ norapi search   (CLI)
-data.norge.no ─▶ norapi   │                   registry/llms.txt       ├─▶ norapi-mcp      (AI agents)
-  harvest ────────────────┘                   .index.sqlite (FTS5)    └─▶ site/index.html (web)
+registry/curated/*.yaml ──┐                 registry/registry.json ─┬─▶ norapi search / ops  (CLI)
+data.norge.no ─▶ harvest ─┼─▶ norapi build ─▶ registry/llms.txt     ├─▶ norapi-mcp           (AI agents)
+OpenAPI docs ──▶ enrich ──┘                 registry/operations.json└─▶ norapi site ─▶ _site/ (web)
 ```
 
 ## Quick start
@@ -34,18 +37,24 @@ uv run norapi show brreg-enhetsregisteret       # everything, including a quick_
 uv run norapi providers | head
 ```
 
-The committed `registry/registry.json` is used as is. To refresh it from the catalogue:
+```sh
+uv run norapi ops "vegobjekter"                 # operations: method + path + summary, with the API
+```
+
+The committed `registry/` files are used as is. To refresh them:
 
 ```sh
-uv run norapi harvest          # data.norge.no -> data/raw/fdk/fdk.json (about 30 seconds)
-uv run norapi build            # curated + harvested -> registry/
+uv run norapi harvest                # data.norge.no -> data/raw/fdk/fdk.json (about 30 seconds)
+uv run norapi build                  # curated + harvested (+ cached specs) -> registry/
+uv run norapi enrich                 # fetch OpenAPI documents -> registry/specs.json, operations.json
 uv run norapi check --curated-only   # probe docs, spec and endpoint URLs, record the status
+uv run norapi site --out _site       # the static site
 ```
 
 ## For AI assistants
 
-`norapi-mcp` is an [MCP](https://modelcontextprotocol.io) server over stdio with four tools:
-`search_apis`, `get_api`, `list_providers`, `list_categories`.
+`norapi-mcp` is an [MCP](https://modelcontextprotocol.io) server over stdio with five tools:
+`search_apis`, `search_operations`, `get_api`, `list_providers`, `list_categories`.
 
 ```sh
 # Claude Code
@@ -57,8 +66,10 @@ Markdown listing you can drop into a prompt.
 
 ## Web
 
-`site/index.html` is a single file that loads `registry.json` and searches client-side.
-`make site` serves it locally; the `pages` workflow publishes it to GitHub Pages on every push.
+`norapi site` renders one static page per API, provider and category, plus the index with
+client-side search and a ⌘K palette, a sitemap, robots.txt, JSON-LD and Open Graph tags.
+`make serve` previews it locally; the `pages` workflow publishes it to GitHub Pages on every push.
+Design tokens and the Hallmark stamp live in `site/assets/`.
 
 ## Entry shape
 
@@ -76,11 +87,18 @@ Markdown listing you can drop into a prompt.
 
 ## Adding or fixing an API
 
-1. Add it to a file in `registry/curated/` (one file per provider, see `brreg.yaml` for the shape).
-   If the API is already in Felles datakatalog, set `merge_with` to its data service URI, or
-   list the same endpoint URL, and the two are merged with your fields on top.
-2. `uv run norapi build && uv run norapi check --curated-only`
-3. `uv run pytest -q`, then open a pull request.
+There must be more open Norwegian APIs than this registry knows about. Three ways in:
+
+1. **No code:** [suggest an API](https://github.com/r33hAB/norapi/issues/new?template=nytt-api.yml)
+   or [report a mistake](https://github.com/r33hAB/norapi/issues/new?template=feil-i-oppforing.yml).
+2. **A pull request:** add it to a file in `registry/curated/` (one file per provider, see
+   `brreg.yaml` for the shape). If the API is already in Felles datakatalog, set `merge_with` to
+   its data service URI, or list the same endpoint URL, and the two are merged with your fields on top.
+   Then `uv run norapi build && uv run norapi check --curated-only && uv run pytest -q`.
+3. **Register it at [data.norge.no](https://data.norge.no/data-services)** if you are the provider;
+   the weekly harvest picks it up from there.
+
+Details and the quality bar are in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Data sources and terms
 
@@ -112,11 +130,10 @@ docs/adr/            decisions
 
 ## Roadmap
 
-- Fetch OpenAPI documents where `spec_url` points to one and index endpoint paths and summaries,
-  so a search can land on an operation, not only an API.
-- More curated entries, English summaries for all of them, and a contribution guide.
+- More curated entries, and English summaries for all of them.
 - Harvest Geonorge's kartkatalog directly for richer geodata entries.
-- Weekly link checks published on the site.
+- Weekly link checks for every entry, published on the site.
+- Semantic search next to FTS5 once the registry outgrows keyword matching.
 
 ## Licence
 

@@ -1,0 +1,22 @@
+updated: 2026-10-15
+provider:
+  name: Luftfartstilsynet
+  orgnr: "981105516"
+  sector: stat
+apis:
+  - id: luftfartstilsynet-dronesoner
+    title: Dronesoner (geosoner for droner, ED-269)
+    description: >-
+      De offisielle restriksjonssonene for droner i Norge: flyplasser, naturreservater, fengsler, militære
+      områder og andre soner med polygoner, høydegrenser og vilkår, i det europeiske ED-269-formatet (JSON)
+      og som KML. Publiseres som en datert nedlastingsfil per måned, uten fast «siste»-adresse, så hent
+      lenken fra nedlastingssiden.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, KML]
+    endpoints:
+      - https://dronesoner.no/
+    docs_url: https://dronesoner.no/
+    keywords: [drone, geosoner, flyforbud, restriksjonssone, ed-269, luftrom, uas, airspace]
+    tags: [no-auth, data-files]

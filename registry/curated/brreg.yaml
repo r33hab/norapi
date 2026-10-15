@@ -44,3 +44,21 @@ apis:
     quick_start: |
       # siste årsregnskap for Equinor ASA (404 betyr at enheten ikke har levert regnskap)
       curl "https://data.brreg.no/regnskapsregisteret/regnskap/923609016"
+
+  - id: brreg-frivillighetsregisteret
+    title: Frivillighetsregisteret API
+    description: >-
+      Frivillige organisasjoner registrert i Frivillighetsregisteret, med kategori, grasrotandel og
+      kontaktdata, som søkbart JSON-API uten nøkkel.
+    category: bedrift-og-organisasjon
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://data.brreg.no/frivillighetsregisteret/api/frivillige-organisasjoner
+    docs_url: https://www.brreg.no/produkter-og-tjenester/apne-data/
+    license: NLOD 2.0
+    keywords: [frivillighet, organisasjoner, lag, foreninger, grasrotandel, idrettslag]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://data.brreg.no/frivillighetsregisteret/api/frivillige-organisasjoner?size=3"

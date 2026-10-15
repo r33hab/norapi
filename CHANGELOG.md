@@ -5,6 +5,14 @@ All notable changes to this project are documented here. The format follows
 
 ## 2026-10-15
 ### Added
+- OpenAPI enrichment (`norapi enrich`): resolves specifications behind `spec_url` and Swagger UI pages, caches the documents, writes `registry/specs.json` and `registry/operations.json`, and indexes every operation so `norapi ops` and the MCP tool `search_operations` can land on a method and path.
+- Static site generator (`norapi site`): one pre-rendered page per API, provider and category, index with client-side search and a ⌘K palette, contribute and privacy pages, custom 404, sitemap, robots.txt, canonical and Open Graph tags, JSON-LD (WebSite, Dataset, WebAPI, Organization, BreadcrumbList). Hallmark design (Cobalt theme, Ecosystem Index) with tokens in `site/assets/tokens.css`.
+- Fourteen more curated APIs after a source review: Statnett driftsdata, Udir Grep, HK-dir DBH, FHI Statistikk, Helsedirektoratet HAPI, Vinmonopolet, Luftfartstilsynet dronesoner, Ordbøkene, DigitaltMuseum, Kartverket høydedata, WMTS and vannstand, Frivillighetsregisteret, Entur rutedata, Digdir KRR.
+- Contribution path: CONTRIBUTING.md, issue forms for new APIs and corrections, a pull request template, and a "Bidra" page on the site.
+- `probe_url` on curated entries so the link checker can call an endpoint that answers anonymously.
+### Changed
+- Pages workflow now generates the site with `norapi site`; the weekly harvest also runs `norapi enrich`.
+- Link checker reports verdicts (ok / answers / missing) instead of raw status codes.
 - Harvester for Felles datakatalog (data.norge.no): search API for the list, SPARQL per predicate for endpoints, specs, docs, licences and keywords, joined on the data service URI.
 - Curated entries for about 35 well-known APIs (BRREG, SSB, Entur, MET, Kartverket, Nav, Skatteetaten, Digdir, Altinn, Vegvesen, Norges Bank, Stortinget, NVE and more) with access, auth, formats, docs and quick-start calls.
 - Merge rules: curated fields win, harvested fields fill gaps, matched by FDK URI or identical endpoint.

@@ -1,0 +1,23 @@
+updated: 2026-10-15
+provider:
+  name: Statnett
+  orgnr: "962986633"
+  sector: statlig-selskap
+apis:
+  - id: statnett-driftsdata
+    title: Driftsdata (produksjon, forbruk og flyt i sanntid)
+    description: >-
+      Det nordiske kraftsystemet akkurat nå: produksjon og forbruk per land, utveksling mellom områder,
+      frekvens og kraftbalanse, som JSON. Det er API-et bak Statnetts egen driftsdata-side; det er åpent,
+      men ikke formelt dokumentert, så feltnavn kan endre seg uten varsel.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://driftsdata.statnett.no/restapi/ProductionConsumption/GetLatestDetailedOverview
+    docs_url: https://driftsdata.statnett.no/
+    keywords: [kraft, strøm, produksjon, forbruk, frekvens, kraftbalanse, nordpool, sanntid, power grid]
+    tags: [no-auth, undocumented]
+    quick_start: |
+      curl "https://driftsdata.statnett.no/restapi/ProductionConsumption/GetLatestDetailedOverview"
