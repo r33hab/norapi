@@ -18,17 +18,14 @@ def snapshot() -> dict:
 
 @pytest.fixture(autouse=True)
 def allow_test_hosts(monkeypatch):
-    """Fetcher tests use made-up hosts behind a mock transport; pin them to themselves."""
-    from urllib.parse import urlparse
-
+    """Fetcher tests use made-up hosts behind a mock transport; treat them as public."""
     from norapi import netguard
 
-    original = netguard.resolve_public
+    original = netguard.public_address
 
-    def resolve(url: str):
-        if url.startswith(("https://x.no/", "https://x.no?", "https://feed.test/")):
-            host = urlparse(url).hostname
-            return netguard.PinnedTarget(host=host, port=443, connect_host=host)
-        return original(url)
+    def resolve(host: str, port: int):
+        if host in ("x.no", "feed.test"):
+            return host
+        return original(host, port)
 
-    monkeypatch.setattr(netguard, "resolve_public", resolve)
+    monkeypatch.setattr(netguard, "public_address", resolve)

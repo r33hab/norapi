@@ -15,7 +15,8 @@ All notable changes to this project are documented here. The format follows
 - Link checker reports verdicts (ok / answers / missing) instead of raw status codes.
 - README rewritten as a proper front page: banner, live badges from registry.json, screenshot, the four front doors, pipeline and entry shape.
 ### Security
-- All outbound fetches (spec fetcher, link checker) go through `netguard`: http(s) only, hosts resolved and checked against private, loopback and link-local ranges, the validated address pinned for the connect (no DNS rebinding window), every redirect hop validated before it is requested, bodies read through a streamed cap.
+- All outbound fetches (spec fetcher, link checker) go through `netguard`: http(s) only, hosts resolved and checked against private, loopback and link-local ranges, every redirect hop validated before it is requested, bodies read through a streamed cap.
+- Address pinning happens in the TCP layer (`PinningBackend`), so the URL keeps its hostname and TLS verifies the certificate against it; a lying resolver now fails the handshake with a hostname mismatch instead of being trusted. An earlier variant put the address in the URL, which weakened that check.
 - JSON-LD escapes angle brackets and ampersands; external links render only for http(s) URLs; operation methods from third-party specs are escaped in the client-side search; entry ids must be slugs before they become file paths.
 ### Fixed
 - `norapi enrich --limit N` merges into the existing specs and operations instead of overwriting them with the subset.

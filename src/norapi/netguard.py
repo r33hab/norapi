@@ -2,23 +2,25 @@
 
 Catalogue entries and curated YAML both carry URLs the spec fetcher and the link checker will
 request. Those requests must never reach private networks (SSRF) and must never pull unbounded
-bodies. Every fetcher goes through `get_capped`, which:
+bodies. Two pieces enforce that:
 
-- accepts http(s) only and resolves the host itself, refusing any address that is not globally
-  routable (loopback, private ranges, link-local such as cloud metadata, multicast);
-- connects to the exact address it validated, so a DNS answer cannot change between the check
-  and the connect (rebinding). The hostname is kept for TLS verification (SNI) and the Host header;
-- follows redirects by hand, validating every hop the same way before requesting it;
-- reads the body through a streamed cap instead of buffering an unknown size first.
+- `public_client()` builds an httpx client whose TCP layer resolves each hostname itself,
+  refuses any address that is not globally routable (loopback, private ranges, link-local such
+  as cloud metadata, multicast), and connects to the exact address it validated. The URL keeps
+  its real hostname, so SNI and certificate verification are untouched; only the socket's
+  destination is pinned. A DNS answer cannot change between the check and the connect.
+- `get_capped()` follows redirects by hand so every hop goes through the same client, and
+  reads bodies through a streamed cap instead of buffering an unknown size first.
 """
 
 from __future__ import annotations
 
 import ipaddress
 import socket
-from dataclasses import dataclass
+import typing
 from urllib.parse import urljoin, urlparse
 
+import httpcore
 import httpx
 
 MAX_BODY_BYTES = 8 * 1024 * 1024
@@ -26,32 +28,22 @@ MAX_REDIRECTS = 5
 _BLOCKED_SUFFIXES = (".local", ".internal", ".localhost")
 
 
-@dataclass(frozen=True)
-class PinnedTarget:
-    """A validated destination: the logical host for TLS and Host, and the address to connect to."""
-
-    host: str
-    port: int
-    connect_host: str
+class NotPublicHost(httpcore.ConnectError):
+    """Raised by the pinning backend when a host does not resolve to a public address."""
 
 
-def resolve_public(url: str) -> PinnedTarget | None:
-    """Resolve and validate a URL's host. None when it is not a public http(s) destination."""
-    try:
-        parsed = urlparse(url)
-    except ValueError:
-        return None
-    if parsed.scheme not in ("http", "https") or not parsed.hostname:
-        return None
-    host = parsed.hostname
+def _is_global(ip: ipaddress.IPv4Address | ipaddress.IPv6Address) -> bool:
+    if isinstance(ip, ipaddress.IPv6Address) and ip.ipv4_mapped is not None:
+        ip = ip.ipv4_mapped
+    return ip.is_global and not ip.is_multicast
+
+
+def public_address(host: str, port: int) -> str | None:
+    """Resolve `host` and return one address to connect to, or None if any answer is not public."""
     if host == "localhost" or host.endswith(_BLOCKED_SUFFIXES):
         return None
     try:
-        port = parsed.port or (443 if parsed.scheme == "https" else 80)
-    except ValueError:
-        return None
-    try:
-        addresses = [ipaddress.ip_address(host)]
+        addresses = [ipaddress.ip_address(host.strip("[]"))]
     except ValueError:
         try:
             infos = socket.getaddrinfo(host, port, proto=socket.IPPROTO_TCP)
@@ -60,17 +52,71 @@ def resolve_public(url: str) -> PinnedTarget | None:
         addresses = [ipaddress.ip_address(info[4][0]) for info in infos]
     if not addresses or not all(_is_global(ip) for ip in addresses):
         return None
-    return PinnedTarget(host=host, port=port, connect_host=str(addresses[0]))
+    return str(addresses[0])
 
 
 def is_public_url(url: str) -> bool:
-    return resolve_public(url) is not None
+    """Cheap pre-check for a URL: http(s), a host, and that host resolving to public addresses."""
+    try:
+        parsed = urlparse(url)
+    except ValueError:
+        return False
+    if parsed.scheme not in ("http", "https") or not parsed.hostname:
+        return False
+    try:
+        port = parsed.port or (443 if parsed.scheme == "https" else 80)
+    except ValueError:
+        return False
+    return public_address(parsed.hostname, port) is not None
 
 
-def _is_global(ip: ipaddress.IPv4Address | ipaddress.IPv6Address) -> bool:
-    if isinstance(ip, ipaddress.IPv6Address) and ip.ipv4_mapped is not None:
-        ip = ip.ipv4_mapped
-    return ip.is_global and not ip.is_multicast
+class PinningBackend(httpcore.SyncBackend):
+    """TCP connects go to an address this process resolved and validated, never to what the
+    operating system would resolve a moment later."""
+
+    def connect_tcp(
+        self,
+        host: str,
+        port: int,
+        timeout: float | None = None,
+        local_address: str | None = None,
+        socket_options: typing.Iterable[typing.Any] | None = None,
+    ) -> httpcore.NetworkStream:
+        address = public_address(host, port)
+        if address is None:
+            raise NotPublicHost(f"{host} does not resolve to a public address")
+        return super().connect_tcp(address, port, timeout, local_address, socket_options)
+
+
+class PinningTransport(httpx.HTTPTransport):
+    """httpx transport on the pinning backend. TLS still verifies against the URL's hostname."""
+
+    def __init__(self, **kwargs: typing.Any) -> None:
+        super().__init__(**kwargs)
+        self._pool = httpcore.ConnectionPool(
+            ssl_context=httpx.create_ssl_context(verify=kwargs.get("verify", True)),
+            max_connections=kwargs.get("limits", httpx.Limits()).max_connections,
+            max_keepalive_connections=kwargs.get(
+                "limits", httpx.Limits()
+            ).max_keepalive_connections,
+            keepalive_expiry=kwargs.get("limits", httpx.Limits()).keepalive_expiry,
+            http1=True,
+            http2=False,
+            retries=kwargs.get("retries", 0),
+            network_backend=PinningBackend(),
+        )
+
+
+def public_client(timeout: float = 15.0, headers: dict[str, str] | None = None) -> httpx.Client:
+    """An httpx client that can only reach public hosts. Redirects are not followed automatically;
+    use `get_capped`, which validates each hop."""
+    return httpx.Client(
+        transport=PinningTransport(),
+        timeout=timeout,
+        headers=headers,
+        follow_redirects=False,
+        trust_env=False,
+    )
 
 
 def read_capped(response: httpx.Response, limit: int = MAX_BODY_BYTES) -> bytes | None:
@@ -85,16 +131,6 @@ def read_capped(response: httpx.Response, limit: int = MAX_BODY_BYTES) -> bytes 
     return b"".join(chunks)
 
 
-def _pinned_url(url: str, target: PinnedTarget) -> str:
-    parsed = urlparse(url)
-    if target.connect_host == target.host:
-        return url
-    netloc = f"[{target.connect_host}]" if ":" in target.connect_host else target.connect_host
-    if parsed.port:
-        netloc += f":{parsed.port}"
-    return parsed._replace(netloc=netloc).geturl()
-
-
 def get_capped(
     client: httpx.Client,
     url: str,
@@ -103,23 +139,14 @@ def get_capped(
 ) -> tuple[httpx.Response, bytes | None, str] | None:
     """GET a public URL with a body cap: (response, body, final_url), or None when blocked.
 
-    `final_url` is the logical URL after redirects (the one to resolve relative links against);
-    `response.url` may carry the pinned address instead and should not be shown to anyone.
+    Every hop is pre-checked with `is_public_url` and, with a `public_client`, pinned again at
+    connect time. `final_url` is the URL after redirects, for resolving relative links.
     """
     current = url
     for _ in range(MAX_REDIRECTS + 1):
-        target = resolve_public(current)
-        if target is None:
+        if not is_public_url(current):
             return None
-        parsed = urlparse(current)
-        request_headers = {**(headers or {}), "Host": parsed.netloc}
-        with client.stream(
-            "GET",
-            _pinned_url(current, target),
-            headers=request_headers,
-            extensions={"sni_hostname": target.host},
-            follow_redirects=False,
-        ) as response:
+        with client.stream("GET", current, headers=headers, follow_redirects=False) as response:
             location = response.headers.get("location")
             if response.is_redirect and location:
                 current = urljoin(current, location)

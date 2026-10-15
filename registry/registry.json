@@ -1,7 +1,7 @@
 {
  "name": "norapi",
  "version": "0.1.0",
- "generated_at": "2026-10-15T12:05:49+00:00",
+ "generated_at": "2026-10-15T12:12:56+00:00",
  "count": 1115,
  "sources": {
   "curated": 43,
@@ -76,7 +76,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T12:05:10+00:00",
+    "checked_at": "2026-10-15T12:12:52+00:00",
     "docs_url": {
      "url": "https://docs.altinn.studio/nb/api/",
      "status": 200,
@@ -141,7 +141,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T12:05:13+00:00",
+    "checked_at": "2026-10-15T12:12:54+00:00",
     "docs_url": {
      "url": "https://avinor.no/konsern/tjenester/flydata/",
      "status": 200,
@@ -203,7 +203,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T12:05:14+00:00",
+    "checked_at": "2026-10-15T12:12:55+00:00",
     "docs_url": {
      "url": "https://www.brreg.no/produkter-og-tjenester/apne-data/",
      "status": 200,
@@ -267,7 +267,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T12:05:14+00:00",
+    "checked_at": "2026-10-15T12:12:56+00:00",
     "docs_url": {
      "url": "https://docs.digdir.no/docs/idporten/",
      "status": 200,

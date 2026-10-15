@@ -14,7 +14,7 @@ from typing import Any
 import httpx
 
 from norapi.model import ApiEntry
-from norapi.netguard import get_capped
+from norapi.netguard import get_capped, public_client
 
 log = logging.getLogger(__name__)
 USER_AGENT = "norapi-linkcheck/0.1 (+https://github.com/r33hAB/norapi)"
@@ -22,7 +22,7 @@ USER_AGENT = "norapi-linkcheck/0.1 (+https://github.com/r33hAB/norapi)"
 
 def check_entries(entries: list[ApiEntry], timeout: float = 15.0, limit: int | None = None) -> int:
     checked = 0
-    with httpx.Client(timeout=timeout, headers={"User-Agent": USER_AGENT}) as client:
+    with public_client(timeout=timeout, headers={"User-Agent": USER_AGENT}) as client:
         for entry in entries:
             if limit is not None and checked >= limit:
                 break

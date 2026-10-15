@@ -29,7 +29,7 @@ import httpx
 import yaml
 
 from norapi.model import ApiEntry
-from norapi.netguard import get_capped
+from norapi.netguard import get_capped, public_client
 
 log = logging.getLogger(__name__)
 
@@ -57,7 +57,7 @@ _INITIALIZER = re.compile(r"""["']([^"']*swagger-initializer\.js[^"']*)["']""")
 
 class SpecFetcher:
     def __init__(self, client: httpx.Client | None = None, timeout: float = 15.0) -> None:
-        self._http = client or httpx.Client(
+        self._http = client or public_client(
             timeout=timeout,
             headers={
                 "User-Agent": USER_AGENT,

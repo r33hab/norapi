@@ -117,3 +117,38 @@ def test_redirect_loops_give_up():
 
     client = httpx.Client(transport=httpx.MockTransport(handler))
     assert get_capped(client, "https://x.no/loop") is None
+
+
+def test_pinning_backend_refuses_before_connecting(monkeypatch):
+    from norapi import netguard
+
+    monkeypatch.setattr(netguard, "public_address", lambda host, port: None)
+    connected = []
+    monkeypatch.setattr(
+        netguard.httpcore.SyncBackend, "connect_tcp", lambda self, *a, **k: connected.append(a)
+    )
+    with pytest.raises(netguard.NotPublicHost):
+        netguard.PinningBackend().connect_tcp("evil.example", 443)
+    assert connected == []
+
+
+def test_pinning_backend_connects_to_the_validated_address(monkeypatch):
+    from norapi import netguard
+
+    monkeypatch.setattr(netguard, "public_address", lambda host, port: "93.184.216.34")
+    seen = []
+    monkeypatch.setattr(
+        netguard.httpcore.SyncBackend,
+        "connect_tcp",
+        lambda self, host, port, *a, **k: seen.append((host, port)) or object(),
+    )
+    netguard.PinningBackend().connect_tcp("example.com", 443)
+    assert seen == [("93.184.216.34", 443)], "socket goes to the pinned address, URL keeps the name"
+
+
+def test_public_client_never_follows_redirects_on_its_own():
+    from norapi.netguard import PinningTransport, public_client
+
+    client = public_client()
+    assert client.follow_redirects is False
+    assert isinstance(client._transport, PinningTransport)
