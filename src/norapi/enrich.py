@@ -29,11 +29,12 @@ import httpx
 import yaml
 
 from norapi.model import ApiEntry
+from norapi.netguard import get_capped
 
 log = logging.getLogger(__name__)
 
 USER_AGENT = "norapi-enrich/0.1 (+https://github.com/r33hAB/norapi)"
-MAX_BYTES = 8 * 1024 * 1024
+MAX_BYTES = 8 * 1024 * 1024  # a specification larger than this is not worth indexing
 METHODS = ("get", "post", "put", "patch", "delete", "head", "options")
 NEIGHBOURS = (
     "openapi.json",
@@ -77,13 +78,18 @@ class SpecFetcher:
             tried.add(candidate)
             budget -= 1
             try:
-                response = self._http.get(candidate)
+                fetched = get_capped(self._http, candidate, limit=MAX_BYTES)
             except httpx.HTTPError as exc:
                 log.debug("%s: %s", candidate, type(exc).__name__)
                 continue
-            if response.status_code >= 400 or len(response.content) > MAX_BYTES:
+            if fetched is None:
+                log.debug("%s: not a public http(s) URL, skipped", candidate)
                 continue
-            document = parse_document(response.text, response.headers.get("content-type", ""))
+            response, body = fetched
+            if response.status_code >= 400 or body is None:
+                continue
+            text = body.decode(response.encoding or "utf-8", errors="replace")
+            document = parse_document(text, response.headers.get("content-type", ""))
             if document is not None and not is_sample(document, str(response.url)):
                 return str(response.url), document
             if document is not None:
@@ -91,9 +97,7 @@ class SpecFetcher:
                 continue
             # Not a document: maybe a UI page that tells us where the document is. What the
             # page itself points at goes to the front of the queue; guessed neighbours last.
-            discovered = [
-                u for u in urls_from_page(response.text, str(response.url)) if u not in tried
-            ]
+            discovered = [u for u in urls_from_page(text, str(response.url)) if u not in tried]
             queue = discovered + queue
             if looks_like_ui(candidate):
                 queue.extend(u for u in neighbour_urls(candidate) if u not in tried)

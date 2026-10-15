@@ -139,7 +139,7 @@
         await loadOps();
         const opHits = searchOps(query, 12);
         opsBox.innerHTML = opHits.length ? `<h2>Endepunkter som matcher <span class="count">(${opHits.length})</span></h2><ul class="ops">` +
-          opHits.map((o) => `<li><span class="method method--${o.m.toLowerCase()}">${o.m}</span><code>${esc(o.p)}</code><span class="op__summary">${esc(o.s || "")} · <a href="${root}api/${esc(o.a)}/">${esc(o.n)}</a></span></li>`).join("") + "</ul>" : "";
+          opHits.map((o) => `<li><span class="method method--${esc(o.m.toLowerCase())}">${esc(o.m)}</span><code>${esc(o.p)}</code><span class="op__summary">${esc(o.s || "")} · <a href="${root}api/${esc(o.a)}/">${esc(o.n)}</a></span></li>`).join("") + "</ul>" : "";
       } else {
         opsBox.innerHTML = "";
       }

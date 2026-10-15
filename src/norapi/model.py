@@ -28,6 +28,7 @@ CATEGORIES: dict[str, str] = {
     "annet": "Annet",
 }
 
+_ID = re.compile(r"[a-z0-9][a-z0-9-]{0,118}[a-z0-9]|[a-z0-9]")
 _SPEC_HINTS = ("openapi", "swagger", "api-docs", "apidocs", ".json", ".yaml", ".yml", "wsdl")
 _FORMAT_ALIASES = {
     "application/json": "JSON",
@@ -79,6 +80,8 @@ class ApiEntry:
     checks: dict[str, Any] | None = None
 
     def __post_init__(self) -> None:
+        if not _ID.fullmatch(self.id):
+            raise ValueError(f"{self.id!r}: id must be a slug (a-z, 0-9, hyphens)")
         if self.access not in ACCESS_VALUES:
             raise ValueError(
                 f"{self.id}: access must be one of {ACCESS_VALUES}, got {self.access!r}"

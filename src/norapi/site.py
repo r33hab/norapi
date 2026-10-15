@@ -113,8 +113,7 @@ class Site:
             f"{title} · norapi" if title != "norapi" else "norapi: norske offentlige API-er"
         )
         ld = "".join(
-            f'<script type="application/ld+json">{json.dumps(d, ensure_ascii=False)}</script>'
-            for d in jsonld or []
+            f'<script type="application/ld+json">{_jsonld(d)}</script>' for d in jsonld or []
         )
 
         def nav_link(href: str, label: str, key: str, secondary: bool = False) -> str:
@@ -477,14 +476,14 @@ class Site:
             facts.append(
                 (
                     "Dokumentasjon",
-                    f'<a href="{e(api["docs_url"])}" title="{e(api["docs_url"])}">{e(_link_label(api["docs_url"]))} →</a>',
+                    f'<a href="{safe_href(api["docs_url"])}" title="{e(api["docs_url"])}">{e(_link_label(api["docs_url"]))} →</a>',
                 )
             )
         if api.get("spec_url"):
             facts.append(
                 (
                     "Spesifikasjon",
-                    f'<a href="{e(api["spec_url"])}" title="{e(api["spec_url"])}">{e(_link_label(api["spec_url"]))} →</a>',
+                    f'<a href="{safe_href(api["spec_url"])}" title="{e(api["spec_url"])}">{e(_link_label(api["spec_url"]))} →</a>',
                 )
             )
         for endpoint in (api.get("endpoints") or [])[:3]:
@@ -507,7 +506,10 @@ class Site:
             facts.append(("Sist endret", e(api["modified"][:10])))
         if api["source"].get("catalogue_url"):
             facts.append(
-                ("Kilde", f'<a href="{e(api["source"]["catalogue_url"])}">data.norge.no →</a>')
+                (
+                    "Kilde",
+                    f'<a href="{safe_href(api["source"]["catalogue_url"])}">data.norge.no →</a>',
+                )
             )
         facts.append(
             (
@@ -902,6 +904,19 @@ def _link_label(url: str) -> str:
     host = parsed.netloc or url
     path = parsed.path.rstrip("/")
     return host + path if path and len(host + path) <= 40 else host
+
+
+def _jsonld(data: dict[str, Any]) -> str:
+    """JSON for a <script> block: angle brackets and ampersands escaped so data cannot close the tag."""
+    text = json.dumps(data, ensure_ascii=False)
+    return text.replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
+
+
+def safe_href(url: str | None) -> str:
+    """Only http(s) links are rendered as links; anything else becomes a dead anchor."""
+    if url and url.startswith(("https://", "http://")):
+        return e(url)
+    return "#"
 
 
 def _short_url(url: str) -> str:

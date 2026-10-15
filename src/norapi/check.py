@@ -14,6 +14,7 @@ from typing import Any
 import httpx
 
 from norapi.model import ApiEntry
+from norapi.netguard import is_public_url
 
 log = logging.getLogger(__name__)
 USER_AGENT = "norapi-linkcheck/0.1 (+https://github.com/r33hAB/norapi)"
@@ -59,6 +60,13 @@ def verdict(status: int | None) -> str:
 
 
 def _probe(client: httpx.Client, url: str) -> dict[str, Any]:
+    if not is_public_url(url):
+        return {
+            "url": url,
+            "status": None,
+            "verdict": "missing",
+            "error": "not a public http(s) URL",
+        }
     try:
         response = client.get(url)
         status = response.status_code

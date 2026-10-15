@@ -1,7 +1,7 @@
 {
  "name": "norapi",
  "version": "0.1.0",
- "generated_at": "2026-10-15T11:56:07+00:00",
+ "generated_at": "2026-10-15T11:59:46+00:00",
  "count": 1115,
  "sources": {
   "curated": 43,
@@ -43859,22 +43859,7 @@
    "spec_url": "https://akfell-innmelding.atlas.vegvesen.no/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/leasingtaker-resource",
    "docs_url": "https://autosys-kjoretoy-api.atlas.vegvesen.no/api-ui/index-leasingtaker.html",
    "probe_url": null,
-   "spec": {
-    "format": "swagger 2.0",
-    "title": "Swagger Petstore",
-    "version": "1.0.7",
-    "servers": [
-     "https://petstore.swagger.io/v2"
-    ],
-    "operations": 20,
-    "tags": [
-     "pet",
-     "store",
-     "user"
-    ],
-    "source_url": "https://petstore.swagger.io/v2/swagger.json",
-    "fetched_at": "2026-10-15T11:49:30+00:00"
-   },
+   "spec": null,
    "license": null,
    "keywords": [],
    "category": null,
@@ -43913,22 +43898,7 @@
    "spec_url": "https://akfell-innmelding.atlas.vegvesen.no/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/midlertidig-brukstillatelse-resource",
    "docs_url": "https://autosys-kjoretoy-api.atlas.vegvesen.no/api-ui/index-kjoreseddel.html",
    "probe_url": null,
-   "spec": {
-    "format": "swagger 2.0",
-    "title": "Swagger Petstore",
-    "version": "1.0.7",
-    "servers": [
-     "https://petstore.swagger.io/v2"
-    ],
-    "operations": 20,
-    "tags": [
-     "pet",
-     "store",
-     "user"
-    ],
-    "source_url": "https://petstore.swagger.io/v2/swagger.json",
-    "fetched_at": "2026-10-15T11:49:30+00:00"
-   },
+   "spec": null,
    "license": null,
    "keywords": [],
    "category": null,
@@ -43967,22 +43937,7 @@
    "spec_url": "https://akfell-datautlevering.atlas.vegvesen.no/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/enkelt-oppslag-resource",
    "docs_url": "https://autosys-kjoretoy-api.atlas.vegvesen.no/api-ui/index-enkeltoppslag.html",
    "probe_url": null,
-   "spec": {
-    "format": "swagger 2.0",
-    "title": "Swagger Petstore",
-    "version": "1.0.7",
-    "servers": [
-     "https://petstore.swagger.io/v2"
-    ],
-    "operations": 20,
-    "tags": [
-     "pet",
-     "store",
-     "user"
-    ],
-    "source_url": "https://petstore.swagger.io/v2/swagger.json",
-    "fetched_at": "2026-10-15T11:49:30+00:00"
-   },
+   "spec": null,
    "license": "http://creativecommons.org/licenses/by/4.0/",
    "keywords": [
     "kjøretøy",
@@ -44260,22 +44215,7 @@
    "spec_url": "https://akfell-innmelding.atlas.vegvesen.no/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/ecoc-resource",
    "docs_url": "https://autosys-kjoretoy-api.atlas.vegvesen.no/api-ui/index-ecoc.html",
    "probe_url": null,
-   "spec": {
-    "format": "swagger 2.0",
-    "title": "Swagger Petstore",
-    "version": "1.0.7",
-    "servers": [
-     "https://petstore.swagger.io/v2"
-    ],
-    "operations": 20,
-    "tags": [
-     "pet",
-     "store",
-     "user"
-    ],
-    "source_url": "https://petstore.swagger.io/v2/swagger.json",
-    "fetched_at": "2026-10-15T11:49:30+00:00"
-   },
+   "spec": null,
    "license": null,
    "keywords": [],
    "category": null,

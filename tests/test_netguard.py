@@ -1,0 +1,84 @@
+import httpx
+import pytest
+
+from norapi.model import ApiEntry, Provider
+from norapi.netguard import MAX_BODY_BYTES, get_capped, is_public_url, read_capped
+from norapi.site import _jsonld, safe_href
+
+
+@pytest.mark.parametrize(
+    "url",
+    [
+        "http://localhost/openapi.json",
+        "http://127.0.0.1:8080/",
+        "https://10.0.0.1/",
+        "https://192.168.1.1/api",
+        "http://169.254.169.254/latest/meta-data/",
+        "https://[::1]/",
+        "file:///etc/passwd",
+        "ftp://1.1.1.1/",
+        "https://",
+        "not a url",
+    ],
+)
+def test_private_or_non_http_urls_are_rejected(url):
+    assert is_public_url(url) is False
+
+
+def test_public_ip_literal_is_accepted():
+    assert is_public_url("https://1.1.1.1/") is True
+
+
+def test_get_capped_stops_at_the_limit():
+    big = b"x" * 1000
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, content=big)
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    response, body = get_capped(client, "https://x.no/spec.json", limit=100)
+    assert body is None, "larger than the cap: dropped, not buffered"
+    response, body = get_capped(client, "https://x.no/spec.json", limit=MAX_BODY_BYTES)
+    assert body == big
+
+
+def test_get_capped_refuses_private_targets_before_any_request():
+    calls = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls.append(str(request.url))
+        return httpx.Response(200, content=b"{}")
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    assert get_capped(client, "http://127.0.0.1/spec.json") is None
+    assert calls == []
+
+
+def test_read_capped_counts_streamed_chunks():
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, content=b"abc" * 10)
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    with client.stream("GET", "https://x.no/") as response:
+        assert read_capped(response, limit=5) is None
+
+
+def test_entry_ids_must_be_slugs():
+    for bad in ("../etc", "a b", "A", "", "x/y", "a--b-"[:-1] + "/"):
+        with pytest.raises(ValueError):
+            ApiEntry(id=bad, title="t", provider=Provider(name="p"))
+    ApiEntry(id="a", title="t", provider=Provider(name="p"))
+    ApiEntry(id="brreg-enhetsregisteret-2", title="t", provider=Provider(name="p"))
+
+
+def test_jsonld_cannot_close_its_script_tag():
+    text = _jsonld({"name": "</script><script>alert(1)</script>", "x": "a & b"})
+    assert "<" not in text and ">" not in text and "&" not in text
+    assert "\\u003c/script" in text
+
+
+def test_safe_href_only_renders_http_links():
+    assert safe_href("https://api.x.no/v1") == "https://api.x.no/v1"
+    assert safe_href("javascript:alert(1)") == "#"
+    assert safe_href(None) == "#"
+    assert safe_href('https://x.no/?a=1&b="2"') == "https://x.no/?a=1&amp;b=&quot;2&quot;"
