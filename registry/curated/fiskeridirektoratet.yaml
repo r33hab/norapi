@@ -1,0 +1,49 @@
+updated: 2026-10-19
+provider:
+  name: Fiskeridirektoratet
+  orgnr: "971203420"
+  sector: stat
+apis:
+  - id: fiskeridir-fartoyregisteret
+    title: Fartøyregisteret API
+    title_en: Norwegian fishing vessel register API
+    description: >-
+      Aktive fiskefartøy med navn, registreringsmerke, radiokallesignal, IMO-nummer, lengde, bredde, tonnasje og
+      kommune, filtrerbart på navn, kommune, lengde og kallesignal. Fiskeridirektoratets egen lisens for databruk gjelder.
+    category: bedrift-og-organisasjon
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.fiskeridir.no/vessel-api/api/v1/vessels
+    docs_url: https://api.fiskeridir.no/vessel-api/swagger-ui/
+    spec_url: https://api.fiskeridir.no/vessel-api/api/openapi
+    merge_with: https://api.fiskeridir.no/vessel-api/
+    license: FDIR-lisens for databruk
+    keywords: [fartøy, fiskefartøy, fartøyregister, kallesignal, imo, fiskeri, båt, vessel register]
+    tags: [no-auth]
+    quick_start: |
+      # fartøy registrert i Andøy (kommunenummer 1871)
+      curl "https://api.fiskeridir.no/vessel-api/api/v1/vessels?municipality_code=1871&per_page=5"
+
+  - id: fiskeridir-akvakulturregisteret
+    title: Akvakulturregisteret API
+    title_en: Aquaculture register API
+    description: >-
+      Lokaliteter og tillatelser for oppdrett av fisk og skalldyr: plassering med koordinater, vanntype, arter,
+      kapasitet, vedtak og grenser per lokalitet, og overføringer og koblinger per tillatelse.
+      Fiskeridirektoratets egen lisens for databruk gjelder.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.fiskeridir.no/pub-aqua/api/v1/sites
+    docs_url: https://api.fiskeridir.no/pub-aqua/api/api-docs
+    spec_url: https://api.fiskeridir.no/pub-aqua/api/api-docs
+    merge_with: https://api.fiskeridir.no/pub-aqua/
+    license: FDIR-lisens for databruk
+    keywords: [akvakultur, oppdrett, lokalitet, tillatelse, laks, fiskeoppdrett, aquaculture]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://api.fiskeridir.no/pub-aqua/api/v1/sites?range=0-2"

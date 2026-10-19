@@ -1,0 +1,40 @@
+updated: 2026-10-19
+provider:
+  name: KulturIT
+  orgnr: "915168175"
+  sector: privat
+apis:
+  - id: digitaltmuseum-api
+    title: DigitaltMuseum API (KulturIT)
+    description: >-
+      Gjenstander, fotografier og samlinger fra over 200 norske og svenske museer, med metadata, bilder og
+      lisens per objekt. Solr-basert søk med gratis API-nøkkel som fås fra KulturIT.
+    category: kultur-og-kunnskap
+    access: open
+    auth: api-key
+    formats: [JSON, XML]
+    endpoints:
+      - https://api.dimu.org/api/solr/select
+    docs_url: https://api.dimu.org/doc/
+    keywords: [museum, gjenstander, fotografi, samling, kulturarv, digitaltmuseum, dimu]
+    tags: [registration]
+
+  - id: kulturnav-api
+    title: KulturNav API
+    title_en: KulturNav authority data API
+    description: >-
+      Autoritetsdata for kulturarv: personer, organisasjoner, steder, emneord og begrepslister som museer bruker til
+      å beskrive samlingene sine, med stabile UUID-er. Åpne GET-kall uten nøkkel som gir JSON, med egne metoder for
+      søk, sammendrag, autoutfylling og telling. Lås versjonen i stien (/api/v1.5/) og send en beskrivende User-Agent.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON, RDF]
+    endpoints:
+      - https://kulturnav.org/api/v1.5/
+    docs_url: https://kulturnav.org/info/api
+    probe_url: https://kulturnav.org/api/v1.5/summary/entityType:Person,text:munch
+    keywords: [kulturnav, autoritetsdata, museum, kulturarv, personregister, emneord, begrep, authority data]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      curl -A "norapi-demo" "https://kulturnav.org/api/v1.5/summary/entityType:Person,text:munch"

@@ -3,6 +3,15 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com), newest first, grouped by date.
 
+## 2026-10-19
+### Added
+- Thirty more curated APIs, each probed live and with a quick start that was run: Lovdata open datasets, eInnsyn, Elhub energy data, Nav grunnbeløp, Matvaretabellen, Varsom, Regobs, NVE GridTimeSeries and magasinstatistikk, Entur Mobility v2 and vehicle positions, SSB PxWebApi 2, Sikt NVA and Cristin, NB DH-lab, KulturNav, Tolletaten open data, Arbeidstilsynet renholdsregisteret, Udir school and kindergarten registers, Fiskeridirektoratet vessel and aquaculture registers, Miljødirektoratet air quality, Finanstilsynet registry, plus keyed or registration-only APIs: Doffin, NOBIL, Enova's data portal, Vegvesen DATEX II, Patentstyret and Kassalapp.
+- Nine of them curate entries that were only harvested before (`merge_with` on the catalogue URI), so the raw Felles datakatalog rows get proper descriptions, docs and quick starts.
+### Changed
+- DigitaltMuseum moved from the Nasjonalbiblioteket file to a new KulturIT provider file, next to KulturNav; its id is unchanged.
+### Fixed
+- `norapi enrich` crashed with "Object of type date is not JSON serializable" on YAML specs with unquoted dates; YAML documents now go through a JSON round trip when parsed, which also turns integer status-code keys into strings like a JSON spec has.
+
 ## 2026-10-15
 ### Added
 - OpenAPI enrichment (`norapi enrich`): resolves specifications behind `spec_url` and Swagger UI pages, caches the documents, writes `registry/specs.json` and `registry/operations.json`, and indexes every operation so `norapi ops` and the MCP tool `search_operations` can land on a method and path.

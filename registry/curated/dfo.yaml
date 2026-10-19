@@ -1,0 +1,22 @@
+updated: 2026-10-19
+provider:
+  name: Direktoratet for forvaltning og økonomistyring (DFØ)
+  orgnr: "986252932"
+  sector: stat
+apis:
+  - id: dfo-doffin
+    title: Doffin API (offentlige anskaffelser)
+    title_en: Doffin public procurement API
+    description: >-
+      Kunngjøringer av offentlige anskaffelser i Norge fra Doffin, med søk og filtre og nedlasting av hele
+      kunngjøringen som JSON. Krever en abonnementsnøkkel fra Doffins API-portal, sendt i headeren
+      Ocp-Apim-Subscription-Key.
+    category: offentlig-forvaltning
+    access: open
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.doffin.no/public/v2/search
+    docs_url: https://dof-notices-prod-api.developer.azure-api.net/
+    keywords: [doffin, anskaffelse, anbud, konkurranse, kunngjøring, innkjøp, tender, procurement]
+    tags: [registration]

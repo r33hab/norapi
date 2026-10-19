@@ -129,7 +129,9 @@ def parse_document(text: str, content_type: str) -> dict[str, Any] | None:
         return None
     elif "openapi:" in stripped[:4000] or "swagger:" in stripped[:4000]:
         try:
-            document = yaml.safe_load(stripped)
+            # YAML turns unquoted dates into date objects and status codes into int keys;
+            # a JSON round trip makes the document match what a JSON spec would give.
+            document = json.loads(json.dumps(yaml.safe_load(stripped), default=str))
         except yaml.YAMLError:
             return None
     if not isinstance(document, dict) or not isinstance(document.get("paths"), dict):

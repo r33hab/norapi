@@ -1,12 +1,12 @@
 {
  "name": "norapi",
  "version": "0.1.0",
- "generated_at": "2026-10-15T12:12:56+00:00",
- "count": 1115,
+ "generated_at": "2026-10-19T08:39:54+00:00",
+ "count": 1136,
  "sources": {
-  "curated": 43,
-  "fdk": 1061,
-  "curated+fdk": 11
+  "curated": 64,
+  "fdk": 1052,
+  "curated+fdk": 20
  },
  "categories": {
   "bedrift-og-organisasjon": "Bedrifter, organisasjoner og registre",
@@ -76,7 +76,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T12:12:52+00:00",
+    "checked_at": "2026-10-19T08:38:33+00:00",
     "docs_url": {
      "url": "https://docs.altinn.studio/nb/api/",
      "status": 200,
@@ -88,6 +88,69 @@
      "status": 200,
      "verdict": "ok",
      "final_url": "https://platform.altinn.no/authentication/api/v1/openid/.well-known/openid-configuration"
+    }
+   }
+  },
+  {
+   "id": "arbeidstilsynet-renholdsregisteret",
+   "title": "Renholdsregisteret (XML-fil)",
+   "provider": {
+    "name": "Arbeidstilsynet",
+    "orgnr": "974761211",
+    "org_path": null,
+    "sector": "stat"
+   },
+   "description": "Alle renholdsvirksomheter som er godkjent av Arbeidstilsynet eller har søknad til behandling, med organisasjonsnummer, godkjenningsstatus, næringskoder, adresse og underenheter. Leveres som én XML-fil som genereres daglig, ikke som et søke-API. Det er ulovlig å kjøpe renhold fra virksomheter som ikke står i registeret.",
+   "summary": "Alle renholdsvirksomheter som er godkjent av Arbeidstilsynet eller har søknad til behandling, med organisasjonsnummer, godkjenningsstatus, næringskoder, adresse og underenheter. Leveres som én XML-fil som genereres daglig, ikke som et…",
+   "title_en": "Register of approved cleaning companies",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "XML"
+   ],
+   "endpoints": [
+    "https://registerdata.arbeidstilsynet.no/renhold_register.xml"
+   ],
+   "spec_url": null,
+   "docs_url": "https://data.norge.no/datasets/b3642673-6855-3af9-93b0-fe6f01fbaa5d",
+   "probe_url": null,
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "renhold",
+    "renholdsregisteret",
+    "godkjenning",
+    "renholdsvirksomhet",
+    "arbeidstilsynet",
+    "cleaning"
+   ],
+   "category": "bedrift-og-organisasjon",
+   "tags": [
+    "no-auth",
+    "data-files"
+   ],
+   "quick_start": "curl -O \"https://registerdata.arbeidstilsynet.no/renhold_register.xml\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "arbeidstilsynet.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:38:34+00:00",
+    "docs_url": {
+     "url": "https://data.norge.no/datasets/b3642673-6855-3af9-93b0-fe6f01fbaa5d",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://data.norge.no/nb/datasets/b3642673-6855-3af9-93b0-fe6f01fbaa5d/renholdsvirksomheter-godkjent-av-arbeidstilsynet"
+    },
+    "endpoint": {
+     "url": "https://registerdata.arbeidstilsynet.no/renhold_register.xml",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://registerdata.arbeidstilsynet.no/renhold_register.xml"
     }
    }
   },
@@ -141,7 +204,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T12:12:54+00:00",
+    "checked_at": "2026-10-19T08:38:34+00:00",
     "docs_url": {
      "url": "https://avinor.no/konsern/tjenester/flydata/",
      "status": 200,
@@ -203,7 +266,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T12:12:55+00:00",
+    "checked_at": "2026-10-19T08:38:35+00:00",
     "docs_url": {
      "url": "https://www.brreg.no/produkter-og-tjenester/apne-data/",
      "status": 200,
@@ -264,10 +327,10 @@
     "kind": "curated",
     "file": "digdir.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T12:12:56+00:00",
+    "checked_at": "2026-10-19T08:38:36+00:00",
     "docs_url": {
      "url": "https://docs.digdir.no/docs/idporten/",
      "status": 200,
@@ -328,10 +391,10 @@
     "kind": "curated",
     "file": "digdir.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T12:05:15+00:00",
+    "checked_at": "2026-10-19T08:38:36+00:00",
     "docs_url": {
      "url": "https://docs.digdir.no/docs/Kontaktregisteret/",
      "status": 200,
@@ -342,7 +405,7 @@
      "url": "https://kontaktregisteret.no/",
      "status": 200,
      "verdict": "ok",
-     "final_url": "https://login.microsoftonline.com/008e560f-08af-4cec-a056-b35447503991/oauth2/v2.0/authorize?response_type=code&client_id=23dddf29-f904-40b4-866c-2262a50f176e&scope=openid%20profile%20offline_access&state=Soe-SCt97xL_QR-1jXogh_uyeedmGvl5IzHpMOmqUxQ%3D&redirect_uri=https://kontaktregisteret.no/login/oauth2/code/&nonce=m2FYSafYcyRV_L7KPp1e6GO774GWByWIzshxsJmX5V8&code_challenge=ZVTxhYhkTMi-CVkZZoaSvgBr76JaciPJ35B3f6qqMPg&code_challenge_method=S256"
+     "final_url": "https://login.microsoftonline.com/008e560f-08af-4cec-a056-b35447503991/oauth2/v2.0/authorize?response_type=code&client_id=23dddf29-f904-40b4-866c-2262a50f176e&scope=openid%20profile%20offline_access&state=q5dQfENfd_IYEHzmARtUMtiU8Az3mSHAKfB0NyW60iA%3D&redirect_uri=https://kontaktregisteret.no/login/oauth2/code/&nonce=k4gjO94Ioo0j0tJyZDaWUnSiWxyQTzy6SkTKdWlrv0c&code_challenge=C-hwUc80QscrAuPOfSh_U_T1ttcuAR6gyACAsfgyGyE&code_challenge_method=S256"
     }
    }
   },
@@ -392,10 +455,10 @@
     "kind": "curated",
     "file": "digdir.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T12:05:16+00:00",
+    "checked_at": "2026-10-19T08:38:36+00:00",
     "docs_url": {
      "url": "https://docs.digdir.no/docs/Maskinporten/",
      "status": 200,
@@ -407,6 +470,182 @@
      "status": 200,
      "verdict": "ok",
      "final_url": "https://maskinporten.no/.well-known/oauth-authorization-server"
+    }
+   }
+  },
+  {
+   "id": "digdir-einnsyn",
+   "title": "eInnsyn API",
+   "provider": {
+    "name": "Digitaliseringsdirektoratet",
+    "orgnr": "991825827",
+    "org_path": null,
+    "sector": "stat"
+   },
+   "description": "Offentlige postjournaler og møtedokumenter fra statlige virksomheter, kommuner og fylker: journalposter, saksmapper, møter og dokumentbeskrivelser, modellert etter Noark 5. Søk svarer uten nøkkel. API-et er beskrevet i TypeSpec, og OpenAPI-dokumentet ligger i repoet felleslosninger/einnsyn-api-spec.",
+   "summary": "Offentlige postjournaler og møtedokumenter fra statlige virksomheter, kommuner og fylker: journalposter, saksmapper, møter og dokumentbeskrivelser, modellert etter Noark 5. Søk svarer uten nøkkel. API-et er beskrevet i TypeSpec, og…",
+   "title_en": "eInnsyn public records API",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://api.einnsyn.no/search"
+   ],
+   "spec_url": "https://raw.githubusercontent.com/felleslosninger/einnsyn-api-spec/main/openapi/einnsyn.openapi.yml",
+   "docs_url": "https://github.com/felleslosninger/einnsyn-api-spec",
+   "probe_url": "https://api.einnsyn.no/search?query=budsjett&limit=1",
+   "spec": {
+    "format": "openapi 3.0.0",
+    "title": "eInnsyn",
+    "version": "1.0",
+    "servers": [],
+    "operations": 205,
+    "tags": [
+     "ApiKey",
+     "Arkiv",
+     "Arkivdel",
+     "AuthInfo",
+     "Behandlingsprotokoll",
+     "Bruker",
+     "Dokumentbeskrivelse",
+     "Dokumentobjekt",
+     "Enhet",
+     "Identifikator",
+     "Innsynskrav",
+     "InnsynskravBestilling",
+     "Journalpost",
+     "Klasse",
+     "Klassifikasjonssystem",
+     "Korrespondansepart",
+     "LagretSak",
+     "LagretSoek",
+     "Matrikkelnummer",
+     "Moetedeltaker",
+     "Moetedokument",
+     "Moetemappe",
+     "Moetesak",
+     "Moetesaksbeskrivelse",
+     "Saksmappe",
+     "Search",
+     "Skjerming",
+     "Statistics",
+     "Tilbakemelding",
+     "Utredning",
+     "Vedtak",
+     "Votering"
+    ],
+    "source_url": "https://raw.githubusercontent.com/felleslosninger/einnsyn-api-spec/main/openapi/einnsyn.openapi.yml",
+    "fetched_at": "2026-10-19T08:39:26+00:00"
+   },
+   "license": null,
+   "keywords": [
+    "innsyn",
+    "postjournal",
+    "journalpost",
+    "saksmappe",
+    "møtedokument",
+    "offentlighet",
+    "noark",
+    "public records"
+   ],
+   "category": "offentlig-forvaltning",
+   "tags": [
+    "no-auth"
+   ],
+   "quick_start": "curl \"https://api.einnsyn.no/search?query=budsjett&limit=3\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "digdir.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:38:38+00:00",
+    "docs_url": {
+     "url": "https://github.com/felleslosninger/einnsyn-api-spec",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://github.com/felleslosninger/einnsyn-api-spec"
+    },
+    "spec_url": {
+     "url": "https://raw.githubusercontent.com/felleslosninger/einnsyn-api-spec/main/openapi/einnsyn.openapi.yml",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://raw.githubusercontent.com/felleslosninger/einnsyn-api-spec/main/openapi/einnsyn.openapi.yml"
+    },
+    "endpoint": {
+     "url": "https://api.einnsyn.no/search?query=budsjett&limit=1",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.einnsyn.no/search?query=budsjett&limit=1"
+    }
+   }
+  },
+  {
+   "id": "dfo-doffin",
+   "title": "Doffin API (offentlige anskaffelser)",
+   "provider": {
+    "name": "Direktoratet for forvaltning og økonomistyring (DFØ)",
+    "orgnr": "986252932",
+    "org_path": null,
+    "sector": "stat"
+   },
+   "description": "Kunngjøringer av offentlige anskaffelser i Norge fra Doffin, med søk og filtre og nedlasting av hele kunngjøringen som JSON. Krever en abonnementsnøkkel fra Doffins API-portal, sendt i headeren Ocp-Apim-Subscription-Key.",
+   "summary": "Kunngjøringer av offentlige anskaffelser i Norge fra Doffin, med søk og filtre og nedlasting av hele kunngjøringen som JSON. Krever en abonnementsnøkkel fra Doffins API-portal, sendt i headeren Ocp-Apim-Subscription-Key.",
+   "title_en": "Doffin public procurement API",
+   "access": "open",
+   "auth": "api-key",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://api.doffin.no/public/v2/search"
+   ],
+   "spec_url": null,
+   "docs_url": "https://dof-notices-prod-api.developer.azure-api.net/",
+   "probe_url": null,
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "doffin",
+    "anskaffelse",
+    "anbud",
+    "konkurranse",
+    "kunngjøring",
+    "innkjøp",
+    "tender",
+    "procurement"
+   ],
+   "category": "offentlig-forvaltning",
+   "tags": [
+    "registration"
+   ],
+   "quick_start": null,
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "dfo.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:38:38+00:00",
+    "docs_url": {
+     "url": "https://dof-notices-prod-api.developer.azure-api.net/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://dof-notices-prod-api.developer.azure-api.net/"
+    },
+    "endpoint": {
+     "url": "https://api.doffin.no/public/v2/search",
+     "status": 401,
+     "verdict": "answers",
+     "final_url": "https://api.doffin.no/public/v2/search"
     }
    }
   },
@@ -459,7 +698,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:08+00:00",
+    "checked_at": "2026-10-19T08:38:38+00:00",
     "docs_url": {
      "url": "https://dbh.hkdir.no/static/files/dokumenter/api/api_dokumentasjon.pdf",
      "status": 200,
@@ -471,6 +710,196 @@
      "status": 200,
      "verdict": "ok",
      "final_url": "https://dbh.hkdir.no/dbhapiklient/"
+    }
+   }
+  },
+  {
+   "id": "elhub-energy-data",
+   "title": "Elhub energidata",
+   "provider": {
+    "name": "Elhub",
+    "orgnr": "915925529",
+    "org_path": null,
+    "sector": "statlig-selskap"
+   },
+   "description": "Målt strømforbruk og -produksjon fra Elhub, datahuben for alle strømmålere i Norge: per time, per prisområde (NO1 til NO5) og per kommune. Forbruk er fordelt på husholdning, hytte og næringsgrupper, produksjon på vann, vind, sol, termisk og annet, med antall målepunkter. JSON:API uten nøkkel.",
+   "summary": "Målt strømforbruk og -produksjon fra Elhub, datahuben for alle strømmålere i Norge: per time, per prisområde (NO1 til NO5) og per kommune. Forbruk er fordelt på husholdning, hytte og næringsgrupper, produksjon på vann, vind, sol, termisk…",
+   "title_en": "Elhub energy data API",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://api.elhub.no/energy-data/v0/price-areas"
+   ],
+   "spec_url": null,
+   "docs_url": "https://api.elhub.no/energy-data-api",
+   "probe_url": "https://api.elhub.no/energy-data/v0/price-areas/NO1?dataset=CONSUMPTION_PER_GROUP_MBA_HOUR&startDate=2026-10-17T00:00:00%2B02:00&endDate=2026-10-17T01:00:00%2B02:00",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "strømforbruk",
+    "kraftproduksjon",
+    "elhub",
+    "prisområde",
+    "målepunkt",
+    "forbruk",
+    "energi",
+    "electricity consumption"
+   ],
+   "category": "natur-og-miljo",
+   "tags": [
+    "no-auth"
+   ],
+   "quick_start": "curl \"https://api.elhub.no/energy-data/v0/price-areas/NO1?dataset=CONSUMPTION_PER_GROUP_MBA_HOUR&startDate=2026-10-17T00:00:00%2B02:00&endDate=2026-10-17T01:00:00%2B02:00\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "elhub.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:38:39+00:00",
+    "docs_url": {
+     "url": "https://api.elhub.no/energy-data-api",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.elhub.no/energy-data-api"
+    },
+    "endpoint": {
+     "url": "https://api.elhub.no/energy-data/v0/price-areas/NO1?dataset=CONSUMPTION_PER_GROUP_MBA_HOUR&startDate=2026-10-17T00:00:00%2B02:00&endDate=2026-10-17T01:00:00%2B02:00",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.elhub.no/energy-data/v0/price-areas/NO1?dataset=CONSUMPTION_PER_GROUP_MBA_HOUR&startDate=2026-10-17T00:00:00%2B02:00&endDate=2026-10-17T01:00:00%2B02:00"
+    }
+   }
+  },
+  {
+   "id": "enova-dataportal",
+   "title": "Enovas data- og API-portal",
+   "provider": {
+    "name": "Enova",
+    "orgnr": "983609155",
+    "org_path": null,
+    "sector": "statlig-selskap"
+   },
+   "description": "Inngangen til Enovas API-er, blant annet data om energimerking av bygninger. De fleste API-ene krever egne rettigheter som Enova må godkjenne, og registrering på vegne av et firma skal skje med firmanavn og en felles e-postadresse. Nøkkelen ligger under profilen etter godkjenning.",
+   "summary": "Inngangen til Enovas API-er, blant annet data om energimerking av bygninger. De fleste API-ene krever egne rettigheter som Enova må godkjenne, og registrering på vegne av et firma skal skje med firmanavn og en felles e-postadresse…",
+   "title_en": "Enova data and API portal",
+   "access": "restricted",
+   "auth": "api-key",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://data.enova.no/"
+   ],
+   "spec_url": null,
+   "docs_url": "https://data.enova.no/",
+   "probe_url": null,
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "enova",
+    "energimerke",
+    "energiattest",
+    "energimerking",
+    "bygning",
+    "energi",
+    "energy certificate"
+   ],
+   "category": "natur-og-miljo",
+   "tags": [
+    "registration"
+   ],
+   "quick_start": null,
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "enova.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:38:39+00:00",
+    "docs_url": {
+     "url": "https://data.enova.no/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://data.enova.no/"
+    },
+    "endpoint": {
+     "url": "https://data.enova.no/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://data.enova.no/"
+    }
+   }
+  },
+  {
+   "id": "enova-nobil",
+   "title": "NOBIL ladestasjoner",
+   "provider": {
+    "name": "Enova",
+    "orgnr": "983609155",
+    "org_path": null,
+    "sector": "statlig-selskap"
+   },
+   "description": "Den nasjonale databasen over offentlige ladestasjoner for elbil, med plassering og ladepunkter per stasjon. Krever en API-nøkkel som du ber om fra NOBIL. Dokumentasjonen er en PDF på informasjonssiden, og dataene er lisensiert under CC BY 4.0.",
+   "summary": "Den nasjonale databasen over offentlige ladestasjoner for elbil, med plassering og ladepunkter per stasjon. Krever en API-nøkkel som du ber om fra NOBIL. Dokumentasjonen er en PDF på informasjonssiden, og dataene er lisensiert under CC BY…",
+   "title_en": "NOBIL charging station database",
+   "access": "open",
+   "auth": "api-key",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://nobil.no/api/server/search.php"
+   ],
+   "spec_url": null,
+   "docs_url": "https://info.nobil.no/api",
+   "probe_url": null,
+   "spec": null,
+   "license": "CC BY 4.0",
+   "keywords": [
+    "ladestasjon",
+    "elbil",
+    "lading",
+    "ladepunkt",
+    "nobil",
+    "hurtiglader",
+    "ev charging"
+   ],
+   "category": "transport-og-samferdsel",
+   "tags": [
+    "registration"
+   ],
+   "quick_start": null,
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "enova.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:38:39+00:00",
+    "docs_url": {
+     "url": "https://info.nobil.no/api",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://info.nobil.no/api"
+    },
+    "endpoint": {
+     "url": "https://nobil.no/api/server/search.php",
+     "status": 400,
+     "verdict": "answers",
+     "final_url": "https://nobil.no/api/server/search.php"
     }
    }
   },
@@ -518,10 +947,10 @@
     "kind": "curated",
     "file": "entur.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:08+00:00",
+    "checked_at": "2026-10-19T08:38:40+00:00",
     "docs_url": {
      "url": "https://developer.entur.org/pages-geocoder-intro",
      "status": 200,
@@ -588,10 +1017,10 @@
     "kind": "curated",
     "file": "entur.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:08+00:00",
+    "checked_at": "2026-10-19T08:38:40+00:00",
     "docs_url": {
      "url": "https://developer.entur.org/pages-journeyplanner-journeyplanner",
      "status": 200,
@@ -603,6 +1032,141 @@
      "status": 405,
      "verdict": "answers",
      "final_url": "https://api.entur.io/journey-planner/v3/graphql"
+    }
+   }
+  },
+  {
+   "id": "entur-vehicle-positions",
+   "title": "Kjøretøyposisjoner (GraphQL)",
+   "provider": {
+    "name": "Entur",
+    "orgnr": "917422575",
+    "org_path": null,
+    "sector": "statlig-selskap"
+   },
+   "description": "Busser, trikker og tog i sanntid: posisjon, fart, retning, forsinkelse, linje, neste stopp og belegg, filtrert på operatør (codespace), linje eller område. Samme kilde som SIRI VM i sanntidsoppføringen, men som GraphQL med abonnement for strømming. Krever en ET-Client-Name-header.",
+   "summary": "Busser, trikker og tog i sanntid: posisjon, fart, retning, forsinkelse, linje, neste stopp og belegg, filtrert på operatør (codespace), linje eller område. Samme kilde som SIRI VM i sanntidsoppføringen, men som GraphQL med abonnement for…",
+   "title_en": "Vehicle positions",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "GraphQL"
+   ],
+   "endpoints": [
+    "https://api.entur.io/realtime/v2/vehicles/graphql"
+   ],
+   "spec_url": null,
+   "docs_url": "https://developer.entur.org/pages-real-time-vehicle-positions",
+   "probe_url": null,
+   "spec": null,
+   "license": "NLOD 2.0",
+   "keywords": [
+    "kjøretøyposisjon",
+    "sanntid",
+    "buss",
+    "trikk",
+    "tog",
+    "forsinkelse",
+    "gps",
+    "vehicle positions",
+    "realtime"
+   ],
+   "category": "transport-og-samferdsel",
+   "tags": [
+    "no-auth",
+    "graphql",
+    "streaming"
+   ],
+   "quick_start": "curl -X POST https://api.entur.io/realtime/v2/vehicles/graphql \\\n  -H \"Content-Type: application/json\" -H \"ET-Client-Name: norapi-demo\" \\\n  -d '{\"query\":\"{ vehicles(codespaceId: \\\"ATB\\\") { vehicleId lastUpdated delay line { publicCode } location { latitude longitude } } }\"}'\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "entur.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:38:40+00:00",
+    "docs_url": {
+     "url": "https://developer.entur.org/pages-real-time-vehicle-positions",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://developer.entur.org/pages-real-time-vehicle-positions"
+    },
+    "endpoint": {
+     "url": "https://api.entur.io/realtime/v2/vehicles/graphql",
+     "status": 405,
+     "verdict": "answers",
+     "final_url": "https://api.entur.io/realtime/v2/vehicles/graphql"
+    }
+   }
+  },
+  {
+   "id": "entur-mobility",
+   "title": "Mobility v2 (delte sparkesykler, sykler og biler)",
+   "provider": {
+    "name": "Entur",
+    "orgnr": "917422575",
+    "org_path": null,
+    "sector": "statlig-selskap"
+   },
+   "description": "Delte sparkesykler, bysykler og delebiler fra alle operatører i Norge i ett GraphQL-API: kjøretøy med posisjon, stasjoner med ledige plasser, operatører og geofencing-soner. Bygger på GBFS-feedene fra operatørene, som også kan hentes rått under /mobility/v2/gbfs. Krever en ET-Client-Name-header.",
+   "summary": "Delte sparkesykler, bysykler og delebiler fra alle operatører i Norge i ett GraphQL-API: kjøretøy med posisjon, stasjoner med ledige plasser, operatører og geofencing-soner. Bygger på GBFS-feedene fra operatørene, som også kan hentes rått…",
+   "title_en": "Shared mobility API",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "GraphQL",
+    "GBFS"
+   ],
+   "endpoints": [
+    "https://api.entur.io/mobility/v2/graphql"
+   ],
+   "spec_url": null,
+   "docs_url": "https://developer.entur.org/pages-mobility-docs-mobility-v2/",
+   "probe_url": null,
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "sparkesykkel",
+    "bysykkel",
+    "bildeling",
+    "delt mobilitet",
+    "gbfs",
+    "mikromobilitet",
+    "scooter",
+    "shared mobility"
+   ],
+   "category": "transport-og-samferdsel",
+   "tags": [
+    "no-auth",
+    "graphql"
+   ],
+   "quick_start": "curl -X POST https://api.entur.io/mobility/v2/graphql \\\n  -H \"Content-Type: application/json\" -H \"ET-Client-Name: norapi-demo\" \\\n  -d '{\"query\":\"{ vehicles(lat: 59.911, lon: 10.750, range: 300, count: 3) { id lat lon system { name { translation { value } } } } }\"}'\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "entur.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:38:40+00:00",
+    "docs_url": {
+     "url": "https://developer.entur.org/pages-mobility-docs-mobility-v2/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://developer.entur.org/pages-mobility-docs-mobility-v2/"
+    },
+    "endpoint": {
+     "url": "https://api.entur.io/mobility/v2/graphql",
+     "status": 405,
+     "verdict": "answers",
+     "final_url": "https://api.entur.io/mobility/v2/graphql"
     }
    }
   },
@@ -651,10 +1215,10 @@
     "kind": "curated",
     "file": "entur.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:08+00:00",
+    "checked_at": "2026-10-19T08:38:41+00:00",
     "docs_url": {
      "url": "https://developer.entur.org/pages-nsr-nsr",
      "status": 200,
@@ -716,10 +1280,10 @@
     "kind": "curated",
     "file": "entur.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:09+00:00",
+    "checked_at": "2026-10-19T08:38:41+00:00",
     "docs_url": {
      "url": "https://developer.entur.org/stops-and-timetable-data",
      "status": 200,
@@ -782,10 +1346,10 @@
     "kind": "curated",
     "file": "entur.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:54+00:00",
+    "checked_at": "2026-10-19T08:38:57+00:00",
     "docs_url": {
      "url": "https://developer.entur.org/pages-real-time-intro",
      "status": 200,
@@ -848,7 +1412,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:55+00:00",
+    "checked_at": "2026-10-19T08:38:58+00:00",
     "docs_url": {
      "url": "https://github.com/folkehelseinstituttet/Fhi.Statistikk.OpenAPI",
      "status": 200,
@@ -919,7 +1483,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:55+00:00",
+    "checked_at": "2026-10-19T08:38:59+00:00",
     "docs_url": {
      "url": "https://www.helsedirektoratet.no/om-oss/apne-data-api/om-api-tjenesten",
      "status": 200,
@@ -984,7 +1548,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:56+00:00",
+    "checked_at": "2026-10-19T08:38:59+00:00",
     "docs_url": {
      "url": "https://www.hvakosterstrommen.no/strompris-api",
      "status": 200,
@@ -1048,7 +1612,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:56+00:00",
+    "checked_at": "2026-10-19T08:38:59+00:00",
     "docs_url": {
      "url": "https://ws.geonorge.no/adresser/v1/",
      "status": 200,
@@ -1111,7 +1675,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:56+00:00",
+    "checked_at": "2026-10-19T08:38:59+00:00",
     "docs_url": {
      "url": "https://kartkatalog.geonorge.no/swagger/index.html",
      "status": 200,
@@ -1174,7 +1738,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:56+00:00",
+    "checked_at": "2026-10-19T08:38:59+00:00",
     "docs_url": {
      "url": "https://www.kartverket.no/api-og-data/eiendomsdata",
      "status": 200,
@@ -1237,7 +1801,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:56+00:00",
+    "checked_at": "2026-10-19T08:39:00+00:00",
     "docs_url": {
      "url": "https://www.kartverket.no/til-sjos/se-havniva",
      "status": 200,
@@ -1249,6 +1813,292 @@
      "status": 200,
      "verdict": "ok",
      "final_url": "https://vannstand.kartverket.no/tideapi.php?tide_request=stationlist&type=perm"
+    }
+   }
+  },
+  {
+   "id": "kassalapp-api",
+   "title": "Kassalapp API (dagligvarer og priser)",
+   "provider": {
+    "name": "Kassalapp (privat)",
+    "orgnr": null,
+    "org_path": null,
+    "sector": "privat"
+   },
+   "description": "Produkter, priser, prishistorikk og næringsinnhold for dagligvarer i norske butikker, med fritekstsøk og EAN. Gratis nøkkel for hobbyprosjekter med 60 kall i minuttet og uten kommersiell bruk; kommersiell tilgang koster. Privat tjeneste.",
+   "summary": "Produkter, priser, prishistorikk og næringsinnhold for dagligvarer i norske butikker, med fritekstsøk og EAN. Gratis nøkkel for hobbyprosjekter med 60 kall i minuttet og uten kommersiell bruk; kommersiell tilgang koster. Privat tjeneste.",
+   "title_en": "Kassalapp grocery price API",
+   "access": "open",
+   "auth": "api-key",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://kassal.app/api/v1/products"
+   ],
+   "spec_url": null,
+   "docs_url": "https://kassal.app/api/docs",
+   "probe_url": null,
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "dagligvare",
+    "matpris",
+    "pris",
+    "ean",
+    "strekkode",
+    "butikk",
+    "prishistorikk",
+    "grocery prices"
+   ],
+   "category": "annet",
+   "tags": [
+    "registration",
+    "private-provider"
+   ],
+   "quick_start": null,
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "kassalapp.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:00+00:00",
+    "docs_url": {
+     "url": "https://kassal.app/api/docs",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://kassal.app/api/docs"
+    },
+    "endpoint": {
+     "url": "https://kassal.app/api/v1/products",
+     "status": 401,
+     "verdict": "answers",
+     "final_url": "https://kassal.app/api/v1/products"
+    }
+   }
+  },
+  {
+   "id": "digitaltmuseum-api",
+   "title": "DigitaltMuseum API (KulturIT)",
+   "provider": {
+    "name": "KulturIT",
+    "orgnr": "915168175",
+    "org_path": null,
+    "sector": "privat"
+   },
+   "description": "Gjenstander, fotografier og samlinger fra over 200 norske og svenske museer, med metadata, bilder og lisens per objekt. Solr-basert søk med gratis API-nøkkel som fås fra KulturIT.",
+   "summary": "Gjenstander, fotografier og samlinger fra over 200 norske og svenske museer, med metadata, bilder og lisens per objekt. Solr-basert søk med gratis API-nøkkel som fås fra KulturIT.",
+   "title_en": null,
+   "access": "open",
+   "auth": "api-key",
+   "formats": [
+    "JSON",
+    "XML"
+   ],
+   "endpoints": [
+    "https://api.dimu.org/api/solr/select"
+   ],
+   "spec_url": null,
+   "docs_url": "https://api.dimu.org/doc/",
+   "probe_url": null,
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "museum",
+    "gjenstander",
+    "fotografi",
+    "samling",
+    "kulturarv",
+    "digitaltmuseum",
+    "dimu"
+   ],
+   "category": "kultur-og-kunnskap",
+   "tags": [
+    "registration"
+   ],
+   "quick_start": null,
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "kulturit.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:01+00:00",
+    "docs_url": {
+     "url": "https://api.dimu.org/doc/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.dimu.org/doc/"
+    },
+    "endpoint": {
+     "url": "https://api.dimu.org/api/solr/select",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.dimu.org/doc/public_api.html"
+    }
+   }
+  },
+  {
+   "id": "kulturnav-api",
+   "title": "KulturNav API",
+   "provider": {
+    "name": "KulturIT",
+    "orgnr": "915168175",
+    "org_path": null,
+    "sector": "privat"
+   },
+   "description": "Autoritetsdata for kulturarv: personer, organisasjoner, steder, emneord og begrepslister som museer bruker til å beskrive samlingene sine, med stabile UUID-er. Åpne GET-kall uten nøkkel som gir JSON, med egne metoder for søk, sammendrag, autoutfylling og telling. Lås versjonen i stien (/api/v1.5/) og send en beskrivende User-Agent.",
+   "summary": "Autoritetsdata for kulturarv: personer, organisasjoner, steder, emneord og begrepslister som museer bruker til å beskrive samlingene sine, med stabile UUID-er. Åpne GET-kall uten nøkkel som gir JSON, med egne metoder for søk, sammendrag…",
+   "title_en": "KulturNav authority data API",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "RDF"
+   ],
+   "endpoints": [
+    "https://kulturnav.org/api/v1.5/"
+   ],
+   "spec_url": null,
+   "docs_url": "https://kulturnav.org/info/api",
+   "probe_url": "https://kulturnav.org/api/v1.5/summary/entityType:Person,text:munch",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "kulturnav",
+    "autoritetsdata",
+    "museum",
+    "kulturarv",
+    "personregister",
+    "emneord",
+    "begrep",
+    "authority data"
+   ],
+   "category": "kultur-og-kunnskap",
+   "tags": [
+    "no-auth",
+    "reference-data"
+   ],
+   "quick_start": "curl -A \"norapi-demo\" \"https://kulturnav.org/api/v1.5/summary/entityType:Person,text:munch\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "kulturit.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:01+00:00",
+    "docs_url": {
+     "url": "https://kulturnav.org/info/api",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://kulturnav.org/info/api"
+    },
+    "endpoint": {
+     "url": "https://kulturnav.org/api/v1.5/summary/entityType:Person,text:munch",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://kulturnav.org/api/v1.5/summary/entityType:Person,text:munch"
+    }
+   }
+  },
+  {
+   "id": "lovdata-public-data",
+   "title": "Lovdata API, åpne datasett (lover og forskrifter)",
+   "provider": {
+    "name": "Lovdata",
+    "orgnr": "934282744",
+    "org_path": null,
+    "sector": "privat"
+   },
+   "description": "Gjeldende lover og gjeldende sentrale forskrifter som komplette datasett, ajourført med endringer, og Norsk Lovtidend avd. I per år. Pakkene er tar.bz2 med én XML-fil per dokument og hentes uten bruker eller nøkkel. List-endepunktet viser hvilke pakker som finnes og når de sist ble oppdatert. Ikke et søke-API.",
+   "summary": "Gjeldende lover og gjeldende sentrale forskrifter som komplette datasett, ajourført med endringer, og Norsk Lovtidend avd. I per år. Pakkene er tar.bz2 med én XML-fil per dokument og hentes uten bruker eller nøkkel. List-endepunktet viser…",
+   "title_en": "Lovdata public data",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "XML",
+    "tar.bz2"
+   ],
+   "endpoints": [
+    "https://api.lovdata.no/v1/publicData/list"
+   ],
+   "spec_url": "https://api.lovdata.no/swagger/api.json",
+   "docs_url": "https://api.lovdata.no/swagger",
+   "probe_url": null,
+   "spec": {
+    "format": "openapi 3.1.0",
+    "title": "Lovdata API",
+    "version": "latest",
+    "servers": [],
+    "operations": 34,
+    "tags": [
+     "AI functionality",
+     "API-documentation",
+     "Content services",
+     "Document upload",
+     "Public data",
+     "Services",
+     "Structured rules",
+     "System calls",
+     "Vocabularies"
+    ],
+    "source_url": "https://api.lovdata.no/swagger/api.json",
+    "fetched_at": "2026-10-19T08:39:26+00:00"
+   },
+   "license": null,
+   "keywords": [
+    "lov",
+    "lover",
+    "forskrift",
+    "lovtidend",
+    "regelverk",
+    "juss",
+    "lovdata",
+    "legislation"
+   ],
+   "category": "offentlig-forvaltning",
+   "tags": [
+    "no-auth",
+    "data-files"
+   ],
+   "quick_start": "curl \"https://api.lovdata.no/v1/publicData/list\"\ncurl -O \"https://api.lovdata.no/v1/publicData/get/gjeldende-lover.tar.bz2\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "lovdata.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:01+00:00",
+    "docs_url": {
+     "url": "https://api.lovdata.no/swagger",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.lovdata.no/swagger"
+    },
+    "spec_url": {
+     "url": "https://api.lovdata.no/swagger/api.json",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.lovdata.no/swagger/api.json"
+    },
+    "endpoint": {
+     "url": "https://api.lovdata.no/v1/publicData/list",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.lovdata.no/v1/publicData/list"
     }
    }
   },
@@ -1303,7 +2153,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:57+00:00",
+    "checked_at": "2026-10-19T08:39:02+00:00",
     "docs_url": {
      "url": "https://dronesoner.no/",
      "status": 200,
@@ -1315,6 +2165,73 @@
      "status": 200,
      "verdict": "ok",
      "final_url": "https://dronesoner.no/"
+    }
+   }
+  },
+  {
+   "id": "mattilsynet-matvaretabellen",
+   "title": "Matvaretabellens API",
+   "provider": {
+    "name": "Mattilsynet",
+    "orgnr": "985399077",
+    "org_path": null,
+    "sector": "stat"
+   },
+   "description": "Næringsinnholdet i over 2000 matvarer med energi, makronæringsstoffer, vitaminer og mineraler, porsjonsstørrelser, matvaregrupper, LanguaL-koder og kilder, på norsk og engelsk. Fem statiske JSON- eller EDN-filer som oppdateres hver høst, så de egner seg godt til mellomlagring. Oppgi Matvaretabellen som kilde.",
+   "summary": "Næringsinnholdet i over 2000 matvarer med energi, makronæringsstoffer, vitaminer og mineraler, porsjonsstørrelser, matvaregrupper, LanguaL-koder og kilder, på norsk og engelsk. Fem statiske JSON- eller EDN-filer som oppdateres hver høst…",
+   "title_en": "Norwegian Food Composition Table",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "EDN"
+   ],
+   "endpoints": [
+    "https://www.matvaretabellen.no/api/nb/foods.json"
+   ],
+   "spec_url": null,
+   "docs_url": "https://www.matvaretabellen.no/api/",
+   "probe_url": "https://www.matvaretabellen.no/api/nb/food-groups.json",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "matvare",
+    "næringsinnhold",
+    "kalorier",
+    "vitaminer",
+    "ernæring",
+    "kosthold",
+    "matvaretabellen",
+    "food composition"
+   ],
+   "category": "arbeid-og-velferd",
+   "tags": [
+    "no-auth",
+    "reference-data",
+    "data-files"
+   ],
+   "quick_start": "curl \"https://www.matvaretabellen.no/api/nb/food-groups.json\"\ncurl \"https://www.matvaretabellen.no/api/nb/foods.json\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "mattilsynet.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:02+00:00",
+    "docs_url": {
+     "url": "https://www.matvaretabellen.no/api/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://www.matvaretabellen.no/api/"
+    },
+    "endpoint": {
+     "url": "https://www.matvaretabellen.no/api/nb/food-groups.json",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://www.matvaretabellen.no/api/nb/food-groups.json"
     }
    }
   },
@@ -1368,7 +2285,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:57+00:00",
+    "checked_at": "2026-10-19T08:39:02+00:00",
     "docs_url": {
      "url": "https://api.met.no/weatherapi/locationforecast/2.0/documentation",
      "status": 200,
@@ -1384,66 +2301,84 @@
    }
   },
   {
-   "id": "digitaltmuseum-api",
-   "title": "DigitaltMuseum API (KulturIT)",
+   "id": "nb-dhlab",
+   "title": "DH-lab API (tekst- og korpusanalyse)",
    "provider": {
     "name": "Nasjonalbiblioteket",
     "orgnr": "976029100",
     "org_path": null,
     "sector": "stat"
    },
-   "description": "Gjenstander, fotografier og samlinger fra over 200 norske og svenske museer, med metadata, bilder og lisens per objekt. Solr-basert søk med gratis API-nøkkel som fås fra KulturIT. Driftes av KulturIT, som eies av museene, og er oppført her under Nasjonalbiblioteket-filen av praktiske grunner.",
-   "summary": "Gjenstander, fotografier og samlinger fra over 200 norske og svenske museer, med metadata, bilder og lisens per objekt. Solr-basert søk med gratis API-nøkkel som fås fra KulturIT. Driftes av KulturIT, som eies av museene, og er oppført her…",
-   "title_en": null,
+   "description": "Tekstanalyse over Nasjonalbibliotekets samling: n-gram over bøker, aviser og tidsskrifter, konkordanser, frekvenslister, spredning og egne korpus satt sammen fra metadata. Det er API-et bak Python-pakken dhlab, og Swagger-dokumentasjonen ligger på selve API-et.",
+   "summary": "Tekstanalyse over Nasjonalbibliotekets samling: n-gram over bøker, aviser og tidsskrifter, konkordanser, frekvenslister, spredning og egne korpus satt sammen fra metadata. Det er API-et bak Python-pakken dhlab, og Swagger-dokumentasjonen…",
+   "title_en": "DH-lab text analysis API",
    "access": "open",
-   "auth": "api-key",
+   "auth": "none",
    "formats": [
-    "JSON",
-    "XML"
+    "JSON"
    ],
    "endpoints": [
-    "https://api.dimu.org/api/solr/select"
+    "https://api.nb.no/dhlab/"
    ],
-   "spec_url": null,
-   "docs_url": "https://api.dimu.org/doc/",
-   "probe_url": null,
-   "spec": null,
+   "spec_url": "https://api.nb.no/dhlab/apispec_1.json",
+   "docs_url": "https://api.nb.no/dhlab/",
+   "probe_url": "https://api.nb.no/dhlab/totals/5",
+   "spec": {
+    "format": "swagger 2.0",
+    "title": "A swagger API",
+    "version": "0.0.1",
+    "servers": [
+     "https://api.nb.no/dhlab"
+    ],
+    "operations": 21,
+    "tags": [],
+    "source_url": "https://api.nb.no/dhlab/apispec_1.json",
+    "fetched_at": "2026-10-19T08:39:26+00:00"
+   },
    "license": null,
    "keywords": [
-    "museum",
-    "gjenstander",
-    "fotografi",
-    "samling",
-    "kulturarv",
-    "digitaltmuseum",
-    "dimu"
+    "ngram",
+    "korpus",
+    "konkordans",
+    "tekstanalyse",
+    "språk",
+    "digital humaniora",
+    "frekvens",
+    "dhlab",
+    "corpus"
    ],
    "category": "kultur-og-kunnskap",
    "tags": [
-    "registration"
+    "no-auth"
    ],
-   "quick_start": null,
+   "quick_start": "curl -X POST https://api.nb.no/dhlab/ngram_book -H \"Content-Type: application/json\" \\\n  -d '{\"word\":[\"klima\"],\"period\":[2000,2005]}'\n",
    "status": null,
    "modified": null,
    "source": {
     "kind": "curated",
     "file": "kultur-og-kunnskap.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:57+00:00",
+    "checked_at": "2026-10-19T08:39:02+00:00",
     "docs_url": {
-     "url": "https://api.dimu.org/doc/",
+     "url": "https://api.nb.no/dhlab/",
      "status": 200,
      "verdict": "ok",
-     "final_url": "https://api.dimu.org/doc/"
+     "final_url": "https://api.nb.no/dhlab/"
+    },
+    "spec_url": {
+     "url": "https://api.nb.no/dhlab/apispec_1.json",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.nb.no/dhlab/apispec_1.json"
     },
     "endpoint": {
-     "url": "https://api.dimu.org/api/solr/select",
+     "url": "https://api.nb.no/dhlab/totals/5",
      "status": 200,
      "verdict": "ok",
-     "final_url": "https://api.dimu.org/doc/public_api.html"
+     "final_url": "https://api.nb.no/dhlab/totals/5"
     }
    }
   },
@@ -1494,10 +2429,10 @@
     "kind": "curated",
     "file": "kultur-og-kunnskap.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:57+00:00",
+    "checked_at": "2026-10-19T08:39:02+00:00",
     "docs_url": {
      "url": "https://api.nb.no/",
      "status": 200,
@@ -1509,6 +2444,71 @@
      "status": 200,
      "verdict": "ok",
      "final_url": "https://api.nb.no/catalog/v1/items?q=Ibsen&size=1"
+    }
+   }
+  },
+  {
+   "id": "nav-grunnbelop",
+   "title": "Grunnbeløpet (G)",
+   "provider": {
+    "name": "Nav",
+    "orgnr": "889640782",
+    "org_path": null,
+    "sector": "stat"
+   },
+   "description": "Gjeldende grunnbeløp i folketrygden med månedsbeløp, gjennomsnitt per år og omregningsfaktor, og grunnbeløpet som gjaldt på en gitt dato med parameteren dato. Ett lite endepunkt for alt som regner ytelser, pensjon eller grenser i G.",
+   "summary": "Gjeldende grunnbeløp i folketrygden med månedsbeløp, gjennomsnitt per år og omregningsfaktor, og grunnbeløpet som gjaldt på en gitt dato med parameteren dato. Ett lite endepunkt for alt som regner ytelser, pensjon eller grenser i G.",
+   "title_en": "National insurance base amount",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://g.nav.no/api/v1/grunnbel%C3%B8p"
+   ],
+   "spec_url": null,
+   "docs_url": "https://github.com/navikt/g",
+   "probe_url": null,
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "grunnbeløp",
+    "g",
+    "folketrygd",
+    "pensjon",
+    "trygd",
+    "ytelse",
+    "omregningsfaktor",
+    "base amount"
+   ],
+   "category": "arbeid-og-velferd",
+   "tags": [
+    "no-auth",
+    "reference-data"
+   ],
+   "quick_start": "curl \"https://g.nav.no/api/v1/grunnbeløp\"\ncurl \"https://g.nav.no/api/v1/grunnbeløp?dato=2020-06-01\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "nav.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:04+00:00",
+    "docs_url": {
+     "url": "https://github.com/navikt/g",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://github.com/navikt/g"
+    },
+    "endpoint": {
+     "url": "https://g.nav.no/api/v1/grunnbel%C3%B8p",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://g.nav.no/api/v1/grunnbel%C3%B8p"
     }
    }
   },
@@ -1559,10 +2559,10 @@
     "kind": "curated",
     "file": "nav.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:58+00:00",
+    "checked_at": "2026-10-19T08:39:04+00:00",
     "docs_url": {
      "url": "https://navikt.github.io/pam-stilling-feed/",
      "status": 200,
@@ -1629,7 +2629,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:58+00:00",
+    "checked_at": "2026-10-19T08:39:04+00:00",
     "docs_url": {
      "url": "https://www.norges-bank.no/en/topics/Statistics/open-data/",
      "status": 200,
@@ -1641,6 +2641,74 @@
      "status": 200,
      "verdict": "ok",
      "final_url": "https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=sdmx-json&lastNObservations=1"
+    }
+   }
+  },
+  {
+   "id": "nve-gridtimeseries",
+   "title": "GridTimeSeries (seNorge-data i rutenett)",
+   "provider": {
+    "name": "Norges vassdrags- og energidirektorat",
+    "orgnr": "970205039",
+    "org_path": null,
+    "sector": "stat"
+   },
+   "description": "Tidsserier for et punkt eller område i Norge fra NVEs rutenettdata: nedbør, temperatur, snødybde, snømengde, skiføre, regn og snøsmelting, avrenning og over 80 andre temaer, noen fra 1957. Det er dataene bak seNorge og xgeo. Punktet oppgis i UTM sone 33N.",
+   "summary": "Tidsserier for et punkt eller område i Norge fra NVEs rutenettdata: nedbør, temperatur, snødybde, snømengde, skiføre, regn og snøsmelting, avrenning og over 80 andre temaer, noen fra 1957. Det er dataene bak seNorge og xgeo. Punktet oppgis…",
+   "title_en": "GridTimeSeries API",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "XML",
+    "CSV"
+   ],
+   "endpoints": [
+    "https://gts.nve.no/api/GridTimeSeries/"
+   ],
+   "spec_url": null,
+   "docs_url": "https://api.nve.no/doc/gridtimeseries-data-gts/",
+   "probe_url": "https://gts.nve.no/api/GridTimeSeries/Themes/json",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "senorge",
+    "xgeo",
+    "snødybde",
+    "snømengde",
+    "nedbør",
+    "temperatur",
+    "rutenett",
+    "tidsserie",
+    "avrenning",
+    "grid"
+   ],
+   "category": "vaer-og-klima",
+   "tags": [
+    "no-auth"
+   ],
+   "quick_start": "# døgntemperatur (tm) for et punkt i Oslo (UTM 33: 262000, 6650000)\ncurl \"https://gts.nve.no/api/GridTimeSeries/262000/6650000/2026-10-01/2026-10-07/tm.json\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "nve.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:05+00:00",
+    "docs_url": {
+     "url": "https://api.nve.no/doc/gridtimeseries-data-gts/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.nve.no/doc/gridtimeseries-data-gts/"
+    },
+    "endpoint": {
+     "url": "https://gts.nve.no/api/GridTimeSeries/Themes/json",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://gts.nve.no/api/GridTimeSeries/Themes/json"
     }
    }
   },
@@ -1688,10 +2756,10 @@
     "kind": "curated",
     "file": "nve.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:58+00:00",
+    "checked_at": "2026-10-19T08:39:05+00:00",
     "docs_url": {
      "url": "https://hydapi.nve.no/UserDocumentation/",
      "status": 200,
@@ -1753,10 +2821,10 @@
     "kind": "curated",
     "file": "nve.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:59+00:00",
+    "checked_at": "2026-10-19T08:39:05+00:00",
     "docs_url": {
      "url": "https://api.nve.no/doc/",
      "status": 200,
@@ -1768,6 +2836,162 @@
      "status": 200,
      "verdict": "ok",
      "final_url": "https://api.nve.no/doc/"
+    }
+   }
+  },
+  {
+   "id": "nve-regobs",
+   "title": "Regobs API (observasjoner av snø, is, vann og skred)",
+   "provider": {
+    "name": "Norges vassdrags- og energidirektorat",
+    "orgnr": "970205039",
+    "org_path": null,
+    "sector": "stat"
+   },
+   "description": "Feltobservasjoner fra publikum og fagfolk: snødekke, skred, faretegn, isforhold, flom og jordskred, med bilder, posisjon og tidspunkt. Datagrunnlaget bak Varsom og Regobs-appen. Søk er en POST med filtre i JSON.",
+   "summary": "Feltobservasjoner fra publikum og fagfolk: snødekke, skred, faretegn, isforhold, flom og jordskred, med bilder, posisjon og tidspunkt. Datagrunnlaget bak Varsom og Regobs-appen. Søk er en POST med filtre i JSON.",
+   "title_en": "Regobs observations API",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://api.regobs.no/v5/Search"
+   ],
+   "spec_url": "https://api.regobs.no/v5/swagger/docs/v5",
+   "docs_url": "https://api.regobs.no/v5/swagger/ui/index",
+   "probe_url": "https://api.regobs.no/v5/KdvElements",
+   "spec": {
+    "format": "swagger 2.0",
+    "title": "RegObs API, build: 20260429.1",
+    "version": "V5",
+    "servers": [
+     "https://api.regobs.no/v5"
+    ],
+    "operations": 28,
+    "tags": [
+     "Account",
+     "Attachment",
+     "Helptext",
+     "KdvElements",
+     "Location",
+     "Registration",
+     "Search",
+     "Trip"
+    ],
+    "source_url": "https://api.regobs.no/v5/swagger/docs/v5",
+    "fetched_at": "2026-10-19T08:39:26+00:00"
+   },
+   "license": null,
+   "keywords": [
+    "regobs",
+    "observasjon",
+    "snø",
+    "skred",
+    "is",
+    "isforhold",
+    "faretegn",
+    "varsom",
+    "observations"
+   ],
+   "category": "vaer-og-klima",
+   "tags": [
+    "no-auth"
+   ],
+   "quick_start": "curl -X POST https://api.regobs.no/v5/Search \\\n  -H \"Content-Type: application/json\" -d '{\"NumberOfRecords\":3,\"LangKey\":1}'\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "nve.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:05+00:00",
+    "docs_url": {
+     "url": "https://api.regobs.no/v5/swagger/ui/index",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.regobs.no/v5/swagger/ui/index"
+    },
+    "spec_url": {
+     "url": "https://api.regobs.no/v5/swagger/docs/v5",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.regobs.no/v5/swagger/docs/v5"
+    },
+    "endpoint": {
+     "url": "https://api.regobs.no/v5/KdvElements",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.regobs.no/v5/KdvElements"
+    }
+   }
+  },
+  {
+   "id": "nve-varsom",
+   "title": "Varsom API (snøskred-, flom- og jordskredvarsler)",
+   "provider": {
+    "name": "Norges vassdrags- og energidirektorat",
+    "orgnr": "970205039",
+    "org_path": null,
+    "sector": "stat"
+   },
+   "description": "De offisielle farevarslene fra Varsom som JSON: snøskredvarsel per varslingsregion med faregrad, skredproblemer og råd, og egne API-er for flom- og jordskredvarsler. Hvert varsel har sitt eget versjonerte endepunkt under api01.nve.no, dokumentert per tjeneste på api.nve.no.",
+   "summary": "De offisielle farevarslene fra Varsom som JSON: snøskredvarsel per varslingsregion med faregrad, skredproblemer og råd, og egne API-er for flom- og jordskredvarsler. Hvert varsel har sitt eget versjonerte endepunkt under api01.nve.no…",
+   "title_en": "Varsom warnings API",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "XML"
+   ],
+   "endpoints": [
+    "https://api01.nve.no/hydrology/forecast/avalanche/v6.3.0/api/"
+   ],
+   "spec_url": null,
+   "docs_url": "https://api.nve.no/doc/snoeskredvarsel/",
+   "probe_url": "https://api01.nve.no/hydrology/forecast/avalanche/v6.3.0/api/AvalancheWarningByRegion/Simple/3011/1/2026-01-15/2026-01-15",
+   "spec": null,
+   "license": "NLOD 2.0",
+   "keywords": [
+    "snøskred",
+    "skredvarsel",
+    "faregrad",
+    "flomvarsel",
+    "jordskred",
+    "varsom",
+    "farevarsel",
+    "avalanche"
+   ],
+   "category": "vaer-og-klima",
+   "tags": [
+    "no-auth"
+   ],
+   "quick_start": "# snøskredvarsel for Tromsø (region 3011) på norsk (språk 1)\ncurl \"https://api01.nve.no/hydrology/forecast/avalanche/v6.3.0/api/AvalancheWarningByRegion/Simple/3011/1/2026-01-15/2026-01-15\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "nve.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:06+00:00",
+    "docs_url": {
+     "url": "https://api.nve.no/doc/snoeskredvarsel/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.nve.no/doc/snoeskredvarsel/"
+    },
+    "endpoint": {
+     "url": "https://api01.nve.no/hydrology/forecast/avalanche/v6.3.0/api/AvalancheWarningByRegion/Simple/3011/1/2026-01-15/2026-01-15",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api01.nve.no/hydrology/forecast/avalanche/v6.3.0/api/AvalancheWarningByRegion/Simple/3011/1/2026-01-15/2026-01-15"
     }
    }
   },
@@ -1818,7 +3042,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:55:59+00:00",
+    "checked_at": "2026-10-19T08:39:07+00:00",
     "docs_url": {
      "url": "https://github.com/npolar/api.npolar.no",
      "status": 200,
@@ -1882,7 +3106,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:00+00:00",
+    "checked_at": "2026-10-19T08:39:07+00:00",
     "docs_url": {
      "url": "https://oslobysykkel.no/apne-data/sanntid",
      "status": 200,
@@ -1947,7 +3171,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:00+00:00",
+    "checked_at": "2026-10-19T08:39:08+00:00",
     "docs_url": {
      "url": "https://developer.bring.com/",
      "status": 200,
@@ -1959,6 +3183,87 @@
      "status": 403,
      "verdict": "answers",
      "final_url": "https://api.bring.com/"
+    }
+   }
+  },
+  {
+   "id": "sikt-nva",
+   "title": "Nasjonalt vitenarkiv (NVA) API",
+   "provider": {
+    "name": "Sikt - Kunnskapssektorens tjenesteleverandør",
+    "orgnr": "919477822",
+    "org_path": null,
+    "sector": "stat"
+   },
+   "description": "Norske forskningsresultater fra Nasjonalt vitenarkiv: publikasjoner med forfattere, institusjoner, kategorier og fulltekst i åpen tilgang der den finnes. NVA har erstattet Cristin og de lokale vitenarkivene. Søk uten nøkkel.",
+   "summary": "Norske forskningsresultater fra Nasjonalt vitenarkiv: publikasjoner med forfattere, institusjoner, kategorier og fulltekst i åpen tilgang der den finnes. NVA har erstattet Cristin og de lokale vitenarkivene. Søk uten nøkkel.",
+   "title_en": "Norwegian national research archive API",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://api.nva.unit.no/search/resources"
+   ],
+   "spec_url": null,
+   "docs_url": "https://swagger-ui.nva.unit.no/",
+   "probe_url": "https://api.nva.unit.no/search/resources?query=klima&results=1",
+   "spec": {
+    "format": "openapi 3.0.0",
+    "title": "NVA API Dokumentasjon",
+    "version": "1.0.0",
+    "servers": [
+     "https://api.nva.unit.no"
+    ],
+    "operations": 42,
+    "tags": [
+     "NVA Approval API",
+     "NVA Cristin Proxy API",
+     "NVA Public Search API",
+     "NVA Publication API",
+     "NVA verified funding sources API"
+    ],
+    "source_url": "https://swagger-ui.nva.unit.no/docs/openapi.yaml",
+    "fetched_at": "2026-10-19T08:39:54+00:00"
+   },
+   "license": null,
+   "keywords": [
+    "forskning",
+    "publikasjon",
+    "vitenarkiv",
+    "nva",
+    "cristin",
+    "åpen tilgang",
+    "open access",
+    "research"
+   ],
+   "category": "kultur-og-kunnskap",
+   "tags": [
+    "no-auth"
+   ],
+   "quick_start": "curl \"https://api.nva.unit.no/search/resources?query=klima&results=3\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "sikt.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:08+00:00",
+    "docs_url": {
+     "url": "https://swagger-ui.nva.unit.no/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://swagger-ui.nva.unit.no/"
+    },
+    "endpoint": {
+     "url": "https://api.nva.unit.no/search/resources?query=klima&results=1",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.nva.unit.no/search/resources?query=klima&results=1"
     }
    }
   },
@@ -2011,7 +3316,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:01+00:00",
+    "checked_at": "2026-10-19T08:39:08+00:00",
     "docs_url": {
      "url": "https://skatteetaten.github.io/folkeregisteret-api-dokumentasjon/",
      "status": 200,
@@ -2076,7 +3381,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:01+00:00",
+    "checked_at": "2026-10-19T08:39:08+00:00",
     "docs_url": {
      "url": "https://skatteetaten.github.io/api-dokumentasjon/",
      "status": 200,
@@ -2088,6 +3393,71 @@
      "status": 404,
      "verdict": "missing",
      "final_url": "https://api.skatteetaten.no/"
+    }
+   }
+  },
+  {
+   "id": "vegvesen-datex",
+   "title": "DATEX II trafikkinformasjon",
+   "provider": {
+    "name": "Statens vegvesen",
+    "orgnr": "971032081",
+    "org_path": null,
+    "sector": "stat"
+   },
+   "description": "Trafikkmeldinger og stengte veier, reisetider, målte værdata fra stasjoner langs veien og webkamerabilder i DATEX II 3.1-formatet. Gratis, men du må bestille tilgang og får brukernavn og passord til HTTP Basic, ikke en API-nøkkel. Oppgi Statens vegvesen som kilde når du videreformidler dataene.",
+   "summary": "Trafikkmeldinger og stengte veier, reisetider, målte værdata fra stasjoner langs veien og webkamerabilder i DATEX II 3.1-formatet. Gratis, men du må bestille tilgang og får brukernavn og passord til HTTP Basic, ikke en API-nøkkel. Oppgi…",
+   "title_en": "DATEX II traffic information",
+   "access": "open",
+   "auth": "api-key",
+   "formats": [
+    "XML",
+    "DATEX II"
+   ],
+   "endpoints": [
+    "https://datex-server-get-v3-1.atlas.vegvesen.no/datexapi/GetSituation/pullsnapshotdata"
+   ],
+   "spec_url": null,
+   "docs_url": "https://www.vegvesen.no/fag/teknologi/apne-data/et-utvalg-apne-data/hva-er-datex",
+   "probe_url": null,
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "datex",
+    "trafikkmelding",
+    "veistenging",
+    "reisetid",
+    "værstasjon",
+    "webkamera",
+    "trafikkinformasjon",
+    "traffic"
+   ],
+   "category": "transport-og-samferdsel",
+   "tags": [
+    "registration"
+   ],
+   "quick_start": null,
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "vegvesen.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:09+00:00",
+    "docs_url": {
+     "url": "https://www.vegvesen.no/fag/teknologi/apne-data/et-utvalg-apne-data/hva-er-datex",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://www.vegvesen.no/fag/teknologi/apne-data/et-utvalg-apne-data/hva-er-datex"
+    },
+    "endpoint": {
+     "url": "https://datex-server-get-v3-1.atlas.vegvesen.no/datexapi/GetSituation/pullsnapshotdata",
+     "status": 401,
+     "verdict": "answers",
+     "final_url": "https://datex-server-get-v3-1.atlas.vegvesen.no/datexapi/GetSituation/pullsnapshotdata"
     }
    }
   },
@@ -2136,10 +3506,10 @@
     "kind": "curated",
     "file": "vegvesen.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:01+00:00",
+    "checked_at": "2026-10-19T08:39:09+00:00",
     "docs_url": {
      "url": "https://www.vegvesen.no/kjoretoy/kjop-og-salg/kjoretoyopplysninger/api-er-for-tekniske-kjoretoyopplysninger/",
      "status": 200,
@@ -2209,10 +3579,10 @@
     "kind": "curated",
     "file": "vegvesen.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:01+00:00",
+    "checked_at": "2026-10-19T08:39:09+00:00",
     "docs_url": {
      "url": "https://nvdb-docs.atlas.vegvesen.no/category/nvdb-api-les-v4/",
      "status": 200,
@@ -2273,10 +3643,10 @@
     "kind": "curated",
     "file": "vegvesen.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:01+00:00",
+    "checked_at": "2026-10-19T08:39:10+00:00",
     "docs_url": {
      "url": "https://trafikkdata.atlas.vegvesen.no/",
      "status": 200,
@@ -2340,10 +3710,10 @@
     "kind": "curated",
     "file": "ssb.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:02+00:00",
+    "checked_at": "2026-10-19T08:39:11+00:00",
     "docs_url": {
      "url": "https://data.ssb.no/api/klass/v1/api-guide.html",
      "status": 200,
@@ -2359,6 +3729,74 @@
    }
   },
   {
+   "id": "ssb-pxwebapi-v2",
+   "title": "PxWebApi 2 (Statistikkbanken, ny versjon)",
+   "provider": {
+    "name": "Statistisk sentralbyrå",
+    "orgnr": "971526920",
+    "org_path": null,
+    "sector": "stat"
+   },
+   "description": "Den nye versjonen av Statistikkbanken-API-et, med de samme tabellene: tabellsøk, metadata og tall med vanlige GET-kall der variablene velges i spørreparametere, ingen POST-spørring. Svar som JSON-stat2, CSV, Excel, PX, HTML eller Parquet, inntil 800 000 dataceller per kall.",
+   "summary": "Den nye versjonen av Statistikkbanken-API-et, med de samme tabellene: tabellsøk, metadata og tall med vanlige GET-kall der variablene velges i spørreparametere, ingen POST-spørring. Svar som JSON-stat2, CSV, Excel, PX, HTML eller Parquet…",
+   "title_en": "Statbank API v2",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "JSON-stat",
+    "CSV",
+    "Parquet"
+   ],
+   "endpoints": [
+    "https://data.ssb.no/api/pxwebapi/v2/tables"
+   ],
+   "spec_url": null,
+   "docs_url": "https://www.ssb.no/api/pxwebapi",
+   "probe_url": "https://data.ssb.no/api/pxwebapi/v2/config",
+   "spec": null,
+   "license": "CC BY 4.0",
+   "keywords": [
+    "statistikk",
+    "statistikkbanken",
+    "pxweb",
+    "pxwebapi",
+    "json-stat",
+    "befolkning",
+    "kpi",
+    "parquet",
+    "tabeller"
+   ],
+   "category": "statistikk",
+   "tags": [
+    "no-auth"
+   ],
+   "quick_start": "curl \"https://data.ssb.no/api/pxwebapi/v2/tables?query=befolkning&pageSize=3\"\n# folketall i Oslo (0301), siste år\ncurl \"https://data.ssb.no/api/pxwebapi/v2/tables/07459/data?lang=no&valueCodes%5BRegion%5D=0301&valueCodes%5BTid%5D=top(1)&valueCodes%5BContentsCode%5D=Personer1\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "ssb.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:11+00:00",
+    "docs_url": {
+     "url": "https://www.ssb.no/api/pxwebapi",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://www.ssb.no/api/pxwebapi"
+    },
+    "endpoint": {
+     "url": "https://data.ssb.no/api/pxwebapi/v2/config",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://data.ssb.no/api/pxwebapi/v2/config"
+    }
+   }
+  },
+  {
    "id": "ssb-statbank-api",
    "title": "Statistikkbanken API (PxWeb)",
    "provider": {
@@ -2367,8 +3805,8 @@
     "org_path": null,
     "sector": "stat"
    },
-   "description": "Alle tabeller i Statistikkbanken: befolkning, arbeidsmarked, priser, næringsliv, kommuner og mer. Hent metadata for en tabell med GET, hent tall med en POST-spørring som velger variabler og verdier. Svar som JSON-stat2, CSV eller Excel.",
-   "summary": "Alle tabeller i Statistikkbanken: befolkning, arbeidsmarked, priser, næringsliv, kommuner og mer. Hent metadata for en tabell med GET, hent tall med en POST-spørring som velger variabler og verdier. Svar som JSON-stat2, CSV eller Excel.",
+   "description": "Alle tabeller i Statistikkbanken: befolkning, arbeidsmarked, priser, næringsliv, kommuner og mer. Hent metadata for en tabell med GET, hent tall med en POST-spørring som velger variabler og verdier. Svar som JSON-stat2, CSV eller Excel. Den nye versjonen, PxWebApi 2, har egen oppføring (ssb-pxwebapi-v2).",
+   "summary": "Alle tabeller i Statistikkbanken: befolkning, arbeidsmarked, priser, næringsliv, kommuner og mer. Hent metadata for en tabell med GET, hent tall med en POST-spørring som velger variabler og verdier. Svar som JSON-stat2, CSV eller Excel…",
    "title_en": "Statbank API",
    "access": "open",
    "auth": "none",
@@ -2408,10 +3846,10 @@
     "kind": "curated",
     "file": "ssb.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:02+00:00",
+    "checked_at": "2026-10-19T08:39:11+00:00",
     "docs_url": {
      "url": "https://www.ssb.no/api/pxwebapi",
      "status": 200,
@@ -2477,7 +3915,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:03+00:00",
+    "checked_at": "2026-10-19T08:39:12+00:00",
     "docs_url": {
      "url": "https://driftsdata.statnett.no/",
      "status": 200,
@@ -2541,7 +3979,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:03+00:00",
+    "checked_at": "2026-10-19T08:39:12+00:00",
     "docs_url": {
      "url": "https://data.stortinget.no/",
      "status": 200,
@@ -2553,6 +3991,73 @@
      "status": 200,
      "verdict": "ok",
      "final_url": "https://data.stortinget.no/eksport/representanter?format=json"
+    }
+   }
+  },
+  {
+   "id": "tolletaten-apne-data",
+   "title": "Tolletatens åpne data (tolltariff, satser og valutakurser)",
+   "provider": {
+    "name": "Tolletaten",
+    "orgnr": "974761343",
+    "org_path": null,
+    "sector": "stat"
+   },
+   "description": "Tolltariffen med varenumre og struktur, tollsatser, tollkvoter, avgifter, restriksjoner, handelsavtaler og tollens valutakurser, i alt rundt 25 datasett. De ligger i en CKAN-portal med eget JSON-API for søk, metadata og nedlasting som XML eller JSON. Lisens CC BY 4.0.",
+   "summary": "Tolltariffen med varenumre og struktur, tollsatser, tollkvoter, avgifter, restriksjoner, handelsavtaler og tollens valutakurser, i alt rundt 25 datasett. De ligger i en CKAN-portal med eget JSON-API for søk, metadata og nedlasting som XML…",
+   "title_en": "Norwegian Customs open data",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "XML"
+   ],
+   "endpoints": [
+    "https://data.toll.no/api/3/action/package_list"
+   ],
+   "spec_url": null,
+   "docs_url": "https://www.toll.no/no/bedrift/apne-data",
+   "probe_url": null,
+   "spec": null,
+   "license": "CC BY 4.0",
+   "keywords": [
+    "toll",
+    "tolltariff",
+    "varenummer",
+    "tollsats",
+    "tollkvote",
+    "import",
+    "eksport",
+    "valutakurs",
+    "customs"
+   ],
+   "category": "skatt-og-avgift",
+   "tags": [
+    "no-auth",
+    "data-files"
+   ],
+   "quick_start": "curl \"https://data.toll.no/api/3/action/package_list\"\ncurl \"https://data.toll.no/api/3/action/package_show?id=tolltariffstruktur\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "tolletaten.yaml",
+    "merge_with": null,
+    "updated": "2026-10-19"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:12+00:00",
+    "docs_url": {
+     "url": "https://www.toll.no/no/bedrift/apne-data",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://www.toll.no/no/bedrift/apne-data"
+    },
+    "endpoint": {
+     "url": "https://data.toll.no/api/3/action/package_list",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://data.toll.no/api/3/action/package_list"
     }
    }
   },
@@ -2606,7 +4111,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:03+00:00",
+    "checked_at": "2026-10-19T08:39:13+00:00",
     "docs_url": {
      "url": "https://ordbokene.no/nob/about",
      "status": 200,
@@ -2670,10 +4175,10 @@
     "kind": "curated",
     "file": "utdanning.yaml",
     "merge_with": null,
-    "updated": "2026-10-15"
+    "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:03+00:00",
+    "checked_at": "2026-10-19T08:39:13+00:00",
     "docs_url": {
      "url": "https://data.udir.no/kl06",
      "status": 200,
@@ -2736,7 +4241,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:04+00:00",
+    "checked_at": "2026-10-19T08:39:13+00:00",
     "docs_url": {
      "url": "https://valgresultat.no/api",
      "status": 200,
@@ -2800,7 +4305,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:04+00:00",
+    "checked_at": "2026-10-19T08:39:14+00:00",
     "docs_url": {
      "url": "https://api.vinmonopolet.no/",
      "status": 200,
@@ -3020,7 +4525,7 @@
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:04+00:00",
+    "checked_at": "2026-10-19T08:39:14+00:00",
     "docs_url": {
      "url": "https://artskart.artsdatabanken.no/publicapi/",
      "status": 200,
@@ -3558,7 +5063,7 @@
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:04+00:00",
+    "checked_at": "2026-10-19T08:39:14+00:00",
     "docs_url": {
      "url": "https://developer.barentswatch.no/",
      "status": 200,
@@ -4027,7 +5532,7 @@
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:05+00:00",
+    "checked_at": "2026-10-19T08:39:15+00:00",
     "docs_url": {
      "url": "https://data.brreg.no/enhetsregisteret/api/docs/index.html",
      "status": 200,
@@ -4111,7 +5616,7 @@
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:05+00:00",
+    "checked_at": "2026-10-19T08:39:16+00:00",
     "docs_url": {
      "url": "https://www.brreg.no/produkter-og-tjenester/apne-data/",
      "status": 200,
@@ -4361,7 +5866,7 @@
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:07+00:00",
+    "checked_at": "2026-10-19T08:39:17+00:00",
     "docs_url": {
      "url": "https://github.com/Informasjonsforvaltning/fdk-search-service",
      "status": 200,
@@ -5863,45 +7368,6 @@
    "checks": null
   },
   {
-   "id": "fiskeridirektoratet-offentlig-api-for-akvakulturregister",
-   "title": "Offentlig API for akvakulturregister",
-   "provider": {
-    "name": "FISKERIDIREKTORATET",
-    "orgnr": "971203420",
-    "org_path": "/STAT/912660680/971203420",
-    "sector": "stat"
-   },
-   "description": "API for lesing av offentlig data fra akvakulturregisteret",
-   "summary": "API for lesing av offentlig data fra akvakulturregisteret",
-   "title_en": "Offentlig API for akvakulturregister",
-   "access": "unknown",
-   "auth": "unknown",
-   "formats": [
-    "JSON"
-   ],
-   "endpoints": [
-    "https://api.fiskeridir.no/pub-aqua/"
-   ],
-   "spec_url": null,
-   "docs_url": null,
-   "probe_url": null,
-   "spec": null,
-   "license": "https://publications.europa.eu/resource/authority/licence/NLOD_2_0",
-   "keywords": [],
-   "category": null,
-   "tags": [],
-   "quick_start": null,
-   "status": null,
-   "modified": "2026-03-20T12:58:46.967Z",
-   "source": {
-    "kind": "fdk",
-    "uri": "https://api.fiskeridir.no/pub-aqua/",
-    "catalogue_url": "https://data.norge.no/data-services/385385cd-7c74-3a1f-b1f0-457d2aecda7c",
-    "harvested_at": "2026-10-15T11:12:28+00:00"
-   },
-   "checks": null
-  },
-  {
    "id": "fiskeridirektoratet-offentlig-api-for-akvakultursoknader",
    "title": "Offentlig API for akvakultursøknader",
    "provider": {
@@ -5936,45 +7402,6 @@
     "kind": "fdk",
     "uri": "https://api.fiskeridir.no/aqua-portal-api-public",
     "catalogue_url": "https://data.norge.no/data-services/c7677ce0-4c5e-3965-85fa-7f581e2f0a0d",
-    "harvested_at": "2026-10-15T11:12:28+00:00"
-   },
-   "checks": null
-  },
-  {
-   "id": "fiskeridirektoratet-offentlig-api-for-fartoyregisteret",
-   "title": "Offentlig API for fartøyregisteret",
-   "provider": {
-    "name": "FISKERIDIREKTORATET",
-    "orgnr": "971203420",
-    "org_path": "/STAT/912660680/971203420",
-    "sector": "stat"
-   },
-   "description": "API for uthenting av fartøy- og eieropplysninger.",
-   "summary": "API for uthenting av fartøy- og eieropplysninger.",
-   "title_en": "Offentlig API for fartøyregisteret",
-   "access": "unknown",
-   "auth": "unknown",
-   "formats": [
-    "JSON"
-   ],
-   "endpoints": [
-    "https://api.fiskeridir.no/vessel-api/"
-   ],
-   "spec_url": null,
-   "docs_url": null,
-   "probe_url": null,
-   "spec": null,
-   "license": "https://publications.europa.eu/resource/authority/licence/NLOD_2_0",
-   "keywords": [],
-   "category": null,
-   "tags": [],
-   "quick_start": null,
-   "status": null,
-   "modified": "2026-03-20T12:58:46.967Z",
-   "source": {
-    "kind": "fdk",
-    "uri": "https://api.fiskeridir.no/vessel-api/",
-    "catalogue_url": "https://data.norge.no/data-services/2215129d-5988-38e3-8d4f-f1ab66bc19b8",
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
    "checks": null
@@ -6136,59 +7563,6 @@
    "checks": null
   },
   {
-   "id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-   "title": "API for Finanstilsynet's registry",
-   "provider": {
-    "name": "Finanstilsynet",
-    "orgnr": "840747972",
-    "org_path": "/STAT/972417807/840747972",
-    "sector": "stat"
-   },
-   "description": "This API delivers information about legal entities (persons or companies) with licences that are used when operating in Norway,\r\nor licences approved by Finanstilsynet and used abroad.\r\n\r\nThe same information can be found, in a human-readable format, in [Finanstilsynet's registry](https://www.finanstilsynet.no/en/finanstilsynets-registry/) (Norwegian: *Virksomhetsregisteret*).\r\n\r\n## General info about paged results\r\n\r\nFor paged results, we return a maximum of 200 pages with 50 results per page. This means that we cannot guarantee that we return all possible results for broad queries.",
-   "summary": "This API delivers information about legal entities (persons or companies) with licences that are used when operating in Norway, or licences approved by Finanstilsynet and used abroad. The same information can be found, in a human-readable…",
-   "title_en": "API for Finanstilsynet's registry",
-   "access": "unknown",
-   "auth": "unknown",
-   "formats": [],
-   "endpoints": [
-    "https://api.finanstilsynet.no/registry/"
-   ],
-   "spec_url": "https://api.finanstilsynet.no/registry/swagger/v2/swagger.json",
-   "docs_url": "https://api.finanstilsynet.no/registry/swagger/v2/swagger.json",
-   "probe_url": null,
-   "spec": {
-    "format": "openapi 3.0.0",
-    "title": "API for Finanstilsynet's registry",
-    "version": "2.0",
-    "servers": [
-     "/registry/v2"
-    ],
-    "operations": 16,
-    "tags": [
-     "Legal entities and licences",
-     "Reports"
-    ],
-    "source_url": "https://api.finanstilsynet.no/registry/swagger/v2/swagger.json",
-    "fetched_at": "2026-10-15T11:49:27+00:00"
-   },
-   "license": null,
-   "keywords": [
-    "finanstilsynet"
-   ],
-   "category": null,
-   "tags": [],
-   "quick_start": null,
-   "status": "http://publications.europa.eu/resource/authority/distribution-status/COMPLETED",
-   "modified": "2026-03-20T13:06:01.59Z",
-   "source": {
-    "kind": "fdk",
-    "uri": "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/607d796705d3ad2f564a9d7e",
-    "catalogue_url": "https://data.norge.no/data-services/71714342-89e3-3f0b-9ffd-94cd5952f287",
-    "harvested_at": "2026-10-15T11:12:28+00:00"
-   },
-   "checks": null
-  },
-  {
    "id": "finanstilsynet-finanstilsynet-sitt-opne-api-for-shortsalregistere",
    "title": "Finanstilsynet sitt opne API for shortsalregisteret (SSR)",
    "provider": {
@@ -6244,6 +7618,93 @@
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
    "checks": null
+  },
+  {
+   "id": "finanstilsynet-registry",
+   "title": "Finanstilsynets virksomhetsregister",
+   "provider": {
+    "name": "Finanstilsynet",
+    "orgnr": "840747972",
+    "org_path": "/STAT/972417807/840747972",
+    "sector": "stat"
+   },
+   "description": "Hvem har tillatelse fra Finanstilsynet: banker, forsikring og pensjon, verdipapirforetak, eiendomsmeglere, revisorer og regnskapsførere, inkasso, låneformidlere og flere, over 50 tillatelsestyper i alt. Søk på navn, filtrer på tillatelsestype eller hent ferdige rapporter som JSON.",
+   "summary": "Hvem har tillatelse fra Finanstilsynet: banker, forsikring og pensjon, verdipapirforetak, eiendomsmeglere, revisorer og regnskapsførere, inkasso, låneformidlere og flere, over 50 tillatelsestyper i alt. Søk på navn, filtrer på…",
+   "title_en": "Finanstilsynet registry API",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://api.finanstilsynet.no/registry/v2/legal-entities/search",
+    "https://api.finanstilsynet.no/registry/"
+   ],
+   "spec_url": "https://api.finanstilsynet.no/registry/swagger/v2/swagger.json",
+   "docs_url": "https://api.finanstilsynet.no/registry/index.html",
+   "probe_url": "https://api.finanstilsynet.no/registry/v2/legal-entities/search?query=DNB",
+   "spec": {
+    "format": "openapi 3.0.0",
+    "title": "API for Finanstilsynet's registry",
+    "version": "2.0",
+    "servers": [
+     "/registry/v2"
+    ],
+    "operations": 16,
+    "tags": [
+     "Legal entities and licences",
+     "Reports"
+    ],
+    "source_url": "https://api.finanstilsynet.no/registry/swagger/v2/swagger.json",
+    "fetched_at": "2026-10-19T08:39:26+00:00"
+   },
+   "license": null,
+   "keywords": [
+    "finanstilsynet",
+    "konsesjon",
+    "tillatelse",
+    "bank",
+    "forsikring",
+    "eiendomsmegler",
+    "revisor",
+    "inkasso",
+    "licence register"
+   ],
+   "category": "finans",
+   "tags": [
+    "no-auth"
+   ],
+   "quick_start": "curl \"https://api.finanstilsynet.no/registry/v2/legal-entities/search?query=DNB\"\n",
+   "status": "http://publications.europa.eu/resource/authority/distribution-status/COMPLETED",
+   "modified": "2026-03-20T13:06:01.59Z",
+   "source": {
+    "kind": "curated+fdk",
+    "file": "finanstilsynet.yaml",
+    "uri": "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/607d796705d3ad2f564a9d7e",
+    "catalogue_url": "https://data.norge.no/data-services/71714342-89e3-3f0b-9ffd-94cd5952f287",
+    "harvested_at": "2026-10-15T11:12:28+00:00"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:17+00:00",
+    "docs_url": {
+     "url": "https://api.finanstilsynet.no/registry/index.html",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.finanstilsynet.no/registry/index.html"
+    },
+    "spec_url": {
+     "url": "https://api.finanstilsynet.no/registry/swagger/v2/swagger.json",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.finanstilsynet.no/registry/swagger/v2/swagger.json"
+    },
+    "endpoint": {
+     "url": "https://api.finanstilsynet.no/registry/v2/legal-entities/search?query=DNB",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.finanstilsynet.no/registry/v2/legal-entities/search?query=DNB"
+    }
+   }
   },
   {
    "id": "fiskeridirektoratet-akvakultur-lokaliteter-wfs",
@@ -6322,6 +7783,182 @@
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
    "checks": null
+  },
+  {
+   "id": "fiskeridir-akvakulturregisteret",
+   "title": "Akvakulturregisteret API",
+   "provider": {
+    "name": "Fiskeridirektoratet",
+    "orgnr": "971203420",
+    "org_path": "/STAT/912660680/971203420",
+    "sector": "stat"
+   },
+   "description": "Lokaliteter og tillatelser for oppdrett av fisk og skalldyr: plassering med koordinater, vanntype, arter, kapasitet, vedtak og grenser per lokalitet, og overføringer og koblinger per tillatelse. Fiskeridirektoratets egen lisens for databruk gjelder.",
+   "summary": "Lokaliteter og tillatelser for oppdrett av fisk og skalldyr: plassering med koordinater, vanntype, arter, kapasitet, vedtak og grenser per lokalitet, og overføringer og koblinger per tillatelse. Fiskeridirektoratets egen lisens for…",
+   "title_en": "Aquaculture register API",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://api.fiskeridir.no/pub-aqua/api/v1/sites",
+    "https://api.fiskeridir.no/pub-aqua/"
+   ],
+   "spec_url": "https://api.fiskeridir.no/pub-aqua/api/api-docs",
+   "docs_url": "https://api.fiskeridir.no/pub-aqua/api/api-docs",
+   "probe_url": null,
+   "spec": {
+    "format": "openapi 3.1.0",
+    "title": "Offentlig Akvakulturregister",
+    "version": "1.0.0",
+    "servers": [
+     "https://api.fiskeridir.no/pub-aqua"
+    ],
+    "operations": 26,
+    "tags": [
+     "area-resource",
+     "csv-dump-resource",
+     "entity-resource",
+     "fish-codes-resource",
+     "license-resource",
+     "license-type-resource",
+     "site-resource",
+     "xlsx-dump-resource"
+    ],
+    "source_url": "https://api.fiskeridir.no/pub-aqua/api/api-docs",
+    "fetched_at": "2026-10-19T08:39:26+00:00"
+   },
+   "license": "FDIR-lisens for databruk",
+   "keywords": [
+    "akvakultur",
+    "oppdrett",
+    "lokalitet",
+    "tillatelse",
+    "laks",
+    "fiskeoppdrett",
+    "aquaculture"
+   ],
+   "category": "natur-og-miljo",
+   "tags": [
+    "no-auth"
+   ],
+   "quick_start": "curl \"https://api.fiskeridir.no/pub-aqua/api/v1/sites?range=0-2\"\n",
+   "status": null,
+   "modified": "2026-03-20T12:58:46.967Z",
+   "source": {
+    "kind": "curated+fdk",
+    "file": "fiskeridirektoratet.yaml",
+    "uri": "https://api.fiskeridir.no/pub-aqua/",
+    "catalogue_url": "https://data.norge.no/data-services/385385cd-7c74-3a1f-b1f0-457d2aecda7c",
+    "harvested_at": "2026-10-15T11:12:28+00:00"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:17+00:00",
+    "docs_url": {
+     "url": "https://api.fiskeridir.no/pub-aqua/api/api-docs",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.fiskeridir.no/pub-aqua/api/api-docs"
+    },
+    "spec_url": {
+     "url": "https://api.fiskeridir.no/pub-aqua/api/api-docs",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.fiskeridir.no/pub-aqua/api/api-docs"
+    },
+    "endpoint": {
+     "url": "https://api.fiskeridir.no/pub-aqua/api/v1/sites",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.fiskeridir.no/pub-aqua/api/v1/sites"
+    }
+   }
+  },
+  {
+   "id": "fiskeridir-fartoyregisteret",
+   "title": "Fartøyregisteret API",
+   "provider": {
+    "name": "Fiskeridirektoratet",
+    "orgnr": "971203420",
+    "org_path": "/STAT/912660680/971203420",
+    "sector": "stat"
+   },
+   "description": "Aktive fiskefartøy med navn, registreringsmerke, radiokallesignal, IMO-nummer, lengde, bredde, tonnasje og kommune, filtrerbart på navn, kommune, lengde og kallesignal. Fiskeridirektoratets egen lisens for databruk gjelder.",
+   "summary": "Aktive fiskefartøy med navn, registreringsmerke, radiokallesignal, IMO-nummer, lengde, bredde, tonnasje og kommune, filtrerbart på navn, kommune, lengde og kallesignal. Fiskeridirektoratets egen lisens for databruk gjelder.",
+   "title_en": "Norwegian fishing vessel register API",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://api.fiskeridir.no/vessel-api/api/v1/vessels",
+    "https://api.fiskeridir.no/vessel-api/"
+   ],
+   "spec_url": "https://api.fiskeridir.no/vessel-api/api/openapi",
+   "docs_url": "https://api.fiskeridir.no/vessel-api/swagger-ui/",
+   "probe_url": null,
+   "spec": {
+    "format": "openapi 3.1.0",
+    "title": "Fartøyregisteret",
+    "version": "1.0.0",
+    "servers": [
+     "/"
+    ],
+    "operations": 2,
+    "tags": [
+     "Vessels"
+    ],
+    "source_url": "https://api.fiskeridir.no/vessel-api/api/openapi",
+    "fetched_at": "2026-10-19T08:39:26+00:00"
+   },
+   "license": "FDIR-lisens for databruk",
+   "keywords": [
+    "fartøy",
+    "fiskefartøy",
+    "fartøyregister",
+    "kallesignal",
+    "imo",
+    "fiskeri",
+    "båt",
+    "vessel register"
+   ],
+   "category": "bedrift-og-organisasjon",
+   "tags": [
+    "no-auth"
+   ],
+   "quick_start": "# fartøy registrert i Andøy (kommunenummer 1871)\ncurl \"https://api.fiskeridir.no/vessel-api/api/v1/vessels?municipality_code=1871&per_page=5\"\n",
+   "status": null,
+   "modified": "2026-03-20T12:58:46.967Z",
+   "source": {
+    "kind": "curated+fdk",
+    "file": "fiskeridirektoratet.yaml",
+    "uri": "https://api.fiskeridir.no/vessel-api/",
+    "catalogue_url": "https://data.norge.no/data-services/2215129d-5988-38e3-8d4f-f1ab66bc19b8",
+    "harvested_at": "2026-10-15T11:12:28+00:00"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:17+00:00",
+    "docs_url": {
+     "url": "https://api.fiskeridir.no/vessel-api/swagger-ui/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.fiskeridir.no/vessel-api/swagger-ui/"
+    },
+    "spec_url": {
+     "url": "https://api.fiskeridir.no/vessel-api/api/openapi",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.fiskeridir.no/vessel-api/api/openapi"
+    },
+    "endpoint": {
+     "url": "https://api.fiskeridir.no/vessel-api/api/v1/vessels",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.fiskeridir.no/vessel-api/api/v1/vessels"
+    }
+   }
   },
   {
    "id": "fiskeridirektoratet-fiskeriaktivitet",
@@ -15041,7 +16678,7 @@
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:07+00:00",
+    "checked_at": "2026-10-19T08:39:18+00:00",
     "docs_url": {
      "url": "https://kartkatalog.geonorge.no/metadata/topografisk-norgeskart-wmts-cache/8f381180-1a47-4453-bee7-9a3d64843efa",
      "status": 200,
@@ -15104,7 +16741,7 @@
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:07+00:00",
+    "checked_at": "2026-10-19T08:39:18+00:00",
     "docs_url": {
      "url": "https://ws.geonorge.no/hoydedata/v1/",
      "status": 200,
@@ -15184,7 +16821,7 @@
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:07+00:00",
+    "checked_at": "2026-10-19T08:39:18+00:00",
     "docs_url": {
      "url": "https://ws.geonorge.no/kommuneinfo/v1/",
      "status": 200,
@@ -15263,7 +16900,7 @@
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:07+00:00",
+    "checked_at": "2026-10-19T08:39:18+00:00",
     "docs_url": {
      "url": "https://ws.geonorge.no/stedsnavn/v1/",
      "status": 200,
@@ -17248,7 +18885,7 @@
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:07+00:00",
+    "checked_at": "2026-10-19T08:39:18+00:00",
     "docs_url": {
      "url": "https://frost.met.no/index.html",
      "status": 200,
@@ -17620,7 +19257,7 @@
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
    "checks": {
-    "checked_at": "2026-10-15T11:56:07+00:00",
+    "checked_at": "2026-10-19T08:39:18+00:00",
     "docs_url": {
      "url": "https://api.met.no/",
      "status": 200,
@@ -20506,45 +22143,94 @@
    "checks": null
   },
   {
-   "id": "miljodirektoratet-luftkvalitetsmalinger-i-norge-api",
-   "title": "Luftkvalitetsmålinger i Norge - API",
+   "id": "miljodir-luftkvalitet",
+   "title": "Luftkvalitetsmålinger i Norge",
    "provider": {
     "name": "Miljødirektoratet",
     "orgnr": "999601391",
     "org_path": "/STAT/972417882/999601391",
     "sector": "stat"
    },
-   "description": "Nedlasting av luftkvalitetsmålinger i Norge",
-   "summary": "Nedlasting av luftkvalitetsmålinger i Norge",
-   "title_en": "Luftkvalitetsmålinger i Norge - API",
+   "description": "Målinger fra luftkvalitetsstasjonene i Norge: svevestøv (PM10, PM2.5, PM1), NO2, ozon, SO2, benzen og andre komponenter, siste time og historisk, med luftkvalitetsindeks. Oppslag på område, stasjon eller radius rundt en koordinat. Det eldre API-et på api.nilu.no krever nå autentisering.",
+   "summary": "Målinger fra luftkvalitetsstasjonene i Norge: svevestøv (PM10, PM2.5, PM1), NO2, ozon, SO2, benzen og andre komponenter, siste time og historisk, med luftkvalitetsindeks. Oppslag på område, stasjon eller radius rundt en koordinat. Det…",
+   "title_en": "Air quality measurements",
    "access": "open",
-   "auth": "unknown",
-   "formats": [],
+   "auth": "none",
+   "formats": [
+    "JSON"
+   ],
    "endpoints": [
+    "https://api-luftmalinger.miljodirektoratet.no/public/aq/utd",
     "https://api-luftmalinger.miljodirektoratet.no"
    ],
-   "spec_url": "https://api-luftmalinger.miljodirektoratet.no/swagger/index.html",
-   "docs_url": null,
-   "probe_url": null,
-   "spec": null,
-   "license": "http://publications.europa.eu/resource/authority/licence/NLOD_2_0",
+   "spec_url": "https://api-luftmalinger.miljodirektoratet.no/swagger/v1-public/swagger.json",
+   "docs_url": "https://api-luftmalinger.miljodirektoratet.no/swagger/index.html",
+   "probe_url": "https://api-luftmalinger.miljodirektoratet.no/public/lookup/components",
+   "spec": {
+    "format": "openapi 3.0.4",
+    "title": "Public API",
+    "version": "1.0",
+    "servers": [],
+    "operations": 20,
+    "tags": [
+     "Aggregate",
+     "AirQuality",
+     "Lookup",
+     "Observations"
+    ],
+    "source_url": "https://api-luftmalinger.miljodirektoratet.no/swagger/v1-public/swagger.json",
+    "fetched_at": "2026-10-19T08:39:26+00:00"
+   },
+   "license": "NLOD 2.0",
    "keywords": [
+    "luftkvalitet",
+    "svevestøv",
+    "pm10",
+    "pm2.5",
+    "no2",
+    "ozon",
+    "forurensning",
+    "målestasjon",
+    "air quality",
     "Luftmåling",
     "Luft",
     "Måling av luftkvalitet"
    ],
-   "category": null,
-   "tags": [],
-   "quick_start": null,
+   "category": "natur-og-miljo",
+   "tags": [
+    "no-auth"
+   ],
+   "quick_start": "curl \"https://api-luftmalinger.miljodirektoratet.no/public/aq/utd?areas=Oslo\"\n",
    "status": null,
    "modified": "2026-03-20T13:05:47.651Z",
    "source": {
-    "kind": "fdk",
+    "kind": "curated+fdk",
+    "file": "miljodirektoratet.yaml",
     "uri": "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/68345cae41af7308352bc930",
     "catalogue_url": "https://data.norge.no/data-services/839dd201-bf3f-3275-8845-ca9de645d008",
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
-   "checks": null
+   "checks": {
+    "checked_at": "2026-10-19T08:39:18+00:00",
+    "docs_url": {
+     "url": "https://api-luftmalinger.miljodirektoratet.no/swagger/index.html",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api-luftmalinger.miljodirektoratet.no/swagger/index.html"
+    },
+    "spec_url": {
+     "url": "https://api-luftmalinger.miljodirektoratet.no/swagger/v1-public/swagger.json",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api-luftmalinger.miljodirektoratet.no/swagger/v1-public/swagger.json"
+    },
+    "endpoint": {
+     "url": "https://api-luftmalinger.miljodirektoratet.no/public/lookup/components",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api-luftmalinger.miljodirektoratet.no/public/lookup/components"
+    }
+   }
   },
   {
    "id": "miljodirektoratet-marine-naturtyper-hb19-rest-api",
@@ -27182,6 +28868,91 @@
    "checks": null
   },
   {
+   "id": "nve-magasinstatistikk",
+   "title": "Magasinstatistikk",
+   "provider": {
+    "name": "Norges vassdrags- og energidirektorat",
+    "orgnr": "970205039",
+    "org_path": "/STAT/977161630/970205039",
+    "sector": "stat"
+   },
+   "description": "Fyllingsgrad i vannmagasinene uke for uke, for hele landet og per elspotområde (NO1 til NO5), med kapasitet og fylling i TWh, endring fra forrige uke og dato for neste publisering. Egne kall gir hele historikken og minimum, maksimum og median per uke.",
+   "summary": "Fyllingsgrad i vannmagasinene uke for uke, for hele landet og per elspotområde (NO1 til NO5), med kapasitet og fylling i TWh, endring fra forrige uke og dato for neste publisering. Egne kall gir hele historikken og minimum, maksimum og…",
+   "title_en": "Reservoir statistics",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://biapi.nve.no/magasinstatistikk/api/Magasinstatistikk/HentOffentligDataSisteUke",
+    "https://biapi.nve.no/magasinstatistikk/swagger/index.html"
+   ],
+   "spec_url": "https://biapi.nve.no/magasinstatistikk/swagger/v1/swagger.json",
+   "docs_url": "https://www.nve.no/energi/analyser-og-statistikk/om-magasinstatistikken/",
+   "probe_url": null,
+   "spec": {
+    "format": "openapi 3.0.1",
+    "title": "Magasinstatistikk",
+    "version": "v1.0.0",
+    "servers": [
+     "/magasinstatistikk"
+    ],
+    "operations": 4,
+    "tags": [
+     "Magasinstatistikk"
+    ],
+    "source_url": "https://biapi.nve.no/magasinstatistikk/swagger/v1/swagger.json",
+    "fetched_at": "2026-10-19T08:39:26+00:00"
+   },
+   "license": null,
+   "keywords": [
+    "magasin",
+    "fyllingsgrad",
+    "vannkraft",
+    "kraftsituasjon",
+    "elspotområde",
+    "twh",
+    "reservoir",
+    "statistikk"
+   ],
+   "category": "natur-og-miljo",
+   "tags": [
+    "no-auth"
+   ],
+   "quick_start": "curl \"https://biapi.nve.no/magasinstatistikk/api/Magasinstatistikk/HentOffentligDataSisteUke\"\n",
+   "status": "http://publications.europa.eu/resource/authority/distribution-status/COMPLETED",
+   "modified": "2026-03-20T13:04:23.567Z",
+   "source": {
+    "kind": "curated+fdk",
+    "file": "nve.yaml",
+    "uri": "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/6299b5e13e53054cb8027405",
+    "catalogue_url": "https://data.norge.no/data-services/4821bdee-214a-319d-b5d1-79b8c23bc0a7",
+    "harvested_at": "2026-10-15T11:12:28+00:00"
+   },
+   "checks": {
+    "checked_at": "2026-10-19T08:39:19+00:00",
+    "docs_url": {
+     "url": "https://www.nve.no/energi/analyser-og-statistikk/om-magasinstatistikken/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://www.nve.no/energi/analyser-og-statistikk/om-magasinstatistikken/"
+    },
+    "spec_url": {
+     "url": "https://biapi.nve.no/magasinstatistikk/swagger/v1/swagger.json",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://biapi.nve.no/magasinstatistikk/swagger/v1/swagger.json"
+    },
+    "endpoint": {
+     "url": "https://biapi.nve.no/magasinstatistikk/api/Magasinstatistikk/HentOffentligDataSisteUke",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://biapi.nve.no/magasinstatistikk/api/Magasinstatistikk/HentOffentligDataSisteUke"
+    }
+   }
+  },
+  {
    "id": "norges-vassdrags-og-energidire-nve-sno-og-klima-wms",
    "title": "NVE snø og klima WMS",
    "provider": {
@@ -27989,59 +29760,6 @@
     "kind": "fdk",
     "uri": "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/651fc556e79420195108fb91",
     "catalogue_url": "https://data.norge.no/data-services/e706a623-cd39-3827-afa9-fcc36b8f1697",
-    "harvested_at": "2026-10-15T11:12:28+00:00"
-   },
-   "checks": null
-  },
-  {
-   "id": "norges-vassdrags-og-energidire-magasinstatistikk",
-   "title": "Magasinstatistikk",
-   "provider": {
-    "name": "Norges vassdrags- og energidirektorat (nve)",
-    "orgnr": "970205039",
-    "org_path": "/STAT/977161630/970205039",
-    "sector": "stat"
-   },
-   "description": "Magasinkapasitet i Norge utgjør om lag 87 TWh. Hver uke samler Norges vassdrags- og energidirektorat (NVE) inn vannstandsmålinger fra de 490 viktigste vannmagasinene for å holde oversikt over kraftsituasjonen i landet.",
-   "summary": "Magasinkapasitet i Norge utgjør om lag 87 TWh. Hver uke samler Norges vassdrags- og energidirektorat (NVE) inn vannstandsmålinger fra de 490 viktigste vannmagasinene for å holde oversikt over kraftsituasjonen i landet.",
-   "title_en": "Magasinstatistikk",
-   "access": "open",
-   "auth": "unknown",
-   "formats": [],
-   "endpoints": [
-    "https://biapi.nve.no/magasinstatistikk/swagger/index.html"
-   ],
-   "spec_url": "https://biapi.nve.no/magasinstatistikk/swagger/v1/swagger.json",
-   "docs_url": "https://www.nve.no/energi/analyser-og-statistikk/om-magasinstatistikken/",
-   "probe_url": null,
-   "spec": {
-    "format": "openapi 3.0.1",
-    "title": "Magasinstatistikk",
-    "version": "v1.0.0",
-    "servers": [
-     "/magasinstatistikk"
-    ],
-    "operations": 4,
-    "tags": [
-     "Magasinstatistikk"
-    ],
-    "source_url": "https://biapi.nve.no/magasinstatistikk/swagger/v1/swagger.json",
-    "fetched_at": "2026-10-15T11:49:28+00:00"
-   },
-   "license": null,
-   "keywords": [
-    "statistikk",
-    "magasin"
-   ],
-   "category": null,
-   "tags": [],
-   "quick_start": null,
-   "status": "http://publications.europa.eu/resource/authority/distribution-status/COMPLETED",
-   "modified": "2026-03-20T13:04:23.567Z",
-   "source": {
-    "kind": "fdk",
-    "uri": "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/6299b5e13e53054cb8027405",
-    "catalogue_url": "https://data.norge.no/data-services/4821bdee-214a-319d-b5d1-79b8c23bc0a7",
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
    "checks": null
@@ -30901,22 +32619,22 @@
    "checks": null
   },
   {
-   "id": "patentstyret-register-for-varemerker-patenter-og-design-i-norge",
-   "title": "Register for varemerker, patenter og design i Norge",
+   "id": "patentstyret-api",
+   "title": "Patentstyrets API (patenter, varemerker og design)",
    "provider": {
     "name": "Patentstyret",
     "orgnr": "971526157",
     "org_path": "/STAT/912660680/971526157",
     "sector": "stat"
    },
-   "description": "Dette datasettet inneholder informasjon om registrerte rettigheter og søknader levert i Norge. Datasettet gir detaljert informasjon om oppfinnelsene som er patentert, varemerker og design. Dette inkludert navn på søkere, viktige ID-numre, søknadsdato, status og relevante hendelser.\n\nInnlevert patentsøknad kan holdes hemmelig inntil 18 måneder. Tilsvarende 6 måneder for design. I datasettet finnes kun offentlig tilgjengelige rettigheter. Datasettet er dynamisk og oppdateres kontinuerlig gjennom dagen med nye rettigheter og ved f.eks. endring i status og andre hendelser.\n\nDer rettigheter til patent, varemerke og design i Norge, er knyttet til norske virksomheter kan mange entydig identifiseres ved organisasjonsnummer.",
-   "summary": "Dette datasettet inneholder informasjon om registrerte rettigheter og søknader levert i Norge. Datasettet gir detaljert informasjon om oppfinnelsene som er patentert, varemerker og design. Dette inkludert navn på søkere, viktige ID-numre…",
-   "title_en": "The registry for patents, designs and trademarks in Norway",
+   "description": "Registrerte rettigheter og søknader i Norge for patenter, varemerker og design. Tilgang går gjennom Patentstyrets utviklerportal, der du registrerer deg og abonnerer på API-ene for å få en nøkkel.",
+   "summary": "Registrerte rettigheter og søknader i Norge for patenter, varemerker og design. Tilgang går gjennom Patentstyrets utviklerportal, der du registrerer deg og abonnerer på API-ene for å få en nøkkel.",
+   "title_en": "Norwegian IP register API",
    "access": "open",
-   "auth": "unknown",
+   "auth": "api-key",
    "formats": [
-    "JPEG",
-    "JSON"
+    "JSON",
+    "JPEG"
    ],
    "endpoints": [
     "https://developer.patentstyret.no/"
@@ -30925,36 +32643,56 @@
    "docs_url": "https://developer.patentstyret.no/docs",
    "probe_url": null,
    "spec": null,
-   "license": "http://publications.europa.eu/resource/authority/licence/NLOD_2_0",
+   "license": "NLOD 2.0",
    "keywords": [
+    "patent",
+    "varemerke",
+    "design",
+    "immaterielle rettigheter",
+    "patentstyret",
+    "trademark",
     "Patentstyret",
     "innovation",
     "innovasjon",
-    "patent",
     "industrielle rettigheter",
     "NIPO",
     "register data",
     "trademarks",
     "Norwegian Industrial Property Office",
     "åpne data",
-    "design",
     "industrial property",
     "open data",
-    "varemerke",
     "registerdata"
    ],
-   "category": null,
-   "tags": [],
+   "category": "bedrift-og-organisasjon",
+   "tags": [
+    "registration"
+   ],
    "quick_start": null,
    "status": null,
    "modified": "2026-03-20T13:05:35.193Z",
    "source": {
-    "kind": "fdk",
+    "kind": "curated+fdk",
+    "file": "patentstyret.yaml",
     "uri": "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/6821a8804aad5815a9d6060c",
     "catalogue_url": "https://data.norge.no/data-services/4fa0433f-2fa8-3235-8c8b-f0a577e25c48",
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
-   "checks": null
+   "checks": {
+    "checked_at": "2026-10-19T08:39:19+00:00",
+    "docs_url": {
+     "url": "https://developer.patentstyret.no/docs",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://developer.patentstyret.no/docs"
+    },
+    "endpoint": {
+     "url": "https://developer.patentstyret.no/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://developer.patentstyret.no/"
+    }
+   }
   },
   {
    "id": "registerenheten-i-bronnoysund-kompensasjonsordning-for-naeringslivet-etter-augus",
@@ -31819,41 +33557,69 @@
    "checks": null
   },
   {
-   "id": "sikt-kunnskapssektorens-tjenes-cristin-current-research-information-system-in-nor",
-   "title": "CRISTIN – current research information system in Norway",
+   "id": "sikt-cristin",
+   "title": "Cristin API v2",
    "provider": {
-    "name": "Sikt - kunnskapssektorens tjenesteleverandør",
+    "name": "Sikt - Kunnskapssektorens tjenesteleverandør",
     "orgnr": "919477822",
     "org_path": "/STAT/872417842/919477822",
     "sector": "stat"
    },
-   "description": "Cristin-systemet samler og gjør tilgjengelig informasjon om norsk forsking. Det gjør forskingsadministrative prosesser enklere ved å legge tilrette for gjenbruk av informasjon.",
-   "summary": "Cristin-systemet samler og gjør tilgjengelig informasjon om norsk forsking. Det gjør forskingsadministrative prosesser enklere ved å legge tilrette for gjenbruk av informasjon.",
-   "title_en": "CRISTIN – current research information system in Norway",
-   "access": "unknown",
-   "auth": "unknown",
-   "formats": [],
+   "description": "Forskningsresultater, personer, prosjekter og institusjoner fra Cristin, uten nøkkel. Cristin er erstattet av Nasjonalt vitenarkiv og stengt for ny registrering, så velg NVA for nye resultater. API-et svarer fortsatt og dekker historikken.",
+   "summary": "Forskningsresultater, personer, prosjekter og institusjoner fra Cristin, uten nøkkel. Cristin er erstattet av Nasjonalt vitenarkiv og stengt for ny registrering, så velg NVA for nye resultater. API-et svarer fortsatt og dekker historikken.",
+   "title_en": "Cristin research information API",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON"
+   ],
    "endpoints": [
+    "https://api.cristin.no/v2/",
     "https://api.cristin.no/"
    ],
    "spec_url": null,
-   "docs_url": "https://api.cristin.no/",
-   "probe_url": null,
+   "docs_url": "https://api.cristin.no/v2/doc/index.html",
+   "probe_url": "https://api.cristin.no/v2/results?title=klima&per_page=1",
    "spec": null,
    "license": null,
-   "keywords": [],
-   "category": null,
-   "tags": [],
-   "quick_start": null,
+   "keywords": [
+    "cristin",
+    "forskning",
+    "publikasjon",
+    "forsker",
+    "prosjekt",
+    "institusjon",
+    "research"
+   ],
+   "category": "kultur-og-kunnskap",
+   "tags": [
+    "no-auth"
+   ],
+   "quick_start": "curl \"https://api.cristin.no/v2/results?title=klima&per_page=3\"\n",
    "status": null,
    "modified": "2026-03-20T13:05:03.808Z",
    "source": {
-    "kind": "fdk",
+    "kind": "curated+fdk",
+    "file": "sikt.yaml",
     "uri": "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/5f61d3b3d800fd7444e6ba90",
     "catalogue_url": "https://data.norge.no/data-services/5f0ca7fb-3863-39c4-b002-211c1a866506",
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
-   "checks": null
+   "checks": {
+    "checked_at": "2026-10-19T08:39:19+00:00",
+    "docs_url": {
+     "url": "https://api.cristin.no/v2/doc/index.html",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.cristin.no/v2/doc/index.html"
+    },
+    "endpoint": {
+     "url": "https://api.cristin.no/v2/results?title=klima&per_page=1",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.cristin.no/v2/results?title=klima&per_page=1"
+    }
+   }
   },
   {
    "id": "sikt-kunnskapssektorens-tjenes-european-social-survey-api",
@@ -45928,28 +47694,29 @@
    "checks": null
   },
   {
-   "id": "utdanningsdirektoratet-nasjonalt-barnehageregister-nbr-api",
-   "title": "Nasjonalt barnehageregister (NBR) API",
+   "id": "udir-nbr",
+   "title": "Nasjonalt barnehageregister (NBR)",
    "provider": {
     "name": "Utdanningsdirektoratet",
     "orgnr": "970018131",
     "org_path": "/STAT/872417842/970018131",
     "sector": "stat"
    },
-   "description": "https://nbr.udir.no/",
-   "summary": "https://nbr.udir.no/",
-   "title_en": "National kindergarten register (NBR) API",
+   "description": "Alle barnehager med organisasjonsnummer, adresse, koordinat, barnehagekategori, offentlig eller privat, antall barn, antall ansatte og alderstrinn, og endringer etter en gitt dato. Samme oppbygning som skoleregisteret.",
+   "summary": "Alle barnehager med organisasjonsnummer, adresse, koordinat, barnehagekategori, offentlig eller privat, antall barn, antall ansatte og alderstrinn, og endringer etter en gitt dato. Samme oppbygning som skoleregisteret.",
+   "title_en": "National Kindergarten Register",
    "access": "open",
-   "auth": "unknown",
+   "auth": "none",
    "formats": [
     "JSON"
    ],
    "endpoints": [
+    "https://data-nbr.udir.no/v4/enheter",
     "https://data-nbr.udir.no/swagger/v4/swagger.json"
    ],
    "spec_url": "https://data-nbr.udir.no/swagger/v4/swagger.json",
    "docs_url": "https://data-nbr.udir.no/swagger/index.html",
-   "probe_url": null,
+   "probe_url": "https://data-nbr.udir.no/v4/enhet/991436103",
    "spec": {
     "format": "openapi 3.0.1",
     "title": "Nasjonalt barnehageregister API",
@@ -45962,28 +47729,55 @@
      "Typer"
     ],
     "source_url": "https://data-nbr.udir.no/swagger/v4/swagger.json",
-    "fetched_at": "2026-10-15T11:49:31+00:00"
+    "fetched_at": "2026-10-19T08:39:26+00:00"
    },
-   "license": "http://publications.europa.eu/resource/authority/licence/NLOD_2_0",
+   "license": "NLOD 2.0",
    "keywords": [
+    "barnehage",
+    "barnehageregister",
+    "antall barn",
+    "nbr",
+    "kindergarten register",
     "udir",
     "utdanningsdirektoratet",
-    "nxr",
-    "nbr",
-    "barnehage"
+    "nxr"
    ],
-   "category": null,
-   "tags": [],
-   "quick_start": null,
+   "category": "offentlig-forvaltning",
+   "tags": [
+    "no-auth",
+    "reference-data"
+   ],
+   "quick_start": "curl \"https://data-nbr.udir.no/v4/enheter/kommune/5001\"\n",
    "status": "http://publications.europa.eu/resource/authority/distribution-status/COMPLETED",
    "modified": "2026-03-20T13:04:56.919Z",
    "source": {
-    "kind": "fdk",
+    "kind": "curated+fdk",
+    "file": "utdanning.yaml",
     "uri": "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/657865e962c1e74d12c69261",
     "catalogue_url": "https://data.norge.no/data-services/5700e3a2-8fe0-3363-8419-965f70c4d216",
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
-   "checks": null
+   "checks": {
+    "checked_at": "2026-10-19T08:39:20+00:00",
+    "docs_url": {
+     "url": "https://data-nbr.udir.no/swagger/index.html",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://data-nbr.udir.no/swagger/index.html"
+    },
+    "spec_url": {
+     "url": "https://data-nbr.udir.no/swagger/v4/swagger.json",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://data-nbr.udir.no/swagger/v4/swagger.json"
+    },
+    "endpoint": {
+     "url": "https://data-nbr.udir.no/v4/enhet/991436103",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://data-nbr.udir.no/v4/enhet/991436103"
+    }
+   }
   },
   {
    "id": "utdanningsdirektoratet-nasjonalt-register-for-pp-tjenester-npr-api",
@@ -46227,28 +48021,29 @@
    "checks": null
   },
   {
-   "id": "utdanningsdirektoratet-nasjonalt-skoleregister-nsr-api",
-   "title": "Nasjonalt skoleregister (NSR) API",
+   "id": "udir-nsr",
+   "title": "Nasjonalt skoleregister (NSR)",
    "provider": {
     "name": "Utdanningsdirektoratet",
     "orgnr": "970018131",
     "org_path": "/STAT/872417842/970018131",
     "sector": "stat"
    },
-   "description": "https://nsr.udir.no/",
-   "summary": "https://nsr.udir.no/",
-   "title_en": "National school register (NSR) API",
+   "description": "Alle grunnskoler og videregående skoler med organisasjonsnummer, adresse, koordinat, skolekategori, offentlig eller privat, elevtall, antall ansatte og trinn, og endringer etter en gitt dato. Oppslag per kommune, fylke, skolekategori, næringskode eller organisasjonsnummer.",
+   "summary": "Alle grunnskoler og videregående skoler med organisasjonsnummer, adresse, koordinat, skolekategori, offentlig eller privat, elevtall, antall ansatte og trinn, og endringer etter en gitt dato. Oppslag per kommune, fylke, skolekategori…",
+   "title_en": "National School Register",
    "access": "open",
-   "auth": "unknown",
+   "auth": "none",
    "formats": [
     "JSON"
    ],
    "endpoints": [
+    "https://data-nsr.udir.no/v4/enheter",
     "https://data-nsr.udir.no/swagger/v4/swagger.json"
    ],
    "spec_url": "https://data-nsr.udir.no/swagger/v4/swagger.json",
    "docs_url": "https://data-nsr.udir.no/",
-   "probe_url": null,
+   "probe_url": "https://data-nsr.udir.no/v4/enhet/976207815",
    "spec": {
     "format": "openapi 3.0.1",
     "title": "Nasjonalt skoleregister API",
@@ -46261,28 +48056,57 @@
      "Typer"
     ],
     "source_url": "https://data-nsr.udir.no/swagger/v4/swagger.json",
-    "fetched_at": "2026-10-15T11:49:31+00:00"
+    "fetched_at": "2026-10-19T08:39:26+00:00"
    },
-   "license": "https://data.norge.no/nlod/no",
+   "license": "NLOD 2.0",
    "keywords": [
     "skole",
-    "udir",
+    "skoleregister",
+    "grunnskole",
+    "videregående",
+    "elevtall",
     "nsr",
+    "school register",
+    "udir",
     "utdanningsdirektoratet",
     "nxr"
    ],
-   "category": null,
-   "tags": [],
-   "quick_start": null,
+   "category": "offentlig-forvaltning",
+   "tags": [
+    "no-auth",
+    "reference-data"
+   ],
+   "quick_start": "# alle skoler i Trondheim (kommunenummer 5001)\ncurl \"https://data-nsr.udir.no/v4/enheter/kommune/5001\"\n",
    "status": "http://publications.europa.eu/resource/authority/distribution-status/COMPLETED",
    "modified": "2026-03-20T13:04:56.919Z",
    "source": {
-    "kind": "fdk",
+    "kind": "curated+fdk",
+    "file": "utdanning.yaml",
     "uri": "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/657865f762c1e74d12c69262",
     "catalogue_url": "https://data.norge.no/data-services/575e4ec9-0b81-3948-a746-de107c3ecada",
     "harvested_at": "2026-10-15T11:12:28+00:00"
    },
-   "checks": null
+   "checks": {
+    "checked_at": "2026-10-19T08:39:20+00:00",
+    "docs_url": {
+     "url": "https://data-nsr.udir.no/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://data-nsr.udir.no/swagger/index.html"
+    },
+    "spec_url": {
+     "url": "https://data-nsr.udir.no/swagger/v4/swagger.json",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://data-nsr.udir.no/swagger/v4/swagger.json"
+    },
+    "endpoint": {
+     "url": "https://data-nsr.udir.no/v4/enhet/976207815",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://data-nsr.udir.no/v4/enhet/976207815"
+    }
+   }
   },
   {
    "id": "verdal-kommune-wms-for-levanger-og-verdal-kommuner",

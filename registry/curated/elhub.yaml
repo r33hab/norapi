@@ -1,0 +1,25 @@
+updated: 2026-10-19
+provider:
+  name: Elhub
+  orgnr: "915925529"
+  sector: statlig-selskap
+apis:
+  - id: elhub-energy-data
+    title: Elhub energidata
+    title_en: Elhub energy data API
+    description: >-
+      Målt strømforbruk og -produksjon fra Elhub, datahuben for alle strømmålere i Norge: per time, per prisområde
+      (NO1 til NO5) og per kommune. Forbruk er fordelt på husholdning, hytte og næringsgrupper, produksjon på vann,
+      vind, sol, termisk og annet, med antall målepunkter. JSON:API uten nøkkel.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.elhub.no/energy-data/v0/price-areas
+    docs_url: https://api.elhub.no/energy-data-api
+    probe_url: https://api.elhub.no/energy-data/v0/price-areas/NO1?dataset=CONSUMPTION_PER_GROUP_MBA_HOUR&startDate=2026-10-17T00:00:00%2B02:00&endDate=2026-10-17T01:00:00%2B02:00
+    keywords: [strømforbruk, kraftproduksjon, elhub, prisområde, målepunkt, forbruk, energi, electricity consumption]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://api.elhub.no/energy-data/v0/price-areas/NO1?dataset=CONSUMPTION_PER_GROUP_MBA_HOUR&startDate=2026-10-17T00:00:00%2B02:00&endDate=2026-10-17T01:00:00%2B02:00"

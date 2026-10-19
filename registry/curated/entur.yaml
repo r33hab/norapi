@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-19
 provider:
   name: Entur
   orgnr: "917422575"
@@ -90,3 +90,46 @@ apis:
     license: NLOD 2.0
     keywords: [rutedata, netex, gtfs, rutetabell, datasett, timetable]
     tags: [no-auth, data-files]
+
+  - id: entur-mobility
+    title: Mobility v2 (delte sparkesykler, sykler og biler)
+    title_en: Shared mobility API
+    description: >-
+      Delte sparkesykler, bysykler og delebiler fra alle operatører i Norge i ett GraphQL-API: kjøretøy med
+      posisjon, stasjoner med ledige plasser, operatører og geofencing-soner. Bygger på GBFS-feedene fra
+      operatørene, som også kan hentes rått under /mobility/v2/gbfs. Krever en ET-Client-Name-header.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GraphQL, GBFS]
+    endpoints:
+      - https://api.entur.io/mobility/v2/graphql
+    docs_url: https://developer.entur.org/pages-mobility-docs-mobility-v2/
+    keywords: [sparkesykkel, bysykkel, bildeling, delt mobilitet, gbfs, mikromobilitet, scooter, shared mobility]
+    tags: [no-auth, graphql]
+    quick_start: |
+      curl -X POST https://api.entur.io/mobility/v2/graphql \
+        -H "Content-Type: application/json" -H "ET-Client-Name: norapi-demo" \
+        -d '{"query":"{ vehicles(lat: 59.911, lon: 10.750, range: 300, count: 3) { id lat lon system { name { translation { value } } } } }"}'
+
+  - id: entur-vehicle-positions
+    title: Kjøretøyposisjoner (GraphQL)
+    title_en: Vehicle positions
+    description: >-
+      Busser, trikker og tog i sanntid: posisjon, fart, retning, forsinkelse, linje, neste stopp og
+      belegg, filtrert på operatør (codespace), linje eller område. Samme kilde som SIRI VM i sanntidsoppføringen,
+      men som GraphQL med abonnement for strømming. Krever en ET-Client-Name-header.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GraphQL]
+    endpoints:
+      - https://api.entur.io/realtime/v2/vehicles/graphql
+    docs_url: https://developer.entur.org/pages-real-time-vehicle-positions
+    license: NLOD 2.0
+    keywords: [kjøretøyposisjon, sanntid, buss, trikk, tog, forsinkelse, gps, vehicle positions, realtime]
+    tags: [no-auth, graphql, streaming]
+    quick_start: |
+      curl -X POST https://api.entur.io/realtime/v2/vehicles/graphql \
+        -H "Content-Type: application/json" -H "ET-Client-Name: norapi-demo" \
+        -d '{"query":"{ vehicles(codespaceId: \"ATB\") { vehicleId lastUpdated delay line { publicCode } location { latitude longitude } } }"}'

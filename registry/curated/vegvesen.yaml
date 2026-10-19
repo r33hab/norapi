@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-19
 provider:
   name: Statens vegvesen
   orgnr: "971032081"
@@ -59,4 +59,21 @@ apis:
     docs_url: https://www.vegvesen.no/kjoretoy/kjop-og-salg/kjoretoyopplysninger/api-er-for-tekniske-kjoretoyopplysninger/
     license: NLOD 2.0
     keywords: [kjøretøy, bil, registreringsnummer, understellsnummer, vin, eu-kontroll, vehicle]
+    tags: [registration]
+
+  - id: vegvesen-datex
+    title: DATEX II trafikkinformasjon
+    title_en: DATEX II traffic information
+    description: >-
+      Trafikkmeldinger og stengte veier, reisetider, målte værdata fra stasjoner langs veien og webkamerabilder i
+      DATEX II 3.1-formatet. Gratis, men du må bestille tilgang og får brukernavn og passord til HTTP Basic, ikke en
+      API-nøkkel. Oppgi Statens vegvesen som kilde når du videreformidler dataene.
+    category: transport-og-samferdsel
+    access: open
+    auth: api-key
+    formats: [XML, DATEX II]
+    endpoints:
+      - https://datex-server-get-v3-1.atlas.vegvesen.no/datexapi/GetSituation/pullsnapshotdata
+    docs_url: https://www.vegvesen.no/fag/teknologi/apne-data/et-utvalg-apne-data/hva-er-datex
+    keywords: [datex, trafikkmelding, veistenging, reisetid, værstasjon, webkamera, trafikkinformasjon, traffic]
     tags: [registration]

@@ -59,6 +59,17 @@ def test_parse_document_accepts_json_and_yaml_and_rejects_html():
     assert parse_document('{"foo": 1}', "application/json") is None, "no paths: not a spec"
 
 
+def test_parse_document_makes_yaml_json_safe():
+    text = (
+        "openapi: 3.0.0\ninfo:\n  version: 2024-01-15\n"
+        "paths:\n  /x:\n    get:\n      responses:\n        200: {description: ok}\n"
+    )
+    document = parse_document(text, "text/yaml")
+    assert document["info"]["version"] == "2024-01-15", "unquoted dates become strings"
+    assert "200" in document["paths"]["/x"]["get"]["responses"], "status codes become string keys"
+    json.dumps(document)  # the enrich cache writes the document as JSON
+
+
 def test_url_helpers():
     assert (
         normalise_url("https://app.swaggerhub.com/apis/o/a/1.0")

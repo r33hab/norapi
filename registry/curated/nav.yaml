@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-19
 provider:
   name: Nav
   orgnr: "889640782"
@@ -26,3 +26,23 @@ apis:
       curl -H "Authorization: Bearer $TOKEN" -H "Accept: application/json" \
         -H "If-Modified-Since: $(date -u -v-1d '+%a, %d %b %Y %H:%M:%S GMT')" \
         "https://pam-stilling-feed.nav.no/api/v1/feed"
+
+  - id: nav-grunnbelop
+    title: Grunnbeløpet (G)
+    title_en: National insurance base amount
+    description: >-
+      Gjeldende grunnbeløp i folketrygden med månedsbeløp, gjennomsnitt per år og omregningsfaktor, og grunnbeløpet
+      som gjaldt på en gitt dato med parameteren dato. Ett lite endepunkt for alt som regner ytelser, pensjon eller
+      grenser i G.
+    category: arbeid-og-velferd
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://g.nav.no/api/v1/grunnbel%C3%B8p
+    docs_url: https://github.com/navikt/g
+    keywords: [grunnbeløp, g, folketrygd, pensjon, trygd, ytelse, omregningsfaktor, base amount]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      curl "https://g.nav.no/api/v1/grunnbeløp"
+      curl "https://g.nav.no/api/v1/grunnbeløp?dato=2020-06-01"

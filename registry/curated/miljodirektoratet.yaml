@@ -1,0 +1,28 @@
+updated: 2026-10-19
+provider:
+  name: Miljødirektoratet
+  orgnr: "999601391"
+  sector: stat
+apis:
+  - id: miljodir-luftkvalitet
+    title: Luftkvalitetsmålinger i Norge
+    title_en: Air quality measurements
+    description: >-
+      Målinger fra luftkvalitetsstasjonene i Norge: svevestøv (PM10, PM2.5, PM1), NO2, ozon, SO2, benzen og andre
+      komponenter, siste time og historisk, med luftkvalitetsindeks. Oppslag på område, stasjon eller radius rundt
+      en koordinat. Det eldre API-et på api.nilu.no krever nå autentisering.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api-luftmalinger.miljodirektoratet.no/public/aq/utd
+    docs_url: https://api-luftmalinger.miljodirektoratet.no/swagger/index.html
+    spec_url: https://api-luftmalinger.miljodirektoratet.no/swagger/v1-public/swagger.json
+    probe_url: https://api-luftmalinger.miljodirektoratet.no/public/lookup/components
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/68345cae41af7308352bc930
+    license: NLOD 2.0
+    keywords: [luftkvalitet, svevestøv, pm10, pm2.5, no2, ozon, forurensning, målestasjon, air quality]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://api-luftmalinger.miljodirektoratet.no/public/aq/utd?areas=Oslo"

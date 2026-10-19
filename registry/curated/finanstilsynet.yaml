@@ -1,0 +1,27 @@
+updated: 2026-10-19
+provider:
+  name: Finanstilsynet
+  orgnr: "840747972"
+  sector: stat
+apis:
+  - id: finanstilsynet-registry
+    title: Finanstilsynets virksomhetsregister
+    title_en: Finanstilsynet registry API
+    description: >-
+      Hvem har tillatelse fra Finanstilsynet: banker, forsikring og pensjon, verdipapirforetak, eiendomsmeglere,
+      revisorer og regnskapsførere, inkasso, låneformidlere og flere, over 50 tillatelsestyper i alt. Søk på navn,
+      filtrer på tillatelsestype eller hent ferdige rapporter som JSON.
+    category: finans
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.finanstilsynet.no/registry/v2/legal-entities/search
+    docs_url: https://api.finanstilsynet.no/registry/index.html
+    spec_url: https://api.finanstilsynet.no/registry/swagger/v2/swagger.json
+    probe_url: https://api.finanstilsynet.no/registry/v2/legal-entities/search?query=DNB
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/607d796705d3ad2f564a9d7e
+    keywords: [finanstilsynet, konsesjon, tillatelse, bank, forsikring, eiendomsmegler, revisor, inkasso, licence register]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://api.finanstilsynet.no/registry/v2/legal-entities/search?query=DNB"

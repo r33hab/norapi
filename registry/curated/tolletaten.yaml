@@ -1,0 +1,26 @@
+updated: 2026-10-19
+provider:
+  name: Tolletaten
+  orgnr: "974761343"
+  sector: stat
+apis:
+  - id: tolletaten-apne-data
+    title: Tolletatens åpne data (tolltariff, satser og valutakurser)
+    title_en: Norwegian Customs open data
+    description: >-
+      Tolltariffen med varenumre og struktur, tollsatser, tollkvoter, avgifter, restriksjoner, handelsavtaler og
+      tollens valutakurser, i alt rundt 25 datasett. De ligger i en CKAN-portal med eget JSON-API for søk, metadata
+      og nedlasting som XML eller JSON. Lisens CC BY 4.0.
+    category: skatt-og-avgift
+    access: open
+    auth: none
+    formats: [JSON, XML]
+    endpoints:
+      - https://data.toll.no/api/3/action/package_list
+    docs_url: https://www.toll.no/no/bedrift/apne-data
+    license: CC BY 4.0
+    keywords: [toll, tolltariff, varenummer, tollsats, tollkvote, import, eksport, valutakurs, customs]
+    tags: [no-auth, data-files]
+    quick_start: |
+      curl "https://data.toll.no/api/3/action/package_list"
+      curl "https://data.toll.no/api/3/action/package_show?id=tolltariffstruktur"
