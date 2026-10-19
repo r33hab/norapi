@@ -1,0 +1,45 @@
+updated: 2026-10-19
+provider:
+  name: Sikt - Kunnskapssektorens tjenesteleverandør
+  orgnr: "919477822"
+  sector: stat
+apis:
+  - id: sikt-nva
+    title: Nasjonalt vitenarkiv (NVA) API
+    title_en: Norwegian national research archive API
+    description: >-
+      Norske forskningsresultater fra Nasjonalt vitenarkiv: publikasjoner med forfattere, institusjoner, kategorier og
+      fulltekst i åpen tilgang der den finnes. NVA har erstattet Cristin og de lokale vitenarkivene. Søk uten nøkkel.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.nva.unit.no/search/resources
+    docs_url: https://swagger-ui.nva.unit.no/
+    probe_url: https://api.nva.unit.no/search/resources?query=klima&results=1
+    keywords: [forskning, publikasjon, vitenarkiv, nva, cristin, åpen tilgang, open access, research]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://api.nva.unit.no/search/resources?query=klima&results=3"
+
+  - id: sikt-cristin
+    title: Cristin API v2
+    title_en: Cristin research information API
+    description: >-
+      Forskningsresultater, personer, prosjekter og institusjoner fra Cristin, uten nøkkel. Cristin er erstattet av
+      Nasjonalt vitenarkiv og stengt for ny registrering, så velg NVA for nye resultater. API-et svarer fortsatt og
+      dekker historikken.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.cristin.no/v2/
+    docs_url: https://api.cristin.no/v2/doc/index.html
+    probe_url: https://api.cristin.no/v2/results?title=klima&per_page=1
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/5f61d3b3d800fd7444e6ba90
+    keywords: [cristin, forskning, publikasjon, forsker, prosjekt, institusjon, research]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://api.cristin.no/v2/results?title=klima&per_page=3"

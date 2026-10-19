@@ -59,6 +59,43 @@ def test_parse_document_accepts_json_and_yaml_and_rejects_html():
     assert parse_document('{"foo": 1}', "application/json") is None, "no paths: not a spec"
 
 
+def test_parse_document_makes_yaml_json_safe():
+    text = (
+        "openapi: 3.0.0\ninfo:\n  version: 2024-01-15\n"
+        "paths:\n  /x:\n    get:\n      responses:\n        200: {description: ok}\n"
+    )
+    document = parse_document(text, "text/yaml")
+    assert document["info"]["version"] == "2024-01-15", "unquoted dates become strings"
+    assert "200" in document["paths"]["/x"]["get"]["responses"], "status codes become string keys"
+    json.dumps(document)  # the enrich cache writes the document as JSON
+
+
+def test_parse_document_keeps_ordinary_anchors_and_merges():
+    text = (
+        "openapi: 3.0.0\nx-base: &base {type: string, maxLength: 10}\n"
+        "paths:\n  /x:\n    get:\n      x-param: {<<: *base, description: id}\n"
+    )
+    param = parse_document(text, "text/yaml")["paths"]["/x"]["get"]["x-param"]
+    assert param == {"type": "string", "maxLength": 10, "description": "id"}
+
+
+def test_parse_document_rejects_yaml_alias_bombs():
+    levels = ["a0: &a0 [x, x, x, x, x, x, x, x, x, x]"]
+    for i in range(1, 9):
+        levels.append(f"a{i}: &a{i} [" + ", ".join([f"*a{i - 1}"] * 10) + "]")
+    bomb = "openapi: 3.0.0\n" + "\n".join(levels) + "\npaths:\n  /x: {}\n"
+    assert parse_document(bomb, "text/yaml") is None, "10^9 copies must not be expanded"
+    circular = "openapi: 3.0.0\nloop: &l [*l]\npaths:\n  /x: {}\n"
+    assert parse_document(circular, "text/yaml") is None
+    merges = ["m0: &m0 {" + ", ".join(f"k{i}: v" for i in range(10)) + "}"]
+    for i in range(1, 10):
+        merges.append(f"m{i}: &m{i} {{<<: [" + ", ".join([f"*m{i - 1}"] * 10) + "]}")
+    merge_bomb = "openapi: 3.0.0\n" + "\n".join(merges) + "\npaths:\n  /x: {}\n"
+    assert parse_document(merge_bomb, "text/yaml") is None, "refused before loading"
+    date_key = "openapi: 3.0.0\nx-dates:\n  2024-01-15: release\npaths:\n  /x: {}\n"
+    assert parse_document(date_key, "text/yaml") is None, "a key JSON cannot hold is not a crash"
+
+
 def test_url_helpers():
     assert (
         normalise_url("https://app.swaggerhub.com/apis/o/a/1.0")

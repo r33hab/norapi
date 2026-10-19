@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-19
 provider:
   name: Nasjonalbiblioteket
   orgnr: "976029100"
@@ -22,18 +22,24 @@ apis:
     quick_start: |
       curl "https://api.nb.no/catalog/v1/items?q=Ibsen&size=3"
 
-  - id: digitaltmuseum-api
-    title: DigitaltMuseum API (KulturIT)
+  - id: nb-dhlab
+    title: DH-lab API (tekst- og korpusanalyse)
+    title_en: DH-lab text analysis API
     description: >-
-      Gjenstander, fotografier og samlinger fra over 200 norske og svenske museer, med metadata, bilder og
-      lisens per objekt. Solr-basert søk med gratis API-nøkkel som fås fra KulturIT. Driftes av KulturIT,
-      som eies av museene, og er oppført her under Nasjonalbiblioteket-filen av praktiske grunner.
+      Tekstanalyse over Nasjonalbibliotekets samling: n-gram over bøker, aviser og tidsskrifter, konkordanser,
+      frekvenslister, spredning og egne korpus satt sammen fra metadata. Det er API-et bak Python-pakken dhlab, og
+      Swagger-dokumentasjonen ligger på selve API-et.
     category: kultur-og-kunnskap
     access: open
-    auth: api-key
-    formats: [JSON, XML]
+    auth: none
+    formats: [JSON]
     endpoints:
-      - https://api.dimu.org/api/solr/select
-    docs_url: https://api.dimu.org/doc/
-    keywords: [museum, gjenstander, fotografi, samling, kulturarv, digitaltmuseum, dimu]
-    tags: [registration]
+      - https://api.nb.no/dhlab/
+    docs_url: https://api.nb.no/dhlab/
+    spec_url: https://api.nb.no/dhlab/apispec_1.json
+    probe_url: https://api.nb.no/dhlab/totals/5
+    keywords: [ngram, korpus, konkordans, tekstanalyse, språk, digital humaniora, frekvens, dhlab, corpus]
+    tags: [no-auth]
+    quick_start: |
+      curl -X POST https://api.nb.no/dhlab/ngram_book -H "Content-Type: application/json" \
+        -d '{"word":["klima"],"period":[2000,2005]}'

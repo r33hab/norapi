@@ -89,8 +89,8 @@ A GitHub Actions workflow does the same every Monday and commits the result.
 | Source | Entries | Notes |
 |---|---|---|
 | Felles datakatalog (Digdir) | about 1 060 | Everything agencies have registered as a data service, with endpoints, specs, licences and keywords pulled over SPARQL |
-| Curated YAML in `registry/curated/` | 54 | Brønnøysundregistrene, SSB, Entur, MET, Kartverket, Nav, Skatteetaten, Digdir, Altinn, Vegvesen, Norges Bank, Stortinget, NVE, Udir, FHI, Helsedirektoratet, Vinmonopolet, Luftfartstilsynet and more, each with access, auth, formats, docs and a `quick_start` that was run before it was committed |
-| OpenAPI documents | 111 specs, 935 operations | Resolved behind `spec_url` and Swagger UI pages; the Petstore sample that unconfigured Swagger UIs ship is filtered out |
+| Curated YAML in `registry/curated/` | 84 | Brønnøysundregistrene, SSB, Entur, MET, Kartverket, Nav, Skatteetaten, Digdir, Altinn, Vegvesen, Norges Bank, Stortinget, NVE, Udir, FHI, Helsedirektoratet, Lovdata, Elhub, Sikt, Tolletaten, Fiskeridirektoratet, Finanstilsynet, Vinmonopolet, Luftfartstilsynet and more, each with access, auth, formats, docs and a `quick_start` that was run before it was committed |
+| OpenAPI documents | 119 specs, 1 313 operations | Resolved behind `spec_url` and Swagger UI pages; the Petstore sample that unconfigured Swagger UIs ship is filtered out |
 
 Every curated entry is link-checked (`ok`, `answers`, `missing`) and the verdict is shown on its page.
 

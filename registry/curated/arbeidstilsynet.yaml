@@ -1,0 +1,24 @@
+updated: 2026-10-19
+provider:
+  name: Arbeidstilsynet
+  orgnr: "974761211"
+  sector: stat
+apis:
+  - id: arbeidstilsynet-renholdsregisteret
+    title: Renholdsregisteret (XML-fil)
+    title_en: Register of approved cleaning companies
+    description: >-
+      Alle renholdsvirksomheter som er godkjent av Arbeidstilsynet eller har søknad til behandling, med
+      organisasjonsnummer, godkjenningsstatus, næringskoder, adresse og underenheter. Leveres som én XML-fil som
+      genereres daglig, ikke som et søke-API. Det er ulovlig å kjøpe renhold fra virksomheter som ikke står i registeret.
+    category: bedrift-og-organisasjon
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://registerdata.arbeidstilsynet.no/renhold_register.xml
+    docs_url: https://data.norge.no/datasets/b3642673-6855-3af9-93b0-fe6f01fbaa5d
+    keywords: [renhold, renholdsregisteret, godkjenning, renholdsvirksomhet, arbeidstilsynet, cleaning]
+    tags: [no-auth, data-files]
+    quick_start: |
+      curl -O "https://registerdata.arbeidstilsynet.no/renhold_register.xml"

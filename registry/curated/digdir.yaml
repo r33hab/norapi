@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-19
 provider:
   name: Digitaliseringsdirektoratet
   orgnr: "991825827"
@@ -72,3 +72,24 @@ apis:
     docs_url: https://docs.digdir.no/docs/Kontaktregisteret/
     keywords: [krr, kontaktinformasjon, reservasjon, digital postkasse, varsling, innbygger]
     tags: [agreement, maskinporten, personal-data]
+
+  - id: digdir-einnsyn
+    title: eInnsyn API
+    title_en: eInnsyn public records API
+    description: >-
+      Offentlige postjournaler og møtedokumenter fra statlige virksomheter, kommuner og fylker: journalposter,
+      saksmapper, møter og dokumentbeskrivelser, modellert etter Noark 5. Søk svarer uten nøkkel. API-et er
+      beskrevet i TypeSpec, og OpenAPI-dokumentet ligger i repoet felleslosninger/einnsyn-api-spec.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.einnsyn.no/search
+    docs_url: https://github.com/felleslosninger/einnsyn-api-spec
+    spec_url: https://raw.githubusercontent.com/felleslosninger/einnsyn-api-spec/main/openapi/einnsyn.openapi.yml
+    probe_url: https://api.einnsyn.no/search?query=budsjett&limit=1
+    keywords: [innsyn, postjournal, journalpost, saksmappe, møtedokument, offentlighet, noark, public records]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://api.einnsyn.no/search?query=budsjett&limit=3"

@@ -1,7 +1,3925 @@
 {
-"generated_at": "2026-10-19T08:31:20+00:00",
-"count": 935,
+"generated_at": "2026-10-19T08:44:18+00:00",
+"count": 1313,
 "operations": [
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/apiKey",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"ApiKey"
+],
+"operation_id": "ApiKeyRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/apiKey/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"ApiKey"
+],
+"operation_id": "ApiKeyRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/apiKey/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"ApiKey"
+],
+"operation_id": "ApiKeyRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/apiKey/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"ApiKey"
+],
+"operation_id": "ApiKeyRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/arkiv",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Arkiv"
+],
+"operation_id": "ArkivRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/arkiv",
+"summary": null,
+"description": null,
+"tags": [
+"Arkiv"
+],
+"operation_id": "ArkivRoutes_add",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/arkiv/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Arkiv"
+],
+"operation_id": "ArkivRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/arkiv/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Arkiv"
+],
+"operation_id": "ArkivRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/arkiv/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Arkiv"
+],
+"operation_id": "ArkivRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/arkiv/{id}/arkiv",
+"summary": null,
+"description": null,
+"tags": [
+"Arkiv"
+],
+"operation_id": "ArkivRoutes_listArkiv",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/arkiv/{id}/arkiv",
+"summary": null,
+"description": null,
+"tags": [
+"Arkiv"
+],
+"operation_id": "ArkivRoutes_addArkiv",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/arkiv/{id}/arkivdel",
+"summary": null,
+"description": null,
+"tags": [
+"Arkiv"
+],
+"operation_id": "ArkivRoutes_listArkivdel",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/arkiv/{id}/arkivdel",
+"summary": null,
+"description": null,
+"tags": [
+"Arkiv"
+],
+"operation_id": "ArkivRoutes_addArkivdel",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/arkivdel",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Arkivdel"
+],
+"operation_id": "ArkivdelRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/arkivdel/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Arkivdel"
+],
+"operation_id": "ArkivdelRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/arkivdel/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Arkivdel"
+],
+"operation_id": "ArkivdelRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/arkivdel/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Arkivdel"
+],
+"operation_id": "ArkivdelRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/arkivdel/{id}/klasse",
+"summary": null,
+"description": null,
+"tags": [
+"Arkivdel"
+],
+"operation_id": "ArkivdelRoutes_listKlasse",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/arkivdel/{id}/klasse",
+"summary": null,
+"description": null,
+"tags": [
+"Arkivdel"
+],
+"operation_id": "ArkivdelRoutes_addKlasse",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/arkivdel/{id}/klassifikasjonssystem",
+"summary": null,
+"description": null,
+"tags": [
+"Arkivdel"
+],
+"operation_id": "ArkivdelRoutes_listKlassifikasjonssystem",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/arkivdel/{id}/klassifikasjonssystem",
+"summary": null,
+"description": null,
+"tags": [
+"Arkivdel"
+],
+"operation_id": "ArkivdelRoutes_addKlassifikasjonssystem",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/arkivdel/{id}/moetemappe",
+"summary": null,
+"description": null,
+"tags": [
+"Arkivdel"
+],
+"operation_id": "ArkivdelRoutes_listMoetemappe",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/arkivdel/{id}/moetemappe",
+"summary": null,
+"description": null,
+"tags": [
+"Arkivdel"
+],
+"operation_id": "ArkivdelRoutes_addMoetemappe",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/arkivdel/{id}/saksmappe",
+"summary": null,
+"description": null,
+"tags": [
+"Arkivdel"
+],
+"operation_id": "ArkivdelRoutes_listSaksmappe",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/arkivdel/{id}/saksmappe",
+"summary": null,
+"description": null,
+"tags": [
+"Arkivdel"
+],
+"operation_id": "ArkivdelRoutes_addSaksmappe",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/behandlingsprotokoll",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Behandlingsprotokoll"
+],
+"operation_id": "BehandlingsprotokollRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/behandlingsprotokoll/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Behandlingsprotokoll"
+],
+"operation_id": "BehandlingsprotokollRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/behandlingsprotokoll/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Behandlingsprotokoll"
+],
+"operation_id": "BehandlingsprotokollRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/behandlingsprotokoll/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Behandlingsprotokoll"
+],
+"operation_id": "BehandlingsprotokollRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/bruker",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Bruker"
+],
+"operation_id": "BrukerRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/bruker",
+"summary": null,
+"description": null,
+"tags": [
+"Bruker"
+],
+"operation_id": "BrukerRoutes_add",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/bruker/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Bruker"
+],
+"operation_id": "BrukerRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/bruker/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Bruker"
+],
+"operation_id": "BrukerRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/bruker/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Bruker"
+],
+"operation_id": "BrukerRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/bruker/{id}/activate/{secret}",
+"summary": null,
+"description": null,
+"tags": [
+"Bruker"
+],
+"operation_id": "BrukerRoutes_activate",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/bruker/{id}/innsynskrav",
+"summary": null,
+"description": null,
+"tags": [
+"Bruker"
+],
+"operation_id": "BrukerRoutes_listInnsynskrav",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/bruker/{id}/innsynskravBestilling",
+"summary": null,
+"description": null,
+"tags": [
+"Bruker"
+],
+"operation_id": "BrukerRoutes_listInnsynskravBestilling",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/bruker/{id}/innsynskravBestilling",
+"summary": null,
+"description": null,
+"tags": [
+"Bruker"
+],
+"operation_id": "BrukerRoutes_addInnsynskravBestilling",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/bruker/{id}/lagretSak",
+"summary": null,
+"description": null,
+"tags": [
+"Bruker"
+],
+"operation_id": "BrukerRoutes_listLagretSak",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/bruker/{id}/lagretSak",
+"summary": null,
+"description": null,
+"tags": [
+"Bruker"
+],
+"operation_id": "BrukerRoutes_addLagretSak",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/bruker/{id}/lagretSoek",
+"summary": null,
+"description": null,
+"tags": [
+"Bruker"
+],
+"operation_id": "BrukerRoutes_listLagretSoek",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/bruker/{id}/lagretSoek",
+"summary": null,
+"description": null,
+"tags": [
+"Bruker"
+],
+"operation_id": "BrukerRoutes_addLagretSoek",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/bruker/{id}/requestPasswordReset",
+"summary": null,
+"description": null,
+"tags": [
+"Bruker"
+],
+"operation_id": "BrukerRoutes_requestPasswordReset",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/bruker/{id}/updatePassword",
+"summary": null,
+"description": null,
+"tags": [
+"Bruker"
+],
+"operation_id": "BrukerRoutes_updatePassword",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/bruker/{id}/updatePassword/{secret}",
+"summary": null,
+"description": null,
+"tags": [
+"Bruker"
+],
+"operation_id": "BrukerRoutes_updatePasswordWithSecret",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/dokumentbeskrivelse",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Dokumentbeskrivelse"
+],
+"operation_id": "DokumentbeskrivelseRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/dokumentbeskrivelse/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Dokumentbeskrivelse"
+],
+"operation_id": "DokumentbeskrivelseRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/dokumentbeskrivelse/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Dokumentbeskrivelse"
+],
+"operation_id": "DokumentbeskrivelseRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/dokumentbeskrivelse/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Dokumentbeskrivelse"
+],
+"operation_id": "DokumentbeskrivelseRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/dokumentbeskrivelse/{id}/dokumentobjekt",
+"summary": null,
+"description": null,
+"tags": [
+"Dokumentbeskrivelse"
+],
+"operation_id": "DokumentbeskrivelseRoutes_addDokumentobjekt",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/dokumentobjekt",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Dokumentobjekt"
+],
+"operation_id": "DokumentobjektRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/dokumentobjekt/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Dokumentobjekt"
+],
+"operation_id": "DokumentobjektRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/dokumentobjekt/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Dokumentobjekt"
+],
+"operation_id": "DokumentobjektRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/dokumentobjekt/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Dokumentobjekt"
+],
+"operation_id": "DokumentobjektRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/enhet",
+"summary": null,
+"description": "List all enhets, with optional filtering by orgnummer or free-text query.",
+"tags": [
+"Enhet"
+],
+"operation_id": "EnhetRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/enhet",
+"summary": null,
+"description": null,
+"tags": [
+"Enhet"
+],
+"operation_id": "EnhetRoutes_add",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/enhet/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Enhet"
+],
+"operation_id": "EnhetRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/enhet/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Enhet"
+],
+"operation_id": "EnhetRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/enhet/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Enhet"
+],
+"operation_id": "EnhetRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/enhet/{id}/apiKey",
+"summary": null,
+"description": null,
+"tags": [
+"Enhet"
+],
+"operation_id": "EnhetRoutes_listApiKey",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/enhet/{id}/apiKey",
+"summary": null,
+"description": null,
+"tags": [
+"Enhet"
+],
+"operation_id": "EnhetRoutes_addApiKey",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/enhet/{id}/arkiv",
+"summary": null,
+"description": null,
+"tags": [
+"Enhet"
+],
+"operation_id": "EnhetRoutes_listArkiv",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/enhet/{id}/innsynskrav",
+"summary": null,
+"description": null,
+"tags": [
+"Enhet"
+],
+"operation_id": "EnhetRoutes_listInnsynskrav",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/enhet/{id}/underenhet",
+"summary": null,
+"description": null,
+"tags": [
+"Enhet"
+],
+"operation_id": "EnhetRoutes_listUnderenhet",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/enhet/{id}/underenhet",
+"summary": null,
+"description": null,
+"tags": [
+"Enhet"
+],
+"operation_id": "EnhetRoutes_addUnderenhet",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/identifikator",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Identifikator"
+],
+"operation_id": "IdentifikatorRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/identifikator/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Identifikator"
+],
+"operation_id": "IdentifikatorRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/identifikator/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Identifikator"
+],
+"operation_id": "IdentifikatorRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/identifikator/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Identifikator"
+],
+"operation_id": "IdentifikatorRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/innsynskrav",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Innsynskrav"
+],
+"operation_id": "InnsynskravRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/innsynskrav/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Innsynskrav"
+],
+"operation_id": "InnsynskravRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/innsynskrav/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Innsynskrav"
+],
+"operation_id": "InnsynskravRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/innsynskrav/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Innsynskrav"
+],
+"operation_id": "InnsynskravRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/innsynskravBestilling",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"InnsynskravBestilling"
+],
+"operation_id": "InnsynskravRoutes_list_2",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/innsynskravBestilling",
+"summary": null,
+"description": null,
+"tags": [
+"InnsynskravBestilling"
+],
+"operation_id": "InnsynskravRoutes_add",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/innsynskravBestilling/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"InnsynskravBestilling"
+],
+"operation_id": "InnsynskravRoutes_get_2",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/innsynskravBestilling/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"InnsynskravBestilling"
+],
+"operation_id": "InnsynskravRoutes_update_2",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/innsynskravBestilling/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"InnsynskravBestilling"
+],
+"operation_id": "InnsynskravRoutes_delete_2",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/innsynskravBestilling/{id}/innsynskrav",
+"summary": null,
+"description": null,
+"tags": [
+"InnsynskravBestilling"
+],
+"operation_id": "InnsynskravRoutes_listInnsynskrav",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/innsynskravBestilling/{id}/verify/{secret}",
+"summary": null,
+"description": null,
+"tags": [
+"InnsynskravBestilling"
+],
+"operation_id": "InnsynskravRoutes_verify",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/journalpost",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Journalpost"
+],
+"operation_id": "JournalpostRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/journalpost/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Journalpost"
+],
+"operation_id": "JournalpostRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/journalpost/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Journalpost"
+],
+"operation_id": "JournalpostRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/journalpost/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Journalpost"
+],
+"operation_id": "JournalpostRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/journalpost/{id}/dokumentbeskrivelse",
+"summary": null,
+"description": null,
+"tags": [
+"Journalpost"
+],
+"operation_id": "JournalpostRoutes_listDokumentbeskrivelse",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/journalpost/{id}/dokumentbeskrivelse",
+"summary": null,
+"description": null,
+"tags": [
+"Journalpost"
+],
+"operation_id": "JournalpostRoutes_addDokumentbeskrivelse",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/journalpost/{id}/dokumentbeskrivelse/{dokumentbeskrivelseId}",
+"summary": null,
+"description": null,
+"tags": [
+"Journalpost"
+],
+"operation_id": "JournalpostRoutes_deleteDokumentbeskrivelse",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/journalpost/{id}/korrespondansepart",
+"summary": null,
+"description": null,
+"tags": [
+"Journalpost"
+],
+"operation_id": "JournalpostRoutes_listKorrespondansepart",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/journalpost/{id}/korrespondansepart",
+"summary": null,
+"description": null,
+"tags": [
+"Journalpost"
+],
+"operation_id": "JournalpostRoutes_addKorrespondansepart",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/journalpost/{id}/matrikkelnummer",
+"summary": null,
+"description": null,
+"tags": [
+"Journalpost"
+],
+"operation_id": "JournalpostRoutes_listMatrikkelnummer",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/journalpost/{id}/matrikkelnummer",
+"summary": null,
+"description": null,
+"tags": [
+"Journalpost"
+],
+"operation_id": "JournalpostRoutes_addMatrikkelnummer",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/journalpost/{id}/skjerming",
+"summary": null,
+"description": null,
+"tags": [
+"Journalpost"
+],
+"operation_id": "JournalpostRoutes_addSkjerming",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/journalpost/{id}/skjerming/{skjermingId}",
+"summary": null,
+"description": null,
+"tags": [
+"Journalpost"
+],
+"operation_id": "JournalpostRoutes_deleteSkjerming",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/klasse",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Klasse"
+],
+"operation_id": "KlasseRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/klasse/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Klasse"
+],
+"operation_id": "KlasseRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/klasse/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Klasse"
+],
+"operation_id": "KlasseRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/klasse/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Klasse"
+],
+"operation_id": "KlasseRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/klasse/{id}/klasse",
+"summary": null,
+"description": null,
+"tags": [
+"Klasse"
+],
+"operation_id": "KlasseRoutes_listKlasse",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/klasse/{id}/klasse",
+"summary": null,
+"description": null,
+"tags": [
+"Klasse"
+],
+"operation_id": "KlasseRoutes_addKlasse",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/klasse/{id}/moetemappe",
+"summary": null,
+"description": null,
+"tags": [
+"Klasse"
+],
+"operation_id": "KlasseRoutes_listMoetemappe",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/klasse/{id}/saksmappe",
+"summary": null,
+"description": null,
+"tags": [
+"Klasse"
+],
+"operation_id": "KlasseRoutes_listSaksmappe",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/klassifikasjonssystem",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Klassifikasjonssystem"
+],
+"operation_id": "KlassifikasjonssystemRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/klassifikasjonssystem/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Klassifikasjonssystem"
+],
+"operation_id": "KlassifikasjonssystemRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/klassifikasjonssystem/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Klassifikasjonssystem"
+],
+"operation_id": "KlassifikasjonssystemRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/klassifikasjonssystem/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Klassifikasjonssystem"
+],
+"operation_id": "KlassifikasjonssystemRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/klassifikasjonssystem/{id}/klasse",
+"summary": null,
+"description": null,
+"tags": [
+"Klassifikasjonssystem"
+],
+"operation_id": "KlassifikasjonssystemRoutes_listKlasse",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/klassifikasjonssystem/{id}/klasse",
+"summary": null,
+"description": null,
+"tags": [
+"Klassifikasjonssystem"
+],
+"operation_id": "KlassifikasjonssystemRoutes_addKlasse",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/korrespondansepart",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Korrespondansepart"
+],
+"operation_id": "KorrespondansepartRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/korrespondansepart/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Korrespondansepart"
+],
+"operation_id": "KorrespondansepartRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/korrespondansepart/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Korrespondansepart"
+],
+"operation_id": "KorrespondansepartRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/korrespondansepart/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Korrespondansepart"
+],
+"operation_id": "KorrespondansepartRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/lagretSak",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"LagretSak"
+],
+"operation_id": "LagretSakRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/lagretSak/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"LagretSak"
+],
+"operation_id": "LagretSakRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/lagretSak/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"LagretSak"
+],
+"operation_id": "LagretSakRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/lagretSak/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"LagretSak"
+],
+"operation_id": "LagretSakRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/lagretSoek",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"LagretSoek"
+],
+"operation_id": "LagretSoekRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/lagretSoek/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"LagretSoek"
+],
+"operation_id": "LagretSoekRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/lagretSoek/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"LagretSoek"
+],
+"operation_id": "LagretSoekRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/lagretSoek/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"LagretSoek"
+],
+"operation_id": "LagretSoekRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/matrikkelnummer",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Matrikkelnummer"
+],
+"operation_id": "MatrikkelnummerRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/matrikkelnummer/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Matrikkelnummer"
+],
+"operation_id": "MatrikkelnummerRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/matrikkelnummer/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Matrikkelnummer"
+],
+"operation_id": "MatrikkelnummerRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/matrikkelnummer/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Matrikkelnummer"
+],
+"operation_id": "MatrikkelnummerRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/me",
+"summary": null,
+"description": null,
+"tags": [
+"AuthInfo"
+],
+"operation_id": "AuthInfoRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetedeltaker",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Moetedeltaker"
+],
+"operation_id": "MoetedeltakerRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetedeltaker/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Moetedeltaker"
+],
+"operation_id": "MoetedeltakerRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/moetedeltaker/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Moetedeltaker"
+],
+"operation_id": "MoetedeltakerRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/moetedeltaker/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Moetedeltaker"
+],
+"operation_id": "MoetedeltakerRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetedokument",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Moetedokument"
+],
+"operation_id": "MoetedokumentRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetedokument/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Moetedokument"
+],
+"operation_id": "MoetedokumentRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/moetedokument/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Moetedokument"
+],
+"operation_id": "MoetedokumentRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/moetedokument/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Moetedokument"
+],
+"operation_id": "MoetedokumentRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetedokument/{id}/dokumentbeskrivelse",
+"summary": null,
+"description": null,
+"tags": [
+"Moetedokument"
+],
+"operation_id": "MoetedokumentRoutes_listDokumentbeskrivelse",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/moetedokument/{id}/dokumentbeskrivelse",
+"summary": null,
+"description": null,
+"tags": [
+"Moetedokument"
+],
+"operation_id": "MoetedokumentRoutes_addDokumentbeskrivelse",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/moetedokument/{id}/dokumentbeskrivelse/{dokumentbeskrivelseId}",
+"summary": null,
+"description": null,
+"tags": [
+"Moetedokument"
+],
+"operation_id": "MoetedokumentRoutes_deleteDokumentbeskrivelse",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetedokument/{id}/matrikkelnummer",
+"summary": null,
+"description": null,
+"tags": [
+"Moetedokument"
+],
+"operation_id": "MoetedokumentRoutes_listMatrikkelnummer",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/moetedokument/{id}/matrikkelnummer",
+"summary": null,
+"description": null,
+"tags": [
+"Moetedokument"
+],
+"operation_id": "MoetedokumentRoutes_addMatrikkelnummer",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetemappe",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Moetemappe"
+],
+"operation_id": "MoetemappeRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetemappe/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Moetemappe"
+],
+"operation_id": "MoetemappeRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/moetemappe/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Moetemappe"
+],
+"operation_id": "MoetemappeRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/moetemappe/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Moetemappe"
+],
+"operation_id": "MoetemappeRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetemappe/{id}/matrikkelnummer",
+"summary": null,
+"description": null,
+"tags": [
+"Moetemappe"
+],
+"operation_id": "MoetemappeRoutes_listMatrikkelnummer",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/moetemappe/{id}/matrikkelnummer",
+"summary": null,
+"description": null,
+"tags": [
+"Moetemappe"
+],
+"operation_id": "MoetemappeRoutes_addMatrikkelnummer",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetemappe/{id}/moetedokument",
+"summary": null,
+"description": null,
+"tags": [
+"Moetemappe"
+],
+"operation_id": "MoetemappeRoutes_listMoetedokument",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/moetemappe/{id}/moetedokument",
+"summary": null,
+"description": null,
+"tags": [
+"Moetemappe"
+],
+"operation_id": "MoetemappeRoutes_addMoetedokument",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetemappe/{id}/moetesak",
+"summary": null,
+"description": null,
+"tags": [
+"Moetemappe"
+],
+"operation_id": "MoetemappeRoutes_listMoetesak",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/moetemappe/{id}/moetesak",
+"summary": null,
+"description": null,
+"tags": [
+"Moetemappe"
+],
+"operation_id": "MoetemappeRoutes_addMoetesak",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetesak",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Moetesak"
+],
+"operation_id": "MoetesakRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/moetesak",
+"summary": null,
+"description": null,
+"tags": [
+"Moetesak"
+],
+"operation_id": "MoetesakRoutes_add",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetesak/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Moetesak"
+],
+"operation_id": "MoetesakRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/moetesak/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Moetesak"
+],
+"operation_id": "MoetesakRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/moetesak/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Moetesak"
+],
+"operation_id": "MoetesakRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetesak/{id}/dokumentbeskrivelse",
+"summary": null,
+"description": null,
+"tags": [
+"Moetesak"
+],
+"operation_id": "MoetesakRoutes_listDokumentbeskrivelse",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/moetesak/{id}/dokumentbeskrivelse",
+"summary": null,
+"description": null,
+"tags": [
+"Moetesak"
+],
+"operation_id": "MoetesakRoutes_addDokumentbeskrivelse",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/moetesak/{id}/dokumentbeskrivelse/{dokumentbeskrivelseId}",
+"summary": null,
+"description": null,
+"tags": [
+"Moetesak"
+],
+"operation_id": "MoetesakRoutes_deleteDokumentbeskrivelse",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetesak/{id}/matrikkelnummer",
+"summary": null,
+"description": null,
+"tags": [
+"Moetesak"
+],
+"operation_id": "MoetesakRoutes_listMatrikkelnummer",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/moetesak/{id}/matrikkelnummer",
+"summary": null,
+"description": null,
+"tags": [
+"Moetesak"
+],
+"operation_id": "MoetesakRoutes_addMatrikkelnummer",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetesak/{id}/utredning",
+"summary": null,
+"description": null,
+"tags": [
+"Moetesak"
+],
+"operation_id": "MoetesakRoutes_getUtredning",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/moetesak/{id}/utredning",
+"summary": null,
+"description": null,
+"tags": [
+"Moetesak"
+],
+"operation_id": "MoetesakRoutes_addUtredning",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetesak/{id}/vedtak",
+"summary": null,
+"description": null,
+"tags": [
+"Moetesak"
+],
+"operation_id": "MoetesakRoutes_getVedtak",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/moetesak/{id}/vedtak",
+"summary": null,
+"description": null,
+"tags": [
+"Moetesak"
+],
+"operation_id": "MoetesakRoutes_addVedtak",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetesaksbeskrivelse",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Moetesaksbeskrivelse"
+],
+"operation_id": "MoetesaksbeskrivelseRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/moetesaksbeskrivelse/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Moetesaksbeskrivelse"
+],
+"operation_id": "MoetesaksbeskrivelseRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/moetesaksbeskrivelse/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Moetesaksbeskrivelse"
+],
+"operation_id": "MoetesaksbeskrivelseRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/moetesaksbeskrivelse/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Moetesaksbeskrivelse"
+],
+"operation_id": "MoetesaksbeskrivelseRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/saksmappe",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Saksmappe"
+],
+"operation_id": "SaksmappeRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/saksmappe/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Saksmappe"
+],
+"operation_id": "SaksmappeRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/saksmappe/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Saksmappe"
+],
+"operation_id": "SaksmappeRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/saksmappe/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Saksmappe"
+],
+"operation_id": "SaksmappeRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/saksmappe/{id}/journalpost",
+"summary": null,
+"description": null,
+"tags": [
+"Saksmappe"
+],
+"operation_id": "SaksmappeRoutes_listJournalpost",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/saksmappe/{id}/journalpost",
+"summary": null,
+"description": null,
+"tags": [
+"Saksmappe"
+],
+"operation_id": "SaksmappeRoutes_addJournalpost",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/saksmappe/{id}/matrikkelnummer",
+"summary": null,
+"description": null,
+"tags": [
+"Saksmappe"
+],
+"operation_id": "SaksmappeRoutes_listMatrikkelnummer",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/saksmappe/{id}/matrikkelnummer",
+"summary": null,
+"description": null,
+"tags": [
+"Saksmappe"
+],
+"operation_id": "SaksmappeRoutes_addMatrikkelnummer",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/search",
+"summary": null,
+"description": null,
+"tags": [
+"Search"
+],
+"operation_id": "SearchRoutes_search",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/skjerming",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Skjerming"
+],
+"operation_id": "SkjermingRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/skjerming",
+"summary": null,
+"description": null,
+"tags": [
+"Skjerming"
+],
+"operation_id": "SkjermingRoutes_add",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/skjerming/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Skjerming"
+],
+"operation_id": "SkjermingRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/skjerming/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Skjerming"
+],
+"operation_id": "SkjermingRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/skjerming/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Skjerming"
+],
+"operation_id": "SkjermingRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/statistics",
+"summary": null,
+"description": "Query statistics data with optional filtering and aggregation parameters. Returns both a summary of total statistics and optional time series data.",
+"tags": [
+"Statistics"
+],
+"operation_id": "Statistics_query",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/tilbakemelding",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Tilbakemelding"
+],
+"operation_id": "TilbakemeldingRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/tilbakemelding",
+"summary": null,
+"description": null,
+"tags": [
+"Tilbakemelding"
+],
+"operation_id": "TilbakemeldingRoutes_add",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/tilbakemelding/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Tilbakemelding"
+],
+"operation_id": "TilbakemeldingRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/tilbakemelding/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Tilbakemelding"
+],
+"operation_id": "TilbakemeldingRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/tilbakemelding/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Tilbakemelding"
+],
+"operation_id": "TilbakemeldingRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/utredning",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Utredning"
+],
+"operation_id": "UtredningRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/utredning/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Utredning"
+],
+"operation_id": "UtredningRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/utredning/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Utredning"
+],
+"operation_id": "UtredningRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/utredning/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Utredning"
+],
+"operation_id": "UtredningRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/utredning/{id}/utredningsdokument",
+"summary": null,
+"description": null,
+"tags": [
+"Utredning"
+],
+"operation_id": "UtredningRoutes_listUtredningsdokument",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/utredning/{id}/utredningsdokument",
+"summary": null,
+"description": null,
+"tags": [
+"Utredning"
+],
+"operation_id": "UtredningRoutes_addUtredningsdokument",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/utredning/{id}/utredningsdokument/{utredningsdokumentId}",
+"summary": null,
+"description": null,
+"tags": [
+"Utredning"
+],
+"operation_id": "UtredningRoutes_deleteUtredningsdokument",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/vedtak",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Vedtak"
+],
+"operation_id": "VedtakRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/vedtak/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Vedtak"
+],
+"operation_id": "VedtakRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/vedtak/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Vedtak"
+],
+"operation_id": "VedtakRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/vedtak/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Vedtak"
+],
+"operation_id": "VedtakRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/vedtak/{id}/vedtaksdokument",
+"summary": null,
+"description": null,
+"tags": [
+"Vedtak"
+],
+"operation_id": "VedtakRoutes_listVedtaksdokument",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/vedtak/{id}/vedtaksdokument",
+"summary": null,
+"description": null,
+"tags": [
+"Vedtak"
+],
+"operation_id": "VedtakRoutes_addVedtaksdokument",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/vedtak/{id}/vedtaksdokument/{vedtaksdokumentId}",
+"summary": null,
+"description": null,
+"tags": [
+"Vedtak"
+],
+"operation_id": "VedtakRoutes_deleteVedtaksdokument",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/vedtak/{id}/votering",
+"summary": null,
+"description": null,
+"tags": [
+"Vedtak"
+],
+"operation_id": "VedtakRoutes_listVotering",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "POST",
+"path": "/vedtak/{id}/votering",
+"summary": null,
+"description": null,
+"tags": [
+"Vedtak"
+],
+"operation_id": "VedtakRoutes_addVotering",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/votering",
+"summary": null,
+"description": "List all objects.",
+"tags": [
+"Votering"
+],
+"operation_id": "VoteringRoutes_list",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "GET",
+"path": "/votering/{id}",
+"summary": null,
+"description": "Get an object.",
+"tags": [
+"Votering"
+],
+"operation_id": "VoteringRoutes_get",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "PATCH",
+"path": "/votering/{id}",
+"summary": null,
+"description": "Update an object.",
+"tags": [
+"Votering"
+],
+"operation_id": "VoteringRoutes_update",
+"deprecated": false
+},
+{
+"api_id": "digdir-einnsyn",
+"method": "DELETE",
+"path": "/votering/{id}",
+"summary": null,
+"description": "Delete an object.",
+"tags": [
+"Votering"
+],
+"operation_id": "VoteringRoutes_delete",
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/documentIndex",
+"summary": "Get the index for a specific document",
+"description": "Function for retrieving table of contents as a JSON structure. The returned data model is a tree structure with the following data fields: `refID`: For document parts where ID can be interpreted and used by a human to identify the part, thi",
+"tags": [
+"Content services"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/documentHistory",
+"summary": "Document change log",
+"description": "Retrieves list of past and future versions of given document. ### Example request Request: `/documentHistory?refID=lov/2005-05-20-28`",
+"tags": [
+"Content services"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/baseHistory",
+"summary": "Change log for legal source",
+"description": "Retrieves list of changed documents in a period of time. ### Example request Request: `/baseHistory?base=NL&limit=20` ```",
+"tags": [
+"Content services"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/listBase",
+"summary": "List all documents in a legal source",
+"description": "Given a legal source, list the `dokID`s of every document contained in the source.",
+"tags": [
+"Content services"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/documentMeta",
+"summary": "Get metadata for a single document",
+"description": null,
+"tags": [
+"Content services"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/lookup",
+"summary": "Check the existence of a document or reference",
+"description": "Checks if the given `refID` or `dokID` exists and returns a boolean.",
+"tags": [
+"Content services"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/renderRefID",
+"summary": "Simple method to render documents or parts as HTML",
+"description": "Call to draw content as HTML. Example: `https://api.lovdata.no/renderRefID?refID=lov/2005-05-20-28/§4`",
+"tags": [
+"Content services"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/genref",
+"summary": "Locate references in the given input text",
+"description": "References are returned both applied to the original text as anchors, and as a model detailing the found references and their locations in the input text. Using the POST endpoint ensures that no content will be logged or saved on our server",
+"tags": [
+"Services"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "POST",
+"path": "/genref",
+"summary": "Locate references in the given input text",
+"description": "POST variant of Genref supporting both JSON and form data request bodies. References are returned both applied to the original text as anchors, and as a model detailing the found references and their locations in the input text. Using the P",
+"tags": [
+"Services"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/ping",
+"summary": null,
+"description": null,
+"tags": [
+"System calls"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/v1/userinfo",
+"summary": null,
+"description": null,
+"tags": [
+"System calls"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/v1/structuredRules/list",
+"summary": "List legal sources containing available documents",
+"description": null,
+"tags": [
+"Structured rules"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/v1/structuredRules/list/{base}",
+"summary": "List available documents in a given legal source",
+"description": null,
+"tags": [
+"Structured rules"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/v1/structuredRules/get/{base}/{ruleFile}",
+"summary": "Get a single document in structured format",
+"description": null,
+"tags": [
+"Structured rules"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/v1/structuredRules/get/{base}/{ruleFile}/{date}",
+"summary": "Get the version of the document in force at the given date",
+"description": null,
+"tags": [
+"Structured rules"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/v1/structuredRules/timeline/{base}/{ruleFile}",
+"summary": "List the available versions of the given document",
+"description": null,
+"tags": [
+"Structured rules"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "POST",
+"path": "/v1/upload/{baseName}",
+"summary": "Upload documents to a legal source",
+"description": null,
+"tags": [
+"Document upload"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/v1/publicData/list",
+"summary": "List available public data packages",
+"description": "Returns a list of downloadable data packages with filenames, descriptions, and sizes. No authentication required.",
+"tags": [
+"Public data"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/v1/publicData/get/{filename}",
+"summary": "Download a public data package",
+"description": "Downloads the specified data package. Supported file formats are .zip and .tar.bz2. No authentication required.",
+"tags": [
+"Public data"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/version",
+"summary": null,
+"description": null,
+"tags": [
+"API-documentation"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/apichanges",
+"summary": null,
+"description": null,
+"tags": [
+"API-documentation"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/apichanges.md",
+"summary": null,
+"description": null,
+"tags": [
+"API-documentation"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/apichanges.rss",
+"summary": null,
+"description": null,
+"tags": [
+"API-documentation"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/privacy",
+"summary": null,
+"description": null,
+"tags": [
+"API-documentation"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/v1/search",
+"summary": "Full-text search across all legal sources",
+"description": "...",
+"tags": [
+"Services"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/v1/download/document",
+"summary": "Download documents or parts of documents in a variety of formats",
+"description": null,
+"tags": [
+"Content services"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/v1/documentPartChanges",
+"summary": "Detailed information about promulgated changes to parts of regulation",
+"description": null,
+"tags": [
+"Content services"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/v1/legalSource/list",
+"summary": "List all legal sources with descriptions",
+"description": "List all legal sources in Lovdatas databases. Note that content from several sources are unavailabe through this API.",
+"tags": [
+"Content services"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "POST",
+"path": "/v2/ai/selectionList/generateResponse",
+"summary": "Generate a list of LLM responses for a chat over document sections from a selection list",
+"description": "Generates text using selection-list-specific prompts for a fixed document collection.",
+"tags": [
+"AI functionality"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/v1/ai/strategySearch",
+"summary": "Search using a specified strategy, given a text query",
+"description": "Using the POST endpoint ensures that no content will be logged or saved on our servers.",
+"tags": [
+"AI functionality"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "POST",
+"path": "/v1/ai/strategySearch",
+"summary": "Search using a specified strategy, given a text query",
+"description": "Using the POST endpoint ensures that no content will be logged or saved on our servers.",
+"tags": [
+"AI functionality"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "POST",
+"path": "/v1/ai/generateResponse",
+"summary": "Generate a list of LLM responses for a chat given a list of messages and a list of section IDs",
+"description": null,
+"tags": [
+"AI functionality"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/vocabulary/legalAreas",
+"summary": "List all legal areas",
+"description": "Returns a list of all legal areas used in the Lovdata system, including codes and hierarchy.",
+"tags": [
+"Vocabularies"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "lovdata-public-data",
+"method": "GET",
+"path": "/vocabulary/legalSources",
+"summary": "List all legal sources (bases)",
+"description": "Returns a list of all legal sources (bases) available in the system.",
+"tags": [
+"Vocabularies"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "POST",
+"path": "/build_corpus",
+"summary": "Build corpus from metadata",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "GET",
+"path": "/chunks",
+"summary": "Fetch chunks as wordbags from a document URN",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "GET",
+"path": "/chunks_para",
+"summary": "Fetch chunks (within paragraphs) as wordbags from a document URN",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "POST",
+"path": "/conc",
+"summary": "Return concordances (keyword in context) for a corpus query",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "POST",
+"path": "/conccount",
+"summary": "Return counts from concordances (keyword in context) for a corpus query (used for collocation analysis)",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "POST",
+"path": "/dispersion",
+"summary": "Compute dispersion of word in urn",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "POST",
+"path": "/frequencies",
+"summary": "Get frequencies of words for a URN or multiple URNs",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "POST",
+"path": "/get_metadata",
+"summary": "Get metadata for a list of URNs",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "GET",
+"path": "/id/{dhlabid}",
+"summary": "Returns basic metadata for a specific dhlabid",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "GET",
+"path": "/id/{doctype}/next",
+"summary": "Returns the next available dhlabid for a given doctype",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "GET",
+"path": "/imagination_geo_data",
+"summary": "Look up placenames in a specific URN or dhlabid.",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "POST",
+"path": "/imagination_geo_data_list",
+"summary": "Look up placenames in a list of specific URNs or dhlabids.",
+"description": "<br/>",
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "POST",
+"path": "/ngram_book",
+"summary": "Get aggregated n-gram statistics for books (unigrams)",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "POST",
+"path": "/ngram_newspapers",
+"summary": "Get aggregated n-gram statistics for newspapers (unigrams)",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "POST",
+"path": "/ngram_periodicals",
+"summary": "Get aggregated n-gram statistics for periodicals (unigrams)",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "POST",
+"path": "/places",
+"summary": "Look up placenames in a specific URN.",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "GET",
+"path": "/reference_corpus",
+"summary": "Reference frequency list of the n most frequent words from a given corpus in a given period.",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "POST",
+"path": "/reference_words",
+"summary": "Lookup a list of words in a reference corpus",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "GET",
+"path": "/totals/{top_words}",
+"summary": "Reference frequency list",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "GET",
+"path": "/urn/{urn}",
+"summary": "Returns basic metadata for a specific dhlab series URN",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nb-dhlab",
+"method": "POST",
+"path": "/urn_frequencies",
+"summary": "Get frequencies for multiple URNs",
+"description": null,
+"tags": [],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "GET",
+"path": "/Account/GetObserver",
+"summary": null,
+"description": null,
+"tags": [
+"Account"
+],
+"operation_id": "Account_GetObserver",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "GET",
+"path": "/Account/Groups",
+"summary": null,
+"description": null,
+"tags": [
+"Account"
+],
+"operation_id": "Account_GetObserverGroups",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "GET",
+"path": "/Account/Mypage",
+"summary": null,
+"description": null,
+"tags": [
+"Account"
+],
+"operation_id": "Account_GetMyPageData",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "PUT",
+"path": "/Account/UpdateObserver",
+"summary": "Set nickname for an observer",
+"description": null,
+"tags": [
+"Account"
+],
+"operation_id": "Account_UpdateObserver",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "POST",
+"path": "/Attachment/Upload",
+"summary": "Upload an image to a registration",
+"description": null,
+"tags": [
+"Attachment"
+],
+"operation_id": "Attachment_Post",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "GET",
+"path": "/Attachment/{format}/{id}",
+"summary": "Get Attachment file by id",
+"description": null,
+"tags": [
+"Attachment"
+],
+"operation_id": "Attachment_Get",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "GET",
+"path": "/HelpText",
+"summary": "Get a list of helptext objects.",
+"description": "Used by the app and regobs.no web for displaying help texts.",
+"tags": [
+"Helptext"
+],
+"operation_id": "Helptext_Get",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "GET",
+"path": "/KdvElements",
+"summary": "Returns id, name, and description for data types. This is most often used in input fields, dropdowns etc. KDVElements that belong to a geo hazard are prefixed with the corresponding hazard (Snow_, Ice_, Water_, Landslide_).\r\nIf a type is missing in given language, we will fill the holes with equivalent types in English (if they exists)",
+"description": null,
+"tags": [
+"KdvElements"
+],
+"operation_id": "KdvElements_GetKdvs",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "GET",
+"path": "/Location/WithinRadius",
+"summary": "Returns a list of locations within the given radius from the given coordinates.\r\nFor an unauthenticated client, it only returns public ice locations.\r\nFor an authenticated client, it returns public locations as well as the\r\nauthenticated user's private locations.\r\nEmpty list if no registrations found.",
+"description": null,
+"tags": [
+"Location"
+],
+"operation_id": "Location_WithinRadius",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "GET",
+"path": "/Location/{locationId}",
+"summary": null,
+"description": null,
+"tags": [
+"Location"
+],
+"operation_id": "Location_Get",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "GET",
+"path": "/Registration/{regId}/{langKey}",
+"summary": "Get registration by regId.",
+"description": null,
+"tags": [
+"Registration"
+],
+"operation_id": "Registration_Get",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "GET",
+"path": "/Registration/Caaml/{regId}",
+"summary": "Get a registration in CAAML format",
+"description": "CAAML (Canadian Avalanche Association Markup Language) is a standard for the electronic representation of information pertinent to avalanche safety operations. See http://caaml.org/.",
+"tags": [
+"Registration"
+],
+"operation_id": "Registration_GetCaaml",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "POST",
+"path": "/Registration/PlotPreviewPng",
+"summary": "Generate a preview figure for a snow profile registration.",
+"description": null,
+"tags": [
+"Registration"
+],
+"operation_id": "Registration_PlotPreviewPng",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "PUT",
+"path": "/Registration/{id}",
+"summary": "Update registration. Updating existing obsLocation with new values will be possible only \r\nif there is no other registrations connected to that location from before. Otherwise new values are ignored. User don't get any error message.",
+"description": null,
+"tags": [
+"Registration"
+],
+"operation_id": "Registration_InsertOrUpdate",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "DELETE",
+"path": "/Registration/{id}",
+"summary": "Delete registration",
+"description": null,
+"tags": [
+"Registration"
+],
+"operation_id": "Registration_Delete",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "POST",
+"path": "/Registration",
+"summary": "Create a new registration. The purpose is to send in one or more forms.",
+"description": "Example critera for creating a new registration with one form. { \"GeoHazardTID\": 20, \"DtObsTime\": \"2021-06-25T13:18:00.000Z\", \"ObsLocation\": { \"Latitude\": 60.919917123811992, \"Longitude\": 7.210167614875667, }, \"LandSlideObs\": { \"LandSlideTI",
+"tags": [
+"Registration"
+],
+"operation_id": "Registration_Insert",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "POST",
+"path": "/Registration/Validate/{id}",
+"summary": "Validate registration data.",
+"description": null,
+"tags": [
+"Registration"
+],
+"operation_id": "Registration_Validate",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "POST",
+"path": "/Search",
+"summary": "Returns a list of complete registrations that matches your filter. Empty list if no registrations found.\r\nUse POST /Search/AtAGlance for faster search.",
+"description": "Example critera for returning the 10 newest registrations: <code> { \"NumberOfRecords\": 10 } </code>",
+"tags": [
+"Search"
+],
+"operation_id": "Search_Search",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "POST",
+"path": "/Search/MyRegistrations",
+"summary": "Returns a list of complete registrations that were registered by the logged in user.\r\nEmpty list if no registrations found.",
+"description": "Example critera for returning the 10 newest registrations: <code> { \"NumberOfRecords\": 10 } </code>",
+"tags": [
+"Search"
+],
+"operation_id": "Search_PostSearchMyRegistrations",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "POST",
+"path": "/Search/MyRegistrationsCount",
+"summary": "Returns number of registrations that were registered by the logged in user",
+"description": null,
+"tags": [
+"Search"
+],
+"operation_id": "Search_CountMyRegistrations",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "POST",
+"path": "/Search/Count",
+"summary": "Returns search result count",
+"description": null,
+"tags": [
+"Search"
+],
+"operation_id": "Search_Count",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "POST",
+"path": "/Search/DeletedRegistrations",
+"summary": "Returns list of regIds from deleted registrations that can be filtered with criteria model.\r\nUsed with offline syncing on mobile devices.",
+"description": null,
+"tags": [
+"Search"
+],
+"operation_id": "Search_GetRegIdsFromDeletedRegistrations",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "GET",
+"path": "/Search/SearchCriteria/{geoHazards}/{langKey}",
+"summary": "Returns relevant search criteria for the specified geo hazard types and language.\r\nThis can help you to find the right criteria to use in the other search methods.",
+"description": null,
+"tags": [
+"Search"
+],
+"operation_id": "Search_GetSearchCriteria",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "POST",
+"path": "/Search/AtAGlance",
+"summary": "Simplified search for registrations. Returns less data per registration, so faster than /Search\r\nReturns empty list if no registrations found.\r\nReturns only first attachment and count on how many other attachments user can expect when opening\r\na detailed info",
+"description": null,
+"tags": [
+"Search"
+],
+"operation_id": "Search_AtAGlance",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "POST",
+"path": "/Search/Attachments",
+"summary": "Search for images only",
+"description": null,
+"tags": [
+"Search"
+],
+"operation_id": "Search_SearchImages",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "GET",
+"path": "/Trip/ObserverTrips",
+"summary": "Fetches GeoJSON representations of the pre-approved observation trips.\r\nOnly available for users in Obskorps administrative group.",
+"description": null,
+"tags": [
+"Trip"
+],
+"operation_id": "Trip_Get",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "POST",
+"path": "/Trip",
+"summary": null,
+"description": null,
+"tags": [
+"Trip"
+],
+"operation_id": "Trip_Post",
+"deprecated": false
+},
+{
+"api_id": "nve-regobs",
+"method": "PUT",
+"path": "/Trip",
+"summary": null,
+"description": null,
+"tags": [
+"Trip"
+],
+"operation_id": "Trip_Put",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/approval/{approvalId}",
+"summary": "Get Approval",
+"description": "Get approval by ID",
+"tags": [
+"NVA Approval API"
+],
+"operation_id": "getApprovalById",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "PUT",
+"path": "/approval/{approvalId}",
+"summary": "Update Approval",
+"description": "Replaces the writable state of an existing approval. The submitted identifiers and source overwrite the stored values. The handle and the approval identifier are assigned on creation and cannot be changed.",
+"tags": [
+"NVA Approval API"
+],
+"operation_id": "updateApproval",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/approval/context/{version}",
+"summary": "Get a specific version of the JSON-LD Context",
+"description": "Returns a specific version of the JSON-LD context. A published version never changes, so a document referencing a version always expands to the same IRIs. Any change to the context, including added terms, is published as a new version (`v2`",
+"tags": [
+"NVA Approval API"
+],
+"operation_id": "getContextVersion",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "POST",
+"path": "/approval/events",
+"summary": "Notify that the source of an approval has changed",
+"description": "Receives a change notification as a CloudEvent (version 1.0, structured JSON mode) telling NVA that the source of an approval has changed.",
+"tags": [
+"NVA Approval API"
+],
+"operation_id": "receiveApprovalEvent",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/approval/{approvalId}/change/{changeId}",
+"summary": "Get change",
+"description": "Get one recorded change to an approval.",
+"tags": [
+"NVA Approval API"
+],
+"operation_id": "getChange",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/approval/{approvalId}/change",
+"summary": "Get changes of an approval",
+"description": "Lists the recorded changes to an approval, newest first, 100 per page. An approval without changes gives an empty list.",
+"tags": [
+"NVA Approval API"
+],
+"operation_id": "getApprovalChanges",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/approval/context",
+"summary": "Get current JSON-LD Context",
+"description": "Returns the current version of the JSON-LD context for the Approval API. The `Content-Location` header points to the versioned context that was returned. Approval responses always reference a versioned context, see `GET /context/{version}`.",
+"tags": [
+"NVA Approval API"
+],
+"operation_id": "getContext",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/approval/ontology",
+"summary": "Get latest RDF Ontology",
+"description": "Returns the latest version of the RDF ontology (Turtle format) for the Approval API. The `Content-Location` header points to the versioned ontology that was returned.",
+"tags": [
+"NVA Approval API"
+],
+"operation_id": "getOntology",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/approval/",
+"summary": "Get Approval by handle or named identifier",
+"description": "Get approval by handle or named identifier (name+value). **Query Parameters:** - Use `handle` parameter to fetch by Handle URI (must be URL-encoded) - Use `name` AND `value` parameters together to fetch by named identifier **Important:** Sp",
+"tags": [
+"NVA Approval API"
+],
+"operation_id": "getApprovalByQuery",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "POST",
+"path": "/approval/",
+"summary": "Create Approval",
+"description": "Create approval",
+"tags": [
+"NVA Approval API"
+],
+"operation_id": "createApproval",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/approval/ontology/{version}",
+"summary": "Get a specific version of the RDF Ontology",
+"description": "Returns a specific version of the RDF ontology. The ontology uses semantic versioning and is identified by `owl:versionIRI`. The namespace and term IRIs are stable across versions; a published version never changes.",
+"tags": [
+"NVA Approval API"
+],
+"operation_id": "getOntologyVersion",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/cristin/funding-sources",
+"summary": "List funding sources",
+"description": "Returns all support funding sources",
+"tags": [
+"NVA Cristin Proxy API"
+],
+"operation_id": "ListFundingSources",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/cristin/organization/{identifier}/persons",
+"summary": "Fetch Persons associated with an given organization",
+"description": "Returns a list of persons belonging to specified organization",
+"tags": [
+"NVA Cristin Proxy API"
+],
+"operation_id": "GetPersonsByOrganization",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/cristin/organization/{identifier}",
+"summary": "Fetch Organization by identifier",
+"description": "Returns a single Organization matching identifier parameter",
+"tags": [
+"NVA Cristin Proxy API"
+],
+"operation_id": "GetOrganizationByIdentifier",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/cristin/country",
+"summary": "List supported countries",
+"description": "Returns list of supported countries",
+"tags": [
+"NVA Cristin Proxy API"
+],
+"operation_id": "ListCountries",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/cristin/project/{identifier}",
+"summary": "Find project by Identifier",
+"description": "Returns a single project matching identifier parameter",
+"tags": [
+"NVA Cristin Proxy API"
+],
+"operation_id": "GetProjectByidentifier",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/cristin/person",
+"summary": "List persons matching query parameters",
+"description": "Returns a list of persons based on query parameters",
+"tags": [
+"NVA Cristin Proxy API"
+],
+"operation_id": "ListPersons",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/cristin/person/{id}",
+"summary": "Find person by identifier",
+"description": "Returns a single person matching id parameter without NIN",
+"tags": [
+"NVA Cristin Proxy API"
+],
+"operation_id": "GetPersonById",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/cristin/project",
+"summary": "List projects matching query",
+"description": "Returns a list of projects based on query parameters",
+"tags": [
+"NVA Cristin Proxy API"
+],
+"operation_id": "ListProjects",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/cristin/keyword/{id}",
+"summary": "Fetch keyword",
+"description": "Returns single keyword",
+"tags": [
+"NVA Cristin Proxy API"
+],
+"operation_id": "FetchKeyword",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/cristin/organization",
+"summary": "List organizations matching query",
+"description": "Returns a list of organizations based on query parameters",
+"tags": [
+"NVA Cristin Proxy API"
+],
+"operation_id": "ListOrganizations",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/cristin/category/project",
+"summary": "List categories",
+"description": "Returns list of categories",
+"tags": [
+"NVA Cristin Proxy API"
+],
+"operation_id": "ListCategories",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/cristin/funding-sources/{identifier}",
+"summary": "Fetch a funding source by identifier",
+"description": "Returns the funding source with the given identifier",
+"tags": [
+"NVA Cristin Proxy API"
+],
+"operation_id": "FetchFundingSource",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/cristin/keyword",
+"summary": "Query keywords",
+"description": "Returns paginated list of keywords",
+"tags": [
+"NVA Cristin Proxy API"
+],
+"operation_id": "QueryKeywords",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/cristin/organization/{identifier}/projects",
+"summary": "Fetch Projects associated with an given organization",
+"description": "Returns a list of projects belonging to specified organization",
+"tags": [
+"NVA Cristin Proxy API"
+],
+"operation_id": "GetProjectsByOrganization",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/search/resources/export",
+"summary": null,
+"description": "<h3>Export for up to 10.000 public available publications by given criteria</h3> <p>All parameters documented with <code>snake_case</code>, but <code>camelCase</code> is also accepted. They accept more than one value, each value must be sep",
+"tags": [
+"NVA Public Search API"
+],
+"operation_id": "exportResources",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/search/resources",
+"summary": null,
+"description": "<h3>Search for public available publications by given criteria</h3> <p>All parameters documented with <code>snake_case</code>, but <code>camelCase</code> is also accepted. They accept more than one value, each value must be separated by a <",
+"tags": [
+"NVA Public Search API"
+],
+"operation_id": "searchResources",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "POST",
+"path": "/publication/{publicationIdentifier}/file-upload/listparts",
+"summary": "List the parts of a file that have already been uploaded.",
+"description": null,
+"tags": [
+"NVA Publication API"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "POST",
+"path": "/publication/{publicationIdentifier}/file-upload/complete",
+"summary": "Completes a upload",
+"description": "Completes a Multipart upload, combining all parts into a single object in the S3 bucket",
+"tags": [
+"NVA Publication API"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "POST",
+"path": "/publication/{publicationIdentifier}/file/{fileIdentifier}",
+"summary": "Update file",
+"description": "Updates file metadata",
+"tags": [
+"NVA Publication API"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "DELETE",
+"path": "/publication/{publicationIdentifier}/file/{fileIdentifier}",
+"summary": "Delete file",
+"description": "Deletes file metadata",
+"tags": [
+"NVA Publication API"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/publication/context",
+"summary": "Fetch Publication context",
+"description": null,
+"tags": [
+"NVA Publication API"
+],
+"operation_id": "fetchPublicationContext",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "POST",
+"path": "/publication/",
+"summary": "Create Publication",
+"description": null,
+"tags": [
+"NVA Publication API"
+],
+"operation_id": "createPublication",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "POST",
+"path": "/publication/{publicationIdentifier}/file-upload/create",
+"summary": "Create a upload",
+"description": "Creates a multipart upload for a file. This is later referenced for preparing file-parts, uploading, and finishing the upload..",
+"tags": [
+"NVA Publication API"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/publication/{publicationIdentifier}",
+"summary": "Fetch Publication by Identifier",
+"description": null,
+"tags": [
+"NVA Publication API"
+],
+"operation_id": "fetchPublicationByIdentifier",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "PUT",
+"path": "/publication/{publicationIdentifier}",
+"summary": "Update Publication for Identifier",
+"description": null,
+"tags": [
+"NVA Publication API"
+],
+"operation_id": "updatePublication",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "DELETE",
+"path": "/publication/{publicationIdentifier}",
+"summary": "Delete Publication for Identifier",
+"description": null,
+"tags": [
+"NVA Publication API"
+],
+"operation_id": "deletePublication",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "POST",
+"path": "/publication/{publicationIdentifier}/file-upload/prepare",
+"summary": "Generates a URL to upload a single file-part",
+"description": null,
+"tags": [
+"NVA Publication API"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "POST",
+"path": "/publication/{publicationIdentifier}/file-upload/abort",
+"summary": "Aborts a upload",
+"description": "Aborts the Multipart upload, and deletes all parts that have been uploaded so far.",
+"tags": [
+"NVA Publication API"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/publication/by-owner",
+"summary": "Get Publications by Owner",
+"description": null,
+"tags": [
+"NVA Publication API"
+],
+"operation_id": "listPublicationsByOwner",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/verified-funding/nfr",
+"summary": "Query NFR fundings",
+"description": "Returns fundings by a search query",
+"tags": [
+"NVA verified funding sources API"
+],
+"operation_id": "NfrQueryFundings",
+"deprecated": false
+},
+{
+"api_id": "sikt-nva",
+"method": "GET",
+"path": "/verified-funding/nfr/{identifier}",
+"summary": "Get NFR funding by identifier",
+"description": "Returns a funding by identifier",
+"tags": [
+"NVA verified funding sources API"
+],
+"operation_id": "NfrGetFunding",
+"deprecated": false
+},
 {
 "api_id": "brreg-enhetsregisteret",
 "method": "GET",
@@ -1050,198 +4968,6 @@
 "deprecated": false
 },
 {
-"api_id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-"method": "GET",
-"path": "/county-numbers",
-"summary": "Get county numbers",
-"description": "Returns a list of all county numbers used in the registry, provided that at least one legal entity is registered in that county.",
-"tags": [
-"Legal entities and licences"
-],
-"operation_id": "PublicApi_GetCountyNumbers",
-"deprecated": false
-},
-{
-"api_id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-"method": "GET",
-"path": "/country-codes",
-"summary": "Get countries",
-"description": "Returns a list of all countries used in the registry, provided that at least one legal entity is registered in that country.",
-"tags": [
-"Legal entities and licences"
-],
-"operation_id": "PublicApi_GetCountries",
-"deprecated": false
-},
-{
-"api_id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-"method": "GET",
-"path": "/legal-entities/search",
-"summary": "Search for legal entities",
-"description": "Returns a paged list of persons or companies matching the given search query and filters.",
-"tags": [
-"Legal entities and licences"
-],
-"operation_id": "PublicApi_SearchForLegalEntities",
-"deprecated": false
-},
-{
-"api_id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-"method": "GET",
-"path": "/legal-entities/filter",
-"summary": "Search and filter legal entities",
-"description": "Returns a paged list of persons or companies that are currently granted at least one of the given licence types and matches the other filter settings. A maximum of 50 entities can be returned in a single request.",
-"tags": [
-"Legal entities and licences"
-],
-"operation_id": "PublicApi_FilterLegalEntities",
-"deprecated": false
-},
-{
-"api_id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-"method": "GET",
-"path": "/legal-entities",
-"summary": "Get legal entities by ids",
-"description": "Returns a list of legal entities (persons or companies) matching the provided ids.",
-"tags": [
-"Legal entities and licences"
-],
-"operation_id": "PublicApi_GetLegalEntitiesById",
-"deprecated": false
-},
-{
-"api_id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-"method": "GET",
-"path": "/licence-types",
-"summary": "Get licence types",
-"description": "Returns a list of all licence types used in the registry, provided that at least one legal entity is granted the licence.",
-"tags": [
-"Legal entities and licences"
-],
-"operation_id": "PublicApi_GetLicenceTypes",
-"deprecated": false
-},
-{
-"api_id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-"method": "GET",
-"path": "/report",
-"summary": "Get a filtered spreadsheet report of service providers and their licences.",
-"description": "Based on the parameter options, this endpoint will return a customized spreadsheet report. This endpoint has a rate limit of 5 requests per minute",
-"tags": [
-"Reports"
-],
-"operation_id": "Report_GetReportFile",
-"deprecated": false
-},
-{
-"api_id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-"method": "POST",
-"path": "/report",
-"summary": "Get a filtered spreadsheet report of service providers and their licences.",
-"description": "Based on the parameter options this endpoint will return a subset of service providers and their licence information as a json result. This endpoint has a rate limit of 5 requests per minute",
-"tags": [
-"Reports"
-],
-"operation_id": "Report_GetFilePost",
-"deprecated": false
-},
-{
-"api_id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-"method": "GET",
-"path": "/report/json",
-"summary": "Get a filtered json report of service providers and their licences.",
-"description": "Based on the parameter options this endpoint will return a subset of service providers and their licence information as a json result. This endpoint has a rate limit of 5 requests per minute",
-"tags": [
-"Reports"
-],
-"operation_id": "Report_GetJsonFileGET",
-"deprecated": false
-},
-{
-"api_id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-"method": "POST",
-"path": "/report/json",
-"summary": "Get a filtered json report of service providers and their licences.",
-"description": "Based on the parameter options this endpoint will return a subset of service providers and their licence information as a json result. This endpoint has a rate limit of 5 requests per minute",
-"tags": [
-"Reports"
-],
-"operation_id": "Report_GetJsonFilePOST",
-"deprecated": false
-},
-{
-"api_id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-"method": "GET",
-"path": "/report/standard/areas",
-"summary": "Get all standard report areas.",
-"description": "Returns a list of all the standard report areas that can be used in the standard report endpoints.",
-"tags": [
-"Reports"
-],
-"operation_id": "Report_GetStandardReportAreas",
-"deprecated": false
-},
-{
-"api_id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-"method": "GET",
-"path": "/report/standard/json",
-"summary": "Get standard reports on activity within a selection of areas.",
-"description": "Deprecated. Use the area-specific endpoints. The response schema varies with the selected area. Returns a paged result containing standard report with holders of the licences for nominees, or for domestic service providers within either ban",
-"tags": [
-"Reports"
-],
-"operation_id": "Report_GetStandardJsonReport",
-"deprecated": true
-},
-{
-"api_id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-"method": "GET",
-"path": "/report/standard/bank/json",
-"summary": "Get standard domestic banking activity report.",
-"description": "Returns a paged result containing holders of the licences for domestic service providers within banking.",
-"tags": [
-"Reports"
-],
-"operation_id": "Report_GetStandardBankJsonReport",
-"deprecated": false
-},
-{
-"api_id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-"method": "GET",
-"path": "/report/standard/insurance/json",
-"summary": "Get standard domestic insurance activity report.",
-"description": "Returns a paged result containing holders of the licences for domestic service providers within insurance.",
-"tags": [
-"Reports"
-],
-"operation_id": "Report_GetStandardInsuranceJsonReport",
-"deprecated": false
-},
-{
-"api_id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-"method": "GET",
-"path": "/report/standard/nominee/json",
-"summary": "Get the standard report on nominees.",
-"description": "Returns a paged result containing standard report with holders of the licences for nominees.",
-"tags": [
-"Reports"
-],
-"operation_id": "Report_GetStandardNomineeJsonReport",
-"deprecated": false
-},
-{
-"api_id": "finanstilsynet-api-for-finanstilsynet-s-registry",
-"method": "GET",
-"path": "/report/standard",
-"summary": "Get a standard report",
-"description": "Returns a standard report with holders of the licences within a specified area.",
-"tags": [
-"Reports"
-],
-"operation_id": "Report_GetStandardReportFile",
-"deprecated": true
-},
-{
 "api_id": "finanstilsynet-finanstilsynet-sitt-opne-api-for-shortsalregistere",
 "method": "GET",
 "path": "/api/v2/instruments",
@@ -1275,6 +5001,534 @@
 "Instruments"
 ],
 "operation_id": "Instruments_ExportPublicShortingHistoryCsv",
+"deprecated": false
+},
+{
+"api_id": "finanstilsynet-registry",
+"method": "GET",
+"path": "/county-numbers",
+"summary": "Get county numbers",
+"description": "Returns a list of all county numbers used in the registry, provided that at least one legal entity is registered in that county.",
+"tags": [
+"Legal entities and licences"
+],
+"operation_id": "PublicApi_GetCountyNumbers",
+"deprecated": false
+},
+{
+"api_id": "finanstilsynet-registry",
+"method": "GET",
+"path": "/country-codes",
+"summary": "Get countries",
+"description": "Returns a list of all countries used in the registry, provided that at least one legal entity is registered in that country.",
+"tags": [
+"Legal entities and licences"
+],
+"operation_id": "PublicApi_GetCountries",
+"deprecated": false
+},
+{
+"api_id": "finanstilsynet-registry",
+"method": "GET",
+"path": "/legal-entities/search",
+"summary": "Search for legal entities",
+"description": "Returns a paged list of persons or companies matching the given search query and filters.",
+"tags": [
+"Legal entities and licences"
+],
+"operation_id": "PublicApi_SearchForLegalEntities",
+"deprecated": false
+},
+{
+"api_id": "finanstilsynet-registry",
+"method": "GET",
+"path": "/legal-entities/filter",
+"summary": "Search and filter legal entities",
+"description": "Returns a paged list of persons or companies that are currently granted at least one of the given licence types and matches the other filter settings. A maximum of 50 entities can be returned in a single request.",
+"tags": [
+"Legal entities and licences"
+],
+"operation_id": "PublicApi_FilterLegalEntities",
+"deprecated": false
+},
+{
+"api_id": "finanstilsynet-registry",
+"method": "GET",
+"path": "/legal-entities",
+"summary": "Get legal entities by ids",
+"description": "Returns a list of legal entities (persons or companies) matching the provided ids.",
+"tags": [
+"Legal entities and licences"
+],
+"operation_id": "PublicApi_GetLegalEntitiesById",
+"deprecated": false
+},
+{
+"api_id": "finanstilsynet-registry",
+"method": "GET",
+"path": "/licence-types",
+"summary": "Get licence types",
+"description": "Returns a list of all licence types used in the registry, provided that at least one legal entity is granted the licence.",
+"tags": [
+"Legal entities and licences"
+],
+"operation_id": "PublicApi_GetLicenceTypes",
+"deprecated": false
+},
+{
+"api_id": "finanstilsynet-registry",
+"method": "GET",
+"path": "/report",
+"summary": "Get a filtered spreadsheet report of service providers and their licences.",
+"description": "Based on the parameter options, this endpoint will return a customized spreadsheet report. This endpoint has a rate limit of 5 requests per minute",
+"tags": [
+"Reports"
+],
+"operation_id": "Report_GetReportFile",
+"deprecated": false
+},
+{
+"api_id": "finanstilsynet-registry",
+"method": "POST",
+"path": "/report",
+"summary": "Get a filtered spreadsheet report of service providers and their licences.",
+"description": "Based on the parameter options this endpoint will return a subset of service providers and their licence information as a json result. This endpoint has a rate limit of 5 requests per minute",
+"tags": [
+"Reports"
+],
+"operation_id": "Report_GetFilePost",
+"deprecated": false
+},
+{
+"api_id": "finanstilsynet-registry",
+"method": "GET",
+"path": "/report/json",
+"summary": "Get a filtered json report of service providers and their licences.",
+"description": "Based on the parameter options this endpoint will return a subset of service providers and their licence information as a json result. This endpoint has a rate limit of 5 requests per minute",
+"tags": [
+"Reports"
+],
+"operation_id": "Report_GetJsonFileGET",
+"deprecated": false
+},
+{
+"api_id": "finanstilsynet-registry",
+"method": "POST",
+"path": "/report/json",
+"summary": "Get a filtered json report of service providers and their licences.",
+"description": "Based on the parameter options this endpoint will return a subset of service providers and their licence information as a json result. This endpoint has a rate limit of 5 requests per minute",
+"tags": [
+"Reports"
+],
+"operation_id": "Report_GetJsonFilePOST",
+"deprecated": false
+},
+{
+"api_id": "finanstilsynet-registry",
+"method": "GET",
+"path": "/report/standard/areas",
+"summary": "Get all standard report areas.",
+"description": "Returns a list of all the standard report areas that can be used in the standard report endpoints.",
+"tags": [
+"Reports"
+],
+"operation_id": "Report_GetStandardReportAreas",
+"deprecated": false
+},
+{
+"api_id": "finanstilsynet-registry",
+"method": "GET",
+"path": "/report/standard/json",
+"summary": "Get standard reports on activity within a selection of areas.",
+"description": "Deprecated. Use the area-specific endpoints. The response schema varies with the selected area. Returns a paged result containing standard report with holders of the licences for nominees, or for domestic service providers within either ban",
+"tags": [
+"Reports"
+],
+"operation_id": "Report_GetStandardJsonReport",
+"deprecated": true
+},
+{
+"api_id": "finanstilsynet-registry",
+"method": "GET",
+"path": "/report/standard/bank/json",
+"summary": "Get standard domestic banking activity report.",
+"description": "Returns a paged result containing holders of the licences for domestic service providers within banking.",
+"tags": [
+"Reports"
+],
+"operation_id": "Report_GetStandardBankJsonReport",
+"deprecated": false
+},
+{
+"api_id": "finanstilsynet-registry",
+"method": "GET",
+"path": "/report/standard/insurance/json",
+"summary": "Get standard domestic insurance activity report.",
+"description": "Returns a paged result containing holders of the licences for domestic service providers within insurance.",
+"tags": [
+"Reports"
+],
+"operation_id": "Report_GetStandardInsuranceJsonReport",
+"deprecated": false
+},
+{
+"api_id": "finanstilsynet-registry",
+"method": "GET",
+"path": "/report/standard/nominee/json",
+"summary": "Get the standard report on nominees.",
+"description": "Returns a paged result containing standard report with holders of the licences for nominees.",
+"tags": [
+"Reports"
+],
+"operation_id": "Report_GetStandardNomineeJsonReport",
+"deprecated": false
+},
+{
+"api_id": "finanstilsynet-registry",
+"method": "GET",
+"path": "/report/standard",
+"summary": "Get a standard report",
+"description": "Returns a standard report with holders of the licences within a specified area.",
+"tags": [
+"Reports"
+],
+"operation_id": "Report_GetStandardReportFile",
+"deprecated": true
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/sites",
+"summary": "Hent en liste av lokaliteter",
+"description": null,
+"tags": [
+"site-resource"
+],
+"operation_id": "sites",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/sites/{site-nr}",
+"summary": "Hent lokalitet etter lokalitetsnummer",
+"description": null,
+"tags": [
+"site-resource"
+],
+"operation_id": "getBySiteNr",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/sites/{site-nr}/license-connections",
+"summary": "Hent tillatelsesforbindelser for lokalitet etter lokalitetsnummer",
+"description": null,
+"tags": [
+"site-resource"
+],
+"operation_id": "getLicenseConnectionForSiteBySiteNr",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/sites/{site-nr}/decisions",
+"summary": "Hent vedtak for lokalitet etter lokalitetsnummer",
+"description": null,
+"tags": [
+"site-resource"
+],
+"operation_id": "getDecisions",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/sites/{site-nr}/borders",
+"summary": "Hent grense rundt en lokalitet etter lokalitetsnummer",
+"description": null,
+"tags": [
+"site-resource"
+],
+"operation_id": "getBordersBySiteNr",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/licenses",
+"summary": "Hent alle tillatelser som tilfredsstiller kriteriene for søkeparametere",
+"description": null,
+"tags": [
+"license-resource"
+],
+"operation_id": "getLicenses",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/licenses/{license-nr}",
+"summary": "Hent en tillatelse etter tillatelsesnummer",
+"description": null,
+"tags": [
+"license-resource"
+],
+"operation_id": "getByLicenseNr",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/licenses/{license-nr}/transfers",
+"summary": "Hent ajour-dato på overføringer mellom juridiske enheter av tillatelse på tillatelsesnummer",
+"description": null,
+"tags": [
+"license-resource"
+],
+"operation_id": "getAjourTransfers",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/licenses/{license-nr}/site-connections",
+"summary": "Hent lokalitetstilknytninger for tillatelse etter tillatelsesnummer",
+"description": null,
+"tags": [
+"license-resource"
+],
+"operation_id": "getLicenseConnectionForSiteBySiteNr_1",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/licenses/{license-nr}/liens",
+"summary": "Hent panterettholdere av tillatelse etter tillatelsesnummer",
+"description": null,
+"tags": [
+"license-resource"
+],
+"operation_id": "getLiens",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/licenses/{license-nr}/decisions",
+"summary": "Hent vedtak for tillatelse etter tillatelsesnummer",
+"description": null,
+"tags": [
+"license-resource"
+],
+"operation_id": "getDecisions_1",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/licenses/{license-nr}/capacity-history",
+"summary": "Hent kapasistetshistorien for tillatelse etter tillatelsesnummer",
+"description": null,
+"tags": [
+"license-resource"
+],
+"operation_id": "getLicenseCapacityHistoryByLicenseNr",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/licenses-overview",
+"summary": "Hent alle tillatelser som tilfredsstiller kriteriene for søkeparametere",
+"description": null,
+"tags": [
+"license-resource"
+],
+"operation_id": "getLicensesOverview",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/license-types/intentions",
+"summary": "Hent en liste av formål for hver tillatelsestype",
+"description": null,
+"tags": [
+"license-type-resource"
+],
+"operation_id": "getLicenseIntentions",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/license-types/intentions/{id}",
+"summary": "Hent formålet med en tillatelsestype basert på ID",
+"description": null,
+"tags": [
+"license-type-resource"
+],
+"operation_id": "getLicenseIntention",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/fish-codes",
+"summary": "Hent alle fiskekoder som kan bli brukt i Akvakulturregisteret",
+"description": null,
+"tags": [
+"fish-codes-resource"
+],
+"operation_id": "getFishCodes",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/entities",
+"summary": "Hent en liste av juridiske enheter",
+"description": null,
+"tags": [
+"entity-resource"
+],
+"operation_id": "entities",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/entities/{entity-nr-id}",
+"summary": "Hent angitt juridisk enhet",
+"description": null,
+"tags": [
+"entity-resource"
+],
+"operation_id": "getEntity",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/entities/{entity-nr-id}/sites",
+"summary": "Hent en liste av lokaliteter hvor en juridisk enhet driver med akvakultur",
+"description": null,
+"tags": [
+"entity-resource"
+],
+"operation_id": "getSitesForEntity",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/entities/sites-by-entity-nr/{entity-nr}",
+"summary": "Henter en liste av lokaliteter benyttet av juridisk enhet identifisert ved organisasjonsnummer",
+"description": null,
+"tags": [
+"entity-resource"
+],
+"operation_id": "getSitesForEntityByLegalEntityNr",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/dump/xlsx-file",
+"summary": "Hent ut en XLSX-fildump av akvakulturregisteret",
+"description": null,
+"tags": [
+"xlsx-dump-resource"
+],
+"operation_id": "getXlsxFileDump",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/dump/new-legacy-csv",
+"summary": "Oppretter en CSV-dump av akvakulturregisteret",
+"description": null,
+"tags": [
+"csv-dump-resource"
+],
+"operation_id": "getNewLegacyCsvDump",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/dump/new-legacy-csv-file",
+"summary": "Oppretter en CSV-fildump av akvakulturregisteret",
+"description": null,
+"tags": [
+"csv-dump-resource"
+],
+"operation_id": "getNewLegacyCsvFileDump",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/areas",
+"summary": "Henter en liste av områder",
+"description": null,
+"tags": [
+"area-resource"
+],
+"operation_id": "areas",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/areas/{version-id}",
+"summary": "Hent et spesifikt område",
+"description": null,
+"tags": [
+"area-resource"
+],
+"operation_id": "area",
+"deprecated": true
+},
+{
+"api_id": "fiskeridir-akvakulturregisteret",
+"method": "GET",
+"path": "/api/v1/areas/{type}/{code}",
+"summary": "Hent et spesifikt område etter type og kode",
+"description": null,
+"tags": [
+"area-resource"
+],
+"operation_id": "areaByCodeAndType",
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-fartoyregisteret",
+"method": "GET",
+"path": "/vessel-api/api/v1/vessels",
+"summary": "Lister aktive fartøy",
+"description": "Henter en liste over alle aktive fartøy med mulighet for filtrering basert på ulike kriterier.",
+"tags": [
+"Vessels"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "fiskeridir-fartoyregisteret",
+"method": "GET",
+"path": "/vessel-api/api/v1/vessels/{id}",
+"summary": "Returnerer et spesifikt fartøy",
+"description": "Henter detaljert informasjon om et spesifikt fartøy basert på dets unike ID.",
+"tags": [
+"Vessels"
+],
+"operation_id": null,
 "deprecated": false
 },
 {
@@ -6526,6 +10780,294 @@
 "deprecated": false
 },
 {
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/agg/{meantype}/{fromTime}/{toTime}/{station}",
+"summary": "Viser aggregert verdi innenfor en gitt tidsperiode.\nBruk yyyy-mm-dd som datoformat. Legg til hh24:mi hvis du ønsker å spesifisere tidspunkt.\nTidsperioden kan maks være 1 år. For årsmiddel kan perioden være mer.\nTimestep i sekunder. Mest vanlig er 3600.",
+"description": null,
+"tags": [
+"Aggregate"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/agg/{meantype}/{fromTime}/{toTime}/{latitude}/{longitude}/{radius}",
+"summary": "Viser aggregert verdi innenfor en gitt tidsperiode og for en gitt lokasjon.\n Bruk yyyy-mm-dd som datoformat. Legg til hh24:mi hvis du ønsker å spesifisere tidspunkt.\n Tidsperioden kan maks være 1 år. For årsmiddel kan perioden være mer.\n Sett method til \"within\" hvis du ønsker alle tidsserier innenfor en radius.\n            \nRadius kan maks være 20km.\nTimestep i sekunder. Mest vanlig er 3600.",
+"description": null,
+"tags": [
+"Aggregate"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/agg/{meantype}/{fromTime}/{toTime}/ids/{ids}",
+"summary": null,
+"description": null,
+"tags": [
+"Aggregate"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/aq/utd",
+"summary": "Viser siste målte verdi og indeks.",
+"description": null,
+"tags": [
+"AirQuality"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/aq/utd/{latitude}/{longitude}/{radius}",
+"summary": "Viser siste målte verdi og indeks for en gitt lokasjon.\nSett method til \"within\" hvis du ønsker alle tidsserier innenfor en radius.",
+"description": null,
+"tags": [
+"AirQuality"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/aq/historical/{fromTime}/{toTime}/{station}",
+"summary": "Viser målt verdi og indeks innenfor en gitt tidsperiode.\nBruk yyyy-mm-dd som datoformat. Legg til hh24:mi hvis du ønsker å spesifisere tidspunkt.\nTidsperioden kan maks være 1 år.\nHvis station settes til \"all\" så hentes alle stasjoner.\nBruk \";\" for å filtrere på mer enn en av gangen.",
+"description": null,
+"tags": [
+"AirQuality"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/aq/historical/{fromTime}/{toTime}/{latitude}/{longitude}/{radius}",
+"summary": "Viser målt verdi og indeks innenfor en gitt tidsperiode og for en gitt lokasjon.\nBruk yyyy-mm-dd som datoformat. Legg til hh24:mi hvis du ønsker å spesifisere tidspunkt.\nTidsperioden kan maks være 1 år.\nSett method til \"within\" hvis du ønsker alle tidsserier innenfor en radius.",
+"description": null,
+"tags": [
+"AirQuality"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/aq/historical/{fromTime}/{toTime}/ids/{ids}",
+"summary": "Viser målt verdi og indeks innenfor en gitt tidsperiode og for en gitt tidsserieid\nBruk yyyy-mm-dd som datoformat. Legg til hh24:mi hvis du ønsker å spesifisere tidspunkt.\nTidsperioden kan maks være 1 år.",
+"description": null,
+"tags": [
+"AirQuality"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/lookup/areas",
+"summary": "Viser alle tilgjengelige områder.",
+"description": null,
+"tags": [
+"Lookup"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/lookup/stations",
+"summary": null,
+"description": null,
+"tags": [
+"Lookup"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/lookup/components",
+"summary": null,
+"description": null,
+"tags": [
+"Lookup"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/lookup/aqis",
+"summary": null,
+"description": null,
+"tags": [
+"Lookup"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/lookup/meantypes",
+"summary": null,
+"description": null,
+"tags": [
+"Lookup"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/lookup/units",
+"summary": null,
+"description": null,
+"tags": [
+"Lookup"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/lookup/timeseries",
+"summary": null,
+"description": null,
+"tags": [
+"Lookup"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/obs/utd",
+"summary": "Viser siste målte verdi.",
+"description": null,
+"tags": [
+"Observations"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/obs/utd/{latitude}/{longitude}/{radius}",
+"summary": "Viser siste målte verdi og indeks for en gitt lokasjon.\nSett method til \"within\" hvis du ønsker alle tidsserier innenfor en radius.",
+"description": null,
+"tags": [
+"Observations"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/obs/historical/{fromTime}/{toTime}/{station}",
+"summary": "Viser målt verdi innenfor en gitt tidsperiode.\nBruk yyyy-mm-dd som datoformat. Legg til hh24:mi hvis du ønsker å spesifisere tidspunkt.\nTidsperioden kan maks være 1 år.\nHvis station settes til \"all\" så hentes alle stasjoner.",
+"description": null,
+"tags": [
+"Observations"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/obs/historical/{fromTime}/{toTime}/{latitude}/{longitude}/{radius}",
+"summary": null,
+"description": null,
+"tags": [
+"Observations"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "miljodir-luftkvalitet",
+"method": "GET",
+"path": "/public/obs/historical/{fromTime}/{toTime}/ids/{ids}",
+"summary": "Viser målt verdi innenfor en gitt tidsperiode.\nBruk yyyy-mm-dd som datoformat. Legg til hh24:mi hvis du ønsker å spesifisere tidspunkt.\nHvis station settes til \"all\" så hentes alle stasjoner.\nBruk \";\" for å filtrere på flere tidsserier av gangen.",
+"description": null,
+"tags": [
+"Observations"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nve-magasinstatistikk",
+"method": "GET",
+"path": "/api/Magasinstatistikk/HentOffentligData",
+"summary": "Henter magasinstatistikk",
+"description": null,
+"tags": [
+"Magasinstatistikk"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nve-magasinstatistikk",
+"method": "GET",
+"path": "/api/Magasinstatistikk/HentOffentligDataSisteUke",
+"summary": "Henter magasinstatistikk siste uke",
+"description": null,
+"tags": [
+"Magasinstatistikk"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nve-magasinstatistikk",
+"method": "GET",
+"path": "/api/Magasinstatistikk/HentOffentligDataMinMaxMedian",
+"summary": "Henter magasinstatistikk for Min, Max, og Median for de tyve siste år",
+"description": null,
+"tags": [
+"Magasinstatistikk"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nve-magasinstatistikk",
+"method": "GET",
+"path": "/api/Magasinstatistikk/HentOmråder",
+"summary": "Henter områder for magasinstatistikk",
+"description": null,
+"tags": [
+"Magasinstatistikk"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
 "api_id": "norges-vassdrags-og-energidire-hydapi",
 "method": "GET",
 "path": "/api/v1/Observations",
@@ -6713,54 +11255,6 @@
 "description": null,
 "tags": [
 "Inntektsrammer"
-],
-"operation_id": null,
-"deprecated": false
-},
-{
-"api_id": "norges-vassdrags-og-energidire-magasinstatistikk",
-"method": "GET",
-"path": "/api/Magasinstatistikk/HentOffentligData",
-"summary": "Henter magasinstatistikk",
-"description": null,
-"tags": [
-"Magasinstatistikk"
-],
-"operation_id": null,
-"deprecated": false
-},
-{
-"api_id": "norges-vassdrags-og-energidire-magasinstatistikk",
-"method": "GET",
-"path": "/api/Magasinstatistikk/HentOffentligDataSisteUke",
-"summary": "Henter magasinstatistikk siste uke",
-"description": null,
-"tags": [
-"Magasinstatistikk"
-],
-"operation_id": null,
-"deprecated": false
-},
-{
-"api_id": "norges-vassdrags-og-energidire-magasinstatistikk",
-"method": "GET",
-"path": "/api/Magasinstatistikk/HentOffentligDataMinMaxMedian",
-"summary": "Henter magasinstatistikk for Min, Max, og Median for de tyve siste år",
-"description": null,
-"tags": [
-"Magasinstatistikk"
-],
-"operation_id": null,
-"deprecated": false
-},
-{
-"api_id": "norges-vassdrags-og-energidire-magasinstatistikk",
-"method": "GET",
-"path": "/api/Magasinstatistikk/HentOmråder",
-"summary": "Henter områder for magasinstatistikk",
-"description": null,
-"tags": [
-"Magasinstatistikk"
 ],
 "operation_id": null,
 "deprecated": false
@@ -9270,7 +13764,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-barnehageregister-nbr-api",
+"api_id": "udir-nbr",
 "method": "GET",
 "path": "/v4/enhet/{organisasjonsnummer}",
 "summary": "En enhet",
@@ -9282,7 +13776,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-barnehageregister-nbr-api",
+"api_id": "udir-nbr",
 "method": "GET",
 "path": "/v4/innlogget/enhet/{organisasjonsnummer}",
 "summary": "En enhet, med kontaktinfo. Krever pålogging.",
@@ -9294,7 +13788,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-barnehageregister-nbr-api",
+"api_id": "udir-nbr",
 "method": "GET",
 "path": "/v4/enheter",
 "summary": "Alle enheter",
@@ -9306,7 +13800,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-barnehageregister-nbr-api",
+"api_id": "udir-nbr",
 "method": "GET",
 "path": "/v4/enheter/endretetter",
 "summary": "Enheter endret",
@@ -9318,7 +13812,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-barnehageregister-nbr-api",
+"api_id": "udir-nbr",
 "method": "GET",
 "path": "/v4/enheter/fylke/{fylkesnummer}",
 "summary": "Alle enheter i fylke",
@@ -9330,7 +13824,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-barnehageregister-nbr-api",
+"api_id": "udir-nbr",
 "method": "GET",
 "path": "/v4/enheter/kommune/{kommunenummer}",
 "summary": "Alle enheter i kommune",
@@ -9342,7 +13836,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-barnehageregister-nbr-api",
+"api_id": "udir-nbr",
 "method": "GET",
 "path": "/v4/enheter/barnehagekategori/{barnehagekategoriid}",
 "summary": "Alle enheter med barnehagekategori",
@@ -9354,7 +13848,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-barnehageregister-nbr-api",
+"api_id": "udir-nbr",
 "method": "GET",
 "path": "/v4/enheter/naeringskode/{naeringskode}",
 "summary": "Alle enheter med næringskode",
@@ -9366,7 +13860,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-barnehageregister-nbr-api",
+"api_id": "udir-nbr",
 "method": "POST",
 "path": "/v4/enheter/sok",
 "summary": "Søk i enheter",
@@ -9378,7 +13872,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-barnehageregister-nbr-api",
+"api_id": "udir-nbr",
 "method": "GET",
 "path": "/v4/naeringskoder",
 "summary": "Barnehage næringskoder",
@@ -9390,7 +13884,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-barnehageregister-nbr-api",
+"api_id": "udir-nbr",
 "method": "GET",
 "path": "/v4/maalformer",
 "summary": "Alle målformer",
@@ -9402,7 +13896,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-barnehageregister-nbr-api",
+"api_id": "udir-nbr",
 "method": "GET",
 "path": "/v4/organisasjonsformer",
 "summary": "Alle organisajonsformer",
@@ -9414,7 +13908,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-barnehageregister-nbr-api",
+"api_id": "udir-nbr",
 "method": "GET",
 "path": "/v4/utgaattyper",
 "summary": "Alle utgått-typer",
@@ -9426,7 +13920,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-barnehageregister-nbr-api",
+"api_id": "udir-nbr",
 "method": "GET",
 "path": "/v4/relasjonstyper",
 "summary": "Relasjonstyper for barnehager",
@@ -9438,7 +13932,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-barnehageregister-nbr-api",
+"api_id": "udir-nbr",
 "method": "GET",
 "path": "/v4/barnehagekategorier",
 "summary": "Alle barnehagekategorier",
@@ -9990,7 +14484,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-skoleregister-nsr-api",
+"api_id": "udir-nsr",
 "method": "GET",
 "path": "/v4/enhet/{organisasjonsnummer}",
 "summary": "En enhet",
@@ -10002,7 +14496,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-skoleregister-nsr-api",
+"api_id": "udir-nsr",
 "method": "GET",
 "path": "/v4/innlogget/enhet/{organisasjonsnummer}",
 "summary": "En enhet, med kontaktinfo. Krever pålogging.",
@@ -10014,7 +14508,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-skoleregister-nsr-api",
+"api_id": "udir-nsr",
 "method": "GET",
 "path": "/v4/enheter",
 "summary": "Alle enheter",
@@ -10026,7 +14520,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-skoleregister-nsr-api",
+"api_id": "udir-nsr",
 "method": "GET",
 "path": "/v4/enheter/endretetter",
 "summary": "Enheter endret",
@@ -10038,7 +14532,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-skoleregister-nsr-api",
+"api_id": "udir-nsr",
 "method": "GET",
 "path": "/v4/enheter/kommune/{kommunenummer}",
 "summary": "Alle enheter i kommune",
@@ -10050,7 +14544,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-skoleregister-nsr-api",
+"api_id": "udir-nsr",
 "method": "GET",
 "path": "/v4/enheter/fylke/{fylkesnummer}",
 "summary": "Alle enheter i fylke",
@@ -10062,7 +14556,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-skoleregister-nsr-api",
+"api_id": "udir-nsr",
 "method": "GET",
 "path": "/v4/enheter/skolekategori/{skolekategoriid}",
 "summary": "Alle enheter med skolekategori",
@@ -10074,7 +14568,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-skoleregister-nsr-api",
+"api_id": "udir-nsr",
 "method": "GET",
 "path": "/v4/enheter/naeringskode/{naeringskode}",
 "summary": "Alle enheter med næringskode",
@@ -10086,7 +14580,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-skoleregister-nsr-api",
+"api_id": "udir-nsr",
 "method": "POST",
 "path": "/v4/enheter/sok",
 "summary": "Søk i enheter",
@@ -10098,7 +14592,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-skoleregister-nsr-api",
+"api_id": "udir-nsr",
 "method": "GET",
 "path": "/v4/naeringskoder",
 "summary": "Skole næringskoder",
@@ -10110,7 +14604,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-skoleregister-nsr-api",
+"api_id": "udir-nsr",
 "method": "GET",
 "path": "/v4/maalformer",
 "summary": "Alle målformer",
@@ -10122,7 +14616,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-skoleregister-nsr-api",
+"api_id": "udir-nsr",
 "method": "GET",
 "path": "/v4/organisasjonsformer",
 "summary": "Alle organisajonsformer",
@@ -10134,7 +14628,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-skoleregister-nsr-api",
+"api_id": "udir-nsr",
 "method": "GET",
 "path": "/v4/utgaattyper",
 "summary": "Alle utgått-typer",
@@ -10146,7 +14640,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-skoleregister-nsr-api",
+"api_id": "udir-nsr",
 "method": "GET",
 "path": "/v4/relasjonstyper",
 "summary": "Relasjonstyper for skoler",
@@ -10158,7 +14652,7 @@
 "deprecated": false
 },
 {
-"api_id": "utdanningsdirektoratet-nasjonalt-skoleregister-nsr-api",
+"api_id": "udir-nsr",
 "method": "GET",
 "path": "/v4/skolekategorier",
 "summary": "Alle skolekategorier",

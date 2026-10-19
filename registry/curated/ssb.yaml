@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-19
 provider:
   name: Statistisk sentralbyrå
   orgnr: "971526920"
@@ -10,7 +10,7 @@ apis:
     description: >-
       Alle tabeller i Statistikkbanken: befolkning, arbeidsmarked, priser, næringsliv, kommuner og mer.
       Hent metadata for en tabell med GET, hent tall med en POST-spørring som velger variabler og verdier.
-      Svar som JSON-stat2, CSV eller Excel.
+      Svar som JSON-stat2, CSV eller Excel. Den nye versjonen, PxWebApi 2, har egen oppføring (ssb-pxwebapi-v2).
     category: statistikk
     access: open
     auth: none
@@ -44,3 +44,26 @@ apis:
     tags: [no-auth, reference-data]
     quick_start: |
       curl -H "Accept: application/json" "https://data.ssb.no/api/klass/v1/classifications?query=kommune"
+
+  - id: ssb-pxwebapi-v2
+    title: PxWebApi 2 (Statistikkbanken, ny versjon)
+    title_en: Statbank API v2
+    description: >-
+      Den nye versjonen av Statistikkbanken-API-et, med de samme tabellene: tabellsøk, metadata og tall med vanlige
+      GET-kall der variablene velges i spørreparametere, ingen POST-spørring. Svar som JSON-stat2, CSV, Excel, PX,
+      HTML eller Parquet, inntil 800 000 dataceller per kall.
+    category: statistikk
+    access: open
+    auth: none
+    formats: [JSON, JSON-stat, CSV, Parquet]
+    endpoints:
+      - https://data.ssb.no/api/pxwebapi/v2/tables
+    docs_url: https://www.ssb.no/api/pxwebapi
+    probe_url: https://data.ssb.no/api/pxwebapi/v2/config
+    license: CC BY 4.0
+    keywords: [statistikk, statistikkbanken, pxweb, pxwebapi, json-stat, befolkning, kpi, parquet, tabeller]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://data.ssb.no/api/pxwebapi/v2/tables?query=befolkning&pageSize=3"
+      # folketall i Oslo (0301), siste år
+      curl "https://data.ssb.no/api/pxwebapi/v2/tables/07459/data?lang=no&valueCodes%5BRegion%5D=0301&valueCodes%5BTid%5D=top(1)&valueCodes%5BContentsCode%5D=Personer1"

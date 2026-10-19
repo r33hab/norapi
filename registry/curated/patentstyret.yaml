@@ -1,0 +1,23 @@
+updated: 2026-10-19
+provider:
+  name: Patentstyret
+  orgnr: "971526157"
+  sector: stat
+apis:
+  - id: patentstyret-api
+    title: Patentstyrets API (patenter, varemerker og design)
+    title_en: Norwegian IP register API
+    description: >-
+      Registrerte rettigheter og søknader i Norge for patenter, varemerker og design. Tilgang går gjennom
+      Patentstyrets utviklerportal, der du registrerer deg og abonnerer på API-ene for å få en nøkkel.
+    category: bedrift-og-organisasjon
+    access: open
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://developer.patentstyret.no/
+    docs_url: https://developer.patentstyret.no/docs
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/6821a8804aad5815a9d6060c
+    license: NLOD 2.0
+    keywords: [patent, varemerke, design, immaterielle rettigheter, patentstyret, trademark]
+    tags: [registration]

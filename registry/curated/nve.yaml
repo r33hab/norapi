@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-19
 provider:
   name: Norges vassdrags- og energidirektorat
   orgnr: "970205039"
@@ -35,3 +35,88 @@ apis:
     license: NLOD 2.0
     keywords: [vannføring, vannstand, hydrologi, målestasjon, elv, snødybde]
     tags: [registration]
+
+  - id: nve-varsom
+    title: Varsom API (snøskred-, flom- og jordskredvarsler)
+    title_en: Varsom warnings API
+    description: >-
+      De offisielle farevarslene fra Varsom som JSON: snøskredvarsel per varslingsregion med faregrad, skredproblemer
+      og råd, og egne API-er for flom- og jordskredvarsler. Hvert varsel har sitt eget versjonerte endepunkt under
+      api01.nve.no, dokumentert per tjeneste på api.nve.no.
+    category: vaer-og-klima
+    access: open
+    auth: none
+    formats: [JSON, XML]
+    endpoints:
+      - https://api01.nve.no/hydrology/forecast/avalanche/v6.3.0/api/
+    docs_url: https://api.nve.no/doc/snoeskredvarsel/
+    probe_url: https://api01.nve.no/hydrology/forecast/avalanche/v6.3.0/api/AvalancheWarningByRegion/Simple/3011/1/2026-01-15/2026-01-15
+    license: NLOD 2.0
+    keywords: [snøskred, skredvarsel, faregrad, flomvarsel, jordskred, varsom, farevarsel, avalanche]
+    tags: [no-auth]
+    quick_start: |
+      # snøskredvarsel for Tromsø (region 3011) på norsk (språk 1)
+      curl "https://api01.nve.no/hydrology/forecast/avalanche/v6.3.0/api/AvalancheWarningByRegion/Simple/3011/1/2026-01-15/2026-01-15"
+
+  - id: nve-regobs
+    title: Regobs API (observasjoner av snø, is, vann og skred)
+    title_en: Regobs observations API
+    description: >-
+      Feltobservasjoner fra publikum og fagfolk: snødekke, skred, faretegn, isforhold, flom og jordskred, med bilder,
+      posisjon og tidspunkt. Datagrunnlaget bak Varsom og Regobs-appen. Søk er en POST med filtre i JSON.
+    category: vaer-og-klima
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.regobs.no/v5/Search
+    docs_url: https://api.regobs.no/v5/swagger/ui/index
+    spec_url: https://api.regobs.no/v5/swagger/docs/v5
+    probe_url: https://api.regobs.no/v5/KdvElements
+    keywords: [regobs, observasjon, snø, skred, is, isforhold, faretegn, varsom, observations]
+    tags: [no-auth]
+    quick_start: |
+      curl -X POST https://api.regobs.no/v5/Search \
+        -H "Content-Type: application/json" -d '{"NumberOfRecords":3,"LangKey":1}'
+
+  - id: nve-gridtimeseries
+    title: GridTimeSeries (seNorge-data i rutenett)
+    title_en: GridTimeSeries API
+    description: >-
+      Tidsserier for et punkt eller område i Norge fra NVEs rutenettdata: nedbør, temperatur, snødybde, snømengde,
+      skiføre, regn og snøsmelting, avrenning og over 80 andre temaer, noen fra 1957. Det er dataene bak seNorge og
+      xgeo. Punktet oppgis i UTM sone 33N.
+    category: vaer-og-klima
+    access: open
+    auth: none
+    formats: [JSON, XML, CSV]
+    endpoints:
+      - https://gts.nve.no/api/GridTimeSeries/
+    docs_url: https://api.nve.no/doc/gridtimeseries-data-gts/
+    probe_url: https://gts.nve.no/api/GridTimeSeries/Themes/json
+    keywords: [senorge, xgeo, snødybde, snømengde, nedbør, temperatur, rutenett, tidsserie, avrenning, grid]
+    tags: [no-auth]
+    quick_start: |
+      # døgntemperatur (tm) for et punkt i Oslo (UTM 33: 262000, 6650000)
+      curl "https://gts.nve.no/api/GridTimeSeries/262000/6650000/2026-10-01/2026-10-07/tm.json"
+
+  - id: nve-magasinstatistikk
+    title: Magasinstatistikk
+    title_en: Reservoir statistics
+    description: >-
+      Fyllingsgrad i vannmagasinene uke for uke, for hele landet og per elspotområde (NO1 til NO5), med kapasitet
+      og fylling i TWh, endring fra forrige uke og dato for neste publisering. Egne kall gir hele historikken og
+      minimum, maksimum og median per uke.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://biapi.nve.no/magasinstatistikk/api/Magasinstatistikk/HentOffentligDataSisteUke
+    docs_url: https://www.nve.no/energi/analyser-og-statistikk/om-magasinstatistikken/
+    spec_url: https://biapi.nve.no/magasinstatistikk/swagger/v1/swagger.json
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/6299b5e13e53054cb8027405
+    keywords: [magasin, fyllingsgrad, vannkraft, kraftsituasjon, elspotområde, twh, reservoir]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://biapi.nve.no/magasinstatistikk/api/Magasinstatistikk/HentOffentligDataSisteUke"

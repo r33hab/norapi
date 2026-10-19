@@ -1,0 +1,26 @@
+updated: 2026-10-19
+provider:
+  name: Mattilsynet
+  orgnr: "985399077"
+  sector: stat
+apis:
+  - id: mattilsynet-matvaretabellen
+    title: Matvaretabellens API
+    title_en: Norwegian Food Composition Table
+    description: >-
+      Næringsinnholdet i over 2000 matvarer med energi, makronæringsstoffer, vitaminer og mineraler, porsjonsstørrelser,
+      matvaregrupper, LanguaL-koder og kilder, på norsk og engelsk. Fem statiske JSON- eller EDN-filer som oppdateres
+      hver høst, så de egner seg godt til mellomlagring. Oppgi Matvaretabellen som kilde.
+    category: arbeid-og-velferd
+    access: open
+    auth: none
+    formats: [JSON, EDN]
+    endpoints:
+      - https://www.matvaretabellen.no/api/nb/foods.json
+    docs_url: https://www.matvaretabellen.no/api/
+    probe_url: https://www.matvaretabellen.no/api/nb/food-groups.json
+    keywords: [matvare, næringsinnhold, kalorier, vitaminer, ernæring, kosthold, matvaretabellen, food composition]
+    tags: [no-auth, reference-data, data-files]
+    quick_start: |
+      curl "https://www.matvaretabellen.no/api/nb/food-groups.json"
+      curl "https://www.matvaretabellen.no/api/nb/foods.json"

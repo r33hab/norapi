@@ -1,0 +1,21 @@
+updated: 2026-10-19
+provider:
+  name: Kassalapp (privat)
+  sector: privat
+apis:
+  - id: kassalapp-api
+    title: Kassalapp API (dagligvarer og priser)
+    title_en: Kassalapp grocery price API
+    description: >-
+      Produkter, priser, prishistorikk og næringsinnhold for dagligvarer i norske butikker, med fritekstsøk og EAN.
+      Gratis nøkkel for hobbyprosjekter med 60 kall i minuttet og uten kommersiell bruk; kommersiell tilgang koster.
+      Privat tjeneste.
+    category: annet
+    access: open
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://kassal.app/api/v1/products
+    docs_url: https://kassal.app/api/docs
+    keywords: [dagligvare, matpris, pris, ean, strekkode, butikk, prishistorikk, grocery prices]
+    tags: [registration, private-provider]

@@ -1,0 +1,40 @@
+updated: 2026-10-19
+provider:
+  name: Enova
+  orgnr: "983609155"
+  sector: statlig-selskap
+apis:
+  - id: enova-nobil
+    title: NOBIL ladestasjoner
+    title_en: NOBIL charging station database
+    description: >-
+      Den nasjonale databasen over offentlige ladestasjoner for elbil, med plassering og ladepunkter per stasjon.
+      Krever en API-nøkkel som du ber om fra NOBIL. Dokumentasjonen er en PDF på informasjonssiden, og dataene
+      er lisensiert under CC BY 4.0.
+    category: transport-og-samferdsel
+    access: open
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://nobil.no/api/server/search.php
+    docs_url: https://info.nobil.no/api
+    license: CC BY 4.0
+    keywords: [ladestasjon, elbil, lading, ladepunkt, nobil, hurtiglader, ev charging]
+    tags: [registration]
+
+  - id: enova-dataportal
+    title: Enovas data- og API-portal
+    title_en: Enova data and API portal
+    description: >-
+      Inngangen til Enovas API-er, blant annet data om energimerking av bygninger. De fleste API-ene krever egne
+      rettigheter som Enova må godkjenne, og registrering på vegne av et firma skal skje med firmanavn og en felles
+      e-postadresse. Nøkkelen ligger under profilen etter godkjenning.
+    category: natur-og-miljo
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://data.enova.no/
+    docs_url: https://data.enova.no/
+    keywords: [enova, energimerke, energiattest, energimerking, bygning, energi, energy certificate]
+    tags: [registration]

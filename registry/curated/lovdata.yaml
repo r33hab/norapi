@@ -1,0 +1,26 @@
+updated: 2026-10-19
+provider:
+  name: Lovdata
+  orgnr: "934282744"
+  sector: privat
+apis:
+  - id: lovdata-public-data
+    title: Lovdata API, åpne datasett (lover og forskrifter)
+    title_en: Lovdata public data
+    description: >-
+      Gjeldende lover og gjeldende sentrale forskrifter som komplette datasett, ajourført med endringer, og Norsk
+      Lovtidend avd. I per år. Pakkene er tar.bz2 med én XML-fil per dokument og hentes uten bruker eller nøkkel.
+      List-endepunktet viser hvilke pakker som finnes og når de sist ble oppdatert. Ikke et søke-API.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [XML, tar.bz2]
+    endpoints:
+      - https://api.lovdata.no/v1/publicData/list
+    docs_url: https://api.lovdata.no/swagger
+    spec_url: https://api.lovdata.no/swagger/api.json
+    keywords: [lov, lover, forskrift, lovtidend, regelverk, juss, lovdata, legislation]
+    tags: [no-auth, data-files]
+    quick_start: |
+      curl "https://api.lovdata.no/v1/publicData/list"
+      curl -O "https://api.lovdata.no/v1/publicData/get/gjeldende-lover.tar.bz2"

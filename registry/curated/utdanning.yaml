@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-19
 provider:
   name: Utdanningsdirektoratet
   orgnr: "970018131"
@@ -24,3 +24,49 @@ apis:
     quick_start: |
       curl -H "Accept: application/json" "https://data.udir.no/kl06/v201906/laereplaner-lk20"
       curl -H "Accept: application/json" "https://data.udir.no/kl06/v201906/laereplaner-lk20/NOR01-06"
+
+  - id: udir-nsr
+    title: Nasjonalt skoleregister (NSR)
+    title_en: National School Register
+    description: >-
+      Alle grunnskoler og videregående skoler med organisasjonsnummer, adresse, koordinat, skolekategori, offentlig
+      eller privat, elevtall, antall ansatte og trinn, og endringer etter en gitt dato. Oppslag per kommune, fylke,
+      skolekategori, næringskode eller organisasjonsnummer.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://data-nsr.udir.no/v4/enheter
+    docs_url: https://data-nsr.udir.no/
+    spec_url: https://data-nsr.udir.no/swagger/v4/swagger.json
+    probe_url: https://data-nsr.udir.no/v4/enhet/976207815
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/657865f762c1e74d12c69262
+    license: NLOD 2.0
+    keywords: [skole, skoleregister, grunnskole, videregående, elevtall, nsr, school register]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      # alle skoler i Trondheim (kommunenummer 5001)
+      curl "https://data-nsr.udir.no/v4/enheter/kommune/5001"
+
+  - id: udir-nbr
+    title: Nasjonalt barnehageregister (NBR)
+    title_en: National Kindergarten Register
+    description: >-
+      Alle barnehager med organisasjonsnummer, adresse, koordinat, barnehagekategori, offentlig eller privat, antall
+      barn, antall ansatte og alderstrinn, og endringer etter en gitt dato. Samme oppbygning som skoleregisteret.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://data-nbr.udir.no/v4/enheter
+    docs_url: https://data-nbr.udir.no/swagger/index.html
+    spec_url: https://data-nbr.udir.no/swagger/v4/swagger.json
+    probe_url: https://data-nbr.udir.no/v4/enhet/991436103
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/657865e962c1e74d12c69261
+    license: NLOD 2.0
+    keywords: [barnehage, barnehageregister, antall barn, nbr, kindergarten register]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      curl "https://data-nbr.udir.no/v4/enheter/kommune/5001"

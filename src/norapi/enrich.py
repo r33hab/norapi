@@ -115,6 +115,57 @@ def looks_like_ui(url: str) -> bool:
     return any(hint in lowered for hint in _UI_HINTS)
 
 
+MAX_YAML_NODES = 2_000_000  # an 8 MB spec has far fewer; only alias or merge-key tricks reach this
+
+
+def _load_yaml(text: str) -> Any:
+    """safe_load, after checking how large the document becomes once aliases and `<<` merge keys
+    are expanded. Composing keeps aliases shared and is linear in the input; constructing copies
+    merged mappings, so nested merges in a few hundred bytes would otherwise exhaust memory
+    inside the loader."""
+    root = yaml.compose(text, Loader=yaml.SafeLoader)
+    if root is None:
+        return None
+    if _expanded_nodes(root, {}, set()) > MAX_YAML_NODES:
+        raise ValueError("specification expands past the node cap")
+    return yaml.safe_load(text)
+
+
+def _expanded_nodes(node: yaml.Node, memo: dict[int, int], active: set[int]) -> int:
+    key = id(node)
+    if key in memo:
+        return memo[key]
+    if key in active:
+        raise ValueError("recursive YAML alias")
+    if isinstance(node, yaml.ScalarNode):
+        return 1
+    active.add(key)
+    if isinstance(node, yaml.MappingNode):
+        children = [child for pair in node.value for child in pair]
+    else:
+        children = node.value
+    total = 1 + sum(_expanded_nodes(child, memo, active) for child in children)
+    active.discard(key)
+    memo[key] = total
+    return total
+
+
+def _json_safe(document: Any) -> Any:
+    """YAML turns unquoted dates into date objects and status codes into int keys; a JSON round
+    trip makes the document match what a JSON spec would give. Aliases are shared on load but
+    copied on encode, so a few kilobytes of nested aliases can expand to gigabytes: the encoded
+    size is capped, and a self-referencing alias raises ValueError (circular reference)."""
+    limit = 4 * MAX_BYTES
+    chunks: list[str] = []
+    size = 0
+    for chunk in json.JSONEncoder(default=str, ensure_ascii=False).iterencode(document):
+        size += len(chunk)
+        if size > limit:
+            raise ValueError("specification expands past the size cap")
+        chunks.append(chunk)
+    return json.loads("".join(chunks))
+
+
 def parse_document(text: str, content_type: str) -> dict[str, Any] | None:
     stripped = text.lstrip()
     if not stripped:
@@ -129,8 +180,9 @@ def parse_document(text: str, content_type: str) -> dict[str, Any] | None:
         return None
     elif "openapi:" in stripped[:4000] or "swagger:" in stripped[:4000]:
         try:
-            document = yaml.safe_load(stripped)
-        except yaml.YAMLError:
+            document = _json_safe(_load_yaml(stripped))
+        except (yaml.YAMLError, ValueError, RecursionError, TypeError):
+            # TypeError: a mapping key JSON cannot hold, such as an unquoted date
             return None
     if not isinstance(document, dict) or not isinstance(document.get("paths"), dict):
         return None
