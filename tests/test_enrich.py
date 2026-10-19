@@ -70,6 +70,16 @@ def test_parse_document_makes_yaml_json_safe():
     json.dumps(document)  # the enrich cache writes the document as JSON
 
 
+def test_parse_document_rejects_yaml_alias_bombs():
+    levels = ["a0: &a0 [x, x, x, x, x, x, x, x, x, x]"]
+    for i in range(1, 9):
+        levels.append(f"a{i}: &a{i} [" + ", ".join([f"*a{i - 1}"] * 10) + "]")
+    bomb = "openapi: 3.0.0\n" + "\n".join(levels) + "\npaths:\n  /x: {}\n"
+    assert parse_document(bomb, "text/yaml") is None, "10^9 copies must not be expanded"
+    circular = "openapi: 3.0.0\nloop: &l [*l]\npaths:\n  /x: {}\n"
+    assert parse_document(circular, "text/yaml") is None
+
+
 def test_url_helpers():
     assert (
         normalise_url("https://app.swaggerhub.com/apis/o/a/1.0")

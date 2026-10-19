@@ -115,6 +115,22 @@ def looks_like_ui(url: str) -> bool:
     return any(hint in lowered for hint in _UI_HINTS)
 
 
+def _json_safe(document: Any) -> Any:
+    """YAML turns unquoted dates into date objects and status codes into int keys; a JSON round
+    trip makes the document match what a JSON spec would give. Aliases are shared on load but
+    copied on encode, so a few kilobytes of nested aliases can expand to gigabytes: the encoded
+    size is capped, and a self-referencing alias raises ValueError (circular reference)."""
+    limit = 4 * MAX_BYTES
+    chunks: list[str] = []
+    size = 0
+    for chunk in json.JSONEncoder(default=str, ensure_ascii=False).iterencode(document):
+        size += len(chunk)
+        if size > limit:
+            raise ValueError("specification expands past the size cap")
+        chunks.append(chunk)
+    return json.loads("".join(chunks))
+
+
 def parse_document(text: str, content_type: str) -> dict[str, Any] | None:
     stripped = text.lstrip()
     if not stripped:
@@ -129,10 +145,8 @@ def parse_document(text: str, content_type: str) -> dict[str, Any] | None:
         return None
     elif "openapi:" in stripped[:4000] or "swagger:" in stripped[:4000]:
         try:
-            # YAML turns unquoted dates into date objects and status codes into int keys;
-            # a JSON round trip makes the document match what a JSON spec would give.
-            document = json.loads(json.dumps(yaml.safe_load(stripped), default=str))
-        except yaml.YAMLError:
+            document = _json_safe(yaml.safe_load(stripped))
+        except (yaml.YAMLError, ValueError, RecursionError):
             return None
     if not isinstance(document, dict) or not isinstance(document.get("paths"), dict):
         return None
