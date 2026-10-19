@@ -129,10 +129,13 @@ def to_entries(snapshot: dict[str, Any]) -> list[ApiEntry]:
     harvested_at = snapshot.get("harvested_at")
     entries: list[ApiEntry] = []
     seen_ids: set[str] = set()
+    seen_uris: set[str] = set()
     for hit in sorted(snapshot["hits"], key=lambda h: h.get("uri") or ""):
         uri = hit.get("uri")
-        if not uri:
+        if not uri or uri in seen_uris:
+            # the search API can return one data service on two pages; the URI identifies it
             continue
+        seen_uris.add(uri)
         extra = by_uri.get(uri, {})
         entry = _hit_to_entry(hit, extra, harvested_at)
         if entry.id in seen_ids:

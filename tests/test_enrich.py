@@ -78,6 +78,8 @@ def test_parse_document_rejects_yaml_alias_bombs():
     assert parse_document(bomb, "text/yaml") is None, "10^9 copies must not be expanded"
     circular = "openapi: 3.0.0\nloop: &l [*l]\npaths:\n  /x: {}\n"
     assert parse_document(circular, "text/yaml") is None
+    date_key = "openapi: 3.0.0\nx-dates:\n  2024-01-15: release\npaths:\n  /x: {}\n"
+    assert parse_document(date_key, "text/yaml") is None, "a key JSON cannot hold is not a crash"
 
 
 def test_url_helpers():

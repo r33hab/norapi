@@ -146,7 +146,8 @@ def parse_document(text: str, content_type: str) -> dict[str, Any] | None:
     elif "openapi:" in stripped[:4000] or "swagger:" in stripped[:4000]:
         try:
             document = _json_safe(yaml.safe_load(stripped))
-        except (yaml.YAMLError, ValueError, RecursionError):
+        except (yaml.YAMLError, ValueError, RecursionError, TypeError):
+            # TypeError: a mapping key JSON cannot hold, such as an unquoted date
             return None
     if not isinstance(document, dict) or not isinstance(document.get("paths"), dict):
         return None

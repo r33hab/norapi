@@ -11,8 +11,9 @@ All notable changes to this project are documented here. The format follows
 - DigitaltMuseum moved from the Nasjonalbiblioteket file to a new KulturIT provider file, next to KulturNav; its id is unchanged.
 ### Fixed
 - `norapi enrich` crashed with "Object of type date is not JSON serializable" on YAML specs with unquoted dates; YAML documents now go through a JSON round trip when parsed, which also turns integer status-code keys into strings like a JSON spec has.
+- `norapi build` failed with "UNIQUE constraint failed: apis.id" when the Felles datakatalog search API returned one data service on two pages; the harvester now keeps one entry per catalogue URI.
 ### Security
-- YAML specs can no longer exhaust memory through alias expansion: the JSON round trip encodes incrementally and gives up past four times the 8 MB fetch cap, and self-referencing aliases are rejected.
+- YAML specs can no longer exhaust memory through alias expansion: the JSON round trip encodes incrementally and gives up past four times the 8 MB fetch cap, and self-referencing aliases are rejected. A spec with a mapping key JSON cannot hold, such as an unquoted date, is skipped instead of crashing the run.
 
 ## 2026-10-15
 ### Added

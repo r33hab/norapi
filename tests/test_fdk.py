@@ -36,6 +36,13 @@ def test_same_provider_and_title_get_a_stable_suffix(snapshot):
     )
 
 
+def test_a_hit_returned_twice_becomes_one_entry(snapshot):
+    doubled = {**snapshot, "hits": snapshot["hits"] + snapshot["hits"][:1]}
+    entries = fdk.to_entries(doubled)
+    assert len(entries) == len(fdk.to_entries(snapshot))
+    assert len({e.id for e in entries}) == len(entries)
+
+
 def test_sparse_hit_falls_back_sensibly(snapshot):
     entry = next(e for e in fdk.to_entries(snapshot) if e.provider.name == "Oslo kommune")
     assert entry.title == "Byrådssaker", "nynorsk title is used when bokmål is missing"
