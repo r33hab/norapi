@@ -70,6 +70,15 @@ def test_parse_document_makes_yaml_json_safe():
     json.dumps(document)  # the enrich cache writes the document as JSON
 
 
+def test_parse_document_keeps_ordinary_anchors_and_merges():
+    text = (
+        "openapi: 3.0.0\nx-base: &base {type: string, maxLength: 10}\n"
+        "paths:\n  /x:\n    get:\n      x-param: {<<: *base, description: id}\n"
+    )
+    param = parse_document(text, "text/yaml")["paths"]["/x"]["get"]["x-param"]
+    assert param == {"type": "string", "maxLength": 10, "description": "id"}
+
+
 def test_parse_document_rejects_yaml_alias_bombs():
     levels = ["a0: &a0 [x, x, x, x, x, x, x, x, x, x]"]
     for i in range(1, 9):
@@ -78,6 +87,11 @@ def test_parse_document_rejects_yaml_alias_bombs():
     assert parse_document(bomb, "text/yaml") is None, "10^9 copies must not be expanded"
     circular = "openapi: 3.0.0\nloop: &l [*l]\npaths:\n  /x: {}\n"
     assert parse_document(circular, "text/yaml") is None
+    merges = ["m0: &m0 {" + ", ".join(f"k{i}: v" for i in range(10)) + "}"]
+    for i in range(1, 10):
+        merges.append(f"m{i}: &m{i} {{<<: [" + ", ".join([f"*m{i - 1}"] * 10) + "]}")
+    merge_bomb = "openapi: 3.0.0\n" + "\n".join(merges) + "\npaths:\n  /x: {}\n"
+    assert parse_document(merge_bomb, "text/yaml") is None, "refused before loading"
     date_key = "openapi: 3.0.0\nx-dates:\n  2024-01-15: release\npaths:\n  /x: {}\n"
     assert parse_document(date_key, "text/yaml") is None, "a key JSON cannot hold is not a crash"
 
