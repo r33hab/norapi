@@ -59,6 +59,13 @@ def test_parse_document_accepts_json_and_yaml_and_rejects_html():
     assert parse_document('{"foo": 1}', "application/json") is None, "no paths: not a spec"
 
 
+def test_parse_document_reads_yaml_served_as_json():
+    text = "openapi: 3.0.3\npaths:\n  /x: {}\n"
+    assert parse_document(text, "application/json")["paths"] == {"/x": {}}
+    assert parse_document('{"openapi": "3.0.0", "paths": ', "application/json") is None
+    assert parse_document("<html></html>", "application/json") is None
+
+
 def test_parse_document_makes_yaml_json_safe():
     text = (
         "openapi: 3.0.0\ninfo:\n  version: 2024-01-15\n"

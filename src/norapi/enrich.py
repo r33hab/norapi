@@ -171,14 +171,16 @@ def parse_document(text: str, content_type: str) -> dict[str, Any] | None:
     if not stripped:
         return None
     document: Any = None
+    if stripped.startswith("<"):
+        return None
     if stripped.startswith("{") or "json" in content_type:
         try:
             document = json.loads(stripped)
         except json.JSONDecodeError:
-            return None
-    elif stripped.startswith("<"):
-        return None
-    elif "openapi:" in stripped[:4000] or "swagger:" in stripped[:4000]:
+            if stripped.startswith("{"):
+                return None
+            # some servers label a YAML document application/json (Vegvesen's parking register)
+    if document is None and ("openapi:" in stripped[:4000] or "swagger:" in stripped[:4000]):
         try:
             document = _json_safe(_load_yaml(stripped))
         except (yaml.YAMLError, ValueError, RecursionError, TypeError):

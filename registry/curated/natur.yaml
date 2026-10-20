@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-20
 provider:
   name: Artsdatabanken
   orgnr: "919666102"
@@ -19,3 +19,26 @@ apis:
     license: CC BY 4.0
     keywords: [arter, artsobservasjoner, rødliste, fremmede arter, biologisk mangfold, species]
     tags: [no-auth]
+
+  - id: artsdatabanken-nortaxa
+    title: Nortaxa API (Norsk taksonomisk register)
+    title_en: Norwegian taxonomic register
+    description: >-
+      Vitenskapelige navn, synonymer og norske navn for over 150 000 taksa, med rang, taksonomisk status, over- og
+      underordnede taksa og en logg over navneendringer. Søk, også uskarpt på vitenskapelige navn, og oppslag på
+      takson-id svarer uten nøkkel. Den eldre navnetjenesten på artsdatabanken.no/Api/Taxon svarer fortsatt.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://nortaxa.artsdatabanken.no/api/v1/
+      - https://artsdatabanken.no/Api/Taxon
+    docs_url: https://nortaxa.artsdatabanken.no/swagger/index.html
+    spec_url: https://nortaxa.artsdatabanken.no/swagger/v1/swagger.json
+    probe_url: https://nortaxa.artsdatabanken.no/api/v1/Statistics/TaxonCount
+    license: CC BY 4.0
+    keywords: [arter, artsnavn, taksonomi, vitenskapelig navn, synonym, takson, nortaxa, species names]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      curl "https://nortaxa.artsdatabanken.no/api/v1/TaxonName/Search?Search=Lynx%20lynx&MaxResults=5"

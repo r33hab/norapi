@@ -1,4 +1,4 @@
-updated: 2026-10-19
+updated: 2026-10-20
 provider:
   name: Utdanningsdirektoratet
   orgnr: "970018131"
@@ -70,3 +70,49 @@ apis:
     tags: [no-auth, reference-data]
     quick_start: |
       curl "https://data-nbr.udir.no/v4/enheter/kommune/5001"
+
+  - id: udir-barnehagefakta
+    title: Barnehagefakta API
+    title_en: Kindergarten key figures (Barnehagefakta)
+    description: >-
+      Nøkkeltallene fra barnehagefakta.no per barnehage: antall barn, barn per ansatt og per barnehagelærer, de ansattes
+      utdanning, om pedagognormen er oppfylt, resultater fra foreldreundersøkelsen, pedagogisk profil, åpningstid og
+      kontaktinformasjon, med kommunens snitt ved siden av. Oppslag på organisasjonsnummer, kommune, fylke eller
+      kartutsnitt. Utfyller barnehageregisteret (NBR), som har registeropplysningene.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.barnehagefakta.no/api/
+    docs_url: https://www.barnehagefakta.no/swagger
+    spec_url: https://www.barnehagefakta.no/swagger/docs/v1
+    probe_url: https://www.barnehagefakta.no/api/Fylker
+    license: NLOD 2.0
+    keywords: [barnehage, barnehagefakta, bemanning, barnehagelærer, pedagognorm, foreldreundersøkelsen, kindergarten]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://www.barnehagefakta.no/api/Barnehage/orgnr/998754461"
+
+  - id: udir-grep-sparql
+    title: Grep SPARQL-endepunkt
+    title_en: Grep curriculum data over SPARQL
+    description: >-
+      De samme læreplandataene som Grep-API-et (læreplaner, fag, kompetansemål, kjerneelementer og koder i
+      Kunnskapsløftet) som RDF i en GraphDB-database med over 1,2 millioner tripler, åpen for SPARQL-spørringer uten
+      nøkkel. Maskiner spør mot /repositories/201906; /sparql er GraphDB Workbench for å prøve spørringer i
+      nettleseren. Ontologien ligger under http://psi.udir.no/ontologi/kl06/.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON, RDF]
+    endpoints:
+      - https://sparql-data.udir.no/repositories/201906
+    docs_url: https://github.com/Utdanningsdirektoratet/Grep_SPARQL/wiki
+    probe_url: https://sparql-data.udir.no/repositories
+    license: NLOD 2.0
+    keywords: [læreplan, kompetansemål, grep, sparql, rdf, lenkede data, kunnskapsløftet, lk20, curriculum, linked data]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      curl -G "https://sparql-data.udir.no/repositories/201906" -H "Accept: application/sparql-results+json" \
+        --data-urlencode 'query=PREFIX u: <http://psi.udir.no/ontologi/kl06/> SELECT ?kode ?tittel WHERE { ?lp a u:laereplan_lk20 ; u:kode ?kode ; u:tittel ?tittel } LIMIT 5'

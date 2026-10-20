@@ -1,7 +1,403 @@
 {
-"generated_at": "2026-10-19T09:54:37+00:00",
-"count": 1313,
+"generated_at": "2026-10-20T12:19:54+00:00",
+"count": 1517,
 "operations": [
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "POST",
+"path": "/api/v1/DataTransfer/DataToExcel",
+"summary": "Convert csv to excel",
+"description": null,
+"tags": [
+"DataTransfer"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/DataTransfer/Export",
+"summary": "Export taxonomy to csv/excel formats",
+"description": null,
+"tags": [
+"DataTransfer"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "POST",
+"path": "/api/v1/DataTransfer/Import",
+"summary": "Import data",
+"description": null,
+"tags": [
+"DataTransfer"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/Lists/RankList",
+"summary": "Returns list of Ranks",
+"description": null,
+"tags": [
+"Lists"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/Lists/TaxonomicStatusList",
+"summary": "Returns list of Taxonomic statuses",
+"description": null,
+"tags": [
+"Lists"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/Lists/VernacularNameStatusList",
+"summary": "Returns list of statuses for vernacular names",
+"description": null,
+"tags": [
+"Lists"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/Lists/NomenclaturalStatusList",
+"summary": "Returns list of Nomenclatural statuses",
+"description": null,
+"tags": [
+"Lists"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/Lists/NameAttributtesList",
+"summary": "Returns list of scientific name attributtes",
+"description": null,
+"tags": [
+"Lists"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/Statistics/TaxonCount",
+"summary": "Get count of taxa",
+"description": null,
+"tags": [
+"Statistics"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/Statistics/NamesCountByLanguage",
+"summary": "Get count of names (total, accepted, synonyms) by language",
+"description": null,
+"tags": [
+"Statistics"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/Statistics/NamesCount",
+"summary": "Get count of names (total, accepted, synonyms)",
+"description": null,
+"tags": [
+"Statistics"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/Statistics/ByScientificNameId/{id}",
+"summary": null,
+"description": null,
+"tags": [
+"Statistics"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/TaxonName/Children/ByTaxonNameId/{id}",
+"summary": "Get taxon children data by taxonNameId",
+"description": null,
+"tags": [
+"TaxonName"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/TaxonName/Children/ByScientificNameId/{id}",
+"summary": "Get taxon children by scientificNameId",
+"description": null,
+"tags": [
+"TaxonName"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/TaxonName/ByScientificNameId/{id}",
+"summary": "Get taxon data by scientificNameId",
+"description": null,
+"tags": [
+"TaxonName"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/TaxonName/ByTaxonId/{id}",
+"summary": "Get taxon data by taxonId",
+"description": null,
+"tags": [
+"TaxonName"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/TaxonName/Changes/ByScientificNameId/{id}",
+"summary": "Get taxon name changes by scientificNameId",
+"description": null,
+"tags": [
+"TaxonName"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/TaxonName/ChangeLog2",
+"summary": "Get taxon name changes last 7 days",
+"description": null,
+"tags": [
+"TaxonName"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/TaxonName/ChangeLog",
+"summary": "Get taxon name changes from date",
+"description": null,
+"tags": [
+"TaxonName"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/TaxonName/Changes/ByTaxonId/{id}",
+"summary": "Get taxon name changes by taxon Id",
+"description": null,
+"tags": [
+"TaxonName"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "POST",
+"path": "/api/v1/TaxonName/RebuildSearchIndex",
+"summary": "Rebuild SearchIndex for TaxonNames. For admin only.",
+"description": null,
+"tags": [
+"TaxonName"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/TaxonName/Search",
+"summary": null,
+"description": null,
+"tags": [
+"TaxonName"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/TaxonName/FuzzyScientificNameSearch",
+"summary": null,
+"description": null,
+"tags": [
+"TaxonName"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "GET",
+"path": "/api/v1/TaxonName/ScientificNameInfoSearch",
+"summary": null,
+"description": null,
+"tags": [
+"TaxonName"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "POST",
+"path": "/api/v1/TaxonName/ScientificNameInfoMultiSearch",
+"summary": null,
+"description": null,
+"tags": [
+"TaxonName"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "POST",
+"path": "/api/v1/TaxonomicOperations/AddTaxon",
+"summary": "Method to add a new Taxon",
+"description": null,
+"tags": [
+"TaxonomicOperations"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "POST",
+"path": "/api/v1/TaxonomicOperations/UpdateVernacularNames",
+"summary": "Update vernacularNames for taxon",
+"description": null,
+"tags": [
+"TaxonomicOperations"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "PUT",
+"path": "/api/v1/TaxonomicOperations/EditScientificName",
+"summary": "Edit a scientificName",
+"description": null,
+"tags": [
+"TaxonomicOperations"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "POST",
+"path": "/api/v1/TaxonomicOperations/Synonymize",
+"summary": "Merge names",
+"description": null,
+"tags": [
+"TaxonomicOperations"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "POST",
+"path": "/api/v1/TaxonomicOperations/Split",
+"summary": "Split names",
+"description": null,
+"tags": [
+"TaxonomicOperations"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "POST",
+"path": "/api/v1/TaxonomicOperations/TransferParent",
+"summary": "Transfering parent on scientific name",
+"description": null,
+"tags": [
+"TaxonomicOperations"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "POST",
+"path": "/api/v1/TaxonomicOperations/Swap",
+"summary": "Swap a taxon with another",
+"description": null,
+"tags": [
+"TaxonomicOperations"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "artsdatabanken-nortaxa",
+"method": "DELETE",
+"path": "/api/v1/TaxonomicOperations/Delete",
+"summary": "Deletes a scientific name by id",
+"description": null,
+"tags": [
+"TaxonomicOperations"
+],
+"operation_id": null,
+"deprecated": false
+},
 {
 "api_id": "digdir-einnsyn",
 "method": "GET",
@@ -2463,6 +2859,1711 @@
 "deprecated": false
 },
 {
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/arbeidsmarkedskart/campus_yrke",
+"summary": "Viser hvilke steder du kan bli utdannet innen et yrke",
+"description": null,
+"tags": [
+"Arbeidsmarkedskart"
+],
+"operation_id": "Arbeidsmarkedskart___arbeidsmarkedskart_campus_yrke",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/arbeidsmarkedskart/endring_arbeidsmarked",
+"summary": "Retrieves the collection of Endring_arbeidsmarked resources.",
+"description": null,
+"tags": [
+"Arbeidsmarkedskart"
+],
+"operation_id": "Arbeidsmarkedskart___arbeidsmarkedskart_endring_arbeidsmarked",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/arbeidsmarkedskart/stedsvelger",
+"summary": "Retrieves the collection of Stedsvelger_Fylke resources.",
+"description": null,
+"tags": [
+"Arbeidsmarkedskart"
+],
+"operation_id": "Arbeidsmarkedskart___get_arbeidsmarkedskart_stedsvelger",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/arbeidsmarkedskart/tidsserie",
+"summary": "Retrieves the collection of Tidsserie resources.",
+"description": null,
+"tags": [
+"Arbeidsmarkedskart"
+],
+"operation_id": "Arbeidsmarkedskart___arbeidsmarkedskart_tidsserie",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/drupal_import/fagskole_programomraade_velger_programomraade",
+"summary": "Return sluttkompetanser",
+"description": null,
+"tags": [
+"Drupal_Import"
+],
+"operation_id": "Drupal_Import___get_fagskole_programomraade_velger_programomraade",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/drupal_import/fagskole_programomraade_velger_utdanningsprogram",
+"summary": "Return all Utdanningsprogram",
+"description": null,
+"tags": [
+"Drupal_Import"
+],
+"operation_id": "Drupal_Import___get_fagskole_programomraade_velger_utdanningsprogram",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/drupal_import/vgs",
+"summary": "Returns all drupal_import:vgs entries",
+"description": null,
+"tags": [
+"Drupal_Import"
+],
+"operation_id": "Drupal_Import___get_vgs",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/example/",
+"summary": "An example API endpoint",
+"description": "An example API endpoint that returns a list of `ExampleEntry` objects",
+"tags": [
+"Example"
+],
+"operation_id": "Example___get_example",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/fagskolevelgeren/fagskole",
+"summary": "Returnerer fagskoler filtrert på sluttkompetanse og øvrige opptakskrav",
+"description": null,
+"tags": [
+"Fagskolevelgeren"
+],
+"operation_id": "Fagskolevelgeren___get_fagskoler",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/fagskolevelgeren/sluttkompetanse",
+"summary": "Returner en liste over alle sluttkompetanser",
+"description": null,
+"tags": [
+"Fagskolevelgeren"
+],
+"operation_id": "Fagskolevelgeren___get_sluttkompetanse_facet",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/finnlarebedrift/bedrift",
+"summary": "Søk på bedrifter",
+"description": null,
+"tags": [
+"Finnlarebedrift"
+],
+"operation_id": "Finnlarebedrift___get_finnlarebedrift_bedrifter",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/finnlarebedrift/bedrift/{orgnr}",
+"summary": "Få informasjon om et bedrift",
+"description": null,
+"tags": [
+"Finnlarebedrift"
+],
+"operation_id": "Finnlarebedrift___get_finnlarebedrift_bedrift_single",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/finnlarebedrift/befolkning",
+"summary": "Returns the total population number of all regions or a given subset of regions",
+"description": null,
+"tags": [
+"Finnlarebedrift"
+],
+"operation_id": "Finnlarebedrift___get_befolkning",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/finnlarebedrift/fagvelger",
+"summary": "Henter ned fagvelgeren for finnlarebedrift",
+"description": null,
+"tags": [
+"Finnlarebedrift"
+],
+"operation_id": "Finnlarebedrift___get_finnlarebedrift_fagvelger",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/finnlarebedrift/naringskodevelger",
+"summary": "Gir et JSON dokument med næringskoder til finnlærebedrift",
+"description": null,
+"tags": [
+"Finnlarebedrift"
+],
+"operation_id": "Finnlarebedrift___naringskodevelger",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/finnlarebedrift/roller/{orgnr}",
+"summary": "Finner hvem som er registrert med en rolle i en bedrift",
+"description": "Viser kun ut hvem som er registrert som daglig leder i organisasjon",
+"tags": [
+"Finnlarebedrift"
+],
+"operation_id": "Finnlarebedrift___get_roller",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/finnlarebedrift/stedsvelger",
+"summary": "Henter ned stedsvelgeren for finnlarebedrift",
+"description": null,
+"tags": [
+"Finnlarebedrift"
+],
+"operation_id": "Finnlarebedrift___get_finnlarebedrift_stedsvelger",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/interesseside/interesser",
+"summary": "Get Interesser",
+"description": null,
+"tags": [
+"Interesseside"
+],
+"operation_id": "Interesseside___get_interesser",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/interesseside/utdanninger",
+"summary": "Get Utdanninger",
+"description": "Get utdanninger (educations) filtered by interests and/or education type",
+"tags": [
+"Interesseside"
+],
+"operation_id": "Interesseside___get_utdanninger",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/interesseside/utdanningstyper",
+"summary": "Get Utdanningstyper",
+"description": "Get a list of available utdanningstyper (education types) and their visibility status (whether they are selectable by the end user)",
+"tags": [
+"Interesseside"
+],
+"operation_id": "Interesseside___get_utdanningstyper",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/interesseside/yrker",
+"summary": "Get Yrker",
+"description": "Get yrker (occupations/professions) filtered by interests and/or education type",
+"tags": [
+"Interesseside"
+],
+"operation_id": "Interesseside___get_yrker",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/jobbkompasset/forside",
+"summary": "Get Jobbkompasset Forside",
+"description": null,
+"tags": [
+"Jobbkompasset"
+],
+"operation_id": "Jobbkompasset___get_jobbkompasset_forside",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/jobbkompasset/v2/interesser",
+"summary": "Get Jobbkompasset V2 Interesser",
+"description": null,
+"tags": [
+"Jobbkompasset"
+],
+"operation_id": "Jobbkompasset___get_jobbkompasset_v2_interesser",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/jobbkompasset/v2/utdanninger",
+"summary": "Get Jobbkompasset V2 Utdanninger",
+"description": "Get list of utdanninger (educations)",
+"tags": [
+"Jobbkompasset"
+],
+"operation_id": "Jobbkompasset___get_jobbkompasset_v2_utdanninger",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/jobbkompasset/v2/yrker",
+"summary": "Get Jobbkompasset V2 Yrker",
+"description": "Get list of yrker (occupations)",
+"tags": [
+"Jobbkompasset"
+],
+"operation_id": "Jobbkompasset___get_jobbkompasset_v2_yrker",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/jobbkompasset/yrker",
+"summary": "Get Jobbkompasset Yrker",
+"description": null,
+"tags": [
+"Jobbkompasset"
+],
+"operation_id": "Jobbkompasset___get_jobbkompasset_yrker",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/jobbtesten/yrker_med_onet_data",
+"summary": "Get Onet data for yrker (UnoId)",
+"description": "Get O*NET importance/level-data for a given UnoId.<br/>No parameters set returns all data (beware of large response).<br/>Setting only `uno_id` returns all data for that `uno_id`. In combination with other filters you can reduce the amount ",
+"tags": [
+"Jobbtesten"
+],
+"operation_id": "Jobbtesten___get_yrker_med_onet_data",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/kategorisystemer/nus",
+"summary": "Returns kategorisystemer:nus entries",
+"description": null,
+"tags": [
+"Kategorisystemer"
+],
+"operation_id": "Kategorisystemer___get_nus",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/kategorisystemer/styrk08",
+"summary": "Gir en oversikt over styrk08 koder, og tilhørende yrker",
+"description": null,
+"tags": [
+"Kategorisystemer"
+],
+"operation_id": "Kategorisystemer___get_styrk08",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/kategorisystemer/styrk98",
+"summary": "Gir en oversikt over styrk98 koder, og tilhørende yrker",
+"description": null,
+"tags": [
+"Kategorisystemer"
+],
+"operation_id": "Kategorisystemer___get_styrk98",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/legacy-lopet/lopet",
+"summary": "Brukt i den gamle løpet implementasjonen",
+"description": null,
+"tags": [
+"Legacy-Lopet"
+],
+"operation_id": "Legacy-Lopet___get_lopet",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/legacy-lopet/program",
+"summary": "Brukt i den gamle løpet implementasjonen",
+"description": null,
+"tags": [
+"Legacy-Lopet"
+],
+"operation_id": "Legacy-Lopet___get_program",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/legacy-lopet/sted",
+"summary": "Brukt i den gamle løpet implementasjonen",
+"description": null,
+"tags": [
+"Legacy-Lopet"
+],
+"operation_id": "Legacy-Lopet___get_sted",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/legacy-lopet/utdanningsprogram",
+"summary": "Brukt i den gamle løpet implementasjonen",
+"description": null,
+"tags": [
+"Legacy-Lopet"
+],
+"operation_id": "Legacy-Lopet___get_utdanningsprogram",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/min_karriereplan/alle_veier/{nid}",
+"summary": "Viser alle veier til en Drupal NID",
+"description": null,
+"tags": [
+"Min_karriereplan"
+],
+"operation_id": "Min_karriereplan___get_alle_veier",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/min_karriereplan/entity_info_lite/{nid}",
+"summary": "Returns a list of information about a drupal entity",
+"description": null,
+"tags": [
+"Min_karriereplan"
+],
+"operation_id": "Min_karriereplan___get_entity_info_lite",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/min_karriereplan/fra_til/{fra}/{til}",
+"summary": "Sjekk om du kan gå fra NID til NID",
+"description": "Tester om det fins en gyldig overgang fra `fra` NID til `til` NID",
+"tags": [
+"Min_karriereplan"
+],
+"operation_id": "Min_karriereplan___get_fra_til",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/min_karriereplan/get_all_kravmap_titles",
+"summary": "Get all kravmap titles",
+"description": "Returns a flattened list of all kravmap titles",
+"tags": [
+"Min_karriereplan"
+],
+"operation_id": "Min_karriereplan___get_all_kravmap_titles",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/min_karriereplan/get_nids/{type}",
+"summary": "Get all nids for a type",
+"description": null,
+"tags": [
+"Min_karriereplan"
+],
+"operation_id": "Min_karriereplan___get_all_nids",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/min_karriereplan/neste_vei/{nid}",
+"summary": "Viser neste vei fra en Drupal NID",
+"description": null,
+"tags": [
+"Min_karriereplan"
+],
+"operation_id": "Min_karriereplan___get_neste_vei",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/min_karriereplan/skole",
+"summary": "Gir en liste over alle videregående skoler",
+"description": null,
+"tags": [
+"Min_karriereplan"
+],
+"operation_id": "Min_karriereplan___get_skole",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "POST",
+"path": "/minside/entity_info_lite",
+"summary": "Returns a list of information about Drupal entities",
+"description": null,
+"tags": [
+"Minside"
+],
+"operation_id": "Minside___get_entity_info_lite",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/nav_export/programomraader",
+"summary": "Eksport til NAV med programområder og nus",
+"description": null,
+"tags": [
+"Nav-Export"
+],
+"operation_id": "Nav-Export___get_fagkode_velger",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/onet/interesser",
+"summary": "Get Interesser",
+"description": "Get Interesse 2024",
+"tags": [
+"Onet"
+],
+"operation_id": "Onet___get_interesser",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/onet/onet_types",
+"summary": "Returns all onet types",
+"description": null,
+"tags": [
+"Onet"
+],
+"operation_id": "Onet___get_onet_types",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/onet/yrker",
+"summary": "Yrker",
+"description": null,
+"tags": [
+"Onet"
+],
+"operation_id": "Onet___get_yrker",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/onet/yrker_interesse",
+"summary": "Get yrker interesse",
+"description": null,
+"tags": [
+"Onet"
+],
+"operation_id": "Onet___get_yrker_interesse",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/ovttas/emne",
+"summary": "Søkeresultat fra Ovttas",
+"description": null,
+"tags": [
+"Ovttas"
+],
+"operation_id": "Ovttas___get_emne",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/ovttas/fag",
+"summary": "Søkeresultat fra Ovttas",
+"description": null,
+"tags": [
+"Ovttas"
+],
+"operation_id": "Ovttas___get_fag",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/ovttas/innholdstype",
+"summary": "Søkeresultat fra Ovttas",
+"description": null,
+"tags": [
+"Ovttas"
+],
+"operation_id": "Ovttas___get_innholdstype",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/ovttas/language",
+"summary": "Søkeresultat fra Ovttas",
+"description": null,
+"tags": [
+"Ovttas"
+],
+"operation_id": "Ovttas___get_language",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/ovttas/nivaa",
+"summary": "Søkeresultat fra Ovttas",
+"description": null,
+"tags": [
+"Ovttas"
+],
+"operation_id": "Ovttas___get_nivaa",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/ovttas/result",
+"summary": "Søkeresultat fra Ovttas",
+"description": null,
+"tags": [
+"Ovttas"
+],
+"operation_id": "Ovttas___get_result",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/ovttas/suggest",
+"summary": "Søkeresultat fra Ovttas",
+"description": null,
+"tags": [
+"Ovttas"
+],
+"operation_id": "Ovttas___get_suggest",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/ovttas/tilgjengelighet",
+"summary": "Søkeresultat fra Ovttas",
+"description": null,
+"tags": [
+"Ovttas"
+],
+"operation_id": "Ovttas___get_tilgjengelighet",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/arbeidsmarked/i10",
+"summary": "Get arbeidsmarked i10",
+"description": "Returns a collection of i10 objects alongside a faceted list of matching fields. Requests with more than 25,000 results are rejected.",
+"tags": [
+"Regionalkompetanse"
+],
+"operation_id": "Regionalkompetanse___arbeidsmarked_i10",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/arbeidsmarked/i11",
+"summary": "Get arbeidsmarked i11",
+"description": "Returns a collection of i11 objects alongside a faceted list of matching fields. Requests with more than 25,000 results are rejected.",
+"tags": [
+"Regionalkompetanse"
+],
+"operation_id": "Regionalkompetanse___regionalkompetanse_arbeidsmarked_i11",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/arbeidsmarked/i6",
+"summary": "Sysselsatte etter næring og region",
+"description": "Returns a collection of i6 objects alongside a faceted list of matching fields. Requests with more than 25,000 results are rejected",
+"tags": [
+"Regionalkompetanse"
+],
+"operation_id": "Regionalkompetanse___arbeidsmarked_i6",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/arbeidsmarked/i7",
+"summary": "Sysselsatte innvandrere etter innvandringsgrunn.",
+"description": "Returns a collection of i7 objects alongside a faceted list of matching fields. Requests with more than 25,000 results are rejected.",
+"tags": [
+"Regionalkompetanse"
+],
+"operation_id": "Regionalkompetanse___arbeidsmarked_i7",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/arbeidsmarked/i8",
+"summary": "Lønnstakere uten fast bosted (utenlandske lønnstakere på midlertidig opphold) per 1000 sysselsatt.",
+"description": "Returns a collection of i8 objects alongside a faceted list of matching fields. Requests with more than 25,000 results are rejected.",
+"tags": [
+"Regionalkompetanse"
+],
+"operation_id": "Regionalkompetanse___arbeidsmarked_i8",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/arbeidsstyrken/i1",
+"summary": "Hent data fra arbeidsstyrken i1",
+"description": "Hent data fra arbeidsstyrken i1",
+"tags": [
+"Regionalkompetanse",
+"Regionalkompetanse"
+],
+"operation_id": "RegionalkompetanseRegionalkompetanse___arbeidsstyrken_i1",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/arbeidsstyrken/i2",
+"summary": "Hent data fra arbeidsstyrken i2",
+"description": "Hent data fra arbeidsstyrken i2",
+"tags": [
+"Regionalkompetanse",
+"Regionalkompetanse"
+],
+"operation_id": "RegionalkompetanseRegionalkompetanse___arbeidsstyrken_i2",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/arbeidsstyrken/i3",
+"summary": "Hent data fra arbeidsstyrken i3",
+"description": "Hent data fra arbeidsstyrken i3",
+"tags": [
+"Regionalkompetanse",
+"Regionalkompetanse"
+],
+"operation_id": "RegionalkompetanseRegionalkompetanse___arbeidsstyrken_i3",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/arbeidsstyrken/i4i5",
+"summary": "Hent data fra arbeidsstyrken i4i5",
+"description": "Hent data fra arbeidsstyrken i4i5",
+"tags": [
+"Regionalkompetanse",
+"Regionalkompetanse"
+],
+"operation_id": "RegionalkompetanseRegionalkompetanse___arbeidsstyrken_i4i5",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/kompetansetilgang/i13i14i15",
+"summary": "Hent data fra kompetansetilgang i13i14i15",
+"description": "Hent data fra kompetansetilgang i13i14i15",
+"tags": [
+"Regionalkompetanse",
+"Regionalkompetanse"
+],
+"operation_id": "RegionalkompetanseRegionalkompetanse___kompetansetilgang_i13i14i15",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/kompetansetilgang/i16",
+"summary": "Andel i videregående opplæring på yrkesfag.",
+"description": "Returns a collection of i16 objects alongside a faceted list of matching fields. Requests with more than 10000 results are rejected.",
+"tags": [
+"Regionalkompetanse",
+"Regionalkompetanse"
+],
+"operation_id": "RegionalkompetanseRegionalkompetanse___tilknytning_i16",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/kompetansetilgang/i17",
+"summary": "Get kompetansetilgang i17",
+"description": "Returns a collection of i17 objects alongside a faceted list of matching fields. Requests with more than 10,000 results are rejected.",
+"tags": [
+"Regionalkompetanse"
+],
+"operation_id": "Regionalkompetanse___kompetansetilgang_i17",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/kompetansetilgang/i18",
+"summary": "Get kompetansetilgang i18",
+"description": "Returns a collection of i18 objects alongside a faceted list of matching fields. Requests with more than 10,000 results are rejected.",
+"tags": [
+"Regionalkompetanse"
+],
+"operation_id": "Regionalkompetanse___kompetansetilgang_i18",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/stedsvelger",
+"summary": "Stedsvelger for regionalkompetanse",
+"description": "Returns an overview of region names and codes, alongside the time period they are or were valid for",
+"tags": [
+"Regionalkompetanse"
+],
+"operation_id": "Regionalkompetanse___get_stedsvelger",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/tilknytning/i24",
+"summary": "Andelen sysselsatte etter alder og utdanningsnivå.",
+"description": "Returns a collection of i24 objects alongside a faceted list of matching fields. Requests with more than 25000 results are rejected.",
+"tags": [
+"Regionalkompetanse",
+"Regionalkompetanse"
+],
+"operation_id": "RegionalkompetanseRegionalkompetanse___tilknytning_i24",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/tilknytning/i25i26",
+"summary": "Andel av befolkningen som er utenfor arbeid, utdanning og arbeidsmarkedstiltak.",
+"description": "Returns a collection of i25i26 objects alongside a faceted list of matching fields. Requests with more than 25000 results are rejected.",
+"tags": [
+"Regionalkompetanse",
+"Regionalkompetanse"
+],
+"operation_id": "RegionalkompetanseRegionalkompetanse___tilknytning_i25i26",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/tilknytning/i27",
+"summary": "Mottakere av uføretrygd som andel av befolkningen 18-67 år (Aldersstandardiserte tall)",
+"description": "Returns a collection of i27 objects alongside a faceted list of matching fields. Requests with more than 25000 results are rejected.",
+"tags": [
+"Regionalkompetanse",
+"Regionalkompetanse"
+],
+"operation_id": "RegionalkompetanseRegionalkompetanse___tilknytning_i27",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/tilknytning/i29",
+"summary": "Andel som bor i husholdninger med lavinntekt.",
+"description": "Returns a collection of i29 objects alongside a faceted list of matching fields. Requests with more than 25000 results are rejected.",
+"tags": [
+"Regionalkompetanse",
+"Regionalkompetanse"
+],
+"operation_id": "RegionalkompetanseRegionalkompetanse___tilknytning_i29",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/tilknytning/i30i31",
+"summary": "Ikke fullført videregående opplæring",
+"description": "Returns a collection of i30i31 objects alongside a faceted list of matching fields. Requests with more than 25000 results are rejected.",
+"tags": [
+"Regionalkompetanse",
+"Regionalkompetanse"
+],
+"operation_id": "RegionalkompetanseRegionalkompetanse___kompetansetilgang_i30i31",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/videreutdanning/i19i20i21i22",
+"summary": "Kompetansebygging i arbeidslivet.",
+"description": "Returns a collection of i19i20i21i22 objects alongside a faceted list of matching fields. Requests with more than 10000 results are rejected.",
+"tags": [
+"Regionalkompetanse",
+"Regionalkompetanse"
+],
+"operation_id": "RegionalkompetanseRegionalkompetanse___videreutdanning_i19i20i21i22",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/regionalkompetanse/videreutdanning/i23",
+"summary": "Oppnåtte fag-og-svennebrev av voksne (25 år og over) per 1000 sysselsatte.",
+"description": "Returns a collection of i23 objects alongside a faceted list of matching fields. Requests with more than 10000 results are rejected.",
+"tags": [
+"Regionalkompetanse",
+"Regionalkompetanse"
+],
+"operation_id": "RegionalkompetanseRegionalkompetanse___videreutdanning_i23",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/sammenligning/arbeidsledighet",
+"summary": "Gir informasjon om arbeidsledighet for yrker/utdanninger",
+"description": null,
+"tags": [
+"Sammenligning"
+],
+"operation_id": "Sammenligning___get_sammenligning_arbeidsledighet",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/sammenligning/arbeidsmarked",
+"summary": "Gir informasjon om arbeidsmarkedet for alle yrker/utdanninger",
+"description": null,
+"tags": [
+"Sammenligning"
+],
+"operation_id": "Sammenligning___get_all_arbeidsmarked",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/sammenligning/entrepenorskap",
+"summary": "Gir informasjon om entrepenørskap (selvstendig næringsdrivende)",
+"description": null,
+"tags": [
+"Sammenligning"
+],
+"operation_id": "Sammenligning___get_all_sammenligning_entreprenorskap",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/sammenligning/interesser",
+"summary": "Gir en oversikt over alle interessen yrkene og utdanningene er tagget med",
+"description": null,
+"tags": [
+"Sammenligning"
+],
+"operation_id": "Sammenligning___sammenligning_get_interesser",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/sammenligning/lonn",
+"summary": "Gir informasjon om lønn for yrke/utdanninger basert på ansiennitet, alder, sektor og arbeidstid",
+"description": null,
+"tags": [
+"Sammenligning"
+],
+"operation_id": "Sammenligning___sammenligning_get_lonn",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/sammenligning/lonn/kpi",
+"summary": "Konsumprisindeks (2025 = 100)",
+"description": null,
+"tags": [
+"Sammenligning"
+],
+"operation_id": "Sammenligning___sammenligning_get_lonn_kpi",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/sammenligning/main",
+"summary": "Gir en oversikt over metadata og id-er tilknyttet hver uno_id",
+"description": null,
+"tags": [
+"Sammenligning"
+],
+"operation_id": "Sammenligning___sammenligning_get_main",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/sammenligning/styrk08_styrk98",
+"summary": "Get Styrk08 Styrk98",
+"description": null,
+"tags": [
+"Sammenligning"
+],
+"operation_id": "Sammenligning___get_styrk08_styrk98",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/sammenligning/suggest",
+"summary": "Autosuggest for søket på sammenlign.utdanning.no",
+"description": null,
+"tags": [
+"Sammenligning"
+],
+"operation_id": "Sammenligning___sammenligning_get_suggest",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/sammenligning/utdanning-yrke-rr",
+"summary": "Gir relativ risiko for en kombinasjon nus-styrk08",
+"description": null,
+"tags": [
+"Sammenligning"
+],
+"operation_id": "Sammenligning___get_utdanning_yrke_rr",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/sammenligning/utdanning2yrke",
+"summary": "Gir informasjon om utdanninger personen har tatt for hvert yrke",
+"description": null,
+"tags": [
+"Sammenligning"
+],
+"operation_id": "Sammenligning___get_utdanning2yrke",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/sammenligning/utdanningsniva_pr_styrk08/",
+"summary": "Lookup multiple Styrk08 codes",
+"description": null,
+"tags": [
+"Sammenligning"
+],
+"operation_id": "Sammenligning___get_all_sammenligning_utdanningsniva_pr_styrk08",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/sammenligning/utdanningsniva_pr_uno_id/",
+"summary": "Get education level per UnoId",
+"description": null,
+"tags": [
+"Sammenligning"
+],
+"operation_id": "Sammenligning___get_all_sammenligning_utdanningsniva_pr_uno_id",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/sammenligning/yrke",
+"summary": "Get Yrke All",
+"description": null,
+"tags": [
+"Sammenligning"
+],
+"operation_id": "Sammenligning___get_yrke_all",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/sammenligning/yrke/{uno_id}",
+"summary": "Get Yrke By Id",
+"description": null,
+"tags": [
+"Sammenligning"
+],
+"operation_id": "Sammenligning___get_yrke_by_id",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/sammenligning/yrke2utdanning",
+"summary": "Get Yrke2Utdanning All",
+"description": "Gir en informasjon om hvilke yrker personer dom har tatt en gitt utdanning",
+"tags": [
+"Sammenligning"
+],
+"operation_id": "Sammenligning___get_yrke2utdanning_all",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/search/facet",
+"summary": "Brukt i søket på utdanning.no",
+"description": null,
+"tags": [
+"Search"
+],
+"operation_id": "Search___get_search_facet_v1",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/search/facet/v2",
+"summary": "Brukt i søket på utdanning.no",
+"description": null,
+"tags": [
+"Search"
+],
+"operation_id": "Search___search_facet",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/search/result",
+"summary": "Brukt i søket på utdanning.no",
+"description": null,
+"tags": [
+"Search"
+],
+"operation_id": "Search___get_search_result_v1",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/search/result/v2",
+"summary": "Brukt i søket på utdanning.no",
+"description": null,
+"tags": [
+"Search"
+],
+"operation_id": "Search___search_result",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/studievelgeren/facet",
+"summary": "Gir sum per fasett",
+"description": "Output is sorted by facet count",
+"tags": [
+"Studievelgeren"
+],
+"operation_id": "Studievelgeren___get_facet",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/studievelgeren/result",
+"summary": "Gir dokumentene",
+"description": null,
+"tags": [
+"Studievelgeren"
+],
+"operation_id": "Studievelgeren___get_result",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/studievelgeren/result_by_uno_id",
+"summary": "Gir dokumentene",
+"description": null,
+"tags": [
+"Studievelgeren"
+],
+"operation_id": "Studievelgeren___get_result_by_uno_id",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/utdanningsdata/fylke",
+"summary": "Gir en oversikt over fylker",
+"description": null,
+"tags": [
+"Utdanningsdata"
+],
+"operation_id": "Utdanningsdata___get_utdanningsdata_fylker",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/utdanningsdata/region",
+"summary": "Gir en oversikt over regioner",
+"description": null,
+"tags": [
+"Utdanningsdata"
+],
+"operation_id": "Utdanningsdata___get_utdanningsdata_region",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/utdanningsdata/stedsvelger",
+"summary": "Generisk stedsvelger",
+"description": null,
+"tags": [
+"Utdanningsdata"
+],
+"operation_id": "Utdanningsdata___get_utdanningsdata_stedsvelger",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/utdanningsdata/undervisningssted",
+"summary": "Gir en oversikt over undervisningssteder",
+"description": null,
+"tags": [
+"Utdanningsdata"
+],
+"operation_id": "Utdanningsdata___get_utdanningsdata_undervisningssted",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/veientilfagbrev/fag",
+"summary": "Veientilfagbrev fag",
+"description": null,
+"tags": [
+"Veien_til_fagbrev"
+],
+"operation_id": "Veien_til_fagbrev___get_veientilfagbrev_fag",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/veientilfagbrev/fag_gruppe",
+"summary": "Veientilfagbrev fag_gruppe",
+"description": null,
+"tags": [
+"Veien_til_fagbrev"
+],
+"operation_id": "Veien_til_fagbrev___get_veientilfagbrev_fag_gruppe",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/veientilfagbrev/opsjon",
+"summary": "Gir en liste med opsjoner og fagene som tilhører de",
+"description": null,
+"tags": [
+"Veien_til_fagbrev"
+],
+"operation_id": "Veien_til_fagbrev___get_veientilfagbrev_opsjon",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/veientilfagbrev/veier/1.3",
+"summary": "Gir en liste med opsjoner og fagene som tilhører de",
+"description": null,
+"tags": [
+"Veien_til_fagbrev"
+],
+"operation_id": "Veien_til_fagbrev___get_veientilfagbrev_veier",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/veientilfagbrev/veier/1.3/{uuid}",
+"summary": "Hent en veientilfagbrev entry fra uuid",
+"description": null,
+"tags": [
+"Veien_til_fagbrev"
+],
+"operation_id": "Veien_til_fagbrev___get_veientilfagbrev_veier_by_uuid",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/vgs/lop",
+"summary": "Hent ned utdanningsløpet for videregående skole",
+"description": null,
+"tags": [
+"Vgs"
+],
+"operation_id": "Vgs___get_vgs_lop",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/vgs/programomrade_info",
+"summary": "Få informasjon om et programområde",
+"description": null,
+"tags": [
+"Vgs"
+],
+"operation_id": "Vgs___get_all_programomrade_info",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/vgs/programomrade_info/{programomradekode10}",
+"summary": "Få informasjon om et programområde",
+"description": null,
+"tags": [
+"Vgs"
+],
+"operation_id": "Vgs___get_programomrade_info",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/vgs/skole",
+"summary": "Gir en liste over alle videregående skoler",
+"description": null,
+"tags": [
+"Vgs"
+],
+"operation_id": "Vgs___get_skoler",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/vgs/skole/{vilbli_org_id}",
+"summary": "Hent informasjon om en videregående skole",
+"description": null,
+"tags": [
+"Vgs"
+],
+"operation_id": "Vgs___get_skole",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/vov/fagkode_velger",
+"summary": "Velg en fagkode",
+"description": null,
+"tags": [
+"Vov"
+],
+"operation_id": "Vov___get_fagkode_velger",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/yrkearbeidsliv/potensielle-bedrifter",
+"summary": "Get potensielle-bedrifter",
+"description": "Gir informasjon om potensielle bedrifter",
+"tags": [
+"YrkeArbeidsliv"
+],
+"operation_id": "YrkeArbeidsliv___get_yrkearbeidsliv_potensielle_bedrifter",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/yrkearbeidsliv/potensielle-bedrifter-info",
+"summary": "Get potensielle-bedrifter-info",
+"description": "Gir informasjon om poteniselle bedrifter basert på fylke, kommune eller Styrk98",
+"tags": [
+"YrkeArbeidsliv"
+],
+"operation_id": "YrkeArbeidsliv___get_yrkearbeidsliv_potensielle_bedrifter_info",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/yrkearbeidsliv/yrkeskategori",
+"summary": "Get Yrkeskategori",
+"description": "Gir en oversikt over antall ansatte per yrkeskategori",
+"tags": [
+"YrkeArbeidsliv"
+],
+"operation_id": "YrkeArbeidsliv___get_yrkearbeidsliv_yrkeskategori",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/{parentregister}/{register}",
+"summary": "Gets subregister by name",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_GetSubregisterByName",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/{registerName}",
+"summary": "Gets register by name",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_GetRegisterByName",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/{registerName}/{subregisters}",
+"summary": "Gets current and historical versions of register",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_GetRegisterItemByName",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/alert/{id}",
+"summary": "Get alert",
+"description": null,
+"tags": [
+"AlertApi"
+],
+"operation_id": "AlertApi_GetId",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "POST",
+"path": "/api/alert/add",
+"summary": "Add alert",
+"description": null,
+"tags": [
+"AlertApi"
+],
+"operation_id": "AlertApi_Post_ServiceAlert",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "PUT",
+"path": "/api/alert/update/{id}",
+"summary": "Update alert",
+"description": null,
+"tags": [
+"AlertApi"
+],
+"operation_id": "AlertApi_Put_ServiceAlert",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/alerts",
+"summary": "Get all alerts",
+"description": null,
+"tags": [
+"AlertApi"
+],
+"operation_id": "AlertApi_Get",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/alerts/{id}",
+"summary": "Get alerts by uuid",
+"description": null,
+"tags": [
+"AlertApi"
+],
+"operation_id": "AlertApi_GetUuid",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/fair/{uuid}",
+"summary": "Gets FAIR by metadata-uuid",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_GetFAIR",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/kodelister/{systemid}",
+"summary": "Gets subregister by id",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_GetRegisterById",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/metadata/DokCoverageMapping",
+"summary": "DokCoverageMapping",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_DokCoverageMapping",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/organisasjon/navn/{name}",
+"summary": "Get organization by name",
+"description": null,
+"tags": [
+"OrganizationsApi"
+],
+"operation_id": "OrganizationsApi_GetOrganizationByName",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/organisasjon/orgnr/{number}",
+"summary": "Get organization by number",
+"description": null,
+"tags": [
+"OrganizationsApi"
+],
+"operation_id": "OrganizationsApi_GetOrganizationByNumber",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/OrganizationsApi",
+"summary": "Get  municipality by kommunenummer",
+"description": null,
+"tags": [
+"OrganizationsApi"
+],
+"operation_id": "OrganizationsApi_GetOrganizationsByCodeV2",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/register",
+"summary": "List top level registers. Use id in response to navigate.",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_GetRegisters",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/register/{register}/{itemowner}",
+"summary": "List items for specific organization",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_GetRegisterItemsByOrganization",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/register/organisasjon/{name}",
+"summary": "List items for specific organization",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_SearchByOrganizationName",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/register/versjoner/{register}/{itemowner}/{item}/{version}/no",
+"summary": "Gets register item by register- organization- registeritem-name  and version-id",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_GetRegisterItemByVersionNr",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/Search",
+"summary": "Register search",
+"description": null,
+"tags": [
+"ApiSearch"
+],
+"operation_id": "ApiSearch_Get",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/sitemap",
+"summary": "sitemap for search engine",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_SiteMap",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/v2/organisasjon/navn/{name}",
+"summary": "Get organization by name",
+"description": null,
+"tags": [
+"OrganizationsApi"
+],
+"operation_id": "OrganizationsApi_GetOrganizationByNameV2",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/v2/organisasjon/orgnr/{number}",
+"summary": "Get organization by number",
+"description": null,
+"tags": [
+"OrganizationsApi"
+],
+"operation_id": "OrganizationsApi_GetOrganizationByNumberV2",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/v2/organisasjoner/kommuner",
+"summary": "Get list of municipalities",
+"description": null,
+"tags": [
+"OrganizationsApi"
+],
+"operation_id": "OrganizationsApi_GetOrganizationsV2",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/v2/organisasjoner/kommuner/{kommunenummer}",
+"summary": "Get  municipality by kommunenummer",
+"description": null,
+"tags": [
+"OrganizationsApi"
+],
+"operation_id": "OrganizationsApi_GetOrganizationsByCodeV2",
+"deprecated": false
+},
+{
 "api_id": "lovdata-public-data",
 "method": "GET",
 "path": "/documentIndex",
@@ -2868,6 +4969,90 @@
 "Vocabularies"
 ],
 "operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "mattilsynet-kjottkontroll-kodeverk",
+"method": "GET",
+"path": "/v1/relasjoner",
+"summary": "Gir en liste med navn på alle tilgjengelig relasjoner",
+"description": null,
+"tags": [
+"Relasjoner"
+],
+"operation_id": "getRelationList",
+"deprecated": false
+},
+{
+"api_id": "mattilsynet-kjottkontroll-kodeverk",
+"method": "GET",
+"path": "/v1/relasjoner/{relationName}",
+"summary": "Hent liste med til og fra for gitt relasjon.",
+"description": null,
+"tags": [
+"Relasjoner"
+],
+"operation_id": "getRelationByName",
+"deprecated": false
+},
+{
+"api_id": "mattilsynet-kjottkontroll-kodeverk",
+"method": "GET",
+"path": "/v1/relasjoner/{relationName}/{fromCodeType}/{fromCode}",
+"summary": "Hent kodeverk koder via relasjon, type og kode.",
+"description": null,
+"tags": [
+"Relasjoner"
+],
+"operation_id": "getRelatedCodesFromTypeAndCode",
+"deprecated": false
+},
+{
+"api_id": "mattilsynet-kjottkontroll-kodeverk",
+"method": "GET",
+"path": "/v1/kodeverk",
+"summary": "Gir en liste med navn på alle tilgjengelig kodeverk",
+"description": null,
+"tags": [
+"Kodeverk"
+],
+"operation_id": "getKodeverkList",
+"deprecated": false
+},
+{
+"api_id": "mattilsynet-kjottkontroll-kodeverk",
+"method": "GET",
+"path": "/v1/kodeverk/{codeType}",
+"summary": "Hent kodeverkshierarki fra rot-nivå.",
+"description": null,
+"tags": [
+"Kodeverk"
+],
+"operation_id": "getKodeverk",
+"deprecated": false
+},
+{
+"api_id": "mattilsynet-kjottkontroll-kodeverk",
+"method": "GET",
+"path": "/v1/kodeverk/{codeType}/{codeString}",
+"summary": "Hent kodeverkshierarki med spesifisert nivå via kodeString parameter.",
+"description": null,
+"tags": [
+"Kodeverk"
+],
+"operation_id": "getKodeverkForCodeId",
+"deprecated": false
+},
+{
+"api_id": "mattilsynet-kjottkontroll-kodeverk",
+"method": "GET",
+"path": "/",
+"summary": null,
+"description": null,
+"tags": [
+"index-controller"
+],
+"operation_id": "index",
 "deprecated": false
 },
 {
@@ -3918,6 +6103,246 @@
 "NVA verified funding sources API"
 ],
 "operation_id": "NfrGetFunding",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-parkeringsregisteret",
+"method": "GET",
+"path": "/parkeringstilbyder",
+"summary": "Henter alle tilbydere",
+"description": "Henter en liste med alle parkeringstilbydere.",
+"tags": [
+"parkeringstilbyder"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "vegvesen-parkeringsregisteret",
+"method": "GET",
+"path": "/parkeringstilbyder/{organisasjonsnummer}",
+"summary": "Henter tilbyder på organisasjonsnummer",
+"description": "Henter en en parkeringstilbyder for angitt organisasjonsnummer. Adresse, telefonnummer og epost hentes fra enhetsregisteret. Alle parkeringsområdene for tilbyderen legges også til i responsen.",
+"tags": [
+"parkeringstilbyder"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "vegvesen-parkeringsregisteret",
+"method": "GET",
+"path": "/parkeringstilbyder/aktive",
+"summary": "Henter alle aktive tilbydere",
+"description": "Henter en liste med alle aktive parkeringstilbydere. Alle parkeringstilbydere med status 'AKTIV' regnes som aktive.",
+"tags": [
+"parkeringstilbyder"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "vegvesen-parkeringsregisteret",
+"method": "GET",
+"path": "/parkeringsomraade",
+"summary": "Henter parkeringsområder basert på datafelter/organisasjonsnummer",
+"description": "Henter en liste med parkeringsområder. Mengden av data kan begrenses via query-parametre",
+"tags": [
+"parkeringsomraade"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "vegvesen-parkeringsregisteret",
+"method": "GET",
+"path": "/parkeringsomraade/{id}",
+"summary": "Henter parkeringsområde på id",
+"description": "Henter et parkeringsområde med angitt id",
+"tags": [
+"parkeringsomraade"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "vegvesen-parkeringsregisteret",
+"method": "GET",
+"path": "/parkeringsomraade/{id}/versjon/{versjon}",
+"summary": "Henter parkeringsområde på id og versjon",
+"description": "Henter en versjon av et parkeringsområde med angitt id og versjonsnummer. Den angitte versjonen vil settes til aktivVersjon i responsen.",
+"tags": [
+"parkeringsomraade"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "vegvesen-parkeringsregisteret",
+"method": "GET",
+"path": "/parkeringsomraade/skiltplan/{skiltplanId}",
+"summary": "Henter skiltplan på id",
+"description": "Henter en skiltplan av et parkeringsområde med angitt skiltplanId.",
+"tags": [
+"parkeringsomraade"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "vegvesen-parkeringsregisteret",
+"method": "GET",
+"path": "/parkeringsomraade/vurdering/{vurderingId}",
+"summary": "Henter vurdering på id",
+"description": "Henter en tekstlig vurdering av hva som er tilstrekkelig antall plasser reservert forflytningshemmede for en versjon av et parkeringsområde med angitt vurderingId.",
+"tags": [
+"parkeringsomraade"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "udir-barnehagefakta",
+"method": "GET",
+"path": "/api/Barnehage/orgnr/{orgnr}",
+"summary": "Returnerer nøkkeltall for en barnehage gitt barnehagens organisasjonsnummer",
+"description": "For å finne barnehager gitt geografiopplysninger kan barnehager slås opp via Location APIet.",
+"tags": [
+"Barnehage"
+],
+"operation_id": "Barnehage_GetBarnehageByOrgnr",
+"deprecated": false
+},
+{
+"api_id": "udir-barnehagefakta",
+"method": "GET",
+"path": "/api/Barnehage/{id}",
+"summary": "Returnerer nøkkeltall for en barnehage gitt barnehagens unike id i barnehagefakta (organisasjonsnummer)",
+"description": "For å finne organisasjonsnummer for en barnehage kan barnehager slås opp via Location APIet. Der finner man orgnr for hver barnehage.",
+"tags": [
+"Barnehage"
+],
+"operation_id": "Barnehage_Get",
+"deprecated": false
+},
+{
+"api_id": "udir-barnehagefakta",
+"method": "GET",
+"path": "/api/Fylker",
+"summary": "Returnerer struktur med fylker / kommuner",
+"description": "Returnerer en struktur med alle landets fylker med deres tilhørende kommuner.",
+"tags": [
+"Fylker"
+],
+"operation_id": "Fylker_Get",
+"deprecated": false
+},
+{
+"api_id": "udir-barnehagefakta",
+"method": "GET",
+"path": "/api/Kommune/{kommunenummer}",
+"summary": "Returnerer data for en gitt kommune",
+"description": "Returnerer nøkkeltall for kommenen med det angitte kommunenummeret.",
+"tags": [
+"Kommune"
+],
+"operation_id": "Kommune_Get",
+"deprecated": false
+},
+{
+"api_id": "udir-barnehagefakta",
+"method": "GET",
+"path": "/api/Location/{lat1}/{lng1}/{lat2}/{lng2}",
+"summary": "Returnerer barnehager i et rektangulært kartutsnitt",
+"description": "Tar inn fire tall (floats, med . som kommaseparator) som angir øvre venstre hjørne og nedre høyre hjørne i et kartutsnitt (lat / lng). Returnerer alle barnehager som ligger innenfor dette utsnittet.",
+"tags": [
+"Location"
+],
+"operation_id": "Location_GetBarnehagerInUtsnitt",
+"deprecated": false
+},
+{
+"api_id": "udir-barnehagefakta",
+"method": "GET",
+"path": "/api/Location/kommune/{kommunenummer}",
+"summary": "Returnerer barnehager for et gitt kommunenummer",
+"description": "Returnerer alle barnehager som ligger innenfor det angitte kommunenummeret.",
+"tags": [
+"Location"
+],
+"operation_id": "Location_GetBarnehagerInKommune",
+"deprecated": false
+},
+{
+"api_id": "udir-barnehagefakta",
+"method": "GET",
+"path": "/api/Location/fylke/{fylkesnummer}",
+"summary": "Returnerer barnehager for et gitt fylkesnummer",
+"description": "Returnerer alle barnehager som ligger innenfor det angitte fylket.",
+"tags": [
+"Location"
+],
+"operation_id": "Location_GetBarnehagerInFylke",
+"deprecated": false
+},
+{
+"api_id": "udir-barnehagefakta",
+"method": "GET",
+"path": "/api/Location/{lat}/{lng}",
+"summary": "Returnerer barnehager i et kvadratisk kartutsnitt",
+"description": "Tar inn to tall (floats, med . som kommaseparator) som angir senter av et kvadratisk kartutsnitt (lat / lng) (med default padding på 0.2). Returnerer alle barnehager som ligger innenfor dette utsnittet.",
+"tags": [
+"Location"
+],
+"operation_id": "Location_GetBarnehagerInKvadratiskUtsnitt",
+"deprecated": false
+},
+{
+"api_id": "udir-barnehagefakta",
+"method": "GET",
+"path": "/api/Location/{lat}/{lng}/{padding}",
+"summary": "Returnerer barnehager i et kvadratisk kartutsnitt",
+"description": "Tar inn to tall (floats, med . som kommaseparator) som angir senter av et kvadratisk kartutsnitt (lat / lng). Det tredje tallet angir padding i lat/lng. Default padding er 0.2. Returnerer alle barnehager som ligger innenfor dette utsnittet.",
+"tags": [
+"Location"
+],
+"operation_id": "Location_GetBarnehagerInKvadratiskUtsnittMedPadding",
+"deprecated": false
+},
+{
+"api_id": "udir-barnehagefakta",
+"method": "GET",
+"path": "/api/Location/radius/{lat}/{lng}",
+"summary": "Returnerer barnehager i et sirkulært kartutsnitt",
+"description": "Tar inn to tall (floats, med . som kommaseparator) som angir senter av et sirkulært kartutsnitt (lat / lng) (med default radius på 0.2). Returnerer alle barnehager som ligger innenfor dette utsnittet.",
+"tags": [
+"Location"
+],
+"operation_id": "Location_GetBarnehagerInSirkulartUtsnitt",
+"deprecated": false
+},
+{
+"api_id": "udir-barnehagefakta",
+"method": "GET",
+"path": "/api/Location/radius/{lat}/{lng}/{radius}",
+"summary": "Returnerer barnehager i et sirkulært kartutsnitt",
+"description": "Tar inn to tall (floats, med . som kommaseparator) som angir senter av et sirkulært kartutsnitt (lat / lng). Det tredje tallet angir radius. Default radius er 0.2. Returnerer alle barnehager som ligger innenfor dette utsnittet.",
+"tags": [
+"Location"
+],
+"operation_id": "Location_GetBarnehagerInSirulartUtsnittMedRadius",
+"deprecated": false
+},
+{
+"api_id": "udir-barnehagefakta",
+"method": "GET",
+"path": "/api/Location",
+"summary": "Returnerer alle barnehager",
+"description": "Denne metoden returnerer alle barnehager i barnehagefata",
+"tags": [
+"Location"
+],
+"operation_id": "Location_Get",
 "deprecated": false
 },
 {
@@ -5689,6 +8114,42 @@
 "description": "Søk etter et sted. Et sted kan ha flere stedsnavn, hvert navn kan ha flere skrivemåter. Returen er sortert etter stedets kategorisering innenfor Sentralt stedsnavnsregister (et fylke kommer f.eks. før en bekk). Innenfor hver kategori er så ",
 "tags": [],
 "operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "geonorge-transformasjon",
+"method": "GET",
+"path": "/transformer",
+"summary": "Transformer Ett Koordinat",
+"description": "**Transformer ett koordinat**",
+"tags": [
+"transformering"
+],
+"operation_id": "Transformer_ett_koordinat_transformer_get",
+"deprecated": false
+},
+{
+"api_id": "geonorge-transformasjon",
+"method": "POST",
+"path": "/transformer",
+"summary": "Transformer Mange Koordinater",
+"description": "**Transformer mange koordinater**",
+"tags": [
+"transformering"
+],
+"operation_id": "Transformer_mange_koordinater_transformer_post",
+"deprecated": false
+},
+{
+"api_id": "geonorge-transformasjon",
+"method": "GET",
+"path": "/projeksjoner",
+"summary": "Koordinatsystemer",
+"description": "**Tilgjengelige koordinatsystemer**",
+"tags": [
+"informasjon"
+],
+"operation_id": "Koordinatsystemer_projeksjoner_get",
 "deprecated": false
 },
 {

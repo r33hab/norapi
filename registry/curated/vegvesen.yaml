@@ -1,4 +1,4 @@
-updated: 2026-10-19
+updated: 2026-10-20
 provider:
   name: Statens vegvesen
   orgnr: "971032081"
@@ -77,3 +77,27 @@ apis:
     docs_url: https://www.vegvesen.no/fag/teknologi/apne-data/et-utvalg-apne-data/hva-er-datex
     keywords: [datex, trafikkmelding, veistenging, reisetid, værstasjon, webkamera, trafikkinformasjon, traffic]
     tags: [registration]
+
+  - id: vegvesen-parkeringsregisteret
+    title: Parkeringsregisteret (lese-API)
+    title_en: National parking register
+    description: >-
+      Landsdekkende register over parkeringsområder med vilkårsparkering og hvem som driver dem: tilbyder med
+      organisasjonsnummer, adresse, koordinat, antall avgiftsbelagte og gratis plasser, ladeplasser, skiltplaner og
+      versjonshistorikk per område. Lese-API-et er åpent uten nøkkel; skrive-API-et er for parkeringstilbydere. Hele
+      listen med datafelter=alle er over 150 MB, så hent ett område eller én tilbyder om gangen.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://parkreg-open.atlas.vegvesen.no/ws/no/vegvesen/veg/parkeringsomraade/parkeringsregisteret/v1/
+    docs_url: https://www.vegvesen.no/fag/teknologi/apne-data/et-utvalg-apne-data/parkeringsregisteret-api/
+    spec_url: https://parkreg-open.atlas.vegvesen.no/ws/docs/openapi
+    probe_url: https://parkreg-open.atlas.vegvesen.no/ws/no/vegvesen/veg/parkeringsomraade/parkeringsregisteret/v1/parkeringsomraade/32771
+    license: NLOD 2.0
+    keywords: [parkering, parkeringsområde, parkeringstilbyder, vilkårsparkering, ladeplass, p-plass, parking]
+    tags: [no-auth]
+    quick_start: |
+      # ett parkeringsområde med gjeldende versjon
+      curl "https://parkreg-open.atlas.vegvesen.no/ws/no/vegvesen/veg/parkeringsomraade/parkeringsregisteret/v1/parkeringsomraade/32771"
