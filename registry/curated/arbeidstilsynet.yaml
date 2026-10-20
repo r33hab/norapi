@@ -1,4 +1,4 @@
-updated: 2026-10-19
+updated: 2026-10-20
 provider:
   name: Arbeidstilsynet
   orgnr: "974761211"
@@ -22,3 +22,24 @@ apis:
     tags: [no-auth, data-files]
     quick_start: |
       curl -O "https://registerdata.arbeidstilsynet.no/renhold_register.xml"
+
+  - id: arbeidstilsynet-bht-registeret
+    title: Register over godkjente bedriftshelsetjenester (XML-fil)
+    title_en: Register of approved occupational health services
+    description: >-
+      Alle bedriftshelsetjenester som er godkjent av Arbeidstilsynet, med organisasjonsnummer, godkjenningsstatus,
+      næringskoder, kontaktinformasjon, forretningsadresse og underenheter. Leveres som én XML-fil som genereres på
+      nytt jevnlig (tidspunktet står i filen), ikke som et søke-API. Virksomheter som er pålagt å være tilknyttet
+      bedriftshelsetjeneste, må bruke en godkjent ordning.
+    category: bedrift-og-organisasjon
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://registerdata.arbeidstilsynet.no/bht_register.xml
+    docs_url: https://data.norge.no/datasets/54255080-4a85-4e03-aac8-d81852c85e75
+    license: NLOD 2.0
+    keywords: [bedriftshelsetjeneste, bht, godkjenning, hms, arbeidsmiljø, arbeidstilsynet, occupational health]
+    tags: [no-auth, data-files]
+    quick_start: |
+      curl -O "https://registerdata.arbeidstilsynet.no/bht_register.xml"

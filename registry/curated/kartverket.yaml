@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-20
 provider:
   name: Kartverket
   orgnr: "971040238"
@@ -147,3 +147,50 @@ apis:
     docs_url: https://www.kartverket.no/api-og-data/eiendomsdata
     keywords: [matrikkel, eiendom, bygning, grunnbok, hjemmelshaver, tomt]
     tags: [agreement]
+
+  - id: geonorge-transformasjon
+    title: Transformasjons-API (Geonorge)
+    title_en: Coordinate transformation API
+    description: >-
+      Transformerer koordinater mellom koordinatsystemer og projeksjoner, for eksempel fra geografiske
+      ETRS89-koordinater (EPSG:4258) til UTM sone 33 (EPSG:25833), og lister EPSG-kodene som støttes. Bygget på PROJ,
+      og erstatter den eldre Transformasjon Web Service.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://ws.geonorge.no/transformering/v1/
+    docs_url: https://ws.geonorge.no/transformering/v1/
+    spec_url: https://ws.geonorge.no/transformering/v1/openapi.json
+    probe_url: https://ws.geonorge.no/transformering/v1/projeksjoner
+    merge_with: https://ws.geonorge.no/transformering/v1/
+    keywords: [koordinater, transformasjon, projeksjon, epsg, utm, euref89, etrs89, wgs84, proj]
+    tags: [no-auth]
+    quick_start: |
+      # lengde/bredde i Oslo (EPSG:4258) til UTM sone 33 (EPSG:25833)
+      curl "https://ws.geonorge.no/transformering/v1/transformer?x=10.75&y=59.91&fra=4258&til=25833"
+
+  - id: geonorge-register
+    title: Register-API (Geonorge)
+    title_en: Geonorge register API (code lists)
+    description: >-
+      Kartverkets registre i maskinlesbar form: SOSI-kodelister som kommune- og fylkesnummer med status (gyldig eller
+      tilbaketrukket) og gyldighetsdato, kommuner og etater med organisasjonsnummer, og andre fellesregistre for geodata.
+      Legg .json på et registers adresse under /api/ for å få det som JSON. Kallet som skal liste alle registre, /api/register,
+      svarer med feil, så gå inn via en kjent registeradresse.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, XML]
+    endpoints:
+      - https://register.geonorge.no/api/
+    docs_url: https://register.geonorge.no/swagger
+    spec_url: https://register.geonorge.no/swagger/docs/v1
+    probe_url: https://register.geonorge.no/api/v2/organisasjoner/kommuner/0301
+    license: NLOD 2.0
+    keywords: [kodeliste, sosi, kommunenummer, fylkesnummer, register, organisasjonsnummer, code list]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      # alle kommunenummer, også tilbaketrukne, med status og gyldighetsdato
+      curl "https://register.geonorge.no/api/sosi-kodelister/inndelinger/inndelingsbase/kommunenummer.json"

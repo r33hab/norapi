@@ -1,4 +1,4 @@
-updated: 2026-10-19
+updated: 2026-10-20
 provider:
   name: Mattilsynet
   orgnr: "985399077"
@@ -24,3 +24,26 @@ apis:
     quick_start: |
       curl "https://www.matvaretabellen.no/api/nb/food-groups.json"
       curl "https://www.matvaretabellen.no/api/nb/foods.json"
+
+  - id: mattilsynet-kjottkontroll-kodeverk
+    title: Kodeverk for kjøttkontroll
+    title_en: Meat inspection code lists
+    description: >-
+      Kodelistene Mattilsynet bruker i kjøttkontrollen: diagnoser ved levendedyrkontroll (AM) og kontroll av
+      slakteskrotten (PM), utvidet sykdomsregistrering, dyrekategorier, slaktetyper, landdyrsykdommer og konklusjoner,
+      24 kodeverk i alt. Hvert kodeverk kommer som et hierarki med norske visningsnavn, og et eget endepunkt gir
+      relasjonene mellom kodeverkene.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://kodeverk.kjottkontroll.mattilsynet.io/v1/kodeverk
+    docs_url: https://kodeverk.kjottkontroll.mattilsynet.io/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config
+    spec_url: https://kodeverk.kjottkontroll.mattilsynet.io/v3/api-docs
+    probe_url: https://kodeverk.kjottkontroll.mattilsynet.io/v1/kodeverk
+    keywords: [kjøttkontroll, slakteri, kodeverk, kodeliste, diagnose, dyrehelse, ante mortem, post mortem, meat inspection]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      curl "https://kodeverk.kjottkontroll.mattilsynet.io/v1/kodeverk"
+      curl "https://kodeverk.kjottkontroll.mattilsynet.io/v1/kodeverk/KJOETTKONTROLL_DIAGNOSE_AM"

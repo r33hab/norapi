@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-20
 provider:
   name: Luftfartstilsynet
   orgnr: "981105516"
@@ -20,3 +20,23 @@ apis:
     docs_url: https://dronesoner.no/
     keywords: [drone, geosoner, flyforbud, restriksjonssone, ed-269, luftrom, uas, airspace]
     tags: [no-auth, data-files]
+
+  - id: luftfartstilsynet-luftfartoyregister
+    title: Norges luftfartøyregister (JSON-fil)
+    title_en: Norwegian civil aircraft register
+    description: >-
+      Alle luftfartøy i Norges luftfartøyregister med registreringsmerke, kategori, type, produsent, byggeår,
+      serienummer, startmasse, luftdyktighetskategori og registreringsdato, og eierne med eierhistorikk og adresse.
+      Én JSON-fil som publiseres på nytt jevnlig, ikke et søke-API. Eierlisten har navn og adresse på privatpersoner,
+      så personvernreglene gjelder for det du bygger på den.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://data.caa.no/nlr/norgesluftfartoyregister.json
+    docs_url: https://data.norge.no/datasets/ca241ae5-fc9e-3702-bbcd-5453d2d0f06f
+    keywords: [luftfartøy, fly, helikopter, registreringsmerke, ln, eier, luftfartøyregister, aircraft register]
+    tags: [no-auth, data-files, personal-data]
+    quick_start: |
+      curl -O "https://data.caa.no/nlr/norgesluftfartoyregister.json"

@@ -3,6 +3,12 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com), newest first, grouped by date.
 
+## 2026-10-20
+### Added
+- Ten more curated APIs, each probed live and with a quick start that was run: the utdanning.no API (HK-dir), Arbeidstilsynet's register of approved occupational health services, Vegvesen's parking register, Udir Barnehagefakta, Udir's Grep SPARQL endpoint, Artsdatabanken Nortaxa, Mattilsynet's meat inspection code lists, Luftfartstilsynet's aircraft register, the Geonorge register API (SOSI code lists) and Geonorge coordinate transformation, which curates an entry that was only harvested before.
+### Fixed
+- `norapi enrich` skipped specifications served as YAML under an `application/json` content type (Vegvesen's parking register); a body that fails JSON parsing and does not start with `{` now gets the YAML check.
+
 ## 2026-10-19
 ### Added
 - Thirty more curated APIs, each probed live and with a quick start that was run: Lovdata open datasets, eInnsyn, Elhub energy data, Nav grunnbeløp, Matvaretabellen, Varsom, Regobs, NVE GridTimeSeries and magasinstatistikk, Entur Mobility v2 and vehicle positions, SSB PxWebApi 2, Sikt NVA and Cristin, NB DH-lab, KulturNav, Tolletaten open data, Arbeidstilsynet renholdsregisteret, Udir school and kindergarten registers, Fiskeridirektoratet vessel and aquaculture registers, Miljødirektoratet air quality, Finanstilsynet registry, plus keyed or registration-only APIs: Doffin, NOBIL, Enova's data portal, Vegvesen DATEX II, Patentstyret and Kassalapp.

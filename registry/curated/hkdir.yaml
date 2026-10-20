@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-20
 provider:
   name: Direktoratet for høyere utdanning og kompetanse
   orgnr: "974788985"
@@ -25,3 +25,29 @@ apis:
       # tabell 211: registrerte studenter, for 2024
       curl -X POST "https://dbh.hkdir.no/api/Tabeller/hentJSONTabellData" -H "Content-Type: application/json" \
         -d '{"tabell_id":211,"api_versjon":1,"statuslinje":"N","kodetekst":"J","desimal_separator":".","variabler":["*"],"sortBy":["Årstall"],"filter":[{"variabel":"Årstall","selection":{"filter":"item","values":["2024"]}}],"groupBy":["Årstall"]}'
+
+  - id: hkdir-utdanning-no
+    title: utdanning.no API
+    title_en: utdanning.no API (education and careers)
+    description: >-
+      Dataene bak utdanning.no: yrkes- og utdanningsbeskrivelser, lønnsstatistikk per yrke etter sektor og arbeidstid,
+      arbeidsledighet og arbeidsmarked per yrke, koblinger mellom utdanning og yrke (NUS og STYRK), videregående skoler
+      og programområder, og søk etter lærebedrifter. Svarer uten nøkkel, men HK-dir beskriver API-et som laget for egne
+      tjenester, uten versjonering og med endringer uten forvarsel. Beskrivelsene av over 550 yrker og 350 utdanninger
+      finnes også som enklere feeder under utdanning.no/api/v1.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.utdanning.no/
+      - https://utdanning.no/api/v1/data_norge--yrkesbeskrivelse
+    docs_url: https://api.utdanning.no/
+    spec_url: https://api.utdanning.no/openapi.json
+    probe_url: https://api.utdanning.no/sammenligning/main?uno_id=y_sykepleier
+    license: NLOD 2.0
+    keywords: [utdanning, yrke, yrkesbeskrivelse, lønn, karriere, studievalg, lærebedrift, videregående, styrk, nus, careers]
+    tags: [no-auth]
+    quick_start: |
+      # nøkkeldata og koder for yrket sykepleier
+      curl "https://api.utdanning.no/sammenligning/main?uno_id=y_sykepleier"
