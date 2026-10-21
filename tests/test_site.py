@@ -120,3 +120,19 @@ def test_index_has_one_h1_search_and_real_counts(tmp_path, fixtures, snapshot):
     }
     ops_index = json.loads((out / "ops-index.json").read_text())
     assert ops_index[0]["a"] == "geonorge-kommuneinfo" and ops_index[0]["m"] == "GET"
+
+
+def test_api_page_says_where_the_access_value_came_from(tmp_path, fixtures, snapshot):
+    registry_dir = _registry_dir(tmp_path, fixtures, snapshot)
+    registry_json = registry_dir / "registry.json"
+    document = json.loads(registry_json.read_text())
+    harvested = next(a for a in document["apis"] if a["source"]["kind"] == "fdk")
+    harvested["source"].update(
+        access_from="review", access_checked="2026-10-21", access_note="Svarer 401 uten nøkkel."
+    )
+    registry_json.write_text(json.dumps(document), encoding="utf-8")
+    out = tmp_path / "_site"
+    generate_site(registry_dir, out, base_url="https://example.invalid/norapi/")
+    page = (out / "api" / harvested["id"] / "index.html").read_text()
+
+    assert "sjekket for hånd 2026-10-21: Svarer 401 uten nøkkel." in page

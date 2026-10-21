@@ -92,3 +92,55 @@ def test_make_summary_cuts_on_a_word_boundary():
 def test_entry_rejects_unknown_access_value():
     with pytest.raises(ValueError):
         ApiEntry(id="x", title="x", provider=Provider(name="x"), access="public")
+
+
+OSLO = "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/ddd"
+UUID = "df226a30-86bf-43ee-ab11-7fd84a90ee2e"
+PUBLIC = "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+NON_PUBLIC = "http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC"
+RESTRICTED = "http://publications.europa.eu/resource/authority/access-right/RESTRICTED"
+
+
+def _oslo(snapshot, extras, records=None):
+    patched = {**snapshot, "extras": {**snapshot["extras"], **extras}}
+    return next(e for e in fdk.to_entries(patched, records) if e.source["uri"] == OSLO)
+
+
+def test_blank_access_comes_from_geonorge_then_the_served_datasets(snapshot):
+    kartkatalog = [[OSLO, f"https://kartkatalog.geonorge.no/metadata/oslo/byradssaker/{UUID}"]]
+    restricted = {UUID: {"AccessIsOpendata": False, "AccessIsRestricted": True}}
+
+    entry = _oslo(snapshot, {"pages": kartkatalog}, restricted)
+    assert (entry.access, entry.source["access_from"]) == ("restricted", "geonorge")
+
+    entry = _oslo(snapshot, {"dataset_access": [[OSLO, PUBLIC], [OSLO, NON_PUBLIC]]})
+    assert (entry.access, entry.source["access_from"]) == ("non-public", "fdk-dataset"), (
+        "strictest served dataset wins"
+    )
+
+    open_data = {UUID: {"AccessIsOpendata": True}}
+    conflicting = {"pages": kartkatalog, "dataset_access": [[OSLO, RESTRICTED]]}
+    entry = _oslo(snapshot, conflicting, open_data)
+    assert (entry.access, entry.source["access_from"]) == ("restricted", "conflict")
+
+    entry = _oslo(snapshot, {"pages": kartkatalog, "dataset_access": [[OSLO, PUBLIC]]}, open_data)
+    assert (entry.access, entry.source["access_from"]) == ("open", "geonorge"), "they agree"
+
+
+def test_own_access_rights_win_and_unknown_has_no_source(snapshot):
+    entries = {e.source["uri"]: e for e in fdk.to_entries(snapshot)}
+    mva = entries["https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/aaa"]
+    assert (mva.access, mva.source["access_from"]) == ("restricted", "fdk")
+    assert entries[OSLO].access == "unknown" and "access_from" not in entries[OSLO].source
+
+
+def test_geonorge_uuids_only_for_services_without_own_access(snapshot):
+    pages = [
+        [OSLO, f"https://kartkatalog.geonorge.no/Metadata/uuid/{UUID}"],
+        [
+            "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/aaa",
+            "https://kartkatalog.geonorge.no/Metadata/uuid/00000000-0000-0000-0000-000000000000",
+        ],
+    ]
+    patched = {**snapshot, "extras": {**snapshot["extras"], "pages": pages}}
+    assert fdk.geonorge_uuids(patched) == [UUID]
