@@ -1,0 +1,24 @@
+updated: 2026-10-21
+provider:
+  name: Norges Astma- og Allergiforbund (NAAF)
+  orgnr: "939634754"
+  sector: privat
+apis:
+  - id: naaf-pollenvarsel
+    title: Pollenvarsel (NAAF)
+    title_en: Pollen forecast (NAAF)
+    description: >-
+      Pollenvarselet fra pollenvarsel.naaf.no, med varsel per region og pollentype i sesongen. Nettsiden har et API
+      under /api, men det krever en token.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://pollenvarsel.naaf.no/api/forecast
+    docs_url: https://pollenvarsel.naaf.no/
+    keywords: [pollen, pollenvarsel, allergi, bjørk, gress, naaf, pollen forecast]
+    tags: [private-provider]
+    caveats:
+      - API-et krever en token og svarer 401 («Missing token») uten; det er ikke beskrevet hvordan man får en.
+      - Varselet ligger i nettsidens HTML i pollensesongen, men det er ikke ment som et grensesnitt for andre.

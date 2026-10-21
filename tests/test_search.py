@@ -26,6 +26,8 @@ def test_build_writes_registry_and_llms_txt(tmp_path, fixtures, snapshot):
     registry_json, registry = _registry(tmp_path, fixtures, snapshot)
     llms = (tmp_path / "llms.txt").read_text(encoding="utf-8")
     assert "## Curated" in llms and "Kommuneinfo-API (Geonorge)" in llms
+    assert "Caveats: Testforbehold, vises som Forbehold." in llms
+    assert registry.get("test-standalone")["caveats"] == ["Testforbehold, vises som Forbehold."]
     assert registry.stats()["count"] == 5
     assert registry.stats()["by_source"] == {"curated": 1, "curated+fdk": 1, "fdk": 3}
 

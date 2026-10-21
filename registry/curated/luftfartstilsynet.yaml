@@ -1,4 +1,4 @@
-updated: 2026-10-20
+updated: 2026-10-21
 provider:
   name: Luftfartstilsynet
   orgnr: "981105516"
@@ -38,5 +38,8 @@ apis:
     docs_url: https://data.norge.no/datasets/ca241ae5-fc9e-3702-bbcd-5453d2d0f06f
     keywords: [luftfartøy, fly, helikopter, registreringsmerke, ln, eier, luftfartøyregister, aircraft register]
     tags: [no-auth, data-files, personal-data]
+    caveats:
+      - Eierlisten har navn og adresse på privatpersoner; personopplysningsloven gjelder for det du gjør med dataene.
+      - Ingen lisens oppgitt i Felles datakatalog.
     quick_start: |
       curl -O "https://data.caa.no/nlr/norgesluftfartoyregister.json"

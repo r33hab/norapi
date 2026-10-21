@@ -37,6 +37,8 @@ apis:
     license: NLOD 2.0
     keywords: [saker, saksnummer, innsyn]
     tags: [no-auth]
+    caveats:                                                         # valgfritt; forbehold brukeren må kjenne til
+      - Ikke dokumentert av etaten, og kan endres uten forvarsel.
     quick_start: |
       curl "https://api.eksempeletaten.no/saker/v1/2026-001"
 ```
@@ -49,6 +51,11 @@ Regler som holder kvaliteten oppe:
   `merge_with: <katalogens data service-URI>`. Dine felter vinner, katalogens fyller tomrom.
 - **Metadata, aldri data.** Ingen uttrekk fra API-ene, ingen personopplysninger, ingen kontaktpersoner.
 - **Private tjenester** tas med når de er åpne og brukes mye av norske utviklere, med `sector: privat`.
+- **Åpne, men uannonserte API-er** (JSON bak en offentlig nettside, en Swagger ingen lenker til) tas med når de
+  svarer uten innlogging, med taggen `undocumented`.
+- **Forbehold står i `caveats`**, ett kort punkt per forbehold: udokumentert eller ustabilt grensesnitt, vilkår som
+  begrenser bruken, testserver, innlogging for deler av API-et, personopplysninger, utløpt sertifikat. De vises som
+  «Forbehold» på API-siden, i `llms.txt` og i MCP-svarene, så både folk og KI-agenter ser dem før de tar API-et i bruk.
 
 ## Før du åpner pull requesten
 

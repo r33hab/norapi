@@ -1,0 +1,25 @@
+updated: 2026-10-21
+provider:
+  name: Dott
+  sector: privat
+apis:
+  - id: dott-gbfs
+    title: Dott elsparkesykler (GBFS)
+    title_en: Dott e-scooters (GBFS)
+    description: >-
+      Dotts elsparkesykler i Trondheim, Malvik, Melhus, Orkanger, Skaun og Stjørdal etter GBFS-standarden (versjon 2.3),
+      med kjøretøy og soner. Hver kommune har sin egen adresse, for eksempel /public/v2/trondheim/gbfs.json.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GBFS]
+    endpoints:
+      - https://gbfs.api.ridedott.com/public/v2/trondheim/gbfs.json
+    docs_url: https://github.com/MobilityData/gbfs/blob/master/systems.csv
+    keywords: [elsparkesykkel, sparkesykkel, mikromobilitet, gbfs, dott, trondheim, e-scooter]
+    tags: [no-auth, private-provider]
+    caveats:
+      - Kommersiell operatør; ingen lisens oppgitt for feedene.
+      - Ikke en del av Entur Mobility; listen over kommuner står i MobilityDatas systems.csv.
+    quick_start: |
+      curl "https://gbfs.api.ridedott.com/public/v2/trondheim/gbfs.json"

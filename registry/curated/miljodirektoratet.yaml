@@ -1,4 +1,4 @@
-updated: 2026-10-19
+updated: 2026-10-21
 provider:
   name: Miljødirektoratet
   orgnr: "999601391"
@@ -26,3 +26,24 @@ apis:
     tags: [no-auth]
     quick_start: |
       curl "https://api-luftmalinger.miljodirektoratet.no/public/aq/utd?areas=Oslo"
+
+  - id: rovbase-kodelister
+    title: Rovbase kodelister
+    title_en: Rovbase (large carnivore database) code lists
+    description: >-
+      Kodelistene fra Rovbase, databasen over store rovdyr: erstatningsår for rein og sau tatt av rovvilt,
+      reinbeiteområder og reinbeitedistrikter, slik nettsiden bruker dem.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://rovbase.no/api/statistics/lists
+    docs_url: https://rovbase.no/
+    keywords: [rovdyr, rovbase, ulv, bjørn, jerv, gaupe, kongeørn, erstatning, large carnivores]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Bare kodelistene svarer på GET; selve rovviltdataene hentes med POST og er ikke dokumentert.
+      - Tjenesten bak rovbase.no, og den kan endres uten forvarsel.
+    quick_start: |
+      curl "https://rovbase.no/api/statistics/lists"

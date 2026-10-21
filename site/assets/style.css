@@ -165,6 +165,12 @@ kbd { font: 500 var(--text-xs) var(--font-mono); padding: var(--space-3xs) var(-
 .badge::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--color-rule-2); flex: none; }
 .badge--open::before { background: var(--color-ok); }
 .badge--restricted::before, .badge--non-public::before { background: var(--color-warn); }
+.badge--caveat { color: var(--color-ink-2); }
+.badge--caveat::before { background: var(--color-warn); border-radius: 50%; }
+.caveats { border-left: 3px solid var(--color-warn); background: var(--color-paper-2); padding: var(--space-sm) var(--space-md); }
+.caveats h2 { margin: 0 0 var(--space-2xs); }
+.caveats ul { margin: 0; padding-left: 1.2em; }
+.caveats li + li { margin-top: var(--space-2xs); }
 .badge--plain::before { display: none; }
 .more { margin-top: var(--space-lg); }
 .empty { padding: var(--space-xl) 0; color: var(--color-muted); max-width: 50ch; }

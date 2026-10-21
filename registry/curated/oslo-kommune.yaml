@@ -1,0 +1,31 @@
+updated: 2026-10-21
+provider:
+  name: Oslo kommune
+  orgnr: "958935420"
+  sector: kommune
+apis:
+  - id: oslo-statistikkbanken
+    title: Oslo statistikkbank (PxWeb-API)
+    title_en: Oslo municipality statistics bank (PxWeb API)
+    description: >-
+      Oslo kommunes egen statistikkbank med PxWeb-API, samme oppbygning som SSBs første API: befolkning og husholdninger
+      per bydel, sysselsetting, inntekt, boliger, skole, helse og omsorg, kriminalitet, klima, valg, innbyggerundersøkelsen
+      og kommunens regnskap fra 2005. Tabellstrukturen hentes med GET, og tallene med en POST-spørring som kan svare i
+      JSON-stat. Ingen nøkkel.
+    category: statistikk
+    access: open
+    auth: none
+    formats: [JSON, JSON-stat, CSV, PX]
+    endpoints:
+      - https://statistikkbanken.oslo.kommune.no/statbank/api/v1/no/db1
+    docs_url: https://statistikkbanken.oslo.kommune.no/
+    probe_url: https://statistikkbanken.oslo.kommune.no/statbank/api/v1/no/db1
+    keywords: [oslo, bydel, statistikk, befolkning, kommuneregnskap, pxweb, innbyggerundersøkelse, municipal statistics]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt i statistikkbanken.
+      - Tallene hentes med POST; bare tabellstrukturen svarer på GET.
+    quick_start: |
+      # Oslo kommunes driftsregnskap, alle år og nøkkeltall
+      curl -X POST "https://statistikkbanken.oslo.kommune.no/statbank/api/v1/no/db1/Kommunal%20%C3%B8konomi%20og%20forvaltning/%C3%98konomi%20og%20regnskap/OK-KOM001.px" \
+        -H "Content-Type: application/json" -d '{"query":[],"response":{"format":"json-stat2"}}'

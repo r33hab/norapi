@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-21
 provider:
   name: Helsedirektoratet
   orgnr: "983544622"
@@ -20,3 +20,26 @@ apis:
     license: NLOD 2.0
     keywords: [retningslinjer, pakkeforløp, kvalitetsindikatorer, atc, legemidler, helse, rundskriv]
     tags: [no-auth]
+
+  - id: helsedata-katalog
+    title: Helsedata.no katalog-API (helseregistre og variabler)
+    title_en: Helsedata.no catalogue API (health registers and variables)
+    description: >-
+      JSON-tjenesten bak helsedata.no: katalogen over helseregistre og datakilder (rundt 100) og nesten 48 000
+      variabelbeskrivelser med navn, beskrivelse, tema, register, identifiserbarhet og gyldighet. Bare metadata; tilgang
+      til selve dataene søkes om hos Helsedataservice. Ikke dokumentert.
+    category: arbeid-og-velferd
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://helsedata.no/api/1.0/
+    docs_url: https://helsedata.no/no/datakilder/
+    probe_url: https://helsedata.no/api/1.0/healthregister/SearchResult?page=1&sort=0&lang=no
+    keywords: [helseregister, helsedata, variabler, metadata, forskning, helsedataservice, health registries]
+    tags: [no-auth, undocumented, reference-data]
+    caveats:
+      - Ikke dokumentert; tjenesten bak helsedata.no kan endres uten forvarsel.
+      - Bare metadata; selve helsedataene krever søknad.
+    quick_start: |
+      curl "https://helsedata.no/api/1.0/healthregister/SearchResult?page=1&sort=0&lang=no"

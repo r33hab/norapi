@@ -1,0 +1,26 @@
+updated: 2026-10-21
+provider:
+  name: Stavanger kommune
+  orgnr: "964965226"
+  sector: kommune
+apis:
+  - id: opencom-apne-data-stavangerregionen
+    title: Åpne data Stavangerregionen (CKAN-API)
+    title_en: Stavanger region open data portal (CKAN API)
+    description: >-
+      CKAN-portalen opencom.no med rundt 360 datasett, de fleste fra Stavanger kommune, men også fra Gjesdal, Sandefjord,
+      Time, Ålesund, Bærum, Trondheim, Kolumbus, Stavangerregionen havn og andre. Standard CKAN-API for søk og metadata,
+      og datastore_search for spørringer rett i tabellene der det er slått på. Lisensen står per datasett, nesten alle
+      NLOD.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON, CSV, GeoJSON, XML]
+    endpoints:
+      - https://opencom.no/api/3/action/
+    docs_url: https://docs.ckan.org/en/2.11/api/
+    probe_url: https://opencom.no/api/3/action/status_show
+    keywords: [stavanger, kommune, åpne data, ckan, datakatalog, rogaland, open data portal]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://opencom.no/api/3/action/package_search?q=parkering&rows=3"

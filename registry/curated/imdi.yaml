@@ -1,0 +1,30 @@
+updated: 2026-10-21
+provider:
+  name: Integrerings- og mangfoldsdirektoratet (IMDi)
+  orgnr: "987879696"
+  sector: stat
+apis:
+  - id: imdi-statistikk
+    title: IMDi statistikk og nøkkeltall (SIM-API)
+    title_en: IMDi integration statistics backend
+    description: >-
+      Tjenesten bak «Statistikk og nøkkeltall» på imdi.no: steder (kommuner, bydeler, fylker) med koder, definisjoner av
+      statistikkortene, og tilgjengelige år, steder og dimensjoner per tabell, som bosatte flyktninger per 1000
+      innbyggere. Tallene selv hentes med en POST-spørring.
+    category: statistikk
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://app-simapi-prod.azurewebsites.net/
+    docs_url: https://www.imdi.no/tall-og-fakta/statistikk-og-nokkeltall/
+    probe_url: https://app-simapi-prod.azurewebsites.net/placelist
+    keywords: [integrering, flyktninger, bosetting, innvandring, imdi, kommune, integration statistics]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Tjenesten bak statistikksidene på imdi.no, på en Azure-adresse; ikke dokumentert, og kan endres uten forvarsel.
+      - Bare metadata (steder, tabeller, dimensjoner) svarer på GET; tallene hentes med POST /query, og formatet er ikke beskrevet.
+      - IMDi har datasettet «Statistikk om innvandring og integrering» med NLOD 2.0 i Felles datakatalog; det er det dokumenterte alternativet.
+    quick_start: |
+      curl "https://app-simapi-prod.azurewebsites.net/placelist"
+      curl "https://app-simapi-prod.azurewebsites.net/headergroups/bosatt_befolkning"

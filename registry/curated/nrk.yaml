@@ -1,0 +1,29 @@
+updated: 2026-10-21
+provider:
+  name: NRK
+  orgnr: "976390512"
+  sector: statlig-selskap
+apis:
+  - id: nrk-psapi
+    title: NRK PSAPI (programkatalog for TV og radio)
+    title_en: NRK programme catalogue API
+    description: >-
+      Programkatalogen bak NRK TV og NRK Radio: serier, sesonger og episoder, søk og søkeforslag, dokumentert på
+      psapi.nrk.no/documentation. Kallene svarer uten nøkkel, men vilkårene sier at API-ene er laget for NRKs egen
+      bruk, og at all bruk med intensjon om å lage tjenester eller applikasjoner for allmennheten er forbudt. Innhold og
+      metadata er beskyttet av opphavsrett.
+    category: kultur-og-kunnskap
+    access: restricted
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://psapi.nrk.no/
+    docs_url: https://psapi.nrk.no/documentation/
+    probe_url: https://psapi.nrk.no/radio/search/suggest?q=dags
+    keywords: [nrk, tv, radio, podkast, programkatalog, serier, episoder, broadcasting]
+    tags: [no-auth]
+    caveats:
+      - NRKs vilkår forbyr all bruk med intensjon om å lage tjenester eller applikasjoner for allmennheten; bare til eget, privat bruk.
+      - Innhold og metadata er beskyttet av opphavsrett og skal merkes med NRK som kilde.
+    quick_start: |
+      curl "https://psapi.nrk.no/radio/search/search?q=norge&pageSize=2"

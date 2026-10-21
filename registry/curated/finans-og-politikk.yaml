@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-21
 provider:
   name: Norges Bank
   orgnr: "937884117"
@@ -22,3 +22,49 @@ apis:
     tags: [starter, no-auth]
     quick_start: |
       curl "https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=sdmx-json&lastNObservations=1"
+
+  - id: nbim-investeringer
+    title: Oljefondets investeringer (NBIM, JSON)
+    title_en: Government Pension Fund Global holdings (NBIM)
+    description: >-
+      Hele aksjebeholdningen til Statens pensjonsfond utland per rapporteringsperiode, rundt 8 900 selskaper med land,
+      markedsverdi i kroner og dollar, eierandel og stemmeandel. init.json lister periodene og filnavnene (helår og
+      halvår); hver periodefil er rundt 1,5 MB. Dataene bak «Alle investeringer» på nbim.no, ikke dokumentert som API.
+    category: finans
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.nbim.no/api/investments/v2/
+    docs_url: https://www.nbim.no/en/investments/all-investments/
+    probe_url: https://www.nbim.no/api/investments/v2/init.json
+    keywords: [oljefondet, nbim, pensjonsfond, investeringer, aksjer, eierandel, sovereign wealth fund]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert som API; filnavn og felter kan endres.
+      - Søkekallet (/search/) svarer med 500; bruk periodefilene.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://www.nbim.no/api/investments/v2/init.json"
+      curl "https://www.nbim.no/api/investments/v2/2025-12-31.json"
+
+  - id: nbim-fondets-verdi
+    title: Oljefondets markedsverdi i sanntid (NBIM)
+    title_en: Government Pension Fund Global live market value
+    description: >-
+      Fondets markedsverdi slik telleren på nbim.no viser den: en kort tidsserie med verdien i kroner, ett punkt per
+      sekund. Nøkkelen i adressen er en fast verdi fra nettsiden, så kallet virker uten innlogging, men den kan byttes ut.
+    category: finans
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.nbim.no/LiveNavHandler/Current.ashx
+    docs_url: https://www.nbim.no/en/investments/the-funds-value/
+    keywords: [oljefondet, nbim, markedsverdi, fondets verdi, sanntid, fund value]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert; nøkkelen i adressen er en fast verdi fra nettsiden og kan byttes ut.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://www.nbim.no/LiveNavHandler/Current.ashx?l=en&PreviousNavValue=0&key=263c30dd-d5ba-41d6-a9b1-c1fb59cf30da"

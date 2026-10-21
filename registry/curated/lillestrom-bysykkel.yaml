@@ -1,0 +1,24 @@
+updated: 2026-10-21
+provider:
+  name: Lillestrøm Bysykkel (Cyclocity)
+  sector: privat
+apis:
+  - id: lillestrombysykkel-gbfs
+    title: Lillestrøm Bysykkel sanntid (GBFS)
+    description: >-
+      Stasjoner og ledige sykler for bysyklene i Lillestrøm etter GBFS-standarden (versjon 3.0), med stasjonsinformasjon,
+      stasjonsstatus, systeminformasjon og sykkeltyper. Driftes av Cyclocity, og feeden ligger hos dem, ikke hos Entur.
+      Ingen lisens oppgitt i feeden.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GBFS]
+    endpoints:
+      - https://api.cyclocity.fr/contracts/lillestrom/gbfs/v3/gbfs.json
+    docs_url: https://api.cyclocity.fr/contracts/lillestrom/gbfs/v3/gbfs.json
+    keywords: [bysykkel, sykkel, gbfs, stasjoner, sanntid, lillestrøm, bike share]
+    tags: [no-auth, private-provider]
+    caveats:
+      - Ingen lisens oppgitt i feeden.
+    quick_start: |
+      curl "https://api.cyclocity.fr/contracts/lillestrom/gbfs/v3/station_status.json"

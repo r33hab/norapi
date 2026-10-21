@@ -1,0 +1,28 @@
+updated: 2026-10-21
+provider:
+  name: Forbrukerrådet
+  orgnr: "871033382"
+  sector: stat
+apis:
+  - id: forbrukerradet-strompris
+    title: Strømpris-API (strompris.no), referansedata
+    title_en: Forbrukerrådet electricity price portal API
+    description: >-
+      API-et bak strompris.no. Referansedataene er åpne: prisområder (NO1 til NO5), kommuner med postnummer og
+      prisområde, nettområder og spareforeninger. Produktene og prisene krever en Bearer-token, så selve
+      prissammenligningen er ikke åpen. Swagger-dokumentasjonen ligger innebygd i swagger-ui-init.js.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://strom-api.forbrukerradet.no/
+    docs_url: https://strom-api.forbrukerradet.no/swagger/index.html
+    probe_url: https://strom-api.forbrukerradet.no/areas
+    keywords: [strøm, strømpris, prisområde, nettområde, nettselskap, postnummer, kommune, electricity]
+    tags: [no-auth]
+    caveats:
+      - Bare referansedataene er åpne; produkter og priser krever en Bearer-token.
+      - Ingen datalisens oppgitt (MIT-lisensen i spesifikasjonen gjelder koden).
+    quick_start: |
+      curl "https://strom-api.forbrukerradet.no/municipalities"

@@ -73,6 +73,7 @@ class ApiEntry:
     keywords: list[str] = field(default_factory=list)
     category: str | None = None
     tags: list[str] = field(default_factory=list)
+    caveats: list[str] = field(default_factory=list)  # restrictions to respect before relying on it
     quick_start: str | None = None
     status: str | None = None
     modified: str | None = None
@@ -90,6 +91,9 @@ class ApiEntry:
             raise ValueError(f"{self.id}: auth must be one of {AUTH_VALUES}, got {self.auth!r}")
         if self.category is not None and self.category not in CATEGORIES:
             raise ValueError(f"{self.id}: unknown category {self.category!r}")
+        if not all(isinstance(c, str) for c in self.caveats):
+            # an unquoted "Accept: x" in YAML becomes a mapping
+            raise ValueError(f"{self.id}: every caveat must be text; quote one that contains ': '")
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

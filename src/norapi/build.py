@@ -55,7 +55,8 @@ def write_llms_txt(entries: list[ApiEntry], path: Path) -> None:
         "",
         "> Registry of Norwegian public APIs. One line per API: title, provider, access, formats, "
         "then docs and endpoint. Full data in registry.json, operations in operations.json. "
-        "Source and licence per API apply.",
+        "Source and licence per API apply. 'Caveats:' marks restrictions to respect before "
+        "relying on an API (terms, undocumented or unstable interfaces, required login).",
         "",
     ]
     curated = [e for e in entries if e.source.get("kind", "").startswith("curated")]
@@ -79,6 +80,8 @@ def _llms_line(entry: ApiEntry) -> str:
     if entry.spec and entry.spec.get("operations"):
         parts[0] += f"; {entry.spec['operations']} operations"
     parts[0] += f"): {entry.summary or ''}"
+    if entry.caveats:
+        parts[0] += f" Caveats: {'; '.join(c.rstrip('.') for c in entry.caveats)}."
     links = []
     if entry.docs_url:
         links.append(f"docs {entry.docs_url}")

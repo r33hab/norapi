@@ -1,0 +1,30 @@
+updated: 2026-10-21
+provider:
+  name: NIBIO - Norsk institutt for bioøkonomi
+  orgnr: "988983837"
+  sector: stat
+apis:
+  - id: nibio-lmt
+    title: Landbruksmeteorologisk tjeneste (LMT), værdata
+    title_en: Agrometeorological weather station data (LMT)
+    description: >-
+      Måledata fra Landbruksmeteorologisk tjeneste, 101 værstasjoner i landbruksområder: lufttemperatur, nedbør,
+      jordtemperatur og flere elementer per time eller døgn, og en stasjonsliste med metadata. Stasjonsnettet er et
+      annet enn METs, så dataene finnes ikke i Frost. JSON-tjenesten nettsiden selv bruker; ikke dokumentert, men den
+      svarer uten nøkkel. Elementkodene (TM, RR, TJM10 og andre) står i stasjonsmetadataene.
+    category: vaer-og-klima
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://lmt.nibio.no/services/rest/
+    docs_url: https://lmt.nibio.no/
+    probe_url: https://lmt.nibio.no/services/rest/weatherstation/getstation?weatherStationId=10
+    keywords: [landbruk, værstasjon, jordtemperatur, nedbør, agrometeorologi, lmt, nibio, weather stations]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert; tjenesten bak lmt.nibio.no kan endres uten forvarsel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # døgnverdier for temperatur og nedbør, stasjon 10
+      curl -g "https://lmt.nibio.no/services/rest/vips/getdata/?weatherStationId=10&elementMeasurementTypes[]=TM&elementMeasurementTypes[]=RR&logInterval=1d&startDate=2026-10-01&startTime=00&endDate=2026-10-05&endTime=23&timeZone=Europe/Oslo"

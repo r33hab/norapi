@@ -1,4 +1,4 @@
-updated: 2026-10-19
+updated: 2026-10-21
 provider:
   name: Sikt - Kunnskapssektorens tjenesteleverandør
   orgnr: "919477822"
@@ -43,3 +43,25 @@ apis:
     tags: [no-auth]
     quick_start: |
       curl "https://api.cristin.no/v2/results?title=klima&per_page=3"
+
+  - id: sikt-bibsys-sru
+    title: BIBSYS-katalogen (SRU)
+    title_en: BIBSYS union catalogue (SRU)
+    description: >-
+      SRU-søk i fellesbibliotekkatalogen til norske universiteter og høgskoler (BIBSYS-nettverket i Alma), med
+      CQL-spørringer og svar som MARCXML. Standard SRU 1.2, uten nøkkel; operation=explain beskriver indeksene. Ingen
+      lisens oppgitt.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [XML, MARCXML]
+    endpoints:
+      - https://bibsys-k.alma.exlibrisgroup.com/view/sru/47BIBSYS_NETWORK
+    docs_url: https://bibsys-k.alma.exlibrisgroup.com/view/sru/47BIBSYS_NETWORK?version=1.2&operation=explain
+    keywords: [bibliotek, katalog, bøker, bibsys, sru, marc, universitetsbibliotek, library catalogue]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt; katalogen ligger hos Ex Libris (Alma).
+      - Avklar bruk i stor skala med Sikt.
+    quick_start: |
+      curl "https://bibsys-k.alma.exlibrisgroup.com/view/sru/47BIBSYS_NETWORK?version=1.2&operation=searchRetrieve&query=alma.title=fjord&maximumRecords=1"

@@ -1,0 +1,29 @@
+updated: 2026-10-21
+provider:
+  name: Nasjonal kommunikasjonsmyndighet (Nkom)
+  orgnr: "974446871"
+  sector: stat
+apis:
+  - id: nkom-ekomstatistikk
+    title: Ekomstatistikken (nedlastbare datasett)
+    title_en: Norwegian electronic communications statistics (downloads)
+    description: >-
+      Hele ekomstatistikken som CSV og Excel: mobiltjenester, fast bredbånd, fasttelefoni, datakommunikasjon, TV,
+      overføringskapasitet og et samlet «Alle-data»-sett per tilbyder og rapporteringsperiode, pluss dekningstall for
+      bredbånd og mobil. CSV-ene er i langt format (tilbyder, kategori, rapport, svar).
+    category: statistikk
+    access: open
+    auth: none
+    formats: [CSV, XLSX]
+    endpoints:
+      - https://nkom.no/statistikk/nedlasting-av-datasett
+    docs_url: https://nkom.no/statistikk/nedlasting-av-datasett
+    keywords: [ekom, bredbånd, mobil, telekom, dekning, tilbyder, markedsstatistikk, telecom statistics]
+    tags: [no-auth, data-files]
+    caveats:
+      - Ikke et API, bare filer til nedlasting.
+      - Fil-lenkene inneholder en hash og endres når Nkom publiserer på nytt; hent lenken fra nedlastingssiden hver gang.
+      - Ingen lisens oppgitt på siden.
+    quick_start: |
+      # lenkene til CSV-filene, hentet fra nedlastingssiden
+      curl -s "https://nkom.no/statistikk/nedlasting-av-datasett" | grep -o 'href="[^"]*\.csv"'

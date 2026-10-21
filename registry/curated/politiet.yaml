@@ -1,0 +1,32 @@
+updated: 2026-10-21
+provider:
+  name: Politiet (Politidirektoratet)
+  orgnr: "982531950"
+  sector: stat
+apis:
+  - id: politiet-politiloggen
+    title: Politiloggen API
+    title_en: Norwegian Police operational log API
+    description: >-
+      Operative meldinger fra politiets operasjonssentraler i hele landet, slik de vises i Politiloggen: trafikkulykker,
+      branner, innbrudd og andre hendelser, med kategori, politidistrikt, kommune, tid og tråder med oppdateringer.
+      Filtrer på distrikt, kommune, kategori, tidsrom og om saken er aktiv; Atom- og RSS-strømmer og en daglig
+      CSV-eksport av alle meldinger. Politiet skriver at API-et er under utvikling og at formatet kan endres uten
+      forvarsel. Meldingene er fritekst og kan inneholde stedsopplysninger.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON, Atom, RSS, CSV]
+    endpoints:
+      - https://api.politiloggen.politiet.no/
+    docs_url: https://api.politiloggen.politiet.no/
+    spec_url: https://api.politiloggen.politiet.no/swagger/v1/swagger.json
+    probe_url: https://api.politiloggen.politiet.no/districts
+    license: NLOD 2.0
+    keywords: [politi, politiloggen, hendelser, ulykker, operasjonssentral, politidistrikt, police log]
+    tags: [no-auth, personal-data]
+    caveats:
+      - Politiet skriver at API-et er under utvikling og at formatet kan endres uten forvarsel.
+      - Meldingene er fritekst og kan inneholde stedsopplysninger om enkelthendelser.
+    quick_start: |
+      curl "https://api.politiloggen.politiet.no/messages?Take=2"

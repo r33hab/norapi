@@ -1,0 +1,29 @@
+updated: 2026-10-21
+provider:
+  name: Norsk helsenett (helsenorge.no)
+  orgnr: "994598759"
+  sector: stat
+apis:
+  - id: helsenorge-velg-behandlingssted
+    title: Velg behandlingssted (ventetider, helsenorge.no)
+    title_en: Choose treatment place (waiting times, helsenorge.no)
+    description: >-
+      JSON-tjenesten bak Velg behandlingssted på helsenorge.no: behandlingssteder med organisasjonsnummer, adresse,
+      helseregion, offentlig eller privat, avtale med Helfo og forventet ventetid i uker per behandling, og listen over
+      behandlinger og undersøkelser med synonymer. Ikke dokumentert og kan endres uten forvarsel, men svarer uten
+      innlogging.
+    category: arbeid-og-velferd
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://tjenester.helsenorge.no/proxy/velgbehandlingssted/api/v1/
+    docs_url: https://tjenester.helsenorge.no/velg-behandlingssted
+    probe_url: https://tjenester.helsenorge.no/proxy/velgbehandlingssted/api/v1/Behandlinger
+    keywords: [ventetid, sykehus, behandlingssted, fritt behandlingsvalg, helsenorge, helse, waiting times]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Tjenesten bak en nettside på helsenorge.no; ikke dokumentert, og kan endres eller stenges uten forvarsel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://tjenester.helsenorge.no/proxy/velgbehandlingssted/api/v1/Behandlingssteder"

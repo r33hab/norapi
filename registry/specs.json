@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-10-20T12:19:54+00:00",
- "count": 126,
+ "generated_at": "2026-10-21T11:21:10+00:00",
+ "count": 137,
  "specs": {
   "artsdatabanken-nortaxa": {
    "format": "swagger 2.0",
@@ -96,6 +96,23 @@
    "source_url": "https://api.utdanning.no/openapi.json",
    "fetched_at": "2026-10-20T12:06:18+00:00"
   },
+  "kartverket-havnedata-ogcapi": {
+   "format": "openapi 3.0.3",
+   "title": "Havnedata 3.0",
+   "version": "1.0.0",
+   "servers": [
+    "https://ogcapitest.kartverket.no/rest/services/havnedata3_0"
+   ],
+   "operations": 97,
+   "tags": [
+    "Access data",
+    "Capabilities",
+    "Discover and fetch styles",
+    "Discover data collections"
+   ],
+   "source_url": "https://ogcapitest.kartverket.no/rest/services/havnedata3_0/api?f=json",
+   "fetched_at": "2026-10-21T11:04:44+00:00"
+  },
   "geonorge-register": {
    "format": "swagger 2.0",
    "title": "Kartverket.Register",
@@ -112,6 +129,84 @@
    ],
    "source_url": "https://register.geonorge.no/swagger/docs/v1",
    "fetched_at": "2026-10-20T12:06:14+00:00"
+  },
+  "kystverket-kystdatahuset": {
+   "format": "openapi 3.0.1",
+   "title": "Kystdatahuset Open API",
+   "version": "v1",
+   "servers": [
+    "/ws"
+   ],
+   "operations": 158,
+   "tags": [
+    "Ais",
+    "AisRealTime",
+    "AisStatic",
+    "Anchorage",
+    "Auth",
+    "Bunkers",
+    "Incident",
+    "Indicators",
+    "Location",
+    "Map",
+    "MarTraf",
+    "MarU",
+    "MyData",
+    "Pilotage",
+    "RasterFrequency",
+    "RealtimeTrack",
+    "Ship",
+    "ShipDimensions",
+    "ShipType",
+    "Shorepower",
+    "Track",
+    "Voyage"
+   ],
+   "source_url": "https://kystdatahuset.kystverket.no/ws/swagger/v1/swagger.json",
+   "fetched_at": "2026-10-21T11:04:45+00:00"
+  },
+  "kystverket-navigasjonsvarsler": {
+   "format": "openapi 3.1.0",
+   "title": "Norwegian Coastal Administration - Data API",
+   "version": "0.1.0",
+   "servers": [],
+   "operations": 3,
+   "tags": [
+    "navigationwarnings"
+   ],
+   "source_url": "https://api.kystverket.no/openapi.json",
+   "fetched_at": "2026-10-21T11:04:44+00:00"
+  },
+  "hjorteviltregisteret-fallvilt": {
+   "format": "openapi 3.0.1",
+   "title": "Hjorteviltregisteret API Fallvilt",
+   "version": "v0",
+   "servers": [],
+   "operations": 2,
+   "tags": [
+    "Fallvilt Innsyn"
+   ],
+   "source_url": "https://www.hjorteviltregisteret.no/swagger/FallviltAPI/swagger.json",
+   "fetched_at": "2026-10-21T11:04:45+00:00"
+  },
+  "hjorteviltregisteret-jaktdata": {
+   "format": "openapi 3.0.1",
+   "title": "Hjorteviltregisteret API Jaktdata",
+   "version": "BETA (v1)",
+   "servers": [],
+   "operations": 27,
+   "tags": [
+    "Autentisering bruker - innlogging",
+    "Autentisering jeger - innlogging",
+    "Helsesjekk (up)",
+    "Individer (skutte dyr)",
+    "Jaktdager (sette dyr)",
+    "Jaktområder jeger",
+    "Område-lister",
+    "Opplysninger jeger"
+   ],
+   "source_url": "https://www.hjorteviltregisteret.no/swagger/JaktdataAPIv1/swagger.json",
+   "fetched_at": "2026-10-21T11:18:52+00:00"
   },
   "lovdata-public-data": {
    "format": "openapi 3.1.0",
@@ -182,6 +277,21 @@
    "source_url": "https://api.regobs.no/v5/swagger/docs/v5",
    "fetched_at": "2026-10-19T08:48:58+00:00"
   },
+  "politiet-politiloggen": {
+   "format": "openapi 3.0.4",
+   "title": "Politiloggen API",
+   "version": "v1",
+   "servers": [],
+   "operations": 11,
+   "tags": [
+    "Common",
+    "Feed",
+    "Message",
+    "MessageThread"
+   ],
+   "source_url": "https://api.politiloggen.politiet.no/swagger/v1/swagger.json",
+   "fetched_at": "2026-10-21T11:04:44+00:00"
+  },
   "sikt-nva": {
    "format": "openapi 3.0.0",
    "title": "NVA API Dokumentasjon",
@@ -200,6 +310,22 @@
    "source_url": "https://swagger-ui.nva.unit.no/docs/openapi.yaml",
    "fetched_at": "2026-10-19T08:48:58+00:00"
   },
+  "vegvesen-ferjer": {
+   "format": "openapi 3.0.1",
+   "title": "OpenAPI definition",
+   "version": "v0",
+   "servers": [
+    "https://ferry.atlas.vegvesen.no"
+   ],
+   "operations": 5,
+   "tags": [
+    "Ferry connections API (v1)",
+    "Ferry departures API (v1)",
+    "Ferry quays API (v1)"
+   ],
+   "source_url": "https://ferry.atlas.vegvesen.no/v3/api-docs",
+   "fetched_at": "2026-10-21T11:04:44+00:00"
+  },
   "vegvesen-parkeringsregisteret": {
    "format": "openapi 3.0.3",
    "title": "Lese-API for parkeringsregisteret",
@@ -214,6 +340,67 @@
    ],
    "source_url": "https://parkreg-open.atlas.vegvesen.no/ws/docs/openapi",
    "fetched_at": "2026-10-20T12:07:05+00:00"
+  },
+  "vegvesen-rasteplasser-og-hoydebegrensninger": {
+   "format": "openapi 3.0.1",
+   "title": "OpenAPI definition",
+   "version": "v0",
+   "servers": [
+    "https://ft-nvdb-objects.atlas.vegvesen.no"
+   ],
+   "operations": 8,
+   "tags": [
+    "Area information (v1)",
+    "NVDB height restrictions API (v1)",
+    "NVDB rest areas API (v1)"
+   ],
+   "source_url": "https://ft-nvdb-objects.atlas.vegvesen.no/v3/api-docs",
+   "fetched_at": "2026-10-21T11:04:44+00:00"
+  },
+  "vegvesen-sok": {
+   "format": "openapi 3.0.1",
+   "title": "Search service API",
+   "version": "1.0.0",
+   "servers": [
+    "/"
+   ],
+   "operations": 3,
+   "tags": [
+    "Search service endpoint (v1)"
+   ],
+   "source_url": "https://search.atlas.vegvesen.no/v3/api-docs",
+   "fetched_at": "2026-10-21T11:04:44+00:00"
+  },
+  "vegvesen-trafikkmeldinger": {
+   "format": "openapi 3.0.1",
+   "title": "Traffic messages API",
+   "version": "1.0.0",
+   "servers": [
+    "/"
+   ],
+   "operations": 4,
+   "tags": [
+    "Traffic Messages endpoint (v1)",
+    "Traffic Messages endpoint (v2)"
+   ],
+   "source_url": "https://traffic-info.atlas.vegvesen.no/v3/api-docs",
+   "fetched_at": "2026-10-21T11:04:44+00:00"
+  },
+  "vegvesen-vegvaer-og-kamera": {
+   "format": "openapi 3.0.1",
+   "title": "Road weather and view API",
+   "version": "1.0.0",
+   "servers": [
+    "/"
+   ],
+   "operations": 7,
+   "tags": [
+    "Area information (v1)",
+    "Road info (Prototype)",
+    "Weather information (v1)"
+   ],
+   "source_url": "https://road-weather-and-view.atlas.vegvesen.no/v3/api-docs",
+   "fetched_at": "2026-10-21T11:04:44+00:00"
   },
   "udir-barnehagefakta": {
    "format": "swagger 2.0",

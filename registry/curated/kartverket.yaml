@@ -1,4 +1,4 @@
-updated: 2026-10-20
+updated: 2026-10-21
 provider:
   name: Kartverket
   orgnr: "971040238"
@@ -191,6 +191,33 @@ apis:
     license: NLOD 2.0
     keywords: [kodeliste, sosi, kommunenummer, fylkesnummer, register, organisasjonsnummer, code list]
     tags: [no-auth, reference-data]
+    caveats:
+      - Kallet som skal liste alle registre (/api/register) svarer med 500; gå inn via en kjent registeradresse.
     quick_start: |
       # alle kommunenummer, også tilbaketrukne, med status og gyldighetsdato
       curl "https://register.geonorge.no/api/sosi-kodelister/inndelinger/inndelingsbase/kommunenummer.json"
+
+  - id: kartverket-havnedata-ogcapi
+    title: Havnedata 3.0 (OGC API Features)
+    title_en: Port data 3.0 (OGC API Features)
+    description: >-
+      Detaljerte havnedata som OGC API Features, 22 samlinger: kaiområder og kaifronter, kraner, fortøyningsinnretninger,
+      fendere, slipper, avfallspunkter, beredskapspunkter, elkobling (landstrøm), drivstofftilkoblinger,
+      fartsrestriksjoner og forbudsområder, med koblingsnøkler til havnenes egne systemer. Ligger på Kartverkets
+      testserver for OGC API, så adresse og innhold kan endres.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [GeoJSON, JSON, HTML]
+    endpoints:
+      - https://ogcapitest.kartverket.no/rest/services/havnedata3_0/
+    docs_url: https://ogcapitest.kartverket.no/rest/services/havnedata3_0/api?f=html
+    spec_url: https://ogcapitest.kartverket.no/rest/services/havnedata3_0/api?f=json
+    probe_url: https://ogcapitest.kartverket.no/rest/services/havnedata3_0/collections?f=json
+    keywords: [havn, kai, kran, fortøyning, landstrøm, havnedata, ogc api, port data]
+    tags: [no-auth]
+    caveats:
+      - Ligger på Kartverkets testserver for OGC API; adresse og innhold kan endres uten forvarsel.
+      - Ingen lisens oppgitt for tjenesten.
+    quick_start: |
+      curl "https://ogcapitest.kartverket.no/rest/services/havnedata3_0/collections/havnesensor/items?f=json&limit=1"
