@@ -1,0 +1,22 @@
+updated: 2026-10-21
+provider:
+  name: Trondheim Bysykkel
+  sector: privat
+apis:
+  - id: trondheimbysykkel-gbfs
+    title: Trondheim Bysykkel sanntid (GBFS)
+    description: >-
+      Stasjoner, ledige sykler og låser for bysyklene i Trondheim i sanntid etter GBFS-standarden (versjon 2.3), med
+      systeminformasjon, sykkeltyper og prisplaner. Samme oppsett som Oslo Bysykkel. Send en Client-Identifier-header.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GBFS]
+    endpoints:
+      - https://gbfs.urbansharing.com/trondheimbysykkel.no/gbfs.json
+    docs_url: https://trondheimbysykkel.no/en/open-data
+    license: NLOD 2.0
+    keywords: [bysykkel, sykkel, gbfs, stasjoner, sanntid, trondheim, bike share]
+    tags: [no-auth, private-provider]
+    quick_start: |
+      curl -H "Client-Identifier: norapi-demo" "https://gbfs.urbansharing.com/trondheimbysykkel.no/station_status.json"

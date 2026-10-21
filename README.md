@@ -89,7 +89,7 @@ A GitHub Actions workflow does the same every Monday and commits the result.
 | Source | Entries | Notes |
 |---|---|---|
 | Felles datakatalog (Digdir) | about 1 060 | Everything agencies have registered as a data service, with endpoints, specs, licences and keywords pulled over SPARQL |
-| Curated YAML in `registry/curated/` | 94 | Brønnøysundregistrene, SSB, Entur, MET, Kartverket, Nav, Skatteetaten, Digdir, Altinn, Vegvesen, Norges Bank, Stortinget, NVE, Udir, FHI, Helsedirektoratet, Lovdata, Elhub, Sikt, Tolletaten, Fiskeridirektoratet, Finanstilsynet, Vinmonopolet, Luftfartstilsynet and more, each with access, auth, formats, docs and a `quick_start` that was run before it was committed |
+| Curated YAML in `registry/curated/` | 145 | Brønnøysundregistrene, SSB, Entur, MET, Kartverket, Nav, Skatteetaten, Digdir, Altinn, Vegvesen, Norges Bank, Stortinget, NVE, Udir, FHI, Helsedirektoratet, Lovdata, Elhub, Sikt, Tolletaten, Fiskeridirektoratet, Finanstilsynet, Vinmonopolet, Luftfartstilsynet and more, each with access, auth, formats, docs and a `quick_start` that was run before it was committed |
 | OpenAPI documents | 119 specs, 1 313 operations | Resolved behind `spec_url` and Swagger UI pages; the Petstore sample that unconfigured Swagger UIs ship is filtered out |
 
 Every curated entry is link-checked (`ok`, `answers`, `missing`) and the verdict is shown on its page.
@@ -121,6 +121,7 @@ All outbound fetches go through a guard that only talks to public hosts, pins th
 | `auth` | `none`, `api-key`, `maskinporten`, `id-porten`, `oauth2`, `unknown` |
 | `formats`, `endpoints`, `spec_url`, `docs_url`, `license`, `keywords` | the links and facts you need to start |
 | `category`, `tags`, `quick_start`, `probe_url` | curated only; `probe_url` is a call that answers anonymously, used by the link checker |
+| `caveats` | curated only; restrictions to respect before relying on the API (terms, undocumented or unstable interface, login for parts of it), shown as «Forbehold» on the site, in `llms.txt` and in MCP results |
 | `spec` | OpenAPI summary from `norapi enrich`; the operations themselves are in `operations.json` |
 | `source` | `fdk`, `curated` or `curated+fdk`, with the catalogue URI and harvest time |
 | `checks` | last link-check verdict per URL |

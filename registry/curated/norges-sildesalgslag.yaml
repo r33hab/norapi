@@ -1,0 +1,28 @@
+updated: 2026-10-21
+provider:
+  name: Norges Sildesalgslag
+  orgnr: "951206091"
+  sector: privat
+apis:
+  - id: sildelaget-fartoy-og-kvoter
+    title: Fartøysøk og kvoteoversikt (Sildelaget)
+    title_en: Pelagic vessel search and quota export
+    description: >-
+      To tjenester bak kvoteoversikten på sildelaget.no: fartøysøk på navn som gir fartøy-id, navn og registreringsmerke,
+      og nedlasting av kvotene for ett fartøy som Excel. Ikke dokumentert; kvoteuttrekket krever fartøy-id fra søket.
+    category: bedrift-og-organisasjon
+    access: open
+    auth: none
+    formats: [JSON, XLSX]
+    endpoints:
+      - https://www.sildelaget.no/umbraco/api/vessel/search
+      - https://www.sildelaget.no/umbraco/api/vessel/ExportVesselQuota
+    docs_url: https://www.sildelaget.no/no/kvoteoversikt/
+    probe_url: https://www.sildelaget.no/umbraco/api/vessel/search?search=Eros
+    keywords: [fiskefartøy, kvote, pelagisk, sild, makrell, sildelaget, fishing quota]
+    tags: [no-auth, undocumented, private-provider]
+    caveats:
+      - Ikke dokumentert; tjenesten bak sildelaget.no kan endres uten forvarsel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://www.sildelaget.no/umbraco/api/vessel/search?search=Eros"

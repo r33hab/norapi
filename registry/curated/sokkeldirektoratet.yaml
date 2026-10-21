@@ -1,0 +1,30 @@
+updated: 2026-10-21
+provider:
+  name: Sokkeldirektoratet
+  orgnr: "870917732"
+  sector: stat
+apis:
+  - id: sodir-factmaps-dataservice
+    title: FactMaps DataService (alle faktasidetabellene)
+    title_en: Norwegian Offshore Directorate FactMaps DataService
+    description: >-
+      Alle tabellene fra Sokkeldirektoratets faktasider i én ArcGIS FeatureServer, 39 kartlag og 73 tabeller: blokker,
+      utvinningstillatelser og eierhistorikk, tildelinger, brønnbaner, felt, funn, innretninger, rørledninger,
+      seismiske undersøkelser, selskaper og stratigrafi, uten forhåndsdefinerte filtre. Maks 2000 rader per spørring,
+      geometri i EPSG:4230 (ED50). Den eneste samlede spørbare veien inn i faktasidene.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://factmaps.sodir.no/api/rest/services/DataService/Data/FeatureServer
+    docs_url: https://factmaps.sodir.no/api/rest/services/DataService/Data/FeatureServer
+    probe_url: https://factmaps.sodir.no/api/rest/services/DataService/Data/FeatureServer?f=json
+    keywords: [sokkel, petroleum, olje, gass, brønn, felt, utvinningstillatelse, factpages, offshore]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt i tjenesten.
+      - Maks 2000 rader per spørring, så store tabeller må hentes side for side.
+    quick_start: |
+      # to brønnbaner med navn, formål og ferdigdato
+      curl "https://factmaps.sodir.no/api/rest/services/DataService/Data/FeatureServer/5000/query?where=1%3D1&outFields=wlbWellboreName,wlbPurpose,wlbCompletionDate&resultRecordCount=2&f=json"

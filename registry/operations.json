@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-10-20T12:19:54+00:00",
-"count": 1517,
+"generated_at": "2026-10-21T11:21:10+00:00",
+"count": 1842,
 "operations": [
 {
 "api_id": "artsdatabanken-nortaxa",
@@ -4276,6 +4276,1170 @@
 "deprecated": false
 },
 {
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/",
+"summary": "landing page",
+"description": "The landing page provides links to the API definition (link relations `service-desc` and `service-doc`), the Conformance declaration (path `/conformance`, link relation `conformance`), and other resources in the API.",
+"tags": [
+"Capabilities"
+],
+"operation_id": "getLandingPage",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/conformance",
+"summary": "conformance declaration",
+"description": "The URIs of all conformance classes supported by the server. This information is provided to support 'generic' clients that want to access multiple OGC API implementations - and not 'just' a specific API. For clients accessing only a single",
+"tags": [
+"Capabilities"
+],
+"operation_id": "getConformanceDeclaration",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections",
+"summary": "feature collections in the dataset 'Havnedata 3.0'",
+"description": "The dataset is organized in feature collections. This resource provides information about and access to the feature collections. The response contains the list of collections. For each collection, a link to the items in the collection (path",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "getCollections",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/administrativthavneomrade",
+"summary": "feature collection 'administrativthavneområde'",
+"description": "Information about the feature collection with id 'administrativthavneomrade'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the ",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "administrativthavneomrade.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/avfallspunkt",
+"summary": "feature collection 'avfallspunkt'",
+"description": "Information about the feature collection with id 'avfallspunkt'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collection. T",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "avfallspunkt.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/beredskapspunkt",
+"summary": "feature collection 'beredskapspunkt'",
+"description": "Information about the feature collection with id 'beredskapspunkt'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collection",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "beredskapspunkt.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/drivstofftilkobling",
+"summary": "feature collection 'drivstofftilkobling'",
+"description": "Information about the feature collection with id 'drivstofftilkobling'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collec",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "drivstofftilkobling.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/elkobling",
+"summary": "feature collection 'elkobling'",
+"description": "Information about the feature collection with id 'elkobling'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collection. This",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "elkobling.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fartsrestriksjoner",
+"summary": "feature collection 'fartsrestriksjoner'",
+"description": "Information about the feature collection with id 'fartsrestriksjoner'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collect",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "fartsrestriksjoner.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fartsrestriksjonergrense",
+"summary": "feature collection 'fartsrestriksjonergrense'",
+"description": "Information about the feature collection with id 'fartsrestriksjonergrense'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the c",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "fartsrestriksjonergrense.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fender",
+"summary": "feature collection 'fender'",
+"description": "Information about the feature collection with id 'fender'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collection. This in",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "fender.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/flytedokk",
+"summary": "feature collection 'flytedokk'",
+"description": "Information about the feature collection with id 'flytedokk'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collection. This",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "flytedokk.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/forbudsomrade",
+"summary": "feature collection 'forbudsområde'",
+"description": "Information about the feature collection with id 'forbudsomrade'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collection. ",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "forbudsomrade.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/forbudsomradegrense",
+"summary": "feature collection 'forbudsområdegrense'",
+"description": "Information about the feature collection with id 'forbudsomradegrense'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collec",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "forbudsomradegrense.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fortoyningsinnretning",
+"summary": "feature collection 'fortøyningsinnretning'",
+"description": "Information about the feature collection with id 'fortoyningsinnretning'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the coll",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "fortoyningsinnretning.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/havneomrade",
+"summary": "feature collection 'havneområde'",
+"description": "Information about the feature collection with id 'havneomrade'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collection. Th",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "havneomrade.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/havnesensor",
+"summary": "feature collection 'havnesensor'",
+"description": "Information about the feature collection with id 'havnesensor'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collection. Th",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "havnesensor.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaifront",
+"summary": "feature collection 'kaifront'",
+"description": "Information about the feature collection with id 'kaifront'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collection. This ",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "kaifront.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaiomrade",
+"summary": "feature collection 'kaiområde'",
+"description": "Information about the feature collection with id 'kaiomrade'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collection. This",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "kaiomrade.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaiomradegrense",
+"summary": "feature collection 'kaiområdegrense'",
+"description": "Information about the feature collection with id 'kaiomradegrense'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collection",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "kaiomradegrense.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kran",
+"summary": "feature collection 'kran'",
+"description": "Information about the feature collection with id 'kran'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collection. This info",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "kran.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/lastelosseutstyr",
+"summary": "feature collection 'lastelosseutstyr'",
+"description": "Information about the feature collection with id 'lastelosseutstyr'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collectio",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "lastelosseutstyr.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/slipp",
+"summary": "feature collection 'slipp'",
+"description": "Information about the feature collection with id 'slipp'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collection. This inf",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "slipp.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/toalett",
+"summary": "feature collection 'toalett'",
+"description": "Information about the feature collection with id 'toalett'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collection. This i",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "toalett.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/vauttak",
+"summary": "feature collection 'vauttak'",
+"description": "Information about the feature collection with id 'vauttak'. The response contains a link to the items in the collection (path `/collections/{collectionId}/items`,link relation `items`) as well as key information about the collection. This i",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "vauttak.getCollection",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/administrativthavneomrade/items",
+"summary": "retrieve features in the feature collection 'administrativthavneomrade'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "administrativthavneomrade.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/avfallspunkt/items",
+"summary": "retrieve features in the feature collection 'avfallspunkt'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "avfallspunkt.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/beredskapspunkt/items",
+"summary": "retrieve features in the feature collection 'beredskapspunkt'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "beredskapspunkt.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/drivstofftilkobling/items",
+"summary": "retrieve features in the feature collection 'drivstofftilkobling'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "drivstofftilkobling.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/elkobling/items",
+"summary": "retrieve features in the feature collection 'elkobling'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "elkobling.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fartsrestriksjoner/items",
+"summary": "retrieve features in the feature collection 'fartsrestriksjoner'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "fartsrestriksjoner.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fartsrestriksjonergrense/items",
+"summary": "retrieve features in the feature collection 'fartsrestriksjonergrense'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "fartsrestriksjonergrense.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fender/items",
+"summary": "retrieve features in the feature collection 'fender'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "fender.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/flytedokk/items",
+"summary": "retrieve features in the feature collection 'flytedokk'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "flytedokk.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/forbudsomrade/items",
+"summary": "retrieve features in the feature collection 'forbudsomrade'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "forbudsomrade.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/forbudsomradegrense/items",
+"summary": "retrieve features in the feature collection 'forbudsomradegrense'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "forbudsomradegrense.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fortoyningsinnretning/items",
+"summary": "retrieve features in the feature collection 'fortoyningsinnretning'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "fortoyningsinnretning.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/havneomrade/items",
+"summary": "retrieve features in the feature collection 'havneomrade'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "havneomrade.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/havnesensor/items",
+"summary": "retrieve features in the feature collection 'havnesensor'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "havnesensor.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaifront/items",
+"summary": "retrieve features in the feature collection 'kaifront'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "kaifront.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaiomrade/items",
+"summary": "retrieve features in the feature collection 'kaiomrade'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "kaiomrade.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaiomradegrense/items",
+"summary": "retrieve features in the feature collection 'kaiomradegrense'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "kaiomradegrense.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kran/items",
+"summary": "retrieve features in the feature collection 'kran'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "kran.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/lastelosseutstyr/items",
+"summary": "retrieve features in the feature collection 'lastelosseutstyr'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "lastelosseutstyr.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/slipp/items",
+"summary": "retrieve features in the feature collection 'slipp'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "slipp.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/toalett/items",
+"summary": "retrieve features in the feature collection 'toalett'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "toalett.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/vauttak/items",
+"summary": "retrieve features in the feature collection 'vauttak'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "vauttak.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/administrativthavneomrade/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'administrativthavneomrade'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "administrativthavneomrade.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/avfallspunkt/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'avfallspunkt'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "avfallspunkt.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/beredskapspunkt/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'beredskapspunkt'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "beredskapspunkt.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/drivstofftilkobling/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'drivstofftilkobling'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "drivstofftilkobling.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/elkobling/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'elkobling'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "elkobling.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fartsrestriksjoner/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'fartsrestriksjoner'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "fartsrestriksjoner.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fartsrestriksjonergrense/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'fartsrestriksjonergrense'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "fartsrestriksjonergrense.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fender/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'fender'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "fender.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/flytedokk/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'flytedokk'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "flytedokk.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/forbudsomrade/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'forbudsomrade'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "forbudsomrade.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/forbudsomradegrense/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'forbudsomradegrense'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "forbudsomradegrense.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fortoyningsinnretning/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'fortoyningsinnretning'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "fortoyningsinnretning.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/havneomrade/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'havneomrade'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "havneomrade.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/havnesensor/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'havnesensor'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "havnesensor.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaifront/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'kaifront'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "kaifront.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaiomrade/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'kaiomrade'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "kaiomrade.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaiomradegrense/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'kaiomradegrense'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "kaiomradegrense.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kran/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'kran'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "kran.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/lastelosseutstyr/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'lastelosseutstyr'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "lastelosseutstyr.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/slipp/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'slipp'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "slipp.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/toalett/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'toalett'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "toalett.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/vauttak/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'vauttak'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "vauttak.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/administrativthavneomrade/queryables",
+"summary": "retrieve the queryables of the feature collection 'administrativthavneomrade'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "administrativthavneomrade.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/avfallspunkt/queryables",
+"summary": "retrieve the queryables of the feature collection 'avfallspunkt'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "avfallspunkt.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/beredskapspunkt/queryables",
+"summary": "retrieve the queryables of the feature collection 'beredskapspunkt'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "beredskapspunkt.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/drivstofftilkobling/queryables",
+"summary": "retrieve the queryables of the feature collection 'drivstofftilkobling'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "drivstofftilkobling.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/elkobling/queryables",
+"summary": "retrieve the queryables of the feature collection 'elkobling'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "elkobling.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fartsrestriksjoner/queryables",
+"summary": "retrieve the queryables of the feature collection 'fartsrestriksjoner'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "fartsrestriksjoner.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fartsrestriksjonergrense/queryables",
+"summary": "retrieve the queryables of the feature collection 'fartsrestriksjonergrense'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "fartsrestriksjonergrense.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fender/queryables",
+"summary": "retrieve the queryables of the feature collection 'fender'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "fender.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/flytedokk/queryables",
+"summary": "retrieve the queryables of the feature collection 'flytedokk'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "flytedokk.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/forbudsomrade/queryables",
+"summary": "retrieve the queryables of the feature collection 'forbudsomrade'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "forbudsomrade.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/forbudsomradegrense/queryables",
+"summary": "retrieve the queryables of the feature collection 'forbudsomradegrense'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "forbudsomradegrense.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fortoyningsinnretning/queryables",
+"summary": "retrieve the queryables of the feature collection 'fortoyningsinnretning'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "fortoyningsinnretning.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/havneomrade/queryables",
+"summary": "retrieve the queryables of the feature collection 'havneomrade'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "havneomrade.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/havnesensor/queryables",
+"summary": "retrieve the queryables of the feature collection 'havnesensor'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "havnesensor.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaifront/queryables",
+"summary": "retrieve the queryables of the feature collection 'kaifront'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "kaifront.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaiomrade/queryables",
+"summary": "retrieve the queryables of the feature collection 'kaiomrade'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "kaiomrade.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaiomradegrense/queryables",
+"summary": "retrieve the queryables of the feature collection 'kaiomradegrense'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "kaiomradegrense.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kran/queryables",
+"summary": "retrieve the queryables of the feature collection 'kran'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "kran.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/lastelosseutstyr/queryables",
+"summary": "retrieve the queryables of the feature collection 'lastelosseutstyr'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "lastelosseutstyr.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/slipp/queryables",
+"summary": "retrieve the queryables of the feature collection 'slipp'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "slipp.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/toalett/queryables",
+"summary": "retrieve the queryables of the feature collection 'toalett'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "toalett.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/vauttak/queryables",
+"summary": "retrieve the queryables of the feature collection 'vauttak'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "vauttak.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/styles",
+"summary": "lists the available styles",
+"description": "This operation fetches the set of styles available. For each style the id, a title, links to the stylesheet of the style in each supported encoding, and the link to the metadata is provided.",
+"tags": [
+"Discover and fetch styles"
+],
+"operation_id": "getStyles",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/styles/{styleId}",
+"summary": "fetch a style",
+"description": "Fetches the style with identifier `styleId`. The set of available styles can be retrieved at `/styles`. Not all styles are available in all style encodings.",
+"tags": [
+"Discover and fetch styles"
+],
+"operation_id": "getStyle",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/styles/{styleId}/metadata",
+"summary": "fetch metadata about the style `{styleId}`",
+"description": "Style metadata is essential information about a style in order to support users to discover and select styles for rendering their data and for visual style editors to create user interfaces for editing a style. This operations returns the m",
+"tags": [
+"Discover and fetch styles"
+],
+"operation_id": "getStyleMetadata",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/{collectionId}/styles",
+"summary": "retrieve a list of the available styles for collection `{collectionId}`",
+"description": "This operation fetches the set of styles available for this collection. For each style the id, a title, links to the stylesheet of the style in each supported encoding, and the link to the metadata is provided.",
+"tags": [
+"Discover and fetch styles"
+],
+"operation_id": "collection.getStyles",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/{collectionId}/styles/{styleId}",
+"summary": "fetch a style for collection `{collectionId}`",
+"description": "Fetches the style with identifier `styleId`. The set of available styles can be retrieved at `/styles`. Not all styles are available in all style encodings.",
+"tags": [
+"Discover and fetch styles"
+],
+"operation_id": "collection.getStyle",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/{collectionId}/styles/{styleId}/metadata",
+"summary": "fetch metadata about the style `{styleId}` for collection `{collectionId}`",
+"description": "Style metadata is essential information about a style in order to support users to discover and select styles for rendering their data and for visual style editors to create user interfaces for editing a style. This operations returns the m",
+"tags": [
+"Discover and fetch styles"
+],
+"operation_id": "collection.getStyleMetadata",
+"deprecated": false
+},
+{
 "api_id": "geonorge-register",
 "method": "GET",
 "path": "/api/{parentregister}/{register}",
@@ -4561,6 +5725,2284 @@
 "OrganizationsApi"
 ],
 "operation_id": "OrganizationsApi_GetOrganizationsByCodeV2",
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ais_shipreg/statinfo/for-mmsis-time",
+"summary": null,
+"description": null,
+"tags": [
+"Ais"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ais/positions/before-after",
+"summary": "Get the preceding and following AIS position message for a ship on a given date",
+"description": null,
+"tags": [
+"Ais"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ais/positions/for-mmsi-date",
+"summary": "Get all position for a ship identified by its MMSI on a given date",
+"description": null,
+"tags": [
+"Ais"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ais/positions/for-mmsis-time",
+"summary": "HttpPost web service to retrieve AIS positions by supplying a set of\r\nMMSI ids and a time span",
+"description": null,
+"tags": [
+"Ais"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ais/positions/within-bbox-time",
+"summary": "HttpPost web service to retrieve AIS positions by supplying a BBox and a time span",
+"description": "This web service queries the original GeoAisDB PostgreSQL servers in sequence before returning a response. Queries can be quite slow, particularly when involving several servers as many connections have to be made to many tables",
+"tags": [
+"Ais"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ais/positions/within-geom-time",
+"summary": "HttpPost web service to retrieve AIS positions by supplying a BBox and a time span",
+"description": "This web service queries the original GeoAisDB PostgreSQL servers in sequence before returning a response. Queries that spans several days can be quite slow, queries spanning several years are likely to fail",
+"tags": [
+"Ais"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/ais/realtime/geojson",
+"summary": "Return GeoJSON for all ships in real time",
+"description": "If called without parameters, this service will return all ships that have reported positions within the last 10 minutes. If called with filters for aisShipType or timeStamp, older data may be available - but positions are wiped after 20 mi",
+"tags": [
+"AisRealTime"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/ais/realtime/vessels-by-type",
+"summary": "Return a dataset showing the number of active vessels during the last minute",
+"description": null,
+"tags": [
+"AisRealTime"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ais/sailed-distance/admin/dates",
+"summary": "Get aggregated sailed distance (nmi) grouped by ship type, ship length, gt and dwt group for country and time-period (whole months)",
+"description": null,
+"tags": [
+"Ais"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ais/sailed-distance/fvpomr",
+"summary": "Get aggregated sailed distance (nmi) grouped by ship type, ship length, gt and dwt group for \"forvaltningsplanområder\"",
+"description": null,
+"tags": [
+"Ais"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ais/sailed-distance/grunnlinje",
+"summary": "Get aggregated sailed distance (nmi) grouped by ship type, ship length, gt and dwt group for \"spesielt viktige områder\"",
+"description": null,
+"tags": [
+"Ais"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ais/sailed-distance/municipality",
+"summary": "Get aggregated sailed distance (nmi) grouped by ship type, ship length, gt and dwt group for municipalities",
+"description": null,
+"tags": [
+"Ais"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ais/sailed-distance/municipality-fairway",
+"summary": "Get aggregated sailed distance (nmi) grouped by ship type, ship length, gt and dwt group for municipalities grouped by major and minor fairways",
+"description": null,
+"tags": [
+"Ais"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ais/sailed-distance/svoomr",
+"summary": "Get aggregated sailed distance (nmi) grouped by ship type, ship length, gt and dwt group for \"spesielt viktige områder\"",
+"description": null,
+"tags": [
+"Ais"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/ais/static-messages",
+"summary": "Download a set of unique static data records (approximating AIS messages 5 and 24) for ships in a time period",
+"description": "One record per ship (MMSI) and distinct set of values, with the period it was valid. Consecutive registry versions with identical values are merged. Mapping: User ID = mmsi, IMO number = imo_ais (else imo_spglobal), Call sign = call_sign, N",
+"tags": [
+"AisStatic"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ais/statinfo/for-mmsis-time",
+"summary": "Get AIS static information messages for specified MMSI ids\r\nwithin a period of time",
+"description": null,
+"tags": [
+"Ais"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ais/statinfo/ships/free-text-time",
+"summary": "Search for mmsis from AIS static information messages within a time span, limited to 5 days due to need to traverse multiple tables",
+"description": null,
+"tags": [
+"Ais"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ais/yearly-stats/{fromYear}/{toYear}",
+"summary": "Load annual message statistics for Kystverkets AIS database",
+"description": null,
+"tags": [
+"Ais"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/anchorage/anchorage/by-dokid-dokstatus",
+"summary": "Return anchorage data for a single anchorage location identified by its dok_id and dok_status\r\nwithin a set time-period",
+"description": null,
+"tags": [
+"Anchorage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/anchorage/anchorage/for-sysid-time",
+"summary": "Return anchorage data for a single anchorage location identified by its anchorage area id\r\nThat is used to resolve its dok_id and dok_status\r\nThe data is then returned by forwarding the call to GetAnchorageForLocationTime2",
+"description": null,
+"tags": [
+"Anchorage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/anchorage/area/geojson",
+"summary": "Return info about anchorage area",
+"description": null,
+"tags": [
+"Anchorage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/anchorage/area/geojson/by-dokid-dokstatus",
+"summary": null,
+"description": null,
+"tags": [
+"Anchorage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/anchorage/areas",
+"summary": "Return all anchorage areas as a list of ids and names (labels)",
+"description": null,
+"tags": [
+"Anchorage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/anchorage/duration-by-year-and-id",
+"summary": "Return summed anchorage duration for all anchorage locations by year",
+"description": null,
+"tags": [
+"Anchorage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/anchorage/for-location-time2",
+"summary": "Return anchorage data for a specific anchorage location and time-period",
+"description": null,
+"tags": [
+"Anchorage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/auth/federated-login",
+"summary": "Login with a token issued by a federated identity provider for Kystverket-internal employees\r\nto retrieve a JWT-token for consequtive requests.",
+"description": null,
+"tags": [
+"Auth"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/auth/identities/link",
+"summary": "Associate a new identity (e.g. a different login provider) with the calling user's own\r\nexisting account. Self-service - the caller must already have an auth.users record, i.e.\r\nmust have logged in at least once before. (Auth)",
+"description": null,
+"tags": [
+"Auth"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/auth/login",
+"summary": "Login with Kystinfo.no credentials to retrieve a JWT-token for consequtive requests",
+"description": null,
+"tags": [
+"Auth"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/auth/roles",
+"summary": "List all roles. Kystverket-internal only. (Auth)",
+"description": null,
+"tags": [
+"Auth"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/auth/roles",
+"summary": "Create a role, or update its description if it already exists. Kystverket-internal only. (Auth)",
+"description": null,
+"tags": [
+"Auth"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "DELETE",
+"path": "/api/auth/roles/{roleName}",
+"summary": "Soft delete a role. Kystverket-internal only. (Auth)",
+"description": null,
+"tags": [
+"Auth"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/auth/users",
+"summary": "Search users by email or display name. Kystverket-internal only. (Auth)",
+"description": null,
+"tags": [
+"Auth"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/auth/users/{id}",
+"summary": "Get a single user along with their assigned roles. Kystverket-internal only. (Auth)",
+"description": null,
+"tags": [
+"Auth"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/auth/users/{id}/roles",
+"summary": "Assign a role (creating it if it doesn't already exist) to a user. Kystverket-internal only. (Auth)",
+"description": null,
+"tags": [
+"Auth"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "DELETE",
+"path": "/api/auth/users/{id}/roles/{roleName}",
+"summary": "Revoke a role from a user. Kystverket-internal only. (Auth)",
+"description": null,
+"tags": [
+"Auth"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/bunkers",
+"summary": "Retrieve voyages carrying bunkers",
+"description": null,
+"tags": [
+"Bunkers"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/kystinfo/norvts-incidents",
+"summary": "Get all incident data from Nor VTS",
+"description": null,
+"tags": [
+"Incident"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/kystinfo/norvts-incidents-public",
+"summary": "Get public incident data from Nor VTS",
+"description": null,
+"tags": [
+"Incident"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/location/all",
+"summary": "Get all locations with SafeSeaNet voyags from NewShipRep",
+"description": "Returns all locations that have associated voyages from NewShipRep as a JSON array of location objects",
+"tags": [
+"Location"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/location/all",
+"summary": "Get all locations with SafeSeaNet voyags from NewShipRep",
+"description": "Returns all locations that have associated voyages from NewShipRep as a JSON array of location objects",
+"tags": [
+"Location"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/location/connections/for-locations",
+"summary": "Get all locations that are connected to the specified locations through\r\neither arrivals or departures.",
+"description": null,
+"tags": [
+"Location"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/location/counties",
+"summary": "Get all counties from NewShipRep location table",
+"description": "Returns all counties from NewShipRep as a JSON array of county objects",
+"tags": [
+"Location"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/location/counties",
+"summary": "Get all counties from NewShipRep location table",
+"description": "Returns all counties from NewShipRep as a JSON array of county objects",
+"tags": [
+"Location"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/location/for-locations",
+"summary": "Get information about locations with specified identifiers",
+"description": null,
+"tags": [
+"Location"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/location/free-text",
+"summary": "Get all locations whose names matches the free text expression entered",
+"description": null,
+"tags": [
+"Location"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/location/norway/all",
+"summary": "Return all locations from NewShipRep including locations that do not have associated voyages in SafeSeaNet",
+"description": "This web service returns more locations",
+"tags": [
+"Location"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/location/norway/all/geojson",
+"summary": "Return all locations from NewShipRep including locations that do not have associated voyages in SafeSeaNet",
+"description": "This web service returns more locations",
+"tags": [
+"Location"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/location/time-in-port",
+"summary": "Get information about time in port for locations",
+"description": "...",
+"tags": [
+"Location"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/location/time-in-port/all",
+"summary": "Get information about time in port for all locations",
+"description": "...",
+"tags": [
+"Location"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/location/time-in-port/osps",
+"summary": "Get information about port calls made by ships with onshore power supply facilities",
+"description": "...",
+"tags": [
+"Location"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/location/time-in-port/osps-yearly",
+"summary": "Get information about port calls made by ships with onshore power supply facilities filtered by year",
+"description": "...",
+"tags": [
+"Location"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/maps/fvpomr/list",
+"summary": "Get a \"forvaltningsplanområder\" as a JSON code list",
+"description": null,
+"tags": [
+"Map"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/maps/kommune/geojson",
+"summary": "Get a municipalities as GeoJson",
+"description": null,
+"tags": [
+"Map"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/maps/kommune/list",
+"summary": "Get a municipalities as a JSON code list",
+"description": null,
+"tags": [
+"Map"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/maps/kommune/wkt",
+"summary": "Get a municipalities with WKT geometry as JSON records",
+"description": null,
+"tags": [
+"Map"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/maps/svoomr/list",
+"summary": "Get a \"spesielt verdifulle områder\" as a JSON code list",
+"description": null,
+"tags": [
+"Map"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/martraf-tracks/intersects-line",
+"summary": "Return MarTraf tracks intersecting a user specified line (i.e. a passline) within a given time period.\r\nSame response format as api/tracks/intersects-line (Auth)",
+"description": null,
+"tags": [
+"MarTraf"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/martraf-tracks/passline-crossings",
+"summary": "Return the crossings of a passline within a time period, one item per crossing (Auth)",
+"description": "The crossing time is interpolated from the M values (Unix epoch seconds) of the MarTraf LineStringM tracks, and crossings are selected by that time. Per crossing: time (epoch seconds), speed (knots) and cog (degrees) over +/- SpeedWindowSec",
+"tags": [
+"MarTraf"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/martraf-tracks/ships-within-area",
+"summary": "Return the ships that have been within an area during a time period, one item per ship (MMSI) (Auth)",
+"description": "The tracks are cut to the period using their M values (Unix epoch seconds) and to the area. Per ship: the registry attributes valid at its latest track, the ship category (kyv_kategori) and the distance sailed inside the area within the per",
+"tags": [
+"MarTraf"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/martraf-tracks/within-geom-time",
+"summary": "Return MarTraf tracks within an area and/or for ships during a time period, in a compact format (Auth)",
+"description": "Each returned item is one LineStringM (ISO WKB) where the M value is Unix epoch seconds. With ClipToPeriod, only the parts of the lines inside the period are returned. The geometry is transformed to Srid (default 4326, no transform); M valu",
+"tags": [
+"MarTraf"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/maru/sailed-distance/county-municipality/{fromYearMonth}/{toYearMonth}",
+"summary": "Get sailed distance data for administrative division areas.\r\nThe data is aggregated by month and year,\r\ngt_group and vessel_type and can be filtered by date range.",
+"description": null,
+"tags": [
+"MarU"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/maru/sailed-distance/management-area/{fromYearMonth}/{toYearMonth}",
+"summary": "Get sailed distance data for marine management areas including or\r\nexcluding coastal traffic. The data is aggregated by month and year,\r\ngt_group and vessel_type and can be filtered by date range.",
+"description": null,
+"tags": [
+"MarU"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/mydata",
+"summary": "List the caller's entities, with optional type/subtype filter, free-text search, sorting and paging. (Auth)",
+"description": null,
+"tags": [
+"MyData"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/mydata",
+"summary": "Create or update an entity. Updates apply to title/description/data only; type and subtype\r\nare immutable once created. (Auth)",
+"description": null,
+"tags": [
+"MyData"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "DELETE",
+"path": "/api/mydata/erase-all",
+"summary": "Erase all of the caller's data: soft-deletes every active row and removes their uploaded\r\nfiles from disk. The response Msg reports the number of rows erased. (Auth)",
+"description": null,
+"tags": [
+"MyData"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/mydata/export-all",
+"summary": "Download everything the caller has stored as a zip: one JSON document per entity\r\n(grouped by type), with uploaded geodata files alongside their JSON. (Auth)",
+"description": null,
+"tags": [
+"MyData"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/mydata/files/folder",
+"summary": "Create a folder in the caller's file browser. (Auth)",
+"description": null,
+"tags": [
+"MyData"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/mydata/files/upload",
+"summary": "Upload a GeoJSON/KML file into the caller's file browser. (Auth)",
+"description": null,
+"tags": [
+"MyData"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/mydata/files/{uuid}/download",
+"summary": "Download an uploaded geodata file. (Auth)",
+"description": null,
+"tags": [
+"MyData"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "PATCH",
+"path": "/api/mydata/files/{uuid}/move",
+"summary": "Move a geodata file or folder into another folder, or to the root when folderId is null. (Auth)",
+"description": null,
+"tags": [
+"MyData"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/mydata/{uuid}",
+"summary": "Get a single entity owned by the caller. (Auth)",
+"description": null,
+"tags": [
+"MyData"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "DELETE",
+"path": "/api/mydata/{uuid}",
+"summary": "Soft-delete an entity. A geodata folder takes its whole content with it. (Auth)",
+"description": null,
+"tags": [
+"MyData"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "PATCH",
+"path": "/api/mydata/{uuid}/rename",
+"summary": "Rename an entity. (Auth)",
+"description": null,
+"tags": [
+"MyData"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/pilotage/aggregated/for-years",
+"summary": "Aggregated information on pilotage assignments for pilot offices\r\nand year span",
+"description": null,
+"tags": [
+"Pilotage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/pilotage/for-locations-years",
+"summary": "Detailed information on pilotage assignments for specified locatoins\r\nand year span",
+"description": null,
+"tags": [
+"Pilotage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/raster-frequency/ext/mapserver",
+"summary": "WMS end-point for traffic frequency maps.",
+"description": "See the getCapabilities request result for further details: [WMS Get Capabilities](https://kystdatahuset.no/ws/api/raster-frequency/ext/mapserver?request=GetCapabilities&service=WMS)",
+"tags": [
+"RasterFrequency"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/raster-frequency/ext/raster/statistics",
+"summary": "End point for retrieving traffic frequency statistics within user defined polygon geometries.",
+"description": null,
+"tags": [
+"RasterFrequency"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/raster-frequency/ext/sld",
+"summary": "End point for dynamic generation of SLDs",
+"description": null,
+"tags": [
+"RasterFrequency"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/raster-frequency/statistics/v2",
+"summary": null,
+"description": null,
+"tags": [
+"RasterFrequency"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/realtime-tracks/intersects-line",
+"summary": "Return realtime tracks intersecting a user specified line (i.e. a passline) within a given time period.\r\nSame response format as api/tracks/intersects-line, limited to the attributes stored in ais2.track_all\r\n(no shipid and no kyv_kategori) (Auth)",
+"description": null,
+"tags": [
+"RealtimeTrack"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/realtime-tracks/within-geom-time",
+"summary": "Return realtime tracks within an area and/or for ships during a time period, in a compact format (Auth)",
+"description": "Each returned item is one LineStringM (ISO WKB) where the M value is Unix epoch seconds. With ClipToPeriod, only the parts of the lines inside the period are returned. The geometry is transformed to Srid (default 4326, no transform); M valu",
+"tags": [
+"RealtimeTrack"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/ship-dimensions",
+"summary": "Select the best-matching record, keyed by imo (safest), then shipid, then mmsi+shipname\r\ntogether. At least one of these must be supplied. (Auth)",
+"description": null,
+"tags": [
+"ShipDimensions"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ship-dimensions",
+"summary": "Insert a new record, or update the best-matching existing one, keyed by imo (safest),\r\nthen shipid, then mmsi+shipname together. At least one of these must be supplied. (Auth)",
+"description": null,
+"tags": [
+"ShipDimensions"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "DELETE",
+"path": "/api/ship-dimensions/{id}",
+"summary": "Delete a record by its uuid. (Auth)",
+"description": null,
+"tags": [
+"ShipDimensions"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/ship-type/statcode5/download",
+"summary": "Retrieve all Statcode5 code list with all attributes (Auth)",
+"description": "Only available for Kystverket users",
+"tags": [
+"ShipType"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/ship/builtbetween/{fromYear}/{toYear}",
+"summary": "Get data about ships built in the years between fromYear and toYear (both inclusive)",
+"description": null,
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/ship/combined/callsign/{callsign}",
+"summary": "Get information from combined ship table by callsign (Auth)",
+"description": null,
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/ship/combined/callsign/{version}/{callsign}",
+"summary": "Get information from combined ship table by callsign (Auth)",
+"description": null,
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/ship/combined/free-text",
+"summary": "Get information about ships from combined ship table by free-text search",
+"description": null,
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ship/combined/free-text",
+"summary": "Get information about ships from combined ship table by free-text search.",
+"description": "You can search for ship names, imo numbers, mmsi numbers and callsigns. Callsigns are still experimental as some callsigns are stemmed by the indexer if you cannot find your ship by callsign, try another element. This",
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/ship/combined/imo/{imo}",
+"summary": "Get information from combined ship table by imo",
+"description": null,
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/ship/combined/imo/{version}/{imo}",
+"summary": "Get information from combined ship table by imo",
+"description": null,
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/ship/combined/mmsi/{mmsi}",
+"summary": "Get information from combined ship table by mmsi (Auth)",
+"description": null,
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/ship/combined/mmsi/{version}/{mmsi}",
+"summary": "Get information from combined ship table by mmsi (Auth)",
+"description": null,
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ship/combined/{version}/free-text",
+"summary": "Get information about ships from combined ship table by free-text search.",
+"description": "You can search for ship names, imo numbers, mmsi numbers and callsigns. Callsigns are still experimental as some callsigns are stemmed by the indexer if you cannot find your ship by callsign, try another element. This",
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ship/data/ais/for-mmsis-imos",
+"summary": "Get information about ships from AIS derived ship registry",
+"description": null,
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/ship/data/ais/free-text",
+"summary": "Get information about ships from AIS derived ship registry by free-text",
+"description": null,
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ship/data/combined/for-mmsis-imos",
+"summary": "Get information about ships from combined ship table by mmsi or imo numbers",
+"description": null,
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ship/data/fairplay/for-mmsis-imos",
+"summary": "Get information about ships from Fairplay (Auth)",
+"description": "Only available to Kystverket users due to licensing constraints.",
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ship/data/nsr/for-mmsis-imos",
+"summary": "Get information about ships from NSR Ship",
+"description": null,
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ship/data/shipinfo/for-mmsis-imos",
+"summary": "Get information about ships from Shipinfo",
+"description": "Only available for Kystverket users",
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ship/for-mmsis",
+"summary": "Get information about ships from NewShipRep by one or more MMSI identifiers",
+"description": null,
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/ship/free-text",
+"summary": "Get a key value representation of ships based on a free-text\r\nquery parameter",
+"description": "The free text query is matched against shipname, mmsi and imo number fields",
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/ship/nsr/download",
+"summary": "This *restricted* web service allows you to download the entire NewShipRep ship registry (Auth)",
+"description": "Only available for Kystverket users",
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/ship/shiptypes",
+"summary": "Select all ship types that are used in NSR (Auth)",
+"description": null,
+"tags": [
+"Ship"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/shorepower/geojson",
+"summary": "Get shorepowerdata as GeoJSON from Kystinfo",
+"description": null,
+"tags": [
+"Shorepower"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/tracks/async/download/by-voyage-timespan",
+"summary": "Generate a downloadable ESRI Shapefile containing tracks of ships that have \r\nsailed the voyage between two locations within a specific time-period. (Auth)",
+"description": "Works by looking up the voyages between specified locations and generating a list of time-periods and ship IDs The service then uses this list to generate a SQL query selecting all tracks belonging to the specific ship ID and the time inter",
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/tracks/for-ships/by-mmsi",
+"summary": "Return ship tracks for one or more ships identified by their MMSI ship identifiers within\r\na time period",
+"description": null,
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/tracks/for-ships/by-mmsi-mid",
+"summary": "Return ship tracks for ships identified by their MID values within a\r\na time period",
+"description": null,
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/tracks/for-ships/by-shipid",
+"summary": "Return ship tracks for one or more ships identified by their NSR ship identifiers within\r\na time period (Auth)",
+"description": null,
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/tracks/frequency-counts",
+"summary": "Return ship tracks for one or more ships identified by their ids within\r\na time period (Auth)",
+"description": null,
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/tracks/frequency-counts/weekly",
+"summary": "Return weekly frequency counts for selected passlines within a time period (Auth)",
+"description": null,
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/tracks/get-passlines",
+"summary": "Return passlines that are available for the passline frequency dashboard (Auth)",
+"description": null,
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/tracks/get-passlines",
+"summary": "Return passlines that are available for the passline frequency dashboard (Auth)",
+"description": null,
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/tracks/intersects-line",
+"summary": "Return ship tracks that data intersecting a user\r\nspecificed line (i.e. a passline) within a given time period (Auth)",
+"description": null,
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/tracks/intersects-two-lines",
+"summary": "Return data on ships that intersecting two user\r\nspecificed lines (i.e. two passline) within the same day in a given time period (Auth)",
+"description": null,
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/tracks/sailed-distance/for-ships/by-callsign",
+"summary": "Return sailed distance in kilometers per year, month and callsign for ships identified by\r\ntheir callsign within a time period. This method works on AIS data and return data for all\r\nships with AIS transponders. (Auth)",
+"description": null,
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/tracks/sailed-distance/for-ships/by-imo",
+"summary": "Return sailed distance in kilometers per year, month and imo number for ships identified by their IMO ship identifiers within\r\na time period (Auth)",
+"description": null,
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/tracks/sailed-distance/for-ships/by-mmsi",
+"summary": "Return sailed distance in kilometers per year, month and MMSI number\r\nfor ships identified by their MMSI ship identifiers within a time period (Auth)",
+"description": null,
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/tracks/speed/for-ships/by-callsign",
+"summary": "Return average sailing speed in knots for one or more ships identified by callsigns\r\nwithin a date range. Speed is calculated and averaged across all track segments with\r\na speed >= 2 knots. This method works on AIS data and return data for all\r\nships with AIS transponders. (Auth)",
+"description": null,
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/tracks/within-area",
+"summary": "Return ship tracks that intersect a user specified polygon geometry within\r\na time period. Clips the tracks to the polygon. Returns a maximum of 200k\r\nline segments (Auth)",
+"description": null,
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/tracks/within-area/by-mmsi",
+"summary": "Return ship tracks that intersect a user specified polygon geometry within\r\na time period and corresponding to mmsi. Clips the tracks to the polygon.\r\nReturns a maximum of 200k line segments (Auth)",
+"description": null,
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/tracks/within-municipality",
+"summary": "Return ship tracks clipped to municipality boundaries (Auth)",
+"description": null,
+"tags": [
+"Track"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/vocabulary",
+"summary": "Retrieve all available vocabularies",
+"description": null,
+"tags": [
+"ShipType"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/vocabulary/mapping",
+"summary": "Retrieve all ship type mappings between source and target vocabularies (Auth)",
+"description": "Only available for Kystverket users",
+"tags": [
+"ShipType"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/vocabulary/mapping/{fromVocabularyCode}/{toVocabularyCode}",
+"summary": "Retrieve all ship type mappings between source and target vocabularies (Auth)",
+"description": "Only available for Kystverket users",
+"tags": [
+"ShipType"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/vocabulary/mapping/{fromVocabularyCode}/{toVocabularyCode}",
+"summary": "Upload one or more ship type mappings between two existing vocabularies\r\nIf the mapping already exists, it will be updated with the new information.\r\nI.e. if the source vocabulary and source id already exists, the\r\ntarget id will be updated to the new value. (Auth)",
+"description": null,
+"tags": [
+"ShipType"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "DELETE",
+"path": "/api/vocabulary/mapping/{fromVocabularyCode}/{toVocabularyCode}",
+"summary": "Delete all mappings between specified source and target vocabularies (Auth)",
+"description": "Only available for Kystverket users",
+"tags": [
+"ShipType"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/vocabulary/mapping/{fromVocabularyCode}/{toVocabularyCode}/create",
+"summary": "Create (or re-create) the materialized view used to look up mappings\r\nbetween two vocabularies. (Auth)",
+"description": "Only available for Kystverket users",
+"tags": [
+"ShipType"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/vocabulary/mapping/{fromVocabularyCode}/{toVocabularyCode}/refresh",
+"summary": "Refresh the materialized view used to look up mappings between two vocabularies. (Auth)",
+"description": "Only available for Kystverket users",
+"tags": [
+"ShipType"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/vocabulary/terms/{vocabularyCode}",
+"summary": "Get the terms from a vocabulary. (Auth)",
+"description": "Restricted to Kystverket internal users",
+"tags": [
+"ShipType"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/vocabulary/terms/{vocabularyCode}",
+"summary": "Upsert one or more terms to an existing vocabulary.\r\nIf the term already exists, it will be updated with the new information. (Auth)",
+"description": null,
+"tags": [
+"ShipType"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "DELETE",
+"path": "/api/vocabulary/terms/{vocabularyCode}",
+"summary": "Delete a term(s) from an existing vocabulary.\r\nIf the term already exists, it will be updated with the new information. (Auth)",
+"description": null,
+"tags": [
+"ShipType"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "DELETE",
+"path": "/api/vocabulary/terms/{vocabularyCode}/{term}",
+"summary": "Delete a term(s) from an existing vocabulary.\r\nIf the term already exists, it will be updated with the new information. (Auth)",
+"description": null,
+"tags": [
+"ShipType"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "DELETE",
+"path": "/api/vocabulary/{vocabularyCode}",
+"summary": "Delete a vocabulary (Auth)",
+"description": "Restricted to Kystverket users",
+"tags": [
+"ShipType"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/voyage/aggregated/arrivals",
+"summary": "Get arrivals for years",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/voyage/aggregated/arrivals-by-day",
+"summary": "Get aggregated voyage data for arrivals to location in Norway within specified period",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/voyage/aggregated/cruise/public",
+"summary": "Get summary of all cruise traffic (does not include passenger numbers (privileged information))",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/voyage/aggregated/departures-by-day",
+"summary": "Get aggregated voyage data for departures from locations in Norway within specified period",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/voyage/aggregated/{fromYear}/{toYear}",
+"summary": "Get aggregated voyage data for period",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/voyage/aggregated/{fromYear}/{toYear}",
+"summary": "Get aggregated voyage data for period",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/voyage/arrivals-current-month-by-departure-country",
+"summary": "Output statistics on yearly cruise arrivals to destinations in Norway",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/voyage/arrivals-departures/for-location",
+"summary": "Get aggregated voyage data (arrivals and departures) for one or more locations and period",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/voyage/arrivals-previous-month-by-departure-country",
+"summary": "Output statistics on yearly cruise arrivals to destinations in Norway by previous month",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/voyage/arrivals/for-locations",
+"summary": "Find voyages to one or more destination locations in year(s)",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/voyage/between/{fromDate}/{toDate}",
+"summary": "Retrieve all voyages within the timespan between a fromDate (greater than or equal) and toDate (less than)",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/voyage/cruise/year-on-year-difference",
+"summary": "Output statistics on yearly cruise arrivals to destinations in Norway",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/voyage/dangerous-goods/by-voyage-segments/{fromTime}/{toTime}",
+"summary": "Return GeoJSON for all ships in real time",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/voyage/departures/for-locations",
+"summary": "Find voyages from one or more origin locations in year(s)",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/voyage/for-ships/by-callsign",
+"summary": "Return all voyages for ships identified by their callsign within\r\na time period. Works on NSR data and will only return information for ships\r\nthat are required to report to SafeSeaNet, this excludes smaller vessels etc.",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/voyage/for-ships/by-mmsi",
+"summary": "Find voyages for one or more ships identified by their MMSI identifiers within a specific time period",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/voyage/for-ships/by-shipid",
+"summary": "Find voyages for one or more ships identified by their NSR ship identifiers within a specific time period",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/voyage/infographics/arrivals-per-day",
+"summary": "Returns all voyages for a specified time period compared to the same period in a previous year",
+"description": null,
+"tags": [
+"Indicators"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/voyage/infographics/cruises-per-day",
+"summary": "Returns all cruise voyages in the n days leading up to the reference date,\r\ncompared to the same period in a previous year",
+"description": null,
+"tags": [
+"Indicators"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/voyage/international-detail/{fromTime}/{toTime}",
+"summary": "Return international arrivals and departures within timespan",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/voyage/international/{from_date}/{to_date}",
+"summary": "Return all international voyages in time-period.",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/voyage/passengers/by-date-location",
+"summary": "Get number of passengers per location and date. The data is aggregated to the day level, and the first arrival to a destination each day is used. The data is based on the SafeSeaNet data, and is updated daily.",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/voyage/passengers/by-voyage-segments/{fromTime}/{toTime}",
+"summary": "Return aggregated number of passengers for each voyage segment, shiptype, flag state and month\r\n\r\nVersion 1 returns all voyages from SafeSeaNet\r\nVersion 2 limits to the first arrival to a destination each day",
+"description": null,
+"tags": [
+"Voyage"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-navigasjonsvarsler",
+"method": "GET",
+"path": "/data/navigationwarnings/coastal/",
+"summary": "Coastal Navigation Warnings",
+"description": "Get navigation warnings for the Norwegian coast in JSON format. Also known as 'Kystvarsler/NAVCO' <br>. In the event that a message does not have a specific position attached to it, the message is parsed using an AI-service to extract any p",
+"tags": [
+"navigationwarnings"
+],
+"operation_id": "coastal_navigation_warnings_data_navigationwarnings_coastal__get",
+"deprecated": false
+},
+{
+"api_id": "kystverket-navigasjonsvarsler",
+"method": "GET",
+"path": "/data/navigationwarnings/navareaxix/",
+"summary": "Get Navigation Warnings For Navarea Xix",
+"description": "Get navigation warnings for NAVAREA XIX. Warnings are issued by the Norwegian Coastal Administration and are intended for maritime navigation in the NAVARA XIX area. <br> In the event that the warning does not have a specific position attac",
+"tags": [
+"navigationwarnings"
+],
+"operation_id": "get_navigation_warnings_for_navarea_xix_data_navigationwarnings_navareaxix__get",
+"deprecated": false
+},
+{
+"api_id": "kystverket-navigasjonsvarsler",
+"method": "GET",
+"path": "/data/dadjokes",
+"summary": "Dadjoke",
+"description": "Return a delicious pun to brighten your day.",
+"tags": [],
+"operation_id": "dadjoke_data_dadjokes_get",
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-fallvilt",
+"method": "GET",
+"path": "/api/v0/fallvilt",
+"summary": "Hent fallvilt basert på parametre. Alle parametre er frivillige, men versjon i URL er påkrevd.",
+"description": "Merk at fallviltet må tilfredsstille alle filtrene. Hvis du søker på fylke Nordland og kommune Trondheim, vil du få 0 treff siden kommunen det filtreres på må befinne seg i fylket som spesifiseres. Trenger du å søke etter fallvilt for både ",
+"tags": [
+"Fallvilt Innsyn"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-fallvilt",
+"method": "GET",
+"path": "/api/v0/fallvilt/{id}",
+"summary": "Hent ett fallvilt basert på fallvilt-id. URLen brukes som identifikator for fallviltet i APIet.",
+"description": null,
+"tags": [
+"Fallvilt Innsyn"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "POST",
+"path": "/api/v1/brukerauth/login",
+"summary": "Hent tokens (access- og refreshtoken) ved hjelp av brukernavn og passord.",
+"description": "For å få tilgang til de adgangsbegrensede delene av hjorteviltregisterets API, må du ha en bruker med rollen API-bruker. Du får tilbake tokens (access- og refreshtoken), som deretter brukes for autentisering mot andre adgangsbegrensede ende",
+"tags": [
+"Autentisering bruker - innlogging"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "POST",
+"path": "/api/v1/brukerauth/renew",
+"summary": "Hent tokens (access- og refreshtoken) ved hjelp av brukernavn og refreshtoken.",
+"description": "For å fornye accesstoken, kan du sende inn refreshtoken og brukernavn for å få generert et nytt token-par. Du får en ny accesstoken med fem timers varighet. Du får også en ny refreshtoken, som må brukes ved neste forespørsel om accesstoken.",
+"tags": [
+"Autentisering bruker - innlogging"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "POST",
+"path": "/api/v1/jegerauth/login",
+"summary": "Hent tokens (access- og refreshtoken) ved hjelp av jegernummer og fødselsdato.",
+"description": "For å få tilgang til de adgangsbegrensede delene av hjorteviltregisterets API, må du logge inn som jeger. Du får tilbake tokens (access- og refreshtoken), som deretter brukes for autentisering mot andre adgangsbegrensede endepunkt. Accessto",
+"tags": [
+"Autentisering jeger - innlogging"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "POST",
+"path": "/api/v1/jegerauth/renew",
+"summary": "Hent tokens (access- og refreshtoken) ved hjelp av jegernummer og refreshtoken.",
+"description": "For å fornye accesstoken, kan du sende inn refreshtoken og brukernavn for å få generert et nytt token-par. Du får en ny accesstoken med fem timers varighet. Du får også en ny refreshtoken, som må brukes ved neste forespørsel om accesstoken.",
+"tags": [
+"Autentisering jeger - innlogging"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "GET",
+"path": "/api/v1/up",
+"summary": "Helsesjekk\r\nReturnerer 200 OK hvis tjenesten er oppe.\r\nHvis klienten ikke er autentisert returneres 401 Unauthorized.\r\nPayloaden inneholder tidspunkt for når responsen ble opprettet og en boolean som indikerer\r\nom alle avhengigheter er oppe.",
+"description": null,
+"tags": [
+"Helsesjekk (up)"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "GET",
+"path": "/api/v1/individer/{OmradeId}/{Sesong}",
+"summary": "Hent individer (skutte dyr) for område og jaktsesong.",
+"description": "Elg og hjort registreres på jaktfelt, rådyr registreres på vald og villrein registreres på villreinvald. For å få lister over aktive IDer for områder, bruk egne endepunkt for å laste ned disse. Elg og hjort kan hentes og redigeres på tvers ",
+"tags": [
+"Individer (skutte dyr)"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "GET",
+"path": "/api/v1/individer/{Id}",
+"summary": "Hent individ (skutt dyr) basert på unik ID",
+"description": null,
+"tags": [
+"Individer (skutte dyr)"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "DELETE",
+"path": "/api/v1/individer/{Id}",
+"summary": "Slett eksisterende individ (skutt dyr).",
+"description": null,
+"tags": [
+"Individer (skutte dyr)"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "POST",
+"path": "/api/v1/individer",
+"summary": "Opprett nytt individ (skutt dyr).",
+"description": "Merk at for elg og hjort må disse individene knyttes opp mot en jaktdag som allerede må finnes i løsningen. Det er også krav til at jaktdagen er gyldig etter oppretting av nytt individ, for eksempel at det nye skutte dyret må være sett. Eks",
+"tags": [
+"Individer (skutte dyr)"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "PUT",
+"path": "/api/v1/individer",
+"summary": "Redigerer eksisterende individ (skutt dyr).",
+"description": "Husk at du må sende all informasjon på nytt for å redigere et individ. Vi vurderer å implementere et eget PATCH-endepunkt for å ha mulighet til å endre enkelte felter. Gi oss beskjed hvis dette er ønskelig. Se eksempler på requester for ind",
+"tags": [
+"Individer (skutte dyr)"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "GET",
+"path": "/api/v1/jaktdager/{JaktfeltId}/{Sesong}",
+"summary": "Hent jaktdager (elg og hjort) for område og jaktsesong.",
+"description": "Brukes bare for elg og hjort. Jaktdag omtales også noen ganger som sett-skjema, og inneholder informasjon om jaktinnsats og sette dyr. Skutte dyr (individ) knyttes opp til en jaktdag. Jaktdager og individ for elg og hjort er synlige og redi",
+"tags": [
+"Jaktdager (sette dyr)"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "GET",
+"path": "/api/v1/jaktdager/{Id}",
+"summary": "Hent jaktdag basert på unik ID.",
+"description": null,
+"tags": [
+"Jaktdager (sette dyr)"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "DELETE",
+"path": "/api/v1/jaktdager/{Id}",
+"summary": "Slett eksisterende jaktdag.",
+"description": null,
+"tags": [
+"Jaktdager (sette dyr)"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "POST",
+"path": "/api/v1/jaktdager",
+"summary": "Opprett ny jaktdag.",
+"description": "Det er ikke anledning til sende inn skutte dyr gjennom dette endepunktet. Det må gjøres mot egne endepunkt etter at jaktdagen er opprettet. Eksempel på forespørsel om å opprette en jaktdag for elg: { \"Id\": \"3fa85f64-5717-4562-b3fc-2c963f66a",
+"tags": [
+"Jaktdager (sette dyr)"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "PUT",
+"path": "/api/v1/jaktdager",
+"summary": "Rediger eksisterende jaktdag.",
+"description": "Endring av dato og jaktfelt vil gi samme endring på jaktdagens skutte dyr. Husk at du må sende all informasjon på nytt for å redigere jaktdagen. Vi vurderer å implementere et eget PATCH-endepunkt for å ha mulighet til å endre enkelte felter",
+"tags": [
+"Jaktdager (sette dyr)"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "POST",
+"path": "/api/v1/jaktdager/medindivid",
+"summary": "Opprett ny jaktdag, og send med tilhørende skutte dyr i samme request.",
+"description": null,
+"tags": [
+"Jaktdager (sette dyr)"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "PUT",
+"path": "/api/v1/jaktdager/medindivid",
+"summary": null,
+"description": null,
+"tags": [
+"Jaktdager (sette dyr)"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "DELETE",
+"path": "/api/v1/jaktdager/medindivid/{Id}",
+"summary": "Slett eksisterende jaktdag og tilhørende individer.",
+"description": null,
+"tags": [
+"Jaktdager (sette dyr)"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "GET",
+"path": "/api/v1/jaktområder",
+"summary": "Hent jaktområder for innlogget jeger.",
+"description": null,
+"tags": [
+"Jaktområder jeger"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "POST",
+"path": "/api/v1/jaktområder",
+"summary": "Legg til jaktområde for innlogget jeger.",
+"description": null,
+"tags": [
+"Jaktområder jeger"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "DELETE",
+"path": "/api/v1/jaktområder",
+"summary": "Slett jaktområde for innlogget jeger.",
+"description": null,
+"tags": [
+"Jaktområder jeger"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "GET",
+"path": "/api/v1/områder/jaktfelt",
+"summary": "Hent liste over alle aktive jaktfelt. Brukes for å registrere elg og hjort.",
+"description": null,
+"tags": [
+"Område-lister"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "GET",
+"path": "/api/v1/områder/vald",
+"summary": "Hent liste over alle aktive vald. Brukes for å registrere rådyr.",
+"description": null,
+"tags": [
+"Område-lister"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "GET",
+"path": "/api/v1/områder/villreinvald",
+"summary": "Hent liste over alle aktive villreinvald. Brukes for å registrere villrein.",
+"description": null,
+"tags": [
+"Område-lister"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "GET",
+"path": "/api/v1/områder/kommuner",
+"summary": "Hent liste over alle kommuner.",
+"description": null,
+"tags": [
+"Område-lister"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "GET",
+"path": "/api/v1/jegeropplysninger",
+"summary": "Hent informasjon om innlogget jeger.",
+"description": null,
+"tags": [
+"Opplysninger jeger"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "hjorteviltregisteret-jaktdata",
+"method": "PUT",
+"path": "/api/v1/jegeropplysninger",
+"summary": "Endre informasjon om innlogget jeger.",
+"description": null,
+"tags": [
+"Opplysninger jeger"
+],
+"operation_id": null,
 "deprecated": false
 },
 {
@@ -5602,6 +9044,138 @@
 "deprecated": false
 },
 {
+"api_id": "politiet-politiloggen",
+"method": "GET",
+"path": "/categories",
+"summary": "Retrieves categories.",
+"description": null,
+"tags": [
+"Common"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "politiet-politiloggen",
+"method": "GET",
+"path": "/districts",
+"summary": "Retrieves police districts.",
+"description": null,
+"tags": [
+"Common"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "politiet-politiloggen",
+"method": "GET",
+"path": "/districts/extended",
+"summary": "Retrieves police districts and their municipalities.",
+"description": null,
+"tags": [
+"Common"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "politiet-politiloggen",
+"method": "GET",
+"path": "/feeds/atom",
+"summary": "Retrieves the latest messages as an Atom feed.",
+"description": null,
+"tags": [
+"Feed"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "politiet-politiloggen",
+"method": "GET",
+"path": "/feeds/rss",
+"summary": "Retrieves the latest messages as an RSS feed.",
+"description": null,
+"tags": [
+"Feed"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "politiet-politiloggen",
+"method": "GET",
+"path": "/messages",
+"summary": "Retrieves a collection of messages filtered by various criteria.",
+"description": null,
+"tags": [
+"Message"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "politiet-politiloggen",
+"method": "GET",
+"path": "/messages/{id}",
+"summary": "Retrieves a specific message by its ID.",
+"description": null,
+"tags": [
+"Message"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "politiet-politiloggen",
+"method": "GET",
+"path": "/messages/{id}/image",
+"summary": "Retrieves an image by message ID.",
+"description": null,
+"tags": [
+"Message"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "politiet-politiloggen",
+"method": "GET",
+"path": "/messages/export",
+"summary": "Exports all messages as a .csv file. Generated once a day.",
+"description": null,
+"tags": [
+"Message"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "politiet-politiloggen",
+"method": "GET",
+"path": "/messagethreads",
+"summary": "Retrieves a collection of message threads filtered by various criteria.",
+"description": "This endpoint supports filtering.",
+"tags": [
+"MessageThread"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "politiet-politiloggen",
+"method": "GET",
+"path": "/messagethreads/{id}",
+"summary": "Retrieves a specific message thread by its ID.",
+"description": "This endpoint fetches a single message thread that matches the specified ID.",
+"tags": [
+"MessageThread"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
 "api_id": "sikt-nva",
 "method": "GET",
 "path": "/approval/{approvalId}",
@@ -6106,6 +9680,66 @@
 "deprecated": false
 },
 {
+"api_id": "vegvesen-ferjer",
+"method": "GET",
+"path": "/quays",
+"summary": "Returns list of all ferry quays from NVDB (vegobjekttype = 64).",
+"description": "Returns static information from NVDB for each quay. **In order to get traffic messages and measurement sites for the quay please use the details endpoint.**",
+"tags": [
+"Ferry quays API (v1)"
+],
+"operation_id": "getQuays",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-ferjer",
+"method": "GET",
+"path": "/quays/{quayIds}",
+"summary": "Returns details for the specified quay id(s).",
+"description": "Returns static information from NVDB for each quay in addition to related traffic messages and measurement sites. The following rules are used to match related traffic messages and measurement sites: * Traffic messages from within 400 meter",
+"tags": [
+"Ferry quays API (v1)"
+],
+"operation_id": "getQuaysFromIds",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-ferjer",
+"method": "GET",
+"path": "/departures",
+"summary": "Get ferry route and departures for the specified 'to' and 'from' stop-places.",
+"description": "Returns a list of departures according to time-table. Each departure consist of one or more Leg to get from the specified 'from' stop-place to the specified 'to' stop-place. For departures in the near future departure and arrival time can b",
+"tags": [
+"Ferry departures API (v1)"
+],
+"operation_id": "getDepartures",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-ferjer",
+"method": "GET",
+"path": "/connections",
+"summary": "Get ferry connections",
+"description": "Returns a list of ferry connections.",
+"tags": [
+"Ferry connections API (v1)"
+],
+"operation_id": "getFerryConnections",
+"deprecated": true
+},
+{
+"api_id": "vegvesen-ferjer",
+"method": "GET",
+"path": "/connections/{ferryConnectionIds}",
+"summary": "Get specific ferry connections with full geometry for supplied NVDB ids.",
+"description": "Returns ferry connections for the supplied IDs.",
+"tags": [
+"Ferry connections API (v1)"
+],
+"operation_id": "getFerryConnectionsFromIds",
+"deprecated": true
+},
+{
 "api_id": "vegvesen-parkeringsregisteret",
 "method": "GET",
 "path": "/parkeringstilbyder",
@@ -6200,6 +9834,272 @@
 ],
 "operation_id": null,
 "deprecated": false
+},
+{
+"api_id": "vegvesen-rasteplasser-og-hoydebegrensninger",
+"method": "GET",
+"path": "/rest-areas/regular",
+"summary": "Get regular rest areas.",
+"description": "Returns a list of regular rest areas.",
+"tags": [
+"NVDB rest areas API (v1)"
+],
+"operation_id": "getRegularRestAreas",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-rasteplasser-og-hoydebegrensninger",
+"method": "GET",
+"path": "/rest-areas/regular/{restAreaIds}",
+"summary": "Get specific regular rest areas for supplied NVDB ids.",
+"description": "Returns a list of matching regular rest areas.",
+"tags": [
+"NVDB rest areas API (v1)"
+],
+"operation_id": "getRegularRestAreasFromIds",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-rasteplasser-og-hoydebegrensninger",
+"method": "GET",
+"path": "/rest-areas/overnight",
+"summary": "Get overnight rest areas.",
+"description": "Returns a list of overnight rest areas.",
+"tags": [
+"NVDB rest areas API (v1)"
+],
+"operation_id": "getOvernightRestAreas",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-rasteplasser-og-hoydebegrensninger",
+"method": "GET",
+"path": "/rest-areas/overnight/{restAreaIds}",
+"summary": "Get specific overnight rest areas for supplied NVDB ids.",
+"description": "Returns a list of matching overnight rest areas.",
+"tags": [
+"NVDB rest areas API (v1)"
+],
+"operation_id": "getOvernightRestAreasFromIds",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-rasteplasser-og-hoydebegrensninger",
+"method": "GET",
+"path": "/height-restrictions",
+"summary": "Get height restrictions.",
+"description": "Returns a list of height restrictions.",
+"tags": [
+"NVDB height restrictions API (v1)"
+],
+"operation_id": "getHeightRestrictions",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-rasteplasser-og-hoydebegrensninger",
+"method": "GET",
+"path": "/height-restrictions/{heightRestrictionIds}",
+"summary": "Get specific height restrictions with full geometry for supplied NVDB ids.",
+"description": "Returns a list of matching height restrictions.",
+"tags": [
+"NVDB height restrictions API (v1)"
+],
+"operation_id": "getHeightRestrictionsFromIds",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-rasteplasser-og-hoydebegrensninger",
+"method": "GET",
+"path": "/area-information/municipalities",
+"summary": "Get municipalities.",
+"description": "Returns a list of municipalities.",
+"tags": [
+"Area information (v1)"
+],
+"operation_id": "getMunicipalities",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-rasteplasser-og-hoydebegrensninger",
+"method": "GET",
+"path": "/area-information/counties",
+"summary": "Get counties.",
+"description": "Returns a list of counties.",
+"tags": [
+"Area information (v1)"
+],
+"operation_id": "getCounties",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-sok",
+"method": "GET",
+"path": "/search",
+"summary": "Perform a search",
+"description": "Returns a list of search results.",
+"tags": [
+"Search service endpoint (v1)"
+],
+"operation_id": "search",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-sok",
+"method": "GET",
+"path": "/search/relatedFerryQuays",
+"summary": "Performs a specialized search for related ferry quays in the `ferryQuay` category.",
+"description": "Returns a list of related ferry quays (ie. same ferry connection).",
+"tags": [
+"Search service endpoint (v1)"
+],
+"operation_id": "searchRelatedFerryQuays",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-sok",
+"method": "GET",
+"path": "/search/coordinates",
+"summary": "Retrieves address and municipality based on latitude and longitude coordinates.",
+"description": "Returns a json with an address and municipality.",
+"tags": [
+"Search service endpoint (v1)"
+],
+"operation_id": "searchByCoordinates",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-trafikkmeldinger",
+"method": "GET",
+"path": "/traffic-information/messages",
+"summary": "Get traffic messages.",
+"description": "Returns a list of traffic messages.",
+"tags": [
+"Traffic Messages endpoint (v1)",
+"Traffic Messages endpoint (v2)"
+],
+"operation_id": "getTrafficMessages",
+"deprecated": true
+},
+{
+"api_id": "vegvesen-trafikkmeldinger",
+"method": "POST",
+"path": "/traffic-information/messages",
+"summary": "Get traffic messages within a polygon.",
+"description": "Returns a list of traffic messages whose geometry intersects the supplied polygon. The polygon must be a valid GeoJSON Polygon in WGS84 (EPSG:4326).",
+"tags": [
+"Traffic Messages endpoint (v2)"
+],
+"operation_id": "getTrafficMessagesForPolygon",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-trafikkmeldinger",
+"method": "POST",
+"path": "/traffic-information/messages/by-ids",
+"summary": "Get specific traffic messages for supplied message ids.",
+"description": "Returns a list of traffic messages.",
+"tags": [
+"Traffic Messages endpoint (v2)"
+],
+"operation_id": "getTrafficMessagesFromIdsV2",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-trafikkmeldinger",
+"method": "GET",
+"path": "/traffic-information/messages/{messageIds}",
+"summary": "Get specific traffic messages for supplied message ids.",
+"description": "Returns a list of traffic messages.",
+"tags": [
+"Traffic Messages endpoint (v1)",
+"Traffic Messages endpoint (v2)"
+],
+"operation_id": "getTrafficMessagesFromIds",
+"deprecated": true
+},
+{
+"api_id": "vegvesen-vegvaer-og-kamera",
+"method": "POST",
+"path": "/weather-information/measurement-sites/near",
+"summary": "Get measurement sites within 1 km of a geometry.",
+"description": "Returns all measurement sites located within 1 km of the supplied GeoJSON geometry. Accepts any GeoJSON geometry type (Point, LineString, Polygon, etc.).",
+"tags": [
+"Weather information (v1)"
+],
+"operation_id": "getMeasurementSitesNear",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-vegvaer-og-kamera",
+"method": "GET",
+"path": "/weather-information/measurement-sites",
+"summary": "Get measurement sites.",
+"description": "Returns a list of measurement sites.",
+"tags": [
+"Weather information (v1)"
+],
+"operation_id": "getMeasurementSites",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-vegvaer-og-kamera",
+"method": "GET",
+"path": "/weather-information/measurement-sites/{measurementSiteIds}",
+"summary": "Get specific measurement sites for supplied measurement site ids.",
+"description": "Returns a list of measurement sites.",
+"tags": [
+"Weather information (v1)"
+],
+"operation_id": "getMeasurementSiteFromIds",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-vegvaer-og-kamera",
+"method": "GET",
+"path": "/roads",
+"summary": "Get roads",
+"description": "Returns a list of roads.",
+"tags": [
+"Road info (Prototype)"
+],
+"operation_id": "getRoads",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-vegvaer-og-kamera",
+"method": "GET",
+"path": "/roads/{roadNumbers}",
+"summary": "Get roads from road numbers",
+"description": "Returns a list of roads.",
+"tags": [
+"Road info (Prototype)"
+],
+"operation_id": "getRoadsFromRoadNumbers",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-vegvaer-og-kamera",
+"method": "GET",
+"path": "/roads/counties-and-municipalities",
+"summary": "Get all road information",
+"description": "Returns a list of roads with counties and municipalities.",
+"tags": [
+"Road info (Prototype)"
+],
+"operation_id": "getRoadsWithCountiesAndMunicipalities",
+"deprecated": false
+},
+{
+"api_id": "vegvesen-vegvaer-og-kamera",
+"method": "GET",
+"path": "/area-information/counties",
+"summary": "Get counties. **DEPRECATED**. Use similar endpoint in ft-nvdb-objects.",
+"description": "Returns a list of counties.",
+"tags": [
+"Area information (v1)"
+],
+"operation_id": "getCounties",
+"deprecated": true
 },
 {
 "api_id": "udir-barnehagefakta",

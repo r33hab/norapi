@@ -1,0 +1,54 @@
+updated: 2026-10-21
+provider:
+  name: Norges forskningsråd
+  orgnr: "970141669"
+  sector: stat
+apis:
+  - id: forskningsradet-apne-data
+    title: Forskningsrådets åpne data (CSV i GitHub)
+    title_en: Research Council of Norway open data (CSV on GitHub)
+    description: >-
+      Forskningsrådets datasett som CSV-filer med feltdefinisjoner i GitHub: alle søknader og innvilgede prosjekter
+      (rundt 54 MB, uten data fra det nye saksbehandlingssystemet Tibi) og kontrakter med norsk deltakelse i EUs
+      rammeprogram. Hentes rett fra raw.githubusercontent.com. Søknadsdatasettet er oppgitt med NLOD 2.0 i Felles
+      datakatalog.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [CSV, XML]
+    endpoints:
+      - https://raw.githubusercontent.com/Forskningsradet/open-data/main/datasets/soknader2/dataset.csv
+      - https://raw.githubusercontent.com/Forskningsradet/open-data/main/datasets/bevilgningereu/dataset.csv
+    docs_url: https://github.com/Forskningsradet/open-data
+    probe_url: https://raw.githubusercontent.com/Forskningsradet/open-data/main/datasets/soknader2/sample.csv
+    keywords: [forskning, forskningsprosjekter, søknader, bevilgninger, forskningsrådet, eu, horisont, research funding]
+    tags: [no-auth, data-files]
+    caveats:
+      - Bare søknadsdatasettet har lisens (NLOD 2.0) i Felles datakatalog; EU-datasettet har ingen.
+      - Søknadsdatasettet mangler data fra det nye saksbehandlingssystemet Tibi.
+    quick_start: |
+      curl "https://raw.githubusercontent.com/Forskningsradet/open-data/main/datasets/soknader2/sample.csv"
+
+  - id: forskningsradet-prosjektbanken
+    title: Prosjektbanken (JSON-tjenesten bak nettsiden)
+    title_en: Prosjektbanken research projects (site backend)
+    description: >-
+      JSON-tjenesten bak Prosjektbanken: søk i prosjekter Forskningsrådet har finansiert, prosjektdetaljer med
+      bevilgning, institusjon, fagområde og prosjektleder, statistikk og autoforslag. Ikke dokumentert, og noen stier
+      svarer med 500. Svarene inneholder navn på prosjektledere.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://prosjektbanken.forskningsradet.no/prosjektbanken/rest/
+    docs_url: https://prosjektbanken.forskningsradet.no/technical-description
+    probe_url: https://prosjektbanken.forskningsradet.no/prosjektbanken/rest/projectlist?query=samisk&size=1
+    keywords: [forskning, prosjekter, bevilgning, prosjektbanken, forskningsrådet, research projects]
+    tags: [no-auth, undocumented, personal-data]
+    caveats:
+      - Ikke dokumentert, og noen stier svarer med 500.
+      - Nettstedets robots.txt sperrer KI-crawlere; bruk de åpne CSV-filene (forskningsradet-apne-data) til større uttrekk.
+      - Svarene inneholder navn på prosjektledere.
+    quick_start: |
+      curl "https://prosjektbanken.forskningsradet.no/prosjektbanken/rest/projectlist?query=samisk&size=2"

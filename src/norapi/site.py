@@ -186,6 +186,8 @@ class Site:
         parts = [
             f'<span class="badge badge--{e(api["access"])}">{e(ACCESS_LABEL[api["access"]])}</span>'
         ]
+        if api.get("caveats"):
+            parts.append('<span class="badge badge--caveat">Forbehold</span>')
         if api["auth"] != "unknown":
             parts.append(f'<span class="badge badge--plain">{e(AUTH_LABEL[api["auth"]])}</span>')
         for fmt in (api.get("formats") or [])[:limit_formats]:
@@ -556,6 +558,12 @@ class Site:
         )
 
         sections: list[str] = []
+        if api.get("caveats"):
+            sections.append(
+                '<section class="caveats" aria-labelledby="caveats-h"><h2 id="caveats-h">Forbehold</h2><ul>'
+                + "".join(f"<li>{e(c)}</li>" for c in api["caveats"])
+                + "</ul></section>"
+            )
         description = (api.get("description") or "").strip()
         long_description = len(description) > 420
         lede_text = (
@@ -772,7 +780,9 @@ kjør <code>uv run norapi build</code> og <code>uv run norapi check --curated-on
 <p>Feltene <code>access</code> (open, restricted, non-public, unknown) og <code>auth</code> (none, api-key, maskinporten,
 id-porten, oauth2, unknown) er faste verdier. <code>quick_start</code> skal være et kall som svarer uten avtale,
 eller tydelig si hva som trengs. Finnes API-et allerede i Felles datakatalog, matcher vi på endepunkt eller
-<code>merge_with</code>, og dine felter vinner over katalogens.</p>
+<code>merge_with</code>, og dine felter vinner over katalogens. Har API-et forbehold, som udokumentert grensesnitt,
+begrensende vilkår eller innlogging for deler av det, skriv dem som korte punkter i <code>caveats</code>; de vises som
+«Forbehold» på API-siden, i llms.txt og i MCP-svarene.</p>
 <h2>Hva som hører hjemme her</h2>
 <ul>
 <li>API-er fra stat, kommune, fylke og statlige selskaper. Private tjenester tas med når de er åpne og brukes mye av norske utviklere.</li>
@@ -866,6 +876,8 @@ Bidrag via GitHub følger GitHubs regler, og navnet ditt vises der du selv har v
                 row["n"] = api["endpoints"][0]
             if api.get("quick_start"):
                 row["q"] = 1
+            if api.get("caveats"):
+                row["w"] = 1
             ops = len(self.ops_by_api.get(api["id"], []))
             if ops:
                 row["o"] = ops

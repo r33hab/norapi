@@ -1,0 +1,25 @@
+updated: 2026-10-21
+provider:
+  name: NILU
+  orgnr: "941705561"
+  sector: privat
+apis:
+  - id: nilu-api
+    title: NILU luftkvalitets-API
+    title_en: NILU air quality API
+    description: >-
+      NILUs API for luftkvalitetsmålinger fra målestasjonene i Norge, med siste målinger og historikk per stasjon og
+      komponent. Dokumentasjonen ligger fortsatt åpent på api.nilu.no, men datakallene krever nå innlogging.
+    category: natur-og-miljo
+    access: restricted
+    auth: unknown
+    formats: [JSON]
+    endpoints:
+      - https://api.nilu.no/aq/utd
+    docs_url: https://api.nilu.no/
+    keywords: [luftkvalitet, luftforurensning, svevestøv, no2, målestasjon, nilu, air quality]
+    tags: [agreement]
+    caveats:
+      - Datakallene krever brukernavn og passord (HTTP Basic) og svarer 401 uten.
+      - Oppslagstjenestene under /lookup er avviklet og svarer 410.
+      - Åpne luftmålinger uten innlogging finnes i Miljødirektoratets luftkvalitet-API (miljodir-luftkvalitet).

@@ -1,4 +1,4 @@
-updated: 2026-10-20
+updated: 2026-10-21
 provider:
   name: Statens vegvesen
   orgnr: "971032081"
@@ -101,3 +101,129 @@ apis:
     quick_start: |
       # ett parkeringsområde med gjeldende versjon
       curl "https://parkreg-open.atlas.vegvesen.no/ws/no/vegvesen/veg/parkeringsomraade/parkeringsregisteret/v1/parkeringsomraade/32771"
+
+  - id: vegvesen-ferjer
+    title: Ferje-API (ferjekaier, samband og avganger)
+    title_en: Ferry API (quays, connections and departures)
+    description: >-
+      Alle ferjekaier fra NVDB med stoppested-id fra Entur (NSR), ferjesambandene med geometri, og avganger mellom to
+      kaier med planlagt og faktisk tid, operatør og meldinger. En av tjenestene bak trafikksidene på vegvesen.no, uten
+      nøkkel, men kallet må ha headeren X-System-ID (et fritt valgt klientnavn med prefikset ext-) og Accept-typen
+      application/vnd.svv.v1+json. Ikke annonsert, så det kan endres uten forvarsel.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://ferry.atlas.vegvesen.no/
+    docs_url: https://ferry.atlas.vegvesen.no/swagger-ui/index.html
+    spec_url: https://ferry.atlas.vegvesen.no/v3/api-docs
+    keywords: [ferje, ferjekai, ferjesamband, avganger, rutetider, ferry]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke annonsert av Statens vegvesen, og kan endres uten forvarsel.
+      - "Krever headerne X-System-ID (ext-<klientnavn>) og Accept: application/vnd.svv.v1+json; uten dem svarer API-et 400 eller 406."
+    quick_start: |
+      curl -H "X-System-ID: ext-norapi-demo" -H "Accept: application/vnd.svv.v1+json; charset=utf-8" \
+        "https://ferry.atlas.vegvesen.no/quays?countyNumber=46"
+
+  - id: vegvesen-trafikkmeldinger
+    title: Trafikkmeldinger (REST)
+    title_en: Traffic messages API
+    description: >-
+      Trafikkmeldingene fra vegvesen.no/trafikk som JSON eller GeoJSON: vegarbeid, stengte veger og hendelser, med
+      vegnummer, fylke og tidsrom, og valgfri geometri og omkjøring. Filtrer på fylke, vegnummer, fjelloverganger og
+      tidsrom. Et åpent alternativ til DATEX II-strømmen, som krever brukerkonto. Krever headerne X-System-ID og
+      Accept: application/vnd.svv.v2+json, og spesifikasjonen sier at API-et er for intern bruk og kan endres når som helst.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://traffic-info.atlas.vegvesen.no/traffic-information/messages
+    docs_url: https://traffic-info.atlas.vegvesen.no/swagger-ui/index.html
+    spec_url: https://traffic-info.atlas.vegvesen.no/v3/api-docs
+    keywords: [trafikkmelding, vegarbeid, stengt veg, trafikk, fjellovergang, traffic information]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Spesifikasjonen sier «for intern bruk» og at endringer kan skje når som helst.
+      - "Krever headerne X-System-ID (ext-<klientnavn>) og Accept: application/vnd.svv.v2+json; uten dem svarer API-et 400 eller 406."
+    quick_start: |
+      curl -H "X-System-ID: ext-norapi-demo" -H "Accept: application/vnd.svv.v2+json;charset=utf-8" \
+        "https://traffic-info.atlas.vegvesen.no/traffic-information/messages?countyNumber=3"
+
+  - id: vegvesen-vegvaer-og-kamera
+    title: Vegvær og webkamera
+    title_en: Road weather stations and webcams
+    description: >-
+      Statens vegvesens vegværstasjoner (rundt 790 målepunkter) med luft- og vegbanetemperatur, nedbør, fuktighet og
+      vind, og id-ene til webkameraene ved hver stasjon. Kamerabildet hentes som JPEG fra
+      kamera.atlas.vegvesen.no/api/images/{id}. Filtrer på fylke eller vegnummer. Krever headerne X-System-ID og
+      Accept: application/vnd.svv.v1+json, og spesifikasjonen sier at API-et er for intern bruk og kan endres når som helst.
+    category: vaer-og-klima
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON, JPEG]
+    endpoints:
+      - https://road-weather-and-view.atlas.vegvesen.no/weather-information/measurement-sites
+      - https://kamera.atlas.vegvesen.no/api/images/
+    docs_url: https://road-weather-and-view.atlas.vegvesen.no/swagger-ui/index.html
+    spec_url: https://road-weather-and-view.atlas.vegvesen.no/v3/api-docs
+    keywords: [vegvær, værstasjon, vegbanetemperatur, glatte veger, webkamera, road weather, webcam]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Spesifikasjonen sier «for intern bruk» og at endringer kan skje når som helst.
+      - "Krever headerne X-System-ID (ext-<klientnavn>) og Accept: application/vnd.svv.v1+json; uten dem svarer API-et 400 eller 406."
+    quick_start: |
+      curl -H "X-System-ID: ext-norapi-demo" -H "Accept: application/vnd.svv.v1+json; charset=utf-8" \
+        "https://road-weather-and-view.atlas.vegvesen.no/weather-information/measurement-sites?countyNumber=3"
+
+  - id: vegvesen-rasteplasser-og-hoydebegrensninger
+    title: Rasteplasser og høydebegrensninger
+    title_en: Rest areas and height restrictions
+    description: >-
+      Ferdige uttrekk fra NVDB: vanlige rasteplasser, døgnhvileplasser for tungtransport med fasiliteter, og over 2300
+      høydebegrensninger (underganger og bruer med fri høyde), filtrerbart på fylke, vegnummer og største fri høyde.
+      Enklere enn å hente de samme objekttypene fra NVDB Les. Krever headerne X-System-ID og
+      Accept: application/vnd.svv.v1+json; ikke annonsert.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://ft-nvdb-objects.atlas.vegvesen.no/
+    docs_url: https://ft-nvdb-objects.atlas.vegvesen.no/swagger-ui/index.html
+    spec_url: https://ft-nvdb-objects.atlas.vegvesen.no/v3/api-docs
+    keywords: [rasteplass, døgnhvileplass, tungtransport, høydebegrensning, fri høyde, bru, undergang, rest area]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke annonsert av Statens vegvesen, og kan endres uten forvarsel.
+      - "Krever headerne X-System-ID (ext-<klientnavn>) og Accept: application/vnd.svv.v1+json; uten dem svarer API-et 400 eller 406."
+    quick_start: |
+      curl -H "X-System-ID: ext-norapi-demo" -H "Accept: application/vnd.svv.v1+json; charset=utf-8" \
+        "https://ft-nvdb-objects.atlas.vegvesen.no/rest-areas/overnight"
+
+  - id: vegvesen-sok
+    title: Søk i trafikkinformasjonen (steder og fjelloverganger)
+    title_en: Traffic search service (places and mountain passes)
+    description: >-
+      Søket på vegvesen.no/trafikk: fritekst over adresser, steder og fjelloverganger, ferjekaier i nærheten, og omvendt
+      oppslag fra koordinat til adresse og kommune. Overlapper Geonorges adressesøk; det unike er fjellovergangene.
+      Krever headerne X-System-ID og Accept: application/vnd.svv.v1+json, og spesifikasjonen sier at API-et er for
+      intern bruk.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://search.atlas.vegvesen.no/search
+    docs_url: https://search.atlas.vegvesen.no/swagger-ui/index.html
+    spec_url: https://search.atlas.vegvesen.no/v3/api-docs
+    keywords: [søk, fjellovergang, adresse, sted, omvendt geokoding, mountain pass]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Spesifikasjonen sier «for intern bruk» og at endringer kan skje når som helst.
+      - "Krever headerne X-System-ID (ext-<klientnavn>) og Accept: application/vnd.svv.v1+json; uten dem svarer API-et 400 eller 406."
+    quick_start: |
+      curl -H "X-System-ID: ext-norapi-demo" -H "Accept: application/vnd.svv.v1+json;charset=utf-8" \
+        "https://search.atlas.vegvesen.no/search?text=Haukeli&size=2"

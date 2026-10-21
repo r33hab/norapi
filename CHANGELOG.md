@@ -3,6 +3,14 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com), newest first, grouped by date.
 
+## 2026-10-21
+### Added
+- Forty more curated APIs, each probed live and with a quick start that was run, many of them open but unadvertised: Kystverket's Kystdatahuset and navigation warnings, Politiloggen, Vegvesen's ferry, traffic message, road weather and webcam, rest area and search services, Kartverket port data (OGC API), Bergen, Trondheim and Lillestrøm city bikes, Bring's postal code file, Store norske leksikon, Lokalhistoriewiki, DataverseNO, Divvun Sámi language tools, NRK's programme catalogue, BIBSYS SRU, NBIM fund holdings and live value, Brreg's municipal reporting and form registers, Oslo's statistics bank, the Stavanger region CKAN portal, Forskningsrådet open data and Prosjektbanken, Hjorteviltregisteret road kill, NIBIO agrometeorology, Sokkeldirektoratet FactMaps DataService, NVE hydro and wind power plant databases, electricity certificates and ChartServer, UiB seismology (FDSN), Forbrukerrådet's electricity price reference data, Helsenorge waiting times, the helsedata.no catalogue, Yr's bathing temperatures and Sildelaget vessel quotas.
+- Eleven more that answer but come with strings attached, each with its caveats: IMDi statistics, Rovbase code lists, Getaround, Dott and Zeus GBFS feeds, Nkom's telecom statistics files, NILU (login), MET's Havvarsel-Frost (expired certificate), NAAF's pollen forecast (token), DFØ's data catalogue API and Hjorteviltregisteret's hunting data API (login).
+- `caveats` on curated entries: short, plain restrictions to respect before relying on an API (restrictive terms, undocumented or unstable interface, test server, login for parts of it, personal data, expired certificate). They show as «Forbehold» in a warning box on the API page and as a badge in every listing and in search, in `llms.txt` after the summary, in `registry.json`, and in MCP results, whose instructions tell the assistant to pass them on. 45 entries carry them. Undocumented APIs also keep the `undocumented` tag.
+### Changed
+- A caveat that YAML would read as a mapping (an unquoted `Accept: x`) now fails the build with the entry id instead of crashing while writing `llms.txt`.
+
 ## 2026-10-20
 ### Added
 - Ten more curated APIs, each probed live and with a quick start that was run: the utdanning.no API (HK-dir), Arbeidstilsynet's register of approved occupational health services, Vegvesen's parking register, Udir Barnehagefakta, Udir's Grep SPARQL endpoint, Artsdatabanken Nortaxa, Mattilsynet's meat inspection code lists, Luftfartstilsynet's aircraft register, the Geonorge register API (SOSI code lists) and Geonorge coordinate transformation, which curates an entry that was only harvested before.

@@ -1,4 +1,4 @@
-updated: 2026-10-19
+updated: 2026-10-21
 provider:
   name: Direktoratet for forvaltning og økonomistyring (DFØ)
   orgnr: "986252932"
@@ -20,3 +20,25 @@ apis:
     docs_url: https://dof-notices-prod-api.developer.azure-api.net/
     keywords: [doffin, anskaffelse, anbud, konkurranse, kunngjøring, innkjøp, tender, procurement]
     tags: [registration]
+
+  - id: dfo-datakatalog-api
+    title: DFØs datakatalog-API
+    title_en: DFØ data catalogue API
+    description: >-
+      Tjenesten bak data.dfo.no: begrepene som beskriver DFØs åpne datasett (utslippsintensiteter og klimaintensitet,
+      Doffin-kunngjøringer, innkjøpskategorier i staten), med lenker til CSV-filene og lisens.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON, CSV]
+    endpoints:
+      - https://api.data.dfo.no/terms
+    docs_url: https://data.dfo.no/
+    license: CC BY 4.0
+    keywords: [dfø, datakatalog, innkjøp, klimaintensitet, utslipp, doffin, procurement]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert; åtte begreper med lenker til filer, og de kan endres uten forvarsel.
+      - Noen fil-lenker er døde (Doffin-filen for 2022 svarer 404).
+    quick_start: |
+      curl "https://api.data.dfo.no/terms"

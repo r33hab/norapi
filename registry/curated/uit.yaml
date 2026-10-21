@@ -1,0 +1,47 @@
+updated: 2026-10-21
+provider:
+  name: UiT Norges arktiske universitet
+  orgnr: "970422528"
+  sector: stat
+apis:
+  - id: uit-dataverseno
+    title: DataverseNO API (forskningsdata)
+    title_en: DataverseNO research data repository API
+    description: >-
+      DataverseNO er det nasjonale arkivet for åpne forskningsdata, som UiT driver for et konsortium av norske
+      institusjoner. Dataverse-API-et gir søk, metadata og fillister for publiserte datasett uten nøkkel; lisensen
+      settes per datasett. Vanlige Dataverse-klienter virker.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://dataverse.no/api/
+    docs_url: https://guides.dataverse.org/en/latest/api/
+    probe_url: https://dataverse.no/api/info/version
+    keywords: [forskningsdata, datasett, dataverse, åpen forskning, fair, research data]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://dataverse.no/api/search?q=norway&per_page=1"
+
+  - id: uit-divvun
+    title: Divvun API (samisk stave- og grammatikkontroll, talesyntese)
+    title_en: Divvun API (Sámi spelling, grammar and speech)
+    description: >-
+      Stavekontroll for nordsamisk, sørsamisk, lulesamisk, enaresamisk, skoltesamisk, færøysk og grønlandsk,
+      grammatikkontroll for de fleste av dem, og talesyntese, fra Divvun og Giellatekno ved UiT. Kallene er POST med
+      teksten som JSON og svarer uten nøkkel.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON, WAV, MP3]
+    endpoints:
+      - https://api.giellalt.org/
+    docs_url: https://api.giellalt.org/
+    keywords: [samisk, sámi, stavekontroll, grammatikk, talesyntese, divvun, giellatekno, språkteknologi]
+    tags: [no-auth]
+    caveats:
+      - Alle kall er POST; helsesjekken /health som dokumentasjonen nevner, svarer 404.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl -X POST "https://api.giellalt.org/speller/se" -H "Content-Type: application/json" -d '{"text":"sami"}'

@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-21
 provider:
   name: Statnett
   orgnr: "962986633"
@@ -19,5 +19,7 @@ apis:
     docs_url: https://driftsdata.statnett.no/
     keywords: [kraft, strøm, produksjon, forbruk, frekvens, kraftbalanse, nordpool, sanntid, power grid]
     tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av Statnett, og kan endres uten forvarsel.
     quick_start: |
       curl "https://driftsdata.statnett.no/restapi/ProductionConsumption/GetLatestDetailedOverview"

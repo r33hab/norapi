@@ -1,0 +1,24 @@
+updated: 2026-10-21
+provider:
+  name: Zeus
+  sector: privat
+apis:
+  - id: zeus-gbfs
+    title: Zeus elsparkesykler i Oslo (GBFS)
+    title_en: Zeus e-scooters in Oslo (GBFS)
+    description: >-
+      Zeus sine elsparkesykler i Oslo etter GBFS-standarden (versjon 2.2), med systeminformasjon og tilgjengelige kjøretøy.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GBFS]
+    endpoints:
+      - https://zeus.city/api/v1/mds/gbfs/oslo/gbfs.json
+    docs_url: https://github.com/MobilityData/gbfs/blob/master/systems.csv
+    keywords: [elsparkesykkel, sparkesykkel, mikromobilitet, gbfs, zeus, oslo, e-scooter]
+    tags: [no-auth, private-provider]
+    caveats:
+      - Kommersiell operatør; ingen lisens oppgitt for feeden.
+      - Ikke en del av Entur Mobility.
+    quick_start: |
+      curl "https://zeus.city/api/v1/mds/gbfs/oslo/gbfs.json"

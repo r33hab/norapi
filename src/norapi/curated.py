@@ -15,7 +15,7 @@ import yaml
 
 from norapi.model import ApiEntry, Provider, make_summary
 
-_LIST_FIELDS = ("formats", "endpoints", "keywords", "tags")
+_LIST_FIELDS = ("formats", "endpoints", "keywords", "tags", "caveats")
 
 
 def load_curated(curated_dir: Path) -> list[ApiEntry]:

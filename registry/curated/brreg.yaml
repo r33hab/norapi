@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-21
 provider:
   name: Brønnøysundregistrene
   orgnr: "974760673"
@@ -62,3 +62,44 @@ apis:
     tags: [no-auth]
     quick_start: |
       curl "https://data.brreg.no/frivillighetsregisteret/api/frivillige-organisasjoner?size=3"
+
+  - id: brreg-kommunalt-rapporteringsregister
+    title: Kommunalt rapporteringsregister API
+    title_en: Register of municipal reporting obligations API
+    description: >-
+      Rapporteringspliktene kommuner, fylkeskommuner og deres foretak har overfor staten, som KOSTRA: hjemmel i lov og
+      forskrift, formål, rapporteringsområde (barnehage, barnevern, vann og andre), medium og mottaker. Filtrer på
+      rapporteringsområde, organisasjonsform og organisasjonsnummer. Åpent, uten nøkkel.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://data.brreg.no/kommunalt-rapporteringsregister/api/
+    docs_url: https://data.brreg.no/kommunalt-rapporteringsregister/api/docs/index.html
+    probe_url: https://data.brreg.no/kommunalt-rapporteringsregister/api/rapporteringsomraader
+    license: NLOD 2.0
+    keywords: [kommune, rapportering, rapporteringsplikt, kostra, hjemmel, fylkeskommune, reporting obligations]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      curl "https://data.brreg.no/kommunalt-rapporteringsregister/api/rapporteringsplikter?rapporteringsomraader=BARNEHAGE"
+
+  - id: brreg-oppgaveregisteret
+    title: Oppgaveregisteret API (skjema til det offentlige)
+    title_en: Register of reporting obligations for businesses API
+    description: >-
+      Skjemaene og rapportene virksomheter må sende til offentlige etater, over 900 i alt, med skjemaeier, formål,
+      vedleggskrav og hvilke organisasjonsformer og næringer de gjelder, pluss kodelister for skjemaeiere og
+      næringskoder. Kallene krever Accept: application/json; hele registeret finnes også som én fil (skjema/alle.json).
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://data.brreg.no/oppgaveregisteret/api/
+    docs_url: https://data.brreg.no/oppgaveregisteret/api/docs/index.html
+    probe_url: https://data.brreg.no/oppgaveregisteret/api/skjema/alle.json
+    keywords: [skjema, rapportering, oppgaveplikt, oppgavebyrde, offentlige skjema, reporting burden]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      curl -H "Accept: application/json" "https://data.brreg.no/oppgaveregisteret/api/skjema?start=0&antall=2"

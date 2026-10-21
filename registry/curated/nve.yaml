@@ -1,4 +1,4 @@
-updated: 2026-10-19
+updated: 2026-10-21
 provider:
   name: Norges vassdrags- og energidirektorat
   orgnr: "970205039"
@@ -120,3 +120,86 @@ apis:
     tags: [no-auth]
     quick_start: |
       curl "https://biapi.nve.no/magasinstatistikk/api/Magasinstatistikk/HentOffentligDataSisteUke"
+
+  - id: nve-vannkraftdatabase
+    title: Vannkraftdatabasen API
+    title_en: Hydropower plant database API
+    description: >-
+      Alle vannkraftverk i Norge, i drift eller alle, med hovedeier og organisasjonsnummer, fylke og kommune, dato for
+      første utnyttelse, konsesjoner og ytelse. Hele listen over verk i drift er rundt 2 MB JSON. Dokumentert på
+      api.nve.no, uten nøkkel.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.nve.no/web/Powerplant/GetHydroPowerPlantsInOperation
+      - https://api.nve.no/web/Powerplant/GetHydroPowerPlants
+    docs_url: https://api.nve.no/doc/vannkraftdatabase/
+    license: NLOD
+    keywords: [vannkraft, kraftverk, energi, konsesjon, kraftproduksjon, hydropower]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      curl "https://api.nve.no/web/Powerplant/GetHydroPowerPlantsInOperation"
+
+  - id: nve-vindkraftdatabase
+    title: Vindkraftdatabasen API
+    title_en: Wind power plant database API
+    description: >-
+      Vindkraftverk i drift med eiere, organisasjonsnummer og eierandel, prisområde, turbiner med fabrikat, ytelse og
+      rotordata, idriftsettelse og forventet årsproduksjon. Dokumentert på api.nve.no, uten nøkkel.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.nve.no/web/WindPowerplant/GetWindPowerPlantsInOperation
+    docs_url: https://api.nve.no/doc/vindkraftdatabase/
+    license: NLOD
+    keywords: [vindkraft, vindturbin, kraftverk, energi, eierskap, wind power]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      curl "https://api.nve.no/web/WindPowerplant/GetWindPowerPlantsInOperation"
+
+  - id: nve-elsertifikater
+    title: Elsertifikater API
+    title_en: Electricity certificates API
+    description: >-
+      Søknader og godkjenninger i den norsk-svenske elsertifikatordningen per anlegg: status, type (vann, vind og
+      andre), effekt, forventet sertifikatberettiget produksjon, start- og sluttdato, eier med organisasjonsnummer,
+      fylke og kommune. Ordningen er stengt for nye anlegg, så dataene er mest historiske.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.nve.no/web/ElCert/GetApplications
+    docs_url: https://api.nve.no/doc/elsertifikater/
+    license: NLOD
+    keywords: [elsertifikat, fornybar, kraftverk, energi, sertifikatordningen, electricity certificates]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://api.nve.no/web/ElCert/GetApplications"
+
+  - id: nve-chartserver
+    title: NVE ChartServer (hydrologiske tidsserier)
+    title_en: NVE ChartServer (hydrological time series)
+    description: >-
+      Tidsserier for vannføring, nedbør, snødybde, grunnvann og annet som JSON, angitt med serie-id i en
+      spørrestreng, blant annet de historiske vannføringsseriene for uregulerte stasjoner som NVE-dokumentasjonen peker
+      til. Spørrespråket er bare beskrevet gjennom eksempler på startsiden og i et Python-eksempel fra NVE. Uten nøkkel.
+    category: vaer-og-klima
+    access: open
+    auth: none
+    formats: [JSON, HTML]
+    endpoints:
+      - https://chartserver.nve.no/ShowData.aspx
+    docs_url: https://api.nve.no/doc/historiske-vannfoeringsdata/
+    probe_url: https://chartserver.nve.no/ShowData.aspx?req=getchart&ver=1.0&vfmt=json&time=20140101T0000;20140105T0000&chd=ds=htsr,da=29,id=212.10.0.1001.1
+    keywords: [vannføring, hydrologi, tidsserier, nedbør, snødybde, grunnvann, streamflow]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Spørrespråket er bare beskrevet gjennom eksempler.
+      - NVE oppgir NLOD for data på api.nve.no, men sier ikke uttrykkelig at ChartServer er omfattet.
+    quick_start: |
+      curl "https://chartserver.nve.no/ShowData.aspx?req=getchart&ver=1.0&vfmt=json&time=20140101T0000;20140105T0000&chd=ds=htsr,da=29,id=212.10.0.1001.1"

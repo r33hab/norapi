@@ -1,0 +1,31 @@
+updated: 2026-10-21
+provider:
+  name: Store norske leksikon
+  orgnr: "914337658"
+  sector: privat
+apis:
+  - id: snl-api
+    title: Store norske leksikon API
+    title_en: Store norske leksikon (Norwegian encyclopedia) API
+    description: >-
+      Søk og hele artikler fra Store norske leksikon som JSON: /api/v1/search for søk, og .json etter en artikkeladresse
+      for teksten med forfattere, bilder og lisens. Samme API svarer på Norsk biografisk leksikon (nbl.snl.no), Store
+      medisinske leksikon (sml.snl.no) og Norsk kunstnerleksikon (nkl.snl.no). Ikke dokumentert. Lisensen står per
+      artikkel i feltet license_name, og SNL tillater ikke bruk av innholdet til å trene språkmodeller uten lisens.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://snl.no/api/v1/search
+    docs_url: https://snl.no/
+    probe_url: https://snl.no/api/v1/search?query=fjord&limit=1
+    keywords: [leksikon, oppslagsverk, snl, biografi, medisin, kunstnere, artikler, encyclopedia]
+    tags: [no-auth, undocumented, private-provider]
+    caveats:
+      - Ikke dokumentert av SNL, og kan endres uten forvarsel.
+      - Lisensen varierer per artikkel (feltet license_name); sjekk den før gjenbruk.
+      - SNL tillater ikke bruk av innholdet til å trene språkmodeller uten lisens.
+    quick_start: |
+      curl "https://snl.no/api/v1/search?query=fjord&limit=2"
+      curl "https://snl.no/fjord.json"

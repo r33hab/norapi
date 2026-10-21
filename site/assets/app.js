@@ -78,6 +78,7 @@
 
   function badges(a) {
     const b = [`<span class="badge badge--${esc(a.a)}">${esc(ACCESS[a.a] || a.a)}</span>`];
+    if (a.w) b.push(`<span class="badge badge--caveat">Forbehold</span>`);
     if (AUTH[a.u]) b.push(`<span class="badge badge--plain">${esc(AUTH[a.u])}</span>`);
     (a.f || []).slice(0, 3).forEach((f) => b.push(`<span class="badge badge--plain">${esc(f)}</span>`));
     if (a.o) b.push(`<span class="badge badge--plain">${a.o} endepunkt${a.o === 1 ? "" : "er"}</span>`);

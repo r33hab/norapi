@@ -82,6 +82,20 @@ def test_api_page_has_seo_essentials_and_operations(tmp_path, fixtures, snapshot
     assert "Kopier" in page, "quick start comes with a copy button"
     assert "feil-i-oppforing.yml" in page
     assert 'href="https://example.invalid/norapi/leverandor/kartverket/"' in page
+    assert "Forbehold" not in page, "no caveats, no warning box"
+
+
+def test_caveats_show_on_the_api_page_and_in_search(tmp_path, fixtures, snapshot):
+    registry_dir = _registry_dir(tmp_path, fixtures, snapshot)
+    out = tmp_path / "_site"
+    generate_site(registry_dir, out, base_url="https://example.invalid/norapi/")
+    page = (out / "api" / "test-standalone" / "index.html").read_text()
+
+    assert '<section class="caveats"' in page
+    assert "<li>Testforbehold, vises som Forbehold.</li>" in page
+    assert '<span class="badge badge--caveat">Forbehold</span>' in page
+    rows = {r["id"]: r for r in json.loads((out / "search-index.json").read_text())}
+    assert rows["test-standalone"]["w"] == 1 and "w" not in rows["geonorge-kommuneinfo"]
 
 
 def test_index_has_one_h1_search_and_real_counts(tmp_path, fixtures, snapshot):

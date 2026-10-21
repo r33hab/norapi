@@ -1,0 +1,50 @@
+updated: 2026-10-21
+provider:
+  name: Landbruksdirektoratet
+  orgnr: "981544315"
+  sector: stat
+apis:
+  - id: hjorteviltregisteret-fallvilt
+    title: Hjorteviltregisteret Fallvilt API
+    title_en: Deer casualty (road kill) register API
+    description: >-
+      Fallvilt fra Hjorteviltregisteret: elg, hjort, rådyr og villrein som er drept av trafikk eller andre årsaker, med
+      art, kommune, årsak, dato og posisjon der den er registrert. Over 355 000 registreringer, filtrerbart på fylke,
+      kommune, årsak og tidsrom, med sidedeling og antall i responsheaderne. Naturdata driver registeret for
+      Landbruksdirektoratet; jaktdata-API-ene i samme dokumentasjon krever innlogging.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.hjorteviltregisteret.no/api/v0/fallvilt
+    docs_url: https://www.hjorteviltregisteret.no/swagger/index.html
+    spec_url: https://www.hjorteviltregisteret.no/swagger/FallviltAPI/swagger.json
+    probe_url: https://www.hjorteviltregisteret.no/api/v0/fallvilt?pageSize=1
+    keywords: [fallvilt, viltpåkjørsel, elg, hjort, rådyr, villrein, hjortevilt, road kill]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt i spesifikasjonen.
+    quick_start: |
+      curl "https://www.hjorteviltregisteret.no/api/v0/fallvilt?pageSize=5"
+
+  - id: hjorteviltregisteret-jaktdata
+    title: Hjorteviltregisteret Jaktdata API
+    title_en: Deer hunting data API
+    description: >-
+      Lagring og uttrekk av jaktdata (sette og felte dyr) i Hjorteviltregisteret for vald og jaktfelt, til fagsystemer og
+      jaktapper. Spesifikasjonen er åpen; selve kallene krever innlogging.
+    category: natur-og-miljo
+    access: restricted
+    auth: unknown
+    formats: [JSON]
+    endpoints:
+      - https://www.hjorteviltregisteret.no/api/v1/
+    docs_url: https://www.hjorteviltregisteret.no/swagger/index.html
+    spec_url: https://www.hjorteviltregisteret.no/swagger/JaktdataAPIv1/swagger.json
+    probe_url: https://www.hjorteviltregisteret.no/api/v1/up
+    keywords: [jakt, jaktdata, elg, hjort, rådyr, villrein, vald, sett og skutt, hunting]
+    tags: [agreement]
+    caveats:
+      - Krever API-bruker-rollen i registeret eller innlogging som jeger; kallene bruker en JWT fra innloggingsendepunktet.
+      - Jaktdata er knyttet til jegere og vald og kan inneholde personopplysninger.

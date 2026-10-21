@@ -28,3 +28,5 @@ apis:
     endpoints:
       - https://ws.geonorge.no/stedsnavn/v1/
     docs_url: https://ws.geonorge.no/stedsnavn/v1/
+    caveats:
+      - Testforbehold, vises som Forbehold.

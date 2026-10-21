@@ -1,0 +1,29 @@
+updated: 2026-10-21
+provider:
+  name: Universitetet i Bergen
+  orgnr: "874789542"
+  sector: stat
+apis:
+  - id: uib-eida-fdsn
+    title: Norsk nasjonalt seismisk nettverk (FDSN-tjenester)
+    title_en: Norwegian National Seismic Network FDSN web services
+    description: >-
+      Standard FDSN-webtjenester fra UiB for metadata om seismiske stasjoner og bølgeformer (miniSEED), for det faste
+      nettverket NS og en rekke midlertidige nettverk. ObsPy og andre FDSN-klienter virker uten endringer. Tjenesten for
+      jordskjelvkataloger (event) finnes ikke her.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [XML, text, miniSEED]
+    endpoints:
+      - https://eida.geo.uib.no/fdsnws/station/1/
+      - https://eida.geo.uib.no/fdsnws/dataselect/1/
+    docs_url: https://eida.geo.uib.no/fdsnws/station/1/application.wadl
+    probe_url: https://eida.geo.uib.no/fdsnws/station/1/version
+    keywords: [seismikk, jordskjelv, seismograf, fdsn, miniseed, nnsn, eida, seismology]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt på tjenesten.
+      - Jordskjelvkatalogen (FDSN event) finnes ikke her.
+    quick_start: |
+      curl "https://eida.geo.uib.no/fdsnws/station/1/query?network=NS&level=station&format=text"

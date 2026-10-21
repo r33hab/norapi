@@ -19,6 +19,8 @@ INSTRUCTIONS = (
     "'kjøretøy', 'company register', 'weather forecast'). Filter access='open' and "
     "auth='none' when the caller wants something usable without an agreement. Every result "
     "carries docs_url, spec_url and endpoints; curated results also carry quick_start. "
+    "When a result has caveats (restrictive terms, an undocumented or unstable interface, a "
+    "required login), pass them on to the user before suggesting the API. "
     "search_operations finds a concrete endpoint (method + path) inside the OpenAPI documents "
     "that were indexed. The registry is metadata: always read the API's own documentation "
     "and terms before use."
@@ -122,6 +124,7 @@ def _compact(api: dict[str, Any]) -> dict[str, Any]:
         "category",
         "quick_start",
         "license",
+        "caveats",
     )
     compact = {k: api.get(k) for k in keys if api.get(k) not in (None, [], "")}
     compact["provider"] = api["provider"]["name"]

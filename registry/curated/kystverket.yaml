@@ -1,0 +1,58 @@
+updated: 2026-10-21
+provider:
+  name: Kystverket
+  orgnr: "874783242"
+  sector: stat
+apis:
+  - id: kystverket-kystdatahuset
+    title: Kystdatahuset Open API (AIS, havner og sjøtrafikk)
+    title_en: Kystdatahuset Open API (AIS, ports and maritime traffic)
+    description: >-
+      API-et bak kystdatahuset.no: AIS i sanntid (antall skip per skipstype, skip som GeoJSON), havner og lokasjoner,
+      ankringsområder og ankringstid, losing, bunkring, landstrøm, hendelser og kodelister. Spesifikasjonen har over
+      150 operasjoner, og mange spørringer sendes som POST med JSON-kropp. Sporing, sanntidsspor og deler av skips- og
+      skipstypedataene krever innlogging, men de åpne GET-kallene svarer uten nøkkel. Vilkår på
+      kystdatahuset.no/artikkel/api-tilgang.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://kystdatahuset.kystverket.no/ws/api/
+    docs_url: https://kystdatahuset.kystverket.no/ws/swagger/index.html
+    spec_url: https://kystdatahuset.kystverket.no/ws/swagger/v1/swagger.json
+    probe_url: https://kystdatahuset.kystverket.no/ws/api/ais/realtime/vessels-by-type
+    license: NLOD 1.0
+    keywords: [ais, skip, fartøy, havn, ankring, losing, sjøtrafikk, landstrøm, kystverket, maritime traffic]
+    tags: [no-auth]
+    caveats:
+      - Sporing, sanntidsspor og deler av skips- og skipstypedataene krever innlogging (JWT).
+      - Mange spørringer er POST med JSON-kropp.
+    quick_start: |
+      # antall skip i AIS akkurat nå, per skipstype
+      curl "https://kystdatahuset.kystverket.no/ws/api/ais/realtime/vessels-by-type"
+
+  - id: kystverket-navigasjonsvarsler
+    title: Navigasjonsvarsler (Kystverkets Data API)
+    title_en: Navigational warnings (NAVCO and NAVAREA XIX)
+    description: >-
+      Aktive navigasjonsvarsler for norskekysten (kystvarsler, NAVCO) og for NAVAREA XIX som JSON, med varselnummer,
+      tekst på norsk og engelsk, posisjon og sjøkart. Et lite API i versjon 0.1.0, uten nøkkel. Adressen må slutte med
+      skråstrek; uten den svarer serveren med en omdirigering til http.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.kystverket.no/data/navigationwarnings/coastal/
+      - https://api.kystverket.no/data/navigationwarnings/navareaxix/
+    docs_url: https://api.kystverket.no/docs
+    spec_url: https://api.kystverket.no/openapi.json
+    keywords: [navigasjonsvarsel, kystvarsel, navco, navarea, navtex, sjøsikkerhet, navigational warnings]
+    tags: [no-auth]
+    caveats:
+      - Ikke en erstatning for de ordinære navigasjonsvarslene; sjøfarende må fortsatt følge NAVTEX, SafetyCast og SafetyNET.
+      - Posisjoner som mangler i en melding, hentes ut med en KI-tjeneste og kan være feil.
+      - Tidlig versjon (0.1.0) uten oppgitt lisens.
+    quick_start: |
+      curl "https://api.kystverket.no/data/navigationwarnings/coastal/"

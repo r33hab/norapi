@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-21
 provider:
   name: Meteorologisk institutt
   orgnr: "971274042"
@@ -57,3 +57,47 @@ apis:
     license: CC BY 4.0
     keywords: [observasjoner, klima, målestasjon, historisk vær, nedbør, temperatur, climate]
     tags: [registration]
+
+  - id: yr-api-v0
+    title: Yr.no sitt interne API (badetemperaturer, varsel, stedssøk)
+    title_en: Yr.no internal API (bathing temperatures, forecasts, place search)
+    description: >-
+      JSON-endepunktene yr.no selv bruker: badetemperaturer fra rundt 200 badeplasser, stedssøk, varsel for et sted, varsel
+      for neste time og sol- og månetider. Badetemperaturene finnes ikke i de dokumenterte API-ene på api.met.no. Ikke
+      dokumentert eller støttet, og vilkårene for api.met.no gjelder ikke nødvendigvis her; bruk api.met.no for varsler.
+    category: vaer-og-klima
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.yr.no/api/v0/
+    docs_url: https://www.yr.no/
+    probe_url: https://www.yr.no/api/v0/regions/NO/watertemperatures
+    keywords: [yr, badetemperatur, badevann, vær, værvarsel, stedssøk, bathing water]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Yr.no sitt interne API, ikke dokumentert eller støttet, og kan endres uten forvarsel.
+      - yr.no sin robots.txt sperrer KI-crawlere; bruk api.met.no til varsler og følg METs vilkår.
+    quick_start: |
+      curl "https://www.yr.no/api/v0/regions/NO/watertemperatures"
+
+  - id: met-havvarsel-frost
+    title: Havvarsel-Frost (badevann og havobservasjoner)
+    title_en: Havvarsel-Frost (bathing water and ocean observations)
+    description: >-
+      METs Frost-tjeneste for havobservasjoner, blant annet badevannstemperaturer fra bøyer og badeplasser med posisjon og
+      kilde. API-et svarer uten nøkkel; dokumentasjon og bruksvilkår ligger på samme adresse.
+    category: vaer-og-klima
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://havvarsel-frost.met.no/api/v1/obs/badevann/get
+    docs_url: https://havvarsel-frost.met.no/docs/starthere
+    keywords: [badetemperatur, badevann, sjøtemperatur, havtemperatur, bøye, frost, met, sea temperature]
+    tags: [no-auth]
+    caveats:
+      - TLS-sertifikatet utløp 20. oktober 2026, så kall feiler med sertifikatfeil til MET fornyer det; ikke slå av sertifikatsjekken.
+      - MET kaller tjenesten «work in progress» og garanterer ikke at den alltid oppfører seg som dokumentert.
+    quick_start: |
+      curl "https://havvarsel-frost.met.no/api/v1/obs/badevann/get"

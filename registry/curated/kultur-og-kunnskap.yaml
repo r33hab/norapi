@@ -1,4 +1,4 @@
-updated: 2026-10-19
+updated: 2026-10-21
 provider:
   name: Nasjonalbiblioteket
   orgnr: "976029100"
@@ -43,3 +43,24 @@ apis:
     quick_start: |
       curl -X POST https://api.nb.no/dhlab/ngram_book -H "Content-Type: application/json" \
         -d '{"word":["klima"],"period":[2000,2005]}'
+
+  - id: nb-lokalhistoriewiki
+    title: Lokalhistoriewiki API (MediaWiki)
+    title_en: Lokalhistoriewiki (Norwegian local history wiki) API
+    description: >-
+      MediaWiki-API-et til Lokalhistoriewiki, fag- og forskningswikien om lokalhistorie som Nasjonalbiblioteket driver:
+      søk, artikkeltekst, kategorier og endringer for steder, personer, bygninger og hendelser. Både action-API-et
+      (api.php) og REST-API-et (rest.php/v1) svarer uten nøkkel, og vanlige MediaWiki-klienter virker. Innholdet er CC BY-SA.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON, XML]
+    endpoints:
+      - https://lokalhistoriewiki.no/api.php
+      - https://lokalhistoriewiki.no/rest.php/v1/
+    docs_url: https://lokalhistoriewiki.no/api.php
+    license: CC BY-SA
+    keywords: [lokalhistorie, wiki, mediawiki, bygdebok, gårdshistorie, stedshistorie, local history]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://lokalhistoriewiki.no/api.php?action=query&list=search&srsearch=stavkirke&format=json&srlimit=3"

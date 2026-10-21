@@ -1,0 +1,25 @@
+updated: 2026-10-21
+provider:
+  name: Getaround
+  sector: privat
+apis:
+  - id: getaround-gbfs
+    title: Getaround bildeling (GBFS)
+    title_en: Getaround car sharing (GBFS)
+    description: >-
+      Getarounds delebiler i rundt 40 norske byer og steder etter GBFS-standarden (versjon 3.0): systeminformasjon,
+      kjøretøytyper og tilgjengelige biler. Hver by har sin egen adresse, for eksempel /gbfs/v3/oslo/gbfs.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GBFS]
+    endpoints:
+      - https://getaround.com/gbfs/v3/oslo/gbfs
+    docs_url: https://github.com/MobilityData/gbfs/blob/master/systems.csv
+    keywords: [bildeling, delebil, gbfs, getaround, car sharing]
+    tags: [no-auth, private-provider]
+    caveats:
+      - Kommersiell operatør; ingen lisens oppgitt for feedene.
+      - Ikke en del av Entur Mobility; listen over byer står i MobilityDatas systems.csv.
+    quick_start: |
+      curl "https://getaround.com/gbfs/v3/oslo/gbfs"

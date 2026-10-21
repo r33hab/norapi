@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-21
 provider:
   name: Posten Bring
   orgnr: "984661185"
@@ -18,3 +18,22 @@ apis:
     docs_url: https://developer.bring.com/
     keywords: [postnummer, sporing, pakke, frakt, levering, hentested, shipping, tracking]
     tags: [registration]
+
+  - id: bring-postnummerregister
+    title: Postnummerregisteret (tekstfil)
+    title_en: Norwegian postal code register (text file)
+    description: >-
+      Alle postnummer i Norge som én tabulatorseparert tekstfil (ISO-8859-1) med postnummer, poststed, kommunenummer,
+      kommune og kategori, også som Excel. Bring lenker til filene fra postnummersidene sine. Den enkleste kilden når du
+      trenger hele listen lokalt; for enkeltoppslag finnes Bring-API-et.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [TSV, XLSX]
+    endpoints:
+      - https://www.bring.no/postnummerregister-ansi.txt
+    docs_url: https://www.bring.no/tjenester/adressetjenester/postnummer/postnummertabeller-veiledning
+    keywords: [postnummer, poststed, kommunenummer, postnummerregister, postal codes]
+    tags: [no-auth, data-files, reference-data]
+    quick_start: |
+      curl -O "https://www.bring.no/postnummerregister-ansi.txt"

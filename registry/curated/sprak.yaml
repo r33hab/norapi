@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-10-21
 provider:
   name: Universitetet i Bergen og Språkrådet
   orgnr: "874789542"
@@ -20,6 +20,8 @@ apis:
     probe_url: https://ord.uib.no/api/articles?w=hus&dict=bm&scope=e
     keywords: [ordbok, bokmål, nynorsk, rettskriving, bøyning, ordliste, dictionary, norsk]
     tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert som offentlig API, og kan endres uten forvarsel.
     quick_start: |
       curl "https://ord.uib.no/api/articles?w=hus&dict=bm,nn&scope=e"
       curl "https://ord.uib.no/bm/article/5513.json"

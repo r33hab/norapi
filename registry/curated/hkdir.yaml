@@ -1,4 +1,4 @@
-updated: 2026-10-20
+updated: 2026-10-21
 provider:
   name: Direktoratet for høyere utdanning og kompetanse
   orgnr: "974788985"
@@ -48,6 +48,8 @@ apis:
     license: NLOD 2.0
     keywords: [utdanning, yrke, yrkesbeskrivelse, lønn, karriere, studievalg, lærebedrift, videregående, styrk, nus, careers]
     tags: [no-auth]
+    caveats:
+      - Laget for utdanning.no sine egne tjenester; ikke versjonert, og endringer kommer uten forvarsel.
     quick_start: |
       # nøkkeldata og koder for yrket sykepleier
       curl "https://api.utdanning.no/sammenligning/main?uno_id=y_sykepleier"
