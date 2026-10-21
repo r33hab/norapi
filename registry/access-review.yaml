@@ -1,0 +1,285 @@
+# Access for harvested entries that Felles datakatalog, Geonorge and the served datasets
+# all leave blank, set after a manual check: an anonymous call plus the owner's own docs.
+# Applied only while the catalogues still say nothing; matching is on the catalogue URI.
+# `id` is there for readability. Keep `reason` to what was observed.
+checked: 2026-10-21
+entries:
+  - id: meteorologisk-institutt-airqualityforecast
+    uri: "https://api.met.no/weatherapi/airqualityforecast/0.1/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-aviationforecast
+    uri: "https://api.met.no/weatherapi/aviationforecast/2.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-geosatellite
+    uri: "https://api.met.no/weatherapi/geosatellite/1.4/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-gribfiles
+    uri: "https://api.met.no/weatherapi/gribfiles/1.1/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-icemap
+    uri: "https://api.met.no/weatherapi/icemap/1.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-isobaricgrib
+    uri: "https://api.met.no/weatherapi/isobaricgrib/1.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-locationforecast
+    uri: "https://api.met.no/weatherapi/locationforecast/2.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-metalerts
+    uri: "https://api.met.no/weatherapi/metalerts/2.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-metgc
+    uri: "https://api.met.no/weatherapi/metgc/1.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-metgm
+    uri: "https://api.met.no/weatherapi/metgm/1.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-ncagalewarnings
+    uri: "https://api.met.no/weatherapi/ncagalewarnings/1.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-nlaroutes
+    uri: "https://api.met.no/weatherapi/nlaroutes/1.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-nowcast
+    uri: "https://api.met.no/weatherapi/nowcast/2.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-oceanforecast
+    uri: "https://api.met.no/weatherapi/oceanforecast/2.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-offshoremaps
+    uri: "https://api.met.no/weatherapi/offshoremaps/1.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-polarsatellite
+    uri: "https://api.met.no/weatherapi/polarsatellite/1.1/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-radar
+    uri: "https://api.met.no/weatherapi/radar/2.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-routeforecast
+    uri: "https://api.met.no/weatherapi/routeforecast/2.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-sigcharts
+    uri: "https://api.met.no/weatherapi/sigcharts/2.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-sigmets
+    uri: "https://api.met.no/weatherapi/sigmets/2.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-soundprofile
+    uri: "https://api.met.no/weatherapi/soundprofile/1.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-spotwind
+    uri: "https://api.met.no/weatherapi/spotwind/1.1/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-subjectiveforecast
+    uri: "https://api.met.no/weatherapi/subjectiveforecast/1.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-subseasonal
+    uri: "https://api.met.no/weatherapi/subseasonal/1.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-sunrise
+    uri: "https://api.met.no/weatherapi/sunrise/3.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-tafmetar
+    uri: "https://api.met.no/weatherapi/tafmetar/1.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-textforecast
+    uri: "https://api.met.no/weatherapi/textforecast/3.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-tidalwater
+    uri: "https://api.met.no/weatherapi/tidalwater/1.1/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-turbulence
+    uri: "https://api.met.no/weatherapi/turbulence/2.0/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-volcanicashforecast
+    uri: "https://api.met.no/weatherapi/volcanicashforecast/0.1/"
+    access: open
+    reason: "Produkt i MET Weather API; dokumentasjonen og et anonymt kall svarer, ingen nøkkel."
+    caveats:
+      - "MET krever en identifiserende User-Agent med kontaktinformasjon; generiske klienter får 403."
+  - id: meteorologisk-institutt-frost
+    uri: "https://frost.met.no/index.html"
+    access: open
+    auth: api-key
+    reason: "Frost svarer 401 uten klient-id; klient-id fås gratis ved registrering hos MET."
+    caveats:
+      - "Krever en gratis klient-id fra frost.met.no."
+  - id: meteorologisk-institutt-thredds
+    uri: "https://thredds.met.no/thredds/catalog.html"
+    access: open
+    reason: "METs THREDDS-server for åpne datafiler; produktsiden svarer uten innlogging."
+  - id: barne-ungdoms-og-familiedirekt-bufdir-kommunemonitor-api
+    uri: "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/6593ff6262c1e74d12c69264"
+    access: unknown
+    reason: "Verken api.bufdir.no eller utviklerportalen apim-bufdir-prod svarte."
+    caveats:
+      - "Verken API-et eller utviklerportalen svarte da tilgangen ble sjekket (21.10.2026)."
+  - id: direktoratet-for-byggkvalitet-sgregister-register-over-foretak-med-sentral-godkj
+    uri: "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/5f8455409cfa0e2026a2eddd"
+    access: open
+    reason: "GET /api/enterprises svarer med hele registeret uten innlogging."
+  - id: helsedirektoratet-nasjonale-helsefaglige-kodeverk
+    uri: "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/61926c154862824f303b2a65"
+    access: restricted
+    reason: "Adressen ligger under /webservice/restricted/ hos Norsk helsenett og svarer ikke fra internett."
+    caveats:
+      - "Svarer ikke fra åpent internett; ser ut til å kreve Helsenett-tilgang."
+  - id: mattilsynet-kjottkontroll-historikk-api-am
+    uri: "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/626a852eadedbe2c056fddfc"
+    access: restricted
+    reason: "Søstertjenesten for PM er merket betinget tilgang i Felles datakatalog; verten svarer ikke fra internett."
+    caveats:
+      - "Verten svarer ikke fra åpent internett."
+  - id: norges-vassdrags-og-energidire-nettleietariffer
+    uri: "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/681b120d4aad5815a9d6060b"
+    access: open
+    reason: "Tjenesten svarer uten innlogging (/healthcheck 200)."
+    caveats:
+      - "Den offentlige spesifikasjonen viser bare /healthcheck; dataendepunktene er ikke dokumentert der."
+  - id: oslo-kommune-oslo-origo-api-catalog
+    uri: "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/5f461df34e59ff37b6caea26"
+    access: unknown
+    reason: "Katalogoppføringen har verken endepunkt eller dokumentasjon å sjekke."
+    caveats:
+      - "Katalogoppføringen har verken endepunkt eller dokumentasjon."
+  - id: registerenheten-i-bronnoysund-kompensasjonsordningen-for-innreisekarantene
+    uri: "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/609a500636cf5b684c212eaf"
+    access: open
+    reason: "Åpent API under data.brreg.no (/api/open), men det svarer med 500."
+    caveats:
+      - "Svarte med 500 da tilgangen ble sjekket (21.10.2026)."
+  - id: registerenheten-i-bronnoysund-nordic-smart-government-reference-api
+    uri: "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/5f461df34e59ff37b6caea16"
+    access: restricted
+    reason: "Leveres gjennom data.altinn.no, som krever godkjent tilgang og abonnementsnøkkel."
+  - id: registerenheten-i-bronnoysund-tilda-deling-av-tilsynsdata-api
+    uri: "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/609a91b336cf5b684c212eb0"
+    access: restricted
+    reason: "Beskrivelsen sier at API-et i utgangspunktet bare er tilgjengelig for tilsynsmyndigheter."
+  - id: statens-kartverk-kommunereform-api
+    uri: "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/5f461df34e59ff37b6caea0f"
+    access: unknown
+    reason: "Svarer 403 Forbidden uten innlogging; uklart om tjenesten er stengt eller krever tilgang."
+    caveats:
+      - "Svarte 403 Forbidden da tilgangen ble sjekket (21.10.2026)."
+  - id: statens-kartverk-norge-digitalt-tjeneste-2013
+    uri: "http://wms.server.no/wms.tjeneste?"
+    access: unknown
+    reason: "Katalogoppføringen peker til en eksempeladresse (wms.server.no) som ikke finnes."
+    caveats:
+      - "Adressen i katalogen (wms.server.no) finnes ikke."
+  - id: statens-kartverk-seismic-area-wms
+    uri: "https://factmaps.npd.no/arcgis/services/FactMaps_ogc/3_0_WGS84_z32/MapServer/WMSServer?request=GetCapabilities&service=WMS"
+    access: open
+    reason: "Sokkeldirektoratets FactMaps-data er åpne, men adressen bruker det gamle domenet factmaps.npd.no."
+    caveats:
+      - "Adressen bruker det gamle domenet factmaps.npd.no og svarer ikke; tjenestene ligger nå på factmaps.sodir.no."
+  - id: statens-kartverk-skredkvikkleirewms2
+    uri: "http://geo.ngu.no/mapserver/SkredKvikkleireWMS2?"
+    access: unknown
+    reason: "Adressen svarer 404."
+    caveats:
+      - "Adressen svarte 404 da tilgangen ble sjekket (21.10.2026)."
+  - id: statens-kartverk-apent-adresse-api-fra-kartverket
+    uri: "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/5f461df34e59ff37b6caea0d"
+    access: open
+    reason: "Beskrivelsen sier at innlogging eller autorisasjon ikke er nødvendig."
+  - id: statens-vegvesen-register-for-parkeringstillatelser-sjekk-av-gyldig
+    uri: "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/674d7117f28f306fd1b76146"
+    access: restricted
+    reason: "Vegvesenets side sier at API-et er kostnadsfritt men krever autentisering (HTTP basic, tjenestebruker)."
+    caveats:
+      - "Krever en tjenestebruker fra Statens vegvesen (HTTP basic)."
+  - id: statistisk-sentralbyra-api-ferdige-datasett-fra-ssbs-statistikkbank
+    uri: "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/5fb508d0daa71629bc78326e"
+    access: open
+    reason: "SSB-API uten nøkkel, men versjon 0 svarer 410 Gone."
+    caveats:
+      - "API v0 for ferdige datasett svarer 410 Gone; bruk PxWebApi 2 (ssb-pxwebapi-v2)."

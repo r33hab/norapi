@@ -9,8 +9,8 @@ import sys
 from pathlib import Path
 
 from norapi.build import REGISTRY_DIR, REGISTRY_JSON, attach_specs, write_registry
-from norapi.curated import load_curated, merge
-from norapi.harvest import fdk
+from norapi.curated import apply_access_review, load_access_review, load_curated, merge
+from norapi.harvest import fdk, geonorge
 from norapi.model import ApiEntry
 from norapi.search import Registry
 
@@ -88,6 +88,8 @@ def _load_entries() -> list[ApiEntry]:
 def cmd_harvest(args: argparse.Namespace) -> int:
     snapshot = fdk.harvest(fdk.FdkClient(), args.raw_dir)
     print(f"fdk: {len(snapshot['hits'])} data services -> {args.raw_dir / 'fdk.json'}")
+    records = geonorge.harvest(fdk.geonorge_uuids(snapshot), args.raw_dir)
+    print(f"geonorge: {len(records)} access records -> {args.raw_dir / geonorge.SNAPSHOT}")
     return 0
 
 
@@ -99,7 +101,10 @@ def cmd_build(args: argparse.Namespace) -> int:
     if not args.curated_only:
         snapshot_file = args.raw_dir / "fdk.json"
         if snapshot_file.exists():
-            harvested = fdk.to_entries(fdk.load_snapshot(args.raw_dir))
+            harvested = fdk.to_entries(
+                fdk.load_snapshot(args.raw_dir), geonorge.load_snapshot(args.raw_dir)
+            )
+            apply_access_review(harvested, load_access_review(REGISTRY_DIR / "access-review.yaml"))
         else:
             print(
                 f"no snapshot at {snapshot_file}; building from curated entries only",

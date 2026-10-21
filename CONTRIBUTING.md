@@ -50,6 +50,9 @@ Regler som holder kvaliteten oppe:
 - **Finnes API-et i Felles datakatalog**, matcher vi automatisk på identisk endepunkt-URL, eller eksplisitt med
   `merge_with: <katalogens data service-URI>`. Dine felter vinner, katalogens fyller tomrom.
 - **Metadata, aldri data.** Ingen uttrekk fra API-ene, ingen personopplysninger, ingen kontaktpersoner.
+- **Tilgang som katalogene ikke oppgir** (verken Felles datakatalog, Geonorge eller datasettene tjenesten leverer)
+  sjekkes for hånd og føres i `registry/access-review.yaml` med katalogens URI, verdien, og en kort `reason` om hva
+  du så: et anonymt kall, dokumentasjonen. Gir katalogene en verdi senere, vinner den over gjennomgangen.
 - **Private tjenester** tas med når de er åpne og brukes mye av norske utviklere, med `sector: privat`.
 - **Åpne, men uannonserte API-er** (JSON bak en offentlig nettside, en Swagger ingen lenker til) tas med når de
   svarer uten innlogging, med taggen `undocumented`.

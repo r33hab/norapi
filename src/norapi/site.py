@@ -451,8 +451,19 @@ class Site:
         crumbs, crumbs_ld = self.breadcrumbs(
             [("norapi", ""), (provider["name"], f"leverandor/{pslug}/"), (api["title"], None)]
         )
+        source = api["source"]
+        access_from = {
+            "geonorge": "fra Geonorge",
+            "fdk-dataset": "fra datasettene tjenesten leverer",
+            "conflict": "Geonorge og datasettene er uenige; den strengeste verdien er brukt",
+            "review": f"sjekket for hånd {source.get('access_checked', '')}: {source.get('access_note', '')}",
+        }.get(source.get("access_from") or "")
         facts: list[tuple[str, str]] = [
-            ("Tilgang", e(ACCESS_LABEL[api["access"]])),
+            (
+                "Tilgang",
+                e(ACCESS_LABEL[api["access"]])
+                + (f'<br><span class="meta">{e(access_from)}</span>' if access_from else ""),
+            ),
             ("Autentisering", e(AUTH_LABEL[api["auth"]])),
         ]
         if api.get("formats"):

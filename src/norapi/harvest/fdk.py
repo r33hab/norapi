@@ -24,6 +24,7 @@ from typing import Any
 
 import httpx
 
+from norapi.harvest import geonorge
 from norapi.model import (
     ApiEntry,
     Provider,
@@ -54,7 +55,20 @@ PREDICATES: dict[str, str] = {
     "versions": "http://www.w3.org/ns/dcat#version",
 }
 
-_ACCESS = {"PUBLIC": "open", "RESTRICTED": "restricted", "NON_PUBLIC": "non-public"}
+_ACCESS = {
+    "PUBLIC": "open",
+    "RESTRICTED": "restricted",
+    "NON_PUBLIC": "non-public",
+    "NON-PUBLIC": "non-public",
+}
+_STRICTEST_FIRST = ("non-public", "restricted", "open")
+
+# Most services carry no access rights of their own; the datasets they serve often do.
+DATASET_ACCESS_QUERY = (
+    "SELECT ?s ?o WHERE { ?s a <http://www.w3.org/ns/dcat#DataService> ; "
+    "<http://www.w3.org/ns/dcat#servesDataset> ?ds . "
+    "?ds <http://purl.org/dc/terms/accessRights> ?o }"
+)
 _SECTOR_BY_ORGPATH = {"STAT": "stat", "KOMMUNE": "kommune", "FYLKE": "fylke", "PRIVAT": "privat"}
 
 
@@ -81,10 +95,13 @@ class FdkClient:
                 return
 
     def sparql_pairs(self, predicate: str) -> list[tuple[str, str]]:
-        query = (
+        return self.sparql_select(
             "SELECT ?s ?o WHERE { ?s a <http://www.w3.org/ns/dcat#DataService> ; "
             f"<{predicate}> ?o }}"
         )
+
+    def sparql_select(self, query: str) -> list[tuple[str, str]]:
+        """Run a SELECT that binds ?s and ?o."""
         response = self._http.get(
             SPARQL_URL,
             params={"query": query},
@@ -105,6 +122,8 @@ def harvest(client: FdkClient, raw_dir: Path) -> dict[str, Any]:
     for name, predicate in PREDICATES.items():
         extras[name] = client.sparql_pairs(predicate)
         log.info("fdk: %s -> %d values", name, len(extras[name]))
+    extras["dataset_access"] = client.sparql_select(DATASET_ACCESS_QUERY)
+    log.info("fdk: dataset_access -> %d values", len(extras["dataset_access"]))
     snapshot = {
         "harvested_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "hits": hits,
@@ -118,8 +137,24 @@ def load_snapshot(raw_dir: Path) -> dict[str, Any]:
     return json.loads((raw_dir / "fdk.json").read_text(encoding="utf-8"))
 
 
-def to_entries(snapshot: dict[str, Any]) -> list[ApiEntry]:
-    """Normalise the raw snapshot into registry entries, one per data service."""
+def geonorge_uuids(snapshot: dict[str, Any]) -> list[str]:
+    """Kartkatalog ids for the services whose own access rights are blank."""
+    blank = {
+        h.get("uri") for h in snapshot["hits"] if not (h.get("accessRights") or {}).get("code")
+    }
+    found: set[str] = set()
+    for name in ("pages", "landing_pages", "endpoint_descriptions"):
+        for subject, url in snapshot["extras"].get(name, []):
+            if subject in blank and (uuid := geonorge.uuid_in(url)):
+                found.add(uuid)
+    return sorted(found)
+
+
+def to_entries(
+    snapshot: dict[str, Any], geonorge_records: dict[str, dict[str, Any]] | None = None
+) -> list[ApiEntry]:
+    """Normalise the raw snapshot into registry entries, one per data service. Kartkatalog
+    records (from geonorge.harvest) fill in access rights the catalogue leaves blank."""
     by_uri: dict[str, dict[str, list[str]]] = defaultdict(lambda: defaultdict(list))
     for name, pairs in snapshot["extras"].items():
         for subject, value in pairs:
@@ -137,7 +172,7 @@ def to_entries(snapshot: dict[str, Any]) -> list[ApiEntry]:
             continue
         seen_uris.add(uri)
         extra = by_uri.get(uri, {})
-        entry = _hit_to_entry(hit, extra, harvested_at)
+        entry = _hit_to_entry(hit, extra, harvested_at, geonorge_records or {})
         if entry.id in seen_ids:
             entry.id = f"{entry.id}-{stable_suffix(uri)}"
         seen_ids.add(entry.id)
@@ -161,8 +196,43 @@ def _text(value: Any, *langs: str) -> str | None:
     return None
 
 
+def _resolve_access(
+    hit: dict[str, Any], extra: dict[str, list[str]], geonorge_records: dict[str, dict[str, Any]]
+) -> tuple[str, str | None]:
+    """The service's own access rights, else Geonorge's record for it, else the strictest of the
+    datasets it serves. When Geonorge and the datasets disagree, the strictest value wins: calling
+    a restricted service open misleads more than the reverse. Returns the value and its source."""
+    own = _ACCESS.get((hit.get("accessRights") or {}).get("code") or "")
+    if own:
+        return own, "fdk"
+    from_geonorge = next(
+        (
+            found
+            for name in ("pages", "landing_pages", "endpoint_descriptions")
+            for url in extra.get(name, [])
+            if (found := geonorge.access_of(geonorge_records.get(geonorge.uuid_in(url) or "")))
+        ),
+        None,
+    )
+    served = {_ACCESS.get(uri.rsplit("/", 1)[-1]) for uri in extra.get("dataset_access", [])}
+    served.discard(None)
+    if from_geonorge and served and from_geonorge not in served:
+        candidates, source = served | {from_geonorge}, "conflict"
+    elif from_geonorge:
+        return from_geonorge, "geonorge"
+    else:
+        candidates, source = served, "fdk-dataset"
+    for level in _STRICTEST_FIRST:
+        if level in candidates:
+            return level, source
+    return "unknown", None
+
+
 def _hit_to_entry(
-    hit: dict[str, Any], extra: dict[str, list[str]], harvested_at: str | None
+    hit: dict[str, Any],
+    extra: dict[str, list[str]],
+    harvested_at: str | None,
+    geonorge_records: dict[str, dict[str, Any]],
 ) -> ApiEntry:
     organization = hit.get("organization") or (hit.get("catalog") or {}).get("publisher") or {}
     org_path = organization.get("orgPath") or ""
@@ -178,7 +248,7 @@ def _hit_to_entry(
 
     title = _text(hit.get("title")) or "Uten tittel"
     description = _text(hit.get("description"))
-    access_code = (hit.get("accessRights") or {}).get("code")
+    access, access_from = _resolve_access(hit, extra, geonorge_records)
 
     descriptions = extra.get("endpoint_descriptions", [])
     spec_url = next((u for u in descriptions if looks_like_spec(u)), None)
@@ -202,7 +272,7 @@ def _hit_to_entry(
         provider=provider,
         description=description,
         summary=make_summary(description, title),
-        access=_ACCESS.get(access_code, "unknown"),
+        access=access,
         auth=infer_auth(description, title),
         formats=formats,
         endpoints=endpoints,
@@ -217,5 +287,6 @@ def _hit_to_entry(
             "uri": hit.get("uri"),
             "catalogue_url": f"https://data.norge.no/data-services/{hit.get('id')}",
             "harvested_at": harvested_at,
+            **({"access_from": access_from} if access_from else {}),
         },
     )

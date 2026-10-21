@@ -13,9 +13,40 @@ from typing import Any
 
 import yaml
 
-from norapi.model import ApiEntry, Provider, make_summary
+from norapi.model import ACCESS_VALUES, AUTH_VALUES, ApiEntry, Provider, make_summary
 
 _LIST_FIELDS = ("formats", "endpoints", "keywords", "tags", "caveats")
+
+
+def load_access_review(path: Path) -> dict[str, dict[str, Any]]:
+    """registry/access-review.yaml: access set by a manual check for harvested entries the
+    catalogues leave blank, keyed by catalogue URI."""
+    if not path.exists():
+        return {}
+    document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    checked = str(document.get("checked") or "")
+    review: dict[str, dict[str, Any]] = {}
+    for item in document.get("entries") or []:
+        if item["access"] not in ACCESS_VALUES or item.get("auth", "unknown") not in AUTH_VALUES:
+            raise ValueError(f"{path.name}: {item.get('id')}: unknown access or auth value")
+        review[item["uri"]] = {**item, "checked": checked}
+    return review
+
+
+def apply_access_review(harvested: list[ApiEntry], review: dict[str, dict[str, Any]]) -> None:
+    """Fill access the catalogues leave blank. Only a fallback: once Felles datakatalog,
+    Geonorge or the served datasets give a value, that value wins and the review is ignored."""
+    for entry in harvested:
+        item = review.get(entry.source.get("uri") or "")
+        if item is None or entry.access != "unknown":
+            continue
+        entry.access = item["access"]
+        if item.get("auth") and entry.auth == "unknown":
+            entry.auth = item["auth"]
+        entry.caveats = [*entry.caveats, *(item.get("caveats") or [])]
+        entry.source["access_from"] = "review"
+        entry.source["access_note"] = item["reason"]
+        entry.source["access_checked"] = item["checked"]
 
 
 def load_curated(curated_dir: Path) -> list[ApiEntry]:

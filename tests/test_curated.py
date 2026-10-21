@@ -33,3 +33,27 @@ def test_merge_overlays_curated_fields_on_the_matching_harvested_entry(fixtures,
     assert kommuneinfo.formats == ["GeoJSON", "JSON"], "lists are unioned, curated first"
     assert kommuneinfo.quick_start.startswith("curl")
     assert merged["test-standalone"].source["kind"] == "curated"
+
+
+def test_access_review_fills_only_what_the_catalogues_leave_blank(tmp_path, snapshot):
+    from norapi.curated import apply_access_review, load_access_review
+
+    review_file = tmp_path / "access-review.yaml"
+    review_file.write_text(
+        "checked: 2026-10-21\nentries:\n"
+        "  - uri: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/ddd\n"
+        "    access: restricted\n    auth: api-key\n    reason: Svarer 401 uten nøkkel.\n"
+        "    caveats: [Krever nøkkel.]\n"
+        "  - uri: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/aaa\n"
+        "    access: open\n    reason: Skal ikke brukes, katalogen har en verdi.\n",
+        encoding="utf-8",
+    )
+    entries = {e.source["uri"].rsplit("/", 1)[1]: e for e in fdk.to_entries(snapshot)}
+    apply_access_review(list(entries.values()), load_access_review(review_file))
+
+    oslo = entries["ddd"]
+    assert (oslo.access, oslo.auth, oslo.caveats) == ("restricted", "api-key", ["Krever nøkkel."])
+    assert oslo.source["access_from"] == "review"
+    assert oslo.source["access_checked"] == "2026-10-21"
+    assert entries["aaa"].access == "restricted", "the catalogue's own value wins"
+    assert load_access_review(tmp_path / "missing.yaml") == {}
