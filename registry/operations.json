@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-10-26T10:08:47+00:00",
-"count": 1777,
+"generated_at": "2026-11-02T12:25:51+00:00",
+"count": 1778,
 "operations": [
 {
 "api_id": "artsdatabanken-nortaxa",
@@ -3198,8 +3198,8 @@
 "api_id": "hkdir-utdanning-no",
 "method": "GET",
 "path": "/kategorisystemer/styrk08",
-"summary": "Gir en oversikt over styrk08 koder, og tilhørende yrker",
-"description": null,
+"summary": "Gir en oversikt over styrk08 koder og tilhørende yrker",
+"description": "Kalles endepunktet uten noen parameter satt får du ut alle Styrk08 koder og tilhørende yrker. Hvis `styrk08` parameteren settes, vil du kun få ut de Styrk08 koder som matcher filteret. Støtter også wildcard `*`, se eksempler",
 "tags": [
 "Kategorisystemer"
 ],
@@ -3228,7 +3228,7 @@
 "Legacy-Lopet"
 ],
 "operation_id": "Legacy-Lopet___get_lopet",
-"deprecated": false
+"deprecated": true
 },
 {
 "api_id": "hkdir-utdanning-no",
@@ -3240,7 +3240,7 @@
 "Legacy-Lopet"
 ],
 "operation_id": "Legacy-Lopet___get_program",
-"deprecated": false
+"deprecated": true
 },
 {
 "api_id": "hkdir-utdanning-no",
@@ -3252,7 +3252,7 @@
 "Legacy-Lopet"
 ],
 "operation_id": "Legacy-Lopet___get_sted",
-"deprecated": false
+"deprecated": true
 },
 {
 "api_id": "hkdir-utdanning-no",
@@ -3264,7 +3264,7 @@
 "Legacy-Lopet"
 ],
 "operation_id": "Legacy-Lopet___get_utdanningsprogram",
-"deprecated": false
+"deprecated": true
 },
 {
 "api_id": "hkdir-utdanning-no",
@@ -4662,6 +4662,18 @@
 {
 "api_id": "geonorge-register",
 "method": "GET",
+"path": "/api/{parentregister}/{register}.{ext}",
+"summary": "Gets subregister by name",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_GetSubregisterByName",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
 "path": "/api/{registerName}",
 "summary": "Gets register by name",
 "description": null,
@@ -4681,6 +4693,30 @@
 "ApiRoot"
 ],
 "operation_id": "ApiRoot_GetRegisterItemByName",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/{registerName}/report/{id}",
+"summary": "Gets selected status report",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_StatusReport",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/{registerName}/report/{id}.{ext}",
+"summary": "Gets selected status report",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_StatusReport",
 "deprecated": false
 },
 {
@@ -4721,6 +4757,18 @@
 },
 {
 "api_id": "geonorge-register",
+"method": "PUT",
+"path": "/api/AlertApi/{id}",
+"summary": "Update alert",
+"description": null,
+"tags": [
+"AlertApi"
+],
+"operation_id": "AlertApi_Put_ServiceAlert",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
 "method": "GET",
 "path": "/api/alerts",
 "summary": "Get all alerts",
@@ -4741,6 +4789,18 @@
 "AlertApi"
 ],
 "operation_id": "AlertApi_GetUuid",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/ApiRoot",
+"summary": "Gets subregister by id",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_GetRegisterById",
 "deprecated": false
 },
 {
@@ -4806,18 +4866,6 @@
 {
 "api_id": "geonorge-register",
 "method": "GET",
-"path": "/api/OrganizationsApi",
-"summary": "Get  municipality by kommunenummer",
-"description": null,
-"tags": [
-"OrganizationsApi"
-],
-"operation_id": "OrganizationsApi_GetOrganizationsByCodeV2",
-"deprecated": false
-},
-{
-"api_id": "geonorge-register",
-"method": "GET",
 "path": "/api/register",
 "summary": "List top level registers. Use id in response to navigate.",
 "description": null,
@@ -4837,6 +4885,30 @@
 "ApiRoot"
 ],
 "operation_id": "ApiRoot_GetRegisterItemsByOrganization",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/register/{registerName}/report/{id}",
+"summary": "Gets selected status report",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_StatusReport",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/register/{registerName}/report/{id}.{ext}",
+"summary": "Gets selected status report",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_StatusReport",
 "deprecated": false
 },
 {
@@ -4885,6 +4957,30 @@
 "ApiRoot"
 ],
 "operation_id": "ApiRoot_SiteMap",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/subregister/{parentregister}/{parentregisterOwner}/{register}",
+"summary": "Gets subregister by name",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_GetSubregisterByName",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/subregister/{parentregister}/{parentregisterOwner}/{register}.{ext}",
+"summary": "Gets subregister by name",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_GetSubregisterByName",
 "deprecated": false
 },
 {
@@ -7564,9 +7660,9 @@
 {
 "api_id": "lovdata-public-data",
 "method": "POST",
-"path": "/v2/ai/selectionList/generateResponse",
-"summary": "Generate a list of LLM responses for a chat over document sections from a selection list",
-"description": "Generates text using selection-list-specific prompts for a fixed document collection.",
+"path": "/v2/ai/baseSearch",
+"summary": "Search explicitly selected bases",
+"description": "Searches only the explicitly selected Lovdata bases. No automatic routing or fallback to other bases is performed. Send a required **JSON request body** (`Content-Type: application/json`). This endpoint has no query or path parameters. | Fi",
 "tags": [
 "AI functionality"
 ],
@@ -7626,7 +7722,7 @@
 "method": "GET",
 "path": "/vocabulary/legalSources",
 "summary": "List all legal sources (bases)",
-"description": "Returns a list of all legal sources (bases) available in the system.",
+"description": "Returns all concrete bases and base groups (samlevalg). Each entry has an id, description, isGroup flag and bases array containing its expanded concrete base codes. Concrete bases list their own ID. Group codes can be passed directly to /v2",
 "tags": [
 "Vocabularies"
 ],
@@ -9856,7 +9952,7 @@
 "method": "POST",
 "path": "/api/v1/serviceowner/dialogs/{dialogId}/activities",
 "summary": "Adds an activity to a dialog's activity history",
-"description": "The activity is created with the given configuration. Optimistic concurrency control is implemented using the If-Match header. Supply the Revision value from the GetDialog endpoint to ensure that the dialog is not modified/deleted by anothe",
+"description": "The activity is created with the given configuration. Creating an activity does not count as a content change, so it leaves the end user's system labels untouched; a dialog in 'Bin' or 'Archive' stays there. Optimistic concurrency control i",
 "tags": [
 "Serviceowner"
 ],
@@ -9964,7 +10060,7 @@
 "method": "PUT",
 "path": "/api/v1/serviceowner/dialogs/{dialogId}",
 "summary": "Replaces a dialog",
-"description": "Replaces a given dialog with the supplied model. Optimistic concurrency control is implemented using the If-Match header. Supply the Revision value from the GetDialog endpoint to ensure that the dialog is not modified/deleted by another req",
+"description": "Replaces a given dialog with the supplied model. If the update changes the dialog's content (transmissions, content, attachments, GUI/API actions, status or extended status), any end user system label of 'Bin' or 'Archive' is reset to 'Defa",
 "tags": [
 "Serviceowner"
 ],
@@ -16754,90 +16850,6 @@
 "Stations"
 ],
 "operation_id": "GetStations",
-"deprecated": false
-},
-{
-"api_id": "norges-vassdrags-og-energidire-inntektsrammer-for-nettselskaper",
-"method": "GET",
-"path": "/api/InntektsrammerSistOppdatertDato",
-"summary": "Returnerer datoen for da API'et sist ble oppdatert med nye data fra inntektsrammeberegningen. \r\nBruk gjerne dette endepunktet for å sjekke om datasettet er oppdatert før du gjør en ny nedlastning av datasettene.",
-"description": null,
-"tags": [
-"Inntektsrammer"
-],
-"operation_id": null,
-"deprecated": false
-},
-{
-"api_id": "norges-vassdrags-og-energidire-inntektsrammer-for-nettselskaper",
-"method": "GET",
-"path": "/api/InntektsrammerType",
-"summary": "Returnerer beskrivelse og type-id for de ulike typene av inntektsrammeberegninger.",
-"description": null,
-"tags": [
-"Inntektsrammer"
-],
-"operation_id": null,
-"deprecated": false
-},
-{
-"api_id": "norges-vassdrags-og-energidire-inntektsrammer-for-nettselskaper",
-"method": "GET",
-"path": "/api/InntektsrammerVariabler",
-"summary": "Returnerer alle inntektsramme-variabler med navn, nettnivå, kategori og en forklaringstekst.",
-"description": null,
-"tags": [
-"Inntektsrammer"
-],
-"operation_id": null,
-"deprecated": false
-},
-{
-"api_id": "norges-vassdrags-og-energidire-inntektsrammer-for-nettselskaper",
-"method": "GET",
-"path": "/api/InntektsrammerSelskap",
-"summary": "Returnerer alle selskap som var gjeldende for et gitt år.",
-"description": null,
-"tags": [
-"Inntektsrammer"
-],
-"operation_id": null,
-"deprecated": false
-},
-{
-"api_id": "norges-vassdrags-og-energidire-inntektsrammer-for-nettselskaper",
-"method": "GET",
-"path": "/api/InntektsrammerForutsetninger",
-"summary": "Returnerer alle forutsetninger som var gjeldende for et gitt år.",
-"description": null,
-"tags": [
-"Inntektsrammer"
-],
-"operation_id": null,
-"deprecated": false
-},
-{
-"api_id": "norges-vassdrags-og-energidire-inntektsrammer-for-nettselskaper",
-"method": "GET",
-"path": "/api/InntektsrammerGrunnlagsdata",
-"summary": "Returnerer alle grunnlagsdata som er gjeldende for et gitt år og selskap.",
-"description": null,
-"tags": [
-"Inntektsrammer"
-],
-"operation_id": null,
-"deprecated": false
-},
-{
-"api_id": "norges-vassdrags-og-energidire-inntektsrammer-for-nettselskaper",
-"method": "GET",
-"path": "/api/InntektsrammerResultater",
-"summary": "Returnerer alle resultater fra inntektsrammeberegningene som er gjeldende for et gitt år og selskap.",
-"description": null,
-"tags": [
-"Inntektsrammer"
-],
-"operation_id": null,
 "deprecated": false
 },
 {
