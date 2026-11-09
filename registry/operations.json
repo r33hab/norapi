@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-11-02T12:25:51+00:00",
-"count": 1778,
+"generated_at": "2026-11-09T12:53:22+00:00",
+"count": 1784,
 "operations": [
 {
 "api_id": "artsdatabanken-nortaxa",
@@ -6964,16 +6964,6 @@
 "deprecated": false
 },
 {
-"api_id": "kystverket-navigasjonsvarsler",
-"method": "GET",
-"path": "/data/dadjokes",
-"summary": "Dadjoke",
-"description": "Return a delicious pun to brighten your day.",
-"tags": [],
-"operation_id": "dadjoke_data_dadjokes_get",
-"deprecated": false
-},
-{
 "api_id": "hjorteviltregisteret-fallvilt",
 "method": "GET",
 "path": "/api/v0/fallvilt",
@@ -8591,12 +8581,12 @@
 "api_id": "sikt-nva",
 "method": "GET",
 "path": "/approval/",
-"summary": "Get Approval by handle or named identifier",
-"description": "Get approval by handle or named identifier (name+value). **Query Parameters:** - Use `handle` parameter to fetch by Handle URI (must be URL-encoded) - Use `name` AND `value` parameters together to fetch by named identifier **Important:** Sp",
+"summary": "Search approvals",
+"description": "Search approvals",
 "tags": [
 "NVA Approval API"
 ],
-"operation_id": "getApprovalByQuery",
+"operation_id": "searchApprovals",
 "deprecated": false
 },
 {
@@ -16850,6 +16840,90 @@
 "Stations"
 ],
 "operation_id": "GetStations",
+"deprecated": false
+},
+{
+"api_id": "norges-vassdrags-og-energidire-inntektsrammer-for-nettselskaper",
+"method": "GET",
+"path": "/api/InntektsrammerSistOppdatertDato",
+"summary": "Returnerer datoen for da API'et sist ble oppdatert med nye data fra inntektsrammeberegningen. \r\nBruk gjerne dette endepunktet for å sjekke om datasettet er oppdatert før du gjør en ny nedlastning av datasettene.",
+"description": null,
+"tags": [
+"Inntektsrammer"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "norges-vassdrags-og-energidire-inntektsrammer-for-nettselskaper",
+"method": "GET",
+"path": "/api/InntektsrammerType",
+"summary": "Returnerer beskrivelse og type-id for de ulike typene av inntektsrammeberegninger.",
+"description": null,
+"tags": [
+"Inntektsrammer"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "norges-vassdrags-og-energidire-inntektsrammer-for-nettselskaper",
+"method": "GET",
+"path": "/api/InntektsrammerVariabler",
+"summary": "Returnerer alle inntektsramme-variabler med navn, nettnivå, kategori og en forklaringstekst.",
+"description": null,
+"tags": [
+"Inntektsrammer"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "norges-vassdrags-og-energidire-inntektsrammer-for-nettselskaper",
+"method": "GET",
+"path": "/api/InntektsrammerSelskap",
+"summary": "Returnerer alle selskap som var gjeldende for et gitt år.",
+"description": null,
+"tags": [
+"Inntektsrammer"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "norges-vassdrags-og-energidire-inntektsrammer-for-nettselskaper",
+"method": "GET",
+"path": "/api/InntektsrammerForutsetninger",
+"summary": "Returnerer alle forutsetninger som var gjeldende for et gitt år.",
+"description": null,
+"tags": [
+"Inntektsrammer"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "norges-vassdrags-og-energidire-inntektsrammer-for-nettselskaper",
+"method": "GET",
+"path": "/api/InntektsrammerGrunnlagsdata",
+"summary": "Returnerer alle grunnlagsdata som er gjeldende for et gitt år og selskap.",
+"description": null,
+"tags": [
+"Inntektsrammer"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "norges-vassdrags-og-energidire-inntektsrammer-for-nettselskaper",
+"method": "GET",
+"path": "/api/InntektsrammerResultater",
+"summary": "Returnerer alle resultater fra inntektsrammeberegningene som er gjeldende for et gitt år og selskap.",
+"description": null,
+"tags": [
+"Inntektsrammer"
+],
+"operation_id": null,
 "deprecated": false
 },
 {
