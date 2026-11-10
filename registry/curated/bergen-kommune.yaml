@@ -1,0 +1,31 @@
+updated: 2026-11-10
+provider:
+  name: Bergen kommune
+  orgnr: "964338531"
+  sector: kommune
+apis:
+  - id: bergen-kommune-kartserver
+    title: Bergen kommunes kartserver (ArcGIS REST)
+    title_en: Bergen municipality map server (ArcGIS REST)
+    description: >-
+      Bergen kommunes egne kartlag i over 30 mapper: Bymiljøetaten (badeplasser, bytrær, brøyteroder, boligsoner for
+      parkering), kommuneplanens arealdel, kulturminner, naturrisiko og klima, solkart og statistikk per grunnkrets og
+      levekårssone. Hvert lag spørres med /query og svarer i JSON eller GeoJSON. Uten nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://kart.bergen.kommune.no/arcgis/rest/services
+    docs_url: https://kart.bergen.kommune.no/arcgis/rest/services
+    probe_url: https://kart.bergen.kommune.no/arcgis/rest/services?f=json
+    keywords: [bergen, kart, arcgis, kartlag, badeplasser, bytrær, kommuneplan, kulturminner, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Lagene er kommunens arbeidskart; navn og innhold endres uten varsel.
+    quick_start: |
+      # mappene og tjenestene på serveren
+      curl "https://kart.bergen.kommune.no/arcgis/rest/services?f=json"
+      # badeplassene som GeoJSON
+      curl "https://kart.bergen.kommune.no/arcgis/rest/services/Bymiljoetaten/Badeplasser_i_Bergen/MapServer/0/query?where=1%3D1&outFields=*&f=geojson"

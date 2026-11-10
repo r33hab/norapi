@@ -57,3 +57,26 @@ def test_access_review_fills_only_what_the_catalogues_leave_blank(tmp_path, snap
     assert oslo.source["access_checked"] == "2026-10-21"
     assert entries["aaa"].access == "restricted", "the catalogue's own value wins"
     assert load_access_review(tmp_path / "missing.yaml") == {}
+
+
+def test_retired_entries_are_left_out_of_the_harvest(tmp_path, snapshot):
+    import pytest
+
+    from norapi.curated import drop_retired, load_retired
+
+    retired_file = tmp_path / "retired.yaml"
+    retired_file.write_text(
+        "checked: 2026-11-10\nentries:\n"
+        "  - uri: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/ddd\n"
+        "    reason: Vertsnavnet finnes ikke lenger.\n",
+        encoding="utf-8",
+    )
+    harvested = fdk.to_entries(snapshot)
+    kept = drop_retired(harvested, load_retired(retired_file))
+    assert len(kept) == len(harvested) - 1
+    assert all(not e.source["uri"].endswith("/ddd") for e in kept)
+    assert load_retired(tmp_path / "missing.yaml") == {}
+
+    retired_file.write_text("entries:\n  - uri: https://x.no/a\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="reason"):
+        load_retired(retired_file)

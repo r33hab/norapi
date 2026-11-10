@@ -9,7 +9,14 @@ import sys
 from pathlib import Path
 
 from norapi.build import REGISTRY_DIR, REGISTRY_JSON, attach_specs, write_registry
-from norapi.curated import apply_access_review, load_access_review, load_curated, merge
+from norapi.curated import (
+    apply_access_review,
+    drop_retired,
+    load_access_review,
+    load_curated,
+    load_retired,
+    merge,
+)
 from norapi.harvest import fdk, geonorge
 from norapi.model import ApiEntry
 from norapi.search import Registry
@@ -105,6 +112,7 @@ def cmd_build(args: argparse.Namespace) -> int:
                 fdk.load_snapshot(args.raw_dir), geonorge.load_snapshot(args.raw_dir)
             )
             apply_access_review(harvested, load_access_review(REGISTRY_DIR / "access-review.yaml"))
+            harvested = drop_retired(harvested, load_retired(REGISTRY_DIR / "retired.yaml"))
         else:
             print(
                 f"no snapshot at {snapshot_file}; building from curated entries only",

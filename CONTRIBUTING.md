@@ -53,6 +53,8 @@ Regler som holder kvaliteten oppe:
 - **Tilgang som katalogene ikke oppgir** (verken Felles datakatalog, Geonorge eller datasettene tjenesten leverer)
   sjekkes for hånd og føres i `registry/access-review.yaml` med katalogens URI, verdien, og en kort `reason` om hva
   du så: et anonymt kall, dokumentasjonen. Gir katalogene en verdi senere, vinner den over gjennomgangen.
+- **Tjenester som er borte** (vertsnavnet finnes ikke lenger) men fortsatt står i katalogen, føres i
+  `registry/retired.yaml` med katalogens URI og en kort `reason`. Da holdes de utenfor registeret til linjen fjernes.
 - **Private tjenester** tas med når de er åpne og brukes mye av norske utviklere, med `sector: privat`.
 - **Åpne, men uannonserte API-er** (JSON bak en offentlig nettside, en Swagger ingen lenker til) tas med når de
   svarer uten innlogging, med taggen `undocumented`.

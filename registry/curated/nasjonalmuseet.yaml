@@ -1,0 +1,30 @@
+updated: 2026-11-10
+provider:
+  name: Nasjonalmuseet
+  orgnr: "985686092"
+  sector: stat
+apis:
+  - id: nasjonalmuseet-api
+    title: Nasjonalmuseets samlings-API
+    title_en: National Museum of Norway collection API
+    description: >-
+      Rundt 60 000 verk fra Nasjonalmuseets samling: kunst, design, arkitektur og kunsthåndverk. Linked Art-endepunktene
+      (JSON-LD) og IIIF-manifestene med bildene svarer uten nøkkel; /api/v1 har tekst-, filter- og semantisk søk og
+      krever en gratis nøkkel som utstedes automatisk.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON, JSON-LD, IIIF]
+    endpoints:
+      - https://api.nasjonalmuseet.no/api/linkedart/object
+      - https://api.nasjonalmuseet.no/api/v1/
+    docs_url: https://api.nasjonalmuseet.no/api/docs
+    spec_url: https://api.nasjonalmuseet.no/api/openapi.json
+    probe_url: https://api.nasjonalmuseet.no/api/linkedart/object/text-search?q=munch
+    keywords: [kunst, museum, maleri, samling, munch, linked art, iiif, art collection]
+    tags: [no-auth]
+    caveats:
+      - "/api/v1 krever en gratis nøkkel i X-API-Key; registrering på /api/v1/keys/register."
+      - Vilkårene på /api/v1/terms var merket som plassholdertekst, ikke gjennomgått, da oppføringen ble laget (10.11.2026).
+    quick_start: |
+      curl "https://api.nasjonalmuseet.no/api/linkedart/object/text-search?q=munch"

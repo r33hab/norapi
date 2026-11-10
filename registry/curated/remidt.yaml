@@ -1,0 +1,32 @@
+updated: 2026-11-10
+provider:
+  name: ReMidt IKS
+  orgnr: "975936333"
+  sector: kommune
+apis:
+  - id: remidt-tommekalender
+    title: Tømmekalender (renovasjonsportal.no)
+    title_en: Waste collection calendar (renovasjonsportal.no)
+    description: >-
+      Tømmedager per adresse for kommunene ReMidt henter avfall i (blant annet Kristiansund og Orkland): søk opp
+      adressen, og hent neste tømminger med dato og fraksjon (restavfall, matavfall, papir, plast). Samme løsning
+      svarer for Fosen Renovasjon på fosen.renovasjonsportal.no. Uten nøkkel.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://kalender.renovasjonsportal.no/api/address/
+      - https://fosen.renovasjonsportal.no/api/address/
+    docs_url: https://kalender.renovasjonsportal.no/
+    probe_url: https://kalender.renovasjonsportal.no/api/address/Storgata%2011
+    keywords: [renovasjon, tømmekalender, avfall, søppel, tømmedag, kristiansund, orkland, fosen, waste collection]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Udokumentert JSON-tjeneste bak kalendersiden; kjent fra Home Assistant-integrasjoner og kan endres uten forvarsel.
+      - Ingen lisens eller vilkår oppgitt.
+    quick_start: |
+      # 1) finn adressens id
+      curl "https://kalender.renovasjonsportal.no/api/address/Storgata%2011"
+      # 2) hent tømmedagene for id-en fra svaret
+      curl "https://kalender.renovasjonsportal.no/api/address/<id>/details"

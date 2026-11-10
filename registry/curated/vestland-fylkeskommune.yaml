@@ -1,0 +1,30 @@
+updated: 2026-11-10
+provider:
+  name: Vestland fylkeskommune
+  orgnr: "821311632"
+  sector: fylke
+apis:
+  - id: vestland-fylkeskommune-kartserver
+    title: Vestland fylkeskommunes kartserver (ArcGIS REST)
+    title_en: Vestland county map server (ArcGIS REST)
+    description: >-
+      Fylkeskommunens kartlag: regional plan, kulturminnedata (blant annet kulturminneskilt), arealregnskap,
+      friluftslivskartlegging, næringsareal og Skyss-linjer og frekvens som kartlag (ikke sanntid; den ligger hos
+      Entur). Hvert lag spørres med /query og svarer i JSON eller GeoJSON. Uten nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://kart.vlfk.no/arcgis/rest/services
+    docs_url: https://kart.vlfk.no/arcgis/rest/services
+    probe_url: https://kart.vlfk.no/arcgis/rest/services?f=json
+    keywords: [vestland, fylkeskommune, kart, arcgis, kulturminner, friluftsliv, arealregnskap, skyss, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Noen mapper (test, Editerbar) er arbeidsområder; bygg ikke på dem.
+    quick_start: |
+      curl "https://kart.vlfk.no/arcgis/rest/services?f=json"
+      # kulturminneskilt som GeoJSON
+      curl "https://kart.vlfk.no/arcgis/rest/services/Kulturminnedata/Kulturminneskilt/MapServer/0/query?where=1%3D1&outFields=*&resultRecordCount=5&f=geojson"

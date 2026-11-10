@@ -49,6 +49,26 @@ def apply_access_review(harvested: list[ApiEntry], review: dict[str, dict[str, A
         entry.source["access_checked"] = item["checked"]
 
 
+def load_retired(path: Path) -> dict[str, dict[str, Any]]:
+    """registry/retired.yaml: harvested entries whose service a manual check found gone (the
+    host no longer resolves), keyed by catalogue URI. The catalogue still lists them, so
+    without this list every harvest would bring them back."""
+    if not path.exists():
+        return {}
+    document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    retired: dict[str, dict[str, Any]] = {}
+    for item in document.get("entries") or []:
+        if not item.get("uri") or not item.get("reason"):
+            raise ValueError(f"{path.name}: {item.get('id')}: every entry needs a uri and a reason")
+        retired[item["uri"]] = item
+    return retired
+
+
+def drop_retired(harvested: list[ApiEntry], retired: dict[str, dict[str, Any]]) -> list[ApiEntry]:
+    """Leave out the harvested entries listed as retired; curated entries are never touched."""
+    return [e for e in harvested if (e.source.get("uri") or "") not in retired]
+
+
 def load_curated(curated_dir: Path) -> list[ApiEntry]:
     entries: list[ApiEntry] = []
     for file in sorted(curated_dir.glob("*.yaml")):

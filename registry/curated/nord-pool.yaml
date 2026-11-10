@@ -1,0 +1,28 @@
+updated: 2026-11-10
+provider:
+  name: Nord Pool
+  orgnr: "919585099"
+  sector: privat
+apis:
+  - id: nordpool-dataportal-day-ahead
+    title: Nord Pool day-ahead-priser (Data Portal)
+    title_en: Nord Pool day-ahead prices (Data Portal)
+    description: >-
+      Spotprisene fra Nord Pools day-ahead-auksjon per kvarter for prisområdene NO1 til NO5 (og resten av Norden og
+      Baltikum), i NOK eller EUR. Dette er primærkilden som norske strømpris-API-er henter fra. JSON-tjenesten bak Data
+      Portal på nordpoolgroup.com svarer uten nøkkel.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://dataportal-api.nordpoolgroup.com/api/DayAheadPrices
+    docs_url: https://data.nordpoolgroup.com/auction/day-ahead/prices
+    probe_url: https://dataportal-api.nordpoolgroup.com/api/DayAheadPrices?date=2026-11-10&market=DayAhead&deliveryArea=NO1&currency=NOK
+    keywords: [strømpris, spotpris, day-ahead, nord pool, prisområde, no1, no2, elektrisitet, electricity price]
+    tags: [no-auth, undocumented, private-provider]
+    caveats:
+      - Udokumentert JSON-tjeneste bak nettsiden, ikke Nord Pools dokumenterte API (det krever abonnement); kan endres uten forvarsel.
+      - Vilkår for bruk av dataene er ikke oppgitt for dette endepunktet; sjekk Nord Pools vilkår før kommersiell bruk.
+    quick_start: |
+      curl "https://dataportal-api.nordpoolgroup.com/api/DayAheadPrices?date=2026-11-10&market=DayAhead&deliveryArea=NO1,NO2,NO3,NO4,NO5&currency=NOK"

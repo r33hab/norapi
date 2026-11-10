@@ -1,4 +1,4 @@
-updated: 2026-10-21
+updated: 2026-11-10
 provider:
   name: Sikt - Kunnskapssektorens tjenesteleverandør
   orgnr: "919477822"
@@ -49,14 +49,15 @@ apis:
     title_en: BIBSYS union catalogue (SRU)
     description: >-
       SRU-søk i fellesbibliotekkatalogen til norske universiteter og høgskoler (BIBSYS-nettverket i Alma), med
-      CQL-spørringer og svar som MARCXML. Standard SRU 1.2, uten nøkkel; operation=explain beskriver indeksene. Ingen
-      lisens oppgitt.
+      CQL-spørringer og svar som MARCXML. Standard SRU 1.2, uten nøkkel; operation=explain beskriver indeksene. Den samme
+      katalogen kan høstes med OAI-PMH. Ingen lisens oppgitt.
     category: kultur-og-kunnskap
     access: open
     auth: none
-    formats: [XML, MARCXML]
+    formats: [XML, MARCXML, OAI-PMH]
     endpoints:
       - https://bibsys-k.alma.exlibrisgroup.com/view/sru/47BIBSYS_NETWORK
+      - https://bibsys-k.alma.exlibrisgroup.com/view/oai/47BIBSYS_NETWORK/request
     docs_url: https://bibsys-k.alma.exlibrisgroup.com/view/sru/47BIBSYS_NETWORK?version=1.2&operation=explain
     keywords: [bibliotek, katalog, bøker, bibsys, sru, marc, universitetsbibliotek, library catalogue]
     tags: [no-auth]
@@ -65,3 +66,25 @@ apis:
       - Avklar bruk i stor skala med Sikt.
     quick_start: |
       curl "https://bibsys-k.alma.exlibrisgroup.com/view/sru/47BIBSYS_NETWORK?version=1.2&operation=searchRetrieve&query=alma.title=fjord&maximumRecords=1"
+
+  - id: sikt-bibsys-autoritetsregister
+    title: BIBSYS autoritetsregister (SRU)
+    title_en: BIBSYS authority file (SRU)
+    description: >-
+      Autoritetsregisteret for personer og korporasjoner i norske fag- og forskningsbibliotek: én post per forfatter
+      eller organisasjon med navneformer, levetid og identifikatorer, brukt til å samle verk under riktig navn. Standard
+      SRU 1.2 uten nøkkel; operation=explain beskriver indeksene. Ingen lisens oppgitt.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://authority.bibsys.no/authority/rest/sru
+    docs_url: https://authority.bibsys.no/authority/rest/sru?operation=explain&version=1.2
+    probe_url: https://authority.bibsys.no/authority/rest/sru?operation=searchRetrieve&version=1.2&query=ibsen&maximumRecords=1
+    keywords: [bibliotek, autoritetsregister, forfatter, navneform, bibsys, sru, authority file, library]
+    tags: [no-auth, reference-data]
+    caveats:
+      - Ingen lisens oppgitt og ingen dokumentasjon utover explain-svaret.
+    quick_start: |
+      curl "https://authority.bibsys.no/authority/rest/sru?operation=searchRetrieve&version=1.2&query=ibsen&maximumRecords=1"

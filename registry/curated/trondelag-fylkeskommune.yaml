@@ -1,0 +1,30 @@
+updated: 2026-11-10
+provider:
+  name: Trøndelag fylkeskommune
+  orgnr: "817920632"
+  sector: fylke
+apis:
+  - id: trondelag-fylkeskommune-kartserver
+    title: Trøndelag fylkeskommunes kartserver (ArcGIS REST)
+    title_en: Trøndelag county map server (ArcGIS REST)
+    description: >-
+      Fylkeskommunens kartlag: plan, kulturminner og arkeologi, viltforvaltning, reindrift, bredbåndsdekning, veg,
+      friluftsliv og interessepunkter. Hvert lag spørres med /query og svarer i JSON eller GeoJSON. De fleste mappene er
+      åpne uten nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://webgis.trondelagfylke.no/arcgis/rest/services
+    docs_url: https://webgis.trondelagfylke.no/arcgis/rest/services
+    probe_url: https://webgis.trondelagfylke.no/arcgis/rest/services?f=json
+    keywords: [trøndelag, fylkeskommune, kart, arcgis, kulturminner, vilt, reindrift, bredbånd, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Enkelte mapper (Utdanning) krever innlogging.
+      - Serveren kan svare tregt; sett romslig tidsavbrudd.
+    quick_start: |
+      curl "https://webgis.trondelagfylke.no/arcgis/rest/services?f=json"
+      curl "https://webgis.trondelagfylke.no/arcgis/rest/services/POI_TRFK/POI_TRFK/MapServer/0/query?where=1%3D1&outFields=*&resultRecordCount=5&f=geojson"

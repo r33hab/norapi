@@ -55,6 +55,17 @@ def test_sparse_hit_falls_back_sensibly(snapshot):
     )
 
 
+def test_placeholder_urls_from_the_catalogue_are_dropped(snapshot):
+    uri = "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/ddd"
+    snapshot["extras"]["endpoints"].insert(0, [uri, "http://example.com/"])
+    snapshot["extras"]["endpoint_descriptions"].insert(0, [uri, "https://www.example.org/docs"])
+    entry = next(e for e in fdk.to_entries(snapshot) if e.source["uri"] == uri)
+    assert entry.endpoints == ["https://example.oslo.kommune.no/api"], (
+        "a real host that merely starts with 'example.' is kept"
+    )
+    assert entry.docs_url == "https://example.oslo.kommune.no/om-apiet"
+
+
 def test_endpoint_description_that_is_a_spec_is_not_reused_as_docs(snapshot):
     entry = next(e for e in fdk.to_entries(snapshot) if e.id == "kartverket-kommuneinfo")
     assert entry.spec_url == "https://ws.geonorge.no/kommuneinfo/v1/static/openapi_doc.json"
