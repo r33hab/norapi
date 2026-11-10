@@ -21,6 +21,7 @@ from collections.abc import Iterator
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit
 
 import httpx
 
@@ -228,6 +229,16 @@ def _resolve_access(
     return "unknown", None
 
 
+_PLACEHOLDER_HOSTS = ("example.com", "example.org", "example.net", "localhost")
+
+
+def _placeholder(url: str) -> bool:
+    """A filler URL left in the catalogue (the RFC 2606 example domains, localhost) is not a
+    link to the service; NDLA's APIs are registered with http://example.com/ as endpoint."""
+    host = (urlsplit(url).hostname or "").lower()
+    return any(host == h or host.endswith(f".{h}") for h in _PLACEHOLDER_HOSTS)
+
+
 def _hit_to_entry(
     hit: dict[str, Any],
     extra: dict[str, list[str]],
@@ -250,11 +261,13 @@ def _hit_to_entry(
     description = _text(hit.get("description"))
     access, access_from = _resolve_access(hit, extra, geonorge_records)
 
-    descriptions = extra.get("endpoint_descriptions", [])
+    descriptions = [u for u in extra.get("endpoint_descriptions", []) if not _placeholder(u)]
     spec_url = next((u for u in descriptions if looks_like_spec(u)), None)
     docs_candidates = extra.get("pages", []) + extra.get("landing_pages", [])
     docs_candidates += [u for u in descriptions if u != spec_url]
-    docs_url = next((u for u in docs_candidates if u.startswith("http")), None)
+    docs_url = next(
+        (u for u in docs_candidates if u.startswith("http") and not _placeholder(u)), None
+    )
 
     formats: list[str] = []
     raw_formats = list(hit.get("fdkFormatPrefixed") or []) + extra.get("formats", [])
@@ -264,7 +277,9 @@ def _hit_to_entry(
         if normalised and normalised not in formats:
             formats.append(normalised)
 
-    endpoints = [u for u in extra.get("endpoints", []) if u.startswith("http")]
+    endpoints = [
+        u for u in extra.get("endpoints", []) if u.startswith("http") and not _placeholder(u)
+    ]
     return ApiEntry(
         id=f"{slugify(provider.name, 30)}-{slugify(title, 50)}",
         title=title,

@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-11-09T12:53:22+00:00",
-"count": 1784,
+"generated_at": "2026-11-10T08:41:49+00:00",
+"count": 2179,
 "operations": [
 {
 "api_id": "artsdatabanken-nortaxa",
@@ -3198,8 +3198,8 @@
 "api_id": "hkdir-utdanning-no",
 "method": "GET",
 "path": "/kategorisystemer/styrk08",
-"summary": "Gir en oversikt over styrk08 koder og tilhørende yrker",
-"description": "Kalles endepunktet uten noen parameter satt får du ut alle Styrk08 koder og tilhørende yrker. Hvis `styrk08` parameteren settes, vil du kun få ut de Styrk08 koder som matcher filteret. Støtter også wildcard `*`, se eksempler",
+"summary": "Gir en oversikt over styrk08 koder, og tilhørende yrker",
+"description": null,
 "tags": [
 "Kategorisystemer"
 ],
@@ -3228,7 +3228,7 @@
 "Legacy-Lopet"
 ],
 "operation_id": "Legacy-Lopet___get_lopet",
-"deprecated": true
+"deprecated": false
 },
 {
 "api_id": "hkdir-utdanning-no",
@@ -3240,7 +3240,7 @@
 "Legacy-Lopet"
 ],
 "operation_id": "Legacy-Lopet___get_program",
-"deprecated": true
+"deprecated": false
 },
 {
 "api_id": "hkdir-utdanning-no",
@@ -3252,7 +3252,7 @@
 "Legacy-Lopet"
 ],
 "operation_id": "Legacy-Lopet___get_sted",
-"deprecated": true
+"deprecated": false
 },
 {
 "api_id": "hkdir-utdanning-no",
@@ -3264,7 +3264,7 @@
 "Legacy-Lopet"
 ],
 "operation_id": "Legacy-Lopet___get_utdanningsprogram",
-"deprecated": true
+"deprecated": false
 },
 {
 "api_id": "hkdir-utdanning-no",
@@ -4578,6 +4578,798 @@
 {
 "api_id": "kartverket-havnedata-ogcapi",
 "method": "GET",
+"path": "/collections/administrativthavneomrade/items",
+"summary": "retrieve features in the feature collection 'administrativthavneomrade'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "administrativthavneomrade.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/avfallspunkt/items",
+"summary": "retrieve features in the feature collection 'avfallspunkt'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "avfallspunkt.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/beredskapspunkt/items",
+"summary": "retrieve features in the feature collection 'beredskapspunkt'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "beredskapspunkt.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/drivstofftilkobling/items",
+"summary": "retrieve features in the feature collection 'drivstofftilkobling'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "drivstofftilkobling.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/elkobling/items",
+"summary": "retrieve features in the feature collection 'elkobling'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "elkobling.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fartsrestriksjoner/items",
+"summary": "retrieve features in the feature collection 'fartsrestriksjoner'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "fartsrestriksjoner.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fartsrestriksjonergrense/items",
+"summary": "retrieve features in the feature collection 'fartsrestriksjonergrense'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "fartsrestriksjonergrense.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fender/items",
+"summary": "retrieve features in the feature collection 'fender'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "fender.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/flytedokk/items",
+"summary": "retrieve features in the feature collection 'flytedokk'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "flytedokk.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/forbudsomrade/items",
+"summary": "retrieve features in the feature collection 'forbudsomrade'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "forbudsomrade.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/forbudsomradegrense/items",
+"summary": "retrieve features in the feature collection 'forbudsomradegrense'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "forbudsomradegrense.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fortoyningsinnretning/items",
+"summary": "retrieve features in the feature collection 'fortoyningsinnretning'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "fortoyningsinnretning.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/havneomrade/items",
+"summary": "retrieve features in the feature collection 'havneomrade'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "havneomrade.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/havnesensor/items",
+"summary": "retrieve features in the feature collection 'havnesensor'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "havnesensor.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaifront/items",
+"summary": "retrieve features in the feature collection 'kaifront'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "kaifront.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaiomrade/items",
+"summary": "retrieve features in the feature collection 'kaiomrade'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "kaiomrade.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaiomradegrense/items",
+"summary": "retrieve features in the feature collection 'kaiomradegrense'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "kaiomradegrense.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kran/items",
+"summary": "retrieve features in the feature collection 'kran'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "kran.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/lastelosseutstyr/items",
+"summary": "retrieve features in the feature collection 'lastelosseutstyr'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "lastelosseutstyr.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/slipp/items",
+"summary": "retrieve features in the feature collection 'slipp'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "slipp.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/toalett/items",
+"summary": "retrieve features in the feature collection 'toalett'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "toalett.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/vauttak/items",
+"summary": "retrieve features in the feature collection 'vauttak'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "vauttak.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/administrativthavneomrade/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'administrativthavneomrade'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "administrativthavneomrade.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/avfallspunkt/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'avfallspunkt'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "avfallspunkt.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/beredskapspunkt/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'beredskapspunkt'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "beredskapspunkt.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/drivstofftilkobling/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'drivstofftilkobling'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "drivstofftilkobling.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/elkobling/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'elkobling'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "elkobling.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fartsrestriksjoner/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'fartsrestriksjoner'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "fartsrestriksjoner.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fartsrestriksjonergrense/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'fartsrestriksjonergrense'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "fartsrestriksjonergrense.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fender/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'fender'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "fender.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/flytedokk/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'flytedokk'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "flytedokk.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/forbudsomrade/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'forbudsomrade'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "forbudsomrade.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/forbudsomradegrense/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'forbudsomradegrense'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "forbudsomradegrense.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fortoyningsinnretning/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'fortoyningsinnretning'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "fortoyningsinnretning.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/havneomrade/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'havneomrade'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "havneomrade.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/havnesensor/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'havnesensor'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "havnesensor.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaifront/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'kaifront'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "kaifront.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaiomrade/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'kaiomrade'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "kaiomrade.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaiomradegrense/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'kaiomradegrense'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "kaiomradegrense.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kran/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'kran'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "kran.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/lastelosseutstyr/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'lastelosseutstyr'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "lastelosseutstyr.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/slipp/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'slipp'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "slipp.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/toalett/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'toalett'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "toalett.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/vauttak/items/{featureId}",
+"summary": "retrieve a feature in the feature collection 'vauttak'",
+"description": "Fetch the feature with id `{featureId}`.",
+"tags": [
+"Access data"
+],
+"operation_id": "vauttak.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/administrativthavneomrade/queryables",
+"summary": "retrieve the queryables of the feature collection 'administrativthavneomrade'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "administrativthavneomrade.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/avfallspunkt/queryables",
+"summary": "retrieve the queryables of the feature collection 'avfallspunkt'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "avfallspunkt.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/beredskapspunkt/queryables",
+"summary": "retrieve the queryables of the feature collection 'beredskapspunkt'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "beredskapspunkt.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/drivstofftilkobling/queryables",
+"summary": "retrieve the queryables of the feature collection 'drivstofftilkobling'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "drivstofftilkobling.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/elkobling/queryables",
+"summary": "retrieve the queryables of the feature collection 'elkobling'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "elkobling.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fartsrestriksjoner/queryables",
+"summary": "retrieve the queryables of the feature collection 'fartsrestriksjoner'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "fartsrestriksjoner.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fartsrestriksjonergrense/queryables",
+"summary": "retrieve the queryables of the feature collection 'fartsrestriksjonergrense'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "fartsrestriksjonergrense.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fender/queryables",
+"summary": "retrieve the queryables of the feature collection 'fender'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "fender.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/flytedokk/queryables",
+"summary": "retrieve the queryables of the feature collection 'flytedokk'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "flytedokk.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/forbudsomrade/queryables",
+"summary": "retrieve the queryables of the feature collection 'forbudsomrade'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "forbudsomrade.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/forbudsomradegrense/queryables",
+"summary": "retrieve the queryables of the feature collection 'forbudsomradegrense'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "forbudsomradegrense.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fortoyningsinnretning/queryables",
+"summary": "retrieve the queryables of the feature collection 'fortoyningsinnretning'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "fortoyningsinnretning.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/havneomrade/queryables",
+"summary": "retrieve the queryables of the feature collection 'havneomrade'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "havneomrade.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/havnesensor/queryables",
+"summary": "retrieve the queryables of the feature collection 'havnesensor'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "havnesensor.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaifront/queryables",
+"summary": "retrieve the queryables of the feature collection 'kaifront'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "kaifront.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaiomrade/queryables",
+"summary": "retrieve the queryables of the feature collection 'kaiomrade'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "kaiomrade.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaiomradegrense/queryables",
+"summary": "retrieve the queryables of the feature collection 'kaiomradegrense'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "kaiomradegrense.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kran/queryables",
+"summary": "retrieve the queryables of the feature collection 'kran'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "kran.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/lastelosseutstyr/queryables",
+"summary": "retrieve the queryables of the feature collection 'lastelosseutstyr'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "lastelosseutstyr.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/slipp/queryables",
+"summary": "retrieve the queryables of the feature collection 'slipp'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "slipp.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/toalett/queryables",
+"summary": "retrieve the queryables of the feature collection 'toalett'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "toalett.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/vauttak/queryables",
+"summary": "retrieve the queryables of the feature collection 'vauttak'",
+"description": "The Queryables resources identifies the properties that can be referenced in filter expressions to select specific features that meet the criteria identified in the filter. The response is a JSON Schema document that describes a single JSON",
+"tags": [
+"Discover data collections"
+],
+"operation_id": "vauttak.getQueryables",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
 "path": "/styles",
 "summary": "lists the available styles",
 "description": "This operation fetches the set of styles available. For each style the id, a title, links to the stylesheet of the style in each supported encoding, and the link to the metadata is provided.",
@@ -4662,18 +5454,6 @@
 {
 "api_id": "geonorge-register",
 "method": "GET",
-"path": "/api/{parentregister}/{register}.{ext}",
-"summary": "Gets subregister by name",
-"description": null,
-"tags": [
-"ApiRoot"
-],
-"operation_id": "ApiRoot_GetSubregisterByName",
-"deprecated": false
-},
-{
-"api_id": "geonorge-register",
-"method": "GET",
 "path": "/api/{registerName}",
 "summary": "Gets register by name",
 "description": null,
@@ -4693,30 +5473,6 @@
 "ApiRoot"
 ],
 "operation_id": "ApiRoot_GetRegisterItemByName",
-"deprecated": false
-},
-{
-"api_id": "geonorge-register",
-"method": "GET",
-"path": "/api/{registerName}/report/{id}",
-"summary": "Gets selected status report",
-"description": null,
-"tags": [
-"ApiRoot"
-],
-"operation_id": "ApiRoot_StatusReport",
-"deprecated": false
-},
-{
-"api_id": "geonorge-register",
-"method": "GET",
-"path": "/api/{registerName}/report/{id}.{ext}",
-"summary": "Gets selected status report",
-"description": null,
-"tags": [
-"ApiRoot"
-],
-"operation_id": "ApiRoot_StatusReport",
 "deprecated": false
 },
 {
@@ -4757,18 +5513,6 @@
 },
 {
 "api_id": "geonorge-register",
-"method": "PUT",
-"path": "/api/AlertApi/{id}",
-"summary": "Update alert",
-"description": null,
-"tags": [
-"AlertApi"
-],
-"operation_id": "AlertApi_Put_ServiceAlert",
-"deprecated": false
-},
-{
-"api_id": "geonorge-register",
 "method": "GET",
 "path": "/api/alerts",
 "summary": "Get all alerts",
@@ -4789,18 +5533,6 @@
 "AlertApi"
 ],
 "operation_id": "AlertApi_GetUuid",
-"deprecated": false
-},
-{
-"api_id": "geonorge-register",
-"method": "GET",
-"path": "/api/ApiRoot",
-"summary": "Gets subregister by id",
-"description": null,
-"tags": [
-"ApiRoot"
-],
-"operation_id": "ApiRoot_GetRegisterById",
 "deprecated": false
 },
 {
@@ -4866,6 +5598,18 @@
 {
 "api_id": "geonorge-register",
 "method": "GET",
+"path": "/api/OrganizationsApi",
+"summary": "Get  municipality by kommunenummer",
+"description": null,
+"tags": [
+"OrganizationsApi"
+],
+"operation_id": "OrganizationsApi_GetOrganizationsByCodeV2",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
 "path": "/api/register",
 "summary": "List top level registers. Use id in response to navigate.",
 "description": null,
@@ -4885,30 +5629,6 @@
 "ApiRoot"
 ],
 "operation_id": "ApiRoot_GetRegisterItemsByOrganization",
-"deprecated": false
-},
-{
-"api_id": "geonorge-register",
-"method": "GET",
-"path": "/api/register/{registerName}/report/{id}",
-"summary": "Gets selected status report",
-"description": null,
-"tags": [
-"ApiRoot"
-],
-"operation_id": "ApiRoot_StatusReport",
-"deprecated": false
-},
-{
-"api_id": "geonorge-register",
-"method": "GET",
-"path": "/api/register/{registerName}/report/{id}.{ext}",
-"summary": "Gets selected status report",
-"description": null,
-"tags": [
-"ApiRoot"
-],
-"operation_id": "ApiRoot_StatusReport",
 "deprecated": false
 },
 {
@@ -4957,30 +5677,6 @@
 "ApiRoot"
 ],
 "operation_id": "ApiRoot_SiteMap",
-"deprecated": false
-},
-{
-"api_id": "geonorge-register",
-"method": "GET",
-"path": "/api/subregister/{parentregister}/{parentregisterOwner}/{register}",
-"summary": "Gets subregister by name",
-"description": null,
-"tags": [
-"ApiRoot"
-],
-"operation_id": "ApiRoot_GetSubregisterByName",
-"deprecated": false
-},
-{
-"api_id": "geonorge-register",
-"method": "GET",
-"path": "/api/subregister/{parentregister}/{parentregisterOwner}/{register}.{ext}",
-"summary": "Gets subregister by name",
-"description": null,
-"tags": [
-"ApiRoot"
-],
-"operation_id": "ApiRoot_GetSubregisterByName",
 "deprecated": false
 },
 {
@@ -5699,18 +6395,6 @@
 "description": null,
 "tags": [
 "Map"
-],
-"operation_id": null,
-"deprecated": false
-},
-{
-"api_id": "kystverket-kystdatahuset",
-"method": "GET",
-"path": "/api/martraf-tracks/coverage",
-"summary": "Return the time period covered by the MarTraf tracks (UTC) (Auth)",
-"description": "lastTime is the latest track start time, i.e. MarTraf has no data after this time. Used by clients to decide between MarTraf and the realtime tracks (api/realtime-tracks/within-geom-time).",
-"tags": [
-"MarTraf"
 ],
 "operation_id": null,
 "deprecated": false
@@ -6964,6 +7648,16 @@
 "deprecated": false
 },
 {
+"api_id": "kystverket-navigasjonsvarsler",
+"method": "GET",
+"path": "/data/dadjokes",
+"summary": "Dadjoke",
+"description": "Return a delicious pun to brighten your day.",
+"tags": [],
+"operation_id": "dadjoke_data_dadjokes_get",
+"deprecated": false
+},
+{
 "api_id": "hjorteviltregisteret-fallvilt",
 "method": "GET",
 "path": "/api/v0/fallvilt",
@@ -7650,9 +8344,9 @@
 {
 "api_id": "lovdata-public-data",
 "method": "POST",
-"path": "/v2/ai/baseSearch",
-"summary": "Search explicitly selected bases",
-"description": "Searches only the explicitly selected Lovdata bases. No automatic routing or fallback to other bases is performed. Send a required **JSON request body** (`Content-Type: application/json`). This endpoint has no query or path parameters. | Fi",
+"path": "/v2/ai/selectionList/generateResponse",
+"summary": "Generate a list of LLM responses for a chat over document sections from a selection list",
+"description": "Generates text using selection-list-specific prompts for a fixed document collection.",
 "tags": [
 "AI functionality"
 ],
@@ -7712,7 +8406,7 @@
 "method": "GET",
 "path": "/vocabulary/legalSources",
 "summary": "List all legal sources (bases)",
-"description": "Returns all concrete bases and base groups (samlevalg). Each entry has an id, description, isGroup flag and bases array containing its expanded concrete base codes. Concrete bases list their own ID. Group codes can be passed directly to /v2",
+"description": "Returns a list of all legal sources (bases) available in the system.",
 "tags": [
 "Vocabularies"
 ],
@@ -7802,6 +8496,3810 @@
 ],
 "operation_id": "index",
 "deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/admin/buildAverageTree",
+"summary": "Updates average tree for all nodes. Requires taxonomy:admin access.",
+"description": null,
+"tags": [
+"admin"
+],
+"operation_id": "buildAverageTree",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/admin/buildAverageTree/{id}",
+"summary": "Updates average tree for the provided node. Requires taxonomy:admin access.",
+"description": null,
+"tags": [
+"admin"
+],
+"operation_id": "buildAverageTree_1",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/admin/buildContexts",
+"summary": "Updates contexts for all roots. Requires taxonomy:admin access.",
+"description": null,
+"tags": [
+"admin"
+],
+"operation_id": "buildAllContexts",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/contexts",
+"summary": "Gets id of all nodes registered as context",
+"description": null,
+"tags": [
+"contexts"
+],
+"operation_id": "getAllContexts",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/contexts",
+"summary": "Registers a new node as context",
+"description": "All subjects are already contexts and may not be added again. The node to register as context must exist already.",
+"tags": [
+"contexts"
+],
+"operation_id": "createContext",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/contexts/",
+"summary": "Gets id of all nodes registered as context",
+"description": null,
+"tags": [
+"contexts"
+],
+"operation_id": "getAllContexts_1",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/contexts/",
+"summary": "Registers a new node as context",
+"description": "All subjects are already contexts and may not be added again. The node to register as context must exist already.",
+"tags": [
+"contexts"
+],
+"operation_id": "createContext_1",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/contexts/{id}",
+"summary": "Removes context registration from node",
+"description": "Does not remove the underlying node, only marks it as not being a context",
+"tags": [
+"contexts"
+],
+"operation_id": "deleteContext",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/node-connections",
+"summary": "Gets all connections between node and children",
+"description": null,
+"tags": [
+"node-connections"
+],
+"operation_id": "getAllNodeConnections",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/node-connections",
+"summary": "Adds a node to a parent",
+"description": null,
+"tags": [
+"node-connections"
+],
+"operation_id": "createNodeConnection",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/node-connections/",
+"summary": "Gets all connections between node and children",
+"description": null,
+"tags": [
+"node-connections"
+],
+"operation_id": "getAllNodeConnections_1",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/node-connections/",
+"summary": "Adds a node to a parent",
+"description": null,
+"tags": [
+"node-connections"
+],
+"operation_id": "createNodeConnection_1",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/node-connections/page",
+"summary": "Gets all connections between node and children paginated",
+"description": null,
+"tags": [
+"node-connections"
+],
+"operation_id": "getNodeConnectionsPage",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/node-connections/{id}",
+"summary": "Gets a single connection between a node and a child",
+"description": null,
+"tags": [
+"node-connections"
+],
+"operation_id": "getNodeConnection",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/node-connections/{id}",
+"summary": "Updates a connection between a node and a child",
+"description": "Use to update which node is primary to a child or to alter sorting order",
+"tags": [
+"node-connections"
+],
+"operation_id": "updateNodeConnection",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/node-connections/{id}",
+"summary": "Removes a connection between a node and a child",
+"description": null,
+"tags": [
+"node-connections"
+],
+"operation_id": "deleteEntity_2",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/node-connections/{id}/metadata",
+"summary": "Gets metadata for entity",
+"description": null,
+"tags": [
+"node-connections"
+],
+"operation_id": "getMetadata_1",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/node-connections/{id}/metadata",
+"summary": "Updates metadata for entity",
+"description": null,
+"tags": [
+"node-connections"
+],
+"operation_id": "putMetadata_1",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/node-resources",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_189",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/node-resources",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_190",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/node-resources",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_191",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/node-resources",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_193",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/node-resources",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_192",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/node-resources",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_194",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/node-resources",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_195",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/node-resources/",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_203",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/node-resources/",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_204",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/node-resources/",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_205",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/node-resources/",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_207",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/node-resources/",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_206",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/node-resources/",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_208",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/node-resources/",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_209",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/node-resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_196",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/node-resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_197",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/node-resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_198",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/node-resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_200",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/node-resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_199",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/node-resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_201",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/node-resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"node-resources"
+],
+"operation_id": "redirect_202",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/nodes",
+"summary": "Gets all nodes",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "getAllNodes",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/nodes",
+"summary": "Creates a new node",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "createNode",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/nodes/",
+"summary": "Gets all nodes",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "getAllNodes_1",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/nodes/",
+"summary": "Creates a new node",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "createNode_1",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/nodes/page",
+"summary": "Gets all nodes paginated",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "getNodePage",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/nodes/search",
+"summary": "Search all nodes",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "searchNodes",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/nodes/search",
+"summary": "Search all nodes",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "searchNodes_1",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/nodes/{id}",
+"summary": "Gets a single node",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "getNode",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/nodes/{id}",
+"summary": "Updates a single node",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "updateNode",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/nodes/{id}",
+"summary": "Deletes a single node by id",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "deleteEntity_1",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/nodes/{id}/clone",
+"summary": "Clones a node, presumably a resource, including resource-types and translations",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "cloneResource",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/nodes/{id}/connections",
+"summary": "Gets all parents and children this node is connected to",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "getAllConnections",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/nodes/{id}/full",
+"summary": "Gets node including information about all parents, and resourceTypes for this resource. Can be replaced with regular get-endpoint and traversing contexts",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "getNodeFull",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/nodes/{id}/makeResourcesPrimary",
+"summary": "Makes all connected resources primary",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "makeResourcesPrimary",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/nodes/{id}/metadata",
+"summary": "Gets metadata for entity",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "getMetadata",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/nodes/{id}/metadata",
+"summary": "Updates metadata for entity",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "putMetadata",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/nodes/{id}/nodes",
+"summary": "Gets all children for this node",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "getChildren",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/nodes/{id}/publish",
+"summary": "Publishes a node hierarchy to a version",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "publishNode",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/nodes/{id}/resources",
+"summary": "Gets all resources for the given node",
+"description": null,
+"tags": [
+"nodes"
+],
+"operation_id": "getResources",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/nodes/{id}/translations",
+"summary": "Gets all translations for a single node",
+"description": null,
+"tags": [
+"node-translations"
+],
+"operation_id": "getAllNodeTranslations",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/nodes/{id}/translations/",
+"summary": "Gets all translations for a single node",
+"description": null,
+"tags": [
+"node-translations"
+],
+"operation_id": "getAllNodeTranslations_1",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/nodes/{id}/translations/{language}",
+"summary": "Gets a single translation for a single node",
+"description": null,
+"tags": [
+"node-translations"
+],
+"operation_id": "getNodeTranslation",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/nodes/{id}/translations/{language}",
+"summary": "Creates or updates a translation of a node",
+"description": null,
+"tags": [
+"node-translations"
+],
+"operation_id": "createUpdateNodeTranslation",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/nodes/{id}/translations/{language}",
+"summary": "Deletes a translation",
+"description": null,
+"tags": [
+"node-translations"
+],
+"operation_id": "deleteNodeTranslation",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/queries/contextId",
+"summary": "Gets a list of contexts matching given contextId, empty list if no matches are found.",
+"description": null,
+"tags": [
+"queries"
+],
+"operation_id": "contextByContextId",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/queries/path",
+"summary": "Gets a list of contexts matching given pretty url with contextId, empty list if no matches are found.",
+"description": null,
+"tags": [
+"queries"
+],
+"operation_id": "queryPath",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/queries/resources",
+"summary": "DEPRECATED: Use /v1/nodes?nodeType=RESOURCE&contentURI= instead",
+"description": null,
+"tags": [
+"queries"
+],
+"operation_id": "queryResources",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/queries/topics",
+"summary": "DEPRECATED: Use /v1/nodes?nodeType=TOPIC&contentURI= instead",
+"description": null,
+"tags": [
+"queries"
+],
+"operation_id": "queryTopics",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/queries/{contentURI}",
+"summary": "Gets a list of contexts matching given contentURI, empty list if no matches are found.",
+"description": null,
+"tags": [
+"queries"
+],
+"operation_id": "contextByContentURI",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/relevances",
+"summary": "Gets all relevances",
+"description": null,
+"tags": [
+"relevances"
+],
+"operation_id": "getAllRelevances",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/relevances/",
+"summary": "Gets all relevances",
+"description": null,
+"tags": [
+"relevances"
+],
+"operation_id": "getAllRelevances_1",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/relevances/{id}",
+"summary": "Gets a single relevance",
+"description": "Default language will be returned if desired language not found or if parameter is omitted.",
+"tags": [
+"relevances"
+],
+"operation_id": "getRelevance",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/relevances/{id}/translations",
+"summary": "Gets all relevanceTranslations for a single relevance",
+"description": null,
+"tags": [
+"relevance-translations"
+],
+"operation_id": "getAllRelevanceTranslations",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/relevances/{id}/translations/",
+"summary": "Gets all relevanceTranslations for a single relevance",
+"description": null,
+"tags": [
+"relevance-translations"
+],
+"operation_id": "getAllRelevanceTranslations_1",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/relevances/{id}/translations/{language}",
+"summary": "Gets a single translation for a single relevance",
+"description": null,
+"tags": [
+"relevance-translations"
+],
+"operation_id": "getRelevanceTranslation",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/resource-resourcetypes",
+"summary": "Gets all connections between resources and resource types",
+"description": null,
+"tags": [
+"resource-resource-types"
+],
+"operation_id": "getAllResourceResourceTypes",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/resource-resourcetypes",
+"summary": "Adds a resource type to a resource",
+"description": null,
+"tags": [
+"resource-resource-types"
+],
+"operation_id": "createResourceResourceType",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/resource-resourcetypes/",
+"summary": "Gets all connections between resources and resource types",
+"description": null,
+"tags": [
+"resource-resource-types"
+],
+"operation_id": "getAllResourceResourceTypes_1",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/resource-resourcetypes/",
+"summary": "Adds a resource type to a resource",
+"description": null,
+"tags": [
+"resource-resource-types"
+],
+"operation_id": "createResourceResourceType_1",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/resource-resourcetypes/{id}",
+"summary": "Gets a single connection between resource and resource type",
+"description": null,
+"tags": [
+"resource-resource-types"
+],
+"operation_id": "getResourceResourceType",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/resource-resourcetypes/{id}",
+"summary": "Removes a resource type from a resource",
+"description": null,
+"tags": [
+"resource-resource-types"
+],
+"operation_id": "deleteResourceResourceType",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/resource-types",
+"summary": "Gets a list of all resource types",
+"description": null,
+"tags": [
+"resource-types"
+],
+"operation_id": "getAllResourceTypes",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/resource-types/",
+"summary": "Gets a list of all resource types",
+"description": null,
+"tags": [
+"resource-types"
+],
+"operation_id": "getAllResourceTypes_1",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/resource-types/{id}",
+"summary": "Gets a single resource type",
+"description": null,
+"tags": [
+"resource-types"
+],
+"operation_id": "getResourceType",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/resource-types/{id}/subtypes",
+"summary": "Gets subtypes of one resource type",
+"description": null,
+"tags": [
+"resource-types"
+],
+"operation_id": "getResourceTypeSubtypes",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/resource-types/{id}/translations",
+"summary": "Gets all relevanceTranslations for a single resource type",
+"description": null,
+"tags": [
+"resource-type-translations"
+],
+"operation_id": "getAllResourceTypeTranslations",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/resource-types/{id}/translations/",
+"summary": "Gets all relevanceTranslations for a single resource type",
+"description": null,
+"tags": [
+"resource-type-translations"
+],
+"operation_id": "getAllResourceTypeTranslations_1",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/resource-types/{id}/translations/{language}",
+"summary": "Gets a single translation for a single resource type",
+"description": null,
+"tags": [
+"resource-type-translations"
+],
+"operation_id": "getResourceTypeTranslation",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/resources",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_168",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/resources",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_169",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/resources",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_170",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/resources",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_172",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/resources",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_171",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/resources",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_173",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/resources",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_174",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/resources/",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_182",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/resources/",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_183",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/resources/",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_184",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/resources/",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_186",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/resources/",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_185",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/resources/",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_187",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/resources/",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_188",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_175",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_176",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_177",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_179",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_178",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_180",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"resources"
+],
+"operation_id": "redirect_181",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/resources/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_147",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/resources/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_148",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/resources/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_149",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/resources/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_151",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/resources/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_150",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/resources/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_152",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/resources/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_153",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/resources/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_161",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/resources/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_162",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/resources/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_163",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/resources/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_165",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/resources/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_164",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/resources/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_166",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/resources/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_167",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/resources/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_154",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/resources/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_155",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/resources/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_156",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/resources/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_158",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/resources/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_157",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/resources/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_159",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/resources/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"resource-translations"
+],
+"operation_id": "redirect_160",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/subject-topics",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_126",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/subject-topics",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_127",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/subject-topics",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_128",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/subject-topics",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_130",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/subject-topics",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_129",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/subject-topics",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_131",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/subject-topics",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_132",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/subject-topics/",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_140",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/subject-topics/",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_141",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/subject-topics/",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_142",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/subject-topics/",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_144",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/subject-topics/",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_143",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/subject-topics/",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_145",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/subject-topics/",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_146",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/subject-topics/**",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_133",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/subject-topics/**",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_134",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/subject-topics/**",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_135",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/subject-topics/**",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_137",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/subject-topics/**",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_136",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/subject-topics/**",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_138",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/subject-topics/**",
+"summary": null,
+"description": null,
+"tags": [
+"subject-topics"
+],
+"operation_id": "redirect_139",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/subjects",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_105",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/subjects",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_106",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/subjects",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_107",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/subjects",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_109",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/subjects",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_108",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/subjects",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_110",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/subjects",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_111",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/subjects/",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_119",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/subjects/",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_120",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/subjects/",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_121",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/subjects/",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_123",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/subjects/",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_122",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/subjects/",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_124",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/subjects/",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_125",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/subjects/**",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_112",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/subjects/**",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_113",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/subjects/**",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_114",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/subjects/**",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_116",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/subjects/**",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_115",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/subjects/**",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_117",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/subjects/**",
+"summary": null,
+"description": null,
+"tags": [
+"subjects"
+],
+"operation_id": "redirect_118",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/subjects/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_84",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/subjects/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_85",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/subjects/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_86",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/subjects/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_88",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/subjects/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_87",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/subjects/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_89",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/subjects/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_90",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/subjects/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_98",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/subjects/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_99",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/subjects/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_100",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/subjects/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_102",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/subjects/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_101",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/subjects/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_103",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/subjects/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_104",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/subjects/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_91",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/subjects/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_92",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/subjects/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_93",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/subjects/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_95",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/subjects/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_94",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/subjects/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_96",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/subjects/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"subject-translations"
+],
+"operation_id": "redirect_97",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/topic-resources",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_63",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/topic-resources",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_64",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/topic-resources",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_65",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/topic-resources",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_67",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/topic-resources",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_66",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/topic-resources",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_68",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/topic-resources",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_69",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/topic-resources/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_77",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/topic-resources/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_78",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/topic-resources/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_79",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/topic-resources/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_81",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/topic-resources/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_80",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/topic-resources/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_82",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/topic-resources/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_83",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/topic-resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_70",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/topic-resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_71",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/topic-resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_72",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/topic-resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_74",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/topic-resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_73",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/topic-resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_75",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/topic-resources/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-resources"
+],
+"operation_id": "redirect_76",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/topic-subtopics",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_42",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/topic-subtopics",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_43",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/topic-subtopics",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_44",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/topic-subtopics",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_46",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/topic-subtopics",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_45",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/topic-subtopics",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_47",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/topic-subtopics",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_48",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/topic-subtopics/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_56",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/topic-subtopics/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_57",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/topic-subtopics/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_58",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/topic-subtopics/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_60",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/topic-subtopics/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_59",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/topic-subtopics/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_61",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/topic-subtopics/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_62",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/topic-subtopics/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_49",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/topic-subtopics/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_50",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/topic-subtopics/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_51",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/topic-subtopics/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_53",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/topic-subtopics/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_52",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/topic-subtopics/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_54",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/topic-subtopics/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-subtopics"
+],
+"operation_id": "redirect_55",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/topics",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_21",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/topics",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_22",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/topics",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_23",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/topics",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_25",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/topics",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_24",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/topics",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_26",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/topics",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_27",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/topics/",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_35",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/topics/",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_36",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/topics/",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_37",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/topics/",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_39",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/topics/",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_38",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/topics/",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_40",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/topics/",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_41",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/topics/**",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_28",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/topics/**",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_29",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/topics/**",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_30",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/topics/**",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_32",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/topics/**",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_31",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/topics/**",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_33",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/topics/**",
+"summary": null,
+"description": null,
+"tags": [
+"topics"
+],
+"operation_id": "redirect_34",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/topics/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/topics/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_1",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/topics/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_2",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/topics/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_4",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/topics/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_3",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/topics/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_5",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/topics/{id}/translations",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_6",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/topics/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_14",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/topics/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_15",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/topics/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_16",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/topics/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_18",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/topics/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_17",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/topics/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_19",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/topics/{id}/translations/",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_20",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/topics/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_7",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/topics/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_8",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/topics/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_9",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PATCH",
+"path": "/v1/topics/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_11",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/topics/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_10",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "HEAD",
+"path": "/v1/topics/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_12",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "OPTIONS",
+"path": "/v1/topics/{id}/translations/**",
+"summary": null,
+"description": null,
+"tags": [
+"topic-translations"
+],
+"operation_id": "redirect_13",
+"deprecated": true
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/url/mapping",
+"summary": "Returns path for an url or HTTP 404",
+"description": null,
+"tags": [
+"url-resolver"
+],
+"operation_id": "getTaxonomyPathForUrl",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/url/mapping",
+"summary": "Inserts or updates a mapping from url to nodeId and optionally subjectId",
+"description": null,
+"tags": [
+"url-resolver"
+],
+"operation_id": "putTaxonomyNodeAndSubjectForOldUrl",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/url/resolve",
+"summary": null,
+"description": null,
+"tags": [
+"url-resolver"
+],
+"operation_id": "resolve",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/versions",
+"summary": "Gets all versions",
+"description": null,
+"tags": [
+"versions"
+],
+"operation_id": "getAllVersions",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/versions",
+"summary": "Creates a new version",
+"description": null,
+"tags": [
+"versions"
+],
+"operation_id": "createVersion",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/versions/",
+"summary": "Gets all versions",
+"description": null,
+"tags": [
+"versions"
+],
+"operation_id": "getAllVersions_1",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "POST",
+"path": "/v1/versions/",
+"summary": "Creates a new version",
+"description": null,
+"tags": [
+"versions"
+],
+"operation_id": "createVersion_1",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "GET",
+"path": "/v1/versions/{id}",
+"summary": "Gets a single version",
+"description": null,
+"tags": [
+"versions"
+],
+"operation_id": "getVersion",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/versions/{id}",
+"summary": "Updates a version",
+"description": null,
+"tags": [
+"versions"
+],
+"operation_id": "updateVersion",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "DELETE",
+"path": "/v1/versions/{id}",
+"summary": "Deletes a version by publicId",
+"description": null,
+"tags": [
+"versions"
+],
+"operation_id": "deleteEntity",
+"deprecated": false
+},
+{
+"api_id": "ndla-taxonomy",
+"method": "PUT",
+"path": "/v1/versions/{id}/publish",
+"summary": "Publishes a version",
+"description": null,
+"tags": [
+"versions"
+],
+"operation_id": "publishVersion",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "GET",
+"path": "/learningpath-api/v2/learningpaths",
+"summary": "Find public learningpaths",
+"description": "Show public learningpaths.",
+"tags": [
+"learningpaths"
+],
+"operation_id": "getLearningpath-apiV2Learningpaths",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "POST",
+"path": "/learningpath-api/v2/learningpaths",
+"summary": "Store new learningpath",
+"description": "Adds the given learningpath",
+"tags": [
+"learningpaths"
+],
+"operation_id": "postLearningpath-apiV2Learningpaths",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "POST",
+"path": "/learningpath-api/v2/learningpaths/search",
+"summary": "Find public learningpaths",
+"description": "Show public learningpaths",
+"tags": [
+"learningpaths"
+],
+"operation_id": "postLearningpath-apiV2LearningpathsSearch",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "GET",
+"path": "/learningpath-api/v2/learningpaths/tags",
+"summary": "Fetch all previously used tags in learningpaths",
+"description": "Retrieves a list of all previously used tags in learningpaths",
+"tags": [
+"learningpaths"
+],
+"operation_id": "getLearningpath-apiV2LearningpathsTags",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "GET",
+"path": "/learningpath-api/v2/learningpaths/licenses",
+"summary": "Show all valid licenses",
+"description": "Shows all valid licenses",
+"tags": [
+"learningpaths"
+],
+"operation_id": "getLearningpath-apiV2LearningpathsLicenses",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "GET",
+"path": "/learningpath-api/v2/learningpaths/mine",
+"summary": "Fetch all learningspaths you have created",
+"description": "Shows your learningpaths.",
+"tags": [
+"learningpaths"
+],
+"operation_id": "getLearningpath-apiV2LearningpathsMine",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "GET",
+"path": "/learningpath-api/v2/learningpaths/contributors",
+"summary": "Fetch all previously used contributors in learningpaths",
+"description": "Retrieves a list of all previously used contributors in learningpaths",
+"tags": [
+"learningpaths"
+],
+"operation_id": "getLearningpath-apiV2LearningpathsContributors",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "GET",
+"path": "/learningpath-api/v2/learningpaths/external-samples",
+"summary": "Fetch a random list of My NDLA learningpaths containing external steps",
+"description": "Fetch a random list of My NDLA learningpaths containing external steps. Returns a maximum of 5 learningpaths, each guaranteed to have at least one external step.",
+"tags": [
+"learningpaths"
+],
+"operation_id": "getLearningpath-apiV2LearningpathsExternal-samples",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "GET",
+"path": "/learningpath-api/v2/learningpaths/ids",
+"summary": "Fetch learningpaths that matches ids parameter.",
+"description": "Returns learningpaths that matches ids parameter.",
+"tags": [
+"learningpaths"
+],
+"operation_id": "getLearningpath-apiV2LearningpathsIds",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "GET",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}",
+"summary": "Fetch details about the specified learningpath",
+"description": "Shows all information about the specified learningpath.",
+"tags": [
+"learningpaths"
+],
+"operation_id": "getLearningpath-apiV2LearningpathsLearningpath_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "PATCH",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}",
+"summary": "Update given learningpath",
+"description": "Updates the given learningPath",
+"tags": [
+"learningpaths"
+],
+"operation_id": "patchLearningpath-apiV2LearningpathsLearningpath_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "DELETE",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}",
+"summary": "Delete given learningpath",
+"description": "Deletes the given learningPath",
+"tags": [
+"learningpaths"
+],
+"operation_id": "deleteLearningpath-apiV2LearningpathsLearningpath_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "GET",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}/status",
+"summary": "Show status information for the learningpath",
+"description": "Shows publishingstatus for the learningpath",
+"tags": [
+"learningpaths"
+],
+"operation_id": "getLearningpath-apiV2LearningpathsLearningpath_idStatus",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "PUT",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}/status",
+"summary": "Update status of given learningpath",
+"description": "Updates the status of the given learningPath",
+"tags": [
+"learningpaths"
+],
+"operation_id": "putLearningpath-apiV2LearningpathsLearningpath_idStatus",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "GET",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}/learningsteps/trash",
+"summary": "Fetch deleted learningsteps for given learningpath",
+"description": "Show all learningsteps for the given learningpath that are marked as deleted",
+"tags": [
+"learningpaths"
+],
+"operation_id": "getLearningpath-apiV2LearningpathsLearningpath_idLearningstepsTrash",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "GET",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}/learningsteps",
+"summary": "Fetch learningsteps for given learningpath",
+"description": "Show all learningsteps for given learningpath id",
+"tags": [
+"learningpaths"
+],
+"operation_id": "getLearningpath-apiV2LearningpathsLearningpath_idLearningsteps",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "POST",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}/learningsteps",
+"summary": "Add new learningstep to learningpath",
+"description": "Adds the given LearningStep",
+"tags": [
+"learningpaths"
+],
+"operation_id": "postLearningpath-apiV2LearningpathsLearningpath_idLearningsteps",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "GET",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}/learningsteps/{learningstep_id}",
+"summary": "Fetch details about the specified learningstep",
+"description": "Show the given learningstep for the given learningpath",
+"tags": [
+"learningpaths"
+],
+"operation_id": "getLearningpath-apiV2LearningpathsLearningpath_idLearningstepsLearningstep_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "PATCH",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}/learningsteps/{learningstep_id}",
+"summary": "Update given learningstep",
+"description": "Update the given learningStep",
+"tags": [
+"learningpaths"
+],
+"operation_id": "patchLearningpath-apiV2LearningpathsLearningpath_idLearningstepsLearningstep_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "DELETE",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}/learningsteps/{learningstep_id}",
+"summary": "Delete given learningstep",
+"description": "Deletes the given learningStep",
+"tags": [
+"learningpaths"
+],
+"operation_id": "deleteLearningpath-apiV2LearningpathsLearningpath_idLearningstepsLearningstep_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "GET",
+"path": "/learningpath-api/v2/learningpaths/contains-article/{article_id}",
+"summary": "Fetch learningpaths containing specified article",
+"description": "Fetch learningpaths containing specified article",
+"tags": [
+"learningpaths"
+],
+"operation_id": "getLearningpath-apiV2LearningpathsContains-articleArticle_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "GET",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}/learningsteps/{learningstep_id}/status",
+"summary": "Show status information for learningstep",
+"description": "Shows status for the learningstep",
+"tags": [
+"learningpaths"
+],
+"operation_id": "getLearningpath-apiV2LearningpathsLearningpath_idLearningstepsLearningstep_idStatus",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "PUT",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}/learningsteps/{learningstep_id}/status",
+"summary": "Update status of given learningstep",
+"description": "Updates the status of the given learningstep",
+"tags": [
+"learningpaths"
+],
+"operation_id": "putLearningpath-apiV2LearningpathsLearningpath_idLearningstepsLearningstep_idStatus",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "POST",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}/copy",
+"summary": "Copy given learningpath and store it as a new learningpath",
+"description": "Copies the given learningpath, with the option to override some fields",
+"tags": [
+"learningpaths"
+],
+"operation_id": "postLearningpath-apiV2LearningpathsLearningpath_idCopy",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "PUT",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}/learningsteps/{learningstep_id}/seqNo",
+"summary": "Store new sequence number for learningstep.",
+"description": "Updates the sequence number for the given learningstep. The sequence number of other learningsteps will be affected by this.",
+"tags": [
+"learningpaths"
+],
+"operation_id": "putLearningpath-apiV2LearningpathsLearningpath_idLearningstepsLearningstep_idSeqno",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "DELETE",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}/learningsteps/{learningstep_id}/language/{p1}",
+"summary": "Delete given learningstep language",
+"description": "Deletes the given learningStep language",
+"tags": [
+"learningpaths"
+],
+"operation_id": "deleteLearningpath-apiV2LearningpathsLearningpath_idLearningstepsLearningstep_idLanguageP1",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "GET",
+"path": "/learningpath-api/v2/learningpaths/status/{STATUS}",
+"summary": "Fetch all learningpaths with specified status",
+"description": "Fetch all learningpaths with specified status",
+"tags": [
+"learningpaths"
+],
+"operation_id": "getLearningpath-apiV2LearningpathsStatusStatus",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "DELETE",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}/language/{p1}",
+"summary": "Delete the given language of a learning path",
+"description": "Delete the given language of a learning path",
+"tags": [
+"learningpaths"
+],
+"operation_id": "deleteLearningpath-apiV2LearningpathsLearningpath_idLanguageP1",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "POST",
+"path": "/learningpath-api/v2/learningpaths/{learningpath_id}/update-taxonomy",
+"summary": "Update taxonomy for specified learningpath",
+"description": "Update taxonomy for specified learningpath",
+"tags": [
+"learningpaths"
+],
+"operation_id": "postLearningpath-apiV2LearningpathsLearningpath_idUpdate-taxonomy",
+"deprecated": false
+},
+{
+"api_id": "ndla-learningpath-api",
+"method": "GET",
+"path": "/learningpath-api/v1/stats",
+"summary": "Get stats for my-ndla usage.",
+"description": "Get stats for my-ndla usage.",
+"tags": [
+"stats"
+],
+"operation_id": "getLearningpath-apiV1Stats",
+"deprecated": true
 },
 {
 "api_id": "nb-dhlab",
@@ -8011,6 +12509,247 @@
 "description": null,
 "tags": [],
 "operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "GET",
+"path": "/api/v1/objects/linkedart/{nmId}",
+"summary": "Get the LinkedArt document for an object (nmId)",
+"description": "LinkedArt (JSON-LD/CIDOC-CRM) for one object, looked up by nmId (`_label`). Replaces `GET /objects/{nmId}?format=linkedart`. The documents exist in English only. Unpublished objects give 404 for all but full. `nmId` is case-insensitive, as ",
+"tags": [
+"LinkedArt"
+],
+"operation_id": "get_object_linkedart_api_v1_objects_linkedart__nmId__get",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "POST",
+"path": "/api/v1/objects/find",
+"summary": "Look up works by field and value",
+"description": "Works whose fields match a filter expression, on the fields of your view (pub, ext or full), sorted by `nmId` (or `productionYear`, `mainTitle`). The response has the same form as browsing. Example: titles starting with «Winter», made 1821–",
+"tags": [
+"Objects"
+],
+"operation_id": "find_objects_api_v1_objects_find_post",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "GET",
+"path": "/api/v1/objects/text-search",
+"summary": "Free-text search (Atlas Search)",
+"description": "Fast free-text search on object properties using MongoDB Atlas Search (Lucene). Tolerates typos and allows partial matches on title, inventory number and artist name.",
+"tags": [
+"Objects"
+],
+"operation_id": "text_search_objects_api_v1_objects_text_search_get",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "GET",
+"path": "/api/v1/objects",
+"summary": "Browse objects",
+"description": "Browse objects page by page. - **pub**: publishable objects only - **ext**: publishable, with extended metadata - **full**: all objects (all fields), with optional filters Raw document for one work (full): GET /objects/{nmId}/raw.",
+"tags": [
+"Objects"
+],
+"operation_id": "browse_objects_api_v1_objects_get",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "GET",
+"path": "/api/v1/objects/{nmId}",
+"summary": "Get an object",
+"description": "Gets one object by nmId. - **pub**: publishable objects only - **ext**: publishable, with extended metadata - **full**: all objects, all fields `nmId` is case-insensitive: `ng.m.00939` gives the same work as `NG.M.00939`. The response alway",
+"tags": [
+"Objects"
+],
+"operation_id": "get_object_api_v1_objects__nmId__get",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "GET",
+"path": "/api/v1/objects/{nmId}/raw",
+"summary": "Get the raw database document for an object (full only)",
+"description": "The raw document for one work, without language flattening and with the original field names (snake_case where the database has it). Replaces `?format=raw`. Full only; vectors and internal shadow fields are always removed. `nmId` is case-in",
+"tags": [
+"Objects"
+],
+"operation_id": "get_object_raw_api_v1_objects__nmId__raw_get",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "POST",
+"path": "/api/v1/search/semantic",
+"summary": "Semantic image search",
+"description": "Semantic search over the museum's images. `lang` selects the channel (`no`/`en`); omitted, both are searched and merged with RRF. When the word search is on, a BM25 channel is merged in as well, and vector hits below the relevance floor dro",
+"tags": [
+"Search"
+],
+"operation_id": "semantic_search_api_v1_search_semantic_post",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "POST",
+"path": "/api/v1/search/filter",
+"summary": "Filter on keyword groups",
+"description": "Filter works on the keyword groups from the AI enrichment (`ai.groups` for `lang`) and on the work's fields. Without filters, publishable works are listed page by page. Access: ext and full. No key → 401, pub → 403. The endpoint lets the wh",
+"tags": [
+"Search"
+],
+"operation_id": "filter_search_api_v1_search_filter_post",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "POST",
+"path": "/api/v1/search/similar/{imageId}",
+"summary": "Find similar images",
+"description": "Works similar to an image in the collection. `imageId` is the image's multimediaRef; old image uuids (`enrichmentId`) are accepted. Give `nmId` in the body if the image belongs to several works. The source work is left out. Access: ext and ",
+"tags": [
+"Search"
+],
+"operation_id": "similar_search_api_v1_search_similar__imageId__post",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "POST",
+"path": "/api/v1/search/similar",
+"summary": "Find works similar to a work's main image",
+"description": "As `/search/similar/{imageId}`, with the work's main image: give `nmId` in the body. `mode: visual` compares the images themselves; `tags` (default) their keywords. Access: ext and full. No key → 401, pub → 403.",
+"tags": [
+"Search"
+],
+"operation_id": "similar_search_by_work_api_v1_search_similar_post",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "POST",
+"path": "/api/v1/search/interpret",
+"summary": "Suggest how to read a search phrase (nothing is searched)",
+"description": "Suggests how a free-text phrase could be split into search text and catalogue filters. Nothing is searched and nothing is applied: `/search/semantic` never interprets the text itself, so the result here is a suggestion the client may use, a",
+"tags": [
+"Search"
+],
+"operation_id": "interpret_search_api_v1_search_interpret_post",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "POST",
+"path": "/api/v1/search/explain",
+"summary": "Explain why an image matched a search",
+"description": "Explains search relevance for one image: cosine between the search phrase and the image's channel vector, and between the phrase and each keyword. With `lang`, only that channel and its keywords are scored. With the word search on, the word",
+"tags": [
+"Search"
+],
+"operation_id": "explain_search_api_v1_search_explain_post",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "GET",
+"path": "/api/v1/iiif/manifest/{nmId}.json",
+"summary": "IIIF Manifest for one work (preliminary)",
+"description": "**Preliminary: the manifest is not final and may change.** Returns the IIIF Presentation 3.0 Manifest for one work. Open without a key. Access: - **no key / pub**: publishable works and images only - **ext**: publishable works with extended",
+"tags": [
+"IIIF",
+"IIIF"
+],
+"operation_id": "get_manifest_api_v1_iiif_manifest__nmId__json_get",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "GET",
+"path": "/api/v1/objects/{nmId}/multimedia",
+"summary": "Get the images of a work (preliminary)",
+"description": "**Preliminary: the structure of this response may change.** Lists the images of a work with `imageId` (multimediaRef), a ready `imageUrl` and the IIIF service. `enrichmentId`, `hasEnrichment` and `siglipEmbedding` are included for ext and f",
+"tags": [
+"Multimedia"
+],
+"operation_id": "list_object_multimedia_api_v1_objects__nmId__multimedia_get",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "GET",
+"path": "/api/linkedart/object",
+"summary": "Browse LinkedArt objects",
+"description": "LinkedArt objects sorted by `_label` (nmId). Pages are full, and `totalResults` counts the LinkedArt documents. All LinkedArt documents belong to publishable works, so the response is the same at every level.",
+"tags": [
+"LinkedArt"
+],
+"operation_id": "browse_linkedart_objects_api_linkedart_object_get",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "GET",
+"path": "/api/linkedart/object/text-search",
+"summary": "Free-text search in LinkedArt objects",
+"description": "The same Atlas Search as `/objects/text-search`, with LinkedArt documents in BM25 order. `totalResults` counts the matching works.",
+"tags": [
+"LinkedArt"
+],
+"operation_id": "text_search_linkedart_objects_api_linkedart_object_text_search_get",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "GET",
+"path": "/api/linkedart/object/{_id}",
+"summary": "Get a LinkedArt object (HumanMadeObject) by UUID",
+"description": "One object. 404 if the UUID does not exist, or the work is not publishable (except for full).",
+"tags": [
+"LinkedArt"
+],
+"operation_id": "get_linkedart_object_api_linkedart_object___id__get",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "GET",
+"path": "/api/linkedart/visual/{_id}",
+"summary": "Get a LinkedArt visual item (VisualItem) by UUID",
+"description": "One visual item. Same publication check as object, via the work `_objectId` points to.",
+"tags": [
+"LinkedArt"
+],
+"operation_id": "get_linkedart_visual_api_linkedart_visual___id__get",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "GET",
+"path": "/api/linkedart/actor/{_id}",
+"summary": "Get a LinkedArt actor (Person/Group) by UUID",
+"description": "One actor. **No publication check:** actors have no notion of publishable, so the actor is served whether or not the actor's works are published.",
+"tags": [
+"LinkedArt"
+],
+"operation_id": "get_linkedart_actor_api_linkedart_actor___id__get",
+"deprecated": false
+},
+{
+"api_id": "nasjonalmuseet-api",
+"method": "GET",
+"path": "/api/health",
+"summary": "Health check",
+"description": "Checks the actual state of the database and cache. Returns 503 when the database is down.",
+"tags": [
+"System"
+],
+"operation_id": "health_check_api_health_get",
 "deprecated": false
 },
 {
@@ -8581,12 +13320,12 @@
 "api_id": "sikt-nva",
 "method": "GET",
 "path": "/approval/",
-"summary": "Search approvals",
-"description": "Search approvals",
+"summary": "Get Approval by handle or named identifier",
+"description": "Get approval by handle or named identifier (name+value). **Query Parameters:** - Use `handle` parameter to fetch by Handle URI (must be URL-encoded) - Use `name` AND `value` parameters together to fetch by named identifier **Important:** Sp",
 "tags": [
 "NVA Approval API"
 ],
-"operation_id": "searchApprovals",
+"operation_id": "getApprovalByQuery",
 "deprecated": false
 },
 {
@@ -9942,7 +14681,7 @@
 "method": "POST",
 "path": "/api/v1/serviceowner/dialogs/{dialogId}/activities",
 "summary": "Adds an activity to a dialog's activity history",
-"description": "The activity is created with the given configuration. Creating an activity does not count as a content change, so it leaves the end user's system labels untouched; a dialog in 'Bin' or 'Archive' stays there. Optimistic concurrency control i",
+"description": "The activity is created with the given configuration. Optimistic concurrency control is implemented using the If-Match header. Supply the Revision value from the GetDialog endpoint to ensure that the dialog is not modified/deleted by anothe",
 "tags": [
 "Serviceowner"
 ],
@@ -10050,7 +14789,7 @@
 "method": "PUT",
 "path": "/api/v1/serviceowner/dialogs/{dialogId}",
 "summary": "Replaces a dialog",
-"description": "Replaces a given dialog with the supplied model. If the update changes the dialog's content (transmissions, content, attachments, GUI/API actions, status or extended status), any end user system label of 'Bin' or 'Archive' is reset to 'Defa",
+"description": "Replaces a given dialog with the supplied model. Optimistic concurrency control is implemented using the If-Match header. Supply the Revision value from the GetDialog endpoint to ensure that the dialog is not modified/deleted by another req",
 "tags": [
 "Serviceowner"
 ],
@@ -16687,6 +21426,978 @@
 "deprecated": false
 },
 {
+"api_id": "ndla-image-api",
+"method": "GET",
+"path": "/image-api/v2/images",
+"summary": "Find images.",
+"description": "Find images in the ndla.no database.",
+"tags": [
+"images V2"
+],
+"operation_id": "getImage-apiV2Images",
+"deprecated": true
+},
+{
+"api_id": "ndla-image-api",
+"method": "POST",
+"path": "/image-api/v2/images",
+"summary": "Upload a new image with meta information.",
+"description": "Upload a new image file with meta data.",
+"tags": [
+"images V2"
+],
+"operation_id": "postImage-apiV2Images",
+"deprecated": true
+},
+{
+"api_id": "ndla-image-api",
+"method": "GET",
+"path": "/image-api/v2/images/tag-search",
+"summary": "Retrieves a list of all previously used tags in images",
+"description": "Retrieves a list of all previously used tags in images",
+"tags": [
+"images V2"
+],
+"operation_id": "getImage-apiV2ImagesTag-search",
+"deprecated": true
+},
+{
+"api_id": "ndla-image-api",
+"method": "POST",
+"path": "/image-api/v2/images/search",
+"summary": "Find images.",
+"description": "Search for images in the ndla.no database.",
+"tags": [
+"images V2"
+],
+"operation_id": "postImage-apiV2ImagesSearch",
+"deprecated": true
+},
+{
+"api_id": "ndla-image-api",
+"method": "GET",
+"path": "/image-api/v2/images/{image_id}",
+"summary": "Fetch information for image.",
+"description": "Shows info of the image with submitted id.",
+"tags": [
+"images V2"
+],
+"operation_id": "getImage-apiV2ImagesImage_id",
+"deprecated": true
+},
+{
+"api_id": "ndla-image-api",
+"method": "PATCH",
+"path": "/image-api/v2/images/{image_id}",
+"summary": "Update an existing image with meta information.",
+"description": "Updates an existing image with meta data.",
+"tags": [
+"images V2"
+],
+"operation_id": "patchImage-apiV2ImagesImage_id",
+"deprecated": true
+},
+{
+"api_id": "ndla-image-api",
+"method": "DELETE",
+"path": "/image-api/v2/images/{image_id}",
+"summary": "Deletes the specified images meta data and file",
+"description": "Deletes the specified images meta data and file",
+"tags": [
+"images V2"
+],
+"operation_id": "deleteImage-apiV2ImagesImage_id",
+"deprecated": true
+},
+{
+"api_id": "ndla-image-api",
+"method": "GET",
+"path": "/image-api/v2/images/external_id/{external_id}",
+"summary": "Fetch information for image by external id.",
+"description": "Shows info of the image with submitted external id.",
+"tags": [
+"images V2"
+],
+"operation_id": "getImage-apiV2ImagesExternal_idExternal_id",
+"deprecated": true
+},
+{
+"api_id": "ndla-image-api",
+"method": "DELETE",
+"path": "/image-api/v2/images/{image_id}/language/{language}",
+"summary": "Delete language version of image metadata.",
+"description": "Delete language version of image metadata.",
+"tags": [
+"images V2"
+],
+"operation_id": "deleteImage-apiV2ImagesImage_idLanguageLanguage",
+"deprecated": true
+},
+{
+"api_id": "ndla-image-api",
+"method": "GET",
+"path": "/image-api/v3/images",
+"summary": "Find images.",
+"description": "Find images in the ndla.no database.",
+"tags": [
+"images V3"
+],
+"operation_id": "getImage-apiV3Images",
+"deprecated": false
+},
+{
+"api_id": "ndla-image-api",
+"method": "POST",
+"path": "/image-api/v3/images",
+"summary": "Upload a new image with meta information.",
+"description": "Upload a new image file with meta data.",
+"tags": [
+"images V3"
+],
+"operation_id": "postImage-apiV3Images",
+"deprecated": false
+},
+{
+"api_id": "ndla-image-api",
+"method": "GET",
+"path": "/image-api/v3/images/ids",
+"summary": "Fetch images that matches ids parameter.",
+"description": "Fetch images that matches ids parameter.",
+"tags": [
+"images V3"
+],
+"operation_id": "getImage-apiV3ImagesIds",
+"deprecated": false
+},
+{
+"api_id": "ndla-image-api",
+"method": "GET",
+"path": "/image-api/v3/images/tag-search",
+"summary": "Retrieves a list of all previously used tags in images",
+"description": "Retrieves a list of all previously used tags in images",
+"tags": [
+"images V3"
+],
+"operation_id": "getImage-apiV3ImagesTag-search",
+"deprecated": false
+},
+{
+"api_id": "ndla-image-api",
+"method": "POST",
+"path": "/image-api/v3/images/search",
+"summary": "Find images.",
+"description": "Search for images in the ndla.no database.",
+"tags": [
+"images V3"
+],
+"operation_id": "postImage-apiV3ImagesSearch",
+"deprecated": false
+},
+{
+"api_id": "ndla-image-api",
+"method": "GET",
+"path": "/image-api/v3/images/{image_id}",
+"summary": "Fetch information for image.",
+"description": "Shows info of the image with submitted id.",
+"tags": [
+"images V3"
+],
+"operation_id": "getImage-apiV3ImagesImage_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-image-api",
+"method": "PATCH",
+"path": "/image-api/v3/images/{image_id}",
+"summary": "Update an existing image with meta information.",
+"description": "Updates an existing image with meta data.",
+"tags": [
+"images V3"
+],
+"operation_id": "patchImage-apiV3ImagesImage_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-image-api",
+"method": "DELETE",
+"path": "/image-api/v3/images/{image_id}",
+"summary": "Deletes the specified images meta data and file",
+"description": "Deletes the specified images meta data and file",
+"tags": [
+"images V3"
+],
+"operation_id": "deleteImage-apiV3ImagesImage_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-image-api",
+"method": "GET",
+"path": "/image-api/v3/images/external_id/{external_id}",
+"summary": "Fetch information for image by external id.",
+"description": "Shows info of the image with submitted external id.",
+"tags": [
+"images V3"
+],
+"operation_id": "getImage-apiV3ImagesExternal_idExternal_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-image-api",
+"method": "DELETE",
+"path": "/image-api/v3/images/{image_id}/language/{language}",
+"summary": "Delete language version of image metadata.",
+"description": "Delete language version of image metadata.",
+"tags": [
+"images V3"
+],
+"operation_id": "deleteImage-apiV3ImagesImage_idLanguageLanguage",
+"deprecated": false
+},
+{
+"api_id": "ndla-image-api",
+"method": "POST",
+"path": "/image-api/v3/images/{image_id}/copy",
+"summary": "Copy image meta data with a new image file",
+"description": "Copy image meta data with a new image file",
+"tags": [
+"images V3"
+],
+"operation_id": "postImage-apiV3ImagesImage_idCopy",
+"deprecated": false
+},
+{
+"api_id": "ndla-image-api",
+"method": "GET",
+"path": "/image-api/v3/images/users/editors",
+"summary": "Get list of users that have edited images",
+"description": "Get list of user IDs from updatedBy and editor notes in images",
+"tags": [
+"images V3"
+],
+"operation_id": "getImage-apiV3ImagesUsersEditors",
+"deprecated": false
+},
+{
+"api_id": "ndla-image-api",
+"method": "GET",
+"path": "/image-api/raw/id/{image_id}",
+"summary": "Fetch an image with options to resize and crop",
+"description": "Fetches a image with options to resize and crop",
+"tags": [
+"raw"
+],
+"operation_id": "getImage-apiRawIdImage_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-image-api",
+"method": "GET",
+"path": "/image-api/raw/{image_name}",
+"summary": "Fetch an image with options to resize and crop",
+"description": "Fetches a image with options to resize and crop",
+"tags": [
+"raw"
+],
+"operation_id": "getImage-apiRawImage_name",
+"deprecated": false
+},
+{
+"api_id": "ndla-image-api",
+"method": "GET",
+"path": "/image-api/raw/{image_name}/{variant_size}",
+"summary": "Fetch an image variant",
+"description": "Fetches a specific image variant size",
+"tags": [
+"raw"
+],
+"operation_id": "getImage-apiRawImage_nameVariant_size",
+"deprecated": false
+},
+{
+"api_id": "ndla-image-api",
+"method": "POST",
+"path": "/image-api/v1/bulk",
+"summary": "Start a bulk image upload session",
+"description": "Stages all uploaded images and starts an asynchronous bulk upload.",
+"tags": [
+"bulk"
+],
+"operation_id": "postImage-apiV1Bulk",
+"deprecated": false
+},
+{
+"api_id": "ndla-image-api",
+"method": "GET",
+"path": "/image-api/v1/bulk/status/{upload-id}",
+"summary": "Stream the status of a bulk upload session",
+"description": "Returns Server-Sent Events with progress updates for the given upload-id.",
+"tags": [
+"bulk"
+],
+"operation_id": "getImage-apiV1BulkStatusUpload-id",
+"deprecated": false
+},
+{
+"api_id": "ndla-article-api",
+"method": "GET",
+"path": "/article-api/v2/articles/tag-search",
+"summary": "Fetch tags used in articles.",
+"description": "Retrieves a list of all previously used tags in articles.",
+"tags": [
+"articles"
+],
+"operation_id": "getArticle-apiV2ArticlesTag-search",
+"deprecated": false
+},
+{
+"api_id": "ndla-article-api",
+"method": "GET",
+"path": "/article-api/v2/articles/ids",
+"summary": "Fetch articles that matches ids parameter.",
+"description": "Returns articles that matches ids parameter.",
+"tags": [
+"articles"
+],
+"operation_id": "getArticle-apiV2ArticlesIds",
+"deprecated": false
+},
+{
+"api_id": "ndla-article-api",
+"method": "GET",
+"path": "/article-api/v2/articles/{slug}/rss.xml",
+"summary": "Get RSS feed for articles at a level in the frontpage menu",
+"description": null,
+"tags": [
+"articles"
+],
+"operation_id": "getArticle-apiV2ArticlesSlugRss.xml",
+"deprecated": false
+},
+{
+"api_id": "ndla-article-api",
+"method": "GET",
+"path": "/article-api/v2/articles/{article_id}",
+"summary": null,
+"description": null,
+"tags": [
+"articles"
+],
+"operation_id": "getArticle-apiV2ArticlesArticle_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-article-api",
+"method": "GET",
+"path": "/article-api/v2/articles",
+"summary": "Find published articles.",
+"description": "Returns all articles. You can search it too.",
+"tags": [
+"articles"
+],
+"operation_id": "getArticle-apiV2Articles",
+"deprecated": false
+},
+{
+"api_id": "ndla-article-api",
+"method": "POST",
+"path": "/article-api/v2/articles/search",
+"summary": "Find published articles.",
+"description": "Search all articles.",
+"tags": [
+"articles"
+],
+"operation_id": "postArticle-apiV2ArticlesSearch",
+"deprecated": false
+},
+{
+"api_id": "ndla-article-api",
+"method": "GET",
+"path": "/article-api/v2/articles/{article_id}/revisions",
+"summary": "Fetch list of existing revisions for article-id",
+"description": "Fetch list of existing revisions for article-id",
+"tags": [
+"articles"
+],
+"operation_id": "getArticle-apiV2ArticlesArticle_idRevisions",
+"deprecated": false
+},
+{
+"api_id": "ndla-article-api",
+"method": "GET",
+"path": "/article-api/v2/articles/external_id/{deprecated_node_id}",
+"summary": "Get id of article corresponding to specified deprecated node id.",
+"description": "Get internal id of article for a specified ndla_node_id.",
+"tags": [
+"articles"
+],
+"operation_id": "getArticle-apiV2ArticlesExternal_idDeprecated_node_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-article-api",
+"method": "GET",
+"path": "/article-api/v2/articles/external_ids/{deprecated_node_id}",
+"summary": "Get all ids related to article corresponding to specified deprecated node id.",
+"description": "Get internal id as well as all deprecated ndla_node_ids of article for a specified ndla_node_id.",
+"tags": [
+"articles"
+],
+"operation_id": "getArticle-apiV2ArticlesExternal_idsDeprecated_node_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-article-api",
+"method": "GET",
+"path": "/article-api/v2/articles/{article_id}/revision-history",
+"summary": "Get the revision history for an article",
+"description": "Get an object that describes the revision history for a specific article",
+"tags": [
+"articles"
+],
+"operation_id": "getArticle-apiV2ArticlesArticle_idRevision-history",
+"deprecated": false
+},
+{
+"api_id": "ndla-concept-api",
+"method": "GET",
+"path": "/concept-api/v1/drafts/status-state-machine",
+"summary": "Get status state machine",
+"description": "Get status state machine",
+"tags": [
+"drafts"
+],
+"operation_id": "getConcept-apiV1DraftsStatus-state-machine",
+"deprecated": false
+},
+{
+"api_id": "ndla-concept-api",
+"method": "GET",
+"path": "/concept-api/v1/drafts/tags",
+"summary": "Returns a list of all tags in the specified subjects",
+"description": "Returns a list of all tags in the specified subjects",
+"tags": [
+"drafts"
+],
+"operation_id": "getConcept-apiV1DraftsTags",
+"deprecated": false
+},
+{
+"api_id": "ndla-concept-api",
+"method": "POST",
+"path": "/concept-api/v1/drafts/search",
+"summary": "Show all concepts",
+"description": "Shows all concepts. You can search it too.",
+"tags": [
+"drafts"
+],
+"operation_id": "postConcept-apiV1DraftsSearch",
+"deprecated": false
+},
+{
+"api_id": "ndla-concept-api",
+"method": "GET",
+"path": "/concept-api/v1/drafts/{concept_id}",
+"summary": "Show concept with a specified id",
+"description": "Shows the concept for the specified id.",
+"tags": [
+"drafts"
+],
+"operation_id": "getConcept-apiV1DraftsConcept_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-concept-api",
+"method": "PATCH",
+"path": "/concept-api/v1/drafts/{concept_id}",
+"summary": "Update a concept",
+"description": "Update a concept",
+"tags": [
+"drafts"
+],
+"operation_id": "patchConcept-apiV1DraftsConcept_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-concept-api",
+"method": "DELETE",
+"path": "/concept-api/v1/drafts/{concept_id}",
+"summary": "Delete language from concept",
+"description": "Delete language from concept",
+"tags": [
+"drafts"
+],
+"operation_id": "deleteConcept-apiV1DraftsConcept_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-concept-api",
+"method": "PUT",
+"path": "/concept-api/v1/drafts/{concept_id}/status/{STATUS}",
+"summary": "Update status of a concept",
+"description": "Update status of a concept",
+"tags": [
+"drafts"
+],
+"operation_id": "putConcept-apiV1DraftsConcept_idStatusStatus",
+"deprecated": false
+},
+{
+"api_id": "ndla-concept-api",
+"method": "GET",
+"path": "/concept-api/v1/drafts/tag-search",
+"summary": "Retrieves a list of all previously used tags in concepts",
+"description": "Retrieves a list of all previously used tags in concepts",
+"tags": [
+"drafts"
+],
+"operation_id": "getConcept-apiV1DraftsTag-search",
+"deprecated": false
+},
+{
+"api_id": "ndla-concept-api",
+"method": "GET",
+"path": "/concept-api/v1/drafts",
+"summary": "Show all concepts",
+"description": "Shows all concepts. You can search it too.",
+"tags": [
+"drafts"
+],
+"operation_id": "getConcept-apiV1Drafts",
+"deprecated": false
+},
+{
+"api_id": "ndla-concept-api",
+"method": "POST",
+"path": "/concept-api/v1/drafts",
+"summary": "Create new concept",
+"description": "Create new concept",
+"tags": [
+"drafts"
+],
+"operation_id": "postConcept-apiV1Drafts",
+"deprecated": false
+},
+{
+"api_id": "ndla-concept-api",
+"method": "GET",
+"path": "/concept-api/v1/concepts/tags",
+"summary": "Returns a list of all tags in the specified subjects",
+"description": "Returns a list of all tags in the specified subjects",
+"tags": [
+"concepts"
+],
+"operation_id": "getConcept-apiV1ConceptsTags",
+"deprecated": false
+},
+{
+"api_id": "ndla-concept-api",
+"method": "GET",
+"path": "/concept-api/v1/concepts/{concept_id}",
+"summary": "Show concept with a specified id",
+"description": "Shows the concept for the specified id.",
+"tags": [
+"concepts"
+],
+"operation_id": "getConcept-apiV1ConceptsConcept_id",
+"deprecated": false
+},
+{
+"api_id": "ndla-concept-api",
+"method": "GET",
+"path": "/concept-api/v1/concepts",
+"summary": "Show all concepts",
+"description": "Shows all concepts. You can search it too.",
+"tags": [
+"concepts"
+],
+"operation_id": "getConcept-apiV1Concepts",
+"deprecated": false
+},
+{
+"api_id": "ndla-concept-api",
+"method": "POST",
+"path": "/concept-api/v1/concepts/search",
+"summary": "Show all concepts",
+"description": "Shows all concepts. You can search it too.",
+"tags": [
+"concepts"
+],
+"operation_id": "postConcept-apiV1ConceptsSearch",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "GET",
+"path": "/audio-api/v1/audio",
+"summary": "Find audio files",
+"description": "Shows all the audio files in the ndla.no database. You can search it too.",
+"tags": [
+"audio"
+],
+"operation_id": "getAudio-apiV1Audio",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "POST",
+"path": "/audio-api/v1/audio",
+"summary": "Upload a new audio file with meta information",
+"description": "Upload a new audio file with meta data",
+"tags": [
+"audio"
+],
+"operation_id": "postAudio-apiV1Audio",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "POST",
+"path": "/audio-api/v1/audio/search",
+"summary": "Find audio files",
+"description": "Shows all the audio files in the ndla.no database. You can search it too.",
+"tags": [
+"audio"
+],
+"operation_id": "postAudio-apiV1AudioSearch",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "GET",
+"path": "/audio-api/v1/audio/ids",
+"summary": "Fetch audio that matches ids parameter.",
+"description": "Fetch audios that matches ids parameter.",
+"tags": [
+"audio"
+],
+"operation_id": "getAudio-apiV1AudioIds",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "GET",
+"path": "/audio-api/v1/audio/tag-search",
+"summary": "Retrieves a list of all previously used tags in audios",
+"description": "Retrieves a list of all previously used tags in audios",
+"tags": [
+"audio"
+],
+"operation_id": "getAudio-apiV1AudioTag-search",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "GET",
+"path": "/audio-api/v1/audio/{audio-id}",
+"summary": "Fetch information for audio file",
+"description": "Shows info of the audio with submitted id.",
+"tags": [
+"audio"
+],
+"operation_id": "getAudio-apiV1AudioAudio-id",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "PUT",
+"path": "/audio-api/v1/audio/{audio-id}",
+"summary": "Upload audio for a different language or update metadata for an existing audio-file",
+"description": "Update the metadata for an existing language, or upload metadata for a new language.",
+"tags": [
+"audio"
+],
+"operation_id": "putAudio-apiV1AudioAudio-id",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "DELETE",
+"path": "/audio-api/v1/audio/{audio-id}",
+"summary": "Deletes audio with the specified id",
+"description": "Deletes audio with the specified id",
+"tags": [
+"audio"
+],
+"operation_id": "deleteAudio-apiV1AudioAudio-id",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "DELETE",
+"path": "/audio-api/v1/audio/{audio-id}/language/{language}",
+"summary": "Delete language version of audio metadata.",
+"description": "Delete language version of audio metadata.",
+"tags": [
+"audio"
+],
+"operation_id": "deleteAudio-apiV1AudioAudio-idLanguageLanguage",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "GET",
+"path": "/audio-api/v1/series",
+"summary": "Find series",
+"description": "Shows all the series. Also searchable.",
+"tags": [
+"series"
+],
+"operation_id": "getAudio-apiV1Series",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "POST",
+"path": "/audio-api/v1/series",
+"summary": "Create a new series with meta information",
+"description": "Create a new series with meta information",
+"tags": [
+"series"
+],
+"operation_id": "postAudio-apiV1Series",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "POST",
+"path": "/audio-api/v1/series/search",
+"summary": "Find series",
+"description": "Shows all the series. Also searchable.",
+"tags": [
+"series"
+],
+"operation_id": "postAudio-apiV1SeriesSearch",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "GET",
+"path": "/audio-api/v1/series/{series-id}",
+"summary": "Fetch information for series",
+"description": "Shows info of the series with submitted id.",
+"tags": [
+"series"
+],
+"operation_id": "getAudio-apiV1SeriesSeries-id",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "PUT",
+"path": "/audio-api/v1/series/{series-id}",
+"summary": "Upload audio for a different language or update metadata for an existing audio-file",
+"description": "Update the metadata for an existing language, or upload metadata for a new language.",
+"tags": [
+"series"
+],
+"operation_id": "putAudio-apiV1SeriesSeries-id",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "DELETE",
+"path": "/audio-api/v1/series/{series-id}",
+"summary": "Deletes series with the specified id",
+"description": "Deletes series with the specified id",
+"tags": [
+"series"
+],
+"operation_id": "deleteAudio-apiV1SeriesSeries-id",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "DELETE",
+"path": "/audio-api/v1/series/{series-id}/language/{language}",
+"summary": "Delete language version of audio metadata.",
+"description": "Delete language version of audio metadata.",
+"tags": [
+"series"
+],
+"operation_id": "deleteAudio-apiV1SeriesSeries-idLanguageLanguage",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "GET",
+"path": "/audio-api/v1/transcription/{videoId}/{language}/extract-audio",
+"summary": "Get audio extraction status",
+"description": "Get the status of the audio extraction from a Brightcove video.",
+"tags": [
+"transcription"
+],
+"operation_id": "getAudio-apiV1TranscriptionVideoidLanguageExtract-audio",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "POST",
+"path": "/audio-api/v1/transcription/{videoId}/{language}/extract-audio",
+"summary": "Extract audio from video",
+"description": "Extracts audio from a Brightcove video and uploads it to S3.",
+"tags": [
+"transcription"
+],
+"operation_id": "postAudio-apiV1TranscriptionVideoidLanguageExtract-audio",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "GET",
+"path": "/audio-api/v1/transcription/video/{videoId}/{language}",
+"summary": "Get the transcription status of a video",
+"description": "Get the transcription of a video.",
+"tags": [
+"transcription"
+],
+"operation_id": "getAudio-apiV1TranscriptionVideoVideoidLanguage",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "POST",
+"path": "/audio-api/v1/transcription/video/{videoId}/{language}",
+"summary": "Transcribe video",
+"description": "Transcribes a video and uploads the transcription to S3.",
+"tags": [
+"transcription"
+],
+"operation_id": "postAudio-apiV1TranscriptionVideoVideoidLanguage",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "POST",
+"path": "/audio-api/v1/transcription/audio/{audioName}/{audioId}/{language}",
+"summary": "Transcribe audio",
+"description": "Transcribes an audiofile and uploads the transcription to S3.",
+"tags": [
+"transcription"
+],
+"operation_id": "postAudio-apiV1TranscriptionAudioAudionameAudioidLanguage",
+"deprecated": false
+},
+{
+"api_id": "ndla-audio-api",
+"method": "GET",
+"path": "/audio-api/v1/transcription/audio/{audioId}/{language}",
+"summary": "Get the transcription status of an audiofile",
+"description": "Get the transcription of an audiofile .",
+"tags": [
+"transcription"
+],
+"operation_id": "getAudio-apiV1TranscriptionAudioAudioidLanguage",
+"deprecated": false
+},
+{
+"api_id": "ndla-oembed-proxy",
+"method": "GET",
+"path": "/oembed-proxy/v1/oembed",
+"summary": "Returns oEmbed information for a given url.",
+"description": "Returns oEmbed information for a given url.",
+"tags": [
+"oembed"
+],
+"operation_id": "getOembed-proxyV1Oembed",
+"deprecated": false
+},
+{
+"api_id": "ndla-search-api",
+"method": "GET",
+"path": "/search-api/v1/search/group",
+"summary": "Search across multiple groups of learning resources",
+"description": "Search across multiple groups of learning resources",
+"tags": [
+"search"
+],
+"operation_id": "getSearch-apiV1SearchGroup",
+"deprecated": false
+},
+{
+"api_id": "ndla-search-api",
+"method": "GET",
+"path": "/search-api/v1/search",
+"summary": "Find learning resources",
+"description": "Shows all learning resources. You can search too.",
+"tags": [
+"search"
+],
+"operation_id": "getSearch-apiV1Search",
+"deprecated": false
+},
+{
+"api_id": "ndla-search-api",
+"method": "POST",
+"path": "/search-api/v1/search",
+"summary": "Find learning resources",
+"description": "Shows all learning resources. You can search too.",
+"tags": [
+"search"
+],
+"operation_id": "postSearch-apiV1Search",
+"deprecated": false
+},
+{
+"api_id": "ndla-search-api",
+"method": "GET",
+"path": "/search-api/v1/search/editorial",
+"summary": "Find draft learning resources",
+"description": "Shows all draft learning resources. You can search too. Query parameters are undocumented, but are the same as the body for the POST endpoint, except `kebab-case`.",
+"tags": [
+"search"
+],
+"operation_id": "getSearch-apiV1SearchEditorial",
+"deprecated": false
+},
+{
+"api_id": "ndla-search-api",
+"method": "POST",
+"path": "/search-api/v1/search/editorial",
+"summary": "Find draft learning resources",
+"description": "Shows all draft learning resources. You can search too.",
+"tags": [
+"search"
+],
+"operation_id": "postSearch-apiV1SearchEditorial",
+"deprecated": false
+},
+{
+"api_id": "ndla-search-api",
+"method": "POST",
+"path": "/search-api/v1/search/subjects",
+"summary": "List subjects with aggregated data about their contents",
+"description": "List subjects with aggregated data about their contents",
+"tags": [
+"search"
+],
+"operation_id": "postSearch-apiV1SearchSubjects",
+"deprecated": false
+},
+{
+"api_id": "ndla-search-api",
+"method": "POST",
+"path": "/search-api/v1/search/grep",
+"summary": "Search for grep codes",
+"description": "Search for grep codes",
+"tags": [
+"search"
+],
+"operation_id": "postSearch-apiV1SearchGrep",
+"deprecated": false
+},
+{
+"api_id": "ndla-search-api",
+"method": "GET",
+"path": "/search-api/v1/search/grep/replacements",
+"summary": "Get grep replacements",
+"description": null,
+"tags": [
+"search"
+],
+"operation_id": "getSearch-apiV1SearchGrepReplacements",
+"deprecated": false
+},
+{
 "api_id": "nve-magasinstatistikk",
 "method": "GET",
 "path": "/api/Magasinstatistikk/HentOffentligData",
@@ -20328,978 +26039,6 @@
 "Typer"
 ],
 "operation_id": "GetSkolekategorier",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-article-api",
-"method": "GET",
-"path": "/article-api/v2/articles/tag-search",
-"summary": "Fetch tags used in articles.",
-"description": "Retrieves a list of all previously used tags in articles.",
-"tags": [
-"articles"
-],
-"operation_id": "getArticle-apiV2ArticlesTag-search",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-article-api",
-"method": "GET",
-"path": "/article-api/v2/articles/ids",
-"summary": "Fetch articles that matches ids parameter.",
-"description": "Returns articles that matches ids parameter.",
-"tags": [
-"articles"
-],
-"operation_id": "getArticle-apiV2ArticlesIds",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-article-api",
-"method": "GET",
-"path": "/article-api/v2/articles/{slug}/rss.xml",
-"summary": "Get RSS feed for articles at a level in the frontpage menu",
-"description": null,
-"tags": [
-"articles"
-],
-"operation_id": "getArticle-apiV2ArticlesSlugRss.xml",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-article-api",
-"method": "GET",
-"path": "/article-api/v2/articles/{article_id}",
-"summary": null,
-"description": null,
-"tags": [
-"articles"
-],
-"operation_id": "getArticle-apiV2ArticlesArticle_id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-article-api",
-"method": "GET",
-"path": "/article-api/v2/articles",
-"summary": "Find published articles.",
-"description": "Returns all articles. You can search it too.",
-"tags": [
-"articles"
-],
-"operation_id": "getArticle-apiV2Articles",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-article-api",
-"method": "POST",
-"path": "/article-api/v2/articles/search",
-"summary": "Find published articles.",
-"description": "Search all articles.",
-"tags": [
-"articles"
-],
-"operation_id": "postArticle-apiV2ArticlesSearch",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-article-api",
-"method": "GET",
-"path": "/article-api/v2/articles/{article_id}/revisions",
-"summary": "Fetch list of existing revisions for article-id",
-"description": "Fetch list of existing revisions for article-id",
-"tags": [
-"articles"
-],
-"operation_id": "getArticle-apiV2ArticlesArticle_idRevisions",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-article-api",
-"method": "GET",
-"path": "/article-api/v2/articles/external_id/{deprecated_node_id}",
-"summary": "Get id of article corresponding to specified deprecated node id.",
-"description": "Get internal id of article for a specified ndla_node_id.",
-"tags": [
-"articles"
-],
-"operation_id": "getArticle-apiV2ArticlesExternal_idDeprecated_node_id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-article-api",
-"method": "GET",
-"path": "/article-api/v2/articles/external_ids/{deprecated_node_id}",
-"summary": "Get all ids related to article corresponding to specified deprecated node id.",
-"description": "Get internal id as well as all deprecated ndla_node_ids of article for a specified ndla_node_id.",
-"tags": [
-"articles"
-],
-"operation_id": "getArticle-apiV2ArticlesExternal_idsDeprecated_node_id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-article-api",
-"method": "GET",
-"path": "/article-api/v2/articles/{article_id}/revision-history",
-"summary": "Get the revision history for an article",
-"description": "Get an object that describes the revision history for a specific article",
-"tags": [
-"articles"
-],
-"operation_id": "getArticle-apiV2ArticlesArticle_idRevision-history",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "GET",
-"path": "/audio-api/v1/audio",
-"summary": "Find audio files",
-"description": "Shows all the audio files in the ndla.no database. You can search it too.",
-"tags": [
-"audio"
-],
-"operation_id": "getAudio-apiV1Audio",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "POST",
-"path": "/audio-api/v1/audio",
-"summary": "Upload a new audio file with meta information",
-"description": "Upload a new audio file with meta data",
-"tags": [
-"audio"
-],
-"operation_id": "postAudio-apiV1Audio",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "POST",
-"path": "/audio-api/v1/audio/search",
-"summary": "Find audio files",
-"description": "Shows all the audio files in the ndla.no database. You can search it too.",
-"tags": [
-"audio"
-],
-"operation_id": "postAudio-apiV1AudioSearch",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "GET",
-"path": "/audio-api/v1/audio/ids",
-"summary": "Fetch audio that matches ids parameter.",
-"description": "Fetch audios that matches ids parameter.",
-"tags": [
-"audio"
-],
-"operation_id": "getAudio-apiV1AudioIds",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "GET",
-"path": "/audio-api/v1/audio/tag-search",
-"summary": "Retrieves a list of all previously used tags in audios",
-"description": "Retrieves a list of all previously used tags in audios",
-"tags": [
-"audio"
-],
-"operation_id": "getAudio-apiV1AudioTag-search",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "GET",
-"path": "/audio-api/v1/audio/{audio-id}",
-"summary": "Fetch information for audio file",
-"description": "Shows info of the audio with submitted id.",
-"tags": [
-"audio"
-],
-"operation_id": "getAudio-apiV1AudioAudio-id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "PUT",
-"path": "/audio-api/v1/audio/{audio-id}",
-"summary": "Upload audio for a different language or update metadata for an existing audio-file",
-"description": "Update the metadata for an existing language, or upload metadata for a new language.",
-"tags": [
-"audio"
-],
-"operation_id": "putAudio-apiV1AudioAudio-id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "DELETE",
-"path": "/audio-api/v1/audio/{audio-id}",
-"summary": "Deletes audio with the specified id",
-"description": "Deletes audio with the specified id",
-"tags": [
-"audio"
-],
-"operation_id": "deleteAudio-apiV1AudioAudio-id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "DELETE",
-"path": "/audio-api/v1/audio/{audio-id}/language/{language}",
-"summary": "Delete language version of audio metadata.",
-"description": "Delete language version of audio metadata.",
-"tags": [
-"audio"
-],
-"operation_id": "deleteAudio-apiV1AudioAudio-idLanguageLanguage",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "GET",
-"path": "/audio-api/v1/series",
-"summary": "Find series",
-"description": "Shows all the series. Also searchable.",
-"tags": [
-"series"
-],
-"operation_id": "getAudio-apiV1Series",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "POST",
-"path": "/audio-api/v1/series",
-"summary": "Create a new series with meta information",
-"description": "Create a new series with meta information",
-"tags": [
-"series"
-],
-"operation_id": "postAudio-apiV1Series",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "POST",
-"path": "/audio-api/v1/series/search",
-"summary": "Find series",
-"description": "Shows all the series. Also searchable.",
-"tags": [
-"series"
-],
-"operation_id": "postAudio-apiV1SeriesSearch",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "GET",
-"path": "/audio-api/v1/series/{series-id}",
-"summary": "Fetch information for series",
-"description": "Shows info of the series with submitted id.",
-"tags": [
-"series"
-],
-"operation_id": "getAudio-apiV1SeriesSeries-id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "PUT",
-"path": "/audio-api/v1/series/{series-id}",
-"summary": "Upload audio for a different language or update metadata for an existing audio-file",
-"description": "Update the metadata for an existing language, or upload metadata for a new language.",
-"tags": [
-"series"
-],
-"operation_id": "putAudio-apiV1SeriesSeries-id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "DELETE",
-"path": "/audio-api/v1/series/{series-id}",
-"summary": "Deletes series with the specified id",
-"description": "Deletes series with the specified id",
-"tags": [
-"series"
-],
-"operation_id": "deleteAudio-apiV1SeriesSeries-id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "DELETE",
-"path": "/audio-api/v1/series/{series-id}/language/{language}",
-"summary": "Delete language version of audio metadata.",
-"description": "Delete language version of audio metadata.",
-"tags": [
-"series"
-],
-"operation_id": "deleteAudio-apiV1SeriesSeries-idLanguageLanguage",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "GET",
-"path": "/audio-api/v1/transcription/{videoId}/{language}/extract-audio",
-"summary": "Get audio extraction status",
-"description": "Get the status of the audio extraction from a Brightcove video.",
-"tags": [
-"transcription"
-],
-"operation_id": "getAudio-apiV1TranscriptionVideoidLanguageExtract-audio",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "POST",
-"path": "/audio-api/v1/transcription/{videoId}/{language}/extract-audio",
-"summary": "Extract audio from video",
-"description": "Extracts audio from a Brightcove video and uploads it to S3.",
-"tags": [
-"transcription"
-],
-"operation_id": "postAudio-apiV1TranscriptionVideoidLanguageExtract-audio",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "GET",
-"path": "/audio-api/v1/transcription/video/{videoId}/{language}",
-"summary": "Get the transcription status of a video",
-"description": "Get the transcription of a video.",
-"tags": [
-"transcription"
-],
-"operation_id": "getAudio-apiV1TranscriptionVideoVideoidLanguage",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "POST",
-"path": "/audio-api/v1/transcription/video/{videoId}/{language}",
-"summary": "Transcribe video",
-"description": "Transcribes a video and uploads the transcription to S3.",
-"tags": [
-"transcription"
-],
-"operation_id": "postAudio-apiV1TranscriptionVideoVideoidLanguage",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "POST",
-"path": "/audio-api/v1/transcription/audio/{audioName}/{audioId}/{language}",
-"summary": "Transcribe audio",
-"description": "Transcribes an audiofile and uploads the transcription to S3.",
-"tags": [
-"transcription"
-],
-"operation_id": "postAudio-apiV1TranscriptionAudioAudionameAudioidLanguage",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-audio-api",
-"method": "GET",
-"path": "/audio-api/v1/transcription/audio/{audioId}/{language}",
-"summary": "Get the transcription status of an audiofile",
-"description": "Get the transcription of an audiofile .",
-"tags": [
-"transcription"
-],
-"operation_id": "getAudio-apiV1TranscriptionAudioAudioidLanguage",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-concept-api",
-"method": "GET",
-"path": "/concept-api/v1/drafts/status-state-machine",
-"summary": "Get status state machine",
-"description": "Get status state machine",
-"tags": [
-"drafts"
-],
-"operation_id": "getConcept-apiV1DraftsStatus-state-machine",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-concept-api",
-"method": "GET",
-"path": "/concept-api/v1/drafts/tags",
-"summary": "Returns a list of all tags in the specified subjects",
-"description": "Returns a list of all tags in the specified subjects",
-"tags": [
-"drafts"
-],
-"operation_id": "getConcept-apiV1DraftsTags",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-concept-api",
-"method": "POST",
-"path": "/concept-api/v1/drafts/search",
-"summary": "Show all concepts",
-"description": "Shows all concepts. You can search it too.",
-"tags": [
-"drafts"
-],
-"operation_id": "postConcept-apiV1DraftsSearch",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-concept-api",
-"method": "GET",
-"path": "/concept-api/v1/drafts/{concept_id}",
-"summary": "Show concept with a specified id",
-"description": "Shows the concept for the specified id.",
-"tags": [
-"drafts"
-],
-"operation_id": "getConcept-apiV1DraftsConcept_id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-concept-api",
-"method": "PATCH",
-"path": "/concept-api/v1/drafts/{concept_id}",
-"summary": "Update a concept",
-"description": "Update a concept",
-"tags": [
-"drafts"
-],
-"operation_id": "patchConcept-apiV1DraftsConcept_id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-concept-api",
-"method": "DELETE",
-"path": "/concept-api/v1/drafts/{concept_id}",
-"summary": "Delete language from concept",
-"description": "Delete language from concept",
-"tags": [
-"drafts"
-],
-"operation_id": "deleteConcept-apiV1DraftsConcept_id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-concept-api",
-"method": "PUT",
-"path": "/concept-api/v1/drafts/{concept_id}/status/{STATUS}",
-"summary": "Update status of a concept",
-"description": "Update status of a concept",
-"tags": [
-"drafts"
-],
-"operation_id": "putConcept-apiV1DraftsConcept_idStatusStatus",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-concept-api",
-"method": "GET",
-"path": "/concept-api/v1/drafts/tag-search",
-"summary": "Retrieves a list of all previously used tags in concepts",
-"description": "Retrieves a list of all previously used tags in concepts",
-"tags": [
-"drafts"
-],
-"operation_id": "getConcept-apiV1DraftsTag-search",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-concept-api",
-"method": "GET",
-"path": "/concept-api/v1/drafts",
-"summary": "Show all concepts",
-"description": "Shows all concepts. You can search it too.",
-"tags": [
-"drafts"
-],
-"operation_id": "getConcept-apiV1Drafts",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-concept-api",
-"method": "POST",
-"path": "/concept-api/v1/drafts",
-"summary": "Create new concept",
-"description": "Create new concept",
-"tags": [
-"drafts"
-],
-"operation_id": "postConcept-apiV1Drafts",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-concept-api",
-"method": "GET",
-"path": "/concept-api/v1/concepts/tags",
-"summary": "Returns a list of all tags in the specified subjects",
-"description": "Returns a list of all tags in the specified subjects",
-"tags": [
-"concepts"
-],
-"operation_id": "getConcept-apiV1ConceptsTags",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-concept-api",
-"method": "GET",
-"path": "/concept-api/v1/concepts/{concept_id}",
-"summary": "Show concept with a specified id",
-"description": "Shows the concept for the specified id.",
-"tags": [
-"concepts"
-],
-"operation_id": "getConcept-apiV1ConceptsConcept_id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-concept-api",
-"method": "GET",
-"path": "/concept-api/v1/concepts",
-"summary": "Show all concepts",
-"description": "Shows all concepts. You can search it too.",
-"tags": [
-"concepts"
-],
-"operation_id": "getConcept-apiV1Concepts",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-concept-api",
-"method": "POST",
-"path": "/concept-api/v1/concepts/search",
-"summary": "Show all concepts",
-"description": "Shows all concepts. You can search it too.",
-"tags": [
-"concepts"
-],
-"operation_id": "postConcept-apiV1ConceptsSearch",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "GET",
-"path": "/image-api/v2/images",
-"summary": "Find images.",
-"description": "Find images in the ndla.no database.",
-"tags": [
-"images V2"
-],
-"operation_id": "getImage-apiV2Images",
-"deprecated": true
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "POST",
-"path": "/image-api/v2/images",
-"summary": "Upload a new image with meta information.",
-"description": "Upload a new image file with meta data.",
-"tags": [
-"images V2"
-],
-"operation_id": "postImage-apiV2Images",
-"deprecated": true
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "GET",
-"path": "/image-api/v2/images/tag-search",
-"summary": "Retrieves a list of all previously used tags in images",
-"description": "Retrieves a list of all previously used tags in images",
-"tags": [
-"images V2"
-],
-"operation_id": "getImage-apiV2ImagesTag-search",
-"deprecated": true
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "POST",
-"path": "/image-api/v2/images/search",
-"summary": "Find images.",
-"description": "Search for images in the ndla.no database.",
-"tags": [
-"images V2"
-],
-"operation_id": "postImage-apiV2ImagesSearch",
-"deprecated": true
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "GET",
-"path": "/image-api/v2/images/{image_id}",
-"summary": "Fetch information for image.",
-"description": "Shows info of the image with submitted id.",
-"tags": [
-"images V2"
-],
-"operation_id": "getImage-apiV2ImagesImage_id",
-"deprecated": true
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "PATCH",
-"path": "/image-api/v2/images/{image_id}",
-"summary": "Update an existing image with meta information.",
-"description": "Updates an existing image with meta data.",
-"tags": [
-"images V2"
-],
-"operation_id": "patchImage-apiV2ImagesImage_id",
-"deprecated": true
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "DELETE",
-"path": "/image-api/v2/images/{image_id}",
-"summary": "Deletes the specified images meta data and file",
-"description": "Deletes the specified images meta data and file",
-"tags": [
-"images V2"
-],
-"operation_id": "deleteImage-apiV2ImagesImage_id",
-"deprecated": true
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "GET",
-"path": "/image-api/v2/images/external_id/{external_id}",
-"summary": "Fetch information for image by external id.",
-"description": "Shows info of the image with submitted external id.",
-"tags": [
-"images V2"
-],
-"operation_id": "getImage-apiV2ImagesExternal_idExternal_id",
-"deprecated": true
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "DELETE",
-"path": "/image-api/v2/images/{image_id}/language/{language}",
-"summary": "Delete language version of image metadata.",
-"description": "Delete language version of image metadata.",
-"tags": [
-"images V2"
-],
-"operation_id": "deleteImage-apiV2ImagesImage_idLanguageLanguage",
-"deprecated": true
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "GET",
-"path": "/image-api/v3/images",
-"summary": "Find images.",
-"description": "Find images in the ndla.no database.",
-"tags": [
-"images V3"
-],
-"operation_id": "getImage-apiV3Images",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "POST",
-"path": "/image-api/v3/images",
-"summary": "Upload a new image with meta information.",
-"description": "Upload a new image file with meta data.",
-"tags": [
-"images V3"
-],
-"operation_id": "postImage-apiV3Images",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "GET",
-"path": "/image-api/v3/images/ids",
-"summary": "Fetch images that matches ids parameter.",
-"description": "Fetch images that matches ids parameter.",
-"tags": [
-"images V3"
-],
-"operation_id": "getImage-apiV3ImagesIds",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "GET",
-"path": "/image-api/v3/images/tag-search",
-"summary": "Retrieves a list of all previously used tags in images",
-"description": "Retrieves a list of all previously used tags in images",
-"tags": [
-"images V3"
-],
-"operation_id": "getImage-apiV3ImagesTag-search",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "POST",
-"path": "/image-api/v3/images/search",
-"summary": "Find images.",
-"description": "Search for images in the ndla.no database.",
-"tags": [
-"images V3"
-],
-"operation_id": "postImage-apiV3ImagesSearch",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "GET",
-"path": "/image-api/v3/images/{image_id}",
-"summary": "Fetch information for image.",
-"description": "Shows info of the image with submitted id.",
-"tags": [
-"images V3"
-],
-"operation_id": "getImage-apiV3ImagesImage_id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "PATCH",
-"path": "/image-api/v3/images/{image_id}",
-"summary": "Update an existing image with meta information.",
-"description": "Updates an existing image with meta data.",
-"tags": [
-"images V3"
-],
-"operation_id": "patchImage-apiV3ImagesImage_id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "DELETE",
-"path": "/image-api/v3/images/{image_id}",
-"summary": "Deletes the specified images meta data and file",
-"description": "Deletes the specified images meta data and file",
-"tags": [
-"images V3"
-],
-"operation_id": "deleteImage-apiV3ImagesImage_id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "GET",
-"path": "/image-api/v3/images/external_id/{external_id}",
-"summary": "Fetch information for image by external id.",
-"description": "Shows info of the image with submitted external id.",
-"tags": [
-"images V3"
-],
-"operation_id": "getImage-apiV3ImagesExternal_idExternal_id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "DELETE",
-"path": "/image-api/v3/images/{image_id}/language/{language}",
-"summary": "Delete language version of image metadata.",
-"description": "Delete language version of image metadata.",
-"tags": [
-"images V3"
-],
-"operation_id": "deleteImage-apiV3ImagesImage_idLanguageLanguage",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "POST",
-"path": "/image-api/v3/images/{image_id}/copy",
-"summary": "Copy image meta data with a new image file",
-"description": "Copy image meta data with a new image file",
-"tags": [
-"images V3"
-],
-"operation_id": "postImage-apiV3ImagesImage_idCopy",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "GET",
-"path": "/image-api/v3/images/users/editors",
-"summary": "Get list of users that have edited images",
-"description": "Get list of user IDs from updatedBy and editor notes in images",
-"tags": [
-"images V3"
-],
-"operation_id": "getImage-apiV3ImagesUsersEditors",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "GET",
-"path": "/image-api/raw/id/{image_id}",
-"summary": "Fetch an image with options to resize and crop",
-"description": "Fetches a image with options to resize and crop",
-"tags": [
-"raw"
-],
-"operation_id": "getImage-apiRawIdImage_id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "GET",
-"path": "/image-api/raw/{image_name}",
-"summary": "Fetch an image with options to resize and crop",
-"description": "Fetches a image with options to resize and crop",
-"tags": [
-"raw"
-],
-"operation_id": "getImage-apiRawImage_name",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "GET",
-"path": "/image-api/raw/{image_name}/{variant_size}",
-"summary": "Fetch an image variant",
-"description": "Fetches a specific image variant size",
-"tags": [
-"raw"
-],
-"operation_id": "getImage-apiRawImage_nameVariant_size",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "POST",
-"path": "/image-api/v1/bulk",
-"summary": "Start a bulk image upload session",
-"description": "Stages all uploaded images and starts an asynchronous bulk upload.",
-"tags": [
-"bulk"
-],
-"operation_id": "postImage-apiV1Bulk",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-image-api",
-"method": "GET",
-"path": "/image-api/v1/bulk/status/{upload-id}",
-"summary": "Stream the status of a bulk upload session",
-"description": "Returns Server-Sent Events with progress updates for the given upload-id.",
-"tags": [
-"bulk"
-],
-"operation_id": "getImage-apiV1BulkStatusUpload-id",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-oembed-proxy",
-"method": "GET",
-"path": "/oembed-proxy/v1/oembed",
-"summary": "Returns oEmbed information for a given url.",
-"description": "Returns oEmbed information for a given url.",
-"tags": [
-"oembed"
-],
-"operation_id": "getOembed-proxyV1Oembed",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-search-api",
-"method": "GET",
-"path": "/search-api/v1/search/group",
-"summary": "Search across multiple groups of learning resources",
-"description": "Search across multiple groups of learning resources",
-"tags": [
-"search"
-],
-"operation_id": "getSearch-apiV1SearchGroup",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-search-api",
-"method": "GET",
-"path": "/search-api/v1/search",
-"summary": "Find learning resources",
-"description": "Shows all learning resources. You can search too.",
-"tags": [
-"search"
-],
-"operation_id": "getSearch-apiV1Search",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-search-api",
-"method": "POST",
-"path": "/search-api/v1/search",
-"summary": "Find learning resources",
-"description": "Shows all learning resources. You can search too.",
-"tags": [
-"search"
-],
-"operation_id": "postSearch-apiV1Search",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-search-api",
-"method": "GET",
-"path": "/search-api/v1/search/editorial",
-"summary": "Find draft learning resources",
-"description": "Shows all draft learning resources. You can search too. Query parameters are undocumented, but are the same as the body for the POST endpoint, except `kebab-case`.",
-"tags": [
-"search"
-],
-"operation_id": "getSearch-apiV1SearchEditorial",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-search-api",
-"method": "POST",
-"path": "/search-api/v1/search/editorial",
-"summary": "Find draft learning resources",
-"description": "Shows all draft learning resources. You can search too.",
-"tags": [
-"search"
-],
-"operation_id": "postSearch-apiV1SearchEditorial",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-search-api",
-"method": "POST",
-"path": "/search-api/v1/search/subjects",
-"summary": "List subjects with aggregated data about their contents",
-"description": "List subjects with aggregated data about their contents",
-"tags": [
-"search"
-],
-"operation_id": "postSearch-apiV1SearchSubjects",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-search-api",
-"method": "POST",
-"path": "/search-api/v1/search/grep",
-"summary": "Search for grep codes",
-"description": "Search for grep codes",
-"tags": [
-"search"
-],
-"operation_id": "postSearch-apiV1SearchGrep",
-"deprecated": false
-},
-{
-"api_id": "vestland-fylkeskommune-search-api",
-"method": "GET",
-"path": "/search-api/v1/search/grep/replacements",
-"summary": "Get grep replacements",
-"description": null,
-"tags": [
-"search"
-],
-"operation_id": "getSearch-apiV1SearchGrepReplacements",
 "deprecated": false
 }
 ]

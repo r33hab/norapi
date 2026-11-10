@@ -3,6 +3,16 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com), newest first, grouped by date.
 
+## 2026-11-10
+### Added
+- Twenty more curated APIs from counties, municipalities and smaller institutions, each probed live: NDLA's open APIs (search, articles, images, audio, concepts, learning paths, subject taxonomy, oEmbed) with their OpenAPI specs, Nasjonalmuseet's collection API (Linked Art and IIIF without a key), Norid RDAP for .no domains, the BIBSYS authority file (SRU), Nord Pool's day-ahead prices for NO1 to NO5, ReMidt's waste collection calendar (also Fosen), and the ArcGIS map servers of Bergen, Fredrikstad, IKT Agder (Arendal, Grimstad, Froland) and the Vestland, Trøndelag, Troms and Agder county municipalities.
+- `registry/retired.yaml`: harvested entries whose service a manual check found gone are left out of the registry, with the reason; the catalogue still lists them, so the weekly harvest would otherwise bring them back. Starts with Oslo's two HC-plasser WFS entries, whose host no longer resolves.
+### Changed
+- The six NDLA APIs that Felles datakatalog lists under Vestland fylkeskommune (NDLA's host county) are curated under "NDLA (Vestland fylkeskommune)" with real endpoints and content licences instead of the catalogue's GPL code licence.
+- `sikt-bibsys-sru` also lists the catalogue's OAI-PMH endpoint.
+### Fixed
+- Harvested entries carried placeholder links from the catalogue (`http://example.com/` as endpoint for NDLA, NVE HydAPI and a Kartverket test service); URLs on the RFC 2606 example domains and localhost are now dropped at harvest.
+
 ## 2026-10-21
 ### Fixed
 - 969 of the 1048 harvested APIs showed "tilgang ukjent" because Felles datakatalog leaves access rights blank for most map services. Access now falls back to Geonorge's kartkatalog record for the service (760), then to the access rights of the datasets the service serves (151), with the strictest value when the two disagree (10). The remaining 48 were checked by hand (an anonymous call and the owner's docs) and recorded with the reason in `registry/access-review.yaml`; 5 stay unknown, each with a caveat saying why (dead address, 403, no endpoint). Every harvested entry now says where its access value came from, and the API page shows it.

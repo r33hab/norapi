@@ -1,0 +1,28 @@
+updated: 2026-11-10
+provider:
+  name: Agder fylkeskommune
+  orgnr: "921707134"
+  sector: fylke
+apis:
+  - id: agder-fylkeskommune-kartserver
+    title: Agder fylkeskommunes kartserver (ArcGIS REST)
+    title_en: Agder county map server (ArcGIS REST)
+    description: >-
+      Fylkeskommunens kartlag: kulturminnevern (SEFRAK-bygninger, arkeologiske registreringer,
+      friluftslivskartlegging), arealregnskap per kommune og flybilder (ABI) som ImageServer. Hvert lag spørres med
+      /query og svarer i JSON eller GeoJSON. Uten nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://karttjenester.agderfk.no/arcgis/rest/services
+    docs_url: https://karttjenester.agderfk.no/arcgis/rest/services
+    probe_url: https://karttjenester.agderfk.no/arcgis/rest/services?f=json
+    keywords: [agder, fylkeskommune, kart, arcgis, sefrak, kulturminner, arealregnskap, flybilder, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://karttjenester.agderfk.no/arcgis/rest/services?f=json"
+      curl "https://karttjenester.agderfk.no/arcgis/rest/services/Kulturminnevern/sefrak/MapServer/0/query?where=1%3D1&outFields=*&resultRecordCount=5&f=geojson"

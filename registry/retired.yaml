@@ -1,0 +1,13 @@
+# Harvested entries left out of the registry because a manual check found the service gone:
+# the host no longer resolves. Felles datakatalog still lists them, so the weekly harvest
+# would bring them back without this list. Matching is on the catalogue URI; `id` is there
+# for readability. Keep `reason` to what was observed, and remove an entry once the service
+# answers again.
+checked: 2026-11-10
+entries:
+  - id: oslo-kommune-hc-plasser-i-oslo-bymiljoetaten-sin-wfs-tjeneste
+    uri: "https://geoserver.data.oslo.systems/geoserver/bym/ows?service=WFS&version=1.0.0&request=GetCapabilities"
+    reason: "Vertsnavnet geoserver.data.oslo.systems finnes ikke lenger (NXDOMAIN)."
+  - id: oslo-kommune-hc-plasser-i-oslo-wfs-tjeneste
+    uri: "https://geoserver.data.oslo.systems/geoserver/bym/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=bym%3Ahc-plasser&maxFeatures=50&outputFormat=application%2Fjson"
+    reason: "Vertsnavnet geoserver.data.oslo.systems finnes ikke lenger (NXDOMAIN)."

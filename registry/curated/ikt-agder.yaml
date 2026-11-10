@@ -1,0 +1,29 @@
+updated: 2026-11-10
+provider:
+  name: IKT Agder IKS
+  orgnr: "985359385"
+  sector: kommune
+apis:
+  - id: ikt-agder-kartserver
+    title: Kartserver for Arendal, Grimstad og Froland (IKT Agder)
+    title_en: Map server for Arendal, Grimstad and Froland (IKT Agder)
+    description: >-
+      Det interkommunale IT-selskapets kartserver med én mappe per kommune: kommuneplaner, reguleringsplaner, grunnkart,
+      flom- og kvikkleiresoner og planinnsyn for Arendal, Grimstad og Froland. Lagene spørres med /query (JSON eller
+      GeoJSON) og finnes også som WMS. Uten nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON, WMS]
+    endpoints:
+      - https://karttjenester.ikt-agder.no/arcgis/rest/services
+    docs_url: https://karttjenester.ikt-agder.no/arcgis/rest/services
+    probe_url: https://karttjenester.ikt-agder.no/arcgis/rest/services?f=json
+    keywords: [arendal, grimstad, froland, agder, kart, arcgis, kommuneplan, reguleringsplan, flomsone, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://karttjenester.ikt-agder.no/arcgis/rest/services/grimstad?f=json"
+      # 200-års flomsone i Grimstads kommuneplan
+      curl "https://karttjenester.ikt-agder.no/arcgis/rest/services/grimstad/Kommuneplan2026/MapServer/80/query?where=1%3D1&outFields=*&resultRecordCount=1&f=geojson"

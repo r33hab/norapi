@@ -88,9 +88,9 @@ A GitHub Actions workflow does the same every Monday and commits the result.
 
 | Source | Entries | Notes |
 |---|---|---|
-| Felles datakatalog (Digdir) | about 1 060 | Everything agencies have registered as a data service, with endpoints, specs, licences and keywords pulled over SPARQL |
-| Curated YAML in `registry/curated/` | 145 | Brønnøysundregistrene, SSB, Entur, MET, Kartverket, Nav, Skatteetaten, Digdir, Altinn, Vegvesen, Norges Bank, Stortinget, NVE, Udir, FHI, Helsedirektoratet, Lovdata, Elhub, Sikt, Tolletaten, Fiskeridirektoratet, Finanstilsynet, Vinmonopolet, Luftfartstilsynet and more, each with access, auth, formats, docs and a `quick_start` that was run before it was committed |
-| OpenAPI documents | 119 specs, 1 313 operations | Resolved behind `spec_url` and Swagger UI pages; the Petstore sample that unconfigured Swagger UIs ship is filtered out |
+| Felles datakatalog (Digdir) | about 1 080 | Everything agencies have registered as a data service, with endpoints, specs, licences and keywords pulled over SPARQL |
+| Curated YAML in `registry/curated/` | 165 | Brønnøysundregistrene, SSB, Entur, MET, Kartverket, Nav, Skatteetaten, Digdir, Altinn, Vegvesen, Norges Bank, Stortinget, NVE, Udir, FHI, Helsedirektoratet, Lovdata, Elhub, Sikt, NDLA, Nasjonalmuseet, Norid, Tolletaten, Fiskeridirektoratet, Finanstilsynet, Vinmonopolet, Luftfartstilsynet, county and municipal map servers and more, each with access, auth, formats, docs and a `quick_start` that was run before it was committed |
+| OpenAPI documents | 140 specs, 2 179 operations | Resolved behind `spec_url` and Swagger UI pages; the Petstore sample that unconfigured Swagger UIs ship is filtered out |
 
 Every curated entry is link-checked (`ok`, `answers`, `missing`) and the verdict is shown on its page.
 
@@ -103,7 +103,7 @@ OpenAPI docs ──▶ enrich ──┘                 registry/operations.json
 ```
 
 - **Harvest** reads Felles datakatalog through its search API (the list) and SPARQL endpoint (the fields the list leaves out), joined on the data service URI.
-- **Access** comes from the service's own access rights in the catalogue; when those are blank (most map services), from Geonorge's kartkatalog record for the service, then from the access rights of the datasets it serves (the strictest wins, and a disagreement between Geonorge and the datasets takes the strictest value). What none of them answer is checked by hand and recorded with the reason in `registry/access-review.yaml`. Each entry's `source.access_from` says which one decided, and the site shows it.
+- **Access** comes from the service's own access rights in the catalogue; when those are blank (most map services), from Geonorge's kartkatalog record for the service, then from the access rights of the datasets it serves (the strictest wins, and a disagreement between Geonorge and the datasets takes the strictest value). What none of them answer is checked by hand and recorded with the reason in `registry/access-review.yaml`. Each entry's `source.access_from` says which one decided, and the site shows it. Placeholder links the catalogue holds (`example.com`) are dropped, and services a manual check found gone are left out through `registry/retired.yaml`.
 - **Curate** merges hand-written YAML on top: curated fields win, harvested fields fill gaps, matched by catalogue URI or identical endpoint.
 - **Enrich** fetches OpenAPI and Swagger documents, including the ones hidden behind a Swagger UI page, and indexes every operation.
 - **Build** writes `registry.json` (the product), `llms.txt`, and an SQLite FTS5 index that is rebuilt on demand.
@@ -149,7 +149,7 @@ src/norapi/
   check.py           link checker
   site.py            static site generator
   cli.py / mcp_server.py
-registry/            curated YAML, access-review.yaml, registry.json, llms.txt, specs.json, operations.json
+registry/            curated YAML, access-review.yaml, retired.yaml, registry.json, llms.txt, specs.json, operations.json
 site/assets/         design tokens, stylesheet, client-side search, Open Graph image
 tests/               unit tests on recorded fixtures, no network
 docs/adr/            decisions

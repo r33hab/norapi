@@ -1,0 +1,30 @@
+updated: 2026-11-10
+provider:
+  name: Troms fylkeskommune
+  orgnr: "930068128"
+  sector: fylke
+apis:
+  - id: troms-fylkeskommune-kartserver
+    title: Troms fylkeskommunes kartserver (ArcGIS REST)
+    title_en: Troms county map server (ArcGIS REST)
+    description: >-
+      Fylkeskommunens kartlag: basisdata (kommunegrenser, bratthetskart), arealregnskap og arealbruksintensitet,
+      inngrepsfrie naturområder (INON) og naturskog. Hvert lag spørres med /query og svarer i JSON eller GeoJSON. Uten
+      nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://gis.tromsfylke.no/arcgis/rest/services
+    docs_url: https://gis.tromsfylke.no/arcgis/rest/services
+    probe_url: https://gis.tromsfylke.no/arcgis/rest/services?f=json
+    keywords: [troms, fylkeskommune, kart, arcgis, arealregnskap, inon, naturskog, kommunegrenser, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Testmappene (Test, Test2, Test_print) er arbeidsområder; bygg ikke på dem.
+      - Serveren sender ikke mellomsertifikatet (GlobalSign RSA OV SSL CA 2018), så klienter som ikke henter det selv, som Python og Node, avviser TLS-tilkoblingen; curl på macOS og nettlesere svarer.
+    quick_start: |
+      curl "https://gis.tromsfylke.no/arcgis/rest/services?f=json"
+      curl "https://gis.tromsfylke.no/arcgis/rest/services/Basisdata/Kommunegrenser/MapServer/0/query?where=1%3D1&outFields=*&resultRecordCount=1&f=geojson"

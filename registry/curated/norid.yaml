@@ -1,0 +1,29 @@
+updated: 2026-11-10
+provider:
+  name: Norid
+  orgnr: "985821585"
+  sector: statlig-selskap
+apis:
+  - id: norid-rdap
+    title: Norid RDAP (oppslag på .no-domener)
+    title_en: Norid RDAP (.no domain lookup)
+    description: >-
+      Registreringsdata for .no-domener over RDAP, etterfølgeren til whois: domenestatus, datoer, registrar og
+      navnetjenere i JSON. Slår også opp registrarer, kontakter og navnetjenere. Anonyme oppslag gir begrenset innhold
+      og lavere kvote enn innloggede registrarer.
+    category: bedrift-og-organisasjon
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://rdap.norid.no/
+    docs_url: https://teknisk.norid.no/en/integrere-mot-norid/rdap-tjenesten/
+    probe_url: https://rdap.norid.no/domain/norid.no
+    license: Norids vilkår for domeneoppslag
+    keywords: [domene, .no, rdap, whois, domenenavn, registrar, navnetjener, domain lookup]
+    tags: [no-auth, reference-data]
+    caveats:
+      - Kommersiell bruk av oppslagsdataene, også målrettet markedsføring, er forbudt etter Norids vilkår.
+      - Svarene kan inneholde personopplysninger om innehavere; ikke lagre eller del dem videre.
+    quick_start: |
+      curl "https://rdap.norid.no/domain/norid.no"

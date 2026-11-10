@@ -1,0 +1,30 @@
+updated: 2026-11-10
+provider:
+  name: Fredrikstad kommune
+  orgnr: "940039541"
+  sector: kommune
+apis:
+  - id: fredrikstad-kommune-kartserver
+    title: Fredrikstad kommunes kartserver (ArcGIS REST)
+    title_en: Fredrikstad municipality map server (ArcGIS REST)
+    description: >-
+      Hele kartserveren bak Fredrikstads mange enkeltlag i katalogen: plan og regulering, kulturetaten (skulpturer,
+      turforslag, anlegg), Borg havn, renovasjon, bakgrunnskart og lag for nabokommunene Hvaler og Sarpsborg. Hvert lag
+      spørres med /query og svarer i JSON eller GeoJSON. De fleste mappene er åpne uten nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://arcgis.fredrikstad.kommune.no/server/rest/services
+    docs_url: https://arcgis.fredrikstad.kommune.no/server/rest/services
+    probe_url: https://arcgis.fredrikstad.kommune.no/server/rest/services?f=json
+    keywords: [fredrikstad, hvaler, sarpsborg, kart, arcgis, reguleringsplan, kommuneplan, skulptur, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Enkelte mapper (blant annet helse og velferd, eiendomsskatt) krever innlogging.
+    quick_start: |
+      curl "https://arcgis.fredrikstad.kommune.no/server/rest/services?f=json"
+      # skulpturer i Fredrikstad som GeoJSON
+      curl "https://arcgis.fredrikstad.kommune.no/server/rest/services/Kulturetaten/Skulptur/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson"

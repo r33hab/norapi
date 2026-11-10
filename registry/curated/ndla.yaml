@@ -1,0 +1,193 @@
+updated: 2026-11-10
+provider:
+  # NDLA er et fylkeskommunalt samarbeid med Vestland som vertsfylke; katalogen fører
+  # API-ene under Vestland fylkeskommunes organisasjonsnummer.
+  name: NDLA (Vestland fylkeskommune)
+  orgnr: "821311632"
+  sector: fylke
+apis:
+  - id: ndla-search-api
+    title: NDLA søk (search-api)
+    title_en: NDLA search API
+    description: >-
+      Felles søk i alt NDLA har publisert for videregående skole: fagartikler, læringsstier, bilder og lyd, med
+      filtre for fag, ressurstype og språk. Det enkleste stedet å begynne i NDLAs API-er. Åpent for lesing, uten
+      nøkkel; lisensen står per ressurs i metadataene, oftest Creative Commons.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.ndla.no/search-api/v1/search
+    docs_url: https://api.ndla.no/
+    license: Per ressurs, oftest CC BY-SA 4.0
+    spec_url: https://api.ndla.no/search-api/api-docs
+    probe_url: https://api.ndla.no/search-api/v1/search?query=fotosyntese&page-size=1
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/5f461df34e59ff37b6caea10
+    keywords: [ndla, læremidler, videregående, skole, søk, fag, læringsressurser, learning resources]
+    tags: [no-auth, starter]
+    caveats:
+      - Lisensen gjelder per ressurs og står i metadataene; noe innhold har strengere vilkår enn CC BY-SA.
+      - Kladd-API-et (draft-api) og Min NDLA krever innlogging og er ikke åpne.
+    quick_start: |
+      curl "https://api.ndla.no/search-api/v1/search?query=fotosyntese&page-size=3"
+
+  - id: ndla-article-api
+    title: NDLA fagartikler (article-api)
+    title_en: NDLA article API
+    description: >-
+      Fagartiklene på ndla.no med innhold, ingress, metadata, lisens og revisjonshistorikk. Søk med tekst eller tagger,
+      eller hent en artikkel på id. Uten nøkkel.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON, RSS]
+    endpoints:
+      - https://api.ndla.no/article-api/v2/articles
+    docs_url: https://api.ndla.no/
+    license: Per ressurs, oftest CC BY-SA 4.0
+    spec_url: https://api.ndla.no/article-api/api-docs
+    probe_url: https://api.ndla.no/article-api/v2/articles?query=fotosyntese&page-size=1
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/5f461df34e59ff37b6caea1f
+    keywords: [ndla, fagartikkel, artikkel, læremidler, videregående, article]
+    tags: [no-auth]
+    caveats:
+      - Lisensen gjelder per artikkel og står i feltet copyright.license.
+    quick_start: |
+      curl "https://api.ndla.no/article-api/v2/articles?query=fotosyntese&page-size=3"
+
+  - id: ndla-image-api
+    title: NDLA bilder (image-api)
+    title_en: NDLA image API
+    description: >-
+      Bildene som brukes på NDLA, med bildetekst, alt-tekst, opphavsperson og lisens per bilde, og URL til bildefilen.
+      Søk med tekst eller tagger. Uten nøkkel.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.ndla.no/image-api/v3/images
+    docs_url: https://api.ndla.no/
+    license: Per ressurs, oftest CC BY-SA 4.0
+    spec_url: https://api.ndla.no/image-api/api-docs
+    probe_url: https://api.ndla.no/image-api/v3/images?query=fjord&page-size=1
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/5f461df34e59ff37b6caea1c
+    keywords: [ndla, bilder, bildearkiv, illustrasjon, lisens, images]
+    tags: [no-auth]
+    caveats:
+      - Lisensen varierer per bilde (fra fri bruk til CC BY-NC); sjekk copyright.license før bruk.
+    quick_start: |
+      curl "https://api.ndla.no/image-api/v3/images?query=fjord&page-size=3"
+
+  - id: ndla-audio-api
+    title: NDLA lyd og podkaster (audio-api)
+    title_en: NDLA audio and podcast API
+    description: >-
+      Lydfiler og podkastserier fra NDLA med tittel, transkripsjon der den finnes, opphavsperson og lisens. Søk i lyd
+      eller list seriene. Uten nøkkel.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.ndla.no/audio-api/v1/audio
+      - https://api.ndla.no/audio-api/v1/series
+    docs_url: https://api.ndla.no/
+    license: Per ressurs, oftest CC BY-SA 4.0
+    spec_url: https://api.ndla.no/audio-api/api-docs
+    probe_url: https://api.ndla.no/audio-api/v1/audio?query=fjord&page-size=1
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/5f461df34e59ff37b6caea20
+    keywords: [ndla, lyd, podkast, podcast, audio, læremidler]
+    tags: [no-auth]
+    caveats:
+      - Lisensen gjelder per lydfil og står i metadataene.
+    quick_start: |
+      curl "https://api.ndla.no/audio-api/v1/series?page-size=3"
+
+  - id: ndla-concept-api
+    title: NDLA forklaringer og begreper (concept-api)
+    title_en: NDLA concept API
+    description: >-
+      Korte forklaringer av fagbegreper fra NDLA (forklaringene som dukker opp i artiklene), med tekst, kilde og
+      lisens. Søk i publiserte begreper uten nøkkel; kladdene under /drafts krever innlogging.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.ndla.no/concept-api/v1/concepts
+    docs_url: https://api.ndla.no/
+    license: Per ressurs, oftest CC BY-SA 4.0
+    spec_url: https://api.ndla.no/concept-api/api-docs
+    probe_url: https://api.ndla.no/concept-api/v1/concepts?query=demokrati&page-size=1
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/5f461df34e59ff37b6caea21
+    keywords: [ndla, begrep, forklaring, ordliste, definisjon, glossary, concepts]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://api.ndla.no/concept-api/v1/concepts?query=demokrati&page-size=3"
+
+  - id: ndla-learningpath-api
+    title: NDLA læringsstier (learningpath-api)
+    title_en: NDLA learning path API
+    description: >-
+      Læringsstier: sekvenser av steg som lenker til artikler, oppgaver og eksterne ressurser, laget av NDLA og av
+      lærere. Søk og hent publiserte stier uten nøkkel; egne stier (/mine) krever innlogging.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.ndla.no/learningpath-api/v2/learningpaths
+    docs_url: https://api.ndla.no/
+    license: Per ressurs, oftest CC BY-SA 4.0
+    spec_url: https://api.ndla.no/learningpath-api/api-docs
+    probe_url: https://api.ndla.no/learningpath-api/v2/learningpaths?query=klima&page-size=1
+    keywords: [ndla, læringssti, undervisningsopplegg, læremidler, learning path]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://api.ndla.no/learningpath-api/v2/learningpaths?query=klima&page-size=3"
+
+  - id: ndla-taxonomy
+    title: NDLA fagstruktur (taxonomy)
+    title_en: NDLA subject taxonomy API
+    description: >-
+      Strukturen som binder NDLA sammen: fag, emner og ressurser som noder med koblinger, og læreplankoblinger. Bruk
+      den for å finne alt innhold i et fag, eller for å bygge navigasjon. Uten nøkkel.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.ndla.no/taxonomy/v1/nodes
+    docs_url: https://api.ndla.no/
+    license: Per ressurs, oftest CC BY-SA 4.0
+    spec_url: https://api.ndla.no/taxonomy/api-docs
+    probe_url: https://api.ndla.no/taxonomy/v1/nodes?nodeType=SUBJECT&language=nb
+    keywords: [ndla, fag, emne, taksonomi, fagstruktur, læreplan, taxonomy, subjects]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      # alle fagene på NDLA
+      curl "https://api.ndla.no/taxonomy/v1/nodes?nodeType=SUBJECT&language=nb"
+
+  - id: ndla-oembed-proxy
+    title: NDLA oEmbed
+    title_en: NDLA oEmbed endpoint
+    description: >-
+      Gjør en NDLA-lenke om til en oEmbed-respons med ferdig iframe, for å bygge inn artikler og ressurser i en annen
+      nettside eller et LMS. Uten nøkkel.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.ndla.no/oembed-proxy/v1/oembed
+    docs_url: https://api.ndla.no/
+    license: Per ressurs, oftest CC BY-SA 4.0
+    spec_url: https://api.ndla.no/oembed-proxy/api-docs
+    probe_url: https://api.ndla.no/oembed-proxy/v1/oembed?url=https://ndla.no/article/38810
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/5f461df34e59ff37b6caea18
+    keywords: [ndla, oembed, innbygging, iframe, embed, lms]
+    tags: [no-auth]
+    quick_start: |
+      curl "https://api.ndla.no/oembed-proxy/v1/oembed?url=https://ndla.no/article/38810"
