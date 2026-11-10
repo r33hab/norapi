@@ -1,0 +1,71 @@
+updated: 2026-11-10
+provider:
+  name: Vipps MobilePay
+  orgnr: "918713867"
+  sector: privat
+apis:
+  - id: vipps-mobilepay-epayment
+    title: Vipps MobilePay ePayment API
+    title_en: Vipps MobilePay ePayment API
+    description: >-
+      Ta betalt med Vipps eller MobilePay i nettbutikk, app eller kasse: opprett betaling, følg status, kanseller,
+      reserver og refunder. Krever bedriftsavtale; nøklene (client id, secret og abonnementsnøkkel) gir et
+      tilgangstoken. Testmiljøet apitest.vipps.no har egne testnøkler.
+    category: finans
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.vipps.no/epayment/v1/payments
+    docs_url: https://developer.vippsmobilepay.com/docs/APIs/epayment-api/
+    spec_url: https://developer.vippsmobilepay.com/redocusaurus/epayment-swagger-id.yaml
+    probe_url: https://api.vipps.no/epayment/v1/payments/test-reference
+    keywords: [vipps, mobilepay, betaling, nettbutikk, kasse, refusjon, payment]
+    tags: [agreement]
+    caveats:
+      - Krever bedriftsavtale med Vipps MobilePay (ingen PSD2-konsesjon; du tar betalt som brukersted).
+
+  - id: vipps-mobilepay-login
+    title: Vipps MobilePay Login (OpenID Connect)
+    title_en: Vipps MobilePay Login (OpenID Connect)
+    description: >-
+      Innlogging med Vipps som standard OpenID Connect, med samtykke til navn, telefon, e-post, adresse og fødselsdato.
+      Discovery-dokumentet svarer uten nøkkel; klientnøkler krever avtale.
+    category: identitet-og-tilgang
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.vipps.no/access-management-1.0/access/
+    docs_url: https://developer.vippsmobilepay.com/docs/APIs/login-api/
+    spec_url: https://developer.vippsmobilepay.com/redocusaurus/login-swagger-id.yaml
+    probe_url: https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration
+    keywords: [vipps, innlogging, login, openid connect, oidc, identitet]
+    tags: [agreement, personal-data]
+    caveats:
+      - Krever avtale med Vipps MobilePay; brukeropplysningene er personopplysninger.
+    quick_start: |
+      curl "https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration"
+
+  - id: vipps-mobilepay-report
+    title: Vipps MobilePay Report API (oppgjør og transaksjoner)
+    title_en: Vipps MobilePay Report API (settlements and transactions)
+    description: >-
+      Oppgjør, transaksjonsrapporter og hendelser per salgssted, for regnskap og avstemming: hvilke betalinger som
+      utgjør hver utbetaling, gebyrer og datoer. Brukes av brukersteder med ePayment eller faste betalinger og av
+      regnskapspartnere.
+    category: finans
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.vipps.no/settlement/v1/ledgers
+      - https://api.vipps.no/report/v2/ledgers
+    docs_url: https://developer.vippsmobilepay.com/docs/APIs/report-api/
+    spec_url: https://developer.vippsmobilepay.com/redocusaurus/report-swagger-id.yaml
+    probe_url: https://api.vipps.no/settlement/v1/ledgers
+    keywords: [vipps, mobilepay, oppgjør, settlement, regnskap, avstemming, transaksjoner, rapport]
+    tags: [agreement]
+    caveats:
+      - Bare for brukersteder med ePayment eller faste betalinger (egne salgsstednøkler), regnskapspartnere med regnskapsnøkler og innsamlingsorganisasjoner.
+      - Brukersteder med VM-nummer kan ikke bruke API-et selv, men må gi en regnskapspartner tilgang.

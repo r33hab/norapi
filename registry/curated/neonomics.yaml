@@ -1,0 +1,23 @@
+updated: 2026-11-10
+provider:
+  name: Neonomics
+  orgnr: "919041021"
+  sector: privat
+apis:
+  - id: neonomics-api
+    title: Neonomics (open banking-aggregator)
+    title_en: Neonomics (open banking aggregator)
+    description: >-
+      Norsk aggregator for kontoinformasjon og betaling (Nello Pay) mot norske og andre europeiske banker gjennom ett
+      API. Utviklerkonto og sandkasse er selvbetjent på developer.neonomics.io; produksjon krever avtale. Neonomics står
+      i Finanstilsynets virksomhetsregister.
+    category: finans
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    docs_url: https://docs.neonomics.io/
+    keywords: [bank, open banking, psd2, aggregator, kontoinformasjon, betaling, nello pay, sandkasse]
+    tags: [registration, agreement, psd2]
+    caveats:
+      - Sandkassen dekker bare et utvalg testbanker.
+      - Produksjon krever kommersiell avtale med Neonomics; sjekk i avtalen om du kan bruke deres konsesjon eller trenger egen fra Finanstilsynet.

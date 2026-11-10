@@ -1,0 +1,27 @@
+updated: 2026-11-10
+provider:
+  name: Enable Banking (Finland)
+  sector: privat
+apis:
+  - id: enable-banking-api
+    title: Enable Banking (kontoinformasjon og betaling, også norske banker)
+    title_en: Enable Banking (account information and payments, incl. Norwegian banks)
+    description: >-
+      Ett API over bankenes PSD2-grensesnitt i mange europeiske land; i Norge blant annet DNB, SpareBank 1, Nordea og
+      Handelsbanken. Sandkassen og en begrenset produksjonsmodus, der du bare ser kontoer du selv kobler til, kan
+      brukes før kontrakt, så det er den praktiske veien til egne bankdata i andre banker enn SpareBank 1 (Actual Budget
+      og Home Assistant-integrasjoner bruker den). Kallene autentiseres med en JWT signert med appens nøkkel.
+    category: finans
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.enablebanking.com/
+    docs_url: https://enablebanking.com/docs/markets/no/
+    probe_url: https://api.enablebanking.com/aspsps
+    keywords: [bank, open banking, psd2, kontoinformasjon, transaksjoner, betaling, aggregator, dnb, sparebank 1, nordea, budsjett]
+    tags: [registration, psd2, private-provider]
+    caveats:
+      - Krever registrering; i begrenset produksjonsmodus ser du bare kontoer du selv har koblet til.
+      - En app for andre krever kontrakt med Enable Banking; prisen er volumbasert med et månedlig minimum.
+      - Sjekk i avtalen om tjenesten din kan bruke Enable Bankings konsesjon, eller om du trenger egen fra Finanstilsynet.

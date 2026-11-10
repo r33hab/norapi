@@ -1,0 +1,28 @@
+updated: 2026-11-10
+provider:
+  name: Tink (Visa)
+  sector: privat
+apis:
+  - id: tink-open-banking
+    title: Tink (open banking-plattform)
+    title_en: Tink (open banking platform)
+    description: >-
+      Nordisk open banking-plattform eid av Visa: kontoinformasjon, betaling og dataanalyse mot de fleste norske banker
+      gjennom ett API. Listen over tilkoblede banker per land svarer uten nøkkel (107 norske i november 2026); alt annet
+      krever konto i Tink Console og avtale for produksjon.
+    category: finans
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.tink.com/
+    docs_url: https://docs.tink.com/
+    probe_url: https://api.tink.com/api/v1/providers/NO
+    keywords: [bank, open banking, psd2, aggregator, kontoinformasjon, betaling, visa, tink]
+    tags: [agreement, psd2]
+    caveats:
+      - Bare banklisten (/api/v1/providers/{marked}) er åpen; data fra kontoer krever avtale med Tink.
+      - Sjekk i avtalen om tjenesten din kan bruke Tinks konsesjon, eller om du trenger egen fra Finanstilsynet.
+    quick_start: |
+      # bankene Tink er koblet til i Norge
+      curl "https://api.tink.com/api/v1/providers/NO"

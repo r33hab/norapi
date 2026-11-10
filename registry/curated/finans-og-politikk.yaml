@@ -1,4 +1,4 @@
-updated: 2026-10-21
+updated: 2026-11-10
 provider:
   name: Norges Bank
   orgnr: "937884117"
@@ -8,20 +8,45 @@ apis:
     title: Norges Bank åpne data (valutakurser og renter)
     description: >-
       Daglige valutakurser, styringsrente, statsobligasjoner og andre tidsserier som SDMX-REST:
-      velg datasett, nøkkel og periode i URL-en, få JSON eller CSV.
+      velg datasett, nøkkel og periode i URL-en, få JSON eller CSV. Utover kurser og renter finnes
+      utlånsundersøkelsen (bankenes kredittpraksis), likviditetsstatistikk, pengemarkedsdata og
+      oppgjørsstatistikk; /api/dataflow lister alle datasettene.
     category: finans
     access: open
     auth: none
     formats: [JSON, CSV, XML]
     endpoints:
       - https://data.norges-bank.no/api/data/
+      - https://data.norges-bank.no/api/dataflow
     docs_url: https://www.norges-bank.no/en/topics/Statistics/open-data/
     probe_url: https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=sdmx-json&lastNObservations=1
     license: NLOD 2.0
-    keywords: [valutakurs, valuta, rente, styringsrente, eur, usd, sdmx, exchange rate]
+    keywords: [valutakurs, valuta, rente, styringsrente, eur, usd, sdmx, exchange rate, utlånsundersøkelse, likviditet,
+      pengemarked, oppgjør, bank]
     tags: [starter, no-auth]
     quick_start: |
       curl "https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=sdmx-json&lastNObservations=1"
+      # alle datasettene
+      curl "https://data.norges-bank.no/api/dataflow"
+
+  - id: norges-bank-betalingsstatistikk
+    title: Betalingsstatistikk (Norges Bank)
+    title_en: Payment statistics (Norges Bank)
+    description: >-
+      Norges Banks årlige statistikk over betalinger i Norge: antall og verdi for kortbetalinger etter korttype,
+      overføringer, AvtaleGiro og kontantuttak. Historiske tall til og med 2015 som Excel-fil; nyere år står i
+      rapporten om betalingstjenester (Retail payment services). Ikke et API.
+    category: finans
+    access: open
+    auth: none
+    formats: [XLSX]
+    endpoints:
+      - https://www.norges-bank.no/globalassets/upload/betalingssystemer/historisk_betalingsstatistikk_2015.xlsx
+    docs_url: https://www.norges-bank.no/tema/statistikk/betalingsstatistikk/
+    keywords: [betaling, betalingsstatistikk, kort, bankkort, kontanter, overføring, avtalegiro, payment statistics]
+    tags: [no-auth, data-files]
+    caveats:
+      - Bare filer; tall etter 2015 finnes i den årlige rapporten, ikke som maskinlesbar tabell.
 
   - id: nbim-investeringer
     title: Oljefondets investeringer (NBIM, JSON)
