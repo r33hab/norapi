@@ -58,6 +58,11 @@ def build_parser() -> argparse.ArgumentParser:
     check.add_argument("--limit", type=int)
     check.add_argument("--timeout", type=float, default=15.0)
 
+    samples = commands.add_parser(
+        "samples", help="run the front page's example calls, store the answers in samples.json"
+    )
+    samples.add_argument("--timeout", type=float, default=15.0)
+
     search = commands.add_parser("search", help="full-text search")
     search.add_argument("query", nargs="?", default="")
     search.add_argument("--limit", type=int, default=10)
@@ -187,6 +192,15 @@ def cmd_check(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_samples(args: argparse.Namespace) -> int:
+    from norapi.samples import SAMPLE_IDS, capture_samples
+
+    out = REGISTRY_DIR / "samples.json"
+    kept = capture_samples(_load_entries(), out, timeout=args.timeout)
+    print(f"samples: {kept} of {len(SAMPLE_IDS)} calls stored -> {out}")
+    return 0
+
+
 def cmd_search(args: argparse.Namespace) -> int:
     registry = Registry.open()
     results = registry.search(
@@ -288,6 +302,7 @@ def main(argv: list[str] | None = None) -> int:
         "build": cmd_build,
         "enrich": cmd_enrich,
         "check": cmd_check,
+        "samples": cmd_samples,
         "search": cmd_search,
         "ops": cmd_ops,
         "show": cmd_show,

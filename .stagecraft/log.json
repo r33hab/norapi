@@ -1,0 +1,13 @@
+{
+  "used": ["Specimen"],
+  "runs": [
+    {
+      "date": "2026-11-10",
+      "direction": "Specimen",
+      "motion": "Composed",
+      "platform": "desktop-first",
+      "signature": "the console replays five captured calls (registry/samples.json)",
+      "previous": "Hallmark Cobalt (2026-10-15), see .hallmark/"
+    }
+  ]
+}

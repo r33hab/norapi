@@ -1,50 +1,87 @@
-/* Hallmark · theme: Cobalt · paper-band: light · display-style: grotesk-sans · accent-hue: cool (256) */
+/* norapi tokens. Direction: Specimen ("the site is an instrument"), Composed motion.
+ * Warm paper and near-black ink, one signal red, Geist and Geist Mono self-hosted.
+ * Components reference the semantic tokens only; raw values live here. */
+
+@font-face {
+  font-family: "Geist";
+  src: url("fonts/geist.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("fonts/geist-mono.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Fallbacks sized to Geist's metrics so the swap does not move the layout. */
+@font-face { font-family: "Geist Fallback"; src: local("Arial"), local("Helvetica Neue"), local("Helvetica"); size-adjust: 105.8%; ascent-override: 95%; descent-override: 27.9%; line-gap-override: 0%; }
+@font-face { font-family: "Geist Mono Fallback"; src: local("Menlo"), local("Consolas"), local("Courier New"); size-adjust: 100%; ascent-override: 100.5%; descent-override: 29.5%; line-gap-override: 0%; }
+
 :root {
-  --color-paper: oklch(98.5% 0.004 250);
-  --color-paper-2: oklch(96.4% 0.006 250);
-  --color-paper-3: oklch(93.5% 0.008 250);
-  --color-rule: oklch(90% 0.008 250);
-  --color-rule-2: oklch(83% 0.012 252);
-  --color-neutral: oklch(56% 0.014 255);
-  --color-muted: oklch(45% 0.016 256);
-  --color-ink-2: oklch(34% 0.018 257);
-  --color-ink: oklch(24% 0.02 258);
+  /* raw */
+  --paper-50: oklch(98.6% 0.004 85);
+  --paper-100: oklch(97% 0.007 85);
+  --paper-200: oklch(94.6% 0.009 85);
+  --paper-300: oklch(91.5% 0.011 85);
+  --ink-1000: oklch(14.5% 0.006 70);
+  --ink-950: oklch(17.5% 0.007 70);
+  --ink-900: oklch(21% 0.008 70);
+  --ink-850: oklch(25% 0.008 70);
+  --red-500: oklch(54% 0.205 26);
+  --red-600: oklch(48% 0.19 26);
+  --red-300: oklch(72% 0.15 26);
+  --green-500: oklch(62% 0.15 150);
+  --green-300: oklch(80% 0.11 150);
+  --amber-500: oklch(74% 0.15 70);
+  --amber-300: oklch(84% 0.11 75);
 
-  --color-accent: oklch(52% 0.20 256);
-  --color-accent-deep: oklch(44% 0.18 256);
-  --color-accent-light: oklch(76% 0.14 252);
-  --color-accent-ink: oklch(98.5% 0.004 250);
-  --color-focus: oklch(52% 0.20 256);
+  /* semantic: light */
+  color-scheme: light;
+  --bg: var(--paper-100);
+  --bg-raised: var(--paper-50);
+  --bg-sunken: var(--paper-200);
+  --fg: var(--ink-950);
+  --accent: var(--red-500);
+  --accent-strong: var(--red-600);
+  --accent-ink: oklch(99% 0.003 85);
+  --accent-text: var(--red-600);
+  --ok: var(--green-500);
+  --warn: var(--amber-500);
+  --bad: var(--red-500);
+  --ok-text: oklch(46% 0.13 150);
+  --warn-text: oklch(52% 0.13 62);
 
-  --color-graphite: oklch(22% 0.016 260);
-  --color-graphite-2: oklch(27% 0.016 260);
-  --color-graphite-rule: oklch(34% 0.016 260);
-  --color-graphite-ink: oklch(93% 0.008 250);
-  --color-graphite-muted: oklch(70% 0.012 252);
+  /* the console is dark in both themes: it is the instrument */
+  --c-bg: var(--ink-950);
+  --c-bg-2: var(--ink-900);
+  --c-fg: oklch(93% 0.008 85);
+  --c-muted: oklch(72% 0.01 80);
+  --c-line: oklch(100% 0 0 / 0.11);
+  --c-str: var(--green-300);
+  --c-num: var(--amber-300);
+  --c-lit: var(--red-300);
+  --c-punct: oklch(64% 0.01 80);
 
-  --color-scrim: oklch(24% 0.02 258 / 0.35);
-  --shadow-whisper: 0 1px 2px oklch(24% 0.02 258 / 0.05);
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, "SF Mono", Menlo, monospace;
 
-  --color-ok: oklch(62% 0.15 150);
-  --color-ok-ink: oklch(44% 0.13 150);
-  --color-ok-light: oklch(78% 0.14 150);
-  --color-warn: oklch(72% 0.15 70);
-  --color-error: oklch(52% 0.19 25);
-
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
-
-  --text-xs: 0.78rem;
-  --text-sm: 0.9rem;
-  --text-base: 1rem;
-  --text-md: 1.15rem;
-  --text-lg: 1.4rem;
-  --text-xl: 1.75rem;
-  --text-2xl: 2.2rem;
-  --text-3xl: 2.75rem;
-  --text-display-s: clamp(2rem, 3.2vw + 1rem, 3.1rem);
-  --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  /* fluid type, one body size, hierarchy by weight and space */
+  --text-2xs: 0.6875rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: clamp(1rem, 0.97rem + 0.12vw, 1.0625rem);
+  --text-md: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --text-lg: clamp(1.25rem, 1.1rem + 0.6vw, 1.6rem);
+  --text-xl: clamp(1.6rem, 1.3rem + 1.2vw, 2.4rem);
+  --text-2xl: clamp(2rem, 1.5rem + 2vw, 3.2rem);
+  --text-display: clamp(2.5rem, 1.6rem + 2.8vw, 4.25rem);
+  --tracking-display: -0.035em;
+  --tracking-caps: 0.08em;
 
   --space-3xs: 0.125rem;
   --space-2xs: 0.25rem;
@@ -55,24 +92,57 @@
   --space-xl: 2.5rem;
   --space-2xl: 4rem;
   --space-3xl: 6rem;
-  --space-4xl: 9rem;
 
+  --radius-xs: 3px;
   --radius-sm: 6px;
-  --radius-md: 10px;
-  --rule-hair: 1px;
 
+  /* motion: one curve for what moves in, one for edges */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-edge: cubic-bezier(0.65, 0.05, 0, 1);
   --dur-micro: 120ms;
   --dur-short: 220ms;
-  --dur-long: 420ms;
+  --dur-base: 600ms;
 
-  --z-base: 1;
   --z-raised: 10;
-  --z-dropdown: 100;
   --z-sticky: 200;
-  --z-modal: 400;
-  --z-toast: 500;
-  --z-tooltip: 600;
+}
+
+/* dark: same accent, the surfaces and the ink swap */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+  --ok-text: var(--green-300);
+  --warn-text: var(--amber-300);
+    --bg: var(--ink-1000);
+    --bg-raised: var(--ink-950);
+    --bg-sunken: var(--ink-900);
+    --fg: var(--paper-100);
+    --accent-text: var(--red-300);
+    --c-bg: var(--ink-900);
+    --c-bg-2: var(--ink-850);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ok-text: var(--green-300);
+  --warn-text: var(--amber-300);
+  --bg: var(--ink-1000);
+  --bg-raised: var(--ink-950);
+  --bg-sunken: var(--ink-900);
+  --fg: var(--paper-100);
+  --accent-text: var(--red-300);
+  --c-bg: var(--ink-900);
+  --c-bg-2: var(--ink-850);
+}
+
+/* derived from --fg and --bg on the same element, so they follow the theme */
+:root {
+  --fg-2: color-mix(in oklch, var(--fg) 84%, var(--bg));
+  --fg-muted: color-mix(in oklch, var(--fg) 66%, var(--bg));
+  --fg-faint: color-mix(in oklch, var(--fg) 36%, var(--bg));
+  --line: color-mix(in oklch, var(--fg) 13%, var(--bg));
+  --line-strong: color-mix(in oklch, var(--fg) 28%, var(--bg));
+  --bg-hover: color-mix(in oklch, var(--fg) 4%, var(--bg));
+  --ring: var(--accent);
+  --scrim: color-mix(in oklch, var(--ink-1000) 55%, transparent);
 }

@@ -21,6 +21,7 @@ jobs:
           uv run norapi build
           uv run norapi enrich --workers 6
           uv run norapi check --curated-only
+          uv run norapi samples
       - name: Commit the new registry if it changed
         run: |
           if git diff --quiet -- registry/; then

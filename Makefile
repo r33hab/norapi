@@ -1,6 +1,6 @@
 UV ?= uv
 
-.PHONY: setup lint test harvest build check search site mcp clean
+.PHONY: setup lint test harvest build enrich check samples refresh search site serve mcp clean
 
 setup:
 	$(UV) sync
@@ -23,7 +23,10 @@ enrich:           ## fetch OpenAPI documents, index their operations
 check:            ## probe docs/spec/endpoint URLs of the curated entries
 	$(UV) run norapi check --curated-only
 
-refresh: harvest build enrich check  ## the weekly run, by hand
+samples:          ## run the front page's example calls, store the answers
+	$(UV) run norapi samples
+
+refresh: harvest build enrich check samples  ## the weekly run, by hand
 
 search:           ## make search Q="kjøretøy"
 	$(UV) run norapi search "$(Q)"
