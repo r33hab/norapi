@@ -1,0 +1,30 @@
+updated: 2026-11-10
+provider:
+  # Stø AS driver BankID og BankAxept.
+  name: BankID (Stø)
+  orgnr: "927611929"
+  sector: privat
+apis:
+  - id: bankid-oidc
+    title: BankID OpenID Connect
+    title_en: BankID OpenID Connect
+    description: >-
+      Innlogging og identitetsbekreftelse med norsk BankID som OpenID Connect, med tillegg for signering og
+      biometri. Discovery-dokumentet svarer uten nøkkel. Integrasjonen settes opp gjennom en BankID-partner, som gir
+      klientnøkler til testmiljøet (current); produksjon krever avtale.
+    category: identitet-og-tilgang
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://auth.bankid.no/auth/realms/prod
+      - https://auth.current.bankid.no/auth/realms/current
+    docs_url: https://docs.stoe.no/
+    probe_url: https://auth.bankid.no/auth/realms/prod/.well-known/openid-configuration
+    keywords: [bankid, innlogging, identitet, signering, openid connect, oidc, stø]
+    tags: [agreement, personal-data]
+    caveats:
+      - Ingen selvbetjening; tilgang går gjennom en BankID-partner og avtale.
+      - Gir fødselsnummer og andre personopplysninger; behandlingen må ha rettslig grunnlag.
+    quick_start: |
+      curl "https://auth.bankid.no/auth/realms/prod/.well-known/openid-configuration"

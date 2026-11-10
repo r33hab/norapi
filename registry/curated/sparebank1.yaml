@@ -1,0 +1,29 @@
+updated: 2026-11-10
+provider:
+  # Organisasjonsnummeret er SpareBank 1 Utvikling DA, som driver de felles løsningene.
+  name: SpareBank 1
+  orgnr: "986401598"
+  sector: privat
+apis:
+  - id: sparebank1-personlig-api
+    title: SpareBank 1 personlig API (egne kontoer)
+    title_en: SpareBank 1 personal API (your own accounts)
+    description: >-
+      Kontoer, saldo, transaksjoner og overføringer for kunder i en SpareBank 1-bank, til eget bruk: budsjett,
+      dashbord, Home Assistant. Du registrerer en personlig klient på developer.sparebank1.no, logger inn med BankID
+      (OAuth 2.0) og kaller api.sparebank1.no med ditt eget token. Ingen konsesjon trengs så lenge det bare gjelder dine
+      egne kontoer. Sbanken hadde et tilsvarende API, men det er lagt ned.
+    category: finans
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.sparebank1.no/
+    docs_url: https://developer.sparebank1.no/
+    probe_url: https://api.sparebank1.no/personal/banking/accounts
+    keywords: [bank, sparebank 1, konto, saldo, transaksjoner, overføring, personlig økonomi, budsjett, open banking, bankid]
+    tags: [registration, personal-data]
+    caveats:
+      - Krever kundeforhold i en SpareBank 1-bank, egen registrert klient og BankID-innlogging; gir bare tilgang til dine egne kontoer.
+      - Autorisasjonskoden fra BankID-innloggingen varer noen minutter og kan brukes én gang.
+      - En tjeneste for andre enn deg selv må gå gjennom bankens PSD2-grensesnitt, som krever konsesjon fra Finanstilsynet (kontoinformasjon eller betalingsfullmakt) og eIDAS-sertifikat, eller en aggregator.

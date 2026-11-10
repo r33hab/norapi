@@ -1,0 +1,22 @@
+updated: 2026-11-10
+provider:
+  name: Danske Bank
+  orgnr: "974534681"
+  sector: privat
+apis:
+  - id: danske-bank-developer
+    title: Danske Bank Developer (bedrifts- og PSD2-API-er)
+    title_en: Danske Bank Developer (business and PSD2 APIs)
+    description: >-
+      Danske Banks utviklerportal: premium-API-er for bedriftskunder og de lovpålagte
+      PSD2-API-ene for tredjeparter. Ikke et åpent API.
+    category: finans
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    docs_url: https://developers.danskebank.com/
+    keywords: [bank, danske bank, psd2, open banking, bedrift, betaling]
+    tags: [agreement, psd2]
+    caveats:
+      - Premium-API-ene krever bedriftskundeavtale med Danske Bank.
+      - PSD2-API-ene krever konsesjon fra Finanstilsynet (eller et annet EØS-land) som tilbyder av kontoinformasjon eller betalingsfullmakt, og eIDAS-sertifikat (QWAC).

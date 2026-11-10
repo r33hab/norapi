@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-11-10T08:41:49+00:00",
-"count": 2179,
+"generated_at": "2026-11-10T09:36:38+00:00",
+"count": 2199,
 "operations": [
 {
 "api_id": "artsdatabanken-nortaxa",
@@ -14288,6 +14288,230 @@
 "Location"
 ],
 "operation_id": "Location_Get",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-login",
+"method": "GET",
+"path": "/access-management-1.0/access/.well-known/openid-configuration",
+"summary": "OpenID configuration endpoint",
+"description": "The well-known endpoint can be used to retrieve configuration information for OpenID Connect clients. To learn more about this endpoint, please refer to the specification at https://openid.net/specs/openid-connect-discovery-1_0.html",
+"tags": [],
+"operation_id": "discoverOpenIDConfiguration",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-login",
+"method": "GET",
+"path": "/access-management-1.0/access/oauth2/auth",
+"summary": "The OAuth 2.0 authorize endpoint",
+"description": "The resource owner (end user) is redirected to this endpoint at the beginning of the authentication process, and it is used to obtain an authorization grant. To learn more about this endpoint, please refer to the specification at https://to",
+"tags": [],
+"operation_id": "oauthAuth",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-login",
+"method": "POST",
+"path": "/access-management-1.0/access/oauth2/token",
+"summary": "The OAuth 2.0 token endpoint",
+"description": "The token endpoint is used by the client to obtain an access token by presenting its authorization grant. To learn more about this endpoint, please refer to the specification at https://tools.ietf.org/html/rfc6749#section-3.2",
+"tags": [],
+"operation_id": "oauth2Token",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-login",
+"method": "GET",
+"path": "/access-management-1.0/access/.well-known/jwks.json",
+"summary": "JSON Web Keys Discovery",
+"description": "This endpoint returns JWK (JSON Web Keys) to be used as public keys for verifying OpenID Connect ID Tokens and, if enabled, OAuth 2.0 JWT (JSON Web Token, the access token).",
+"tags": [],
+"operation_id": "wellKnown",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-login",
+"method": "POST",
+"path": "/vipps-login-ciba/api/backchannel/authentication",
+"summary": "CIBA authentication endpoint",
+"description": "This endpoint is used to start merchant-initiated logins according to the Client Initiated Backchannel Authentication standard.",
+"tags": [],
+"operation_id": "ciba-auth",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-login",
+"method": "POST",
+"path": "/vipps-login-ciba/api/v1/user-exists",
+"summary": "Check if a user exists",
+"description": "This endpoint is used to check if a user exists before initiating an authentication.",
+"tags": [],
+"operation_id": "user-exists",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-login",
+"method": "GET",
+"path": "/vipps-userinfo-api/userinfo/",
+"summary": "Get Userinfo",
+"description": "This endpoint is only for use in the [Login API: Integrate from a website](/docs/APIs/login-api/api-guide/browser-flow-integration/#userinfo). It returns the payload with the information that the user has consented to share. See [Login API ",
+"tags": [],
+"operation_id": "userinfoAuthorizationCode",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-login",
+"method": "POST",
+"path": "/vipps-userinfo-api/userinfo/paymentsources",
+"summary": "Get payment sources",
+"description": "This endpoint is part of the Login Connect flow. See: [Login Connect](/docs/APIs/login-api/api-guide/login-connect/)",
+"tags": [],
+"operation_id": "paymentSources",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-report",
+"method": "GET",
+"path": "/settlement/v1/ledgers",
+"summary": "Get ledgers",
+"description": "Returns the ledgers you have access to. If you are integrating a single merchant it may be enough to hit this endpoint once manually to identify the `ledgerId`, and then put that in your configuration. If you are integrating for an accounti",
+"tags": [
+"/settlement/v1"
+],
+"operation_id": "getLedgers",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-report",
+"method": "GET",
+"path": "/report/v2/ledgers/{ledgerId}/{topic}/dates/{ledgerDate}",
+"summary": "Fetch report by date",
+"description": "Report of entries on an account for a given \"ledger date\". A \"ledger date\" normally lasts from midnight to midnight in the timezone of the merchant; but it can be configured to other cutoffs such as 04:00 to 04:00. The caller should periodi",
+"tags": [
+"/report/v2/ledgers"
+],
+"operation_id": "getLedgerReportByDate",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-report",
+"method": "GET",
+"path": "/report/v2/ledgers/{ledgerId}/{topic}/feed",
+"summary": "Fetch report by feed",
+"description": "Continuous stream of data. The response always includes `cursor` and omits `hasMore`. Upon reaching the current end of the feed, the `cursor` will never become empty, but `items` can become an empty list and `tryLater` can be `true`. Retry ",
+"tags": [
+"/report/v2/ledgers"
+],
+"operation_id": "getLedgerFeed",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-epayment",
+"method": "POST",
+"path": "/v1/payments",
+"summary": "Create a payment",
+"description": "Create a new payment",
+"tags": [
+"CreatePayments"
+],
+"operation_id": "createPayment",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-epayment",
+"method": "GET",
+"path": "/v1/payments/{Reference}",
+"summary": "Get a payment",
+"description": "Get a payment object by its `reference` id.",
+"tags": [
+"QueryPayments"
+],
+"operation_id": "getPayment",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-epayment",
+"method": "GET",
+"path": "/v1/payments/{Reference}/events",
+"summary": "Get a payment's event log",
+"description": "Get event log for the specified payment's `reference` id.",
+"tags": [
+"QueryPayments"
+],
+"operation_id": "getPaymentEventLog",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-epayment",
+"method": "POST",
+"path": "/v1/payments/{Reference}/cancel",
+"summary": "Cancel a payment",
+"description": "Cancel the payment with the specified `reference` id.",
+"tags": [
+"AdjustPayments"
+],
+"operation_id": "cancelPayment",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-epayment",
+"method": "POST",
+"path": "/v1/payments/{Reference}/capture",
+"summary": "Capture a payment",
+"description": "Capture the given payment",
+"tags": [
+"AdjustPayments"
+],
+"operation_id": "capturePayment",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-epayment",
+"method": "POST",
+"path": "/v1/payments/{Reference}/refund",
+"summary": "Refund a payment",
+"description": "Refund the given payment",
+"tags": [
+"AdjustPayments"
+],
+"operation_id": "refundPayment",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-epayment",
+"method": "POST",
+"path": "/v1/test/payments/{Reference}/approve",
+"summary": "Force approve a payment",
+"description": "This endpoint is only available in the test environment. It allows developers to approve a payment through the ePayment API without the use of the Vipps or MobilePay app. This is useful for automated testing. Express is not supported for th",
+"tags": [
+"ForceApprove"
+],
+"operation_id": "forceApprove",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-epayment",
+"method": "POST",
+"path": "/merchant-dynamic-shipping-callback",
+"summary": "Merchant dynamic shipping callback",
+"description": "Implement this endpoint on your server to provide dynamic shipping options. Vipps MobilePay will POST to this URL with the user's address and a token. Your response must include an array of shipping groups. Your URL must use HTTPS and a com",
+"tags": [
+"Merchant Endpoints"
+],
+"operation_id": "getMerchantDynamicExpressGroupsPOST",
+"deprecated": false
+},
+{
+"api_id": "vipps-mobilepay-epayment",
+"method": "POST",
+"path": "/psp-card-callback",
+"summary": "PSP card callback",
+"description": "**This endpoint is only relevant if you are a PSP (Payment Services Provider).** This is the endpoint where Vipps MobilePay will send card information to the PSP as part of the card passthrough flow. Either a network token or an encrypted P",
+"tags": [
+"Merchant Endpoints"
+],
+"operation_id": "cardCallbackUrl",
 "deprecated": false
 },
 {

@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-10T08:41:49+00:00",
- "count": 140,
+ "generated_at": "2026-11-10T09:36:38+00:00",
+ "count": 143,
  "specs": {
   "artsdatabanken-nortaxa": {
    "format": "swagger 2.0",
@@ -484,6 +484,53 @@
    ],
    "source_url": "https://www.barnehagefakta.no/swagger/docs/v1",
    "fetched_at": "2026-10-20T12:06:14+00:00"
+  },
+  "vipps-mobilepay-login": {
+   "format": "openapi 3.0.0",
+   "title": "Login API",
+   "version": "1.1.0",
+   "servers": [
+    "https://api.vipps.no",
+    "https://apitest.vipps.no"
+   ],
+   "operations": 8,
+   "tags": [],
+   "source_url": "https://developer.vippsmobilepay.com/redocusaurus/login-swagger-id.yaml",
+   "fetched_at": "2026-11-10T09:36:38+00:00"
+  },
+  "vipps-mobilepay-report": {
+   "format": "openapi 3.0.2",
+   "title": "Report API",
+   "version": "2.0",
+   "servers": [
+    "https://api.vipps.no"
+   ],
+   "operations": 3,
+   "tags": [
+    "/report/v2/ledgers",
+    "/settlement/v1"
+   ],
+   "source_url": "https://developer.vippsmobilepay.com/redocusaurus/report-swagger-id.yaml",
+   "fetched_at": "2026-11-10T09:36:38+00:00"
+  },
+  "vipps-mobilepay-epayment": {
+   "format": "openapi 3.0.0",
+   "title": "ePayment API",
+   "version": "1.8.5",
+   "servers": [
+    "https://api.vipps.no/epayment",
+    "https://apitest.vipps.no/epayment"
+   ],
+   "operations": 9,
+   "tags": [
+    "AdjustPayments",
+    "CreatePayments",
+    "ForceApprove",
+    "Merchant Endpoints",
+    "QueryPayments"
+   ],
+   "source_url": "https://developer.vippsmobilepay.com/redocusaurus/epayment-swagger-id.yaml",
+   "fetched_at": "2026-11-10T09:36:38+00:00"
   },
   "brreg-enhetsregisteret": {
    "format": "openapi 3.0.0",

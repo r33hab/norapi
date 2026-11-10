@@ -1,0 +1,22 @@
+updated: 2026-11-10
+provider:
+  name: Nordea
+  orgnr: "920058817"
+  sector: privat
+apis:
+  - id: nordea-open-banking
+    title: Nordea Open Banking (PSD2)
+    title_en: Nordea Open Banking (PSD2)
+    description: >-
+      Nordeas PSD2-API-er for kontoinformasjon og betaling i de nordiske landene, også Norge, dokumentert på
+      utviklerportalen. For tredjeparter med konsesjon; for egne kontoer uten konsesjon er en aggregator som Enable
+      Banking veien.
+    category: finans
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    docs_url: https://developer.nordeaopenbanking.com/
+    keywords: [bank, nordea, psd2, open banking, kontoinformasjon, betaling]
+    tags: [agreement, psd2]
+    caveats:
+      - Produksjon krever konsesjon fra Finanstilsynet (eller et annet EØS-land) som tilbyder av kontoinformasjon eller betalingsfullmakt, og eIDAS-sertifikat (QWAC).

@@ -1,10 +1,10 @@
 {
  "name": "norapi",
  "version": "0.1.0",
- "generated_at": "2026-11-10T08:41:49+00:00",
- "count": 1217,
+ "generated_at": "2026-11-10T09:36:38+00:00",
+ "count": 1229,
  "sources": {
-  "curated": 138,
+  "curated": 150,
   "fdk": 1052,
   "curated+fdk": 27
  },
@@ -79,7 +79,7 @@
     "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:07+00:00",
+    "checked_at": "2026-11-10T09:33:56+00:00",
     "docs_url": {
      "url": "https://karttjenester.agderfk.no/arcgis/rest/services",
      "status": 200,
@@ -146,7 +146,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:07+00:00",
+    "checked_at": "2026-11-10T09:33:56+00:00",
     "docs_url": {
      "url": "https://docs.altinn.studio/nb/api/",
      "status": 200,
@@ -211,7 +211,7 @@
     "updated": "2026-10-20"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:09+00:00",
+    "checked_at": "2026-11-10T09:33:58+00:00",
     "docs_url": {
      "url": "https://data.norge.no/datasets/54255080-4a85-4e03-aac8-d81852c85e75",
      "status": 200,
@@ -275,7 +275,7 @@
     "updated": "2026-10-20"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:11+00:00",
+    "checked_at": "2026-11-10T09:33:59+00:00",
     "docs_url": {
      "url": "https://data.norge.no/datasets/b3642673-6855-3af9-93b0-fe6f01fbaa5d",
      "status": 200,
@@ -357,7 +357,7 @@
     "updated": "2026-10-20"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:11+00:00",
+    "checked_at": "2026-11-10T09:34:00+00:00",
     "docs_url": {
      "url": "https://nortaxa.artsdatabanken.no/swagger/index.html",
      "status": 200,
@@ -429,7 +429,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:12+00:00",
+    "checked_at": "2026-11-10T09:34:00+00:00",
     "docs_url": {
      "url": "https://avinor.no/konsern/tjenester/flydata/",
      "status": 200,
@@ -441,6 +441,75 @@
      "status": 400,
      "verdict": "answers",
      "final_url": "https://asrv.avinor.no/XmlFeed/v1.0"
+    }
+   }
+  },
+  {
+   "id": "bankid-oidc",
+   "title": "BankID OpenID Connect",
+   "provider": {
+    "name": "BankID (Stø)",
+    "orgnr": "927611929",
+    "org_path": null,
+    "sector": "privat"
+   },
+   "description": "Innlogging og identitetsbekreftelse med norsk BankID som OpenID Connect, med tillegg for signering og biometri. Discovery-dokumentet svarer uten nøkkel. Integrasjonen settes opp gjennom en BankID-partner, som gir klientnøkler til testmiljøet (current); produksjon krever avtale.",
+   "summary": "Innlogging og identitetsbekreftelse med norsk BankID som OpenID Connect, med tillegg for signering og biometri. Discovery-dokumentet svarer uten nøkkel. Integrasjonen settes opp gjennom en BankID-partner, som gir klientnøkler til…",
+   "title_en": "BankID OpenID Connect",
+   "access": "restricted",
+   "auth": "oauth2",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://auth.bankid.no/auth/realms/prod",
+    "https://auth.current.bankid.no/auth/realms/current"
+   ],
+   "spec_url": null,
+   "docs_url": "https://docs.stoe.no/",
+   "probe_url": "https://auth.bankid.no/auth/realms/prod/.well-known/openid-configuration",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "bankid",
+    "innlogging",
+    "identitet",
+    "signering",
+    "openid connect",
+    "oidc",
+    "stø"
+   ],
+   "category": "identitet-og-tilgang",
+   "tags": [
+    "agreement",
+    "personal-data"
+   ],
+   "caveats": [
+    "Ingen selvbetjening; tilgang går gjennom en BankID-partner og avtale.",
+    "Gir fødselsnummer og andre personopplysninger; behandlingen må ha rettslig grunnlag."
+   ],
+   "quick_start": "curl \"https://auth.bankid.no/auth/realms/prod/.well-known/openid-configuration\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "bankid.yaml",
+    "merge_with": null,
+    "updated": "2026-11-10"
+   },
+   "checks": {
+    "checked_at": "2026-11-10T09:34:01+00:00",
+    "docs_url": {
+     "url": "https://docs.stoe.no/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://docs.stoe.no/"
+    },
+    "endpoint": {
+     "url": "https://auth.bankid.no/auth/realms/prod/.well-known/openid-configuration",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://auth.bankid.no/auth/realms/prod/.well-known/openid-configuration"
     }
    }
   },
@@ -495,7 +564,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:13+00:00",
+    "checked_at": "2026-11-10T09:34:01+00:00",
     "docs_url": {
      "url": "https://bergenbysykkel.no/en/open-data",
      "status": 200,
@@ -565,7 +634,7 @@
     "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:13+00:00",
+    "checked_at": "2026-11-10T09:34:01+00:00",
     "docs_url": {
      "url": "https://kart.bergen.kommune.no/arcgis/rest/services",
      "status": 200,
@@ -628,7 +697,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:15+00:00",
+    "checked_at": "2026-11-10T09:34:02+00:00",
     "docs_url": {
      "url": "https://www.brreg.no/produkter-og-tjenester/apne-data/",
      "status": 200,
@@ -693,7 +762,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:15+00:00",
+    "checked_at": "2026-11-10T09:34:03+00:00",
     "docs_url": {
      "url": "https://data.brreg.no/kommunalt-rapporteringsregister/api/docs/index.html",
      "status": 200,
@@ -757,7 +826,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:15+00:00",
+    "checked_at": "2026-11-10T09:34:03+00:00",
     "docs_url": {
      "url": "https://data.brreg.no/oppgaveregisteret/api/docs/index.html",
      "status": 200,
@@ -769,6 +838,128 @@
      "status": 200,
      "verdict": "ok",
      "final_url": "https://data.brreg.no/oppgaveregisteret/api/skjema/alle.json"
+    }
+   }
+  },
+  {
+   "id": "dnb-developer",
+   "title": "DNB Developer (PSD2- og partner-API-er)",
+   "provider": {
+    "name": "DNB",
+    "orgnr": "984851006",
+    "org_path": null,
+    "sector": "privat"
+   },
+   "description": "DNBs utviklerportal med API-katalog for kontoinformasjon og betaling etter PSD2, og for bedrifts- og partnerintegrasjoner. Ikke et åpent API: tilgang krever konsesjon som tredjepart eller avtale med DNB. Sbankens gamle åpne personlige API forsvant med fusjonen inn i DNB.",
+   "summary": "DNBs utviklerportal med API-katalog for kontoinformasjon og betaling etter PSD2, og for bedrifts- og partnerintegrasjoner. Ikke et åpent API: tilgang krever konsesjon som tredjepart eller avtale med DNB. Sbankens gamle åpne personlige API…",
+   "title_en": "DNB Developer (PSD2 and partner APIs)",
+   "access": "restricted",
+   "auth": "oauth2",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [],
+   "spec_url": null,
+   "docs_url": "https://developer.dnb.no/",
+   "probe_url": null,
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "bank",
+    "dnb",
+    "psd2",
+    "open banking",
+    "kontoinformasjon",
+    "betaling",
+    "sbanken",
+    "bedrift"
+   ],
+   "category": "finans",
+   "tags": [
+    "agreement",
+    "psd2"
+   ],
+   "caveats": [
+    "PSD2-API-ene krever konsesjon fra Finanstilsynet (eller et annet EØS-land) som tilbyder av kontoinformasjon eller betalingsfullmakt, og eIDAS-sertifikat (QWAC).",
+    "Bedrifts- og partner-API-ene krever avtale med DNB.",
+    "Portalen er en JavaScript-app; API-katalogen vises bare i nettleser.",
+    "Sbankens personlige API (publicapi.sbanken.no) finnes ikke lenger."
+   ],
+   "quick_start": null,
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "dnb.yaml",
+    "merge_with": null,
+    "updated": "2026-11-10"
+   },
+   "checks": {
+    "checked_at": "2026-11-10T09:34:03+00:00",
+    "docs_url": {
+     "url": "https://developer.dnb.no/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://developer.dnb.no/"
+    }
+   }
+  },
+  {
+   "id": "danske-bank-developer",
+   "title": "Danske Bank Developer (bedrifts- og PSD2-API-er)",
+   "provider": {
+    "name": "Danske Bank",
+    "orgnr": "974534681",
+    "org_path": null,
+    "sector": "privat"
+   },
+   "description": "Danske Banks utviklerportal: premium-API-er for bedriftskunder og de lovpålagte PSD2-API-ene for tredjeparter. Ikke et åpent API.",
+   "summary": "Danske Banks utviklerportal: premium-API-er for bedriftskunder og de lovpålagte PSD2-API-ene for tredjeparter. Ikke et åpent API.",
+   "title_en": "Danske Bank Developer (business and PSD2 APIs)",
+   "access": "restricted",
+   "auth": "oauth2",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [],
+   "spec_url": null,
+   "docs_url": "https://developers.danskebank.com/",
+   "probe_url": null,
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "bank",
+    "danske bank",
+    "psd2",
+    "open banking",
+    "bedrift",
+    "betaling"
+   ],
+   "category": "finans",
+   "tags": [
+    "agreement",
+    "psd2"
+   ],
+   "caveats": [
+    "Premium-API-ene krever bedriftskundeavtale med Danske Bank.",
+    "PSD2-API-ene krever konsesjon fra Finanstilsynet (eller et annet EØS-land) som tilbyder av kontoinformasjon eller betalingsfullmakt, og eIDAS-sertifikat (QWAC)."
+   ],
+   "quick_start": null,
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "danske-bank.yaml",
+    "merge_with": null,
+    "updated": "2026-11-10"
+   },
+   "checks": {
+    "checked_at": "2026-11-10T09:34:05+00:00",
+    "docs_url": {
+     "url": "https://developers.danskebank.com/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://developers.danskebank.com/"
     }
    }
   },
@@ -822,7 +1013,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:15+00:00",
+    "checked_at": "2026-11-10T09:34:05+00:00",
     "docs_url": {
      "url": "https://docs.digdir.no/docs/idporten/",
      "status": 200,
@@ -887,7 +1078,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:16+00:00",
+    "checked_at": "2026-11-10T09:34:06+00:00",
     "docs_url": {
      "url": "https://docs.digdir.no/docs/Kontaktregisteret/",
      "status": 200,
@@ -898,7 +1089,7 @@
      "url": "https://kontaktregisteret.no/",
      "status": 200,
      "verdict": "ok",
-     "final_url": "https://login.microsoftonline.com/008e560f-08af-4cec-a056-b35447503991/oauth2/v2.0/authorize?response_type=code&client_id=23dddf29-f904-40b4-866c-2262a50f176e&scope=openid%20profile%20offline_access&state=ViH7WV7QQzsGuay0Yt_xcrlSIdrQunZoX3UUoqfNhIA%3D&redirect_uri=https://kontaktregisteret.no/login/oauth2/code/&nonce=McpcuROhWEX0aKFlAPLldzyg4PzaIpY0WOlSaR-ZQHo&code_challenge=-BPp7IXgQ8kz3ReNu648a_EkrS4Jl59ueE8q9EhLKBE&code_challenge_method=S256"
+     "final_url": "https://login.microsoftonline.com/008e560f-08af-4cec-a056-b35447503991/oauth2/v2.0/authorize?response_type=code&client_id=23dddf29-f904-40b4-866c-2262a50f176e&scope=openid%20profile%20offline_access&state=FNk3pIp_1GE_54e9tAOhsAfCOQuzCdj4_pzrw-BusE4%3D&redirect_uri=https://kontaktregisteret.no/login/oauth2/code/&nonce=EYCA9dBFG9uYolRbUBe4pNDF_GKa4k49MmyekBBDZJA&code_challenge=5Ou1xu5Vvx8KuDr4zHYZmZhAHoZ3YsPiycruJjLGTT0&code_challenge_method=S256"
     }
    }
   },
@@ -952,7 +1143,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:16+00:00",
+    "checked_at": "2026-11-10T09:34:06+00:00",
     "docs_url": {
      "url": "https://docs.digdir.no/docs/Maskinporten/",
      "status": 200,
@@ -1059,7 +1250,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:20+00:00",
+    "checked_at": "2026-11-10T09:34:14+00:00",
     "docs_url": {
      "url": "https://github.com/felleslosninger/einnsyn-api-spec",
      "status": 200,
@@ -1134,7 +1325,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:21+00:00",
+    "checked_at": "2026-11-10T09:34:15+00:00",
     "docs_url": {
      "url": "https://data.dfo.no/",
      "status": 200,
@@ -1199,7 +1390,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:21+00:00",
+    "checked_at": "2026-11-10T09:34:15+00:00",
     "docs_url": {
      "url": "https://dof-notices-prod-api.developer.azure-api.net/",
      "status": 200,
@@ -1264,7 +1455,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:22+00:00",
+    "checked_at": "2026-11-10T09:34:16+00:00",
     "docs_url": {
      "url": "https://dbh.hkdir.no/static/files/dokumenter/api/api_dokumentasjon.pdf",
      "status": 200,
@@ -1369,7 +1560,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:22+00:00",
+    "checked_at": "2026-11-10T09:34:16+00:00",
     "docs_url": {
      "url": "https://api.utdanning.no/",
      "status": 200,
@@ -1444,7 +1635,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:24+00:00",
+    "checked_at": "2026-11-10T09:34:23+00:00",
     "docs_url": {
      "url": "https://github.com/MobilityData/gbfs/blob/master/systems.csv",
      "status": 200,
@@ -1509,7 +1700,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:24+00:00",
+    "checked_at": "2026-11-10T09:34:23+00:00",
     "docs_url": {
      "url": "https://api.elhub.no/energy-data-api",
      "status": 200,
@@ -1521,6 +1712,80 @@
      "status": 200,
      "verdict": "ok",
      "final_url": "https://api.elhub.no/energy-data/v0/price-areas/NO1?dataset=CONSUMPTION_PER_GROUP_MBA_HOUR&startDate=2026-10-17T00:00:00%2B02:00&endDate=2026-10-17T01:00:00%2B02:00"
+    }
+   }
+  },
+  {
+   "id": "enable-banking-api",
+   "title": "Enable Banking (kontoinformasjon og betaling, også norske banker)",
+   "provider": {
+    "name": "Enable Banking (Finland)",
+    "orgnr": null,
+    "org_path": null,
+    "sector": "privat"
+   },
+   "description": "Ett API over bankenes PSD2-grensesnitt i mange europeiske land; i Norge blant annet DNB, SpareBank 1, Nordea og Handelsbanken. Sandkassen og en begrenset produksjonsmodus, der du bare ser kontoer du selv kobler til, kan brukes før kontrakt, så det er den praktiske veien til egne bankdata i andre banker enn SpareBank 1 (Actual Budget og Home Assistant-integrasjoner bruker den). Kallene autentiseres med en JWT signert med appens nøkkel.",
+   "summary": "Ett API over bankenes PSD2-grensesnitt i mange europeiske land; i Norge blant annet DNB, SpareBank 1, Nordea og Handelsbanken. Sandkassen og en begrenset produksjonsmodus, der du bare ser kontoer du selv kobler til, kan brukes før…",
+   "title_en": "Enable Banking (account information and payments, incl. Norwegian banks)",
+   "access": "restricted",
+   "auth": "api-key",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://api.enablebanking.com/"
+   ],
+   "spec_url": null,
+   "docs_url": "https://enablebanking.com/docs/markets/no/",
+   "probe_url": "https://api.enablebanking.com/aspsps",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "bank",
+    "open banking",
+    "psd2",
+    "kontoinformasjon",
+    "transaksjoner",
+    "betaling",
+    "aggregator",
+    "dnb",
+    "sparebank 1",
+    "nordea",
+    "budsjett"
+   ],
+   "category": "finans",
+   "tags": [
+    "registration",
+    "psd2",
+    "private-provider"
+   ],
+   "caveats": [
+    "Krever registrering; i begrenset produksjonsmodus ser du bare kontoer du selv har koblet til.",
+    "En app for andre krever kontrakt med Enable Banking; prisen er volumbasert med et månedlig minimum.",
+    "Sjekk i avtalen om tjenesten din kan bruke Enable Bankings konsesjon, eller om du trenger egen fra Finanstilsynet."
+   ],
+   "quick_start": null,
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "enable-banking.yaml",
+    "merge_with": null,
+    "updated": "2026-11-10"
+   },
+   "checks": {
+    "checked_at": "2026-11-10T09:34:24+00:00",
+    "docs_url": {
+     "url": "https://enablebanking.com/docs/markets/no/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://enablebanking.com/docs/markets/no/"
+    },
+    "endpoint": {
+     "url": "https://api.enablebanking.com/aspsps",
+     "status": 401,
+     "verdict": "answers",
+     "final_url": "https://api.enablebanking.com/aspsps"
     }
    }
   },
@@ -1573,7 +1838,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:25+00:00",
+    "checked_at": "2026-11-10T09:34:24+00:00",
     "docs_url": {
      "url": "https://data.enova.no/",
      "status": 200,
@@ -1637,7 +1902,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:26+00:00",
+    "checked_at": "2026-11-10T09:34:25+00:00",
     "docs_url": {
      "url": "https://info.nobil.no/api",
      "status": 200,
@@ -1700,7 +1965,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:27+00:00",
+    "checked_at": "2026-11-10T09:34:26+00:00",
     "docs_url": {
      "url": "https://developer.entur.org/pages-geocoder-intro",
      "status": 200,
@@ -1771,7 +2036,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:27+00:00",
+    "checked_at": "2026-11-10T09:34:26+00:00",
     "docs_url": {
      "url": "https://developer.entur.org/pages-journeyplanner-journeyplanner",
      "status": 200,
@@ -1840,7 +2105,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:27+00:00",
+    "checked_at": "2026-11-10T09:34:26+00:00",
     "docs_url": {
      "url": "https://developer.entur.org/pages-real-time-vehicle-positions",
      "status": 200,
@@ -1908,7 +2173,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:28+00:00",
+    "checked_at": "2026-11-10T09:34:26+00:00",
     "docs_url": {
      "url": "https://developer.entur.org/pages-mobility-docs-mobility-v2/",
      "status": 200,
@@ -1972,7 +2237,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:28+00:00",
+    "checked_at": "2026-11-10T09:34:26+00:00",
     "docs_url": {
      "url": "https://developer.entur.org/pages-nsr-nsr",
      "status": 200,
@@ -2038,7 +2303,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:28+00:00",
+    "checked_at": "2026-11-10T09:34:27+00:00",
     "docs_url": {
      "url": "https://developer.entur.org/stops-and-timetable-data",
      "status": 200,
@@ -2105,7 +2370,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:42+00:00",
+    "checked_at": "2026-11-10T09:34:42+00:00",
     "docs_url": {
      "url": "https://developer.entur.org/pages-real-time-intro",
      "status": 200,
@@ -2169,7 +2434,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:44+00:00",
+    "checked_at": "2026-11-10T09:34:46+00:00",
     "docs_url": {
      "url": "https://github.com/folkehelseinstituttet/Fhi.Statistikk.OpenAPI",
      "status": 200,
@@ -2243,7 +2508,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:45+00:00",
+    "checked_at": "2026-11-10T09:34:47+00:00",
     "docs_url": {
      "url": "https://strom-api.forbrukerradet.no/swagger/index.html",
      "status": 200,
@@ -2313,7 +2578,7 @@
     "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:45+00:00",
+    "checked_at": "2026-11-10T09:34:47+00:00",
     "docs_url": {
      "url": "https://arcgis.fredrikstad.kommune.no/server/rest/services",
      "status": 200,
@@ -2380,7 +2645,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:45+00:00",
+    "checked_at": "2026-11-10T09:34:47+00:00",
     "docs_url": {
      "url": "https://github.com/MobilityData/gbfs/blob/master/systems.csv",
      "status": 200,
@@ -2449,7 +2714,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:46+00:00",
+    "checked_at": "2026-11-10T09:34:48+00:00",
     "docs_url": {
      "url": "https://helsedata.no/no/datakilder/",
      "status": 200,
@@ -2515,7 +2780,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:46+00:00",
+    "checked_at": "2026-11-10T09:34:49+00:00",
     "docs_url": {
      "url": "https://www.helsedirektoratet.no/om-oss/apne-data-api/om-api-tjenesten",
      "status": 200,
@@ -2581,7 +2846,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:47+00:00",
+    "checked_at": "2026-11-10T09:34:49+00:00",
     "docs_url": {
      "url": "https://www.hvakosterstrommen.no/strompris-api",
      "status": 200,
@@ -2652,7 +2917,7 @@
     "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:47+00:00",
+    "checked_at": "2026-11-10T09:34:50+00:00",
     "docs_url": {
      "url": "https://karttjenester.ikt-agder.no/arcgis/rest/services",
      "status": 200,
@@ -2721,7 +2986,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:47+00:00",
+    "checked_at": "2026-11-10T09:34:50+00:00",
     "docs_url": {
      "url": "https://www.imdi.no/tall-og-fakta/statistikk-og-nokkeltall/",
      "status": 200,
@@ -2786,7 +3051,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:47+00:00",
+    "checked_at": "2026-11-10T09:34:50+00:00",
     "docs_url": {
      "url": "https://ws.geonorge.no/adresser/v1/",
      "status": 200,
@@ -2872,7 +3137,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:48+00:00",
+    "checked_at": "2026-11-10T09:34:50+00:00",
     "docs_url": {
      "url": "https://ogcapitest.kartverket.no/rest/services/havnedata3_0/api?f=html",
      "status": 200,
@@ -2942,7 +3207,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:48+00:00",
+    "checked_at": "2026-11-10T09:34:51+00:00",
     "docs_url": {
      "url": "https://kartkatalog.geonorge.no/swagger/index.html",
      "status": 200,
@@ -3006,7 +3271,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:48+00:00",
+    "checked_at": "2026-11-10T09:34:51+00:00",
     "docs_url": {
      "url": "https://www.kartverket.no/api-og-data/eiendomsdata",
      "status": 200,
@@ -3090,7 +3355,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:49+00:00",
+    "checked_at": "2026-11-10T09:34:51+00:00",
     "docs_url": {
      "url": "https://register.geonorge.no/swagger",
      "status": 200,
@@ -3160,7 +3425,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:49+00:00",
+    "checked_at": "2026-11-10T09:34:52+00:00",
     "docs_url": {
      "url": "https://www.kartverket.no/til-sjos/se-havniva",
      "status": 200,
@@ -3226,7 +3491,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:49+00:00",
+    "checked_at": "2026-11-10T09:34:52+00:00",
     "docs_url": {
      "url": "https://kassal.app/api/docs",
      "status": 200,
@@ -3291,7 +3556,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:50+00:00",
+    "checked_at": "2026-11-10T09:34:52+00:00",
     "docs_url": {
      "url": "https://api.dimu.org/doc/",
      "status": 200,
@@ -3358,7 +3623,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:50+00:00",
+    "checked_at": "2026-11-10T09:34:53+00:00",
     "docs_url": {
      "url": "https://kulturnav.org/info/api",
      "status": 200,
@@ -3463,7 +3728,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:52+00:00",
+    "checked_at": "2026-11-10T09:34:55+00:00",
     "docs_url": {
      "url": "https://kystdatahuset.kystverket.no/ws/swagger/index.html",
      "status": 200,
@@ -3478,8 +3743,8 @@
     },
     "endpoint": {
      "url": "https://kystdatahuset.kystverket.no/ws/api/ais/realtime/vessels-by-type",
-     "status": 502,
-     "verdict": "missing",
+     "status": 200,
+     "verdict": "ok",
      "final_url": "https://kystdatahuset.kystverket.no/ws/api/ais/realtime/vessels-by-type"
     }
    }
@@ -3549,7 +3814,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:52+00:00",
+    "checked_at": "2026-11-10T09:34:55+00:00",
     "docs_url": {
      "url": "https://api.kystverket.no/docs",
      "status": 200,
@@ -3633,7 +3898,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:58+00:00",
+    "checked_at": "2026-11-10T09:35:00+00:00",
     "docs_url": {
      "url": "https://www.hjorteviltregisteret.no/swagger/index.html",
      "status": 200,
@@ -3726,7 +3991,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:59+00:00",
+    "checked_at": "2026-11-10T09:35:01+00:00",
     "docs_url": {
      "url": "https://www.hjorteviltregisteret.no/swagger/index.html",
      "status": 200,
@@ -3800,7 +4065,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:39:59+00:00",
+    "checked_at": "2026-11-10T09:35:01+00:00",
     "docs_url": {
      "url": "https://api.cyclocity.fr/contracts/lillestrom/gbfs/v3/gbfs.json",
      "status": 200,
@@ -3809,9 +4074,9 @@
     },
     "endpoint": {
      "url": "https://api.cyclocity.fr/contracts/lillestrom/gbfs/v3/gbfs.json",
-     "status": 200,
-     "verdict": "ok",
-     "final_url": "https://api.cyclocity.fr/contracts/lillestrom/gbfs/v3/gbfs.json"
+     "status": null,
+     "verdict": "missing",
+     "error": "RemoteProtocolError"
     }
    }
   },
@@ -3886,7 +4151,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:00+00:00",
+    "checked_at": "2026-11-10T09:35:01+00:00",
     "docs_url": {
      "url": "https://api.lovdata.no/swagger",
      "status": 200,
@@ -3959,7 +4224,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:00+00:00",
+    "checked_at": "2026-11-10T09:35:01+00:00",
     "docs_url": {
      "url": "https://dronesoner.no/",
      "status": 200,
@@ -4029,7 +4294,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:01+00:00",
+    "checked_at": "2026-11-10T09:35:03+00:00",
     "docs_url": {
      "url": "https://data.norge.no/datasets/ca241ae5-fc9e-3702-bbcd-5453d2d0f06f",
      "status": 200,
@@ -4111,7 +4376,7 @@
     "updated": "2026-10-20"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:04+00:00",
+    "checked_at": "2026-11-10T09:35:03+00:00",
     "docs_url": {
      "url": "https://kodeverk.kjottkontroll.mattilsynet.io/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config",
      "status": 200,
@@ -4185,7 +4450,7 @@
     "updated": "2026-10-20"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:05+00:00",
+    "checked_at": "2026-11-10T09:35:03+00:00",
     "docs_url": {
      "url": "https://www.matvaretabellen.no/api/",
      "status": 200,
@@ -4253,7 +4518,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:05+00:00",
+    "checked_at": "2026-11-10T09:35:03+00:00",
     "docs_url": {
      "url": "https://havvarsel-frost.met.no/docs/starthere",
      "status": null,
@@ -4319,7 +4584,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:05+00:00",
+    "checked_at": "2026-11-10T09:35:04+00:00",
     "docs_url": {
      "url": "https://api.met.no/weatherapi/locationforecast/2.0/documentation",
      "status": 200,
@@ -4387,7 +4652,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:06+00:00",
+    "checked_at": "2026-11-10T09:35:04+00:00",
     "docs_url": {
      "url": "https://www.yr.no/",
      "status": 200,
@@ -4457,7 +4722,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:06+00:00",
+    "checked_at": "2026-11-10T09:35:04+00:00",
     "docs_url": {
      "url": "https://rovbase.no/",
      "status": 200,
@@ -4558,7 +4823,7 @@
     "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:07+00:00",
+    "checked_at": "2026-11-10T09:35:05+00:00",
     "docs_url": {
      "url": "https://api.ndla.no/",
      "status": 200,
@@ -4638,7 +4903,7 @@
     "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:08+00:00",
+    "checked_at": "2026-11-10T09:35:05+00:00",
     "docs_url": {
      "url": "https://api.ndla.no/",
      "status": 200,
@@ -4713,7 +4978,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:08+00:00",
+    "checked_at": "2026-11-10T09:35:06+00:00",
     "docs_url": {
      "url": "https://lmt.nibio.no/",
      "status": 200,
@@ -4781,7 +5046,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:10+00:00",
+    "checked_at": "2026-11-10T09:35:06+00:00",
     "docs_url": {
      "url": "https://api.nilu.no/",
      "status": 200,
@@ -4849,7 +5114,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:10+00:00",
+    "checked_at": "2026-11-10T09:35:06+00:00",
     "docs_url": {
      "url": "https://psapi.nrk.no/documentation/",
      "status": 200,
@@ -4920,7 +5185,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:11+00:00",
+    "checked_at": "2026-11-10T09:35:07+00:00",
     "docs_url": {
      "url": "https://nkom.no/statistikk/nedlasting-av-datasett",
      "status": 200,
@@ -4997,7 +5262,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:11+00:00",
+    "checked_at": "2026-11-10T09:35:08+00:00",
     "docs_url": {
      "url": "https://api.nb.no/dhlab/",
      "status": 200,
@@ -5069,7 +5334,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:12+00:00",
+    "checked_at": "2026-11-10T09:35:09+00:00",
     "docs_url": {
      "url": "https://lokalhistoriewiki.no/api.php",
      "status": 200,
@@ -5135,7 +5400,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:12+00:00",
+    "checked_at": "2026-11-10T09:35:09+00:00",
     "docs_url": {
      "url": "https://api.nb.no/",
      "status": 200,
@@ -5222,7 +5487,7 @@
     "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:13+00:00",
+    "checked_at": "2026-11-10T09:35:09+00:00",
     "docs_url": {
      "url": "https://api.nasjonalmuseet.no/api/docs",
      "status": 200,
@@ -5294,7 +5559,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:15+00:00",
+    "checked_at": "2026-11-10T09:35:16+00:00",
     "docs_url": {
      "url": "https://github.com/navikt/g",
      "status": 200,
@@ -5360,7 +5625,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:15+00:00",
+    "checked_at": "2026-11-10T09:35:16+00:00",
     "docs_url": {
      "url": "https://navikt.github.io/pam-stilling-feed/",
      "status": 200,
@@ -5372,6 +5637,68 @@
      "status": 401,
      "verdict": "answers",
      "final_url": "https://pam-stilling-feed.nav.no/api/v1/feed"
+    }
+   }
+  },
+  {
+   "id": "neonomics-api",
+   "title": "Neonomics (open banking-aggregator)",
+   "provider": {
+    "name": "Neonomics",
+    "orgnr": "919041021",
+    "org_path": null,
+    "sector": "privat"
+   },
+   "description": "Norsk aggregator for kontoinformasjon og betaling (Nello Pay) mot norske og andre europeiske banker gjennom ett API. Utviklerkonto og sandkasse er selvbetjent på developer.neonomics.io; produksjon krever avtale. Neonomics står i Finanstilsynets virksomhetsregister.",
+   "summary": "Norsk aggregator for kontoinformasjon og betaling (Nello Pay) mot norske og andre europeiske banker gjennom ett API. Utviklerkonto og sandkasse er selvbetjent på developer.neonomics.io; produksjon krever avtale. Neonomics står i…",
+   "title_en": "Neonomics (open banking aggregator)",
+   "access": "restricted",
+   "auth": "oauth2",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [],
+   "spec_url": null,
+   "docs_url": "https://docs.neonomics.io/",
+   "probe_url": null,
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "bank",
+    "open banking",
+    "psd2",
+    "aggregator",
+    "kontoinformasjon",
+    "betaling",
+    "nello pay",
+    "sandkasse"
+   ],
+   "category": "finans",
+   "tags": [
+    "registration",
+    "agreement",
+    "psd2"
+   ],
+   "caveats": [
+    "Sandkassen dekker bare et utvalg testbanker.",
+    "Produksjon krever kommersiell avtale med Neonomics; sjekk i avtalen om du kan bruke deres konsesjon eller trenger egen fra Finanstilsynet."
+   ],
+   "quick_start": null,
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "neonomics.yaml",
+    "merge_with": null,
+    "updated": "2026-11-10"
+   },
+   "checks": {
+    "checked_at": "2026-11-10T09:35:17+00:00",
+    "docs_url": {
+     "url": "https://docs.neonomics.io/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://docs.neonomics.io/"
     }
    }
   },
@@ -5431,7 +5758,7 @@
     "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:16+00:00",
+    "checked_at": "2026-11-10T09:35:17+00:00",
     "docs_url": {
      "url": "https://data.nordpoolgroup.com/auction/day-ahead/prices",
      "status": 200,
@@ -5443,6 +5770,64 @@
      "status": 200,
      "verdict": "ok",
      "final_url": "https://dataportal-api.nordpoolgroup.com/api/DayAheadPrices?date=2026-11-10&market=DayAhead&deliveryArea=NO1&currency=NOK"
+    }
+   }
+  },
+  {
+   "id": "nordea-open-banking",
+   "title": "Nordea Open Banking (PSD2)",
+   "provider": {
+    "name": "Nordea",
+    "orgnr": "920058817",
+    "org_path": null,
+    "sector": "privat"
+   },
+   "description": "Nordeas PSD2-API-er for kontoinformasjon og betaling i de nordiske landene, også Norge, dokumentert på utviklerportalen. For tredjeparter med konsesjon; for egne kontoer uten konsesjon er en aggregator som Enable Banking veien.",
+   "summary": "Nordeas PSD2-API-er for kontoinformasjon og betaling i de nordiske landene, også Norge, dokumentert på utviklerportalen. For tredjeparter med konsesjon; for egne kontoer uten konsesjon er en aggregator som Enable Banking veien.",
+   "title_en": "Nordea Open Banking (PSD2)",
+   "access": "restricted",
+   "auth": "oauth2",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [],
+   "spec_url": null,
+   "docs_url": "https://developer.nordeaopenbanking.com/",
+   "probe_url": null,
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "bank",
+    "nordea",
+    "psd2",
+    "open banking",
+    "kontoinformasjon",
+    "betaling"
+   ],
+   "category": "finans",
+   "tags": [
+    "agreement",
+    "psd2"
+   ],
+   "caveats": [
+    "Produksjon krever konsesjon fra Finanstilsynet (eller et annet EØS-land) som tilbyder av kontoinformasjon eller betalingsfullmakt, og eIDAS-sertifikat (QWAC)."
+   ],
+   "quick_start": null,
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "nordea.yaml",
+    "merge_with": null,
+    "updated": "2026-11-10"
+   },
+   "checks": {
+    "checked_at": "2026-11-10T09:35:17+00:00",
+    "docs_url": {
+     "url": "https://developer.nordeaopenbanking.com/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://developer.nordeaopenbanking.com/"
     }
    }
   },
@@ -5498,7 +5883,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:16+00:00",
+    "checked_at": "2026-11-10T09:35:18+00:00",
     "docs_url": {
      "url": "https://pollenvarsel.naaf.no/",
      "status": 200,
@@ -5514,6 +5899,74 @@
    }
   },
   {
+   "id": "norges-bank-betalingsstatistikk",
+   "title": "Betalingsstatistikk (Norges Bank)",
+   "provider": {
+    "name": "Norges Bank",
+    "orgnr": "937884117",
+    "org_path": null,
+    "sector": "stat"
+   },
+   "description": "Norges Banks årlige statistikk over betalinger i Norge: antall og verdi for kortbetalinger etter korttype, overføringer, AvtaleGiro og kontantuttak. Historiske tall til og med 2015 som Excel-fil; nyere år står i rapporten om betalingstjenester (Retail payment services). Ikke et API.",
+   "summary": "Norges Banks årlige statistikk over betalinger i Norge: antall og verdi for kortbetalinger etter korttype, overføringer, AvtaleGiro og kontantuttak. Historiske tall til og med 2015 som Excel-fil; nyere år står i rapporten om…",
+   "title_en": "Payment statistics (Norges Bank)",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "XLSX"
+   ],
+   "endpoints": [
+    "https://www.norges-bank.no/globalassets/upload/betalingssystemer/historisk_betalingsstatistikk_2015.xlsx"
+   ],
+   "spec_url": null,
+   "docs_url": "https://www.norges-bank.no/tema/statistikk/betalingsstatistikk/",
+   "probe_url": null,
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "betaling",
+    "betalingsstatistikk",
+    "kort",
+    "bankkort",
+    "kontanter",
+    "overføring",
+    "avtalegiro",
+    "payment statistics"
+   ],
+   "category": "finans",
+   "tags": [
+    "no-auth",
+    "data-files"
+   ],
+   "caveats": [
+    "Bare filer; tall etter 2015 finnes i den årlige rapporten, ikke som maskinlesbar tabell."
+   ],
+   "quick_start": null,
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "finans-og-politikk.yaml",
+    "merge_with": null,
+    "updated": "2026-11-10"
+   },
+   "checks": {
+    "checked_at": "2026-11-10T09:35:19+00:00",
+    "docs_url": {
+     "url": "https://www.norges-bank.no/tema/statistikk/betalingsstatistikk/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://www.norges-bank.no/tema/statistikk/betalingsstatistikk/"
+    },
+    "endpoint": {
+     "url": "https://www.norges-bank.no/globalassets/upload/betalingssystemer/historisk_betalingsstatistikk_2015.xlsx",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://www.norges-bank.no/globalassets/upload/betalingssystemer/historisk_betalingsstatistikk_2015.xlsx?v=23052017140731"
+    }
+   }
+  },
+  {
    "id": "norges-bank-open-data",
    "title": "Norges Bank åpne data (valutakurser og renter)",
    "provider": {
@@ -5522,8 +5975,8 @@
     "org_path": null,
     "sector": "stat"
    },
-   "description": "Daglige valutakurser, styringsrente, statsobligasjoner og andre tidsserier som SDMX-REST: velg datasett, nøkkel og periode i URL-en, få JSON eller CSV.",
-   "summary": "Daglige valutakurser, styringsrente, statsobligasjoner og andre tidsserier som SDMX-REST: velg datasett, nøkkel og periode i URL-en, få JSON eller CSV.",
+   "description": "Daglige valutakurser, styringsrente, statsobligasjoner og andre tidsserier som SDMX-REST: velg datasett, nøkkel og periode i URL-en, få JSON eller CSV. Utover kurser og renter finnes utlånsundersøkelsen (bankenes kredittpraksis), likviditetsstatistikk, pengemarkedsdata og oppgjørsstatistikk; /api/dataflow lister alle datasettene.",
+   "summary": "Daglige valutakurser, styringsrente, statsobligasjoner og andre tidsserier som SDMX-REST: velg datasett, nøkkel og periode i URL-en, få JSON eller CSV. Utover kurser og renter finnes utlånsundersøkelsen (bankenes kredittpraksis)…",
    "title_en": null,
    "access": "open",
    "auth": "none",
@@ -5533,7 +5986,8 @@
     "XML"
    ],
    "endpoints": [
-    "https://data.norges-bank.no/api/data/"
+    "https://data.norges-bank.no/api/data/",
+    "https://data.norges-bank.no/api/dataflow"
    ],
    "spec_url": null,
    "docs_url": "https://www.norges-bank.no/en/topics/Statistics/open-data/",
@@ -5548,7 +6002,12 @@
     "eur",
     "usd",
     "sdmx",
-    "exchange rate"
+    "exchange rate",
+    "utlånsundersøkelse",
+    "likviditet",
+    "pengemarked",
+    "oppgjør",
+    "bank"
    ],
    "category": "finans",
    "tags": [
@@ -5556,17 +6015,17 @@
     "no-auth"
    ],
    "caveats": [],
-   "quick_start": "curl \"https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=sdmx-json&lastNObservations=1\"\n",
+   "quick_start": "curl \"https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=sdmx-json&lastNObservations=1\"\n# alle datasettene\ncurl \"https://data.norges-bank.no/api/dataflow\"\n",
    "status": null,
    "modified": null,
    "source": {
     "kind": "curated",
     "file": "finans-og-politikk.yaml",
     "merge_with": null,
-    "updated": "2026-10-21"
+    "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:16+00:00",
+    "checked_at": "2026-11-10T09:35:19+00:00",
     "docs_url": {
      "url": "https://www.norges-bank.no/en/topics/Statistics/open-data/",
      "status": 200,
@@ -5632,10 +6091,10 @@
     "kind": "curated",
     "file": "finans-og-politikk.yaml",
     "merge_with": null,
-    "updated": "2026-10-21"
+    "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:17+00:00",
+    "checked_at": "2026-11-10T09:35:20+00:00",
     "docs_url": {
      "url": "https://www.nbim.no/en/investments/all-investments/",
      "status": 200,
@@ -5699,10 +6158,10 @@
     "kind": "curated",
     "file": "finans-og-politikk.yaml",
     "merge_with": null,
-    "updated": "2026-10-21"
+    "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:17+00:00",
+    "checked_at": "2026-11-10T09:35:20+00:00",
     "docs_url": {
      "url": "https://www.nbim.no/en/investments/the-funds-value/",
      "status": 200,
@@ -5773,7 +6232,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:17+00:00",
+    "checked_at": "2026-11-10T09:35:21+00:00",
     "docs_url": {
      "url": "https://www.sildelaget.no/no/kvoteoversikt/",
      "status": 200,
@@ -5844,7 +6303,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:20+00:00",
+    "checked_at": "2026-11-10T09:35:28+00:00",
     "docs_url": {
      "url": "https://github.com/Forskningsradet/open-data",
      "status": 200,
@@ -5913,7 +6372,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:20+00:00",
+    "checked_at": "2026-11-10T09:35:28+00:00",
     "docs_url": {
      "url": "https://prosjektbanken.forskningsradet.no/technical-description",
      "status": 200,
@@ -5976,7 +6435,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:20+00:00",
+    "checked_at": "2026-11-10T09:35:29+00:00",
     "docs_url": {
      "url": "https://api.nve.no/doc/elsertifikater/",
      "status": 200,
@@ -6045,7 +6504,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:21+00:00",
+    "checked_at": "2026-11-10T09:35:29+00:00",
     "docs_url": {
      "url": "https://api.nve.no/doc/gridtimeseries-data-gts/",
      "status": 200,
@@ -6108,7 +6567,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:22+00:00",
+    "checked_at": "2026-11-10T09:35:29+00:00",
     "docs_url": {
      "url": "https://hydapi.nve.no/UserDocumentation/",
      "status": 200,
@@ -6174,7 +6633,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:23+00:00",
+    "checked_at": "2026-11-10T09:35:30+00:00",
     "docs_url": {
      "url": "https://api.nve.no/doc/",
      "status": 200,
@@ -6243,7 +6702,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:23+00:00",
+    "checked_at": "2026-11-10T09:35:30+00:00",
     "docs_url": {
      "url": "https://api.nve.no/doc/historiske-vannfoeringsdata/",
      "status": 200,
@@ -6329,7 +6788,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:24+00:00",
+    "checked_at": "2026-11-10T09:35:31+00:00",
     "docs_url": {
      "url": "https://api.regobs.no/v5/swagger/ui/index",
      "status": 200,
@@ -6400,7 +6859,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:24+00:00",
+    "checked_at": "2026-11-10T09:35:31+00:00",
     "docs_url": {
      "url": "https://api.nve.no/doc/vannkraftdatabase/",
      "status": 200,
@@ -6466,7 +6925,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:25+00:00",
+    "checked_at": "2026-11-10T09:35:32+00:00",
     "docs_url": {
      "url": "https://api.nve.no/doc/snoeskredvarsel/",
      "status": 200,
@@ -6530,7 +6989,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:25+00:00",
+    "checked_at": "2026-11-10T09:35:32+00:00",
     "docs_url": {
      "url": "https://api.nve.no/doc/vindkraftdatabase/",
      "status": 200,
@@ -6599,7 +7058,7 @@
     "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:26+00:00",
+    "checked_at": "2026-11-10T09:35:32+00:00",
     "docs_url": {
      "url": "https://teknisk.norid.no/en/integrere-mot-norid/rdap-tjenesten/",
      "status": 200,
@@ -6662,7 +7121,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:29+00:00",
+    "checked_at": "2026-11-10T09:35:39+00:00",
     "docs_url": {
      "url": "https://github.com/npolar/api.npolar.no",
      "status": 200,
@@ -6730,7 +7189,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:29+00:00",
+    "checked_at": "2026-11-10T09:35:39+00:00",
     "docs_url": {
      "url": "https://tjenester.helsenorge.no/velg-behandlingssted",
      "status": 200,
@@ -6795,7 +7254,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:29+00:00",
+    "checked_at": "2026-11-10T09:35:40+00:00",
     "docs_url": {
      "url": "https://oslobysykkel.no/apne-data/sanntid",
      "status": 200,
@@ -6866,7 +7325,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:30+00:00",
+    "checked_at": "2026-11-10T09:35:40+00:00",
     "docs_url": {
      "url": "https://statistikkbanken.oslo.kommune.no/",
      "status": 200,
@@ -6951,7 +7410,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:30+00:00",
+    "checked_at": "2026-11-10T09:35:40+00:00",
     "docs_url": {
      "url": "https://api.politiloggen.politiet.no/",
      "status": 200,
@@ -7023,7 +7482,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:30+00:00",
+    "checked_at": "2026-11-10T09:35:41+00:00",
     "docs_url": {
      "url": "https://developer.bring.com/",
      "status": 200,
@@ -7088,7 +7547,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:31+00:00",
+    "checked_at": "2026-11-10T09:35:41+00:00",
     "docs_url": {
      "url": "https://www.bring.no/tjenester/adressetjenester/postnummer/postnummertabeller-veiledning",
      "status": 200,
@@ -7159,7 +7618,7 @@
     "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:32+00:00",
+    "checked_at": "2026-11-10T09:35:42+00:00",
     "docs_url": {
      "url": "https://kalender.renovasjonsportal.no/",
      "status": 200,
@@ -7227,7 +7686,7 @@
     "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:32+00:00",
+    "checked_at": "2026-11-10T09:35:43+00:00",
     "docs_url": {
      "url": "https://authority.bibsys.no/authority/rest/sru?operation=explain&version=1.2",
      "status": 200,
@@ -7298,7 +7757,7 @@
     "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:32+00:00",
+    "checked_at": "2026-11-10T09:35:43+00:00",
     "docs_url": {
      "url": "https://bibsys-k.alma.exlibrisgroup.com/view/sru/47BIBSYS_NETWORK?version=1.2&operation=explain",
      "status": 200,
@@ -7380,7 +7839,7 @@
     "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:33+00:00",
+    "checked_at": "2026-11-10T09:35:44+00:00",
     "docs_url": {
      "url": "https://swagger-ui.nva.unit.no/",
      "status": 200,
@@ -7445,7 +7904,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:33+00:00",
+    "checked_at": "2026-11-10T09:35:44+00:00",
     "docs_url": {
      "url": "https://skatteetaten.github.io/folkeregisteret-api-dokumentasjon/",
      "status": 200,
@@ -7511,7 +7970,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:33+00:00",
+    "checked_at": "2026-11-10T09:35:44+00:00",
     "docs_url": {
      "url": "https://skatteetaten.github.io/api-dokumentasjon/",
      "status": 200,
@@ -7581,7 +8040,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:34+00:00",
+    "checked_at": "2026-11-10T09:35:45+00:00",
     "docs_url": {
      "url": "https://factmaps.sodir.no/api/rest/services/DataService/Data/FeatureServer",
      "status": 200,
@@ -7593,6 +8052,78 @@
      "status": 200,
      "verdict": "ok",
      "final_url": "https://factmaps.sodir.no/api/rest/services/DataService/Data/FeatureServer?f=json"
+    }
+   }
+  },
+  {
+   "id": "sparebank1-personlig-api",
+   "title": "SpareBank 1 personlig API (egne kontoer)",
+   "provider": {
+    "name": "SpareBank 1",
+    "orgnr": "986401598",
+    "org_path": null,
+    "sector": "privat"
+   },
+   "description": "Kontoer, saldo, transaksjoner og overføringer for kunder i en SpareBank 1-bank, til eget bruk: budsjett, dashbord, Home Assistant. Du registrerer en personlig klient på developer.sparebank1.no, logger inn med BankID (OAuth 2.0) og kaller api.sparebank1.no med ditt eget token. Ingen konsesjon trengs så lenge det bare gjelder dine egne kontoer. Sbanken hadde et tilsvarende API, men det er lagt ned.",
+   "summary": "Kontoer, saldo, transaksjoner og overføringer for kunder i en SpareBank 1-bank, til eget bruk: budsjett, dashbord, Home Assistant. Du registrerer en personlig klient på developer.sparebank1.no, logger inn med BankID (OAuth 2.0) og kaller…",
+   "title_en": "SpareBank 1 personal API (your own accounts)",
+   "access": "restricted",
+   "auth": "oauth2",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://api.sparebank1.no/"
+   ],
+   "spec_url": null,
+   "docs_url": "https://developer.sparebank1.no/",
+   "probe_url": "https://api.sparebank1.no/personal/banking/accounts",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "bank",
+    "sparebank 1",
+    "konto",
+    "saldo",
+    "transaksjoner",
+    "overføring",
+    "personlig økonomi",
+    "budsjett",
+    "open banking",
+    "bankid"
+   ],
+   "category": "finans",
+   "tags": [
+    "registration",
+    "personal-data"
+   ],
+   "caveats": [
+    "Krever kundeforhold i en SpareBank 1-bank, egen registrert klient og BankID-innlogging; gir bare tilgang til dine egne kontoer.",
+    "Autorisasjonskoden fra BankID-innloggingen varer noen minutter og kan brukes én gang.",
+    "En tjeneste for andre enn deg selv må gå gjennom bankens PSD2-grensesnitt, som krever konsesjon fra Finanstilsynet (kontoinformasjon eller betalingsfullmakt) og eIDAS-sertifikat, eller en aggregator."
+   ],
+   "quick_start": null,
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "sparebank1.yaml",
+    "merge_with": null,
+    "updated": "2026-11-10"
+   },
+   "checks": {
+    "checked_at": "2026-11-10T09:35:45+00:00",
+    "docs_url": {
+     "url": "https://developer.sparebank1.no/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://developer.sparebank1.no/"
+    },
+    "endpoint": {
+     "url": "https://api.sparebank1.no/personal/banking/accounts",
+     "status": 401,
+     "verdict": "answers",
+     "final_url": "https://api.sparebank1.no/personal/banking/accounts"
     }
    }
   },
@@ -7647,7 +8178,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:34+00:00",
+    "checked_at": "2026-11-10T09:35:45+00:00",
     "docs_url": {
      "url": "https://www.vegvesen.no/fag/teknologi/apne-data/et-utvalg-apne-data/hva-er-datex",
      "status": 200,
@@ -7729,7 +8260,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:34+00:00",
+    "checked_at": "2026-11-10T09:35:46+00:00",
     "docs_url": {
      "url": "https://ferry.atlas.vegvesen.no/swagger-ui/index.html",
      "status": 200,
@@ -7799,7 +8330,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:35+00:00",
+    "checked_at": "2026-11-10T09:35:46+00:00",
     "docs_url": {
      "url": "https://www.vegvesen.no/kjoretoy/kjop-og-salg/kjoretoyopplysninger/api-er-for-tekniske-kjoretoyopplysninger/",
      "status": 200,
@@ -7873,7 +8404,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:35+00:00",
+    "checked_at": "2026-11-10T09:35:46+00:00",
     "docs_url": {
      "url": "https://nvdb-docs.atlas.vegvesen.no/category/nvdb-api-les-v4/",
      "status": 200,
@@ -7951,7 +8482,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:35+00:00",
+    "checked_at": "2026-11-10T09:35:46+00:00",
     "docs_url": {
      "url": "https://www.vegvesen.no/fag/teknologi/apne-data/et-utvalg-apne-data/parkeringsregisteret-api/",
      "status": 200,
@@ -8041,7 +8572,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:35+00:00",
+    "checked_at": "2026-11-10T09:35:46+00:00",
     "docs_url": {
      "url": "https://ft-nvdb-objects.atlas.vegvesen.no/swagger-ui/index.html",
      "status": 200,
@@ -8127,7 +8658,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:35+00:00",
+    "checked_at": "2026-11-10T09:35:47+00:00",
     "docs_url": {
      "url": "https://search.atlas.vegvesen.no/swagger-ui/index.html",
      "status": 200,
@@ -8198,7 +8729,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:36+00:00",
+    "checked_at": "2026-11-10T09:35:47+00:00",
     "docs_url": {
      "url": "https://trafikkdata.atlas.vegvesen.no/",
      "status": 200,
@@ -8280,7 +8811,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:36+00:00",
+    "checked_at": "2026-11-10T09:35:48+00:00",
     "docs_url": {
      "url": "https://traffic-info.atlas.vegvesen.no/swagger-ui/index.html",
      "status": 200,
@@ -8372,7 +8903,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:36+00:00",
+    "checked_at": "2026-11-10T09:35:48+00:00",
     "docs_url": {
      "url": "https://road-weather-and-view.atlas.vegvesen.no/swagger-ui/index.html",
      "status": 200,
@@ -8443,10 +8974,10 @@
     "kind": "curated",
     "file": "ssb.yaml",
     "merge_with": null,
-    "updated": "2026-10-19"
+    "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:37+00:00",
+    "checked_at": "2026-11-10T09:35:49+00:00",
     "docs_url": {
      "url": "https://data.ssb.no/api/klass/v1/api-guide.html",
      "status": 200,
@@ -8512,10 +9043,10 @@
     "kind": "curated",
     "file": "ssb.yaml",
     "merge_with": null,
-    "updated": "2026-10-19"
+    "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:37+00:00",
+    "checked_at": "2026-11-10T09:35:49+00:00",
     "docs_url": {
      "url": "https://www.ssb.no/api/pxwebapi",
      "status": 200,
@@ -8539,7 +9070,7 @@
     "org_path": null,
     "sector": "stat"
    },
-   "description": "Alle tabeller i Statistikkbanken: befolkning, arbeidsmarked, priser, næringsliv, kommuner og mer. Hent metadata for en tabell med GET, hent tall med en POST-spørring som velger variabler og verdier. Svar som JSON-stat2, CSV eller Excel. Den nye versjonen, PxWebApi 2, har egen oppføring (ssb-pxwebapi-v2).",
+   "description": "Alle tabeller i Statistikkbanken: befolkning, arbeidsmarked, priser, næringsliv, kommuner og mer. Hent metadata for en tabell med GET, hent tall med en POST-spørring som velger variabler og verdier. Svar som JSON-stat2, CSV eller Excel. Den nye versjonen, PxWebApi 2, har egen oppføring (ssb-pxwebapi-v2). Bank og renter: 09565 (innskudd), 08175 (utlåns- og innskuddsrenter), 10748 (renter på nye boliglån) og 12844 (kredittkortrenter).",
    "summary": "Alle tabeller i Statistikkbanken: befolkning, arbeidsmarked, priser, næringsliv, kommuner og mer. Hent metadata for en tabell med GET, hent tall med en POST-spørring som velger variabler og verdier. Svar som JSON-stat2, CSV eller Excel…",
    "title_en": "Statbank API",
    "access": "open",
@@ -8566,7 +9097,11 @@
     "kommuner",
     "tabeller",
     "pxweb",
-    "json-stat"
+    "json-stat",
+    "bank",
+    "innskudd",
+    "utlånsrente",
+    "boliglånsrente"
    ],
    "category": "statistikk",
    "tags": [
@@ -8581,10 +9116,10 @@
     "kind": "curated",
     "file": "ssb.yaml",
     "merge_with": null,
-    "updated": "2026-10-19"
+    "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:37+00:00",
+    "checked_at": "2026-11-10T09:35:50+00:00",
     "docs_url": {
      "url": "https://www.ssb.no/api/pxwebapi",
      "status": 200,
@@ -8653,7 +9188,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:38+00:00",
+    "checked_at": "2026-11-10T09:35:50+00:00",
     "docs_url": {
      "url": "https://driftsdata.statnett.no/",
      "status": 200,
@@ -8720,7 +9255,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:38+00:00",
+    "checked_at": "2026-11-10T09:35:50+00:00",
     "docs_url": {
      "url": "https://docs.ckan.org/en/2.11/api/",
      "status": 200,
@@ -8791,7 +9326,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:40+00:00",
+    "checked_at": "2026-11-10T09:35:51+00:00",
     "docs_url": {
      "url": "https://snl.no/",
      "status": 200,
@@ -8856,7 +9391,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:40+00:00",
+    "checked_at": "2026-11-10T09:35:51+00:00",
     "docs_url": {
      "url": "https://data.stortinget.no/",
      "status": 200,
@@ -8868,6 +9403,75 @@
      "status": 200,
      "verdict": "ok",
      "final_url": "https://data.stortinget.no/eksport/representanter?format=json"
+    }
+   }
+  },
+  {
+   "id": "tink-open-banking",
+   "title": "Tink (open banking-plattform)",
+   "provider": {
+    "name": "Tink (Visa)",
+    "orgnr": null,
+    "org_path": null,
+    "sector": "privat"
+   },
+   "description": "Nordisk open banking-plattform eid av Visa: kontoinformasjon, betaling og dataanalyse mot de fleste norske banker gjennom ett API. Listen over tilkoblede banker per land svarer uten nøkkel (107 norske i november 2026); alt annet krever konto i Tink Console og avtale for produksjon.",
+   "summary": "Nordisk open banking-plattform eid av Visa: kontoinformasjon, betaling og dataanalyse mot de fleste norske banker gjennom ett API. Listen over tilkoblede banker per land svarer uten nøkkel (107 norske i november 2026); alt annet krever…",
+   "title_en": "Tink (open banking platform)",
+   "access": "restricted",
+   "auth": "oauth2",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://api.tink.com/"
+   ],
+   "spec_url": null,
+   "docs_url": "https://docs.tink.com/",
+   "probe_url": "https://api.tink.com/api/v1/providers/NO",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "bank",
+    "open banking",
+    "psd2",
+    "aggregator",
+    "kontoinformasjon",
+    "betaling",
+    "visa",
+    "tink"
+   ],
+   "category": "finans",
+   "tags": [
+    "agreement",
+    "psd2"
+   ],
+   "caveats": [
+    "Bare banklisten (/api/v1/providers/{marked}) er åpen; data fra kontoer krever avtale med Tink.",
+    "Sjekk i avtalen om tjenesten din kan bruke Tinks konsesjon, eller om du trenger egen fra Finanstilsynet."
+   ],
+   "quick_start": "# bankene Tink er koblet til i Norge\ncurl \"https://api.tink.com/api/v1/providers/NO\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "tink.yaml",
+    "merge_with": null,
+    "updated": "2026-11-10"
+   },
+   "checks": {
+    "checked_at": "2026-11-10T09:35:52+00:00",
+    "docs_url": {
+     "url": "https://docs.tink.com/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://docs.tink.com/"
+    },
+    "endpoint": {
+     "url": "https://api.tink.com/api/v1/providers/NO",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.tink.com/api/v1/providers/NO"
     }
    }
   },
@@ -8924,7 +9528,7 @@
     "updated": "2026-10-19"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:51+00:00",
+    "checked_at": "2026-11-10T09:35:52+00:00",
     "docs_url": {
      "url": "https://www.toll.no/no/bedrift/apne-data",
      "status": 200,
@@ -8933,7 +9537,7 @@
     },
     "endpoint": {
      "url": "https://data.toll.no/api/3/action/package_list",
-     "status": 503,
+     "status": 500,
      "verdict": "missing",
      "final_url": "https://data.toll.no/api/3/action/package_list"
     }
@@ -8995,7 +9599,7 @@
     "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:52+00:00",
+    "checked_at": "2026-11-10T09:35:52+00:00",
     "docs_url": {
      "url": "https://gis.tromsfylke.no/arcgis/rest/services",
      "status": null,
@@ -9061,7 +9665,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:52+00:00",
+    "checked_at": "2026-11-10T09:35:53+00:00",
     "docs_url": {
      "url": "https://trondheimbysykkel.no/en/open-data",
      "status": 200,
@@ -9132,7 +9736,7 @@
     "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:53+00:00",
+    "checked_at": "2026-11-10T09:35:53+00:00",
     "docs_url": {
      "url": "https://webgis.trondelagfylke.no/arcgis/rest/services",
      "status": 200,
@@ -9195,7 +9799,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:54+00:00",
+    "checked_at": "2026-11-10T09:35:54+00:00",
     "docs_url": {
      "url": "https://guides.dataverse.org/en/latest/api/",
      "status": 200,
@@ -9265,7 +9869,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:54+00:00",
+    "checked_at": "2026-11-10T09:35:54+00:00",
     "docs_url": {
      "url": "https://api.giellalt.org/",
      "status": 200,
@@ -9336,7 +9940,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:54+00:00",
+    "checked_at": "2026-11-10T09:35:54+00:00",
     "docs_url": {
      "url": "https://eida.geo.uib.no/fdsnws/station/1/application.wadl",
      "status": 200,
@@ -9404,7 +10008,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:55+00:00",
+    "checked_at": "2026-11-10T09:35:55+00:00",
     "docs_url": {
      "url": "https://ordbokene.no/nob/about",
      "status": 200,
@@ -9484,7 +10088,7 @@
     "updated": "2026-10-20"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:40:59+00:00",
+    "checked_at": "2026-11-10T09:35:58+00:00",
     "docs_url": {
      "url": "https://www.barnehagefakta.no/swagger",
      "status": 200,
@@ -9558,7 +10162,7 @@
     "updated": "2026-10-20"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:00+00:00",
+    "checked_at": "2026-11-10T09:35:58+00:00",
     "docs_url": {
      "url": "https://data.udir.no/kl06",
      "status": 200,
@@ -9627,7 +10231,7 @@
     "updated": "2026-10-20"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:02+00:00",
+    "checked_at": "2026-11-10T09:36:06+00:00",
     "docs_url": {
      "url": "https://github.com/Utdanningsdirektoratet/Grep_SPARQL/wiki",
      "status": 200,
@@ -9691,7 +10295,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:02+00:00",
+    "checked_at": "2026-11-10T09:36:06+00:00",
     "docs_url": {
      "url": "https://valgresultat.no/api",
      "status": 200,
@@ -9761,7 +10365,7 @@
     "updated": "2026-11-10"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:02+00:00",
+    "checked_at": "2026-11-10T09:36:06+00:00",
     "docs_url": {
      "url": "https://kart.vlfk.no/arcgis/rest/services",
      "status": 200,
@@ -9826,7 +10430,7 @@
     "updated": "2026-10-15"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:03+00:00",
+    "checked_at": "2026-11-10T09:36:06+00:00",
     "docs_url": {
      "url": "https://api.vinmonopolet.no/",
      "status": 200,
@@ -9838,6 +10442,269 @@
      "status": 200,
      "verdict": "ok",
      "final_url": "https://api.vinmonopolet.no/"
+    }
+   }
+  },
+  {
+   "id": "vipps-mobilepay-login",
+   "title": "Vipps MobilePay Login (OpenID Connect)",
+   "provider": {
+    "name": "Vipps MobilePay",
+    "orgnr": "918713867",
+    "org_path": null,
+    "sector": "privat"
+   },
+   "description": "Innlogging med Vipps som standard OpenID Connect, med samtykke til navn, telefon, e-post, adresse og fødselsdato. Discovery-dokumentet svarer uten nøkkel; klientnøkler krever avtale.",
+   "summary": "Innlogging med Vipps som standard OpenID Connect, med samtykke til navn, telefon, e-post, adresse og fødselsdato. Discovery-dokumentet svarer uten nøkkel; klientnøkler krever avtale.",
+   "title_en": "Vipps MobilePay Login (OpenID Connect)",
+   "access": "restricted",
+   "auth": "oauth2",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://api.vipps.no/access-management-1.0/access/"
+   ],
+   "spec_url": "https://developer.vippsmobilepay.com/redocusaurus/login-swagger-id.yaml",
+   "docs_url": "https://developer.vippsmobilepay.com/docs/APIs/login-api/",
+   "probe_url": "https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration",
+   "spec": {
+    "format": "openapi 3.0.0",
+    "title": "Login API",
+    "version": "1.1.0",
+    "servers": [
+     "https://api.vipps.no",
+     "https://apitest.vipps.no"
+    ],
+    "operations": 8,
+    "tags": [],
+    "source_url": "https://developer.vippsmobilepay.com/redocusaurus/login-swagger-id.yaml",
+    "fetched_at": "2026-11-10T09:36:38+00:00"
+   },
+   "license": null,
+   "keywords": [
+    "vipps",
+    "innlogging",
+    "login",
+    "openid connect",
+    "oidc",
+    "identitet"
+   ],
+   "category": "identitet-og-tilgang",
+   "tags": [
+    "agreement",
+    "personal-data"
+   ],
+   "caveats": [
+    "Krever avtale med Vipps MobilePay; brukeropplysningene er personopplysninger."
+   ],
+   "quick_start": "curl \"https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "vipps-mobilepay.yaml",
+    "merge_with": null,
+    "updated": "2026-11-10"
+   },
+   "checks": {
+    "checked_at": "2026-11-10T09:36:07+00:00",
+    "docs_url": {
+     "url": "https://developer.vippsmobilepay.com/docs/APIs/login-api/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://developer.vippsmobilepay.com/docs/APIs/login-api/"
+    },
+    "spec_url": {
+     "url": "https://developer.vippsmobilepay.com/redocusaurus/login-swagger-id.yaml",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://developer.vippsmobilepay.com/redocusaurus/login-swagger-id.yaml"
+    },
+    "endpoint": {
+     "url": "https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration"
+    }
+   }
+  },
+  {
+   "id": "vipps-mobilepay-report",
+   "title": "Vipps MobilePay Report API (oppgjør og transaksjoner)",
+   "provider": {
+    "name": "Vipps MobilePay",
+    "orgnr": "918713867",
+    "org_path": null,
+    "sector": "privat"
+   },
+   "description": "Oppgjør, transaksjonsrapporter og hendelser per salgssted, for regnskap og avstemming: hvilke betalinger som utgjør hver utbetaling, gebyrer og datoer. Brukes av brukersteder med ePayment eller faste betalinger og av regnskapspartnere.",
+   "summary": "Oppgjør, transaksjonsrapporter og hendelser per salgssted, for regnskap og avstemming: hvilke betalinger som utgjør hver utbetaling, gebyrer og datoer. Brukes av brukersteder med ePayment eller faste betalinger og av regnskapspartnere.",
+   "title_en": "Vipps MobilePay Report API (settlements and transactions)",
+   "access": "restricted",
+   "auth": "api-key",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://api.vipps.no/settlement/v1/ledgers",
+    "https://api.vipps.no/report/v2/ledgers"
+   ],
+   "spec_url": "https://developer.vippsmobilepay.com/redocusaurus/report-swagger-id.yaml",
+   "docs_url": "https://developer.vippsmobilepay.com/docs/APIs/report-api/",
+   "probe_url": "https://api.vipps.no/settlement/v1/ledgers",
+   "spec": {
+    "format": "openapi 3.0.2",
+    "title": "Report API",
+    "version": "2.0",
+    "servers": [
+     "https://api.vipps.no"
+    ],
+    "operations": 3,
+    "tags": [
+     "/report/v2/ledgers",
+     "/settlement/v1"
+    ],
+    "source_url": "https://developer.vippsmobilepay.com/redocusaurus/report-swagger-id.yaml",
+    "fetched_at": "2026-11-10T09:36:38+00:00"
+   },
+   "license": null,
+   "keywords": [
+    "vipps",
+    "mobilepay",
+    "oppgjør",
+    "settlement",
+    "regnskap",
+    "avstemming",
+    "transaksjoner",
+    "rapport"
+   ],
+   "category": "finans",
+   "tags": [
+    "agreement"
+   ],
+   "caveats": [
+    "Bare for brukersteder med ePayment eller faste betalinger (egne salgsstednøkler), regnskapspartnere med regnskapsnøkler og innsamlingsorganisasjoner.",
+    "Brukersteder med VM-nummer kan ikke bruke API-et selv, men må gi en regnskapspartner tilgang."
+   ],
+   "quick_start": null,
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "vipps-mobilepay.yaml",
+    "merge_with": null,
+    "updated": "2026-11-10"
+   },
+   "checks": {
+    "checked_at": "2026-11-10T09:36:07+00:00",
+    "docs_url": {
+     "url": "https://developer.vippsmobilepay.com/docs/APIs/report-api/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://developer.vippsmobilepay.com/docs/APIs/report-api/"
+    },
+    "spec_url": {
+     "url": "https://developer.vippsmobilepay.com/redocusaurus/report-swagger-id.yaml",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://developer.vippsmobilepay.com/redocusaurus/report-swagger-id.yaml"
+    },
+    "endpoint": {
+     "url": "https://api.vipps.no/settlement/v1/ledgers",
+     "status": 401,
+     "verdict": "answers",
+     "final_url": "https://api.vipps.no/settlement/v1/ledgers"
+    }
+   }
+  },
+  {
+   "id": "vipps-mobilepay-epayment",
+   "title": "Vipps MobilePay ePayment API",
+   "provider": {
+    "name": "Vipps MobilePay",
+    "orgnr": "918713867",
+    "org_path": null,
+    "sector": "privat"
+   },
+   "description": "Ta betalt med Vipps eller MobilePay i nettbutikk, app eller kasse: opprett betaling, følg status, kanseller, reserver og refunder. Krever bedriftsavtale; nøklene (client id, secret og abonnementsnøkkel) gir et tilgangstoken. Testmiljøet apitest.vipps.no har egne testnøkler.",
+   "summary": "Ta betalt med Vipps eller MobilePay i nettbutikk, app eller kasse: opprett betaling, følg status, kanseller, reserver og refunder. Krever bedriftsavtale; nøklene (client id, secret og abonnementsnøkkel) gir et tilgangstoken. Testmiljøet…",
+   "title_en": "Vipps MobilePay ePayment API",
+   "access": "restricted",
+   "auth": "api-key",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://api.vipps.no/epayment/v1/payments"
+   ],
+   "spec_url": "https://developer.vippsmobilepay.com/redocusaurus/epayment-swagger-id.yaml",
+   "docs_url": "https://developer.vippsmobilepay.com/docs/APIs/epayment-api/",
+   "probe_url": "https://api.vipps.no/epayment/v1/payments/test-reference",
+   "spec": {
+    "format": "openapi 3.0.0",
+    "title": "ePayment API",
+    "version": "1.8.5",
+    "servers": [
+     "https://api.vipps.no/epayment",
+     "https://apitest.vipps.no/epayment"
+    ],
+    "operations": 9,
+    "tags": [
+     "AdjustPayments",
+     "CreatePayments",
+     "ForceApprove",
+     "Merchant Endpoints",
+     "QueryPayments"
+    ],
+    "source_url": "https://developer.vippsmobilepay.com/redocusaurus/epayment-swagger-id.yaml",
+    "fetched_at": "2026-11-10T09:36:38+00:00"
+   },
+   "license": null,
+   "keywords": [
+    "vipps",
+    "mobilepay",
+    "betaling",
+    "nettbutikk",
+    "kasse",
+    "refusjon",
+    "payment"
+   ],
+   "category": "finans",
+   "tags": [
+    "agreement"
+   ],
+   "caveats": [
+    "Krever bedriftsavtale med Vipps MobilePay (ingen PSD2-konsesjon; du tar betalt som brukersted)."
+   ],
+   "quick_start": null,
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "vipps-mobilepay.yaml",
+    "merge_with": null,
+    "updated": "2026-11-10"
+   },
+   "checks": {
+    "checked_at": "2026-11-10T09:36:07+00:00",
+    "docs_url": {
+     "url": "https://developer.vippsmobilepay.com/docs/APIs/epayment-api/",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://developer.vippsmobilepay.com/docs/APIs/epayment-api/"
+    },
+    "spec_url": {
+     "url": "https://developer.vippsmobilepay.com/redocusaurus/epayment-swagger-id.yaml",
+     "status": 200,
+     "verdict": "ok",
+     "final_url": "https://developer.vippsmobilepay.com/redocusaurus/epayment-swagger-id.yaml"
+    },
+    "endpoint": {
+     "url": "https://api.vipps.no/epayment/v1/payments/test-reference",
+     "status": 401,
+     "verdict": "answers",
+     "final_url": "https://api.vipps.no/epayment/v1/payments/test-reference"
     }
    }
   },
@@ -9895,7 +10762,7 @@
     "updated": "2026-10-21"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:05+00:00",
+    "checked_at": "2026-11-10T09:36:13+00:00",
     "docs_url": {
      "url": "https://github.com/MobilityData/gbfs/blob/master/systems.csv",
      "status": 200,
@@ -10124,7 +10991,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:05+00:00",
+    "checked_at": "2026-11-10T09:36:13+00:00",
     "docs_url": {
      "url": "https://artskart.artsdatabanken.no/publicapi/",
      "status": 200,
@@ -10646,7 +11513,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:05+00:00",
+    "checked_at": "2026-11-10T09:36:13+00:00",
     "docs_url": {
      "url": "https://developer.barentswatch.no/",
      "status": 200,
@@ -11181,7 +12048,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:06+00:00",
+    "checked_at": "2026-11-10T09:36:14+00:00",
     "docs_url": {
      "url": "https://data.brreg.no/enhetsregisteret/api/docs/index.html",
      "status": 200,
@@ -11266,7 +12133,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:07+00:00",
+    "checked_at": "2026-11-10T09:36:15+00:00",
     "docs_url": {
      "url": "https://www.brreg.no/produkter-og-tjenester/apne-data/",
      "status": 200,
@@ -11525,7 +12392,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:09+00:00",
+    "checked_at": "2026-11-10T09:36:22+00:00",
     "docs_url": {
      "url": "https://github.com/Informasjonsforvaltning/fdk-search-service",
      "status": 200,
@@ -13649,7 +14516,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:09+00:00",
+    "checked_at": "2026-11-10T09:36:22+00:00",
     "docs_url": {
      "url": "https://api.finanstilsynet.no/registry/index.html",
      "status": 200,
@@ -13823,7 +14690,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:10+00:00",
+    "checked_at": "2026-11-10T09:36:22+00:00",
     "docs_url": {
      "url": "https://api.fiskeridir.no/pub-aqua/api/api-docs",
      "status": 200,
@@ -13909,7 +14776,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:10+00:00",
+    "checked_at": "2026-11-10T09:36:22+00:00",
     "docs_url": {
      "url": "https://api.fiskeridir.no/vessel-api/swagger-ui/",
      "status": 200,
@@ -23014,7 +23881,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:10+00:00",
+    "checked_at": "2026-11-10T09:36:23+00:00",
     "docs_url": {
      "url": "https://kartkatalog.geonorge.no/metadata/topografisk-norgeskart-wmts-cache/8f381180-1a47-4453-bee7-9a3d64843efa",
      "status": 200,
@@ -23078,7 +23945,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:10+00:00",
+    "checked_at": "2026-11-10T09:36:24+00:00",
     "docs_url": {
      "url": "https://ws.geonorge.no/hoydedata/v1/",
      "status": 200,
@@ -23159,7 +24026,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:11+00:00",
+    "checked_at": "2026-11-10T09:36:24+00:00",
     "docs_url": {
      "url": "https://ws.geonorge.no/kommuneinfo/v1/",
      "status": 200,
@@ -23239,7 +24106,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:11+00:00",
+    "checked_at": "2026-11-10T09:36:24+00:00",
     "docs_url": {
      "url": "https://ws.geonorge.no/stedsnavn/v1/",
      "status": 200,
@@ -23328,7 +24195,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:11+00:00",
+    "checked_at": "2026-11-10T09:36:25+00:00",
     "docs_url": {
      "url": "https://ws.geonorge.no/transformering/v1/",
      "status": 200,
@@ -27420,7 +28287,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:13+00:00",
+    "checked_at": "2026-11-10T09:36:25+00:00",
     "docs_url": {
      "url": "https://frost.met.no/index.html",
      "status": 200,
@@ -27825,7 +28692,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:13+00:00",
+    "checked_at": "2026-11-10T09:36:25+00:00",
     "docs_url": {
      "url": "https://api.met.no/",
      "status": 200,
@@ -30961,7 +31828,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:13+00:00",
+    "checked_at": "2026-11-10T09:36:25+00:00",
     "docs_url": {
      "url": "https://api-luftmalinger.miljodirektoratet.no/swagger/index.html",
      "status": 200,
@@ -33425,7 +34292,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:14+00:00",
+    "checked_at": "2026-11-10T09:36:25+00:00",
     "docs_url": {
      "url": "https://api.ndla.no/",
      "status": 200,
@@ -33509,7 +34376,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:15+00:00",
+    "checked_at": "2026-11-10T09:36:26+00:00",
     "docs_url": {
      "url": "https://api.ndla.no/",
      "status": 200,
@@ -33592,7 +34459,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:16+00:00",
+    "checked_at": "2026-11-10T09:36:26+00:00",
     "docs_url": {
      "url": "https://api.ndla.no/",
      "status": 200,
@@ -33678,7 +34545,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:17+00:00",
+    "checked_at": "2026-11-10T09:36:26+00:00",
     "docs_url": {
      "url": "https://api.ndla.no/",
      "status": 200,
@@ -33759,7 +34626,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:17+00:00",
+    "checked_at": "2026-11-10T09:36:27+00:00",
     "docs_url": {
      "url": "https://api.ndla.no/",
      "status": 200,
@@ -33846,7 +34713,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:17+00:00",
+    "checked_at": "2026-11-10T09:36:27+00:00",
     "docs_url": {
      "url": "https://api.ndla.no/",
      "status": 200,
@@ -38525,7 +39392,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:18+00:00",
+    "checked_at": "2026-11-10T09:36:27+00:00",
     "docs_url": {
      "url": "https://www.nve.no/energi/analyser-og-statistikk/om-magasinstatistikken/",
      "status": 200,
@@ -40607,7 +41474,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:18+00:00",
+    "checked_at": "2026-11-10T09:36:28+00:00",
     "docs_url": {
      "url": "https://developer.patentstyret.no/docs",
      "status": 200,
@@ -41587,7 +42454,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:19+00:00",
+    "checked_at": "2026-11-10T09:36:28+00:00",
     "docs_url": {
      "url": "https://api.cristin.no/v2/doc/index.html",
      "status": 200,
@@ -56495,7 +57362,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:19+00:00",
+    "checked_at": "2026-11-10T09:36:28+00:00",
     "docs_url": {
      "url": "https://data-nbr.udir.no/swagger/index.html",
      "status": 200,
@@ -56833,7 +57700,7 @@
     "harvested_at": "2026-11-10T08:31:35+00:00"
    },
    "checks": {
-    "checked_at": "2026-11-10T08:41:20+00:00",
+    "checked_at": "2026-11-10T09:36:32+00:00",
     "docs_url": {
      "url": "https://data-nsr.udir.no/",
      "status": 200,

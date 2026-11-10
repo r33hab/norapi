@@ -1,0 +1,25 @@
+updated: 2026-11-10
+provider:
+  name: DNB
+  orgnr: "984851006"
+  sector: privat
+apis:
+  - id: dnb-developer
+    title: DNB Developer (PSD2- og partner-API-er)
+    title_en: DNB Developer (PSD2 and partner APIs)
+    description: >-
+      DNBs utviklerportal med API-katalog for kontoinformasjon og betaling etter PSD2, og for bedrifts- og
+      partnerintegrasjoner. Ikke et åpent API: tilgang krever konsesjon som tredjepart eller avtale med DNB. Sbankens
+      gamle åpne personlige API forsvant med fusjonen inn i DNB.
+    category: finans
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    docs_url: https://developer.dnb.no/
+    keywords: [bank, dnb, psd2, open banking, kontoinformasjon, betaling, sbanken, bedrift]
+    tags: [agreement, psd2]
+    caveats:
+      - PSD2-API-ene krever konsesjon fra Finanstilsynet (eller et annet EØS-land) som tilbyder av kontoinformasjon eller betalingsfullmakt, og eIDAS-sertifikat (QWAC).
+      - Bedrifts- og partner-API-ene krever avtale med DNB.
+      - Portalen er en JavaScript-app; API-katalogen vises bare i nettleser.
+      - Sbankens personlige API (publicapi.sbanken.no) finnes ikke lenger.

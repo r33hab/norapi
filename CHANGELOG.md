@@ -5,11 +5,13 @@ All notable changes to this project are documented here. The format follows
 
 ## 2026-11-10
 ### Added
+- Bank and payment APIs, each marked with who can get access and what it takes: the SpareBank 1 personal API (own accounts, BankID, no licence), Enable Banking, Neonomics and Tink as open banking aggregators, the PSD2 and partner portals of DNB, Nordea and Danske Bank (licence from Finanstilsynet and an eIDAS certificate, or an agreement), Vipps MobilePay ePayment, Login and Report (merchant or accounting partner agreement), BankID OpenID Connect (through a BankID partner), and Norges Bank's payment statistics file. Caveats spell out the licence and agreement requirements; PSD2 entries carry the `psd2` tag.
 - Twenty more curated APIs from counties, municipalities and smaller institutions, each probed live: NDLA's open APIs (search, articles, images, audio, concepts, learning paths, subject taxonomy, oEmbed) with their OpenAPI specs, Nasjonalmuseet's collection API (Linked Art and IIIF without a key), Norid RDAP for .no domains, the BIBSYS authority file (SRU), Nord Pool's day-ahead prices for NO1 to NO5, ReMidt's waste collection calendar (also Fosen), and the ArcGIS map servers of Bergen, Fredrikstad, IKT Agder (Arendal, Grimstad, Froland) and the Vestland, Trøndelag, Troms and Agder county municipalities.
 - `registry/retired.yaml`: harvested entries whose service a manual check found gone are left out of the registry, with the reason; the catalogue still lists them, so the weekly harvest would otherwise bring them back. Starts with Oslo's two HC-plasser WFS entries, whose host no longer resolves.
 ### Changed
 - The six NDLA APIs that Felles datakatalog lists under Vestland fylkeskommune (NDLA's host county) are curated under "NDLA (Vestland fylkeskommune)" with real endpoints and content licences instead of the catalogue's GPL code licence.
 - `sikt-bibsys-sru` also lists the catalogue's OAI-PMH endpoint.
+- `norges-bank-open-data` names the lending survey, liquidity, money market and settlement datasets and lists `/api/dataflow`; `ssb-statbank-api` names the bank deposit and interest rate tables.
 ### Fixed
 - Harvested entries carried placeholder links from the catalogue (`http://example.com/` as endpoint for NDLA, NVE HydAPI and a Kartverket test service); URLs on the RFC 2606 example domains and localhost are now dropped at harvest.
 
