@@ -103,6 +103,9 @@
     const rails = $("#rails");
     const more = $("#more");
     const opsBox = $("#op-results");
+    const hero = $("#hero"), spec = $("#spec");
+    // while searching, the console and the numbers step aside so results sit under the field
+    const searching = (on) => { if (hero) hero.classList.toggle("is-searching", on); if (spec) spec.hidden = on; };
     const facets = $$("[data-facet]");
     const filters = { access: "", auth: "", source: "", provider: "", category: "" };
     let shown = 30, timer = null, lastQuery = "";
@@ -122,7 +125,7 @@
     async function render() {
       facets.forEach((btn) => btn.setAttribute("aria-pressed", String(filters[btn.dataset.facet] === btn.dataset.value)));
       if (!active()) {
-        results.hidden = true; rails.hidden = false; status.textContent = ""; syncUrl();
+        results.hidden = true; rails.hidden = false; searching(false); status.textContent = ""; syncUrl();
         return;
       }
       status.textContent = apis ? "" : "Laster register …";
@@ -130,7 +133,7 @@
       const query = input.value.trim();
       if (query !== lastQuery) { shown = 30; lastQuery = query; }
       const { total, hits } = searchApis(query, filters, shown);
-      results.hidden = false; rails.hidden = true;
+      results.hidden = false; rails.hidden = true; searching(true);
       list.innerHTML = hits.length ? hits.map(row).join("") : "";
       $("#empty").hidden = hits.length > 0;
       more.hidden = total <= shown;
@@ -208,4 +211,147 @@
       setTimeout(() => { delete btn.dataset.state; btn.textContent = "Kopier"; }, 2500);
     });
   });
+
+  /* ---------- Theme: follows the system until the visitor picks one ---------- */
+  const html = document.documentElement;
+  const darkQuery = matchMedia("(prefers-color-scheme: dark)");
+  const isDark = () => (html.dataset.theme ? html.dataset.theme === "dark" : darkQuery.matches);
+  $$("[data-theme-toggle]").forEach((btn) => {
+    const sync = () => btn.setAttribute("aria-pressed", String(isDark()));
+    sync();
+    darkQuery.addEventListener("change", sync);
+    btn.addEventListener("click", () => {
+      const next = isDark() ? "light" : "dark";
+      html.dataset.theme = next;
+      try { localStorage.setItem("norapi-theme", next); } catch { /* private mode: the choice lasts this page */ }
+      sync();
+    });
+  });
+
+  /* ---------- Console: five captured calls, replayed ----------
+     The first call is in the HTML, complete. With motion allowed the console moves on by itself:
+     the command types, the wait is the response time measured at capture, the answer prints line
+     by line, then it holds long enough to read. Hover, focus, an off-screen console or a hidden tab
+     pause it; picking a call or the pause button hands control to the visitor. */
+  const con = $("[data-console]");
+  const conData = $("#console-data");
+  if (con && conData) {
+    const calls = JSON.parse(conData.textContent).calls;
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+    const el = {
+      n: $("[data-c-n]", con), link: $("[data-c-link]", con), provider: $("[data-c-provider]", con),
+      cmd: $("[data-c-cmd]", con), status: $("[data-c-status]", con), resp: $("[data-c-resp]", con),
+      note: $("[data-c-note]", con), toggle: $("[data-c-toggle]", con), screen: $(".console__screen", con),
+    };
+    const tabs = $$("[data-c-go]", con);
+    let current = 0, run = 0, auto = false, hover = false, focused = false, inView = true;
+    let holdTimer = 0, holdLeft = 0, holdStart = 0;
+
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    const holdFor = (c) => 6500 + c.lines.length * 150;   // reading time grows with the answer
+    const lines = (c, stagger) => c.lines.map((l, k) => `<span class="ln"${stagger ? ` style="--i:${k + 1}"` : ""}>${l}</span>`).join("");
+
+    function head(i) {
+      const c = calls[i];
+      el.n.textContent = String(i + 1).padStart(2, "0");
+      el.link.href = c.href; el.link.textContent = c.title;
+      el.provider.textContent = c.provider;
+      el.note.textContent = c.note;
+      tabs.forEach((t, k) => { t.setAttribute("aria-pressed", String(k === i)); t.classList.remove("is-run"); });
+    }
+    function show(i) {   // the whole call at once: reduced motion, or a call picked while motion is off
+      const c = calls[i];
+      head(i);
+      el.cmd.textContent = c.command;
+      el.status.className = "console__status"; el.status.innerHTML = c.status;
+      el.resp.innerHTML = lines(c, false);
+    }
+    async function play(i) {
+      const my = ++run;
+      clearTimeout(holdTimer); holdTimer = 0; holdLeft = 0;
+      current = i;
+      if (reduce.matches) { show(i); return; }
+      el.screen.classList.add("is-leaving");
+      await sleep(200);
+      if (my !== run) return;
+      el.screen.classList.remove("is-leaving");
+      const c = calls[i];
+      head(i);
+      delete con.dataset.printing;
+      el.cmd.textContent = ""; el.status.className = "console__status"; el.status.innerHTML = ""; el.resp.innerHTML = "";
+      con.dataset.typing = "";
+      const total = Math.min(1100, c.command.length * 15), t0 = performance.now();
+      await new Promise((done) => {
+        const step = (t) => {
+          if (my !== run) return done();
+          const k = Math.min(c.command.length, Math.ceil(((t - t0) / total) * c.command.length));
+          el.cmd.textContent = c.command.slice(0, k);
+          if (k < c.command.length) requestAnimationFrame(step); else done();
+        };
+        requestAnimationFrame(step);
+      });
+      if (my !== run) return;
+      await sleep(220);
+      if (my !== run) return;
+      delete con.dataset.typing;
+      el.status.classList.add("is-waiting");
+      await sleep(Math.max(150, Math.min(c.ms, 900)));
+      if (my !== run) return;
+      el.status.classList.remove("is-waiting");
+      el.status.innerHTML = c.status;
+      el.resp.innerHTML = lines(c, true);
+      con.dataset.printing = "";
+      startHold();
+    }
+
+    const paused = () => !auto || hover || focused || !inView || document.hidden;
+    function startHold() {
+      if (!auto) return;
+      holdLeft = holdFor(calls[current]);
+      const tab = tabs[current];
+      tab.style.setProperty("--hold", holdLeft + "ms");
+      tab.classList.remove("is-run"); void tab.offsetWidth; tab.classList.add("is-run");
+      resumeHold();
+    }
+    function resumeHold() {
+      if (paused() || holdTimer || holdLeft <= 0) return;
+      const my = run;
+      holdStart = performance.now();
+      holdTimer = setTimeout(() => {
+        holdTimer = 0; holdLeft = 0;
+        if (my === run && auto) play((current + 1) % calls.length);
+      }, holdLeft);
+    }
+    function sync() {
+      if (paused()) {
+        con.dataset.paused = "";
+        if (holdTimer) { clearTimeout(holdTimer); holdTimer = 0; holdLeft -= performance.now() - holdStart; }
+      } else {
+        delete con.dataset.paused;
+        resumeHold();
+      }
+    }
+    function setAuto(on) {
+      auto = on;
+      el.toggle.setAttribute("aria-pressed", String(!on));
+      el.toggle.querySelector(".visually-hidden").textContent = on ? "Pause" : "Spill av";
+      clearTimeout(holdTimer); holdTimer = 0; holdLeft = 0;
+      tabs.forEach((t) => t.classList.remove("is-run"));
+      if (on) { con.dataset.auto = ""; startHold(); } else delete con.dataset.auto;
+      sync();
+    }
+
+    tabs.forEach((t, k) => t.addEventListener("click", () => { if (auto) setAuto(false); play(k); }));
+    el.toggle.addEventListener("click", () => setAuto(!auto));
+    con.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") { hover = true; sync(); } });
+    con.addEventListener("pointerleave", () => { hover = false; sync(); });
+    // keyboard focus inside the console holds the call for reading; the play button itself does not
+    con.addEventListener("focusin", (e) => { focused = e.target !== el.toggle && e.target.matches(":focus-visible"); sync(); });
+    con.addEventListener("focusout", (e) => { if (!con.contains(e.relatedTarget)) { focused = false; sync(); } });
+    document.addEventListener("visibilitychange", sync);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; sync(); }, { threshold: 0.35 }).observe(con);
+    }
+    if (!reduce.matches) { el.toggle.hidden = false; setAuto(true); }
+  }
 })();

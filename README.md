@@ -31,7 +31,7 @@
 > wants to grow. If you know a Norwegian API that is missing, [suggest it](https://github.com/r33hAB/norapi/issues/new?template=nytt-api.yml).
 
 <p align="center">
-  <a href="https://r33hab.github.io/norapi/"><img src="docs/images/site.png" alt="The norapi front page: search field, the registry in numbers, and a grid of curated APIs" width="900"></a>
+  <a href="https://r33hab.github.io/norapi/"><img src="docs/images/site.png" alt="The norapi front page: the search field next to a console replaying a real call to Enhetsregisteret and its answer, and the registry in numbers" width="900"></a>
 </p>
 
 ## Why
@@ -79,6 +79,7 @@ uv run norapi harvest                # Felles datakatalog + Geonorge access -> d
 uv run norapi build                  # curated + harvested (+ cached specs) -> registry/
 uv run norapi enrich                 # OpenAPI documents -> specs.json + operations.json
 uv run norapi check --curated-only   # probe docs, spec and endpoint URLs, record the verdicts
+uv run norapi samples                # run the front page's five example calls, keep the answers -> samples.json
 uv run norapi site --out _site       # the static site
 ```
 
@@ -147,10 +148,11 @@ src/norapi/
   build.py           registry.json, llms.txt, FTS5 index
   search.py          ranked search with filters, operation search
   check.py           link checker
+  samples.py         the front page's example calls: run once a week, trimmed for display
   site.py            static site generator
   cli.py / mcp_server.py
-registry/            curated YAML, access-review.yaml, retired.yaml, registry.json, llms.txt, specs.json, operations.json
-site/assets/         design tokens, stylesheet, client-side search, Open Graph image
+registry/            curated YAML, access-review.yaml, retired.yaml, registry.json, llms.txt, specs.json, operations.json, samples.json
+site/assets/         design tokens, stylesheet, self-hosted fonts (Geist, OFL), client-side search and console, Open Graph image
 tests/               unit tests on recorded fixtures, no network
 docs/adr/            decisions
 ```

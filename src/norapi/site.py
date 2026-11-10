@@ -2,14 +2,16 @@
 
 Everything is pre-rendered HTML so crawlers and language models see content without JavaScript;
 the search on the index page and the ⌘K palette are progressive enhancements over
-`search-index.json` and `ops-index.json`. Design decisions live in site/assets/style.css
-(Hallmark stamp at the top).
+`search-index.json` and `ops-index.json`. The front page console replays real calls captured by
+`norapi samples` (registry/samples.json). Design decisions live in site/assets/tokens.css and
+style.css (direction, type, colour and motion notes at the top of each).
 """
 
 from __future__ import annotations
 
 import html
 import json
+import re
 import shutil
 from collections import defaultdict
 from datetime import UTC, datetime
@@ -44,9 +46,21 @@ SECTOR_LABEL = {
     "statlig-selskap": "Statlig selskap",
     "privat": "Privat",
 }
-FONTS = (
-    "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600"
-    "&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500;600&display=swap"
+FONT_FILES = ("assets/fonts/geist.woff2", "assets/fonts/geist-mono.woff2")
+# Runs before first paint: marks JS, applies a saved theme, so neither flashes.
+HEAD_SCRIPT = (
+    "<script>(function(d){d.classList.add('js');try{var t=localStorage.getItem('norapi-theme');"
+    "if(t==='dark'||t==='light')d.dataset.theme=t}catch(e){}})(document.documentElement)</script>"
+)
+THEME_ICON = (
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">'
+    '<circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" stroke="none"/></svg>'
+)
+PAUSE_ICON = (
+    '<svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">'
+    '<rect x="7" y="6" width="3.5" height="12" rx="1"/><rect x="13.5" y="6" width="3.5" height="12" rx="1"/></svg>'
+    '<svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">'
+    '<path d="M8 6.5v11a1 1 0 0 0 1.5.86l9-5.5a1 1 0 0 0 0-1.72l-9-5.5A1 1 0 0 0 8 6.5z"/></svg>'
 )
 SEARCH_ICON = (
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
@@ -64,7 +78,13 @@ def nb_int(n: int) -> str:
 
 
 class Site:
-    def __init__(self, registry: dict[str, Any], operations: list[dict[str, Any]], base_url: str):
+    def __init__(
+        self,
+        registry: dict[str, Any],
+        operations: list[dict[str, Any]],
+        base_url: str,
+        samples: list[dict[str, Any]] | None = None,
+    ):
         self.base = base_url if base_url.endswith("/") else base_url + "/"
         self.registry = registry
         self.apis: list[dict[str, Any]] = registry["apis"]
@@ -92,6 +112,17 @@ class Site:
             bucket["sector"] = bucket["sector"] or api["provider"].get("sector")
         self.curated = [a for a in self.apis if a["source"]["kind"] != "fdk"]
         self.op_count = len(operations)
+        # only calls that still match an entry, and only answers that came back 2xx
+        self.samples = [
+            s
+            for s in samples or []
+            if s.get("id") in self.by_id and 200 <= s.get("status", 0) < 300
+        ]
+        self.samples_by_id = {s["id"]: s for s in self.samples}
+        checked = [a for a in self.curated if a.get("checks")]
+        self.check_total = len(checked)
+        self.check_ok = sum(1 for a in checked if _answers(a["checks"]))
+        self.checked_at = max((a["checks"].get("checked_at", "") for a in checked), default="")[:10]
 
     # ----- shared chrome -----
     def url(self, path: str = "") -> str:
@@ -139,26 +170,38 @@ class Site:
 <meta property="og:image:alt" content="norapi: søkbart register over norske offentlige API-er">
 <meta property="og:locale" content="nb_NO">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0a09" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="{self.url("assets/favicon.svg")}" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="{FONTS}">
+{
+            "".join(
+                f'<link rel="preload" href="{self.url(f)}" as="font" type="font/woff2" crossorigin>'
+                for f in FONT_FILES
+            )
+        }
+{HEAD_SCRIPT}
 <link rel="stylesheet" href="{self.url("assets/style.css")}">
 {ld}
 </head>
 <body>
+<a class="skip" href="#main">Hopp til innholdet</a>
 <header class="nav"><div class="wrap nav__inner">
-  <a class="nav__brand" href="{self.url()}">nor<b>api</b></a>
+  <a class="wordmark" href="{
+            self.url()
+        }" aria-label="norapi, til forsiden"><span class="wordmark__mark" aria-hidden="true"></span>norapi</a>
   <nav class="nav__links" aria-label="Hovedmeny">
     {nav_link("", "API-er", "index")}
     {nav_link("leverandorer/", "Leverandører", "providers", True)}
     {nav_link("bidra/", "Bidra", "bidra")}
   </nav>
-  <button class="searchpill" type="button" data-cmdk-open aria-label="Søk i registeret, snarvei ⌘K">
+  <button class="searchpill" type="button" data-cmdk-open aria-keyshortcuts="Meta+K Control+K">
     {SEARCH_ICON}<span class="searchpill__text">Søk etter API …</span>
-    <span class="searchpill__kbd"><kbd>⌘</kbd><kbd>K</kbd></span>
+    <span class="searchpill__kbd" aria-hidden="true"><kbd>⌘</kbd><kbd>K</kbd></span>
   </button>
-  <a class="btn nav__github" href="{REPO}">GitHub</a>
+  <a class="btn btn--quiet nav__github" href="{REPO}">GitHub</a>
+  <button class="iconbtn" type="button" data-theme-toggle aria-pressed="false" aria-label="Mørkt tema">{
+            THEME_ICON
+        }</button>
 </div></header>
 <dialog class="cmdk" id="cmdk" aria-label="Søk i registeret">
   <div class="cmdk__field">{SEARCH_ICON}<label class="visually-hidden" for="cmdk-input">Søk</label>
@@ -166,16 +209,23 @@ class Site:
   <div class="cmdk__results" id="cmdk-results" role="listbox"></div>
   <div class="cmdk__foot"><span><kbd>↑</kbd><kbd>↓</kbd> velg</span><span><kbd>↵</kbd> åpne</span><span><kbd>esc</kbd> lukk</span></div>
 </dialog>
-{body}
-<footer class="wrap foot-line"><p>
-  <span>norapi {e(__version__)}</span><span>·</span><span>generert {e(self.generated)}</span><span>·</span>
-  <a href="{self.url("registry.json")}">registry.json</a><span>·</span>
-  <a href="{self.url("llms.txt")}">llms.txt</a><span>·</span>
-  <a href="{self.url("operations.json")}">operations.json</a><span>·</span>
-  <a href="{REPO}">kildekode (MIT)</a><span>·</span>
-  <a href="{self.url("personvern/")}">personvern</a><span>·</span>
-  <span>metadata fra <a href="https://data.norge.no/data-services">data.norge.no</a>, hvert API har egne vilkår</span>
-</p></footer>
+{body.replace("<main", '<main id="main"', 1)}
+<footer class="foot"><div class="wrap foot__inner">
+  <p class="foot__status"><span class="light light--ok" aria-hidden="true"></span>
+    <span>norapi {e(__version__)}</span><span>generert {e(self.generated)}</span>{
+            f"<span>{self.check_ok} av {self.check_total} håndplukkede svarte ved lenkesjekken {e(self.checked_at)}</span>"
+            if self.check_total
+            else ""
+        }</p>
+  <p class="foot-line">
+    <a href="{self.url("registry.json")}">registry.json</a>
+    <a href="{self.url("llms.txt")}">llms.txt</a>
+    <a href="{self.url("operations.json")}">operations.json</a>
+    <a href="{REPO}">kildekode (MIT)</a>
+    <a href="{self.url("personvern/")}">personvern</a>
+    <span>metadata fra <a href="https://data.norge.no/data-services">data.norge.no</a>, hvert API har egne vilkår</span>
+  </p>
+</div></footer>
 <script src="{self.url("assets/app.js")}" defer></script>
 </body>
 </html>
@@ -215,19 +265,19 @@ class Site:
         )
 
     def card_html(self, api: dict[str, Any]) -> str:
+        category = CATEGORIES.get(api.get("category") or "", "")
         return (
             '<article class="card">'
-            f'<h3 class="card__title"><a href="{self.url("api/" + api["id"] + "/")}">{e(api["title"])}</a></h3>'
+            + (f'<p class="card__cat">{e(category)}</p>' if category else "")
+            + f'<h3 class="card__title"><a href="{self.url("api/" + api["id"] + "/")}">{e(api["title"])}</a></h3>'
             f'<p class="card__provider">{e(api["provider"]["name"])}</p>'
-            f'<div class="card__badges">{self.badges_html(api, 2)}</div>'
             f'<p class="card__summary">{e(api.get("summary") or "")}</p>'
+            f'<div class="card__badges">{self.badges_html(api, 2)}</div>'
             "</article>"
         )
 
-    def code_figure(
-        self, label: str, code_html: str, *, light: bool = False, copy_id: str | None = None
-    ) -> str:
-        klass = "code code--light" if light else "code"
+    def code_figure(self, label: str, code_html: str, *, copy_id: str | None = None) -> str:
+        klass = "code"
         button = (
             f'<button class="copy" type="button" data-copy="#{copy_id}">Kopier</button>'
             if copy_id
@@ -236,7 +286,7 @@ class Site:
         pre_id = f' id="{copy_id}"' if copy_id else ""
         return (
             f'<figure class="{klass}"><figcaption><span>{e(label)}</span>{button}</figcaption>'
-            f"<pre{pre_id}>{code_html}</pre></figure>"
+            f'<pre{pre_id} tabindex="0">{code_html}</pre></figure>'
         )
 
     def breadcrumbs(self, trail: list[tuple[str, str | None]]) -> tuple[str, dict[str, Any]]:
@@ -257,6 +307,87 @@ class Site:
             "@type": "BreadcrumbList",
             "itemListElement": ld_items,
         }
+
+    def sec_head(self, number: str, title: str, aside: str = "", heading_id: str = "") -> str:
+        hid = f' id="{heading_id}"' if heading_id else ""
+        return (
+            f'<header class="sec-head"><span class="sec-head__n" aria-hidden="true">{number}</span>'
+            f"<h2{hid}>{e(title)}</h2>"
+            + (f'<div class="sec-head__aside">{aside}</div>' if aside else "")
+            + "</header>"
+        )
+
+    # ----- captured calls -----
+    def sample_status(self, sample: dict[str, Any]) -> str:
+        parts = [
+            f'<span class="console__code">{sample["status"]} {e(sample.get("reason") or "")}</span>',
+            f"<span>{sample['ms']} ms</span>",
+        ]
+        if sample.get("content_type"):
+            parts.append(f"<span>{e(sample['content_type'])}</span>")
+        parts.append(f"<span>{e(_bytes(sample.get('bytes', 0)))}</span>")
+        return "".join(parts)
+
+    def sample_note(self, sample: dict[str, Any]) -> str:
+        note = f"Svar fra det levende API-et, hentet {sample['captured_at'][:10]}"
+        return note + (". Forkortet: … viser hva som er utelatt." if sample.get("trimmed") else ".")
+
+    def sample_payload(self, sample: dict[str, Any]) -> dict[str, Any]:
+        api = self.by_id[sample["id"]]
+        return {
+            "id": sample["id"],
+            "href": self.url(f"api/{sample['id']}/"),
+            "title": api["title"],
+            "provider": api["provider"]["name"],
+            "label": sample.get("label") or api["title"],
+            "command": sample["command"],
+            "ms": sample["ms"],
+            "status": self.sample_status(sample),
+            "note": self.sample_note(sample),
+            "lines": [_highlight(line) for line in sample["lines"]],
+        }
+
+    def console_html(self) -> str:
+        """The front page instrument: one real call and its answer, the others one click away.
+        Server-rendered complete with the first call; app.js replays the rest."""
+        if not self.samples:
+            return ""
+        payload = [self.sample_payload(s) for s in self.samples]
+        first = payload[0]
+        lines = "".join(f'<span class="ln">{line}</span>' for line in first["lines"])
+        index = "".join(
+            f'<button class="console__tab" type="button" data-c-go="{i}" aria-pressed="{"true" if i == 0 else "false"}">'
+            f'<span class="console__tab-n">{i + 1:02d}</span><span class="console__tab-label">{e(p["label"])}</span></button>'
+            for i, p in enumerate(payload)
+        )
+        return f"""<section class="console ticked" aria-labelledby="console-h" data-console data-dynamic>
+    <h2 class="visually-hidden" id="console-h">Ekte kall mot API-er i registeret</h2>
+    <header class="console__head">
+      <p class="console__label"><span class="light light--ok" aria-hidden="true"></span><span>Kall <span data-c-n>01</span>/{len(payload):02d}</span></p>
+      <p class="console__api"><a href="{first["href"]}" data-c-link>{e(first["title"])}</a><span data-c-provider>{e(first["provider"])}</span></p>
+      <button class="console__toggle" type="button" data-c-toggle aria-pressed="false" hidden>{PAUSE_ICON}<span class="visually-hidden">Pause</span></button>
+    </header>
+    <div class="console__screen">
+      <p class="console__req"><span class="console__prompt" aria-hidden="true">$</span><code data-c-cmd>{e(first["command"])}</code></p>
+      <p class="console__status" data-c-status>{first["status"]}</p>
+      <pre class="console__resp"><code data-c-resp>{lines}</code></pre>
+    </div>
+    <p class="console__note" data-c-note>{e(first["note"])}</p>
+    <div class="console__index" role="group" aria-label="Velg kall">{index}</div>
+    <script type="application/json" id="console-data">{_jsonld({"calls": payload})}</script>
+  </section>"""
+
+    def sample_figure(self, api_id: str) -> str:
+        sample = self.samples_by_id.get(api_id)
+        if not sample:
+            return ""
+        lines = "".join(f'<span class="ln">{_highlight(line)}</span>' for line in sample["lines"])
+        return (
+            f'<figure class="code code--resp"><figcaption><span>svar</span>'
+            f'<span class="console__status">{self.sample_status(sample)}</span></figcaption>'
+            f'<pre tabindex="0"><code>{lines}</code></pre>'
+            f'<p class="code__note">{e(self.sample_note(sample))}</p></figure>'
+        )
 
     # ----- pages -----
     def page_index(self) -> str:
@@ -288,43 +419,71 @@ class Site:
             + nb_int(len(self.apis))
             + " API-er, én linje hver</span>",
         )
+        open_count = sum(1 for a in self.apis if a["access"] == "open")
+        stats = [
+            (nb_int(len(self.apis)), "API-er"),
+            (str(len(self.curated)), "håndplukket med eksempler"),
+            (nb_int(len(self.providers)), "leverandører"),
+            (nb_int(self.op_count), "endepunkter indeksert"),
+            (nb_int(open_count), "åpne uten avtale"),
+        ]
+        # thousands grouped by a narrow gap, not a full monospace space
+        thin = '<span class="thin"></span>'
+        stats_html = "".join(
+            f"<div><dt>{label}</dt><dd>{value.replace(' ', thin)}</dd></div>"
+            for value, label in stats
+        )
+        console = self.console_html()
+
+        def bars(rows: list[tuple[str, str, int]]) -> str:
+            top = max((n for _, _, n in rows), default=1) or 1
+            return "".join(
+                f'<li style="--v:{n / top:.3f}"><a href="{href}">{e(label)}</a>'
+                f'<span class="bar" aria-hidden="true"></span><span class="n">{n}</span></li>'
+                for href, label, n in rows
+            )
+
+        categories = [
+            (self.url("kategori/" + key + "/"), label, category_counts[key])
+            for key, label in CATEGORIES.items()
+            if category_counts.get(key)
+        ]
+        top_providers = [
+            (self.url("leverandor/" + p["slug"] + "/"), p["name"], len(p["apis"]))
+            for p in providers_sorted[:12]
+        ]
         body = f"""
 <main>
-<section class="wrap top">
-  <div class="top__lead">
-    <h1>Norske offentlige API-er, samlet og søkbare.</h1>
+<section class="wrap hero{" hero--console" if console else ""}" id="hero" aria-labelledby="hero-h">
+  <div class="hero__lead">
+    <p class="eyebrow"><span class="eyebrow__n">01</span><span>Register over norske offentlige API-er</span></p>
+    <h1 id="hero-h">Norske offentlige API-er, samlet og søkbare.</h1>
     <p class="lede">{nb_int(len(self.apis))} API-er fra Felles datakatalog og {
             len(self.curated)
         } håndplukkede med
       eksempler som kan kjøres. For utviklere i nettleseren, for KI-agenter gjennom MCP og <code>llms.txt</code>.</p>
     <form class="search" id="search-form" role="search" action="{self.url()}">
-      <label for="q">Søk etter API</label>
-      <div class="search__row"><input id="q" name="q" type="search" placeholder="kjøretøy, adresse, værvarsel …" autocomplete="off" spellcheck="false">
+      <label for="q">Søk etter API<span class="search__hint" aria-hidden="true">eller trykk <kbd>/</kbd></span></label>
+      <div class="search__row">{
+            SEARCH_ICON
+        }<input id="q" name="q" type="search" placeholder="kjøretøy, adresse, værvarsel …" autocomplete="off" spellcheck="false">
       <button class="btn btn--primary" type="submit">Søk</button></div>
       <p class="search__status" id="search-status" aria-live="polite"></p>
     </form>
-    <p class="try">Prøv {
-            " · ".join(
-                f'<a href="{self.url()}?q={e(t)}" data-try="{e(t)}">{e(t)}</a>' for t in tries
-            )
-        }. Trykk <kbd>/</kbd> for å søke.</p>
+    <p class="try"><span class="try__label">Prøv</span> {
+            " ".join(f'<a href="{self.url()}?q={e(t)}" data-try="{e(t)}">{e(t)}</a>' for t in tries)
+        }</p>
   </div>
-  <aside class="readout" aria-label="Registeret i tall">
-    <p class="readout__title">Registeret i tall</p>
-    <dl>
-      <div><dt>API-er</dt><dd>{nb_int(len(self.apis))}</dd></div>
-      <div><dt>Håndplukket med eksempler</dt><dd>{len(self.curated)}</dd></div>
-      <div><dt>Leverandører</dt><dd>{nb_int(len(self.providers))}</dd></div>
-      <div><dt>Endepunkter indeksert</dt><dd>{nb_int(self.op_count)}</dd></div>
-      <div><dt>Åpne uten avtale</dt><dd>{
-            nb_int(sum(1 for a in self.apis if a["access"] == "open"))
-        }</dd></div>
-      <div><dt>Generert</dt><dd>{e(self.generated)}</dd></div>
-    </dl>
-    <p class="readout__links"><a href="{self.url("registry.json")}">registry.json</a> · <a href="{
+  {console}
+</section>
+
+<section class="wrap spec" id="spec" aria-label="Registeret i tall">
+  <dl class="spec__grid">{stats_html}</dl>
+  <p class="spec__foot">Generert <time datetime="{e(self.generated)}">{
+            e(self.generated)
+        }</time> · <a href="{self.url("registry.json")}">registry.json</a> · <a href="{
             self.url("llms.txt")
         }">llms.txt</a> · <a href="{self.url("operations.json")}">operations.json</a></p>
-  </aside>
 </section>
 
 <section class="wrap results" id="results" hidden>
@@ -346,39 +505,38 @@ class Site:
 
 <div id="rails">
 <section class="wrap rail">
-  <header class="rail__head"><h2>Håndplukket</h2><a class="link" href="{
-            self.url()
-        }?source=curated" data-source-link>Alle {len(self.curated)} håndplukkede →</a></header>
+  {
+            self.sec_head(
+                "02",
+                "Håndplukket",
+                f'<a class="link" href="{self.url()}?source=curated" data-source-link>Alle {len(self.curated)} håndplukkede →</a>',
+            )
+        }
+  <p class="rail__intro">Skrevet for hånd: hva API-et gir deg, hvordan du får tilgang, og et kall som virker.</p>
   <div class="grid">{"".join(self.card_html(a) for a in featured)}</div>
 </section>
 
 <section class="wrap rail rail--split">
   <div>
-    <header class="rail__head"><h2>Etter kategori</h2><p>håndplukkede oppføringer</p></header>
-    <ul class="keyval">{
-            "".join(
-                f'<li><a href="{self.url("kategori/" + key + "/")}">{e(label)}</a><span class="n">{category_counts.get(key, 0)}</span></li>'
-                for key, label in CATEGORIES.items()
-                if category_counts.get(key)
-            )
-        }</ul>
+    {self.sec_head("03", "Etter kategori", "håndplukkede oppføringer")}
+    <ul class="keyval bars">{bars(categories)}</ul>
   </div>
   <div>
-    <header class="rail__head"><h2>Flest API-er</h2><a class="link" href="{
-            self.url("leverandorer/")
-        }">Alle leverandører →</a></header>
-    <ul class="keyval">{
-            "".join(
-                f'<li><a href="{self.url("leverandor/" + p["slug"] + "/")}">{e(p["name"])}</a><span class="n">{len(p["apis"])}</span></li>'
-                for p in providers_sorted[:12]
+    {
+            self.sec_head(
+                "04",
+                "Flest API-er",
+                f'<a class="link" href="{self.url("leverandorer/")}">Alle leverandører →</a>',
             )
-        }</ul>
+        }
+    <ul class="keyval bars">{bars(top_providers)}</ul>
   </div>
 </section>
 
-<section class="band"><div class="wrap band__inner">
-  <div>
-    <h2>For terminalen og for agenter</h2>
+<section class="band"><div class="wrap">
+  {self.sec_head("05", "For terminalen og for agenter")}
+  <div class="band__inner">
+  <div class="band__copy">
     <p>Samme register, tre innganger: en CLI som søker lokalt, en MCP-server som gir en KI-assistent
       verktøyene <code>search_apis</code> og <code>search_operations</code>, og en tekstfil som kan limes rett inn i en prompt.</p>
     <p><a class="link" href="{
@@ -386,10 +544,11 @@ class Site:
         }#for-ai-assistants">Oppsett for Claude Code og andre MCP-klienter →</a></p>
   </div>
   {terminal}
+  </div>
 </div></section>
 
 <section class="wrap rail">
-  <header class="rail__head"><h2>Sist endret i Felles datakatalog</h2><p>etatenes egne oppdateringer</p></header>
+  {self.sec_head("06", "Sist endret i Felles datakatalog", "etatenes egne oppdateringer")}
   <ol class="list">{
             "".join(self.row_html(a, note=f"endret {a['modified'][:10]}") for a in latest)
         }</ol>
@@ -552,11 +711,17 @@ class Site:
                     verdict = {"ok": "ok", "answers": "svarer", "missing": "mangler"}.get(
                         probe.get("verdict"), ""
                     )
+                    light = {"ok": "ok", "answers": "warn"}.get(probe.get("verdict"), "bad")
+                    text = f"{label} {probe.get('status') or probe.get('error')} {verdict}".strip()
                     bits.append(
-                        f"{label} {probe.get('status') or probe.get('error')} {verdict}".strip()
+                        f'<li><span class="light light--{light}" aria-hidden="true"></span>'
+                        f"{e(text)}</li>"
                     )
             if bits:
-                check_note = f'<p class="facts__note">Lenkesjekk {e(checks.get("checked_at", "")[:10])}: {e(" · ".join(bits))}</p>'
+                check_note = (
+                    f'<div class="checks"><p class="checks__title">Lenkesjekk {e(checks.get("checked_at", "")[:10])}</p>'
+                    f'<ul class="checks__list">{"".join(bits)}</ul></div>'
+                )
 
         issue_title = f"Rettelse: {api['title']} ({api['id']})"
         edit_link = ""
@@ -589,8 +754,9 @@ class Site:
             sections.append(
                 "<section><h2>Kom i gang</h2>"
                 + self.code_figure(
-                    "kjør dette", e(api["quick_start"].strip()), light=True, copy_id="quickstart"
+                    "kjør dette", e(api["quick_start"].strip()), copy_id="quickstart"
                 )
+                + self.sample_figure(api["id"])
                 + "</section>"
             )
         ops = self.ops_by_api.get(api["id"], [])
@@ -612,13 +778,14 @@ class Site:
 <main class="wrap page">
 {crumbs}
 <header class="api-head">
+  <p class="eyebrow"><span class="eyebrow__n">API</span><span class="mono">{e(api["id"])}</span></p>
   <h1>{e(api["title"])}</h1>
   <p class="api-head__provider">Levert av <a href="{self.url("leverandor/" + pslug + "/")}">{e(provider["name"])}</a>{f' <span class="mono">· org.nr. {e(provider["orgnr"])}</span>' if provider.get("orgnr") else ""}</p>
   <div class="badges">{self.badges_html(api, 4)}</div>
   <p class="lede">{e(lede_text)}</p>
 </header>
 <div class="api-body">
-  <aside class="api-facts"><h2 class="visually-hidden">Fakta</h2><dl class="facts">{facts_html}</dl>{check_note}{actions}</aside>
+  <aside class="api-facts"><h2 class="visually-hidden">Fakta</h2><div class="facts-box ticked"><dl class="facts">{facts_html}</dl>{check_note}</div>{actions}</aside>
   <div class="api-main">{"".join(sections)}</div>
 </div>
 </main>
@@ -688,7 +855,7 @@ class Site:
         body = f"""
 <main class="wrap page">
 {crumbs}
-<header class="head-hang"><h1>{e(provider["name"])}</h1><p class="meta">{e(" · ".join(meta))}</p></header>
+<header class="head-hang"><p class="eyebrow"><span class="eyebrow__n">Leverandør</span></p><h1>{e(provider["name"])}</h1><p class="meta">{e(" · ".join(meta))}</p></header>
 <ol class="list">{"".join(self.row_html(a) for a in apis)}</ol>
 </main>
 """
@@ -727,7 +894,7 @@ class Site:
         body = f"""
 <main class="wrap page">
 {crumbs}
-<header class="head-hang"><h1>Leverandører</h1><p class="meta">{len(providers)} organisasjoner · sortert etter antall API-er</p></header>
+<header class="head-hang"><p class="eyebrow"><span class="eyebrow__n">Register</span><span>Alle organisasjoner med API-er</span></p><h1>Leverandører</h1><p class="meta">{len(providers)} organisasjoner · sortert etter antall API-er</p></header>
 <div class="columns">{col(providers[:half])}{col(providers[half:])}</div>
 </main>
 """
@@ -745,7 +912,7 @@ class Site:
         body = f"""
 <main class="wrap page">
 {crumbs}
-<header class="head-hang"><h1>{e(label)}</h1><p class="meta">{len(apis)} håndplukkede API-er i kategorien</p></header>
+<header class="head-hang"><p class="eyebrow"><span class="eyebrow__n">Kategori</span></p><h1>{e(label)}</h1><p class="meta">{len(apis)} håndplukkede API-er i kategorien</p></header>
 <ol class="list">{"".join(self.row_html(a) for a in sorted(apis, key=lambda a: a["title"]))}</ol>
 </main>
 """
@@ -787,7 +954,7 @@ med API-ets id, så du bare trenger å skrive hva som er galt: død lenke, feil 
 <h2>3. Send en pull request</h2>
 <p>Håndplukkede oppføringer er én YAML-fil per leverandør i <code>registry/curated/</code>. Legg til et API slik,
 kjør <code>uv run norapi build</code> og <code>uv run norapi check --curated-only</code>, og åpne en pull request.</p>
-<pre>{example}</pre>
+<pre tabindex="0">{example}</pre>
 <p>Feltene <code>access</code> (open, restricted, non-public, unknown) og <code>auth</code> (none, api-key, maskinporten,
 id-porten, oauth2, unknown) er faste verdier. <code>quick_start</code> skal være et kall som svarer uten avtale,
 eller tydelig si hva som trengs. Finnes API-et allerede i Felles datakatalog, matcher vi på endepunkt eller
@@ -831,7 +998,8 @@ Søket kjører i nettleseren din mot en nedlastet indeksfil, så søkeordene din
 <ul>
 <li>Siden ligger på GitHub Pages. GitHub logger IP-adresse og forespørsler for drift, etter
 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHubs personvernerklæring</a>.</li>
-<li>Skrifttypene hentes fra Google Fonts. Google ser forespørselen om skriftfilen, ikke hva du søker på.</li>
+<li>Skrifttypene (Geist og Geist Mono, SIL Open Font License) ligger på samme server som siden. Ingen tredjepart får vite at du besøker den.</li>
+<li>Temavalget (lyst eller mørkt) lagres i nettleseren din hvis du bytter det, og sendes ingen steder.</li>
 <li>Lenker til dokumentasjon og endepunkter går til leverandørenes egne nettsteder, med deres vilkår.</li>
 </ul>
 <h2>Innhold om personer</h2>
@@ -919,6 +1087,51 @@ Bidrag via GitHub følger GitHubs regler, og navnet ditt vises der du selv har v
         return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{entries}</urlset>\n'
 
 
+def _answers(checks: dict[str, Any]) -> bool:
+    """Did the entry's endpoint (or, without one, its documentation) answer at the last check?"""
+    probe = checks.get("endpoint") or checks.get("docs_url") or {}
+    return isinstance(probe, dict) and probe.get("verdict") in ("ok", "answers")
+
+
+def _bytes(n: int) -> str:
+    if n < 1000:
+        return f"{n} B"
+    return f"{n / 1000:.1f} kB".replace(".", ",")
+
+
+_JSON_TOKEN = re.compile(
+    r'(?P<str>"(?:[^"\\]|\\.)*")(?P<colon>\s*:)?'
+    r"|(?P<num>-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)"
+    r"|(?P<lit>\b(?:true|false|null)\b)"
+    r"|(?P<trim>…(?: \d+ (?:felt )?til)?)"
+    r"|(?P<punct>[{}\[\],])"
+)
+
+
+def _highlight(line: str) -> str:
+    """Escape one line of the trimmed JSON and wrap its tokens for colour. Plain text passes through."""
+    out: list[str] = []
+    pos = 0
+    for m in _JSON_TOKEN.finditer(line):
+        out.append(e(line[pos : m.start()]))
+        if m.group("str") is not None:
+            if m.group("colon") is not None:
+                out.append(f'<span class="k">{e(m.group("str"))}</span>{e(m.group("colon"))}')
+            else:
+                out.append(f'<span class="s">{e(m.group("str"))}</span>')
+        elif m.group("num") is not None:
+            out.append(f'<span class="n">{e(m.group("num"))}</span>')
+        elif m.group("lit") is not None:
+            out.append(f'<span class="l">{e(m.group("lit"))}</span>')
+        elif m.group("trim") is not None:
+            out.append(f'<span class="t">{e(m.group("trim"))}</span>')
+        else:
+            out.append(f'<span class="p">{e(m.group("punct"))}</span>')
+        pos = m.end()
+    out.append(e(line[pos:]))
+    return "".join(out)
+
+
 def _link_label(url: str) -> str:
     """A label that reads: the host, plus the path only while the whole thing stays short."""
     from urllib.parse import urlparse
@@ -955,7 +1168,13 @@ def generate_site(registry_dir: Path, out_dir: Path, base_url: str) -> int:
         if operations_file.exists()
         else []
     )
-    site = Site(registry, operations, base_url)
+    samples_file = registry_dir / "samples.json"
+    samples = (
+        json.loads(samples_file.read_text(encoding="utf-8")).get("samples", [])
+        if samples_file.exists()
+        else []
+    )
+    site = Site(registry, operations, base_url, samples)
 
     if out_dir.exists():
         shutil.rmtree(out_dir)
@@ -1000,14 +1219,14 @@ def generate_site(registry_dir: Path, out_dir: Path, base_url: str) -> int:
     put("ops-index.json", json.dumps(site.ops_index(), ensure_ascii=False, separators=(",", ":")))
     put(".nojekyll", "")
 
-    for name in ("registry.json", "llms.txt", "operations.json", "specs.json"):
+    for name in ("registry.json", "llms.txt", "operations.json", "specs.json", "samples.json"):
         source = registry_dir / name
         if source.exists():
             shutil.copy(source, out_dir / name)
             written += 1
     assets_out = out_dir / "assets"
     shutil.copytree(ASSETS, assets_out)
-    written += len(list(assets_out.iterdir()))
+    written += sum(1 for f in assets_out.rglob("*") if f.is_file())
     (out_dir / "generated.json").write_text(
         json.dumps(
             {"generated_at": datetime.now(UTC).isoformat(timespec="seconds"), "pages": len(paths)}
