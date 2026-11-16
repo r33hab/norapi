@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-11-10T09:36:38+00:00",
-"count": 2199,
+"generated_at": "2026-11-16T12:46:25+00:00",
+"count": 2224,
 "operations": [
 {
 "api_id": "artsdatabanken-nortaxa",
@@ -3065,6 +3065,42 @@
 {
 "api_id": "hkdir-utdanning-no",
 "method": "GET",
+"path": "/finnlarebedrift/statistikk/virksomheter",
+"summary": "Statlige etater, fylkeskommuner eller kommuner med årsverk og lærlinger",
+"description": "Gir alle virksomheter av valgt type, med egne tall og tall summert over alle underliggende enheter. Brukes av fanene stat, fylke og kommune på Lærlinger i Norge.",
+"tags": [
+"Finnlarebedrift"
+],
+"operation_id": "Finnlarebedrift___get_statistikk_virksomheter",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/finnlarebedrift/statistikk/naringer",
+"summary": "Årsverk og lærlinger per næring",
+"description": "Summerer årsverk og lærlinger per næringskode (inkludert underliggende næringskoder), eventuelt per valgt sted. Uten naringskode gis alle næringer på øverste nivå.",
+"tags": [
+"Finnlarebedrift"
+],
+"operation_id": "Finnlarebedrift___get_statistikk_naringer",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
+"path": "/finnlarebedrift/statistikk/larlingtetthet",
+"summary": "Lærlingtetthet per fylke eller kommune",
+"description": "Uten sted gis tall per fylke. Med sted gis tall per kommune i de valgte fylkene/kommunene. Med fag summeres kun årsverk og lærlinger i de valgte fagene. Uten fag telles kun årsverk i yrker som er knyttet til et lærefag.",
+"tags": [
+"Finnlarebedrift"
+],
+"operation_id": "Finnlarebedrift___get_statistikk_larlingtetthet",
+"deprecated": false
+},
+{
+"api_id": "hkdir-utdanning-no",
+"method": "GET",
 "path": "/interesseside/interesser",
 "summary": "Get Interesser",
 "description": null,
@@ -3198,8 +3234,8 @@
 "api_id": "hkdir-utdanning-no",
 "method": "GET",
 "path": "/kategorisystemer/styrk08",
-"summary": "Gir en oversikt over styrk08 koder, og tilhørende yrker",
-"description": null,
+"summary": "Gir en oversikt over styrk08 koder og tilhørende yrker",
+"description": "Kalles endepunktet uten noen parameter satt får du ut alle Styrk08 koder og tilhørende yrker. Hvis `styrk08` parameteren settes, vil du kun få ut de Styrk08 koder som matcher filteret. Støtter også wildcard `*`, se eksempler",
 "tags": [
 "Kategorisystemer"
 ],
@@ -3228,7 +3264,7 @@
 "Legacy-Lopet"
 ],
 "operation_id": "Legacy-Lopet___get_lopet",
-"deprecated": false
+"deprecated": true
 },
 {
 "api_id": "hkdir-utdanning-no",
@@ -3240,7 +3276,7 @@
 "Legacy-Lopet"
 ],
 "operation_id": "Legacy-Lopet___get_program",
-"deprecated": false
+"deprecated": true
 },
 {
 "api_id": "hkdir-utdanning-no",
@@ -3252,7 +3288,7 @@
 "Legacy-Lopet"
 ],
 "operation_id": "Legacy-Lopet___get_sted",
-"deprecated": false
+"deprecated": true
 },
 {
 "api_id": "hkdir-utdanning-no",
@@ -3264,7 +3300,7 @@
 "Legacy-Lopet"
 ],
 "operation_id": "Legacy-Lopet___get_utdanningsprogram",
-"deprecated": false
+"deprecated": true
 },
 {
 "api_id": "hkdir-utdanning-no",
@@ -4578,270 +4614,6 @@
 {
 "api_id": "kartverket-havnedata-ogcapi",
 "method": "GET",
-"path": "/collections/administrativthavneomrade/items",
-"summary": "retrieve features in the feature collection 'administrativthavneomrade'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "administrativthavneomrade.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/avfallspunkt/items",
-"summary": "retrieve features in the feature collection 'avfallspunkt'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "avfallspunkt.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/beredskapspunkt/items",
-"summary": "retrieve features in the feature collection 'beredskapspunkt'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "beredskapspunkt.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/drivstofftilkobling/items",
-"summary": "retrieve features in the feature collection 'drivstofftilkobling'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "drivstofftilkobling.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/elkobling/items",
-"summary": "retrieve features in the feature collection 'elkobling'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "elkobling.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/fartsrestriksjoner/items",
-"summary": "retrieve features in the feature collection 'fartsrestriksjoner'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "fartsrestriksjoner.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/fartsrestriksjonergrense/items",
-"summary": "retrieve features in the feature collection 'fartsrestriksjonergrense'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "fartsrestriksjonergrense.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/fender/items",
-"summary": "retrieve features in the feature collection 'fender'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "fender.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/flytedokk/items",
-"summary": "retrieve features in the feature collection 'flytedokk'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "flytedokk.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/forbudsomrade/items",
-"summary": "retrieve features in the feature collection 'forbudsomrade'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "forbudsomrade.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/forbudsomradegrense/items",
-"summary": "retrieve features in the feature collection 'forbudsomradegrense'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "forbudsomradegrense.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/fortoyningsinnretning/items",
-"summary": "retrieve features in the feature collection 'fortoyningsinnretning'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "fortoyningsinnretning.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/havneomrade/items",
-"summary": "retrieve features in the feature collection 'havneomrade'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "havneomrade.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/havnesensor/items",
-"summary": "retrieve features in the feature collection 'havnesensor'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "havnesensor.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/kaifront/items",
-"summary": "retrieve features in the feature collection 'kaifront'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "kaifront.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/kaiomrade/items",
-"summary": "retrieve features in the feature collection 'kaiomrade'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "kaiomrade.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/kaiomradegrense/items",
-"summary": "retrieve features in the feature collection 'kaiomradegrense'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "kaiomradegrense.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/kran/items",
-"summary": "retrieve features in the feature collection 'kran'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "kran.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/lastelosseutstyr/items",
-"summary": "retrieve features in the feature collection 'lastelosseutstyr'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "lastelosseutstyr.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/slipp/items",
-"summary": "retrieve features in the feature collection 'slipp'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "slipp.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/toalett/items",
-"summary": "retrieve features in the feature collection 'toalett'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "toalett.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
-"path": "/collections/vauttak/items",
-"summary": "retrieve features in the feature collection 'vauttak'",
-"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
-"tags": [
-"Access data"
-],
-"operation_id": "vauttak.getItems",
-"deprecated": false
-},
-{
-"api_id": "kartverket-havnedata-ogcapi",
-"method": "GET",
 "path": "/collections/administrativthavneomrade/items/{featureId}",
 "summary": "retrieve a feature in the feature collection 'administrativthavneomrade'",
 "description": "Fetch the feature with id `{featureId}`.",
@@ -5101,6 +4873,270 @@
 "Access data"
 ],
 "operation_id": "vauttak.getItem",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/administrativthavneomrade/items",
+"summary": "retrieve features in the feature collection 'administrativthavneomrade'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "administrativthavneomrade.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/avfallspunkt/items",
+"summary": "retrieve features in the feature collection 'avfallspunkt'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "avfallspunkt.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/beredskapspunkt/items",
+"summary": "retrieve features in the feature collection 'beredskapspunkt'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "beredskapspunkt.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/drivstofftilkobling/items",
+"summary": "retrieve features in the feature collection 'drivstofftilkobling'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "drivstofftilkobling.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/elkobling/items",
+"summary": "retrieve features in the feature collection 'elkobling'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "elkobling.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fartsrestriksjoner/items",
+"summary": "retrieve features in the feature collection 'fartsrestriksjoner'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "fartsrestriksjoner.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fartsrestriksjonergrense/items",
+"summary": "retrieve features in the feature collection 'fartsrestriksjonergrense'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "fartsrestriksjonergrense.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fender/items",
+"summary": "retrieve features in the feature collection 'fender'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "fender.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/flytedokk/items",
+"summary": "retrieve features in the feature collection 'flytedokk'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "flytedokk.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/forbudsomrade/items",
+"summary": "retrieve features in the feature collection 'forbudsomrade'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "forbudsomrade.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/forbudsomradegrense/items",
+"summary": "retrieve features in the feature collection 'forbudsomradegrense'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "forbudsomradegrense.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/fortoyningsinnretning/items",
+"summary": "retrieve features in the feature collection 'fortoyningsinnretning'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "fortoyningsinnretning.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/havneomrade/items",
+"summary": "retrieve features in the feature collection 'havneomrade'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "havneomrade.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/havnesensor/items",
+"summary": "retrieve features in the feature collection 'havnesensor'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "havnesensor.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaifront/items",
+"summary": "retrieve features in the feature collection 'kaifront'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "kaifront.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaiomrade/items",
+"summary": "retrieve features in the feature collection 'kaiomrade'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "kaiomrade.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kaiomradegrense/items",
+"summary": "retrieve features in the feature collection 'kaiomradegrense'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "kaiomradegrense.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/kran/items",
+"summary": "retrieve features in the feature collection 'kran'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "kran.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/lastelosseutstyr/items",
+"summary": "retrieve features in the feature collection 'lastelosseutstyr'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "lastelosseutstyr.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/slipp/items",
+"summary": "retrieve features in the feature collection 'slipp'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "slipp.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/toalett/items",
+"summary": "retrieve features in the feature collection 'toalett'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "toalett.getItems",
+"deprecated": false
+},
+{
+"api_id": "kartverket-havnedata-ogcapi",
+"method": "GET",
+"path": "/collections/vauttak/items",
+"summary": "retrieve features in the feature collection 'vauttak'",
+"description": "The response is a document consisting of features in the collection. The features included in the response are determined by the server based on the query parameters of the request. To support access to larger collections without overloadin",
+"tags": [
+"Access data"
+],
+"operation_id": "vauttak.getItems",
 "deprecated": false
 },
 {
@@ -5454,6 +5490,18 @@
 {
 "api_id": "geonorge-register",
 "method": "GET",
+"path": "/api/{parentregister}/{register}.{ext}",
+"summary": "Gets subregister by name",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_GetSubregisterByName",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
 "path": "/api/{registerName}",
 "summary": "Gets register by name",
 "description": null,
@@ -5473,6 +5521,30 @@
 "ApiRoot"
 ],
 "operation_id": "ApiRoot_GetRegisterItemByName",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/{registerName}/report/{id}",
+"summary": "Gets selected status report",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_StatusReport",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/{registerName}/report/{id}.{ext}",
+"summary": "Gets selected status report",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_StatusReport",
 "deprecated": false
 },
 {
@@ -5513,6 +5585,18 @@
 },
 {
 "api_id": "geonorge-register",
+"method": "PUT",
+"path": "/api/AlertApi/{id}",
+"summary": "Update alert",
+"description": null,
+"tags": [
+"AlertApi"
+],
+"operation_id": "AlertApi_Put_ServiceAlert",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
 "method": "GET",
 "path": "/api/alerts",
 "summary": "Get all alerts",
@@ -5533,6 +5617,18 @@
 "AlertApi"
 ],
 "operation_id": "AlertApi_GetUuid",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/ApiRoot",
+"summary": "Gets subregister by id",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_GetRegisterById",
 "deprecated": false
 },
 {
@@ -5598,18 +5694,6 @@
 {
 "api_id": "geonorge-register",
 "method": "GET",
-"path": "/api/OrganizationsApi",
-"summary": "Get  municipality by kommunenummer",
-"description": null,
-"tags": [
-"OrganizationsApi"
-],
-"operation_id": "OrganizationsApi_GetOrganizationsByCodeV2",
-"deprecated": false
-},
-{
-"api_id": "geonorge-register",
-"method": "GET",
 "path": "/api/register",
 "summary": "List top level registers. Use id in response to navigate.",
 "description": null,
@@ -5629,6 +5713,30 @@
 "ApiRoot"
 ],
 "operation_id": "ApiRoot_GetRegisterItemsByOrganization",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/register/{registerName}/report/{id}",
+"summary": "Gets selected status report",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_StatusReport",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/register/{registerName}/report/{id}.{ext}",
+"summary": "Gets selected status report",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_StatusReport",
 "deprecated": false
 },
 {
@@ -5682,6 +5790,30 @@
 {
 "api_id": "geonorge-register",
 "method": "GET",
+"path": "/api/subregister/{parentregister}/{parentregisterOwner}/{register}",
+"summary": "Gets subregister by name",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_GetSubregisterByName",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
+"path": "/api/subregister/{parentregister}/{parentregisterOwner}/{register}.{ext}",
+"summary": "Gets subregister by name",
+"description": null,
+"tags": [
+"ApiRoot"
+],
+"operation_id": "ApiRoot_GetSubregisterByName",
+"deprecated": false
+},
+{
+"api_id": "geonorge-register",
+"method": "GET",
 "path": "/api/v2/organisasjon/navn/{name}",
 "summary": "Get organization by name",
 "description": null,
@@ -5730,6 +5862,18 @@
 {
 "api_id": "kystverket-kystdatahuset",
 "method": "POST",
+"path": "/api/ai/dashboard-draft",
+"summary": "(Auth policies: HeaderOrJwt)",
+"description": null,
+"tags": [
+"DashboardDraft"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
 "path": "/api/ais_shipreg/statinfo/for-mmsis-time",
 "summary": null,
 "description": null,
@@ -5744,7 +5888,7 @@
 "method": "POST",
 "path": "/api/ais/positions/before-after",
 "summary": "Get the preceding and following AIS position message for a ship on a given date",
-"description": null,
+"description": "**Migration notes:** since 2026-11: Positions are now derived from AIS tracks instead of individual AIS messages. Tracks older than about one month are simplified to at most one position per 30 seconds per ship, so expect fewer positions. n",
 "tags": [
 "Ais"
 ],
@@ -5756,7 +5900,7 @@
 "method": "POST",
 "path": "/api/ais/positions/for-mmsi-date",
 "summary": "Get all position for a ship identified by its MMSI on a given date",
-"description": null,
+"description": "**Migration notes:** since 2026-11: Positions are now derived from AIS tracks instead of individual AIS messages. Tracks older than about one month are simplified to at most one position per 30 seconds per ship, so expect fewer positions. n",
 "tags": [
 "Ais"
 ],
@@ -5768,7 +5912,7 @@
 "method": "POST",
 "path": "/api/ais/positions/for-mmsis-time",
 "summary": "HttpPost web service to retrieve AIS positions by supplying a set of\r\nMMSI ids and a time span",
-"description": null,
+"description": "**Migration notes:** since 2026-11: Positions are now derived from AIS tracks instead of individual AIS messages. Tracks older than about one month are simplified to at most one position per 30 seconds per ship, so expect fewer positions pe",
 "tags": [
 "Ais"
 ],
@@ -5780,7 +5924,7 @@
 "method": "POST",
 "path": "/api/ais/positions/within-bbox-time",
 "summary": "HttpPost web service to retrieve AIS positions by supplying a BBox and a time span",
-"description": "This web service queries the original GeoAisDB PostgreSQL servers in sequence before returning a response. Queries can be quite slow, particularly when involving several servers as many connections have to be made to many tables",
+"description": "The positions are calculated from the vertices of AIS tracks (MarTraf and the realtime tracks), see the X-Migration-Notes response header. Data exist from 2016-01-01. Queries that span many days or a large area can be slow. **Migration note",
 "tags": [
 "Ais"
 ],
@@ -5792,7 +5936,7 @@
 "method": "POST",
 "path": "/api/ais/positions/within-geom-time",
 "summary": "HttpPost web service to retrieve AIS positions by supplying a BBox and a time span",
-"description": "This web service queries the original GeoAisDB PostgreSQL servers in sequence before returning a response. Queries that spans several days can be quite slow, queries spanning several years are likely to fail",
+"description": "The positions are calculated from the vertices of AIS tracks (MarTraf and the realtime tracks), see the X-Migration-Notes response header. Data exist from 2016-01-01. Queries that span many days or a large area can be slow. **Migration note",
 "tags": [
 "Ais"
 ],
@@ -5923,20 +6067,8 @@
 "api_id": "kystverket-kystdatahuset",
 "method": "POST",
 "path": "/api/ais/statinfo/ships/free-text-time",
-"summary": "Search for mmsis from AIS static information messages within a time span, limited to 5 days due to need to traverse multiple tables",
-"description": null,
-"tags": [
-"Ais"
-],
-"operation_id": null,
-"deprecated": false
-},
-{
-"api_id": "kystverket-kystdatahuset",
-"method": "POST",
-"path": "/api/ais/yearly-stats/{fromYear}/{toYear}",
-"summary": "Load annual message statistics for Kystverkets AIS database",
-"description": null,
+"summary": "Search for ships (MMSI, IMO, callsign and name) in the combined ship register for ships that existed within a time span.\r\nThe time span is limited, see Properties:ShipSearchMaxDays (default 90 days)",
+"description": "**Migration notes:** since 2026-11: The search now reads the combined ship register in the Kystdatahuset database instead of the static AIS messages of the GeoAISDB servers. Ships are found by IMO, callsign and name if they held the MMSI in",
 "tags": [
 "Ais"
 ],
@@ -6401,6 +6533,18 @@
 },
 {
 "api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/martraf-tracks/coverage",
+"summary": "Return the time period covered by the MarTraf tracks (UTC) (Auth)",
+"description": "lastTime is the latest track start time, i.e. MarTraf has no data after this time. Used by clients to decide between MarTraf and the realtime tracks (api/realtime-tracks/within-geom-time).",
+"tags": [
+"MarTraf"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
 "method": "POST",
 "path": "/api/martraf-tracks/intersects-line",
 "summary": "Return MarTraf tracks intersecting a user specified line (i.e. a passline) within a given time period.\r\nSame response format as api/tracks/intersects-line (Auth)",
@@ -6491,6 +6635,78 @@
 "description": null,
 "tags": [
 "MyData"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/mydata/dashboard-shares",
+"summary": "Share one of the caller's dashboards with a user. The rules are applied again here: the result of\r\nM:KDataAPI3.Controllers.DashboardSharesController.Resolve(KDataAPI3.Models.RequestModels.ResolveShareRecipientRequest) is not trusted. (Auth)",
+"description": null,
+"tags": [
+"DashboardShares"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/mydata/dashboard-shares/by-me/{entityUuid}",
+"summary": "Who one of the caller's dashboards is shared with (Auth)",
+"description": null,
+"tags": [
+"DashboardShares"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/mydata/dashboard-shares/{entityUuid}",
+"summary": "A dashboard shared with the caller, with its configuration. Not found, for every reason: there is no\r\nshare, it was withdrawn, the dashboard was deleted, or the caller's level is no longer enough. (Auth)",
+"description": null,
+"tags": [
+"DashboardShares"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "DELETE",
+"path": "/api/mydata/dashboard-shares/{entityUuid}/{granteeId}",
+"summary": "Withdraw a share (Auth)",
+"description": null,
+"tags": [
+"DashboardShares"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/mydata/dashboard-shares/resolve",
+"summary": "Looks a user up by their exact email address to find out whether the caller's dashboard can be shared with\r\nthem. There is no search and no completion: the caller has to know the address. Whatever the reason a\r\ndashboard cannot be shared with the user, the answer is the same. (Auth)",
+"description": null,
+"tags": [
+"DashboardShares"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "GET",
+"path": "/api/mydata/dashboard-shares/with-me",
+"summary": "The dashboards shared with the caller that the caller may still open (Auth)",
+"description": null,
+"tags": [
+"DashboardShares"
 ],
 "operation_id": null,
 "deprecated": false
@@ -6956,7 +7172,7 @@
 "method": "POST",
 "path": "/api/ship/free-text",
 "summary": "Get a key value representation of ships based on a free-text\r\nquery parameter",
-"description": "The free text query is matched against shipname, mmsi and imo number fields",
+"description": "The free text query is matched against shipname, mmsi and imo number fields **Migration notes:** This endpoint uses a free-text search on the 'doc' field in the 'nsr.shipdata' table.",
 "tags": [
 "Ship"
 ],
@@ -7648,16 +7864,6 @@
 "deprecated": false
 },
 {
-"api_id": "kystverket-navigasjonsvarsler",
-"method": "GET",
-"path": "/data/dadjokes",
-"summary": "Dadjoke",
-"description": "Return a delicious pun to brighten your day.",
-"tags": [],
-"operation_id": "dadjoke_data_dadjokes_get",
-"deprecated": false
-},
-{
 "api_id": "hjorteviltregisteret-fallvilt",
 "method": "GET",
 "path": "/api/v0/fallvilt",
@@ -8344,9 +8550,9 @@
 {
 "api_id": "lovdata-public-data",
 "method": "POST",
-"path": "/v2/ai/selectionList/generateResponse",
-"summary": "Generate a list of LLM responses for a chat over document sections from a selection list",
-"description": "Generates text using selection-list-specific prompts for a fixed document collection.",
+"path": "/v2/ai/baseSearch",
+"summary": "Search explicitly selected bases",
+"description": "Searches only the explicitly selected Lovdata bases. No automatic routing or fallback to other bases is performed. Send a required **JSON request body** (`Content-Type: application/json`). This endpoint has no query or path parameters. | Fi",
 "tags": [
 "AI functionality"
 ],
@@ -8358,7 +8564,7 @@
 "method": "GET",
 "path": "/v1/ai/strategySearch",
 "summary": "Search using a specified strategy, given a text query",
-"description": "Using the POST endpoint ensures that no content will be logged or saved on our servers.",
+"description": "Returns ranked document sections. GET accepts query parameters; POST accepts an `application/x-www-form-urlencoded` body. Use `text` for the query and `HyDE` for the preprocessing flag (defaults to true). Optional, case-sensitive `strategy`",
 "tags": [
 "AI functionality"
 ],
@@ -8370,7 +8576,7 @@
 "method": "POST",
 "path": "/v1/ai/strategySearch",
 "summary": "Search using a specified strategy, given a text query",
-"description": "Using the POST endpoint ensures that no content will be logged or saved on our servers.",
+"description": "Returns ranked document sections. GET accepts query parameters; POST accepts an `application/x-www-form-urlencoded` body. Use `text` for the query and `HyDE` for the preprocessing flag (defaults to true). Optional, case-sensitive `strategy`",
 "tags": [
 "AI functionality"
 ],
@@ -8406,7 +8612,7 @@
 "method": "GET",
 "path": "/vocabulary/legalSources",
 "summary": "List all legal sources (bases)",
-"description": "Returns a list of all legal sources (bases) available in the system.",
+"description": "Returns all concrete bases and base groups (samlevalg). Each entry has an id, description, isGroup flag and bases array containing its expanded concrete base codes. Concrete bases list their own ID. Group codes can be passed directly to /v2",
 "tags": [
 "Vocabularies"
 ],
@@ -13225,7 +13431,7 @@
 "method": "GET",
 "path": "/approval/{approvalId}",
 "summary": "Get Approval",
-"description": "Get approval by ID",
+"description": "Get approval by ID. JSON responses carry an `ETag`; send it back in `If-None-Match` to get `304 Not Modified` when the approval is unchanged. HTML responses carry no `ETag`.",
 "tags": [
 "NVA Approval API"
 ],
@@ -13320,12 +13526,12 @@
 "api_id": "sikt-nva",
 "method": "GET",
 "path": "/approval/",
-"summary": "Get Approval by handle or named identifier",
-"description": "Get approval by handle or named identifier (name+value). **Query Parameters:** - Use `handle` parameter to fetch by Handle URI (must be URL-encoded) - Use `name` AND `value` parameters together to fetch by named identifier **Important:** Sp",
+"summary": "Search approvals",
+"description": "Search approvals",
 "tags": [
 "NVA Approval API"
 ],
-"operation_id": "getApprovalByQuery",
+"operation_id": "searchApprovals",
 "deprecated": false
 },
 {
@@ -14905,7 +15111,7 @@
 "method": "POST",
 "path": "/api/v1/serviceowner/dialogs/{dialogId}/activities",
 "summary": "Adds an activity to a dialog's activity history",
-"description": "The activity is created with the given configuration. Optimistic concurrency control is implemented using the If-Match header. Supply the Revision value from the GetDialog endpoint to ensure that the dialog is not modified/deleted by anothe",
+"description": "The activity is created with the given configuration. Creating an activity does not count as a content change, so it leaves the end user's system labels untouched; a dialog in 'Bin' or 'Archive' stays there. Optimistic concurrency control i",
 "tags": [
 "Serviceowner"
 ],
@@ -15013,7 +15219,7 @@
 "method": "PUT",
 "path": "/api/v1/serviceowner/dialogs/{dialogId}",
 "summary": "Replaces a dialog",
-"description": "Replaces a given dialog with the supplied model. Optimistic concurrency control is implemented using the If-Match header. Supply the Revision value from the GetDialog endpoint to ensure that the dialog is not modified/deleted by another req",
+"description": "Replaces a given dialog with the supplied model. If the update changes the dialog's content (transmissions, content, attachments, GUI/API actions, status or extended status), any end user system label of 'Bin' or 'Archive' is reset to 'Defa",
 "tags": [
 "Serviceowner"
 ],
@@ -15541,7 +15747,7 @@
 "method": "GET",
 "path": "/api/enterprises",
 "summary": "Alle foretak",
-"description": "Returnerer data om alle foretak som har eller har hatt sentral godkjenning. > **Merk:** resultatsettet er veldig stort (p.t. 30 MB for JSON > og 80 MB for XML). Sett `Accept-Encoding: gzip` for å > redusere båndbredde.",
+"description": "Returnerer data om alle foretak som har sentral godkjenning. > **Merk:** resultatsettet er veldig stort (p.t. 30 MB for JSON > og 80 MB for XML). Sett `Accept-Encoding: gzip` for å > redusere båndbredde.",
 "tags": [
 "v2"
 ],
@@ -15553,7 +15759,7 @@
 "method": "GET",
 "path": "/api/enterprises/{organizational_number}",
 "summary": "Ett foretak",
-"description": "Returnerer data om ett foretak som har eller har hatt sentral godkjenning. Responsen har ulik form avhengig av `Accept`-versjon — velg mediatypen under **Responses** for å se hvert skjema.",
+"description": "Returnerer data om ett foretak som har sentral godkjenning. Responsen har ulik form avhengig av `Accept`-versjon — velg mediatypen under **Responses** for å se hvert skjema.",
 "tags": [
 "v1",
 "v2"
@@ -16996,66 +17202,6 @@
 {
 "api_id": "meteorologisk-institutt-frost",
 "method": "GET",
-"path": "/records/countyExtremes/v0.{format}",
-"summary": "Get records.",
-"description": "Get records. To be expanded.",
-"tags": [
-"records"
-],
-"operation_id": "getRecords",
-"deprecated": false
-},
-{
-"api_id": "meteorologisk-institutt-frost",
-"method": "GET",
-"path": "/lightning/v0.{format}",
-"summary": "Get lightning data form the Frost API.",
-"description": "Get lightning data from the MET Norway's data storage systems. The query parameters act as a filter; if all were left blank (not allowed in practice), one would retrieve all of the lightning data in the system. Restrict the data using the q",
-"tags": [
-"lightning"
-],
-"operation_id": "getLightning",
-"deprecated": false
-},
-{
-"api_id": "meteorologisk-institutt-frost",
-"method": "GET",
-"path": "/climatenormals/v0.{format}",
-"summary": "Get climate normals.",
-"description": "Get climate normals. To be expanded.",
-"tags": [
-"climatenormals"
-],
-"operation_id": "getClimateNormals",
-"deprecated": false
-},
-{
-"api_id": "meteorologisk-institutt-frost",
-"method": "GET",
-"path": "/climatenormals/available/v0.{format}",
-"summary": "Get available combinations of sources, elements, and periods for climate normals.",
-"description": "Get available combinations of sources, elements, and periods for climate normals. To be expanded.",
-"tags": [
-"climatenormals"
-],
-"operation_id": "getAvailable",
-"deprecated": false
-},
-{
-"api_id": "meteorologisk-institutt-frost",
-"method": "GET",
-"path": "/locations/v0.{format}",
-"summary": "Get metada for Frost API locations.",
-"description": "Get metadata for the location names defined in the Frost API. Use the query parameters to filter the set of location names returned. Leave the query parameters blank to select **all** location names.",
-"tags": [
-"locations"
-],
-"operation_id": "getLocations",
-"deprecated": false
-},
-{
-"api_id": "meteorologisk-institutt-frost",
-"method": "GET",
 "path": "/frequencies/rainfall/v0.{format}",
 "summary": "Get rainfall IDF data.",
 "description": "This endpoint has been deprecated due to technical limitations. A response that used to return data with status 200 Ok will now instead return a descriptive error message with status 404 Not Found. Updated IDF data can for now be retrieved ",
@@ -17080,25 +17226,13 @@
 {
 "api_id": "meteorologisk-institutt-frost",
 "method": "GET",
-"path": "/elements/v0.{format}",
-"summary": "Get metadata about Frost API elements.",
-"description": "Get metadata about the weather and climate elements that are defined for use in the Frost API. Use the query parameters to filter which elements to return and what fields to include for each element. Leave the query parameters blank to sele",
+"path": "/locations/v0.{format}",
+"summary": "Get metada for Frost API locations.",
+"description": "Get metadata for the location names defined in the Frost API. Use the query parameters to filter the set of location names returned. Leave the query parameters blank to select **all** location names.",
 "tags": [
-"elements"
+"locations"
 ],
-"operation_id": "getElements",
-"deprecated": false
-},
-{
-"api_id": "meteorologisk-institutt-frost",
-"method": "GET",
-"path": "/elements/codeTables/v0.{format}",
-"summary": "Get metadata about Frost API code tables.",
-"description": "Get metadata about the code tables available in the Frost API. A code table defines a small number of discrete values for an element. Use the query parameters to filter which code tables to return and what fields to include for each one. Le",
-"tags": [
-"elements"
-],
-"operation_id": "getCodeTables",
+"operation_id": "getLocations",
 "deprecated": false
 },
 {
@@ -17183,6 +17317,78 @@
 "observations"
 ],
 "operation_id": "lastUpdate",
+"deprecated": false
+},
+{
+"api_id": "meteorologisk-institutt-frost",
+"method": "GET",
+"path": "/records/countyExtremes/v0.{format}",
+"summary": "Get records.",
+"description": "Get records. To be expanded.",
+"tags": [
+"records"
+],
+"operation_id": "getRecords",
+"deprecated": false
+},
+{
+"api_id": "meteorologisk-institutt-frost",
+"method": "GET",
+"path": "/elements/v0.{format}",
+"summary": "Get metadata about Frost API elements.",
+"description": "Get metadata about the weather and climate elements that are defined for use in the Frost API. Use the query parameters to filter which elements to return and what fields to include for each element. Leave the query parameters blank to sele",
+"tags": [
+"elements"
+],
+"operation_id": "getElements",
+"deprecated": false
+},
+{
+"api_id": "meteorologisk-institutt-frost",
+"method": "GET",
+"path": "/elements/codeTables/v0.{format}",
+"summary": "Get metadata about Frost API code tables.",
+"description": "Get metadata about the code tables available in the Frost API. A code table defines a small number of discrete values for an element. Use the query parameters to filter which code tables to return and what fields to include for each one. Le",
+"tags": [
+"elements"
+],
+"operation_id": "getCodeTables",
+"deprecated": false
+},
+{
+"api_id": "meteorologisk-institutt-frost",
+"method": "GET",
+"path": "/climatenormals/v0.{format}",
+"summary": "Get climate normals.",
+"description": "Get climate normals. To be expanded.",
+"tags": [
+"climatenormals"
+],
+"operation_id": "getClimateNormals",
+"deprecated": false
+},
+{
+"api_id": "meteorologisk-institutt-frost",
+"method": "GET",
+"path": "/climatenormals/available/v0.{format}",
+"summary": "Get available combinations of sources, elements, and periods for climate normals.",
+"description": "Get available combinations of sources, elements, and periods for climate normals. To be expanded.",
+"tags": [
+"climatenormals"
+],
+"operation_id": "getAvailable",
+"deprecated": false
+},
+{
+"api_id": "meteorologisk-institutt-frost",
+"method": "GET",
+"path": "/lightning/v0.{format}",
+"summary": "Get lightning data form the Frost API.",
+"description": "Get lightning data from the MET Norway's data storage systems. The query parameters act as a filter; if all were left blank (not allowed in practice), one would retrieve all of the lightning data in the system. Restrict the data using the q",
+"tags": [
+"lightning"
+],
+"operation_id": "getLightning",
 "deprecated": false
 },
 {
@@ -23803,6 +24009,102 @@
 "Test"
 ],
 "operation_id": "Test_Get",
+"deprecated": false
+},
+{
+"api_id": "statens-vegvesen-tn-its-eksport-api-transportnettverk-for-intellige",
+"method": "POST",
+"path": "/api/v1/admin/flags",
+"summary": null,
+"description": null,
+"tags": [
+"Admin"
+],
+"operation_id": "setFlags",
+"deprecated": false
+},
+{
+"api_id": "statens-vegvesen-tn-its-eksport-api-transportnettverk-for-intellige",
+"method": "GET",
+"path": "/api/v1/tnits/{type}/updates",
+"summary": null,
+"description": "Get delta updates for a given road feature type in ascending timestamp order (oldest to newest). If `from` is not specified, returns all available updates. Updates are retained for up to 180 days.",
+"tags": [
+"TN-ITS"
+],
+"operation_id": "getUpdatesFrom",
+"deprecated": false
+},
+{
+"api_id": "statens-vegvesen-tn-its-eksport-api-transportnettverk-for-intellige",
+"method": "GET",
+"path": "/api/v1/tnits/{type}/snapshots",
+"summary": null,
+"description": "List available snapshots for a given road feature type in ascending timestamp order (oldest to newest). Snapshots are available for the last 2 months.",
+"tags": [
+"TN-ITS"
+],
+"operation_id": "getSnapshots",
+"deprecated": false
+},
+{
+"api_id": "statens-vegvesen-tn-its-eksport-api-transportnettverk-for-intellige",
+"method": "GET",
+"path": "/api/v1/tnits/{type}/snapshots/latest",
+"summary": null,
+"description": "Get the most recent full snapshot for a given road feature type.",
+"tags": [
+"TN-ITS"
+],
+"operation_id": "getLatestSnapshot",
+"deprecated": false
+},
+{
+"api_id": "statens-vegvesen-tn-its-eksport-api-transportnettverk-for-intellige",
+"method": "GET",
+"path": "/api/v1/tnits/types",
+"summary": null,
+"description": "List available road feature types for TN-ITS data export.",
+"tags": [
+"TN-ITS"
+],
+"operation_id": "getExportedFeatureTypeCodes",
+"deprecated": false
+},
+{
+"api_id": "statens-vegvesen-tn-its-eksport-api-transportnettverk-for-intellige",
+"method": "GET",
+"path": "/api/v1/download",
+"summary": null,
+"description": "Download a TN-ITS data file (snapshot or update).",
+"tags": [
+"Downloads"
+],
+"operation_id": "download",
+"deprecated": false
+},
+{
+"api_id": "statens-vegvesen-tn-its-eksport-api-transportnettverk-for-intellige",
+"method": "GET",
+"path": "/api/v1/admin/files",
+"summary": null,
+"description": null,
+"tags": [
+"Admin"
+],
+"operation_id": "listPath",
+"deprecated": false
+},
+{
+"api_id": "statens-vegvesen-tn-its-eksport-api-transportnettverk-for-intellige",
+"method": "DELETE",
+"path": "/api/v1/admin/files",
+"summary": null,
+"description": null,
+"tags": [
+"Admin"
+],
+"operation_id": "deletePath",
 "deprecated": false
 },
 {
