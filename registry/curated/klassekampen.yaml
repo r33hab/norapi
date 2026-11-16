@@ -1,0 +1,24 @@
+updated: 2026-11-16
+provider:
+  name: Klassekampen
+  sector: privat
+apis:
+  - id: klassekampen-rss
+    title: Klassekampens RSS-strøm
+    title_en: Klassekampen RSS feed
+    description: >-
+      Åpen RSS-strøm fra Klassekampen, uten nøkkel. Adressen med www foran omdirigeres (301) til klassekampen.no, så bruk adressen uten www.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://klassekampen.no/rss
+    docs_url: https://klassekampen.no/rss
+    probe_url: https://klassekampen.no/rss
+    keywords: [rss, nyheter, nyhetsstrøm, klassekampen, news feed]
+    tags: [no-auth, feed, private-provider]
+    caveats:
+      - Ingen lisens oppgitt; sjekk utgiverens vilkår før videre bruk av innholdet.
+    quick_start: |
+      curl "https://klassekampen.no/rss"

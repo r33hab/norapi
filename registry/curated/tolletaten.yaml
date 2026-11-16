@@ -1,4 +1,4 @@
-updated: 2026-10-19
+updated: 2026-11-16
 provider:
   name: Tolletaten
   orgnr: "974761343"
@@ -24,3 +24,56 @@ apis:
     quick_start: |
       curl "https://data.toll.no/api/3/action/package_list"
       curl "https://data.toll.no/api/3/action/package_show?id=tolltariffstruktur"
+
+  - id: tolletaten-ics2-fremlegging
+    title: Fremlegging og kontrolldirigering av forsendelser (ICS2)
+    title_en: Presentation and routing of consignments (ICS2)
+    description: >-
+      API for digital fremlegging av forhåndsmeldte sendinger til Tolletaten (house og master consignment, validering
+      av meldinger) og for å hente kontrolldirigering for en forsendelse. Gjelder alle forhåndsmeldte fly- og
+      sjøsendinger fra tredjeland. Autentisering med Maskinporten og scopet toll:movement/entry; playground-miljø finnes
+      for testing.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.toll.no/api/movement/presentation/v1
+      - https://api.toll.no/api/movement/routing/v1
+    docs_url: https://toll.github.io/api/ics2/ics2-forsendelser.html
+    probe_url: https://api.toll.no/api/movement/routing/v1/house-consignment
+    keywords: [ics2, fremlegging, forsendelse, tolldeklarasjon, kontrolldirigering, house consignment, master consignment, import]
+    tags: [maskinporten, agreement]
+    caveats:
+      - Krever Maskinporten og registrering hos Tolletaten; se integrasjonsguiden.
+      - Testmiljøet (playground) har egen vert, api-test.toll.no.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # krever Maskinporten-token med scope toll:movement/entry
+      curl -H "Authorization: Bearer $TOKEN" "https://api.toll.no/api/movement/routing/v1/house-consignment"
+
+  - id: tolletaten-dokumentopplasting
+    title: Dokumentopplasting til tolldeklarasjoner
+    title_en: Document upload for customs declarations
+    description: >-
+      REST-API for maskinell innsending av underlagsdokumenter til en deklarasjon i TVINN, slik at dokumentasjonen
+      ligger hos Tolletaten før varene ankommer. Dokumentet sendes som multipart form data med metadata, knyttet til
+      deklarasjons-ID. Krever Maskinporten-token med scopet toll:goodsdeclaration/document.write.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.toll.no/api/goodsdeclaration/document/v2
+    docs_url: https://toll.github.io/api/document/document-api.html
+    keywords: [tolldeklarasjon, tvinn, dokumenter, vedlegg, underlagsdokumentasjon, customs declaration, upload]
+    tags: [maskinporten, agreement]
+    caveats:
+      - Krever Maskinporten og registrering hos Tolletaten.
+      - Dokumentasjonen viser bare POST; ingen åpne GET-kall å teste.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # DeklarasjonsID er delt i tre deler, se dokumentasjonen
+      curl -X POST -H "Authorization: Bearer $TOKEN" \
+        -F "metadata=@metadata.json" -F "document=@dokument.pdf" \
+        "https://api.toll.no/api/goodsdeclaration/document/v2/declaration-id/{DeklarasjonsID}/document"

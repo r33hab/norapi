@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Disruptive Technologies
+  sector: privat
+apis:
+  - id: disruptive-technologies-rest-api
+    title: Disruptive Technologies REST API (trådløse sensorer)
+    title_en: Disruptive Technologies REST API (wireless sensors)
+    description: >-
+      Leser prosjekter, enheter, hendelser og sensordata (temperatur, kontakt, fuktighet, nærvær) fra Disruptives
+      sensorsky, og styrer labels og dataconnectorer. Autentisering med service account: OAuth2 JWT-bytte mot
+      identity.disruptive-technologies.com eller Basic. Kall uten token gir 401.
+    category: annet
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.disruptive-technologies.com/v2/projects
+    docs_url: https://developer.disruptive-technologies.com/docs/authentication
+    probe_url: https://api.disruptive-technologies.com/v2/projects
+    keywords: [disruptive technologies, sensor, iot, temperatur, trådløs, d21s, dt cloud]
+    tags: [private-provider, oauth2, registration]
+    caveats:
+      - Krever DT Studio-konto og en service account med tilgangsrettigheter til prosjektet.
+      - Dokumentasjonen beskriver også dataconnectorer (push til AWS, Azure og Google) som alternativ til polling.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # bytt service account-JWT mot token, se OAuth2-siden i dokumentasjonen
+      curl "https://api.disruptive-technologies.com/v2/projects" -H "Authorization: Bearer $DT_TOKEN"

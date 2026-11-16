@@ -1,0 +1,30 @@
+updated: 2026-11-16
+provider:
+  name: Finago
+  sector: privat
+apis:
+  - id: finago-24sevenoffice-rest-api
+    title: 24SevenOffice REST API (regnskap og ERP)
+    title_en: 24SevenOffice REST API (accounting and ERP)
+    description: >-
+      REST-API for 24SevenOffice (Finago): fakturaer, kunder, leverandører, bilag og transaksjoner, blant annet mva-
+      koder på /v1/taxes. OAuth2 med klient-ID og hemmelighet fra utvikler-panelet; tokens hentes fra
+      login.24sevenoffice.com. Tilgang må søkes om, og behandlingen kan ta uker.
+    category: finans
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://rest.api.24sevenoffice.com/v1/taxes
+    docs_url: https://finago.no/developer/rest-api
+    probe_url: https://rest.api.24sevenoffice.com/v1/taxes
+    keywords: [24sevenoffice, finago, regnskap, erp, faktura, bilag, rest api]
+    tags: [private-provider, oauth2, agreement]
+    caveats:
+      - Utviklertilgang søkes om via skjema, og må godkjennes av Finago.
+      - Eldre SOAP-API finnes parallelt (finago.no/developer/soap-api).
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # token, se "Implement access token" i dokumentasjonen
+      curl -X POST "https://login.24sevenoffice.com/oauth/token" -d "grant_type=client_credentials&client_id=<id>&client_secret=<secret>"
+      curl "https://rest.api.24sevenoffice.com/v1/taxes" -H "Authorization: Bearer $TOKEN"

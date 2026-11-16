@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: Sesam
+  sector: privat
+apis:
+  - id: sesam-service-api
+    title: Sesam Service API (dataintegrasjon)
+    title_en: Sesam Service API (data integration hub)
+    description: >-
+      REST-API for å styre og lese data i en Sesam-instans (norsk integrasjonsplattform): pipes, datasett, systemer, miljøvariabler
+      og innholdet i datasett, også som SDShare. Adressen er instansens egen, på formen https://instans-guid.sesam.cloud/api. De fleste
+      kall krever JWT som Bearer, hentet fra /api/jwt, og instansen har selv-hostet Swagger-UI på /api/reference.
+    category: annet
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://<instans>.sesam.cloud/api/
+    docs_url: https://docs.sesam.io/hub/api.html
+    keywords: [sesam, integrasjon, dataintegrasjon, pipes, datasett, sdshare, datahub, jwt]
+    tags: [registration, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever en Sesam-instans. Basis-URL er instansens egen, og det finnes ingen felles åpen vert.
+    quick_start: |
+      TOKEN=$(curl -s -d "email=$EMAIL&password=$PASSWORD" "https://$INSTANS.sesam.cloud/api/jwt")
+      curl -H "Authorization: Bearer $TOKEN" "https://$INSTANS.sesam.cloud/api/pipes"

@@ -1,0 +1,30 @@
+updated: 2026-11-16
+provider:
+  name: SmartDok
+  sector: privat
+  orgnr: "988578932"
+apis:
+  - id: smartdok-api
+    title: SmartDok API (timer, prosjekter og leverandørfaktura)
+    title_en: SmartDok API (timesheets, projects and supplier invoices)
+    description: >-
+      REST-API mot SmartDok, norsk system for timeføring og prosjektoppfølging i bygg og anlegg: prosjekter, arbeidsbeskrivelser,
+      tillegg, godtgjørelser, leverandørfakturaer og webhooks. En API-token genereres under Firmainnstillinger, API-administrasjon,
+      og byttes mot en sesjonstoken (JWT) som sendes som Bearer. API-tilgang må inngå i abonnementet. OpenAPI-spesifikasjon er åpen.
+    category: annet
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.smartdok.no/
+    docs_url: https://api.smartdok.no/api-docs/
+    spec_url: https://api.smartdok.no/docs/v1
+    probe_url: https://api.smartdok.no/Projects
+    keywords: [smartdok, timeføring, prosjekt, bygg og anlegg, timer, leverandørfaktura, webhooks]
+    tags: [registration, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever SmartDok-konto med API-tilgang.
+    quick_start: |
+      # Bytt API-token mot sesjonstoken: POST /Authorize/ApiToken, se dokumentasjonen
+      curl -H "Authorization: Bearer $SESSION_TOKEN" "https://api.smartdok.no/Projects"

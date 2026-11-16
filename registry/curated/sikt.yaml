@@ -1,4 +1,4 @@
-updated: 2026-11-10
+updated: 2026-11-16
 provider:
   name: Sikt - Kunnskapssektorens tjenesteleverandør
   orgnr: "919477822"
@@ -88,3 +88,106 @@ apis:
       - Ingen lisens oppgitt og ingen dokumentasjon utover explain-svaret.
     quick_start: |
       curl "https://authority.bibsys.no/authority/rest/sru?operation=searchRetrieve&version=1.2&query=ibsen&maximumRecords=1"
+
+  - id: sikt-nva-publiseringskanaler
+    title: NVA publiseringskanaler (tidsskrifter, serier og forlag)
+    title_en: NVA publication channels (journals, series and publishers)
+    description: >-
+      Register over vitenskapelige publiseringskanaler i NVA: tidsskrifter, serier og forlag med nivå per år, ISSN,
+      og tilhørende id. Dette er det som erstattet Kanalregisteret og brukes ved rapportering av vitenskapelig
+      publisering. Søk uten nøkkel med query og year, og bla med offset og size.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.nva.unit.no/publication-channels-v2/
+    docs_url: https://swagger-ui.nva.unit.no/
+    probe_url: https://api.nva.unit.no/publication-channels-v2/journal?query=nature&year=2024
+    keywords: [publiseringskanal, tidsskrift, forlag, serie, nivå, issn, kanalregister, nvi, journal register]
+    tags: [no-auth, reference-data, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://api.nva.unit.no/publication-channels-v2/journal?query=nature&year=2024"
+      curl "https://api.nva.unit.no/publication-channels-v2/publisher?query=springer&year=2024"
+
+  - id: sikt-nva-cristin-register
+    title: NVA, Cristin-register (organisasjoner, prosjekter, finansieringskilder)
+    title_en: NVA Cristin register (organisations, projects, funding sources)
+    description: >-
+      Oppslag i forskningsregistrene som NVA bygger på: organisasjonshierarkiet til norske forskningsinstitusjoner,
+      forskningsprosjekter og finansieringskilder, i et nyere JSON-LD-API enn Cristin API v2. Åpent uten nøkkel,
+      dokumentert i NVAs OpenAPI-fil. Resultatene pagineres med page og results.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.nva.unit.no/cristin/
+    docs_url: https://swagger-ui.nva.unit.no/
+    spec_url: https://swagger-ui.nva.unit.no/docs/openapi.yaml
+    probe_url: https://api.nva.unit.no/cristin/funding-sources
+    keywords: [cristin, forskningsprosjekt, organisasjon, institusjon, finansiering, forskning, nva, research projects]
+    tags: [no-auth, reference-data]
+    caveats:
+      - Overlapper delvis med Cristin API v2, som er avviklet for ny registrering; velg dette for nye integrasjoner.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://api.nva.unit.no/cristin/organization/?query=oslo&results=2"
+      curl "https://api.nva.unit.no/cristin/project?query=climate&results=2"
+      curl "https://api.nva.unit.no/cristin/funding-sources"
+
+  - id: sikt-feide-oidc
+    title: Feide OpenID Connect (innlogging for utdanningssektoren)
+    title_en: Feide OpenID Connect (login for the education sector)
+    description: >-
+      Feides OpenID Connect- og OAuth 2.0-leverandør for innlogging og brukerattributter for skoler, universiteter og
+      høyskoler. Discovery-dokumentet er åpent, men for å bruke tjenesten må tjenesten din registreres hos Feide og få
+      klient-id, og brukerdata utleveres etter hvilke attributtgrupper tjenesten har fått. Dokumentasjonen er åpen.
+    category: identitet-og-tilgang
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://auth.dataporten.no/
+    docs_url: https://docs.feide.no/service_providers/openid_connect/index.html
+    probe_url: https://auth.dataporten.no/.well-known/openid-configuration
+    keywords: [feide, oidc, openid connect, oauth, innlogging, skole, utdanning, sso, dataporten, login]
+    tags: [oauth2, registration]
+    caveats:
+      - Krever registrering av tjenesten hos Feide (kundeportalen) og avtale med den som eier brukerne.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # discovery-dokumentet er åpent
+      curl "https://auth.dataporten.no/.well-known/openid-configuration"
+      # resten krever registrert klient: authorization code med PKCE mot
+      # https://auth.dataporten.no/oauth/authorization og https://auth.dataporten.no/oauth/token
+
+  - id: sikt-feide-groups-api
+    title: Feide Groups API
+    title_en: Feide Groups API
+    description: >-
+      REST-API for gruppedata i Feide: hvilke grupper en bruker er med i (skoler, basisgrupper, undervisningsgrupper,
+      studieprogram og kull), og medlemmer av grupper per organisasjon via domene eller organisasjonsnummer.
+      Krever et Feide-token med riktige attributtgrupper (groups-edu, groups-org eller groups-other), og tjenesten
+      må være registrert hos Feide.
+    category: identitet-og-tilgang
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://groups-api.dataporten.no/groups
+    docs_url: https://docs.feide.no/reference/apis/groups_api/groups_endpoints.html
+    probe_url: https://groups-api.dataporten.no/groups/me/groups
+    keywords: [feide, grupper, skole, undervisningsgruppe, klasse, utdanning, groups, medlemmer]
+    tags: [oauth2, registration, personal-data]
+    caveats:
+      - Krever registrert tjeneste og Feide-token med riktige attributtgrupper.
+      - Svarene inneholder personopplysninger om elever og ansatte; bruk krever behandlingsgrunnlag.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl -H "Authorization: Bearer $FEIDE_TOKEN" \
+        "https://groups-api.dataporten.no/groups/me/groups"
+

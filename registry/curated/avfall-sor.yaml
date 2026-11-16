@@ -1,0 +1,32 @@
+updated: 2026-11-16
+provider:
+  name: Avfall Sør
+  sector: kommune
+apis:
+  - id: avfall-sor-hentedager
+    title: Avfall Sør hentedager (adressesøk og tømmekalender)
+    title_en: Avfall Sør waste collection dates (address search and calendar)
+    description: >-
+      JSON-endepunkter bak avfallsor.no for å finne hentedager for restavfall, matavfall, papir, plast og glass og metall
+      i Kristiansand-regionen. Først søker du opp adressen og får en eiendoms-ID, deretter henter du kalenderen for den
+      eiendommen. Åpent uten nøkkel, men eieren har ikke dokumentert endepunktene.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://avfallsor.no/wp-json/addresses/v1/address
+      - https://avfallsor.no/wp-json/pickup-calendar/v1/collections/property-id/{propertyId}
+    docs_url: https://avfallsor.no/hjemme-hos-deg/finn-hentedag/
+    probe_url: https://avfallsor.no/wp-json/addresses/v1/address?lookup_term=Markens
+    keywords: [renovasjon, avfall, tømmekalender, hentedag, kristiansand, restavfall, matavfall, waste collection]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Adressesøket og kalenderen gjelder konkrete eiendommer; bruk dem bare for adresser du har grunn til å slå opp.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # 1. finn eiendommen; svaret har href med eiendoms-ID (UUID)
+      curl "https://avfallsor.no/wp-json/addresses/v1/address?lookup_term=Markens"
+      # 2. hent hentedagene for en eiendoms-ID fra steg 1
+      curl "https://avfallsor.no/wp-json/pickup-calendar/v1/collections/property-id/<eiendoms-id>"

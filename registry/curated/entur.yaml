@@ -1,4 +1,4 @@
-updated: 2026-10-19
+updated: 2026-11-16
 provider:
   name: Entur
   orgnr: "917422575"
@@ -133,3 +133,304 @@ apis:
       curl -X POST https://api.entur.io/realtime/v2/vehicles/graphql \
         -H "Content-Type: application/json" -H "ET-Client-Name: norapi-demo" \
         -d '{"query":"{ vehicles(codespaceId: \"ATB\") { vehicleId lastUpdated delay line { publicCode } location { latitude longitude } } }"}'
+
+  - id: entur-emissions-calculator
+    title: Utslippskalkulator (CO2e per transportmiddel)
+    title_en: Emissions Calculator (CO2e per transport mode)
+    description: >-
+      Beregner CO2e-utslipp for en strekning for tog, buss, fly, bil, sykkel og andre transportmidler. Strekningen
+      oppgis som stoppesteder fra Nasjonalt stoppestedsregister eller som koordinater, og svaret har ett utslippstall
+      per transportmiddel. Åpent for alle, men en ET-Client-Name-header er påkrevd, og tallene er estimater basert på
+      typekjøretøy fra SINTEF.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/emissions-calculator-api/api/v1/calculate-emissions
+    docs_url: https://developer.entur.no/apis/emissions-calculator
+    spec_url: https://developer.entur.no/apis/emissions-calculator/latest/openapi.json
+    license: NLOD 2.0
+    keywords: [utslipp, co2, klimagass, reise, miljø, tog, buss, fly, emissions, carbon footprint]
+    tags: [no-auth, rate-limited]
+    caveats:
+      - Kun POST; ingen GET-adresse å teste anonymt uten å sende en forespørsel.
+      - Uten ET-Client-Name gjelder en strengere grense (60 forespørsler per minutt).
+    quick_start: |
+      curl -X POST https://api.entur.io/emissions-calculator-api/api/v1/calculate-emissions \
+        -H "Content-Type: application/json" -H "ET-Client-Name: norapi-demo" \
+        -d '{"transportModes":["TRAIN","BIKE"],"route":{"stopIds":["NSR:StopPlace:337","NSR:StopPlace:59983"]},"numberOfPassengers":1}'
+
+  - id: entur-transit-data
+    title: Transit Data (NeTEx-data som GraphQL og MCP)
+    title_en: Transit Data (NeTEx data as GraphQL and MCP)
+    description: >-
+      Lesetilgang til det statiske kollektivdatasettet: linjer, stoppesteder, plattformer, turer, operatører og
+      myndigheter, fra NeTEx. Samme data kan hentes som GraphQL eller gjennom en MCP-server for KI-agenter. Åpent
+      uten nøkkel, men markert beta og kan endre seg.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GraphQL]
+    endpoints:
+      - https://api.entur.io/transit-data/v1beta/graphql
+    docs_url: https://developer.entur.no/apis/graphql/transit-data
+    license: NLOD 2.0
+    keywords: [kollektiv, netex, linjer, stoppesteder, operatører, mcp, graphql, transit, public transport]
+    tags: [no-auth, graphql, rate-limited]
+    caveats:
+      - Beta (v1beta); felter og skjema kan endres uten forvarsel.
+    quick_start: |
+      curl -X POST https://api.entur.io/transit-data/v1beta/graphql \
+        -H "Content-Type: application/json" -H "ET-Client-Name: norapi-demo" \
+        -d '{"query":"{ lines(first: 2) { nodes { id name publicCode } } }"}'
+
+  - id: entur-journey-planner-mcp
+    title: Journey Planner MCP-server
+    title_en: Journey Planner MCP server
+    description: >-
+      MCP-server (Streamable HTTP) som lar KI-agenter planlegge reiser og slå opp avganger i Enturs reiseplanlegger
+      uten å skrive GraphQL selv. Åpen uten nøkkel, men krever ET-Client-Name og JSON-RPC-kall med POST.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/journey-planner-mcp/v1/mcp
+    docs_url: https://developer.entur.no/apis/opentripplanner-mcp
+    probe_url: https://developer.entur.no/apis/opentripplanner-mcp
+    license: NLOD 2.0
+    keywords: [mcp, reiseplanlegger, kollektiv, agent, ki, journey planner, model context protocol]
+    tags: [no-auth, rate-limited]
+    caveats:
+      - Kun JSON-RPC over POST; ingen GET-adresse som svarer med data.
+    quick_start: |
+      curl -X POST https://api.entur.io/journey-planner-mcp/v1/mcp \
+        -H "Content-Type: application/json" -H "Accept: application/json, text/event-stream" \
+        -H "ET-Client-Name: norapi-demo" \
+        -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"demo","version":"1"}}}'
+
+  - id: entur-sales-v2
+    title: Sales v2 (billettsalg, OMSA)
+    title_en: Sales v2 (ticket sales, OMSA)
+    description: >-
+      Salgs-API for å søke etter, velge og kjøpe kollektivbilletter, bygget på standarden Open Mobility Sales API
+      (OMSA). Dekker pakker, tilbud, kunder, refusjon og endring. Krever partneravtale med Entur og OAuth2 client
+      credentials, pluss ET-Client-Name.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/sales/v2
+    docs_url: https://developer.entur.no/apis/sales
+    probe_url: https://api.entur.io/sales/v2/collections/packages/items
+    spec_url: https://developer.entur.no/apis/sales/latest/openapi.json
+    keywords: [billett, billettsalg, omsa, kollektiv, salg, refusjon, tickets, sales]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur; klienter opprettes i Entur Partner av en bruker med rollen Brukeradministrator.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # token fra https://partner.entur.org/oauth/token (client_credentials, audience https://api.entur.io)
+      curl -H "Authorization: Bearer $TOKEN" -H "ET-Client-Name: firma-app" "https://api.entur.io/sales/v2/collections/packages/items"
+
+  - id: entur-orders
+    title: Orders (ordre i salgsplattformen)
+    title_en: Orders API (sales platform)
+    description: >-
+      Oppretter og endrer ordre i Enturs salgsplattform: ordrelinjer, gebyrer, reservasjoner og reisende. Er en del
+      av partner-API-ene og krever partneravtale, OAuth2 client credentials og ET-Client-Name. Noen endepunkter
+      (ordreoppsummeringer) er markert beta.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/sales/v1/orders
+    docs_url: https://developer.entur.no/apis/order-partner
+    spec_url: https://developer.entur.no/apis/order-partner/latest/openapi.json
+    keywords: [ordre, billett, ordrelinje, reservasjon, kollektiv, orders, sales platform]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # token fra https://partner.entur.org/oauth/token (client_credentials, audience https://api.entur.io)
+      curl -H "Authorization: Bearer $TOKEN" -H "ET-Client-Name: firma-app" "https://api.entur.io/sales/v1/orders/ORDER_ID"
+
+  - id: entur-offers
+    title: Offers v3 (billettilbud og priser)
+    title_en: Offers v3 (ticket offers and prices)
+    description: >-
+      Søker etter tilbud: billettene en gruppe reisende kan kjøpe, med priser. Du kan søke på en bestemt avgang,
+      mellom to stoppesteder eller takstsoner (periodebilletter), eller på en myndighet med flat takst. Beta-versjon
+      for partnere med avtale, OAuth2 client credentials.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/offers/v3
+    docs_url: https://developer.entur.no/apis/offers-partner
+    probe_url: https://developer.entur.no/apis/offers-partner/latest/openapi.json
+    spec_url: https://developer.entur.no/apis/offers-partner/latest/openapi.json
+    keywords: [tilbud, pris, billett, takst, takstsone, periodebillett, offers, fare]
+    tags: [agreement, oauth2]
+    caveats:
+      - Beta; kan endre seg uten forvarsel.
+      - Krever partneravtale med Entur.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # token fra https://partner.entur.org/oauth/token; søkeparametere står i OpenAPI-spesifikasjonen
+      curl -X POST "https://api.entur.io/offers/v3/search/trip-pattern" \
+        -H "Authorization: Bearer $TOKEN" -H "ET-Client-Name: firma-app" -H "Content-Type: application/json" -d @sok.json
+
+  - id: entur-clearing
+    title: Clearing (oppgjør mellom operatører)
+    title_en: Clearing (settlement between operators)
+    description: >-
+      Partner-API for selvbetjent bruk av Enturs oppgjørstjenester: generelle oppgjør (Generic Settlements) og
+      rapporter (Reports) for fordeling av billettinntekter mellom aktører. Krever partneravtale og OAuth2 client
+      credentials.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/clearing
+    docs_url: https://developer.entur.no/apis/clearing
+    probe_url: https://api.entur.io/clearing/v1/settlement-import/1
+    spec_url: https://developer.entur.no/apis/clearing/latest/openapi.json
+    keywords: [oppgjør, avregning, clearing, billettinntekt, rapporter, settlement]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # token fra https://partner.entur.org/oauth/token (client_credentials, audience https://api.entur.io)
+      curl -H "Authorization: Bearer $TOKEN" -H "ET-Client-Name: firma-app" "https://api.entur.io/clearing/v1/settlement-import/ID"
+
+  - id: entur-osdm
+    title: OSDM (setereservasjon for reisende med periodekort)
+    title_en: OSDM (seat reservation for travel pass holders)
+    description: >-
+      Enturs implementasjon av en delmengde av OSDM 3.7.1, den europeiske standarden for salg og distribusjon av
+      togbilletter. Foreløpig støttes bare setereservasjon for reisende med periodekort. Krever partneravtale,
+      OAuth2 client credentials, rollen Sales channel - OSDM og en Requestor-header med salgssted.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/bifrost/osdm
+    docs_url: https://developer.entur.no/docs/partner-services/osdm
+    keywords: [osdm, setereservasjon, tog, periodekort, billettering, seat reservation]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale og en klient med rollen Klientrolle - Sales channel - OSDM.
+      - Bare en delmengde av OSDM er implementert.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # token fra https://partner.entur.org/oauth/token; Requestor er base64 av {"entur-pos":"...","entur-distribution-channel":"..."}
+      curl -H "Authorization: Bearer $TOKEN" -H "ET-Client-Name: firma-app" -H "Requestor: $REQUESTOR" \
+        "https://api.entur.io/bifrost/osdm/reduction-cards"
+
+  - id: entur-seating-services
+    title: Seating Services (setereservasjon)
+    title_en: Seating Services (seat reservations)
+    description: >-
+      Partner-API for seterservasjoner på kollektivreiser: setetyper, kapasitet per avgang, reservasjoner og
+      ledsagere. Krever partneravtale, OAuth2 client credentials og ET-Client-Name.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/seatingservices
+    docs_url: https://developer.entur.no/apis/seatingservices
+    probe_url: https://api.entur.io/seatingservices/v1/seat-types/1
+    spec_url: https://developer.entur.no/apis/seatingservices/latest/openapi.json
+    keywords: [sete, reservasjon, kapasitet, tog, plass, seat reservation]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # token fra https://partner.entur.org/oauth/token (client_credentials, audience https://api.entur.io)
+      curl -H "Authorization: Bearer $TOKEN" -H "ET-Client-Name: firma-app" "https://api.entur.io/seatingservices/v1/seat-types/ID"
+
+  - id: entur-personnel-tickets
+    title: Personalbilletter (jernbanens rabattordning)
+    title_en: Personnel tickets (railway discount scheme)
+    description: >-
+      API for personalbilletter, jernbanens rabattordning for ansatte, pensjonister og familiemedlemmer i
+      deltakende selskaper. Ordningen eies av Jernbanedirektoratet og forvaltes av Entur. API-et styrer hvem som har
+      rett til billett, kobler profiler til rettigheter og rapporterer bruk. Krever avtale.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/personnelticket/v2
+    docs_url: https://developer.entur.no/apis/personnel-tickets
+    probe_url: https://api.entur.io/personnelticket/v2/reports/tax-savings
+    spec_url: https://developer.entur.no/apis/personnel-tickets/latest/openapi.json
+    keywords: [personalbillett, rabatt, jernbane, ansatte, familiemedlemmer, personnel tickets]
+    tags: [agreement, oauth2, personal-data]
+    caveats:
+      - Krever at selskapet har en avtale om ordningen.
+      - Behandler personopplysninger om ansatte og familiemedlemmer.
+    quick_start: |
+      # token fra https://partner.entur.org/oauth/token (client_credentials, audience https://api.entur.io)
+      curl -H "Authorization: Bearer $TOKEN" -H "ET-Client-Name: firma-app" \
+        "https://api.entur.io/personnelticket/v2/reports/tax-savings"
+
+  - id: entur-payments
+    title: Payments (betaling for billettsalg)
+    title_en: Payments (payment gateway for ticket sales)
+    description: >-
+      Gateway mot betalingsleverandører for billettsalg: oppretter, utfører og krediterer betalinger og
+      betalingstransaksjoner, med lagrede betalingsmåter og gjentakende betaling. Beregnet på partnere som tar
+      betaling for kollektivbilletter via Enturs plattform. Krever avtale og OAuth2.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/sales/v1/payments
+    docs_url: https://developer.entur.no/apis/payment-partner
+    spec_url: https://developer.entur.no/apis/payment-partner/latest/openapi.json
+    keywords: [betaling, betalingstransaksjon, kreditt, billettsalg, payments, gateway]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # token fra https://partner.entur.org/oauth/token (client_credentials, audience https://api.entur.io)
+      curl -H "Authorization: Bearer $TOKEN" -H "ET-Client-Name: firma-app" "https://api.entur.io/sales/v1/payments"
+
+  - id: entur-shared-mobility-tomp
+    title: Delingsmobilitet (TOMP-bestilling)
+    title_en: Shared mobility booking (TOMP)
+    description: >-
+      API for bestilling og betaling av delt mobilitet gjennom Enturs plattform, bygget på TOMP-standarden:
+      bookinger, aktive bookinger per kunde, QR-koder og operatørliste. Er en partnertjeneste med OAuth2 og krever
+      avtale; åpne sanntidsdata for delt mobilitet ligger i Mobility-API-et.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/shared-mobility/v1
+    docs_url: https://developer.entur.no/apis/shared-mobility
+    probe_url: https://api.entur.io/shared-mobility/v1/operators/availability
+    spec_url: https://developer.entur.no/apis/shared-mobility/latest/openapi.json
+    keywords: [delingsmobilitet, tomp, booking, sparkesykkel, bysykkel, bildeling, qr, shared mobility]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # uten token svarer API-et 401
+      curl -H "Authorization: Bearer $TOKEN" -H "ET-Client-Name: firma-app" "https://api.entur.io/shared-mobility/v1/operators/availability"

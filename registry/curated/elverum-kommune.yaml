@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Elverum kommune
+  sector: kommune
+apis:
+  - id: elverum-kommune-agol
+    title: Elverum kommunes kartdata på ArcGIS Online (REST)
+    title_en: Elverum municipality map data on ArcGIS Online (REST)
+    description: >-
+      Elverum kommunes åpne tjenestekatalog på ArcGIS Online, med omtrent 120 publiserte kartlag, blant annet barnehager, barneskoler, grunnkretser, befolkning per grunnkrets, kommunedelplaner og reguleringsplaner. Hvert lag
+      kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er kommunens arbeidsområde, så lag
+      kommer og går og innholdet varierer i kvalitet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services-eu1.arcgis.com/Vxg3kcs1YZgWWwP2/arcgis/rest/services
+    docs_url: https://services-eu1.arcgis.com/Vxg3kcs1YZgWWwP2/arcgis/rest/services
+    probe_url: https://services-eu1.arcgis.com/Vxg3kcs1YZgWWwP2/arcgis/rest/services?f=json
+    keywords: [kommune, kart, arcgis, arcgis online, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Laglisten er kommunens arbeidskart og endres uten varsel; noen lag er under arbeid eller test.
+      - Noen lag kan inneholde innspill fra innbyggere eller andre persondata, så sjekk laget før du bruker det.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services-eu1.arcgis.com/Vxg3kcs1YZgWWwP2/arcgis/rest/services?f=json"

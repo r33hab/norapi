@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: Novus forlag
+  sector: privat
+apis:
+  - id: novus-tidsskrifter-oai
+    title: Novus, Online tidsskrifter (OAI-PMH)
+    title_en: Novus online journals (OAI-PMH)
+    description: >-
+      OAI-PMH-endepunkt for Novus sin tidsskriftsplattform (Open Journal Systems) med norske fagtidsskrifter. Høsting
+      av metadata for artikler og hefter uten nøkkel. ListSets viser tidsskriftene, og ListRecords med
+      metadataPrefix=oai_dc gir postene.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://ojs.novus.no/index.php/index/nb_NO/oai
+    docs_url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+    probe_url: https://ojs.novus.no/index.php/index/nb_NO/oai?verb=Identify
+    keywords: [oai-pmh, tidsskrift, artikler, fagtidsskrift, ojs, høsting, novus, harvesting]
+    tags: [no-auth, feed, private-provider]
+    caveats:
+      - Ingen lisens oppgitt; lisensen følger det enkelte tidsskriftet og artikkelen.
+    quick_start: |
+      curl "https://ojs.novus.no/index.php/index/nb_NO/oai?verb=Identify"
+      curl "https://ojs.novus.no/index.php/index/nb_NO/oai?verb=ListSets"

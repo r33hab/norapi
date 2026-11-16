@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: Nordic Semiconductor
+  sector: privat
+apis:
+  - id: nordic-semiconductor-nrf-cloud-rest-api
+    title: nRF Cloud REST API (IoT-enheter og posisjonering)
+    title_en: nRF Cloud REST API (IoT devices and location)
+    description: >-
+      Administrerer enheter, firmware-oppdateringer, meldinger og posisjonstjenester for Nordic Semiconductors nRF-
+      enheter i nRF Cloud. Åpen OpenAPI 3-fil. Auth er Bearer med API-nøkkel, organisasjonstoken (OAT) eller enhets-
+      JWT; uten token svarer API-et 401.
+    category: annet
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.nrfcloud.com/v1/devices
+    docs_url: https://docs.nrfcloud.com/
+    spec_url: https://api.nrfcloud.com/v1/openapi.json
+    probe_url: https://api.nrfcloud.com/v1/devices
+    keywords: [nordic, nrf cloud, nrf9160, iot, bluetooth, gnss, enhetsadministrasjon, device management]
+    tags: [private-provider, registration]
+    caveats:
+      - Krever nRF Cloud-konto; API-nøkkelen finnes under Account på nRF Cloud.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://api.nrfcloud.com/v1/devices" -H "Authorization: Bearer $NRFCLOUD_API_KEY"

@@ -1,4 +1,4 @@
-updated: 2026-10-19
+updated: 2026-11-16
 provider:
   name: Digitaliseringsdirektoratet
   orgnr: "991825827"
@@ -93,3 +93,82 @@ apis:
     tags: [no-auth]
     quick_start: |
       curl "https://api.einnsyn.no/search?query=budsjett&limit=3"
+
+  - id: digdir-selvbetjening-api
+    title: Selvbetjenings-API for Maskinporten og ID-porten
+    title_en: Self-service API for Maskinporten and ID-porten
+    description: >-
+      REST-API for å automatisere administrasjon av Maskinporten og ID-porten: opprette scopes, gi og trekke tilgang for
+      konsumenter, og registrere og oppdatere klienter og nøkler. Krever en administrasjonsklient utdelt av Digdir, OAuth2
+      med virksomhetssertifikat og scopet idporten:dcr.write. Har OpenAPI-spesifikasjon og eget testmiljø.
+    category: identitet-og-tilgang
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.samarbeid.digdir.no/external/api/v1
+    docs_url: https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_api
+    spec_url: https://api.samarbeid.digdir.no/v3/api-docs
+    keywords: [maskinporten, id-porten, scope, klient, selvbetjening, dcr, tilgangsstyring, self-service]
+    tags: [maskinporten, agreement, oauth2]
+    caveats:
+      - Krever administrasjonsklient fra Digdir; kontakt Digdirs servicedesk.
+      - Specen er generert og inneholder også interne endepunkter under /internal som ikke er for eksterne.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # krever token med scope idporten:dcr.write
+      curl -H "Authorization: Bearer $TOKEN" "https://api.samarbeid.digdir.no/external/api/v1/scopes"
+
+  - id: digdir-elma-rest-api
+    title: "ELMA REST API (Peppol SMP)"
+    title_en: "ELMA REST API (Peppol SMP)"
+    description: >-
+      REST-API for tjenesteleverandører og aksesspunktleverandører i ELMA, den norske Peppol-SMP-en: opprette, hente
+      og slette deltakere, dokumenttyper og prosesser, flytte deltaker mellom leverandører og liste aksesspunkter.
+      Autentisering med Maskinporten (scope digdir:elma.serviceprovider eller digdir:elma.accesspointprovider), der
+      klienten må være registrert hos leverandøren. Eldre basic-autentisering fases ut.
+    category: bedrift-og-organisasjon
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://elma-smp.no/rest/api/participants"
+    docs_url: "https://docs.digdir.no/docs/ELMA/elma_elma"
+    spec_url: "https://elma-smp.no/rest/v3/api-docs"
+    probe_url: "https://elma-smp.no/rest/v3/api-docs"
+    keywords: [elma, peppol, smp, ehf, e-faktura, aksesspunkt, deltaker, e-invoicing]
+    tags: [maskinporten, agreement]
+    caveats:
+      - "Krever Maskinporten og registrering som leverandør i ELMA."
+      - "Ikke bruk ELMA alene til å sjekke om en organisasjon er registrert i Peppol, bruk oppslag via SML."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope digdir:elma.serviceprovider
+      curl -H "Authorization: Bearer $TOKEN" "https://elma-smp.no/rest/api/participants"
+      # åpen OpenAPI-spesifikasjon:
+      curl "https://elma-smp.no/rest/v3/api-docs"
+
+  - id: digdir-ansattporten
+    title: "Ansattporten (OpenID Connect)"
+    title_en: "Ansattporten (OpenID Connect)"
+    description: >-
+      Innloggingstjeneste for ansatte og andre som opptrer på vegne av virksomheter, bygget som egen
+      OAuth2-autorisasjonsserver og OpenID Provider, uavhengig av ID-porten. Representasjon hentes fra Altinn
+      Autorisasjon, og tjenesten kan beskytte API-er med autorisasjonsdetaljer. Discovery-dokumentet er åpent, men
+      klienter må registreres hos Digdir.
+    category: identitet-og-tilgang
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - "https://ansattporten.no/.well-known/openid-configuration"
+    docs_url: "https://docs.digdir.no/docs/ansattporten/ansattporten_om.html"
+    probe_url: "https://ansattporten.no/.well-known/openid-configuration"
+    keywords: [ansattporten, innlogging, representasjon, oidc, altinn, virksomhet, openid connect]
+    tags: [oauth2, agreement]
+    caveats:
+      - "Krever klientregistrering hos Digdir."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      curl "https://ansattporten.no/.well-known/openid-configuration"
+      # deretter autorisasjonskode-flyt med PAR og PKCE mot endepunktene i discovery-dokumentet

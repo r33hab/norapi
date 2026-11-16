@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Xledger
+  sector: privat
+apis:
+  - id: xledger-graphql-api
+    title: Xledger GraphQL API (regnskap)
+    title_en: Xledger GraphQL API (accounting)
+    description: >-
+      GraphQL-API mot Xledger ERP for regnskap, faktura, prosjekt og bilag, med skjema i GraphQL-grensesnittet i
+      appen. POST mot www.xledger.net/graphql med token i headeren Authorization: token <nøkkel>. Uten tilgang svarer
+      endepunktet med en GraphQL-feil.
+    category: finans
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://www.xledger.net/graphql
+    docs_url: https://www.xledger.com/api
+    keywords: [xledger, graphql, regnskap, erp, bilag, faktura, prosjekt]
+    tags: [private-provider, graphql, agreement]
+    caveats:
+      - Token opprettes av en administrator i Xledger under Administration, Access Control, GraphQL.
+      - Dokumentasjonen ligger i Xledger-appen og hos kundestøtten, ikke åpent på nett.
+      - Xledger har en rate limit i form av kredittsystem; feltet rateLimit viser forbruk.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl -X POST "https://www.xledger.net/graphql" -H "Authorization: token $XLEDGER_TOKEN" \
+        -H "Content-Type: application/json" -d '{"query":"{ __typename }"}'

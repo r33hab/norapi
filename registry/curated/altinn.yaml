@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-11-16
 provider:
   name: Altinn (Digitaliseringsdirektoratet)
   orgnr: "991825827"
@@ -21,3 +21,143 @@ apis:
     probe_url: https://platform.altinn.no/authentication/api/v1/openid/.well-known/openid-configuration
     keywords: [altinn, skjema, innsending, roller, rettigheter, dialogporten, varsling, meldingsboks]
     tags: [agreement, maskinporten]
+
+  - id: altinn-ressursregister
+    title: Altinn ressursregister
+    title_en: Altinn Resource Registry
+    description: >-
+      Registeret over alle ressurser (tjenester og API-er) som er satt opp i Altinn 3, med tittel, beskrivelse og
+      eier på nb, nn og en. Søk med ressursidentifikator, eller hent hele listen. Lesing er åpen uten nøkkel, mens
+      oppretting og endring krever Maskinporten. Svarene er store: hele søket er flere megabyte.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://platform.altinn.no/resourceregistry/api/v1
+    docs_url: https://docs.altinn.studio/en/authorization/
+    probe_url: https://platform.altinn.no/resourceregistry/api/v1/resource/search?id=skatteetaten
+    keywords: [ressurs, ressursregister, tjenesteeier, tilgangsstyring, resource registry, altinn 3, autorisasjon]
+    tags: [no-auth, reference-data]
+    caveats:
+      - Skrivende endepunkter krever Maskinporten; bare lesing er åpen.
+      - Ingen lisens oppgitt.
+      - Uten filter returneres hele registeret, flere megabyte.
+    quick_start: |
+      curl "https://platform.altinn.no/resourceregistry/api/v1/resource/search?id=skatteetaten"
+
+  - id: altinn-tilgangsstyring-metadata
+    title: Altinn tilgangsstyring, roller og tilgangspakker (metadata)
+    title_en: Altinn access management metadata (roles and access packages)
+    description: >-
+      Åpne metadata fra Altinns tilgangsstyring: rollekatalogen med URN-er og eldre rollekoder, og tilgangspakkene
+      gruppert i fullmaktsområder. Nyttig for å slå opp hva en rolle eller tilgangspakke betyr uten å logge inn.
+      Resten av tilgangsstyringen krever innlogging.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://platform.altinn.no/accessmanagement/api/v1/meta/info
+    docs_url: https://docs.altinn.studio/en/authorization/
+    probe_url: https://platform.altinn.no/accessmanagement/api/v1/meta/info/roles
+    keywords: [roller, tilgangspakker, fullmakt, tilgangsstyring, rollekatalog, altinn, access packages, urn]
+    tags: [no-auth, reference-data, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://platform.altinn.no/accessmanagement/api/v1/meta/info/roles"
+      curl "https://platform.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/export"
+
+  - id: altinn-correspondence
+    title: "Altinn 3 Melding (Correspondence)"
+    title_en: "Altinn 3 Correspondence"
+    description: >-
+      Sikker utveksling av offisielle brev, varsler og dokumenter mellom offentlige etater og innbyggere eller
+      virksomheter, med vedlegg, taushetsbelagt post og varsling. Tilgang via Maskinporten med egne Altinn-scopes.
+      OpenAPI-spesifikasjonen er åpen.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://platform.altinn.no/correspondence/api/v1
+    docs_url: https://docs.altinn.studio/nb/correspondence/
+    probe_url: https://platform.altinn.no/correspondence/api/v1/swagger/v1/swagger.json
+    spec_url: https://platform.altinn.no/correspondence/api/v1/swagger/v1/swagger.json
+    keywords: [melding, correspondence, brev, altinn, postkasse, vedlegg]
+    tags: [maskinporten, agreement]
+    caveats:
+      - "Krever Maskinporten-klient og relevant scope, og for tjenesteeiere en avtale med Altinn."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # token fra Maskinporten med riktig Altinn-scope, deretter veksles det i Altinn-token
+      curl -H "Authorization: Bearer $ALTINN_TOKEN" "https://platform.altinn.no/correspondence/api/v1/correspondence"
+  - id: altinn-broker
+    title: "Altinn 3 Formidling (Broker)"
+    title_en: "Altinn 3 Broker"
+    description: >-
+      Styrt filoverføring mellom virksomheter med støtte for store filer, TUS-opplasting, statusmonitorering og
+      avansert informasjonssikkerhet. Tjenesteeiere må reetablere tjenester fra Altinn II. Tilgang via Maskinporten.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://platform.altinn.no/broker/api/v1
+    docs_url: https://docs.altinn.studio/nb/broker/
+    probe_url: https://platform.altinn.no/broker/api/v1/filetransfer
+    keywords: [formidling, broker, filoverføring, store filer, altinn]
+    tags: [maskinporten, agreement]
+    caveats:
+      - "Krever Maskinporten-klient og relevant scope, og for tjenesteeiere en avtale med Altinn."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # token fra Maskinporten med riktig Altinn-scope, deretter veksles det i Altinn-token
+      curl -H "Authorization: Bearer $ALTINN_TOKEN" "https://platform.altinn.no/broker/api/v1/filetransfer"
+  - id: altinn-notifications
+    title: "Altinn 3 Varslinger (Notifications)"
+    title_en: "Altinn 3 Notifications"
+    description: >-
+      Enveis varsling til innbyggere og virksomheter på e-post og SMS, med bestillinger, statusfeed,
+      sendebetingelser, plassholdere og egendefinerte avsendere. Hører sammen med Altinn Melding og Altinn
+      Studio-apper. Tilgang via Maskinporten.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://platform.altinn.no/notifications/api/v1
+    docs_url: https://docs.altinn.studio/nb/notifications/
+    probe_url: https://platform.altinn.no/notifications/api/v1/orders/00000000-0000-0000-0000-000000000000
+    keywords: [varsling, notifications, sms, e-post, altinn]
+    tags: [maskinporten, agreement]
+    caveats:
+      - "Krever Maskinporten-klient og relevant scope, og for tjenesteeiere en avtale med Altinn."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # token fra Maskinporten med riktig Altinn-scope, deretter veksles det i Altinn-token
+      curl -H "Authorization: Bearer $ALTINN_TOKEN" "https://platform.altinn.no/notifications/api/v1/orders/{orderId}"
+  - id: altinn-events
+    title: "Altinn 3 Events"
+    title_en: "Altinn 3 Events"
+    description: >-
+      Publiser og abonner på hendelser (CloudEvents) fra Altinn-apper og egne ressurser, med abonnement, spørring og
+      webhooks. Tilgang via Maskinporten, og du må ha tilgang til hendelsesressursen i ressursregisteret.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://platform.altinn.no/events/api/v1
+    docs_url: https://docs.altinn.studio/nb/events/
+    probe_url: https://platform.altinn.no/events/api/v1/subscriptions
+    keywords: [events, hendelser, cloudevents, abonnement, webhook, altinn]
+    tags: [maskinporten, agreement]
+    caveats:
+      - "Krever Maskinporten-klient og relevant scope, og for tjenesteeiere en avtale med Altinn."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # token fra Maskinporten med riktig Altinn-scope, deretter veksles det i Altinn-token
+      curl -H "Authorization: Bearer $ALTINN_TOKEN" "https://platform.altinn.no/events/api/v1/subscriptions"

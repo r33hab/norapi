@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: Firi
+  sector: privat
+apis:
+  - id: firi-api
+    title: Firi API (kryptobørs)
+    title_en: Firi exchange API
+    description: >-
+      Norsk kryptobørs. Markedsdata (markeder, ticker, ordrebok og siste handler for par som BTCNOK) svarer uten
+      innlogging. Konto, saldo og handel krever API-nøkkel opprettet i Firi, og dokumentasjonen beskriver API-nøkkel
+      som autentisering.
+    category: finans
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.firi.com/v2/markets
+    docs_url: https://developers.firi.com/
+    probe_url: https://api.firi.com/v2/markets
+    keywords: [firi, krypto, bitcoin, kryptobørs, ordrebok, kurs, exchange, market data]
+    tags: [no-auth, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Bare markedsdata er åpne; konto og handel krever API-nøkkel.
+    quick_start: |
+      curl "https://api.firi.com/v2/markets/BTCNOK/ticker"

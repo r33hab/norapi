@@ -1,0 +1,33 @@
+updated: 2026-11-16
+provider:
+  name: GLØR (Gudbrandsdal Lillehammer Øyer Ringebu Renovasjon)
+  sector: kommune
+apis:
+  - id: glor-tommeplan
+    title: GLØR tømmeplan (adressesøk og hentedager)
+    title_en: GLØR waste collection plan (address search and dates)
+    description: >-
+      JSON-endepunkter bak glor.no/tømmeplan for hentedager i Lillehammer, Gausdal, Øyer og nabokommunene. Du søker opp
+      en adresse og får en eiendoms-ID, og henter deretter kommende hentedager per avfallstype. Åpent uten nøkkel, men
+      eieren har ikke dokumentert endepunktene.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://proaktiv.glor.offcenit.no/search
+      - https://proaktiv.glor.offcenit.no/details
+    docs_url: https://glor.no
+    probe_url: https://proaktiv.glor.offcenit.no/search?q=Storgata%201
+    keywords: [renovasjon, avfall, tømmeplan, hentedag, lillehammer, gausdal, øyer, ringebu, waste collection]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Adressesøket kan ha med eierfelt (som er tomt for de fleste treff); bruk det bare for adresser du har grunn til å slå opp og lagre ikke svarene.
+      - Ingen lisens oppgitt.
+      - Tjenesten ligger på en leverandørs vertsnavn (offcenit.no), ikke på glor.no.
+    quick_start: |
+      # 1. søk opp adressen; hvert treff har et id-felt
+      curl "https://proaktiv.glor.offcenit.no/search?q=Storgata%201"
+      # 2. hent hentedager for en eiendom (id fra steg 1)
+      curl "https://proaktiv.glor.offcenit.no/details?id=<id>"

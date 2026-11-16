@@ -1,4 +1,4 @@
-updated: 2026-10-20
+updated: 2026-11-16
 provider:
   name: Mattilsynet
   orgnr: "985399077"
@@ -47,3 +47,84 @@ apis:
     quick_start: |
       curl "https://kodeverk.kjottkontroll.mattilsynet.io/v1/kodeverk"
       curl "https://kodeverk.kjottkontroll.mattilsynet.io/v1/kodeverk/KJOETTKONTROLL_DIAGNOSE_AM"
+
+  - id: mattilsynet-plantevernmidler
+    title: Plantevernmidler API (godkjente og utgåtte preparater)
+    title_en: Plant protection products API
+    description: >-
+      Mattilsynets plantevernmiddeldatabase som REST-API: godkjente, midlertidig tillatte og utgåtte preparater,
+      hobbypreparater, preparater til økologisk landbruk, nytteorganismer, minor use-utvidelser og etiketter per
+      registreringsnummer. Åpent uten nøkkel, ikke versjonert, og eieren sier de etterstreber bakoverkompatibilitet.
+      Swagger-dokumentasjon ligger på API-vertens rot.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.plantevernmidler.mattilsynet.io
+    docs_url: https://plantevernmidler.mattilsynet.io/api_dokumentasjon
+    spec_url: https://api.plantevernmidler.mattilsynet.io/json
+    probe_url: https://api.plantevernmidler.mattilsynet.io/hobby_preparater
+    license: NLOD 2.0
+    keywords: [plantevernmidler, preparater, sprøytemidler, godkjenning, etikett, økologisk, pesticides, plant protection]
+    tags: [no-auth, reference-data]
+    quick_start: |
+      curl "https://api.plantevernmidler.mattilsynet.io/hobby_preparater"
+
+  - id: mattilsynet-akvakultur-offentlig-api
+    title: Akvakultur offentlig API (lakselus, sykdom, rensefisk, helsestatus)
+    title_en: Aquaculture public API (sea lice, disease, cleaner fish, health status)
+    description: >-
+      Mattilsynets data fra oppdrettsnæringen: lakselusrapporteringer, sykdomstilfeller, rensefisk, driftsplaner og
+      helsestatus per lokalitet, som spørringer med filter eller som abonnement der ny data pushes til en webhook.
+      Alle kall krever Bearer-token fra Maskinporten med scopet mattilsynet:akvakultur.offentlig.data, som alle kan få,
+      og en Client-Id-header. Dataene er under NLOD, og Mattilsynet kan begrense tilgangen ved misbruk.
+    category: natur-og-miljo
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://akvakultur-offentlig-api.fisk.mattilsynet.io/api/lakselus/v2/rapporteringer
+      - https://akvakultur-offentlig-api.fisk.mattilsynet.io/api/sykdomstilfeller/v1/rapporteringer
+      - https://akvakultur-offentlig-api.fisk.mattilsynet.io/api/helsestatus/v2/lokaliteter
+    docs_url: https://akvakultur-offentlig-api.fisk.mattilsynet.io/docs/
+    spec_url: https://akvakultur-offentlig-api.fisk.mattilsynet.io/q/openapi
+    license: NLOD 2.0
+    keywords: [akvakultur, oppdrett, lakselus, sykdom, rensefisk, lokalitet, fiskehelse, aquaculture, sea lice]
+    tags: [maskinporten, rate-limited]
+    caveats:
+      - Krever Maskinporten-token og Client-Id-header, uten dem svarer API-et 400 eller 401.
+      - Spesifikasjonen ligger på /q/openapi og er i YAML-format.
+    quick_start: |
+      # token fra Maskinporten med scope mattilsynet:akvakultur.offentlig.data
+      curl -H "Authorization: Bearer $TOKEN" -H "Client-Id: min-klient" \
+        "https://akvakultur-offentlig-api.fisk.mattilsynet.io/api/helsestatus/v2/lokaliteter"
+
+  - id: mattilsynet-smilefjes-tilsyn
+    title: Smilefjes, tilsyn på serveringssteder (CSV)
+    title_en: Smiley inspections of eating places (CSV)
+    description: >-
+      Alle smilefjestilsyn Mattilsynet har gjort på serveringssteder siden 2016 som én semikolonseparert CSV-fil
+      (rundt 45 000 rader og 15 MB): tilsynsobjekt, organisasjonsnummer, adresse, dato, total karakter og karakter per
+      tema. Filen oppdateres daglig. Beskrivelsen av feltene ligger i datasettet på data.norge.no.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [CSV]
+    endpoints:
+      - https://smilefjes.mattilsynet.no/api/tilsyn.csv
+    docs_url: https://data.norge.no/datasets/288aa74c-e3d3-492e-9ede-e71503b3bfd9
+    probe_url: https://smilefjes.mattilsynet.no/api/tilsyn.csv
+    keywords: [smilefjes, tilsyn, restaurant, serveringssted, mattrygghet, hygiene, food safety, inspection]
+    tags: [no-auth, data-files]
+    caveats:
+      - Ikke et API, bare filer til nedlasting.
+      - Ingen lisens oppgitt.
+    behaviour: >-
+      Statisk CSV-fil (semikolonseparert, rundt 45 000 rader) som svarer anonymt med HTTP 200 og oppdateres daglig.
+      Ikke et spørre-API; du laster ned hele filen.
+    owner_terms: >-
+      Publisert åpent av Mattilsynet via data.norge.no. Ingen lisens oppgitt. Filen inneholder virksomhetsnavn,
+      organisasjonsnummer og adresser, og enkeltpersonforetak kan være navngitt med personnavn.
+    quick_start: |
+      curl -s "https://smilefjes.mattilsynet.no/api/tilsyn.csv" | head -3

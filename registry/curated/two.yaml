@@ -1,0 +1,30 @@
+updated: 2026-11-16
+provider:
+  name: Two
+  sector: privat
+  orgnr: "925976105"
+apis:
+  - id: two-b2b-payments-api
+    title: Two API (B2B-betaling, kjøp på faktura)
+    title_en: Two API (B2B payments and trade credit)
+    description: >-
+      REST-API for B2B-betaling med netto betalingsfrist: ordre og checkout, handelskonto, fakturering, tilbakebetaling
+      og webhooks. Autentisering skjer med nøkkelen i headeren X-Api-Key, og separate nøkler utstedes for sandbox
+      (api.sandbox.two.inc) og produksjon (api.two.inc) fra Two sin merchant-portal. OpenAPI-filer lastes ned per API fra dokumentasjonen.
+    category: finans
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.two.inc/
+      - https://api.sandbox.two.inc/
+    docs_url: https://docs.two.inc/
+    spec_url: https://docs.two.inc/openapi/checkout-api.yaml
+    probe_url: https://api.two.inc/v1/order/x
+    keywords: [two, b2b, faktura, netto betalingsfrist, checkout, trade account, kjøp på kreditt, payments]
+    tags: [registration, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever konto i Two sin merchant-portal. Spesifikasjonen i spec_url dekker Checkout-API-et, de andre API-ene har egne filer.
+    quick_start: |
+      curl -H "X-Api-Key: $TWO_API_KEY" "https://api.sandbox.two.inc/v1/order/<ordre-id>"

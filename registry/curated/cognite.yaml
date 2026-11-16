@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: Cognite
+  orgnr: "918274758"
+  sector: privat
+apis:
+  - id: cognite-data-fusion-api
+    title: "Cognite Data Fusion API (industridata)"
+    title_en: "Cognite Data Fusion API (industrial data)"
+    description: >-
+      REST-API for Cognite Data Fusion, plattformen for industridata: tidsserier, ressurser, hendelser, filer og
+      datamodeller. Auth er OAuth 2.0 mot kundens identitetsleverandør, og API-et er bundet til et prosjekt.
+      API-referansen er åpen.
+    category: annet
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.cognitedata.com
+    docs_url: https://api-docs.cognite.com/
+    keywords: [cognite, industridata, tidsserier, data fusion, iot, industrial data, cdf]
+    tags: [private-provider, oauth2, agreement]
+    caveats:
+      - "Krever kundeavtale og Cognite-prosjekt; klyngen kan variere (api.cognitedata.com er standard)."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      curl -H "Authorization: Bearer $TOKEN" "https://api.cognitedata.com/api/v1/projects/{project}/timeseries?limit=1"

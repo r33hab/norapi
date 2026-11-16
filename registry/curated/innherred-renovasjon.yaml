@@ -1,0 +1,36 @@
+updated: 2026-11-16
+provider:
+  name: Innherred Renovasjon
+  sector: kommune
+apis:
+  - id: innherred-renovasjon-wp-api
+    title: Innherred Renovasjon (hentedager, gjenvinningsstasjoner og åpningstider)
+    title_en: Innherred Renovasjon (collection dates, recycling stations and opening hours)
+    description: >-
+      WordPress REST-API på innherredrenovasjon.no med hentedager per adresse, gjenvinningsstasjoner med posisjon og
+      aksepterte fraksjoner, kommuneliste med postnummer og åpningstider per kommune. Dekker blant annet Stjørdal, Levanger,
+      Verdal, Malvik og Meråker. Ruteoversikten på /wp-json/ir/v1/ viser alle endepunktene. Åpent uten nøkkel, men ikke
+      dokumentert av eieren.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://innherredrenovasjon.no/wp-json/ir/v1
+    docs_url: https://innherredrenovasjon.no/wp-json/ir/v1/
+    probe_url: https://innherredrenovasjon.no/wp-json/ir/v1/municipalities
+    keywords: [renovasjon, avfall, hentedag, gjenvinningsstasjon, åpningstider, stjørdal, levanger, verdal, waste collection]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Hentedager hentes per adresse; bruk dem bare for adresser du har grunn til å slå opp.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # alle endepunkter
+      curl "https://innherredrenovasjon.no/wp-json/ir/v1/"
+      # kommuner med postnummer
+      curl "https://innherredrenovasjon.no/wp-json/ir/v1/municipalities"
+      # gjenvinningsstasjoner
+      curl "https://innherredrenovasjon.no/wp-json/ir/v1/stations"
+      # hentedager for en adresse
+      curl "https://innherredrenovasjon.no/wp-json/ir/v1/garbage-disposal-dates-by-address?address=Kirkegata%201"

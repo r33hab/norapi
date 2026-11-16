@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: SuperOffice
+  sector: privat
+apis:
+  - id: superoffice-webapi
+    title: SuperOffice WebAPI (CRM)
+    title_en: SuperOffice CRM WebAPI
+    description: >-
+      REST-API mot CRM-systemet SuperOffice, utviklet i Norge: kontakter, personer, salg, prosjekter, avtaler og
+      henvendelser. Bruker OpenID Connect/OAuth 2.0, og du registrerer en applikasjon for å få klient-ID.
+      Basis-URL er kundens egen kontekst, og et utviklermiljø (SOD) er tilgjengelig. Discovery-dokumentet er åpent.
+    category: annet
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://sod.superoffice.com/login/
+    docs_url: https://docs.superoffice.com/en/api/reference/restful
+    probe_url: https://sod.superoffice.com/login/.well-known/openid-configuration
+    keywords: [superoffice, crm, kunde, salg, kontakter, openid connect, customer]
+    tags: [oauth2, registration, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Probe-URL er utviklermiljøets (SOD) discovery; produksjon bruker eget miljønavn.
+    quick_start: |
+      curl "https://sod.superoffice.com/login/.well-known/openid-configuration"

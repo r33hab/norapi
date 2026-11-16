@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: Signicat
+  sector: privat
+apis:
+  - id: signicat-api
+    title: Signicat API (eID, signering og identitet)
+    title_en: Signicat API
+    description: >-
+      Utviklerportal for Signicat, norskopprettet leverandør av digital identitet: innlogging med BankID og andre
+      eID-er via OpenID Connect, elektronisk signering, identitetsverifisering og tidsstempling. OIDC-discovery er åpen,
+      men klient-ID og hemmelighet kommer fra en Signicat-konto og avtale.
+    category: identitet-og-tilgang
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.signicat.com
+    docs_url: https://developer.signicat.com/
+    probe_url: https://api.signicat.com/auth/open/.well-known/openid-configuration
+    keywords: [signicat, eid, bankid, signering, openid connect, identitet, authentication]
+    tags: [oauth2, agreement, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever avtale; mange tjenester bruker personopplysninger.
+    quick_start: |
+      curl "https://api.signicat.com/auth/open/.well-known/openid-configuration"

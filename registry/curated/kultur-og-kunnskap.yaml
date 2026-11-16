@@ -1,4 +1,4 @@
-updated: 2026-10-21
+updated: 2026-11-16
 provider:
   name: Nasjonalbiblioteket
   orgnr: "976029100"
@@ -64,3 +64,127 @@ apis:
     tags: [no-auth]
     quick_start: |
       curl "https://lokalhistoriewiki.no/api.php?action=query&list=search&srsearch=stavkirke&format=json&srlimit=3"
+
+  - id: nb-iiif-presentation
+    title: Nasjonalbibliotekets IIIF Presentation API
+    title_en: National Library of Norway IIIF Presentation API
+    description: >-
+      IIIF-manifester for digitaliserte bøker, aviser, tidsskrifter og bilder i nb.no, i versjon 2 (v1-stien) og
+      versjon 3 (v3-stien), klare for visningsprogrammer som Mirador og Universal Viewer. Manifest-id er søke-id-en
+      fra katalog-API-et eller en URN. Åpent uten nøkkel, men tilgang til selve bildene følger rettighetene.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON, IIIF]
+    endpoints:
+      - https://api.nb.no/catalog/v1/iiif/
+      - https://api.nb.no/catalog/v3/iiif/
+    docs_url: https://api.nb.no/
+    spec_url: https://api.nb.no/catalog/v1/iiif/api-docs
+    probe_url: https://api.nb.no/catalog/v1/iiif/e100a408f711665c1f94afa9cd102b8d/manifest
+    keywords: [iiif, manifest, digitalisert, bøker, aviser, bilder, mirador, presentation api, library]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt; rettighetene varierer per verk.
+    quick_start: |
+      # finn en id i katalogen, og hent manifestet
+      curl "https://api.nb.no/catalog/v1/items?q=Ibsen&size=1"
+      curl "https://api.nb.no/catalog/v1/iiif/e100a408f711665c1f94afa9cd102b8d/manifest"
+
+  - id: nb-iiif-content-search
+    title: Nasjonalbibliotekets IIIF Content Search API
+    title_en: National Library of Norway IIIF Content Search API
+    description: >-
+      Søk i teksten inne i ett enkelt digitalisert verk: du gir id-en til boka, avisa eller tidsskriftet og et
+      søkeord, og får treff med sidereferanser som IIIF-annotasjoner. Versjon 1 følger IIIF Search 0 og versjon 2
+      IIIF Search 2. Åpent uten nøkkel.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON, IIIF]
+    endpoints:
+      - https://api.nb.no/catalog/v1/contentsearch/
+      - https://api.nb.no/catalog/v2/contentsearch/
+    docs_url: https://api.nb.no/
+    spec_url: https://api.nb.no/catalog/v1/contentsearch/api-docs
+    probe_url: https://api.nb.no/catalog/v1/contentsearch/e100a408f711665c1f94afa9cd102b8d/search?q=ibsen
+    keywords: [iiif, content search, fulltekst, søk i bok, annotasjoner, digitalisert, library, full text]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt; rettighetene varierer per verk.
+    quick_start: |
+      curl "https://api.nb.no/catalog/v1/contentsearch/e100a408f711665c1f94afa9cd102b8d/search?q=ibsen"
+
+  - id: nb-metadata
+    title: Nasjonalbibliotekets metadata-API (MODS, MARCXML, Dublin Core)
+    title_en: National Library of Norway metadata API (MODS, MARCXML, Dublin Core)
+    description: >-
+      Metadataposten for ett verk i nb.no i flere formater: MODS, MARCXML, Dublin Core og en egen strukturert
+      variant. Du bruker id-en fra katalog-API-et. Praktisk når du trenger bibliografiske poster til å importere i et
+      bibliotek- eller arkivsystem. Åpent uten nøkkel.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://api.nb.no/catalog/v1/metadata/
+    docs_url: https://api.nb.no/
+    spec_url: https://api.nb.no/catalog/v1/metadata/api-docs
+    probe_url: https://api.nb.no/catalog/v1/metadata/e100a408f711665c1f94afa9cd102b8d/dublincore
+    keywords: [mods, marcxml, dublin core, metadata, bibliografisk, katalogpost, library]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://api.nb.no/catalog/v1/metadata/e100a408f711665c1f94afa9cd102b8d/mods"
+      curl "https://api.nb.no/catalog/v1/metadata/e100a408f711665c1f94afa9cd102b8d/dublincore"
+
+  - id: nb-nbvok
+    title: Nasjonalbibliotekets vokabularer (Skosmos, nbvok)
+    title_en: National Library of Norway vocabularies (Skosmos, nbvok)
+    description: >-
+      Skosmos REST-API til Nasjonalbibliotekets kontrollerte vokabularer, blant annet Norsk musikkvokabular (sjangre
+      og former, instrumenter og ensembler) og et vokabular for innbindingstyper. Svarer med JSON-LD og SKOS.
+      Åpent uten nøkkel, og Swagger-spesifikasjonen ligger på API-et.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON-LD, RDF]
+    endpoints:
+      - https://api.nb.no/nbvok/rest/v1/
+    docs_url: https://api.nb.no/
+    spec_url: https://api.nb.no/nbvok/rest/v1/swagger.json
+    probe_url: https://api.nb.no/nbvok/rest/v1/vocabularies?lang=nb
+    keywords: [skosmos, skos, vokabular, musikk, sjangre, instrumenter, innbinding, tesaurus, vocabulary]
+    tags: [no-auth, reference-data]
+    caveats:
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://api.nb.no/nbvok/rest/v1/vocabularies?lang=nb"
+      curl "https://api.nb.no/nbvok/rest/v1/search?query=sko*&lang=nb"
+
+  - id: nb-dps-submission
+    title: Nasjonalbibliotekets Digital Preservation Services (innleveringstjeneste)
+    title_en: National Library of Norway Digital Preservation Services submission API
+    description: >-
+      REST-API for å levere digitale objekter til langtidsbevaring hos Nasjonalbiblioteket og be om dem tilbake:
+      innleveringer under en kontrakt, hendelser, uttrekk og statusvarsler. Autentisering er OAuth 2.0 client
+      credentials med JWT, og du trenger en avtale med tjenesten for å få klient. OpenAPI-spesifikasjonen er åpen.
+    category: kultur-og-kunnskap
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.nb.no/dps-submission/v1/
+    docs_url: https://digitalpreservation.no/docs/reference/api/
+    spec_url: https://api.nb.no/dps-submission/v1/api-docs
+    keywords: [langtidsbevaring, digital preservation, arkiv, innlevering, oais, dps, bevaring]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever avtale og klient hos Nasjonalbiblioteket; tokens hentes fra tjenestens egen OpenID Connect-server.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # token (client credentials), se dokumentasjonen for adresse og scopes
+      # deretter kall med Bearer-token, kontrakts-id fra avtalen
+      curl -H "Authorization: Bearer $TOKEN" \
+        "https://api.nb.no/dps-submission/v1/contracts/{contractId}/submissions"

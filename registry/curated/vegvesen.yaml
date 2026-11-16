@@ -1,4 +1,4 @@
-updated: 2026-10-21
+updated: 2026-11-16
 provider:
   name: Statens vegvesen
   orgnr: "971032081"
@@ -227,3 +227,124 @@ apis:
     quick_start: |
       curl -H "X-System-ID: ext-norapi-demo" -H "Accept: application/vnd.svv.v1+json;charset=utf-8" \
         "https://search.atlas.vegvesen.no/search?text=Haukeli&size=2"
+
+  - id: vegvesen-ogc-features
+    title: OGC Karttjenester (OGC API Features)
+    title_en: Road Administration OGC map services (OGC API Features)
+    description: >-
+      OGC API Features-tjeneste med rundt 350 kartlag fra Statens vegvesen: DATEX-baserte lag for trafikkmeldinger,
+      webkamera, værdata og reisetider, Vegbilder (bildepunkter per år, også 360-bilder), Trafikkflyt og
+      vegvær-prognose. Du henter lag som GeoJSON med paginering og filter. Åpent uten nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON, YAML]
+    endpoints:
+      - https://ogckart-sn1.atlas.vegvesen.no/ogc/features/v1
+    docs_url: https://dataut.vegvesen.no/dataset/ogc-karttjenester
+    probe_url: https://ogckart-sn1.atlas.vegvesen.no/ogc/features/v1/collections?f=application%2Fjson
+    keywords: [ogc api features, vegbilder, webkamera, trafikkmeldinger, datex, vær, vegvesen, geojson, wfs]
+    tags: [no-auth]
+    caveats:
+      - Lagnavnene inneholder kolon (for eksempel vegbilder_1_0:Vegbilder_2024) og må URL-kodes som %3A.
+      - OpenAPI-dokumentet svarte med feil (HTTP 500) da vi prøvde det; bruk /collections for å se lagene.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://ogckart-sn1.atlas.vegvesen.no/ogc/features/v1/collections?f=application%2Fjson"
+      # ett bildepunkt fra Vegbilder 2024
+      curl "https://ogckart-sn1.atlas.vegvesen.no/ogc/features/v1/collections/vegbilder_1_0%3AVegbilder_2024/items?limit=1&f=application%2Fgeo%2Bjson"
+
+  - id: vegvesen-dataportalen-ckan
+    title: Dataportalen (CKAN-API)
+    title_en: Road Administration data portal (CKAN API)
+    description: >-
+      Statens vegvesens egen katalog over datasett og API-er, med CKAN-API-et til søk i metadata: tittel,
+      beskrivelse, lisens og ressurs-lenker for rundt 85 datasett og datatjenester (NVDB, DATEX, kjøretøy, ferje,
+      parkering og flere). Åpent uten nøkkel. Dette er metadata om dataene, ikke selve dataene.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://dataut.vegvesen.no/api/3/action
+    docs_url: https://dataut.vegvesen.no/
+    probe_url: https://dataut.vegvesen.no/api/3/action/package_list
+    keywords: [vegvesen, datakatalog, ckan, metadata, datasett, api-oversikt, nvdb]
+    tags: [no-auth, reference-data]
+    caveats:
+      - Ingen lisens oppgitt for selve katalogen; hvert datasett har sin egen lisens i metadata.
+    quick_start: |
+      curl "https://dataut.vegvesen.no/api/3/action/package_list"
+      curl "https://dataut.vegvesen.no/api/3/action/package_show?id=ferjepriser"
+
+  - id: vegvesen-nvdb-eksport
+    title: NVDB Eksport (CSV og SOSI)
+    title_en: NVDB Export (CSV and SOSI)
+    description: >-
+      Eksporterer vegobjekter og det segmenterte vegnettet fra Nasjonal vegdatabank som CSV eller SOSI, med de samme
+      filterparametrene som NVDB API Les. Endepunktet er /vegobjekter/{typeid}.csv, for eksempel type 45 for
+      bomstasjoner og 638 for trafikkstasjoner. Åpent uten nøkkel; SOSI krever også et kartutsnitt.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [CSV, SOSI]
+    endpoints:
+      - https://nvdb-eksport.atlas.vegvesen.no/vegobjekter
+    docs_url: https://nvdb-eksport.atlas.vegvesen.no/
+    probe_url: https://nvdb-eksport.atlas.vegvesen.no/vegobjekter/45.csv?segmentering=true&inkluder=alle&api=https://nvdbapiles.atlas.vegvesen.no
+    license: NLOD 2.0
+    keywords: [nvdb, vegobjekter, eksport, csv, sosi, bomstasjoner, trafikkstasjoner, vegdatabank, road database]
+    tags: [no-auth, data-files]
+    caveats:
+      - Store uttrekk tar tid; avgrens med fylke, kommune eller vegsystemreferanse.
+      - Parameteren api peker på NVDB API Les og må oppgis i eksempelet fra dokumentasjonen.
+    quick_start: |
+      curl "https://nvdb-eksport.atlas.vegvesen.no/vegobjekter/45.csv?segmentering=true&inkluder=alle&api=https://nvdbapiles.atlas.vegvesen.no" | head -3
+
+  - id: vegvesen-periodisk-kjoretoykontroll
+    title: Periodisk kjøretøykontroll (EU-kontroll, kvartalsfiler)
+    title_en: Periodic vehicle inspection data (quarterly files)
+    description: >-
+      Anonymiserte data om utførte periodiske kontroller og etterkontroller av kjøretøy: merke, modell,
+      drivstoff, avrundet kilometerstand, vektklasse, godkjent eller ikke, trafikkfarlige feil og antall 2-3-feil per
+      kontrollpunkt, med fylke der kontrollen ble gjort. Publisert som zip-filer per kvartal i et GitHub-repo.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [CSV, ZIP]
+    endpoints:
+      - https://github.com/vegvesen/periodisk-kjoretoy-kontroll
+    docs_url: https://raw.githubusercontent.com/vegvesen/periodisk-kjoretoy-kontroll/main/README.md
+    license: CC BY 4.0
+    keywords: [eu-kontroll, pkk, kjøretøykontroll, feil, drivstoff, kilometerstand, bil, vehicle inspection]
+    tags: [no-auth, data-files]
+    caveats:
+      - Ikke et API, bare filer til nedlasting.
+      - Ny fil kommer for hvert kvartal; lenker og filnavn følger mønsteret PKK-år-kvartalN.zip.
+    quick_start: |
+      curl -L -o pkk.zip "https://github.com/vegvesen/periodisk-kjoretoy-kontroll/raw/main/PKK-2024-kvartal1.zip"
+
+  - id: vegvesen-agol
+    title: Statens vegvesens kartdata på ArcGIS Online (REST)
+    title_en: Norwegian Public Roads Administration map data on ArcGIS Online (REST)
+    description: >-
+      Statens vegvesens åpne tjenestekatalog på ArcGIS Online med 684 publiserte tjenester, blant annet sykkeltilbud, rasteplasser, gjennomføringsplaner og planavgrensninger for vegprosjekter. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er et arbeidsområde, så lag kommer og går og innholdet varierer i kvalitet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services-eu1.arcgis.com/Omqj1DhF7kfdN8lE/arcgis/rest/services
+    docs_url: https://services-eu1.arcgis.com/Omqj1DhF7kfdN8lE/arcgis/rest/services
+    probe_url: https://services-eu1.arcgis.com/Omqj1DhF7kfdN8lE/arcgis/rest/services?f=json
+    keywords: [statens vegvesen, kart, arcgis, arcgis online, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Katalogen er et arbeidsområde der lag kommer og går, og noen lag er under arbeid eller test.
+      - Noen lag kan inneholde innspill fra innbyggere, så sjekk laget før du bruker det.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services-eu1.arcgis.com/Omqj1DhF7kfdN8lE/arcgis/rest/services?f=json"
+      # antall objekter i ett lag
+      curl "https://services-eu1.arcgis.com/Omqj1DhF7kfdN8lE/arcgis/rest/services/32_sykkeltilbud_Viken_fylke/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json"

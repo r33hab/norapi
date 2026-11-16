@@ -1,0 +1,54 @@
+updated: 2026-11-16
+provider:
+  name: Innlandet fylkeskommune
+  orgnr: "920717152"
+  sector: fylke
+apis:
+  - id: innlandet-fylkeskommune-innlandsgis
+    title: InnlandsGIS kartserver (ArcGIS REST)
+    title_en: InnlandsGIS map server (ArcGIS REST)
+    description: >-
+      Felles kartserver for Innlandet der fylkeskommunen deltar sammen med Statsforvalteren, Statens vegvesen og
+      Kartverket. Mapper per aktør (ifk for fylkeskommunen, hfk for kulturarv, vegvesen, kartverket) med arealplaner,
+      administrative grenser, vannregistrering, funnsteder og friluftsliv-POI. Lagene spørres med /query og svarer
+      som JSON eller GeoJSON, uten nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://geocortex3.innlandsgis.no/arcgis/rest/services
+    docs_url: https://kartportal-innlandsgis.hub.arcgis.com/
+    probe_url: https://geocortex3.innlandsgis.no/arcgis/rest/services?f=json
+    keywords: [innlandet, innlandsgis, fylkeskommune, kart, arcgis, arealplaner, friluftsliv, kulturarv, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Eldre ArcGIS Server (10.91); enkelte tjenester er under utvikling og er ikke masterdata.
+    quick_start: |
+      curl "https://geocortex3.innlandsgis.no/arcgis/rest/services?f=json"
+      curl "https://geocortex3.innlandsgis.no/arcgis/rest/services/ifk/IFK_Vannregistrering/MapServer/0/query?where=1%3D1&outFields=*&resultRecordCount=2&f=geojson"
+
+  - id: innlandet-fylkeskommune-arcgis-online
+    title: Innlandet fylkeskommunes kartdata (ArcGIS Online)
+    title_en: Innlandet county map data (ArcGIS Online)
+    description: >-
+      Fylkeskommunens hostede kartlag i ArcGIS Online, rundt 440 tjenester: holdeplasser, trafikkmengde og ulykker,
+      boliger og fritidsboliger, aktsomhetsområder for flom og andre analyser. Tjenestelisten er åpen, og de åpne
+      lagene spørres med /query som JSON eller GeoJSON.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services2.arcgis.com/6xX4tYcngFeyBkz0/arcgis/rest/services
+    docs_url: https://kartportal-innlandsgis.hub.arcgis.com/
+    probe_url: https://services2.arcgis.com/6xX4tYcngFeyBkz0/arcgis/rest/services?f=json
+    keywords: [innlandet, fylkeskommune, kart, arcgis online, holdeplasser, trafikkmengde, ulykker, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Omtrent halvparten av tjenestene vi prøvde krever innlogging og svarer med «Token Required».
+    quick_start: |
+      curl "https://services2.arcgis.com/6xX4tYcngFeyBkz0/arcgis/rest/services?f=json"
+      curl "https://services2.arcgis.com/6xX4tYcngFeyBkz0/arcgis/rest/services/HoldeplasserInnlandet/FeatureServer/0/query?where=1%3D1&outFields=*&resultRecordCount=2&f=geojson"

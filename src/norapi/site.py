@@ -740,6 +740,18 @@ class Site:
                 + "".join(f"<li>{e(c)}</li>" for c in api["caveats"])
                 + "</ul></section>"
             )
+        if api.get("behaviour"):
+            sections.append(
+                '<section class="prose" aria-labelledby="behaviour-h">'
+                '<h2 id="behaviour-h">Oppførsel</h2>'
+                f'<p>{e(api["behaviour"])}</p></section>'
+            )
+        if api.get("owner_terms"):
+            sections.append(
+                '<section class="prose" aria-labelledby="terms-h">'
+                '<h2 id="terms-h">Eierens vilkår</h2>'
+                f'<p>{e(api["owner_terms"])}</p></section>'
+            )
         description = (api.get("description") or "").strip()
         long_description = len(description) > 420
         lede_text = (

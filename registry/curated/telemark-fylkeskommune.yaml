@@ -1,0 +1,30 @@
+updated: 2026-11-16
+provider:
+  name: Telemark fylkeskommune
+  orgnr: "929882989"
+  sector: fylke
+apis:
+  - id: telemark-fylkeskommune-arcgis-online
+    title: Telemark fylkeskommunes kartdata (ArcGIS Online)
+    title_en: Telemark county map data (ArcGIS Online)
+    description: >-
+      Fylkeskommunens hostede kartlag i ArcGIS Online, rundt 900 tjenester: driftskontrakter for veg (brøyteroder,
+      feieroder, grønt og elektro), fylkesgrense og plan- og varselsaker. Lagene spørres med /query og svarer som JSON
+      eller GeoJSON. De fleste lag er åpne uten nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services-eu1.arcgis.com/IT3fpqRm0QNhnnqL/arcgis/rest/services
+    docs_url: https://services-eu1.arcgis.com/IT3fpqRm0QNhnnqL/arcgis/rest/services
+    probe_url: https://services-eu1.arcgis.com/IT3fpqRm0QNhnnqL/arcgis/rest/services?f=json
+    keywords: [telemark, fylkeskommune, kart, arcgis online, driftskontrakt, brøyting, fylkesveg, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Noen tjenester krever innlogging og svarer med «Token Required».
+      - Tjenestelisten er lang og inneholder arbeidskopier og midlertidige lag.
+    quick_start: |
+      curl "https://services-eu1.arcgis.com/IT3fpqRm0QNhnnqL/arcgis/rest/services?f=json"
+      curl "https://services-eu1.arcgis.com/IT3fpqRm0QNhnnqL/arcgis/rest/services/Fylkesgrense_Telemark/FeatureServer/0/query?where=1%3D1&outFields=*&resultRecordCount=1&f=geojson"

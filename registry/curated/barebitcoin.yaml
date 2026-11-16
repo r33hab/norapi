@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: Bare Bitcoin
+  sector: privat
+apis:
+  - id: barebitcoin-api
+    title: Bare Bitcoin API
+    title_en: Bare Bitcoin API
+    description: >-
+      Norsk bitcoinmegler. Markedsdata (BTC/NOK-pris med kort- og banktilbud, handelsvolum og historisk volum)
+      svarer uten innlogging. Innskuddsadresser, Lightning-fakturaer og uttak krever API-nøkkel, der hver
+      forespørsel signeres med HMAC og en økende nonce.
+    category: finans
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.bb.no/v1
+    docs_url: https://barebitcoin.no/developers
+    probe_url: https://api.bb.no/v1/price/nok
+    keywords: [bare bitcoin, bitcoin, krypto, lightning, kurs, btc nok, price]
+    tags: [no-auth, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Bare markedsdata er åpne; innskudd og uttak krever signert API-nøkkel.
+    quick_start: |
+      curl "https://api.bb.no/v1/price/nok"

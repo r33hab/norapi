@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: Tripletex
+  sector: privat
+apis:
+  - id: tripletex-api
+    title: Tripletex API v2 (regnskap, faktura og lønn)
+    title_en: Tripletex API v2
+    description: >-
+      Stort REST-API mot regnskapssystemet Tripletex: kunder, leverandører, fakturaer, ordre, bilag, timer, prosjekter,
+      ansatte og lønn. Du bytter consumer token og employee token mot et sesjonstoken, som sendes som HTTP Basic
+      (brukernavn 0 eller kunde-ID, passord er sesjonstokenet). Testmiljøet ligger på api-test.tripletex.tech.
+    category: finans
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://tripletex.no/v2
+    docs_url: https://tripletex.no/v2-docs/
+    spec_url: https://tripletex.no/v2/openapi.json
+    keywords: [tripletex, regnskap, faktura, bilag, lønn, timeføring, accounting, erp]
+    tags: [private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Consumer token krever godkjenning fra Tripletex; employee token lages av en bruker i selskapet.
+    quick_start: |
+      # sesjonstoken fra consumer- og employee-token, deretter Basic-auth med 0:<sesjonstoken>
+      curl -u "0:$TRIPLETEX_SESSION_TOKEN" "https://tripletex.no/v2/token/session/>whoAmI"

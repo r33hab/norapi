@@ -1,0 +1,31 @@
+updated: 2026-11-16
+provider:
+  name: Jernbanedirektoratet
+  orgnr: "916810962"
+  sector: stat
+apis:
+  - id: jernbanedirektoratet-wp-api
+    title: Jernbanedirektoratet.no (innholds-API for nyheter, banestrekninger og artikler)
+    title_en: Norwegian Railway Directorate website content API
+    description: >-
+      WordPress REST-API på jernbanedirektoratet.no med nyheter, magasinartikler, vurderinger, banestrekninger og
+      tjenestepakker som JSON. Åpent uten nøkkel, men ikke dokumentert av eieren. Typen «person» finnes også; ikke bruk
+      den til å kartlegge enkeltpersoner.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.jernbanedirektoratet.no/wp-json/wp/v2
+    docs_url: https://developer.wordpress.org/rest-api/reference/
+    probe_url: https://www.jernbanedirektoratet.no/wp-json/wp/v2/posts?per_page=1
+    keywords: [jernbane, jernbanedirektoratet, banestrekninger, togtilbud, nyheter, railway, wordpress]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # siste nyheter
+      curl "https://www.jernbanedirektoratet.no/wp-json/wp/v2/posts?per_page=5&_fields=id,date,link,title"
+      # banestrekninger
+      curl "https://www.jernbanedirektoratet.no/wp-json/wp/v2/railway-line?per_page=5&_fields=id,link,title"

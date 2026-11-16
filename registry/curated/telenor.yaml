@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: Telenor Norge
+  sector: privat
+apis:
+  - id: telenor-developer-apis
+    title: Telenor Norge API-portal (bedrift)
+    title_en: Telenor Norway business APIs
+    description: >-
+      API-portal for Telenor Norges bedriftskunder: SMS Access, SMS Alert, Strex (betaling på mobilregning),
+      posisjonering, Mobile Order, mPort, Service Ticket, Fixed Order, Fakturakontroll, eSIM og IoT. Swagger-dokumentasjon
+      er åpen i portalen; API-ene bestilles via Min Bedrift og brukes med OAuth.
+    category: annet
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://developer.telenor.no/
+    docs_url: https://developer.telenor.no/
+    keywords: [telenor, sms, strex, posisjonering, iot, esim, mobilabonnement, telecom]
+    tags: [oauth2, agreement, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever bedriftskundeforhold; konkrete base-URL-er og OAuth-oppsett står i portalen.
+    quick_start: |
+      # bestill API-et i Min Bedrift, hent token som beskrevet på https://developer.telenor.no/
+      curl -H "Authorization: Bearer $TELENOR_TOKEN" "<API-URL fra portalen>"

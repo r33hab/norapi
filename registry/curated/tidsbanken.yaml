@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: Tidsbanken
+  sector: privat
+apis:
+  - id: tidsbanken-api
+    title: Tidsbanken API (vaktplan og timeregistrering)
+    title_en: Tidsbanken API
+    description: >-
+      API-portal for Tidsbanken, norsk system for vaktplanlegging, timeføring og fravær. Hvert kall trenger både en
+      abonnementsnøkkel fra portalen og en tb-key som peker på kundens miljø (test eller produksjon). Tb-key hentes
+      i selve Tidsbanken-løsningen til kunden.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://developer.tidsbanken.net/apis
+    docs_url: https://developer.tidsbanken.net/apis
+    keywords: [tidsbanken, vaktplan, timeføring, fravær, bemanning, workforce, timesheet]
+    tags: [agreement, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Basis-URL for hvert API står bak innlogging i portalen; endepunktet over er portalen.
+    quick_start: |
+      # sett abonnementsnøkkel og tb-key som beskrevet i portalen
+      curl -H "Ocp-Apim-Subscription-Key: $SUBSCRIPTION_KEY" -H "tb-key: $TB_KEY" "<API-URL fra portalen>"

@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: Likestillings- og diskrimineringsombudet
+  orgnr: "988681873"
+  sector: stat
+apis:
+  - id: ldo-wp-api
+    title: LDO.no (innholds-API for nyheter og veiledning)
+    title_en: Equality and Anti-Discrimination Ombud website content API
+    description: >-
+      WordPress REST-API på ldo.no (nettstedet kan omdirigere fra www.ldo.no) med nyheter, sider og kursinformasjon som JSON.
+      Åpent uten nøkkel, men ikke dokumentert av eieren.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://ldo.no/wp-json/wp/v2
+    docs_url: https://developer.wordpress.org/rest-api/reference/
+    probe_url: https://ldo.no/wp-json/wp/v2/posts?per_page=1
+    keywords: [likestilling, diskriminering, ombud, ldo, nyheter, veiledning, equality, wordpress]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # siste nyheter
+      curl "https://ldo.no/wp-json/wp/v2/posts?per_page=5&_fields=id,date,link,title"

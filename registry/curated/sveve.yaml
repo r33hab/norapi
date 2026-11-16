@@ -1,0 +1,26 @@
+updated: 2026-11-16
+provider:
+  name: Sveve
+  sector: privat
+apis:
+  - id: sveve-sms-api
+    title: Sveve SMS-API
+    title_en: Sveve SMS API
+    description: >-
+      Norsk SMS-tjeneste: send SMS, motta SMS, leveringsrapporter og mottakergrupper. Du sender med GET eller POST og
+      oppgir brukernavn og API-passord som parametere (passordet finnes under API i Sveve-kontoen). Kontoen må ha API
+      aktivert, og svaret kan returneres som JSON.
+    category: annet
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://sveve.no/SMS/SendMessage
+    docs_url: https://sveve.no/apidok
+    keywords: [sveve, sms, tekstmelding, varsling, leveringsrapport, messaging]
+    tags: [registration, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Kallet sender en ekte SMS og koster penger; bruk testkonto.
+    quick_start: |
+      curl "https://sveve.no/SMS/SendMessage?user=$SVEVE_USER&passwd=$SVEVE_API_KEY&to=<mobilnummer>&msg=Hei&f=json"

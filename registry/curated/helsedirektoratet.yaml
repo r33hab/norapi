@@ -1,4 +1,4 @@
-updated: 2026-10-21
+updated: 2026-11-16
 provider:
   name: Helsedirektoratet
   orgnr: "983544622"
@@ -43,3 +43,75 @@ apis:
       - Bare metadata; selve helsedataene krever søknad.
     quick_start: |
       curl "https://helsedata.no/api/1.0/healthregister/SearchResult?page=1&sort=0&lang=no"
+
+  - id: helfo-kuhr-krav-api
+    title: "KUHR Krav API (behandlerkrav til Helfo)"
+    title_en: "KUHR claims API (practitioner claims to Helfo)"
+    description: >-
+      API for EPJ-systemer som sender inn behandlerkrav (BKM) og rapporterer egenandeler til Helfo, og henter status,
+      kontrollresultater og utbetalinger. Krever avtale og praksisregistrering hos Helfo. Virksomheter autentiserer
+      med Maskinporten, behandlere med HelseID (scope hdir:kuhr-krav-api/krav), og kravet sendes kryptert med KUHRs
+      offentlige nøkkel.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - "https://api.helserefusjon.no"
+    docs_url: "https://github.com/navikt/kuhr-krav-api-dokumentasjon"
+    keywords: [helfo, kuhr, behandlerkrav, bkm, egenandel, refusjon, epj, helserefusjon]
+    tags: [agreement, oauth2, personal-data]
+    caveats:
+      - "Krever avtale med Helfo, Maskinporten eller HelseID og kryptering av forespørselen."
+      - "Dokumentasjonen ligger som README i et GitHub-repo."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Virksomhet: Maskinporten-token. Behandler: HelseID-token med scope hdir:kuhr-krav-api/krav
+      curl -H "Authorization: Bearer $TOKEN" "https://api.helserefusjon.no/<endepunkt fra dokumentasjonen>"
+      # test: https://api-preprod.helserefusjon.no
+
+  - id: helfo-eresept-oppgjorskrav-api
+    title: "Eresept OK: oppgjørskontroll (apotek)"
+    title_en: "E-prescription settlement control API (pharmacies)"
+    description: >-
+      API for apotek og bandasjister som sender oppgjørskrav til Eresept OK hos Helfo, og henter oppgjørsresultat,
+      utbetaling, vedtaksbrev og takster. Autentisering med HelseID (scope hdir:eresept-ok/oppgjorskrav) med DPoP, og
+      meldinger krypteres ende til ende med JWE. Krever avtale med Helfo om direkte oppgjør.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - "https://teameresept-gw.nav.no"
+    docs_url: "https://navikt.github.io/eresept-oppgjorskrav-api-dok/"
+    keywords: [eresept, oppgjørskontroll, apotek, helfo, oppgjørskrav, takst, e-prescription]
+    tags: [agreement, oauth2, personal-data]
+    caveats:
+      - "Krever avtale med Helfo og HelseID med DPoP."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # HelseID-token med scope hdir:eresept-ok/oppgjorskrav (DPoP-bundet)
+      curl -H "Authorization: DPoP $TOKEN" -H "DPoP: $DPOP_PROOF" "https://teameresept-gw.nav.no/<endepunkt fra dokumentasjonen>"
+
+  - id: helfo-frikortoppslag-api
+    title: "Frikortoppslag API"
+    title_en: "Exemption card lookup API"
+    description: >-
+      API for helseaktører som slår opp om en pasient har gyldig frikort (egenandelsfritak) hos Helfo. Autentisering
+      med HelseID og scope hdir:frikortsporring/read, med kontroll av avtaleforhold, og forespørselen krypteres.
+      Produksjon på frikortbifrost.nav.no, test på ekstern dev-vert. Dokumentasjonen har OpenAPI-spesifikasjon.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - "https://frikortbifrost.nav.no"
+    docs_url: "https://navikt.github.io/frikortoppslag-api-dokumentasjon/"
+    keywords: [frikort, egenandel, egenandelsfritak, helfo, pasient, exemption card]
+    tags: [agreement, oauth2, personal-data]
+    caveats:
+      - "Krever HelseID, avtale med Helfo og kryptering av forespørselen."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # HelseID-token med scope hdir:frikortsporring/read og resource hdir:frikortsporring
+      curl -H "Authorization: Bearer $TOKEN" "https://frikortbifrost.nav.no/<endepunkt fra dokumentasjonen>"

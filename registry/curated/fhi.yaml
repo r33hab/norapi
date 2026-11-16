@@ -1,0 +1,31 @@
+updated: 2026-11-16
+provider:
+  name: Folkehelseinstituttet (FHI)
+  orgnr: "983744516"
+  sector: stat
+apis:
+  - id: fhi-nettsok
+    title: FHIs nettsøk (nettsidens søke-API)
+    title_en: Norwegian Institute of Public Health site search (the site's search API)
+    description: >-
+      JSON-endepunktet bak søket på fhi.no: fritekstsøk i artikler, veiledere, statistikksider og prosjekter, med tittel,
+      ingress, URL, sidetype, endringsdato, treffantall, sidetall og filtermodeller. Åpent uten nøkkel, men ikke
+      dokumentert av eieren. Treffene kan også være personsider.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.fhi.no/api/search
+    docs_url: https://www.fhi.no/
+    probe_url: https://www.fhi.no/api/search?term=influensa
+    keywords: [fhi, folkehelse, smittevern, vaksine, helseartikler, søk, public health, site search]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Treff av typen personside beskriver ansatte; ikke bruk dem til profilering.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://www.fhi.no/api/search?term=influensa"
+      # neste side
+      curl "https://www.fhi.no/api/search?term=influensa&pageNumber=2"

@@ -1,4 +1,4 @@
-updated: 2026-10-21
+updated: 2026-11-16
 provider:
   name: Brønnøysundregistrene
   orgnr: "974760673"
@@ -103,3 +103,84 @@ apis:
     tags: [no-auth, reference-data]
     quick_start: |
       curl -H "Accept: application/json" "https://data.brreg.no/oppgaveregisteret/api/skjema?start=0&antall=2"
+
+  - id: brreg-fullmakt
+    title: Signatur og prokura (Fullmakttjenesten)
+    title_en: Signature rights and power of procuration (Fullmakt service)
+    description: >-
+      Oppslag på hvem som kan tegne firmaet (signatur) og hvem som har prokura i en virksomhet, hentet fra
+      Enhetsregisteret og Foretaksregisteret, på organisasjonsnummer. Svaret gir signeringsgrunnlag, mulige
+      signeringsroller og kombinasjoner, ofte som fritekst. Oppslagstjenesten er åpen og gratis uten nøkkel; en egen
+      kontrolltjeneste krever autentisering. Ukjent eller sluttet enhet gir 404 med feilmelding i JSON.
+    category: bedrift-og-organisasjon
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://data.brreg.no/fullmakt
+    docs_url: https://data.brreg.no/fullmakt/docs/index.html
+    probe_url: https://data.brreg.no/fullmakt/enheter/923609016/signatur
+    keywords: [signatur, prokura, tegningsrett, firmaets signatur, signeringsrett, enhetsregisteret, foretaksregisteret, signing authority]
+    tags: [no-auth]
+    caveats:
+      - Kontrolltjenesten i samme dokumentasjon krever autentisering; bare oppslagstjenesten er åpen.
+      - Resultatet er ofte fritekst fra registreringen og må tolkes av et menneske.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://data.brreg.no/fullmakt/enheter/923609016/signatur"
+
+  - id: brreg-reelle-rettighetshavere
+    title: Register over reelle rettighetshavere (oppslags-API)
+    title_en: Beneficial owners register (lookup API)
+    description: >-
+      Oppslag og søk på virksomheter og deres reelle rettighetshavere, nedlasting av totalbestand som JSON og
+      endringslogg for å følge med på nye registreringer. Bare kodelistene er åpne; alle andre endepunkter er
+      tilgangsstyrt med Maskinporten, og tilgang gis kun til grupper med lovhjemmel (for eksempel rapporteringspliktige
+      og myndigheter). Har OpenAPI-spesifikasjon og eget testmiljø.
+    category: bedrift-og-organisasjon
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://rrh.brreg.no/api/oppslag/v1
+    docs_url: https://brreg.github.io/docs/apidokumentasjon/reelle-rettighetshavere/tilgjengeliggjoering/apier-vi-tilbyr/virksomheter/
+    spec_url: https://rrh.brreg.no/api/oppslag/v3/api-docs
+    probe_url: https://rrh.brreg.no/api/oppslag/v1/kodelister
+    keywords: [reelle rettighetshavere, rrh, eierskap, hvitvasking, totalbestand, endringslogg, beneficial owner, aml]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - Svar om virksomheter kan inneholde personopplysninger om rettighetshavere; tilgang krever hjemmel.
+      - Bare /v1/kodelister svarer uten innlogging.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # åpent endepunkt
+      curl "https://rrh.brreg.no/api/oppslag/v1/kodelister"
+      # tilgangsstyrt, krever Maskinporten-token
+      curl -H "Authorization: Bearer $TOKEN" "https://rrh.brreg.no/api/oppslag/v1/virksomheter/{organisasjonsnummer}"
+
+  - id: brreg-stottetiltak-registerinfo
+    title: Støtteregisteret, registerinfo-API (offentlig støtte)
+    title_en: State aid register info API
+    description: >-
+      Søk i Støtteregisteret etter støtteordninger og støttetildelinger, og hent kodelister for støttegivere, regioner,
+      næringer, støttekategorier og rettslig grunnlag. Kodelistene svarer anonymt på GET. Søkene er POST med JSON-kropp,
+      og OpenAPI-spesifikasjonen oppgir Bearer JWT som sikkerhetsskjema.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://stottetiltak-registerinfo-api.app.brreg.no/api/v1/kodeliste/stoettegiver
+      - https://stottetiltak-registerinfo-api.app.brreg.no/api/v1/soek/stoetteordning
+      - https://stottetiltak-registerinfo-api.app.brreg.no/api/v1/soek/stoettetildeling
+    docs_url: https://stottetiltak-registerinfo-api.app.brreg.no/swagger-ui/index.html
+    spec_url: https://stottetiltak-registerinfo-api.app.brreg.no/v3/api-docs
+    probe_url: https://stottetiltak-registerinfo-api.app.brreg.no/api/v1/kodeliste/stoettegiver
+    keywords: [støtteregisteret, statsstøtte, støtteordning, støttetildeling, tilskudd, EØS, state aid]
+    tags: [no-auth, reference-data]
+    caveats:
+      - Søkeendepunktene er POST og kan kreve token; bare kodelistene er verifisert anonymt.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://stottetiltak-registerinfo-api.app.brreg.no/api/v1/kodeliste/stoettegiver"
+      curl "https://stottetiltak-registerinfo-api.app.brreg.no/api/v1/kodeliste/region"

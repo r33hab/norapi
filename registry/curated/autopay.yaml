@@ -1,0 +1,30 @@
+updated: 2026-11-16
+provider:
+  name: Autopay
+  sector: privat
+apis:
+  - id: autopay-public-apis
+    title: Autopay API-er (parkering, flåte, tillatelser og betaling)
+    title_en: Autopay APIs (parking, fleet, permits and payments)
+    description: >-
+      Samling REST-API-er fra Autopay (parkering og bompassering) på api.autopay.io: parkeringshendelser via webhook,
+      flåte, parkeringstillatelser for utleier, operatør og leietaker, pris, statistikk, kjøretøy og regnskap. Alle API-ene
+      bruker OAuth 2.0 med klient-ID og hemmelighet utstedt av Autopay, og token hentes fra api-auth.autopay.io. Flere API-er
+      er betalte tjenester, og bruk krever godkjent API-avtale.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.autopay.io/
+      - https://api-auth.autopay.io/oauth/token
+    docs_url: https://developer.autopay.io/
+    probe_url: https://api.autopay.io/price/v1/product/1
+    keywords: [autopay, parkering, parking, bom, flåte, parkeringstillatelse, permit, kjøretøy, lpr]
+    tags: [oauth2, agreement, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever API-avtale og klientnøkler fra Autopay. Flere API-er er betalte tjenester.
+    quick_start: |
+      curl -X POST "https://api-auth.autopay.io/oauth/token" -d "grant_type=client_credentials&client_id=$CLIENT_ID&client_secret=$CLIENT_SECRET"
+      curl -H "Authorization: Bearer $TOKEN" "https://api.autopay.io/<api>/v1/..."

@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Norges sjømatråd
+  orgnr: "988597627"
+  sector: privat
+apis:
+  - id: sjomatradet-eksportstatistikk-api
+    title: Sjømatrådets API-portal (eksportstatistikk)
+    title_en: Norwegian Seafood Council API portal (export statistics)
+    description: >-
+      API-portal for norsk og global sjømathandel: statistikk per dag, uke og måned for eksport fra Norge. Portalen
+      er bygd på Azure API Management; du logger inn (koblet til seafood.no-konto) eller ber Sjømatrådet om klient-ID,
+      og abonnerer på et produkt for å få nøkkel. Tilgangen er avgrenset til sjømatnæringen.
+    category: statistikk
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.seafood.no/
+    docs_url: https://api.seafood.no/documentation
+    keywords: [sjømat, eksport, laks, fisk, handelsstatistikk, ukestatistikk, månedsstatistikk, seafood exports]
+    tags: [private-provider, registration]
+    caveats:
+      - Eksklusiv tilgang for norsk sjømatnæring; abonnement på produkt kreves.
+      - Portalen oppgir ikke base-URL for hvert API på forsiden; se produktsidene etter innlogging.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # Azure API Management: nøkkelen sendes normalt i headeren Ocp-Apim-Subscription-Key
+      curl "<base-URL fra produktsiden>/<endepunkt>" -H "Ocp-Apim-Subscription-Key: $SEAFOOD_KEY"

@@ -1,0 +1,26 @@
+updated: 2026-11-16
+provider:
+  name: Makeplans
+  sector: privat
+apis:
+  - id: makeplans-api
+    title: Makeplans API (timebestilling)
+    title_en: Makeplans booking API
+    description: >-
+      REST-API mot norsk bookingsystem: tider, bookinger, kunder, tjenester, ressurser, arrangementer, kuponger og
+      webhooks (signert med HMAC SHA-256). API-et slås på og nøkkelen kopieres under Oppsett, Integrasjoner, API, og
+      sendes som Bearer-token. Basis-URL er kontoens eget underdomene. Det finnes også en MCP-server.
+    category: annet
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://konto.makeplans.com/api/v1/
+    docs_url: https://developer.makeplans.com/
+    keywords: [makeplans, booking, timebestilling, avtaler, kalender, webhooks, scheduling]
+    tags: [registration, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Bytt konto med kontoens eget navn; krever Makeplans-konto med API aktivert.
+    quick_start: |
+      curl -H "Authorization: Bearer $MAKEPLANS_API_KEY" "https://<konto>.makeplans.com/api/v1/services"

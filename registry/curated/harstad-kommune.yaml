@@ -1,0 +1,31 @@
+updated: 2026-11-16
+provider:
+  name: Harstad kommune
+  sector: kommune
+apis:
+  - id: harstad-kommune-agol
+    title: Harstad kommunes kartdata på ArcGIS Online (REST)
+    title_en: Harstad municipality map data on ArcGIS Online (REST)
+    description: >-
+      Harstad kommunes åpne tjenestekatalog på ArcGIS Online, med omtrent 80 publiserte kartlag, blant annet kommunegrense, skolekretser, grunnkretser, grunnskoler, gjeldende planer og forslag til naturvernområder. Hvert lag
+      kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er kommunens arbeidsområde, så lag
+      kommer og går og innholdet varierer i kvalitet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services9.arcgis.com/QVwAwioxVJsH4omg/arcgis/rest/services
+    docs_url: https://services9.arcgis.com/QVwAwioxVJsH4omg/arcgis/rest/services
+    probe_url: https://services9.arcgis.com/QVwAwioxVJsH4omg/arcgis/rest/services?f=json
+    keywords: [kommune, kart, arcgis, arcgis online, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Laglisten er kommunens arbeidskart og endres uten varsel; noen lag er under arbeid eller test.
+      - Noen lag kan inneholde innspill fra innbyggere eller andre persondata, så sjekk laget før du bruker det.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services9.arcgis.com/QVwAwioxVJsH4omg/arcgis/rest/services?f=json"
+      # fem objekter fra ett lag, som GeoJSON
+      curl "https://services9.arcgis.com/QVwAwioxVJsH4omg/arcgis/rest/services/Kommunegrense_Harstad/FeatureServer/0/query?where=1%3D1&outFields=*&resultRecordCount=5&f=geojson"

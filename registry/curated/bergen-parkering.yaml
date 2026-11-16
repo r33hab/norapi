@@ -1,0 +1,33 @@
+updated: 2026-11-16
+provider:
+  name: Bergen Parkering AS
+  orgnr: "996277267"
+  sector: kommune
+apis:
+  - id: bergen-parkering-ledig-parkering
+    title: Bergen Parkering ledige plasser (parkeringsanlegg)
+    title_en: Bergen Parkering free spaces (car parks)
+    description: >-
+      JSON fra nettsiden til Bergen Parkering med anleggene sine (navn, posisjon) og sanntidstall per anlegg: ledige
+      plasser, ledige og opptatte ladepunkt, pris per time og makspris per døgn. Åpent uten nøkkel. Tallene
+      oppdateres jevnlig og kommer med tidsstempel.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://bergenparkering.no/wp-json/ledigparkering/v1/availableparking
+      - https://bergenparkering.no/wp-json/ledigparkering/v1/facilities
+    docs_url: https://bergenparkering.no/finn-parkering/
+    probe_url: https://bergenparkering.no/wp-json/ledigparkering/v1/availableparking
+    keywords: [parkering, parkeringshus, ledige plasser, ladepunkt, bergen, sanntid, parking, ev charging]
+    tags: [no-auth, undocumented, feed]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Nøklene i availableparking er apicode fra facilities-listen.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # anlegg med posisjon
+      curl "https://bergenparkering.no/wp-json/ledigparkering/v1/facilities"
+      # ledige plasser og ladepunkt nå
+      curl "https://bergenparkering.no/wp-json/ledigparkering/v1/availableparking"

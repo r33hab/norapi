@@ -1,0 +1,30 @@
+updated: 2026-11-16
+provider:
+  name: Nord-Fron kommune
+  orgnr: "839893132"
+  sector: kommune
+apis:
+  - id: nord-fron-kommune-agol
+    title: Nord-Fron kommunes kartdata på ArcGIS Online (REST)
+    title_en: Nord-Fron municipality map data on ArcGIS Online (REST)
+    description: >-
+      Nord-Fron kommunes åpne tjenestekatalog på ArcGIS Online med 35 publiserte tjenester, blant annet rode- og vegnett, seterstølar, hensynssoner og kommuneplanens arealformål. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er et arbeidsområde, så lag kommer og går og innholdet varierer i kvalitet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services-eu1.arcgis.com/YYTzeZh928gotaoz/arcgis/rest/services
+    docs_url: https://services-eu1.arcgis.com/YYTzeZh928gotaoz/arcgis/rest/services
+    probe_url: https://services-eu1.arcgis.com/YYTzeZh928gotaoz/arcgis/rest/services?f=json
+    keywords: [nord-fron, kommune, kart, arcgis, arcgis online, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Katalogen er et arbeidsområde der lag kommer og går, og noen lag er under arbeid eller test.
+      - Noen lag kan inneholde innspill fra innbyggere, så sjekk laget før du bruker det.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services-eu1.arcgis.com/YYTzeZh928gotaoz/arcgis/rest/services?f=json"
+      # antall objekter i ett lag
+      curl "https://services-eu1.arcgis.com/YYTzeZh928gotaoz/arcgis/rest/services/Kommuneplan/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json"

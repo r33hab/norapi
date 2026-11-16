@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Norsk lyd- og blindeskriftbibliotek (NLB)
+  sector: stat
+apis:
+  - id: nlb-api
+    title: NLB-katalogen (utgaver av lydbøker og punktbøker)
+    title_en: NLB catalogue API (audio books and braille editions)
+    description: >-
+      API til Norsk lyd- og blindeskriftbibliotek med katalogen over utgaver i formatene lyd, punkt og tekst: tittel,
+      format, om utgaven har lyd, punkt eller tekst, og om den er tilgjengelig for utlån. Katalogsøk og listing av
+      utgaver svarer uten nøkkel. Rotadressen lister også endepunkter for brukere og utlån, som krever innlogging.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.nlb.no/v1/editions
+    docs_url: https://api.nlb.no/
+    probe_url: https://api.nlb.no/v1/editions?limit=2
+    keywords: [lydbok, punktskrift, blindeskrift, bibliotek, tilgjengelighet, nlb, daisy, audio books, braille]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Rotadressen lister bare stier; det finnes ingen offentlig spesifikasjon.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://api.nlb.no/v1/editions?limit=2"
+      curl "https://api.nlb.no/v1/books/search/ibsen"

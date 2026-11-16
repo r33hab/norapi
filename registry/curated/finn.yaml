@@ -1,0 +1,26 @@
+updated: 2026-11-16
+provider:
+  name: FINN.no
+  sector: privat
+apis:
+  - id: finn-api
+    title: FINN API (annonser og søk)
+    title_en: FINN.no API
+    description: >-
+      Atom-baserte REST-grensesnitt mot FINN.no: tjenestedokument, søk i annonser, enkeltannonser og bildestørrelser
+      for blant annet eiendom, bil og torget. Nøkkelen sendes i headeren x-FINN-apikey, og tilgang gis etter
+      søknad til FINN. Dokumentasjonen er åpen, og formatene er XML og JSON.
+    category: annet
+    access: restricted
+    auth: api-key
+    formats: [XML, JSON]
+    endpoints:
+      - https://cache.api.finn.no/iad/
+    docs_url: https://www.finn.no/api/doc/
+    keywords: [finn, annonser, eiendom, bil, torget, atom, classifieds, søk]
+    tags: [agreement, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever API-nøkkel fra FINN; endepunktet svarer 403 uten nøkkel.
+    quick_start: |
+      curl -H "x-FINN-apikey: $FINN_API_KEY" "https://cache.api.finn.no/iad/"

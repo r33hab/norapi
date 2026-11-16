@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: Unimicro
+  sector: privat
+apis:
+  - id: unimicro-platform-api
+    title: Unimicro Platform API (regnskap og lønn)
+    title_en: Unimicro Platform API
+    description: >-
+      Utviklerportal og REST-API for Unimicros regnskaps- og lønnssystemer: kunder, leverandører, fakturaer, bilag,
+      lønnsposter og mer. Portalen har guide, API-dokumentasjon og en egen applikasjonskatalog for partnere.
+      Tilgang gis via en integrasjonsavtale og påloggingsoppsett fra Unimicro.
+    category: finans
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.unimicro.no
+    docs_url: https://developer.unimicro.no/
+    keywords: [unimicro, regnskap, lønn, faktura, accounting, payroll, uni economy]
+    tags: [agreement, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Påloggingsmetoden er ikke bekreftet i detalj; sjekk guiden på utviklerportalen.
+    quick_start: |
+      # dokumentasjonen: https://developer.unimicro.no/guide
+      curl -H "Authorization: Bearer $UNIMICRO_TOKEN" "https://api.unimicro.no/<ressurs fra API-dokumentasjonen>"

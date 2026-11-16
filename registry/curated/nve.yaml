@@ -1,4 +1,4 @@
-updated: 2026-10-21
+updated: 2026-11-16
 provider:
   name: Norges vassdrags- og energidirektorat
   orgnr: "970205039"
@@ -203,3 +203,28 @@ apis:
       - NVE oppgir NLOD for data på api.nve.no, men sier ikke uttrykkelig at ChartServer er omfattet.
     quick_start: |
       curl "https://chartserver.nve.no/ShowData.aspx?req=getchart&ver=1.0&vfmt=json&time=20140101T0000;20140105T0000&chd=ds=htsr,da=29,id=212.10.0.1001.1"
+
+  - id: nve-agol
+    title: NVEs kartdata på ArcGIS Online (REST)
+    title_en: NVE map data on ArcGIS Online (REST)
+    description: >-
+      NVEs åpne tjenestekatalog på ArcGIS Online med 199 publiserte tjenester, blant annet aktsomhetskart for skred, flomvoller, kraftledningstraseer og Åknes-instrumentering. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er et arbeidsområde, så lag kommer og går og innholdet varierer i kvalitet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services.arcgis.com/RZqsZuJkqUIXKe8f/arcgis/rest/services
+    docs_url: https://services.arcgis.com/RZqsZuJkqUIXKe8f/arcgis/rest/services
+    probe_url: https://services.arcgis.com/RZqsZuJkqUIXKe8f/arcgis/rest/services?f=json
+    keywords: [nve, kart, arcgis, arcgis online, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Katalogen er et arbeidsområde der lag kommer og går, og noen lag er under arbeid eller test.
+      - Noen lag kan inneholde innspill fra innbyggere, så sjekk laget før du bruker det.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services.arcgis.com/RZqsZuJkqUIXKe8f/arcgis/rest/services?f=json"
+      # antall objekter i ett lag
+      curl "https://services.arcgis.com/RZqsZuJkqUIXKe8f/arcgis/rest/services/Feltregistrering_flomvoller_2017/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json"

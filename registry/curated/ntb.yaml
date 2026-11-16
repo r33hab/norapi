@@ -1,0 +1,30 @@
+updated: 2026-11-16
+provider:
+  name: NTB (Norsk Telegrambyrå)
+  sector: privat
+apis:
+  - id: ntb-api-hub
+    title: NTB API Hub (nyheter, sport og bilder)
+    title_en: NTB API Hub (news, sport and images)
+    description: >-
+      NTBs API-portal for kunder med nyhetsstrøm, sportsdata og bilde og video fra nyhetsbyrået. Autentisering er
+      OAuth 2.0 client credentials: du får klient-id og hemmelighet av NTB og henter et Bearer-token som varer i et døgn.
+      Tilgang krever kundeavtale, men oppsettveiledningen er åpen.
+    category: kultur-og-kunnskap
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.ntb.no/
+    docs_url: https://api.ntb.no/portal/getting_started
+    keywords: [ntb, nyhetsbyrå, nyheter, sport, bilder, telegram, news agency, oauth]
+    tags: [agreement, oauth2, private-provider]
+    caveats:
+      - Krever kundeavtale med NTB; kontakt kundesenteret for å få klient.
+      - Ingen lisens oppgitt; bruksrett følger kundeavtalen.
+    quick_start: |
+      # token (client credentials), se oppsettveiledningen for detaljer
+      curl --request POST --url "https://login.sdl.no/oauth/token" \
+        --header "Content-Type: application/x-www-form-urlencoded" \
+        --data grant_type=client_credentials --data client_id=$CLIENT_ID \
+        --data client_secret=$CLIENT_SECRET --data audience=https://api.ntb.no

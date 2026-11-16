@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Nordland fylkeskommune
+  orgnr: "964982953"
+  sector: fylke
+apis:
+  - id: nordland-fylkeskommune-arcgis-online
+    title: Nordland fylkeskommunes kartdata (ArcGIS Online)
+    title_en: Nordland county map data (ArcGIS Online)
+    description: >-
+      Fylkeskommunens hostede kartlag i ArcGIS Online, rundt 120 tjenester som ligger bak Nordlandsatlas: kulturminner
+      og kulturhistorie (fotefar mot nord), friluftsliv med turstier, toppturer, hytter, toaletter og parkering, samt
+      teltforbud og verneområder. Lagene spørres med /query og svarer som JSON eller GeoJSON, uten nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services-eu1.arcgis.com/uYOEvuWDHBVRhz1S/ArcGIS/rest/services
+    docs_url: https://nordlandsatlas.nfk.no/
+    probe_url: https://services-eu1.arcgis.com/uYOEvuWDHBVRhz1S/ArcGIS/rest/services?f=json
+    keywords: [nordland, fylkeskommune, kart, arcgis online, friluftsliv, turstier, kulturminner, nordlandsatlas]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Tjenesteadressen hører til organisasjonens ArcGIS Online-konto og kan endres hvis kontoen flyttes.
+    quick_start: |
+      curl "https://services-eu1.arcgis.com/uYOEvuWDHBVRhz1S/ArcGIS/rest/services?f=json"
+      curl "https://services-eu1.arcgis.com/uYOEvuWDHBVRhz1S/ArcGIS/rest/services/Toaletter/FeatureServer/0/query?where=1%3D1&outFields=*&resultRecordCount=2&f=geojson"

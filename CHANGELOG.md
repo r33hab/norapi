@@ -3,6 +3,24 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com), newest first, grouped by date.
 
+## 2026-11-17
+### Added
+- `behaviour` and `owner_terms` fields on a registry entry: what the endpoint does in practice (for example, answers anonymously) and the owner's own stated terms (for example, asks for an app id, or points to a documented feed for redistribution), shown on the API page under "Oppførsel" and "Eierens vilkår". Set first on the entries where the two diverge: the Arbeidsplassen job search, Linticket events, Grünerløkkas kartkatalog and the Smilefjes inspection file.
+### Changed
+- Smilefjes inspection file (`mattilsynet-smilefjes-tilsyn`) recategorised from arbeid-og-velferd to offentlig-forvaltning.
+
+## 2026-11-16
+### Added
+- 340 more curated APIs, taking the curated set from 177 to 517 and the registry to 1 445. Each was probed live before it went in: open ones with a quick start that was run, restricted ones with the documentation and the stated access method confirmed and, where one exists, a documented path that answers 401 without credentials.
+- Public sector suites: 30 Nav APIs (the pension APIs with their Maskinporten scopes, Aa-registeret, sykepenger, dagpenger, oppfølgingsplan, barnehagelister, the Arbeidsplassen job search), KS Fiks (14), ten Norsk helsenett services, three Helfo APIs, Altinn 3 (correspondence, broker, notifications, events, resource registry), BarentsWatch (8), twelve more Entur APIs including the partner sales APIs and the journey planner MCP server, and more from Brreg, Digdir, Tolletaten, Mattilsynet, Finanstilsynet, Statens vegvesen and MET.
+- Local and regional: public ArcGIS map directories for more than 70 municipalities and inter-municipal bodies, seven county municipalities, Statens vegvesen, NVE and Avinor, each with a layer query that returned data; waste collection calendars (Avfall Sør, GLØR, Innherred Renovasjon, Remiks); Stavanger's bike counters, rain sensors, bathing temperatures and parking; Bergen parking availability; Trondheim's GeoServer; Oslo's plan register services.
+- Private Norwegian services with public documentation: Bring (12 APIs), Vipps MobilePay (7 more), Fiken, Tripletex, PowerOffice, Unimicro, 24SevenOffice, Xledger, Dintero, Two, Proff, Enin, Signicat, FINN, Norkart (4), SuperOffice, Link Mobility, Sveve, Telenor, Tibber, Elvia, Easee, Zaptec, Airthings, Disruptive Technologies, Nordic Semiconductor, Cognite, Sanity, Catenda, Ardoq, Xeneta and more, plus Firi and Bare Bitcoin, which answer without a key.
+- Research, culture and media: UiO, NTNU, OsloMet and Novus endpoints, five more Nasjonalbiblioteket APIs (IIIF, metadata, vocabularies), NVA publication channels, Feide, NLB, NTB, THREDDS servers at NIVA and NILU, Havforskningsinstituttet's ERDDAP, GBIF Norway, and RSS feeds from eleven newsrooms (tagged `feed`).
+- Open but unadvertised endpoints behind public sites, each tagged `undocumented` and only where robots.txt allows the path: Norsk Tipping results, site search at FHI, Finanstilsynet and Sjøfartsdirektoratet, Finanstilsynet's market warnings, and the content APIs of eight public bodies.
+### Changed
+- OpenAPI index: 239 specifications and 4 905 operations (was 143 and 2 224), from the specifications the new entries point to.
+- The harvest on this date returned 956 data services from Felles datakatalog against 1 093 a week earlier: the catalogue dropped 140 entries across many agencies (Miljødirektoratet, Fredrikstad, NGU, NVE, DiBK). 125 of them still answered when probed; they return if the catalogue lists them again.
+
 ## 2026-11-10
 ### Added
 - Bank and payment APIs, each marked with who can get access and what it takes: the SpareBank 1 personal API (own accounts, BankID, no licence), Enable Banking, Neonomics and Tink as open banking aggregators, the PSD2 and partner portals of DNB, Nordea and Danske Bank (licence from Finanstilsynet and an eIDAS certificate, or an agreement), Vipps MobilePay ePayment, Login and Report (merchant or accounting partner agreement), BankID OpenID Connect (through a BankID partner), and Norges Bank's payment statistics file. Caveats spell out the licence and agreement requirements; PSD2 entries carry the `psd2` tag.

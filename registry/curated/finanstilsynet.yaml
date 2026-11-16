@@ -1,4 +1,4 @@
-updated: 2026-10-19
+updated: 2026-11-16
 provider:
   name: Finanstilsynet
   orgnr: "840747972"
@@ -25,3 +25,53 @@ apis:
     tags: [no-auth]
     quick_start: |
       curl "https://api.finanstilsynet.no/registry/v2/legal-entities/search?query=DNB"
+
+  - id: finanstilsynet-markedsadvarsler
+    title: Finanstilsynets markedsadvarsler (nettsidens søke-API)
+    title_en: Finanstilsynet investor warnings (the site's search API)
+    description: >-
+      JSON-listen bak siden med markedsadvarsler på finanstilsynet.no: navn på og lenke til aktører Finanstilsynet
+      eller utenlandske tilsyn advarer investorer mot, med publiseringsdato. Paginert og åpen uten nøkkel, men ikke
+      dokumentert av eieren. Robots.txt oppgir Crawl-delay 10 sekunder.
+    category: finans
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.finanstilsynet.no/api/search/investorwarnings/
+    docs_url: https://www.finanstilsynet.no/markedsadvarsler/
+    probe_url: https://www.finanstilsynet.no/api/search/investorwarnings/
+    keywords: [markedsadvarsel, investorvarsel, svindel, uregistrert, finanstilsynet, investor warnings, scam]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Respekter Crawl-delay på 10 sekunder fra robots.txt.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://www.finanstilsynet.no/api/search/investorwarnings/"
+
+  - id: finanstilsynet-nettsok
+    title: Finanstilsynet nettsøk og nyhetsarkiv (nettsidens søke-API)
+    title_en: Finanstilsynet site search and news archive (the site's search API)
+    description: >-
+      JSON-endepunktene bak søket og nyhetsarkivet på finanstilsynet.no: fritekstsøk på tvers av nettstedet og i
+      nyhetsarkivet, med treff, tittel, ingress, dato, sidetall og fasetter. Åpent uten nøkkel, men ikke dokumentert av
+      eieren. Robots.txt oppgir Crawl-delay 10 sekunder.
+    category: finans
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.finanstilsynet.no/api/search/global
+      - https://www.finanstilsynet.no/api/search/nyhetsarkiv
+    docs_url: https://www.finanstilsynet.no/nyhetsarkiv/
+    probe_url: https://www.finanstilsynet.no/api/search/global?q=bank
+    keywords: [finanstilsynet, nyhetsarkiv, søk, tilsyn, vedtak, pressemelding, news archive, site search]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Respekter Crawl-delay på 10 sekunder fra robots.txt.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://www.finanstilsynet.no/api/search/global?q=bank"
+      curl "https://www.finanstilsynet.no/api/search/nyhetsarkiv?q=bank"

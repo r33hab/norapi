@@ -1,4 +1,4 @@
-updated: 2026-10-21
+updated: 2026-11-16
 provider:
   name: UiT Norges arktiske universitet
   orgnr: "970422528"
@@ -45,3 +45,49 @@ apis:
       - Ingen lisens oppgitt.
     quick_start: |
       curl -X POST "https://api.giellalt.org/speller/se" -H "Content-Type: application/json" -d '{"text":"sami"}'
+
+  - id: uit-septentrio-oai
+    title: Septentrio Academic Publishing (OAI-PMH)
+    title_en: Septentrio Academic Publishing at UiT (OAI-PMH)
+    description: >-
+      OAI-PMH-endepunkt for Septentrio, UiTs åpne publiseringstjeneste for tidsskrifter og skriftserier (Open
+      Journal Systems). Høsting av metadata for artikler og hefter uten nøkkel. ListSets viser tidsskriftene, og
+      ListRecords med metadataPrefix=oai_dc gir postene.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://septentrio.uit.no/index.php/index/en/oai
+    docs_url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+    probe_url: https://septentrio.uit.no/index.php/index/en/oai?verb=Identify
+    keywords: [oai-pmh, tidsskrift, artikler, åpen tilgang, open access, ojs, høsting, uit, harvesting]
+    tags: [no-auth, feed]
+    caveats:
+      - Ingen lisens oppgitt; lisensen følger det enkelte tidsskriftet og artikkelen.
+      - Basis-URL-en uten språkkode (/index/oai) svarer med 302 til språkvarianten.
+    quick_start: |
+      curl "https://septentrio.uit.no/index.php/index/en/oai?verb=Identify"
+      curl "https://septentrio.uit.no/index.php/index/en/oai?verb=ListSets"
+
+  - id: uit-dataverseno-oai
+    title: DataverseNO OAI-PMH (forskningsdata)
+    title_en: DataverseNO OAI-PMH (research data)
+    description: >-
+      OAI-PMH-endepunkt for DataverseNO, den nasjonale åpne forskningsdatatjenesten som drives av UiT. Du kan høste
+      metadata om datasett per samling (set) med verbene Identify, ListSets og ListRecords, uten nøkkel. For søk og
+      filnedlasting finnes eget Dataverse-API.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://dataverse.no/oai
+    docs_url: https://guides.dataverse.org/en/latest/admin/harvestserver.html
+    probe_url: https://dataverse.no/oai?verb=Identify
+    keywords: [dataverseno, forskningsdata, oai-pmh, metadata, høsting, datasett, research data]
+    tags: [no-auth, feed]
+    caveats:
+      - Ingen lisens oppgitt for selve metadataene, datasettene har egne lisenser.
+    quick_start: |
+      curl "https://dataverse.no/oai?verb=Identify"

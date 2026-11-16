@@ -1,0 +1,31 @@
+updated: 2026-11-16
+provider:
+  name: Heim kommune
+  sector: kommune
+apis:
+  - id: heim-kommune-agol
+    title: Heim kommunes kartdata på ArcGIS Online (REST)
+    title_en: Heim municipality map data on ArcGIS Online (REST)
+    description: >-
+      Heim kommunes åpne tjenestekatalog på ArcGIS Online, med omtrent 225 publiserte kartlag, blant annet kommunegrense, administrative grenser, demografi per grunnkrets, parkeringsområder og arealbruk. Hvert lag
+      kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er kommunens arbeidsområde, så lag
+      kommer og går og innholdet varierer i kvalitet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services7.arcgis.com/2oVxaDdYeGUZPwlW/arcgis/rest/services
+    docs_url: https://services7.arcgis.com/2oVxaDdYeGUZPwlW/arcgis/rest/services
+    probe_url: https://services7.arcgis.com/2oVxaDdYeGUZPwlW/arcgis/rest/services?f=json
+    keywords: [kommune, kart, arcgis, arcgis online, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Laglisten er kommunens arbeidskart og endres uten varsel; noen lag er under arbeid eller test.
+      - Noen lag kan inneholde innspill fra innbyggere eller andre persondata, så sjekk laget før du bruker det.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services7.arcgis.com/2oVxaDdYeGUZPwlW/arcgis/rest/services?f=json"
+      # fem objekter fra ett lag, som GeoJSON
+      curl "https://services7.arcgis.com/2oVxaDdYeGUZPwlW/arcgis/rest/services/Kommunegrense_Heim/FeatureServer/0/query?where=1%3D1&outFields=*&resultRecordCount=5&f=geojson"

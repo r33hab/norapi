@@ -1,0 +1,30 @@
+updated: 2026-11-16
+provider:
+  name: Eidskog kommune
+  orgnr: "964948054"
+  sector: kommune
+apis:
+  - id: eidskog-kommune-agol
+    title: Eidskog kommunes kartdata på ArcGIS Online (REST)
+    title_en: Eidskog municipality map data on ArcGIS Online (REST)
+    description: >-
+      Eidskog kommunes åpne tjenestekatalog på ArcGIS Online med 24 publiserte tjenester, blant annet skolekretser, kommuneskogen og kommunens veiareal. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er et arbeidsområde, så lag kommer og går og innholdet varierer i kvalitet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services-eu1.arcgis.com/8g9tglnF3bsogMtL/arcgis/rest/services
+    docs_url: https://services-eu1.arcgis.com/8g9tglnF3bsogMtL/arcgis/rest/services
+    probe_url: https://services-eu1.arcgis.com/8g9tglnF3bsogMtL/arcgis/rest/services?f=json
+    keywords: [eidskog, kommune, kart, arcgis, arcgis online, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Katalogen er et arbeidsområde der lag kommer og går, og noen lag er under arbeid eller test.
+      - Noen lag kan inneholde innspill fra innbyggere, så sjekk laget før du bruker det.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services-eu1.arcgis.com/8g9tglnF3bsogMtL/arcgis/rest/services?f=json"
+      # antall objekter i ett lag
+      curl "https://services-eu1.arcgis.com/8g9tglnF3bsogMtL/arcgis/rest/services/Eldre_skolekretser/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json"

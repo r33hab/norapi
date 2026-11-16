@@ -1,0 +1,30 @@
+updated: 2026-11-16
+provider:
+  name: Tibber Norge
+  orgnr: "917245975"
+  sector: privat
+apis:
+  - id: tibber-api
+    title: Tibber API (GraphQL, strømpriser og forbruk)
+    title_en: Tibber API (GraphQL, power prices and consumption)
+    description: >-
+      GraphQL-API fra strømleverandøren Tibber: timepriser, forbruk, kostnader og sanntidsmåling (WebSocket-abonnement)
+      for Tibber-kunder, pluss data for ladbare kjøretøy og hjem. Tilgang med personlig token fra utviklerportalen
+      for kunder; det finnes en demo-token i dokumentasjonen.
+    category: natur-og-miljo
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.tibber.com/v1-beta/gql
+    docs_url: https://developer.tibber.com/docs/overview
+    keywords: [tibber, strømpris, strøm, forbruk, graphql, timepris, smarthus, power price, energy]
+    tags: [graphql, streaming, private-provider, registration, oauth2]
+    caveats:
+      - Krever Tibber-konto; token fås på developer.tibber.com (bearer token i Authorization-headeren).
+      - Rate-begrensning gjelder; se dokumentasjonen.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl -X POST "https://api.tibber.com/v1-beta/gql" \
+        -H "Authorization: Bearer $TIBBER_TOKEN" -H "Content-Type: application/json" \
+        -d '{"query":"{ viewer { homes { currentSubscription { priceInfo { current { total startsAt } } } } } }"}'

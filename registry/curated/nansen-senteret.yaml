@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: Nansen senter for miljø og fjernmåling (NERSC)
+  orgnr: "943432449"
+  sector: stat
+apis:
+  - id: nansen-senteret-thredds
+    title: NERSC THREDDS (hav-, is- og klimadata)
+    title_en: NERSC THREDDS data server
+    description: >-
+      THREDDS Data Server fra Nansen-senteret i Bergen med hav-, havis- og fjernmålingsdata (blant annet NORMAP).
+      Kataloger som XML, og datasett via OPeNDAP, HTTP-nedlasting og WMS der de er slått på. Åpen uten innlogging.
+    category: vaer-og-klima
+    access: open
+    auth: none
+    formats: [XML, NetCDF]
+    endpoints:
+      - https://thredds.nersc.no/thredds/catalog.xml
+    docs_url: https://thredds.nersc.no/thredds/catalog.html
+    probe_url: https://thredds.nersc.no/thredds/catalog.xml
+    keywords: [thredds, opendap, netcdf, havis, hav, arktis, fjernmåling, nansen, sea ice]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Hvert datasett kan ha egne bruksvilkår i metadataene.
+    quick_start: |
+      curl "https://thredds.nersc.no/thredds/catalog.xml"

@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Forbrukertilsynet
+  orgnr: "974761335"
+  sector: stat
+apis:
+  - id: forbrukertilsynet-wp-api
+    title: Forbrukertilsynet.no (innholds-API for nyheter og vedtak)
+    title_en: Forbrukertilsynet.no content API (news and decisions)
+    description: >-
+      WordPress REST-API på forbrukertilsynet.no med nyheter, sider og ofte stilte spørsmål som JSON, med
+      standard WordPress-parametere for søk, filtrering og paginering. Åpent uten nøkkel, men ikke dokumentert av
+      eieren.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.forbrukertilsynet.no/wp-json/wp/v2
+    docs_url: https://developer.wordpress.org/rest-api/reference/
+    probe_url: https://www.forbrukertilsynet.no/wp-json/wp/v2/posts?per_page=1
+    keywords: [forbrukertilsynet, forbrukerrett, markedsføring, nyheter, vedtak, consumer authority, wordpress]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # siste nyheter
+      curl "https://www.forbrukertilsynet.no/wp-json/wp/v2/posts?per_page=5&_fields=id,date,link,title"

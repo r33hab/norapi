@@ -1,0 +1,54 @@
+updated: 2026-11-16
+provider:
+  name: Tromsø kommune
+  sector: kommune
+apis:
+  - id: tromso-kommune-kartserver
+    title: Tromsø kommunes kartserver (ArcGIS REST)
+    title_en: Tromsø municipality map server (ArcGIS REST)
+    description: >-
+      Tromsø kommunes egen ArcGIS-server med mapper for Grunnkart, Plandata og Temadata: kretser, eiendomskart,
+      kommunedelplaner og arealplaner, skolekapasitet, aktsomhetskart for snøskred og mye mer. Lagene spørres med /query
+      og svarer i JSON eller GeoJSON, uten nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://kart.tromso.kommune.no/arcgis/rest/services
+    docs_url: https://kart.tromso.kommune.no/arcgis/rest/services
+    probe_url: https://kart.tromso.kommune.no/arcgis/rest/services?f=json
+    keywords: [tromsø, kart, arcgis, plandata, grunnkart, kretser, eiendomskart, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt, men enkelte lag har egne opphavsrettstekster i tjenestebeskrivelsen.
+      - Tjenesten viser også arbeidsversjoner av planer; navn og innhold endres uten varsel.
+    quick_start: |
+      # mappene og tjenestene
+      curl "https://kart.tromso.kommune.no/arcgis/rest/services?f=json"
+      # antall kretser
+      curl "https://kart.tromso.kommune.no/arcgis/rest/services/Grunnkart/Kretser/MapServer/0/query?where=1%3D1&returnCountOnly=true&f=json"
+  - id: tromso-kommune-agol
+    title: Tromsø kommunes kartdata på ArcGIS Online (REST)
+    title_en: Tromsø municipality map data on ArcGIS Online (REST)
+    description: >-
+      Tromsø kommunes åpne tjenestekatalog på ArcGIS Online, med omtrent 419 publiserte kartlag, blant annet bydelsgrenser, bydelssentre, flomveger, støysoner, idrettslag, vindmøller og hovedplan veg. Hvert lag
+      kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er kommunens arbeidsområde, så lag
+      kommer og går og innholdet varierer i kvalitet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services1.arcgis.com/XkPB4N7E2ZOXAdC4/arcgis/rest/services
+    docs_url: https://services1.arcgis.com/XkPB4N7E2ZOXAdC4/arcgis/rest/services
+    probe_url: https://services1.arcgis.com/XkPB4N7E2ZOXAdC4/arcgis/rest/services?f=json
+    keywords: [kommune, kart, arcgis, arcgis online, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Laglisten er kommunens arbeidskart og endres uten varsel; noen lag er under arbeid eller test.
+      - Noen lag kan inneholde innspill fra innbyggere eller andre persondata, så sjekk laget før du bruker det.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services1.arcgis.com/XkPB4N7E2ZOXAdC4/arcgis/rest/services?f=json"
