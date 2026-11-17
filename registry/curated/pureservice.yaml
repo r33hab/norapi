@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: Pureservice
+  sector: privat
+apis:
+  - id: pureservice-api
+    title: Pureservice API (kundeservice og saksbehandling)
+    title_en: Pureservice service desk API
+    description: >-
+      JSON:API-basert REST-API mot Pureservice: saker, brukere, statuser og andre enheter, med filtrering, sortering og
+      paging. Hver kunde har eget domene, kallene går mot https://{kunde}.pureservice.com/agent/api/. Du lager en API-nøkkel
+      i administrasjonen og sender den i en header. Maks 500 elementer per forespørsel og rate limit.
+    category: bedrift-og-organisasjon
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://{kunde}.pureservice.com/agent/api/
+    docs_url: https://api-docs.pureservice.com/
+    keywords: [pureservice, kundeservice, helpdesk, service desk, saker, tickets, jsonapi]
+    tags: [rate-limited, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever Pureservice-kunde og en API-nøkkel fra administrasjonen.
+      - Innholdstypen er application/vnd.api+json.
+    quick_start: |
+      curl -H "X-Authorization-Key: $PURESERVICE_KEY" -H "Accept: application/vnd.api+json" \
+        "https://$CUSTOMER.pureservice.com/agent/api/ticket?limit=5"

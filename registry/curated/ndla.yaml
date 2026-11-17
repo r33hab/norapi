@@ -191,3 +191,51 @@ apis:
     tags: [no-auth]
     quick_start: |
       curl "https://api.ndla.no/oembed-proxy/v1/oembed?url=https://ndla.no/article/38810"
+
+  - id: ndla-frontpage-api
+    title: NDLA forsider og fagsider (frontpage-api)
+    title_en: NDLA frontpage API
+    description: >-
+      Innholdet bak forsiden, fagsidene og filmforsiden på ndla.no: meny, utvalgte artikler og oppbygging per fag. Åpne
+      GET-kall uten nøkkel som gir JSON, blant annet /frontpage, /filmfrontpage og /subjectpage. Skriving krever
+      innlogging via NDLAs OAuth.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.ndla.no/frontpage-api/v1/frontpage
+    docs_url: https://api.ndla.no/
+    spec_url: https://api.ndla.no/frontpage-api/api-docs
+    probe_url: https://api.ndla.no/frontpage-api/v1/frontpage
+    license: GPL v3.0 (API-et); innholdet har lisens per ressurs
+    keywords: [ndla, forside, fagside, videregående, læremidler, meny, film, learning resources]
+    tags: [no-auth]
+    caveats:
+      - Skriveoperasjonene krever OAuth2-innlogging og er ikke åpne.
+    quick_start: |
+      curl "https://api.ndla.no/frontpage-api/v1/frontpage"
+
+  - id: ndla-draft-api
+    title: NDLA kladdeartikler (draft-api)
+    title_en: NDLA draft article API
+    description: >-
+      API for å lese og redigere kladdeartikler i NDLAs publiseringsløsning, med søk, statushistorikk og revisjoner.
+      Alle kall krever innlogging via NDLAs OAuth2 (login.ndla.no) med scope som drafts:write og drafts:publish;
+      uten token svarer det 401. Dokumentasjonen er åpen, men tilgang gis bare til redaktører.
+    category: kultur-og-kunnskap
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.ndla.no/draft-api/v1/drafts
+    docs_url: https://api.ndla.no/
+    spec_url: https://api.ndla.no/draft-api/api-docs
+    license: GPL v3.0 (API-et)
+    keywords: [ndla, kladd, redaksjon, publisering, artikler, oauth2, draft articles]
+    tags: [oauth2]
+    caveats:
+      - Forutsetter redaktørtilgang hos NDLA; vanlige utviklere får ikke token.
+      - Åpen lesing av publiserte artikler finnes i article-api.
+    quick_start: |
+      curl -H "Authorization: Bearer $TOKEN" "https://api.ndla.no/draft-api/v1/drafts/ids"

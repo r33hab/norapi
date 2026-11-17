@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: Stavanger Aftenblad
+  orgnr: "990412987"
+  sector: privat
+apis:
+  - id: stavanger-aftenblad-rss
+    title: Stavanger Aftenblads RSS-strøm (siste nyheter)
+    title_en: Stavanger Aftenblad latest news RSS feed
+    description: >-
+      Åpen RSS-strøm med siste nyheter fra Stavanger Aftenblad: tittel, lenke, publiseringstid, bilde og ingress på mange saker. Ingen nøkkel, og ingen dokumentasjon utover selve adressen. Saker bak betalingsmur er med i strømmen.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://www.aftenbladet.no/rss
+    docs_url: https://www.aftenbladet.no/rss
+    probe_url: https://www.aftenbladet.no/rss
+    keywords: [rss, nyheter, stavanger, aftenbladet, rogaland, news feed]
+    tags: [no-auth, feed, undocumented, private-provider]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt; sjekk utgiverens vilkår før videre bruk av innholdet.
+    behaviour: >-
+      Svarer anonymt med HTTP 200 og RSS 2.0 uten nøkkel.
+    quick_start: |
+      curl "https://www.aftenbladet.no/rss"

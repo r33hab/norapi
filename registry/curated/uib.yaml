@@ -72,3 +72,53 @@ apis:
       - Ingen lisens oppgitt for selve metadataene.
     quick_start: |
       curl "https://repo.clarino.uib.no/oai/request?verb=Identify"
+
+  - id: uib-ub-chc-api
+    title: UiB-UB API (kulturarvssamlingene ved Universitetsbiblioteket)
+    title_en: UiB University Library cultural heritage collections API
+    description: >-
+      REST-API med JSON (Linked Art) for objekter og samlinger i Universitetsbiblioteket i Bergens kulturarvssamlinger:
+      /object for liste og enkeltobjekt, /set for samlinger. Åpne GET-kall uten nøkkel, med page og limit for å bla, og
+      OpenAPI-beskrivelse. Tjenesten er under utvikling og kan endre seg.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.ub.uib.no/object
+      - https://api.ub.uib.no/set/{id}
+    docs_url: https://api.ub.uib.no/reference
+    spec_url: https://api.ub.uib.no/openapi
+    probe_url: https://api.ub.uib.no/object?limit=1
+    keywords: [universitetsbiblioteket, bergen, kulturarv, samlinger, linked art, objekter, spesialsamlinger, special collections]
+    tags: [no-auth]
+    caveats:
+      - Under utvikling, og endringer kan komme uten forvarsel.
+      - Ingen lisens oppgitt for API-et; objektene kan ha egne vilkår.
+    quick_start: |
+      curl "https://api.ub.uib.no/object?limit=3"
+
+  - id: uib-samla-goobi-viewer-api
+    title: SAMLA (Goobi viewer API med IIIF)
+    title_en: SAMLA digital collections (Goobi viewer API with IIIF)
+    description: >-
+      Åpent API for SAMLA, Universitetsbiblioteket i Bergens digitale samlinger: samlinger, poster, sider, tekst (ALTO,
+      TEI, ren tekst) og IIIF-manifest og bildetjenester. Versjon 2 gir IIIF 3 som JSON; versjon 1 er også i drift. Uten
+      nøkkel, og OpenAPI-beskrivelsene er publisert.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON, IIIF, XML]
+    endpoints:
+      - https://samla.no/viewer/api/v2/
+      - https://samla.no/viewer/api/v1/
+    docs_url: https://samla.no/viewer/api/v2/openapi.json
+    spec_url: https://samla.no/viewer/api/v2/openapi.json
+    probe_url: https://samla.no/viewer/api/v2/collections/DC
+    keywords: [samla, universitetsbiblioteket, bergen, iiif, goobi viewer, digitale samlinger, manuskripter, kulturarv]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt for API-et; vilkår for innholdet varierer per samling.
+      - Adressen svarer med omdirigering (301), så bruk curl -L.
+    quick_start: |
+      curl -L "https://samla.no/viewer/api/v2/collections/DC"

@@ -1,0 +1,2782 @@
+checked: '2026-11-17'
+note: Entries Felles datakatalog no longer returns, whose service still answered when checked on this
+  date. Re-added to the registry and marked; dropped automatically if the catalogue lists them again or
+  the service stops answering.
+entries:
+- id: bergen-kommune-bytraer-rest-api
+  title: Bytrær - REST-API
+  summary: Bytrær - REST-API
+  title_en: Bytrær - REST-API
+  access: non-public
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.bergen.kommune.no/arcgis/rest/services/Bymiljoetaten/Bytr%C3%A6r/FeatureServer/0/query?where=1=1&outFields=*&returnGeometry=true&outSR=4326&resultType=standard&resultRecordCount=32000&f=geojson
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-11-06T21:45:02.747Z'
+  provider:
+    name: Bergen kommune
+    orgnr: '964338531'
+    org_path: /KOMMUNE/964338531
+    sector: kommune
+  uri: https://kart.bergen.kommune.no/arcgis/rest/services/Bymiljoetaten/Bytr%C3%A6r/FeatureServer/0/query?where=1=1&outFields=*&returnGeometry=true&outSR=4326&resultType=standard&resultRecordCount=32000&f=geojson
+- id: bodo-kommune-byutviklingsomrade-bodo-ogc-api-features
+  title: Byutviklingsområde Bodø - OGC API-Features
+  summary: Byutviklingsområde Bodø - OGC API-Features
+  title_en: Byutviklingsområde Bodø - OGC API-Features
+  access: open
+  auth: unknown
+  formats:
+  - GEOJSON
+  endpoints:
+  - https://services-eu1.arcgis.com/bUDP8dxTEFYEUa8w/arcgis/rest/services/Byutviklingsomradet/OGCFeatureServer
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Bodø kommune
+    orgnr: '972418013'
+    org_path: /KOMMUNE/972418013
+    sector: kommune
+  uri: https://services-eu1.arcgis.com/bUDP8dxTEFYEUa8w/arcgis/rest/services/Byutviklingsomradet/OGCFeatureServer
+- id: bodo-kommune-innsamlingsrodekart-bodo-kommune-ogc-api-features
+  title: Innsamlingsrodekart Bodø kommune - OGC API-Features
+  summary: Innsamlingsrodekart Bodø kommune - OGC API-Features
+  title_en: Innsamlingsrodekart Bodø kommune - OGC API-Features
+  access: open
+  auth: unknown
+  formats:
+  - GEOJSON
+  endpoints:
+  - https://services-eu1.arcgis.com/bUDP8dxTEFYEUa8w/arcgis/rest/services/Bodo_innsamlingsroder2026/OGCFeatureServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-11-04T21:45:02.979Z'
+  provider:
+    name: Bodø kommune
+    orgnr: '972418013'
+    org_path: /KOMMUNE/972418013
+    sector: kommune
+  uri: https://services-eu1.arcgis.com/bUDP8dxTEFYEUa8w/arcgis/rest/services/Bodo_innsamlingsroder2026/OGCFeatureServer
+- id: direktoratet-for-byggkvalitet-kommuneplaner-ogc-api-features
+  title: Kommuneplaner - OGC API-Features
+  summary: Kommuneplaner - OGC API-Features
+  title_en: Kommuneplaner - OGC API-Features
+  access: restricted
+  auth: unknown
+  formats:
+  - GEOJSON
+  endpoints:
+  - https://nap.ft.dibk.no/services/rest/kommuneplaner/
+  license: https://www.kartverket.no/geodataarbeid/norge-digitalt/partsinformasjon/avtaler-og-vilkar/norge-digitalt-lisens
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Direktoratet for byggkvalitet
+    orgnr: '974760223'
+    org_path: /STAT/972417858/974760223
+    sector: stat
+  uri: https://nap.ft.dibk.no/services/rest/kommuneplaner/
+- id: direktoratet-for-byggkvalitet-kommuneplaner-wms-tjeneste
+  title: Kommuneplaner - WMS-tjeneste
+  summary: Kommuneplaner - WMS-tjeneste
+  title_en: Kommuneplaner - WMS-tjeneste
+  access: restricted
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://nap.ft.dibk.no/services/wms/kommuneplaner/?service=WMS&request=GetCapabilities
+  license: https://www.kartverket.no/geodataarbeid/norge-digitalt/partsinformasjon/avtaler-og-vilkar/norge-digitalt-lisens
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Direktoratet for byggkvalitet
+    orgnr: '974760223'
+    org_path: /STAT/972417858/974760223
+    sector: stat
+  uri: https://nap.ft.dibk.no/services/wms/kommuneplaner/?service=WMS&request=GetCapabilities
+- id: direktoratet-for-byggkvalitet-kommuneplanforslag-horing-og-offentlig-ettersyn-og
+  title: Kommuneplanforslag - Høring og offentlig ettersyn - OGC API-Features
+  summary: Kommuneplanforslag - Høring og offentlig ettersyn - OGC API-Features
+  title_en: Kommuneplanforslag - Høring og offentlig ettersyn - OGC API-Features
+  access: restricted
+  auth: unknown
+  formats:
+  - GEOJSON
+  endpoints:
+  - https://nap.ft.dibk.no/services/rest/kommuneplanforslag
+  license: https://www.geonorge.no/Geodataarbeid/geografisk-infrastruktur/Norge-digitalt/Avtaler-og-maler/Norge-digitalt-lisens/
+  modified: '2026-05-09T20:45:02.466Z'
+  provider:
+    name: Direktoratet for byggkvalitet
+    orgnr: '974760223'
+    org_path: /STAT/972417858/974760223
+    sector: stat
+  uri: https://nap.ft.dibk.no/services/rest/kommuneplanforslag
+- id: direktoratet-for-byggkvalitet-kommuneplanforslag-horing-og-offentlig-ettersyn-wm
+  title: Kommuneplanforslag - Høring og offentlig ettersyn - WMS-tjeneste
+  summary: Kommuneplanforslag - Høring og offentlig ettersyn - WMS-tjeneste
+  title_en: Kommuneplanforslag - Høring og offentlig ettersyn - WMS-tjeneste
+  access: restricted
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://nap.ft.dibk.no/services/wms/kommuneplanforslag?SERVICE=WMS&REQUEST=GetCapabilities
+  license: https://www.geonorge.no/Geodataarbeid/geografisk-infrastruktur/Norge-digitalt/Avtaler-og-maler/Norge-digitalt-lisens/
+  modified: '2026-05-09T20:45:02.466Z'
+  provider:
+    name: Direktoratet for byggkvalitet
+    orgnr: '974760223'
+    org_path: /STAT/972417858/974760223
+    sector: stat
+  uri: https://nap.ft.dibk.no/services/wms/kommuneplanforslag?SERVICE=WMS&REQUEST=GetCapabilities
+- id: direktoratet-for-byggkvalitet-planomrade-for-planlegging-igangsatt-ogc-api-featu
+  title: Planområde for planlegging igangsatt - OGC API-Features
+  summary: Planområde for planlegging igangsatt - OGC API-Features
+  title_en: Planområde for planlegging igangsatt - OGC API-Features
+  access: open
+  auth: unknown
+  formats:
+  - GEOJSON
+  endpoints:
+  - https://plandata.ft.dibk.no/services/rest/planleggingigangsatt
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Direktoratet for byggkvalitet
+    orgnr: '974760223'
+    org_path: /STAT/972417858/974760223
+    sector: stat
+  uri: https://plandata.ft.dibk.no/services/rest/planleggingigangsatt
+- id: direktoratet-for-byggkvalitet-planomrade-for-planlegging-igangsatt-wms-tjeneste
+  title: Planområde for planlegging igangsatt - WMS-tjeneste
+  summary: Planområde for planlegging igangsatt - WMS-tjeneste
+  title_en: Planområde for planlegging igangsatt - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://plandata.ft.dibk.no/services/wms/planleggingigangsatt/?service=WMS&request=GetCapabilities
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Direktoratet for byggkvalitet
+    orgnr: '974760223'
+    org_path: /STAT/972417858/974760223
+    sector: stat
+  uri: https://plandata.ft.dibk.no/services/wms/planleggingigangsatt/?service=WMS&request=GetCapabilities
+- id: direktoratet-for-byggkvalitet-reguleringsplaner-ogc-api-features
+  title: Reguleringsplaner - OGC API-Features
+  summary: Reguleringsplaner - OGC API-Features
+  title_en: Reguleringsplaner - OGC API-Features
+  access: restricted
+  auth: unknown
+  formats:
+  - GEOJSON
+  endpoints:
+  - https://nap.ft.dibk.no/services/rest/reguleringsplaner/vn1
+  license: https://www.geonorge.no/Geodataarbeid/geografisk-infrastruktur/Norge-digitalt/Avtaler-og-maler/Norge-digitalt-lisens/
+  modified: '2026-08-27T20:45:02.79Z'
+  provider:
+    name: Direktoratet for byggkvalitet
+    orgnr: '974760223'
+    org_path: /STAT/972417858/974760223
+    sector: stat
+  uri: https://nap.ft.dibk.no/services/rest/reguleringsplaner/vn1
+- id: direktoratet-for-byggkvalitet-reguleringsplaner-wms-tjeneste
+  title: Reguleringsplaner - WMS-tjeneste
+  summary: Reguleringsplaner - WMS-tjeneste
+  title_en: Reguleringsplaner - WMS-tjeneste
+  access: restricted
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://nap.ft.dibk.no/services/wms/reguleringsplaner/?service=WMS&request=GetCapabilities
+  license: https://www.geonorge.no/Geodataarbeid/geografisk-infrastruktur/Norge-digitalt/Avtaler-og-maler/Norge-digitalt-lisens/
+  modified: '2026-08-27T20:45:02.79Z'
+  provider:
+    name: Direktoratet for byggkvalitet
+    orgnr: '974760223'
+    org_path: /STAT/972417858/974760223
+    sector: stat
+  uri: https://nap.ft.dibk.no/services/wms/reguleringsplaner/?service=WMS&request=GetCapabilities
+- id: direktoratet-for-byggkvalitet-reguleringsplanforslag-horing-og-offentlig-ettersy
+  title: Reguleringsplanforslag - Høring og offentlig ettersyn - OGC API-Features
+  summary: Reguleringsplanforslag - Høring og offentlig ettersyn - OGC API-Features
+  title_en: Reguleringsplanforslag - Høring og offentlig ettersyn - OGC API-Features
+  access: restricted
+  auth: unknown
+  formats:
+  - GEOJSON
+  endpoints:
+  - https://nap.ft.dibk.no/services/rest/reguleringsplanforslag/vn1
+  license: https://www.geonorge.no/Geodataarbeid/geografisk-infrastruktur/Norge-digitalt/Avtaler-og-maler/Norge-digitalt-lisens/
+  modified: '2026-05-09T20:45:02.466Z'
+  provider:
+    name: Direktoratet for byggkvalitet
+    orgnr: '974760223'
+    org_path: /STAT/972417858/974760223
+    sector: stat
+  uri: https://nap.ft.dibk.no/services/rest/reguleringsplanforslag/vn1
+- id: direktoratet-for-byggkvalitet-reguleringsplanforslag-horing-og-offentlig-ettersy-0f4f31
+  title: Reguleringsplanforslag - Høring og offentlig ettersyn - WMS-tjeneste
+  summary: Reguleringsplanforslag - Høring og offentlig ettersyn - WMS-tjeneste
+  title_en: Reguleringsplanforslag - Høring og offentlig ettersyn - WMS-tjeneste
+  access: restricted
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://nap.ft.dibk.no/services/wms/reguleringsplanforslag/?service=WMS&request=GetCapabilities
+  license: https://www.geonorge.no/Geodataarbeid/geografisk-infrastruktur/Norge-digitalt/Avtaler-og-maler/Norge-digitalt-lisens/
+  modified: '2026-05-09T20:45:02.466Z'
+  provider:
+    name: Direktoratet for byggkvalitet
+    orgnr: '974760223'
+    org_path: /STAT/972417858/974760223
+    sector: stat
+  uri: https://nap.ft.dibk.no/services/wms/reguleringsplanforslag/?service=WMS&request=GetCapabilities
+- id: direktoratet-for-samfunnssikke-rest-api
+  title: REST-API
+  summary: REST-API
+  title_en: REST-API
+  access: non-public
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://data-api.dsb.no/docs
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Direktoratet for samfunnssikkerhet og beredskap
+    orgnr: '974760983'
+    org_path: /STAT/972417831/974760983
+    sector: stat
+  uri: https://data-api.dsb.no/docs
+- id: fiskeridirektoratet-mljoundersokelser
+  title: Mljøundersøkelser
+  description: Henter alle typer miljørapporter, foruten fôrundersøkelser eller undersøkelser med C-metodikk.
+  summary: Henter alle typer miljørapporter, foruten fôrundersøkelser eller undersøkelser med C-metodikk.
+  title_en: Mljøundersøkelser
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://api.fiskeridir.no/envreportreg-public/
+  license: https://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-11-06T10:20:01.095Z'
+  provider:
+    name: FISKERIDIREKTORATET
+    orgnr: '971203420'
+    org_path: /STAT/912660680/971203420
+    sector: stat
+  uri: https://api.fiskeridir.no/envreportreg-public/
+- id: fiskeridirektoratet-offentlig-api-for-nytek-data
+  title: Offentlig API for NYTEK-data
+  description: API som tilgjengeliggjør åpne NYTEK-data
+  summary: API som tilgjengeliggjør åpne NYTEK-data
+  title_en: Offentlig API for NYTEK-data
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://api.fiskeridir.no/nytek-public
+  license: https://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-03-20T12:58:46.967Z'
+  provider:
+    name: FISKERIDIREKTORATET
+    orgnr: '971203420'
+    org_path: /STAT/912660680/971203420
+    sector: stat
+  uri: https://api.fiskeridir.no/nytek-public
+- id: fiskeridirektoratet-offentlig-api-for-akvakulturforskning
+  title: Offentlig API for akvakulturforskning
+  description: 'API som tilgjengeliggjør all akvakulturforskning fra innehavere med forskningstillatelser,
+    m.m. OBS: Dette API''et kan bli endret uten forvarsel.'
+  summary: 'API som tilgjengeliggjør all akvakulturforskning fra innehavere med forskningstillatelser,
+    m.m. OBS: Dette API''et kan bli endret uten forvarsel.'
+  title_en: Offentlig API for akvakulturforskning
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://api.fiskeridir.no/aqua-research-project-api-public
+  license: https://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-03-20T12:58:46.967Z'
+  provider:
+    name: FISKERIDIREKTORATET
+    orgnr: '971203420'
+    org_path: /STAT/912660680/971203420
+    sector: stat
+  uri: https://api.fiskeridir.no/aqua-research-project-api-public
+- id: fiskeridirektoratet-operasjonelle-akvakulturrettigheter
+  title: Operasjonelle akvakulturrettigheter
+  description: Henter rettigheter gitt til organisasjoner om disposisjon av tillatelser eller lokaliteter
+    på organisasjonsnivå.
+  summary: Henter rettigheter gitt til organisasjoner om disposisjon av tillatelser eller lokaliteter
+    på organisasjonsnivå.
+  title_en: Operasjonelle akvakulturrettigheter
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://api.fiskeridir.no/aqua-operations-public
+  license: https://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-11-06T09:20:01.21Z'
+  provider:
+    name: FISKERIDIREKTORATET
+    orgnr: '971203420'
+    org_path: /STAT/912660680/971203420
+    sector: stat
+  uri: https://api.fiskeridir.no/aqua-operations-public
+- id: fiskeridir-fartoyregisteret
+  title: Fartøyregisteret API
+  description: Aktive fiskefartøy med navn, registreringsmerke, radiokallesignal, IMO-nummer, lengde,
+    bredde, tonnasje og kommune, filtrerbart på navn, kommune, lengde og kallesignal. Fiskeridirektoratets
+    egen lisens for databruk gjelder.
+  summary: Aktive fiskefartøy med navn, registreringsmerke, radiokallesignal, IMO-nummer, lengde, bredde,
+    tonnasje og kommune, filtrerbart på navn, kommune, lengde og kallesignal. Fiskeridirektoratets egen
+    lisens for databruk gjelder.
+  title_en: Norwegian fishing vessel register API
+  access: open
+  auth: none
+  formats:
+  - JSON
+  endpoints:
+  - https://api.fiskeridir.no/vessel-api/api/v1/vessels
+  - https://api.fiskeridir.no/vessel-api/
+  spec_url: https://api.fiskeridir.no/vessel-api/api/openapi
+  docs_url: https://api.fiskeridir.no/vessel-api/swagger-ui/
+  license: FDIR-lisens for databruk
+  keywords:
+  - fartøy
+  - fiskefartøy
+  - fartøyregister
+  - kallesignal
+  - imo
+  - fiskeri
+  - båt
+  - vessel register
+  category: bedrift-og-organisasjon
+  tags:
+  - no-auth
+  quick_start: '# fartøy registrert i Andøy (kommunenummer 1871)
+
+    curl "https://api.fiskeridir.no/vessel-api/api/v1/vessels?municipality_code=1871&per_page=5"
+
+    '
+  modified: '2026-03-20T12:58:46.967Z'
+  provider:
+    name: Fiskeridirektoratet
+    orgnr: '971203420'
+    org_path: /STAT/912660680/971203420
+    sector: stat
+  uri: https://api.fiskeridir.no/vessel-api/
+- id: fiskeridirektoratet-fiskeriaktivitet-fiskefartoy-wms-tjeneste
+  title: Fiskeriaktivitet - fiskefartøy - WMS-tjeneste
+  summary: Fiskeriaktivitet - fiskefartøy - WMS-tjeneste
+  title_en: Fiskeriaktivitet - fiskefartøy - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://gis.fiskeridir.no/server/services/fiskeridirWMS_fiskeriaktivitet/MapServer/WMSServer
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fiskeridirektoratet
+    orgnr: '971203420'
+    org_path: /STAT/912660680/971203420
+    sector: stat
+  uri: https://gis.fiskeridir.no/server/services/fiskeridirWMS_fiskeriaktivitet/MapServer/WMSServer
+- id: fiskeridirektoratet-produksjonsomrader-for-akvakultur-wfs-tjeneste
+  title: Produksjonsområder for akvakultur - WFS-tjeneste
+  summary: Produksjonsområder for akvakultur - WFS-tjeneste
+  title_en: Produksjonsområder for akvakultur - WFS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - SQL
+  endpoints:
+  - https://gis.fiskeridir.no/server/services/FiskeridirWFS_akva/MapServer/WMSServer
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fiskeridirektoratet
+    orgnr: '971203420'
+    org_path: /STAT/912660680/971203420
+    sector: stat
+  uri: https://gis.fiskeridir.no/server/services/FiskeridirWFS_akva/MapServer/WMSServer
+- id: fredrikstad-kommune-barnehager-i-fredrikstad-kommune-rest-api
+  title: Barnehager i Fredrikstad kommune - REST-API
+  summary: Barnehager i Fredrikstad kommune - REST-API
+  title_en: Barnehager i Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/UtdanningOppvekst/SkoleBarnehage/MapServer/1
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/UtdanningOppvekst/SkoleBarnehage/MapServer/1
+- id: fredrikstad-kommune-barneskoler-i-fredrikstad-kommune-rest-api
+  title: Barneskoler i Fredrikstad kommune - REST-API
+  summary: Barneskoler i Fredrikstad kommune - REST-API
+  title_en: Barneskoler i Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/UtdanningOppvekst/SkoleBarnehage/MapServer/0
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/UtdanningOppvekst/SkoleBarnehage/MapServer/0
+- id: fredrikstad-kommune-byjord-i-fredrikstad-kommune-rest-api
+  title: Byjord i Fredrikstad kommune - REST-API
+  summary: Byjord i Fredrikstad kommune - REST-API
+  title_en: Byjord i Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/MiljoLandbruk/Miljodata/MapServer/6
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/MiljoLandbruk/Miljodata/MapServer/6
+- id: fredrikstad-kommune-deponier-i-fredrikstad-kommune-rest-api
+  title: Deponier i Fredrikstad kommune - REST-API
+  summary: Deponier i Fredrikstad kommune - REST-API
+  title_en: Deponier i Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/MiljoLandbruk/Miljodata/MapServer/7
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/MiljoLandbruk/Miljodata/MapServer/7
+- id: fredrikstad-kommune-dispensasjoner-etter-plan-og-bygningsloven-fredrik
+  title: Dispensasjoner etter plan- og bygningsloven, Fredrikstad kommune - REST-API
+  summary: Dispensasjoner etter plan- og bygningsloven, Fredrikstad kommune - REST-API
+  title_en: Dispensasjoner etter plan- og bygningsloven, Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://services5.arcgis.com/51HVp17hEG9cR3Vo/arcgis/rest/services/Planregister_view_(ikke_redigerbar)/FeatureServer/0
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://services5.arcgis.com/51HVp17hEG9cR3Vo/arcgis/rest/services/Planregister_view_(ikke_redigerbar)/FeatureServer/0
+- id: fredrikstad-kommune-fremmede-arter-i-fredrikstad-kommune-rest-api
+  title: Fremmede arter i Fredrikstad kommune - REST-API
+  summary: Fremmede arter i Fredrikstad kommune - REST-API
+  title_en: Fremmede arter i Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/MiljoLandbruk/Miljodata/MapServer/0
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/MiljoLandbruk/Miljodata/MapServer/0
+- id: fredrikstad-kommune-inntakssoner-for-barneskoler-i-fredrikstad-kommune
+  title: Inntakssoner for barneskoler i Fredrikstad kommune - REST-API
+  summary: Inntakssoner for barneskoler i Fredrikstad kommune - REST-API
+  title_en: Inntakssoner for barneskoler i Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/UtdanningOppvekst/SkoleBarnehage/MapServer/2
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-09-29T20:45:02.967Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/UtdanningOppvekst/SkoleBarnehage/MapServer/2
+- id: fredrikstad-kommune-inntakssoner-for-ungdomskoler-i-fredrikstad-kommun
+  title: Inntakssoner for ungdomskoler i Fredrikstad kommune - REST-API
+  summary: Inntakssoner for ungdomskoler i Fredrikstad kommune - REST-API
+  title_en: Inntakssoner for ungdomskoler i Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - ZIP
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/UtdanningOppvekst/SkoleBarnehage/MapServer/3
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/UtdanningOppvekst/SkoleBarnehage/MapServer/3
+- id: fredrikstad-kommune-kommunedelplaner-hvaler-kommune-rest-api
+  title: Kommunedelplaner Hvaler kommune - REST-API
+  summary: Kommunedelplaner Hvaler kommune - REST-API
+  title_en: Kommunedelplaner Hvaler kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/Hvaler/Kommunedelplaner_Hvaler/MapServer
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/Hvaler/Kommunedelplaner_Hvaler/MapServer
+- id: fredrikstad-kommune-kommunedelplaner-i-fredrikstad-kommune-rest-api
+  title: Kommunedelplaner i Fredrikstad kommune - REST-API
+  summary: Kommunedelplaner i Fredrikstad kommune - REST-API
+  title_en: Kommunedelplaner i Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/Plan/Kommunedelplaner/MapServer
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/Plan/Kommunedelplaner/MapServer
+- id: fredrikstad-kommune-kommuneplanens-arealdel-fredrikstad-kommune-rest-a
+  title: Kommuneplanens arealdel Fredrikstad kommune - REST-API
+  summary: Kommuneplanens arealdel Fredrikstad kommune - REST-API
+  title_en: Kommuneplanens arealdel Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/Plan/Kommuneplan/MapServer/
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/Plan/Kommuneplan/MapServer/
+- id: fredrikstad-kommune-kommuneplanens-arealdel-hvaler-kommune-rest-api
+  title: Kommuneplanens arealdel Hvaler kommune - REST-API
+  summary: Kommuneplanens arealdel Hvaler kommune - REST-API
+  title_en: Kommuneplanens arealdel Hvaler kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/Hvaler/KommuneplanHvaler/MapServer
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/Hvaler/KommuneplanHvaler/MapServer
+- id: fredrikstad-kommune-konsesjonsomrader-for-fjernvarme-fredrikstad-kommu
+  title: Konsesjonsområder for fjernvarme Fredrikstad kommune - REST-API
+  summary: Konsesjonsområder for fjernvarme Fredrikstad kommune - REST-API
+  title_en: Konsesjonsområder for fjernvarme Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/Frevar/FjernvarmeKonsesjon/MapServer/0
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/Frevar/FjernvarmeKonsesjon/MapServer/0
+- id: fredrikstad-kommune-kulturminneplan-fredrikstad-utvalgte-kulturminner
+  title: Kulturminneplan Fredrikstad - utvalgte kulturminner - REST-API
+  summary: Kulturminneplan Fredrikstad - utvalgte kulturminner - REST-API
+  title_en: Kulturminneplan Fredrikstad - utvalgte kulturminner - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/BSU/Kulturminneplan_kommunekart/MapServer/19
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/BSU/Kulturminneplan_kommunekart/MapServer/19
+- id: fredrikstad-kommune-lokalsamfunn-i-fredrikstad-kommune-rest-api
+  title: Lokalsamfunn i Fredrikstad kommune - REST-API
+  summary: Lokalsamfunn i Fredrikstad kommune - REST-API
+  title_en: Lokalsamfunn i Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - ZIP
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/FKB/Kretser/MapServer/0
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/FKB/Kretser/MapServer/0
+- id: fredrikstad-kommune-parkeringsplasser-i-fredrikstad-rest-api
+  title: Parkeringsplasser i Fredrikstad - REST-API
+  summary: Parkeringsplasser i Fredrikstad - REST-API
+  title_en: Parkeringsplasser i Fredrikstad - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - ZIP
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/TekniskDrift/Parkering/MapServer/1
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/TekniskDrift/Parkering/MapServer/1
+- id: fredrikstad-kommune-punktforurensninger-i-fredrikstad-kommune-rest-api
+  title: Punktforurensninger i Fredrikstad kommune - REST-API
+  summary: Punktforurensninger i Fredrikstad kommune - REST-API
+  title_en: Punktforurensninger i Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/MiljoLandbruk/Miljodata/MapServer/3
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/MiljoLandbruk/Miljodata/MapServer/3
+- id: fredrikstad-kommune-reguleringsplaner-hvaler-kommune-rest-api
+  title: Reguleringsplaner Hvaler kommune - REST-API
+  summary: Reguleringsplaner Hvaler kommune - REST-API
+  title_en: Reguleringsplaner Hvaler kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/Hvaler/ReguleringsplanNivaaer_Hvaler/MapServer
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/Hvaler/ReguleringsplanNivaaer_Hvaler/MapServer
+- id: fredrikstad-kommune-reguleringsplaner-i-fredrikstad-kommune-rest-api
+  title: Reguleringsplaner i Fredrikstad kommune - REST-API
+  summary: Reguleringsplaner i Fredrikstad kommune - REST-API
+  title_en: Reguleringsplaner i Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/Plan/ReguleringsplanNivaaer/MapServer
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/Plan/ReguleringsplanNivaaer/MapServer
+- id: fredrikstad-kommune-rodlistede-bygninger-fredrikstad-rest-api
+  title: Rødlistede bygninger Fredrikstad - REST-API
+  summary: Rødlistede bygninger Fredrikstad - REST-API
+  title_en: Rødlistede bygninger Fredrikstad - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/Plan/Kommuneplan/MapServer/1
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/Plan/Kommuneplan/MapServer/1
+- id: fredrikstad-kommune-slamspredning-fredrikstad-kommune-rest-api
+  title: Slamspredning, Fredrikstad kommune - REST-API
+  summary: Slamspredning, Fredrikstad kommune - REST-API
+  title_en: Slamspredning, Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/MiljoLandbruk/Miljodata/MapServer/5
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/MiljoLandbruk/Miljodata/MapServer/5
+- id: fredrikstad-kommune-stille-omrader-t-1442-fredrikstad-kommune-rest-api
+  title: Stille områder T-1442, Fredrikstad kommune - REST-API
+  summary: Stille områder T-1442, Fredrikstad kommune - REST-API
+  title_en: Stille områder T-1442, Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/DOK/Stoy/MapServer/1
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/DOK/Stoy/MapServer/1
+- id: fredrikstad-kommune-stoy-fra-flere-stoykilder-t-1442-fredrikstad-kommu
+  title: Støy fra flere støykilder (T-1442), Fredrikstad kommune - REST-API
+  summary: Støy fra flere støykilder (T-1442), Fredrikstad kommune - REST-API
+  title_en: Støy fra flere støykilder (T-1442), Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/DOK/Stoy/MapServer/0
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/DOK/Stoy/MapServer/0
+- id: fredrikstad-kommune-tungmetaller-i-jord-fredrikstad-kommune-rest-api
+  title: Tungmetaller i jord, Fredrikstad kommune - REST-API
+  summary: Tungmetaller i jord, Fredrikstad kommune - REST-API
+  title_en: Tungmetaller i jord, Fredrikstad kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://arcgis.fredrikstad.kommune.no/server/rest/services/MiljoLandbruk/Miljodata/MapServer/2
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Fredrikstad kommune
+    orgnr: '940039541'
+    org_path: /KOMMUNE/940039541
+    sector: kommune
+  uri: https://arcgis.fredrikstad.kommune.no/server/rest/services/MiljoLandbruk/Miljodata/MapServer/2
+- id: havforskningsinstituttet-artsutbredelse-fisk-ogc-api-features
+  title: Artsutbredelse Fisk - OGC API-Features
+  summary: Artsutbredelse Fisk - OGC API-Features
+  title_en: Artsutbredelse Fisk - OGC API-Features
+  access: open
+  auth: unknown
+  formats:
+  - ZIP
+  - GEOJSON
+  endpoints:
+  - https://kart.hi.no/data/ogc/features/v1/collections/utbredelseskart:utbredelse_fisk
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/4e3f5622-929f-48a1-b905-3008c8e604d0
+  license: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  modified: '2026-11-02T21:45:03.078Z'
+  provider:
+    name: Havforskningsinstituttet
+    orgnr: '971349077'
+    org_path: /STAT/912660680/971349077
+    sector: stat
+  uri: https://kart.hi.no/data/ogc/features/v1/collections/utbredelseskart:utbredelse_fisk
+- id: havforskningsinstituttet-artsutbredelse-andre-marine-arter-wms-tjeneste
+  title: Artsutbredelse andre marine arter - WMS-tjeneste
+  summary: Artsutbredelse andre marine arter - WMS-tjeneste
+  title_en: Artsutbredelse andre marine arter - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - ZIP
+  endpoints:
+  - https://kart.hi.no/data/utbredelseskart/utbredelse_ovrig/ows?request=GetCapabilities&service=WMS
+  license: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  modified: '2026-11-02T21:45:03.078Z'
+  provider:
+    name: Havforskningsinstituttet
+    orgnr: '971349077'
+    org_path: /STAT/912660680/971349077
+    sector: stat
+  uri: https://kart.hi.no/data/utbredelseskart/utbredelse_ovrig/ows?request=GetCapabilities&service=WMS
+- id: havforskningsinstituttet-norfjords160-temperatur-wcs-tjeneste
+  title: Norfjords160 - Temperatur - WCS-tjeneste
+  summary: Norfjords160 - Temperatur - WCS-tjeneste
+  title_en: Norfjords160 - Temperatur - WCS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - ZIP
+  - OGC:WCS
+  endpoints:
+  - https://kart.hi.no/mareano/marinegrunnkart_oseanografi/ows?request=GetCapabilities&service=WCS
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/19edb0c0-64f4-4421-aef8-d4f360f26e95
+  license: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  modified: '2026-11-02T21:45:03.078Z'
+  provider:
+    name: Havforskningsinstituttet
+    orgnr: '971349077'
+    org_path: /STAT/912660680/971349077
+    sector: stat
+  uri: https://kart.hi.no/mareano/marinegrunnkart_oseanografi/ows?request=GetCapabilities&service=WCS
+- id: havforskningsinstituttet-stranding-av-plast-modellert-sannsynlighet-wms-tje
+  title: Stranding av plast, modellert sannsynlighet - WMS-tjeneste
+  summary: Stranding av plast, modellert sannsynlighet - WMS-tjeneste
+  title_en: Stranding av plast, modellert sannsynlighet - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - GEOTIFF
+  endpoints:
+  - https://kart.hi.no/data/oseanografi/Strandingskart_plast_UTM33/ows?request=GetCapabilities&service=WMS
+  license: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  modified: '2026-11-02T21:45:03.078Z'
+  provider:
+    name: Havforskningsinstituttet
+    orgnr: '971349077'
+    org_path: /STAT/912660680/971349077
+    sector: stat
+  uri: https://kart.hi.no/data/oseanografi/Strandingskart_plast_UTM33/ows?request=GetCapabilities&service=WMS
+- id: kongsberg-kommune-lokkelandskap-verdivurdering-kongsberg-rest-api
+  title: Løkkelandskap verdivurdering Kongsberg - REST-API
+  summary: Løkkelandskap verdivurdering Kongsberg - REST-API
+  title_en: Løkkelandskap verdivurdering Kongsberg - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kongsbergkommune.maps.arcgis.com/home/item.html?id=201b8a32c09d4253abf041b6d5ca2ee3&view=service
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Kongsberg kommune
+    orgnr: '942402465'
+    org_path: /KOMMUNE/942402465
+    sector: kommune
+  uri: https://kongsbergkommune.maps.arcgis.com/home/item.html?id=201b8a32c09d4253abf041b6d5ca2ee3&view=service
+- id: kongsberg-kommune-sefrak-bygninger-kongsberg-kommune-rest-api
+  title: SEFRAK-bygninger Kongsberg kommune - REST-API
+  summary: SEFRAK-bygninger Kongsberg kommune - REST-API
+  title_en: SEFRAK-bygninger Kongsberg kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://services-eu1.arcgis.com/GTQv7BSJVIHXMx2p/arcgis/rest/services/SEFRAK_vedlegg/FeatureServer
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Kongsberg kommune
+    orgnr: '942402465'
+    org_path: /KOMMUNE/942402465
+    sector: kommune
+  uri: https://services-eu1.arcgis.com/GTQv7BSJVIHXMx2p/arcgis/rest/services/SEFRAK_vedlegg/FeatureServer
+- id: kongsberg-kommune-steingjerder-kongsberg-kommune-rest-api
+  title: Steingjerder Kongsberg kommune - REST-API
+  summary: Steingjerder Kongsberg kommune - REST-API
+  title_en: Steingjerder Kongsberg kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://services-eu1.arcgis.com/GTQv7BSJVIHXMx2p/arcgis/rest/services/Steingjerder/FeatureServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Kongsberg kommune
+    orgnr: '942402465'
+    org_path: /KOMMUNE/942402465
+    sector: kommune
+  uri: https://services-eu1.arcgis.com/GTQv7BSJVIHXMx2p/arcgis/rest/services/Steingjerder/FeatureServer
+- id: kongsberg-kommune-stoy-jondalen-skytebane-rest-api
+  title: Støy Jondalen skytebane - REST-API
+  summary: Støy Jondalen skytebane - REST-API
+  title_en: Støy Jondalen skytebane - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kongsbergkommune.maps.arcgis.com/home/item.html?id=bdc96e59a1f44a37b9b18983fe1b9196&view=service
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Kongsberg kommune
+    orgnr: '942402465'
+    org_path: /KOMMUNE/942402465
+    sector: kommune
+  uri: https://kongsbergkommune.maps.arcgis.com/home/item.html?id=bdc96e59a1f44a37b9b18983fe1b9196&view=service
+- id: kongsberg-kommune-stoy-motorbane-kongsberg-rest-api
+  title: Støy motorbane Kongsberg - REST-API
+  summary: Støy motorbane Kongsberg - REST-API
+  title_en: Støy motorbane Kongsberg - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kongsbergkommune.maps.arcgis.com/home/item.html?id=b805b861f2a54c30ba16ca46ba846be8&view=service
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Kongsberg kommune
+    orgnr: '942402465'
+    org_path: /KOMMUNE/942402465
+    sector: kommune
+  uri: https://kongsbergkommune.maps.arcgis.com/home/item.html?id=b805b861f2a54c30ba16ca46ba846be8&view=service
+- id: kongsberg-kommune-temaplan-bevaring-kongsberg-kommune-rest-api
+  title: Temaplan bevaring Kongsberg kommune - REST-API
+  summary: Temaplan bevaring Kongsberg kommune - REST-API
+  title_en: Temaplan bevaring Kongsberg kommune - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kongsbergkommune.maps.arcgis.com/home/item.html?id=2dca231637b14718bfab6980af1b409e&view=service
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Kongsberg kommune
+    orgnr: '942402465'
+    org_path: /KOMMUNE/942402465
+    sector: kommune
+  uri: https://kongsbergkommune.maps.arcgis.com/home/item.html?id=2dca231637b14718bfab6980af1b409e&view=service
+- id: kongsberg-kommune-temaplan-overvann-kongsberg-kommune-avrenningslinj
+  title: Temaplan overvann Kongsberg kommune – avrenningslinjer med nedbørfelt med størrelse mellom 0,5
+    og 5,0 ha - REST-API
+  summary: Temaplan overvann Kongsberg kommune – avrenningslinjer med nedbørfelt med størrelse mellom
+    0,5 og 5,0 ha - REST-API
+  title_en: Temaplan overvann Kongsberg kommune – avrenningslinjer med nedbørfelt med størrelse mellom
+    0,5 og 5,0 ha - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kongsbergkommune.maps.arcgis.com/home/item.html?id=1b18c8b5e3bc466399f0c60ea1953728&view=service
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Kongsberg kommune
+    orgnr: '942402465'
+    org_path: /KOMMUNE/942402465
+    sector: kommune
+  uri: https://kongsbergkommune.maps.arcgis.com/home/item.html?id=1b18c8b5e3bc466399f0c60ea1953728&view=service
+- id: kongsberg-kommune-temaplan-overvann-kongsberg-kommune-lavpunkt-rest
+  title: Temaplan overvann Kongsberg kommune – lavpunkt - REST-API
+  summary: Temaplan overvann Kongsberg kommune – lavpunkt - REST-API
+  title_en: Temaplan overvann Kongsberg kommune – lavpunkt - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kongsbergkommune.maps.arcgis.com/home/item.html?id=945edccf02384bac9bc8b899f23603f1&view=service
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Kongsberg kommune
+    orgnr: '942402465'
+    org_path: /KOMMUNE/942402465
+    sector: kommune
+  uri: https://kongsbergkommune.maps.arcgis.com/home/item.html?id=945edccf02384bac9bc8b899f23603f1&view=service
+- id: kystverket-ogc-api-features
+  title: OGC API-Features
+  summary: OGC API-Features
+  title_en: OGC API-Features
+  access: open
+  auth: unknown
+  formats:
+  - GEOJSON
+  - JSON
+  endpoints:
+  - https://kystverket.avadaptive.no/api/core/swagger/index.html?urls.primaryName=OGC%20API%20-%20Features
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-10-07T20:45:03.314Z'
+  provider:
+    name: Kystverket
+    orgnr: '874783242'
+    org_path: /STAT/912660680/874783242
+    sector: stat
+  uri: https://kystverket.avadaptive.no/api/core/swagger/index.html?urls.primaryName=OGC%20API%20-%20Features
+- id: kystverket-referanseruter-for-navigasjon-ogc-api-features
+  title: Referanseruter for navigasjon - OGC API-Features
+  summary: Referanseruter for navigasjon - OGC API-Features
+  title_en: Referanseruter for navigasjon - OGC API-Features
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kystverket.avadaptive.no/api/kyv/routeinfo/swagger/index.html
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-10-07T20:45:03.314Z'
+  provider:
+    name: Kystverket
+    orgnr: '874783242'
+    org_path: /STAT/912660680/874783242
+    sector: stat
+  uri: https://kystverket.avadaptive.no/api/kyv/routeinfo/swagger/index.html
+- id: kystverket-wms-tjeneste
+  title: WMS-tjeneste
+  summary: WMS-tjeneste
+  title_en: WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - TXT
+  endpoints:
+  - https://kystinfo.no
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-10-07T20:45:03.314Z'
+  provider:
+    name: Kystverket
+    orgnr: '874783242'
+    org_path: /STAT/912660680/874783242
+    sector: stat
+  uri: https://kystinfo.no
+- id: landbruksdirektoratet-jordressurser-ogc-api-features
+  title: Jordressurser - OGC API-Features
+  summary: Jordressurser - OGC API-Features
+  title_en: Jordressurser - OGC API-Features
+  access: open
+  auth: unknown
+  formats:
+  - GEOJSON
+  endpoints:
+  - https://ogcapi.nibio.no/felles/jordressurser
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Landbruksdirektoratet
+    orgnr: '988983837'
+    org_path: /STAT/972417874/988983837
+    sector: stat
+  uri: https://ogcapi.nibio.no/felles/jordressurser
+- id: landbruksdirektoratet-sat-skog-wms
+  title: SAT-SKOG - WMS
+  description: Denne tjenesten er basert på datasettet SAT-SKOG, som er et landsdekkende skogkart med
+    kartlag som gir oversikt over skogressursene og viser informasjon om treslag, alder og volum på et
+    overordnet nivå.
+  summary: Denne tjenesten er basert på datasettet SAT-SKOG, som er et landsdekkende skogkart med kartlag
+    som gir oversikt over skogressursene og viser informasjon om treslag, alder og volum på et overordnet
+    nivå.
+  title_en: SAT-SKOG - WMS
+  access: open
+  auth: unknown
+  formats:
+  - UNKNOWN
+  - OGC WMS 1.3.0
+  endpoints:
+  - https://wms.nibio.no/cgi-bin/satskog?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/b35ec9f6-5eca-42ab-a8bd-bf56703ff4ea
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Landbruksdirektoratet
+    orgnr: '988983837'
+    org_path: /STAT/972417874/988983837
+    sector: stat
+  uri: https://wms.nibio.no/cgi-bin/satskog?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+- id: miljodirektoratet-anadrome-laksefisk-wms
+  title: Anadrome laksefisk WMS
+  description: Tjenesten viser data for vassdrag som fører anadrome laksefisk. Data er organisert i flere
+    datasett, se beskrivelse av disse.
+  summary: Tjenesten viser data for vassdrag som fører anadrome laksefisk. Data er organisert i flere
+    datasett, se beskrivelse av disse.
+  title_en: Anadrome laksefisk WMS
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/services/anadrome_laksefisk/MapServer/WMSServer?request=GetCapabilities&service=WMS
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/a1e6a980-7e56-4922-90c0-e131d9e8f897
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/services/anadrome_laksefisk/MapServer/WMSServer?request=GetCapabilities&service=WMS
+- id: miljodirektoratet-arter-av-nasjonal-forvaltningsinteresse-rest-api
+  title: Arter av nasjonal forvaltningsinteresse - REST-API
+  summary: Arter av nasjonal forvaltningsinteresse - REST-API
+  title_en: Arter av nasjonal forvaltningsinteresse - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart3.miljodirektoratet.no/arcgis/rest/services/artnasjonal3/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart3.miljodirektoratet.no/arcgis/rest/services/artnasjonal3/MapServer
+- id: miljodirektoratet-arter-funksjonsomrader-wms
+  title: Arter funksjonsområder WMS
+  description: "Tjenesten viser forekomst av arter og funksjonsområder for disse. Med funksjonsområder\
+    \ menes beiteområder, leveområder, hekkeområder etc. Datasettet er ikke et fullstendig datasett for\
+    \ alle arter, men er hovedsakelig fokusert på prioriterte arter etter naturmangfoldloven, rødlistearter\
+    \ og artene som inngår i viltkartleggingen etter DN håndbok nr. 11- 2000 Viltkartlegging. \n\nDatasettet\
+    \ inneholder\n    - Hjortevilt, herunder villrein\n    - Småvilt\n    - Trua og sårbare arter innen\
+    \ alle organismegrupper\n    - Økologiske funksjonsområder for prioriterte arter etter naturmangfoldloven\n\
+    \nDNs artsdata utveksles med Artsdatabankens tjeneste Artskart og kan gjenfinnes der sammen med data\
+    \ fra andre leverandører."
+  summary: Tjenesten viser forekomst av arter og funksjonsområder for disse. Med funksjonsområder menes
+    beiteområder, leveområder, hekkeområder etc. Datasettet er ikke et fullstendig datasett for alle arter,
+    men er hovedsakelig fokusert på…
+  title_en: Arter funksjonsområder WMS
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/services/artfunksjon/MapServer/WMSServer?request=GetCapabilities&service=WMS
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/ed8f4a7a-7e04-4680-8ac9-342764b95867
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/services/artfunksjon/MapServer/WMSServer?request=GetCapabilities&service=WMS
+- id: miljodirektoratet-forurenset-grunn-rest-api
+  title: Forurenset grunn - REST-API
+  summary: Forurenset grunn - REST-API
+  title_en: Forurenset grunn - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/grunnforurensning2/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/grunnforurensning2/MapServer
+- id: miljodirektoratet-friluftslivsomrader-kartlagte-og-verdsatte-rest-ap
+  title: Friluftslivsområder - kartlagte og verdsatte - REST-API
+  summary: Friluftslivsområder - kartlagte og verdsatte - REST-API
+  title_en: Friluftslivsområder - kartlagte og verdsatte - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/friluftsliv_kartlagt/mapserver
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-21T20:45:03.324Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/friluftsliv_kartlagt/mapserver
+- id: miljodirektoratet-friluftslivsomrader-kartlagte-og-verdsatte-wms
+  title: Friluftslivsområder - kartlagte og verdsatte WMS
+  description: Se beskrivelse av datasettet.
+  summary: Se beskrivelse av datasettet.
+  title_en: Friluftslivsområder - kartlagte og verdsatte WMS
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/services/friluftsliv_kartlagt/mapserver/WMSServer?service=wms&request=getcapabilities
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/0e937264-abb0-4bcd-b690-73832640a44a
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-04-21T20:45:03.324Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/services/friluftsliv_kartlagt/mapserver/WMSServer?service=wms&request=getcapabilities
+- id: miljodirektoratet-friluftslivsomrader-statlig-sikra-wms
+  title: Friluftslivsområder - statlig sikra  WMS
+  description: Karttjenesten viser områder som er sikra for allmenne friluftslivsformål ved statlig hjelp.
+    Dette innebærer at staten v/ Miljødirektoratet har skaffet seg råderett over arealet. Råderetten kan
+    ha form av at området er kjøpt av staten, ved at området omfattes av en langsiktig avtale om bruksrett
+    (servituttavtale) eller ved at staten sitter med en tinglyst erklæring om bruk til friluftslivsformål.
+    I det siste tilfellet har staten bidratt økonomisk til sikringen av området med inntil 50% av kostnadene.
+  summary: Karttjenesten viser områder som er sikra for allmenne friluftslivsformål ved statlig hjelp.
+    Dette innebærer at staten v/ Miljødirektoratet har skaffet seg råderett over arealet. Råderetten kan
+    ha form av at området er kjøpt av staten, ved…
+  title_en: Friluftslivsområder - statlig sikra  WMS
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/services/friluftsliv_statlig_sikra/mapserver/WMSServer?service=wms&request=getcapabilities
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/ef63146d-c689-4079-97b5-89f04bcfd1ff
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/services/friluftsliv_statlig_sikra/mapserver/WMSServer?service=wms&request=getcapabilities
+- id: miljodirektoratet-friluftslivsomrader-statlig-sikra-rest-api
+  title: Friluftslivsområder - statlig sikra - REST-API
+  summary: Friluftslivsområder - statlig sikra - REST-API
+  title_en: Friluftslivsområder - statlig sikra - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/friluftsliv_statlig_sikra/mapserver
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-09-05T20:45:02.58Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/friluftsliv_statlig_sikra/mapserver
+- id: miljodirektoratet-friluftslivsomrader-vernede-rest-api
+  title: Friluftslivsområder - vernede - REST-API
+  summary: Friluftslivsområder - vernede - REST-API
+  title_en: Friluftslivsområder - vernede - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/friluftsliv_vern/mapserver
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-10-04T21:45:02.82Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/friluftsliv_vern/mapserver
+- id: miljodirektoratet-friluftslivsomrader-vernede-wms
+  title: Friluftslivsområder - vernede WMS
+  description: Se beskrivelse av datasettet.
+  summary: Se beskrivelse av datasettet.
+  title_en: Friluftslivsområder - vernede WMS
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/services/friluftsliv_vern/mapserver/WMSServer?request=GetCapabilities&service=WMS
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/fc3e72fc-5ce3-4180-85fc-1c2839354145
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/services/friluftsliv_vern/mapserver/WMSServer?request=GetCapabilities&service=WMS
+- id: miljodirektoratet-gronn-infrastruktur-rest-api
+  title: Grønn infrastruktur - REST-API
+  summary: Grønn infrastruktur - REST-API
+  title_en: Grønn infrastruktur - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - GEOTIFF
+  endpoints:
+  - https://image001.miljodirektoratet.no/arcgis/rest/services/gronn_infrastruktur/gronn_infrastruktur/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://image001.miljodirektoratet.no/arcgis/rest/services/gronn_infrastruktur/gronn_infrastruktur/MapServer
+- id: miljodirektoratet-kartleggingsenheter-nin-rest-api
+  title: Kartleggingsenheter NiN - REST-API
+  summary: Kartleggingsenheter NiN - REST-API
+  title_en: Kartleggingsenheter NiN - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - GEOJSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/kartleggingsenheter_nin/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/kartleggingsenheter_nin/MapServer
+- id: miljodirektoratet-kulturlandskap-utvalgte-rest-api
+  title: Kulturlandskap - utvalgte - REST-API
+  summary: Kulturlandskap - utvalgte - REST-API
+  title_en: Kulturlandskap - utvalgte - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/kulturlandskap_utvalgte/mapserver
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-10-04T21:45:02.82Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/kulturlandskap_utvalgte/mapserver
+- id: miljodirektoratet-kulturlandskap-utvalgte-wms
+  title: Kulturlandskap - utvalgte WMS
+  description: Karttjenesten viser områder som inngår i satsingen Utvalgte kulturlandskap i jordbruket.
+  summary: Karttjenesten viser områder som inngår i satsingen Utvalgte kulturlandskap i jordbruket.
+  title_en: Kulturlandskap - utvalgte WMS
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/services/kulturlandskap_utvalgte/MapServer/WMSServer?request=GetCapabilities&service=WMS
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/0a193e8e-2e89-4c84-81c7-f2cf4333f718
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/services/kulturlandskap_utvalgte/MapServer/WMSServer?request=GetCapabilities&service=WMS
+- id: miljodirektoratet-kulturlandskap-verdifulle-wms
+  title: Kulturlandskap - verdifulle  WMS
+  description: Datasettet består av verdifulle kulturlandskap med registrerte biologiske verdier og/eller
+    kulturminneverdier. Biologiske verdier kan være naturtyper, som f.eks. artsrike slåtteenger eller
+    kystlynghei. Kulturhistoriske verdier kan være f.eks. hus, steinmurer og gravrøyser.
+  summary: Datasettet består av verdifulle kulturlandskap med registrerte biologiske verdier og/eller
+    kulturminneverdier. Biologiske verdier kan være naturtyper, som f.eks. artsrike slåtteenger eller
+    kystlynghei. Kulturhistoriske verdier kan være…
+  title_en: Kulturlandskap - verdifulle  WMS
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/services/kulturlandskap_verdifulle/mapserver/WMSServer?request=GetCapabilities&service=WMS
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/14fc5112-8c2f-481d-a03e-f88b3fe0bd24
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/services/kulturlandskap_verdifulle/mapserver/WMSServer?request=GetCapabilities&service=WMS
+- id: miljodirektoratet-kulturlandskap-verdifulle-rest-api
+  title: Kulturlandskap - verdifulle - REST-API
+  summary: Kulturlandskap - verdifulle - REST-API
+  title_en: Kulturlandskap - verdifulle - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/kulturlandskap_verdifulle/mapserver
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/kulturlandskap_verdifulle/mapserver
+- id: miljodirektoratet-marine-naturtyper-hb19-rest-api
+  title: Marine naturtyper (HB19) - REST-API
+  summary: Marine naturtyper (HB19) - REST-API
+  title_en: Marine naturtyper (HB19) - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/naturtyper_marine_hb19/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/naturtyper_marine_hb19/MapServer
+- id: miljodirektoratet-marine-naturtyper-hb19-wms
+  title: Marine naturtyper (HB19) WMS
+  description: Tjenesten er tidligere publisert under navnet "Naturtyper - DN-håndbok 19 WMS". Tjenesten
+    viser naturtypelokaliteter som kartlagt etter DN-håndbok 19 Kartlegging av marint biologisk mangfold
+    og som er publisert av Miljødirektoratet.
+  summary: Tjenesten er tidligere publisert under navnet "Naturtyper - DN-håndbok 19 WMS". Tjenesten viser
+    naturtypelokaliteter som kartlagt etter DN-håndbok 19 Kartlegging av marint biologisk mangfold og
+    som er publisert av Miljødirektoratet.
+  title_en: Marine naturtyper (HB19) WMS
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/services/naturtyper_marine_hb19/MapServer/WMSServer?service=wms&version=1.1.1&request=getcapabilities
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/d45a2146-33cf-4c28-a8d9-48a57a99a781
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/services/naturtyper_marine_hb19/MapServer/WMSServer?service=wms&version=1.1.1&request=getcapabilities
+- id: miljodirektoratet-naturtiltak-rest-api
+  title: Naturtiltak - REST-API
+  summary: Naturtiltak - REST-API
+  title_en: Naturtiltak - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart3.miljodirektoratet.no/arcgis/rest/services/naturtiltak/naturtiltak/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart3.miljodirektoratet.no/arcgis/rest/services/naturtiltak/naturtiltak/MapServer
+- id: miljodirektoratet-naturtyper-utvalgte-rest-api
+  title: Naturtyper - utvalgte - REST-API
+  summary: Naturtyper - utvalgte - REST-API
+  title_en: Naturtyper - utvalgte - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/naturtyper_utvalgte2/mapserver
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/naturtyper_utvalgte2/mapserver
+- id: miljodirektoratet-naturtyper-verdsatte-rest-api
+  title: Naturtyper - verdsatte - REST-API
+  summary: Naturtyper - verdsatte - REST-API
+  title_en: Naturtyper - verdsatte - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/naturtyper_kuverdi/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-10-04T21:45:02.82Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/naturtyper_kuverdi/MapServer
+- id: miljodirektoratet-naturtyper-pa-land-nin-wms
+  title: Naturtyper på land (NiN) WMS
+  description: Tjenesten viser naturtypelokaliteter kartlagt etter Miljødirektoratets instruks for kartlegging
+    av naturtyper på land. Naturtyper prioritert for kartlegging er rødlistede naturtyper og naturtyper
+    med sentral økosystemfunksjon. Type- og beskrivelsessystemet Natur i Norge er benyttet for å dokumentere
+    det faglige innholdet.
+  summary: Tjenesten viser naturtypelokaliteter kartlagt etter Miljødirektoratets instruks for kartlegging
+    av naturtyper på land. Naturtyper prioritert for kartlegging er rødlistede naturtyper og naturtyper
+    med sentral økosystemfunksjon. Type- og…
+  title_en: Naturtyper på land (NiN) WMS
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/services/naturtyper_nin/MapServer/WMSServer?service=wms&version=1.1.1&request=getcapabilities
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/fed10e38-5850-4e80-948b-10c34ae323fb
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/services/naturtyper_nin/MapServer/WMSServer?service=wms&version=1.1.1&request=getcapabilities
+- id: miljodirektoratet-naturtyper-pa-land-og-i-ferskvann-hb13-rest-api
+  title: Naturtyper på land og i ferskvann (HB13) - REST-API
+  summary: Naturtyper på land og i ferskvann (HB13) - REST-API
+  title_en: Naturtyper på land og i ferskvann (HB13) - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/naturtyper_hb13/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/naturtyper_hb13/MapServer
+- id: miljodirektoratet-naturtyper-pa-land-og-i-ferskvann-hb13-wms
+  title: Naturtyper på land og i ferskvann (HB13) WMS
+  description: Tjenesten viser naturtypelokaliteter på land og i ferskvann, kartlagt etter DN-håndbok
+    13. Tjenesten er tidligere publisert under navnet "Naturtyper - DN-håndbok 13 WMS".
+  summary: Tjenesten viser naturtypelokaliteter på land og i ferskvann, kartlagt etter DN-håndbok 13.
+    Tjenesten er tidligere publisert under navnet "Naturtyper - DN-håndbok 13 WMS".
+  title_en: Naturtyper på land og i ferskvann (HB13) WMS
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/services/naturtyper_hb13/mapserver/WMSServer?request=GetCapabilities&service=WMS
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/04917289-2e3e-4145-a87b-be270d2d83d4
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/services/naturtyper_hb13/mapserver/WMSServer?request=GetCapabilities&service=WMS
+- id: miljodirektoratet-naturvernomrader-wms
+  title: Naturvernområder WMS
+  description: 'Tjenesten gir en oversikt over hvilke områder som er vernet etter følgende lover: naturmangfoldloven
+    av 2009, biotopvern etter viltloven av 1981, naturvernloven av 1970, lov om naturvern av 1954, lov
+    om Jan Mayen av 1930 og lov om naturfredning av 1910. I tillegg inneholder det områder vernet etter
+    følgende lovverk på Svalbard: Svalbardloven av 1925 og Svalbardmiljøloven av 2002. Datasettet gir
+    også tilgang til lovforskriften som gjelder for hvert enkelt vernevedtak.\\n\\nTjenesten gir også
+    oversikt over foreslåtte naturvernområder som er under planlegging og kunngjort (§ 42) etter lov om
+    Naturmangfold - Kapittel V (Områdevern). Tjenesten viser avgrensingen til området i høringsforslaget
+    (§ 43).\\n\\nVerneområder opprettes først og fremst for å bevare naturverdier av nasjonal betydning.
+    Dette er verdier vi skal ta vare på for all overskuelig framtid, også med tanke på naturopplevelse
+    og kunnskap om naturen. Verneområdene forvaltes av fylkesmannen, kommunen eller et interkommunalt
+    verneområdestyre.'
+  summary: 'Tjenesten gir en oversikt over hvilke områder som er vernet etter følgende lover: naturmangfoldloven
+    av 2009, biotopvern etter viltloven av 1981, naturvernloven av 1970, lov om naturvern av 1954, lov
+    om Jan Mayen av 1930 og lov om…'
+  title_en: Naturvernområder WMS
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/services/vern/mapserver/WMSServer?service=wms&request=getcapabilities
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/fa6a495d-05a1-4c0d-ba67-45a1d47fca92
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/services/vern/mapserver/WMSServer?service=wms&request=getcapabilities
+- id: miljodirektoratet-rest-api
+  title: REST-API
+  summary: REST-API
+  title_en: REST-API
+  access: open
+  auth: unknown
+  formats:
+  - GEOTIFF
+  endpoints:
+  - https://image001.miljodirektoratet.no/arcgis/rest/services/hotspots_arter/hotspots_arter/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://image001.miljodirektoratet.no/arcgis/rest/services/hotspots_arter/hotspots_arter/MapServer
+- id: miljodirektoratet-rest-api-3e5fb8
+  title: REST-API
+  summary: REST-API
+  title_en: REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/vern/mapserver
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-10-04T21:45:02.82Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/vern/mapserver
+- id: miljodirektoratet-rest-api-de1e6c
+  title: REST-API
+  summary: REST-API
+  title_en: REST-API
+  access: open
+  auth: unknown
+  formats:
+  - GEOJSON
+  endpoints:
+  - https://kart2.miljodirektoratet.no/arcgis/rest/services/svalbard/motorferdsel_svalbard/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart2.miljodirektoratet.no/arcgis/rest/services/svalbard/motorferdsel_svalbard/MapServer
+- id: miljodirektoratet-rammer-for-petroleumsaktivitet-wfs-tjeneste
+  title: Rammer for petroleumsaktivitet - WFS-tjeneste
+  summary: Rammer for petroleumsaktivitet - WFS-tjeneste
+  title_en: Rammer for petroleumsaktivitet - WFS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - GML
+  endpoints:
+  - https://kart.miljodirektoratet.no/geoserver/petroleumsaktivitet_rammer/ows?service=wfs&version=1.1.0&request=GetCapabilities
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/geoserver/petroleumsaktivitet_rammer/ows?service=wfs&version=1.1.0&request=GetCapabilities
+- id: miljodirektoratet-ramsaromrader-rest-api
+  title: Ramsarområder - REST-API
+  summary: Ramsarområder - REST-API
+  title_en: Ramsarområder - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/ramsar/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-04T21:45:02.82Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/ramsar/MapServer
+- id: miljodirektoratet-ramsaromrader-wms
+  title: Ramsarområder WMS
+  description: "Datasettet viser norske naturvernområder med status som ramsarområder, under den internasjonale\
+    \ våtmarkskonvensjonen (Ramsarkonvensjonen). Alle norske ramsarområder er vernet som naturvernområder\
+    \ (eget datasett). Noen ganger omfatter ramsarstatusen kun deler av det aktuelle naturvernområdet.\
+    \ Et ramsarområde kan også omfatte areal i flere ulike naturvernområder. \n\nI dette datasettet defineres\
+    \ entydig hvilke areal som omfattes av Ramsarkonvensjonen i Norge. I tillegg inneholder det en områdebeskrivelse\
+    \ på norsk, som forklarer om historikk og begrunnelse for at områdene har fått en så viktig internasjonal\
+    \ status."
+  summary: Datasettet viser norske naturvernområder med status som ramsarområder, under den internasjonale
+    våtmarkskonvensjonen (Ramsarkonvensjonen). Alle norske ramsarområder er vernet som naturvernområder
+    (eget datasett). Noen ganger omfatter…
+  title_en: Ramsarområder WMS
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/services/ramsar/MapServer/WMSServer?service=wms&version=1.1.1&request=getcapabilities
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/7efdba97-758e-463d-bd00-bdc9b13d272f
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/services/ramsar/MapServer/WMSServer?service=wms&version=1.1.1&request=getcapabilities
+- id: miljodirektoratet-restriksjonsomrader-naturvern-rest-api
+  title: Restriksjonsområder - Naturvern - REST-API
+  summary: Restriksjonsområder - Naturvern - REST-API
+  title_en: Restriksjonsområder - Naturvern - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - GEOJSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/vern_restriksjonsomrader/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/vern_restriksjonsomrader/MapServer
+- id: miljodirektoratet-restriksjonsomrader-naturvern-wms
+  title: Restriksjonsområder - Naturvern WMS
+  description: Se beskrivelse av datasettet.
+  summary: Se beskrivelse av datasettet.
+  title_en: Restriksjonsområder - Naturvern WMS
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/services/vern_restriksjonsomrader/MapServer/WMSServer?request=GetCapabilities&service=WMS
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/cc1b74d7-9316-4830-a7ed-bcb4d3e83974
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/services/vern_restriksjonsomrader/MapServer/WMSServer?request=GetCapabilities&service=WMS
+- id: miljodirektoratet-rodlistet-natur-i-verneomrader-nin-rest-api
+  title: Rødlistet natur i verneområder (NiN) - REST-API
+  summary: Rødlistet natur i verneområder (NiN) - REST-API
+  title_en: Rødlistet natur i verneområder (NiN) - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/vern_naturomrader_nin/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/vern_naturomrader_nin/MapServer
+- id: miljodirektoratet-skogsmark-nin-rest-api
+  title: Skogsmark - NiN - REST-API
+  summary: Skogsmark - NiN - REST-API
+  title_en: Skogsmark - NiN - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - GEOJSON
+  endpoints:
+  - https://kart2.miljodirektoratet.no/arcgis/rest/services/nin_skogkartlegging/nin_skogkartlegging/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart2.miljodirektoratet.no/arcgis/rest/services/nin_skogkartlegging/nin_skogkartlegging/MapServer
+- id: miljodirektoratet-snoscooterloyper-rest-api
+  title: Snøscooterløyper - REST-API
+  summary: Snøscooterløyper - REST-API
+  title_en: Snøscooterløyper - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/snoscooterloyper/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/snoscooterloyper/MapServer
+- id: miljodirektoratet-snoscooterloyper-wms
+  title: Snøscooterløyper WMS
+  description: Se beskrivelse av datasettet.
+  summary: Se beskrivelse av datasettet.
+  title_en: Snøscooterløyper WMS
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/services/snoscooterloyper/MapServer/WMSServer?service=wms&version=1.3.0&request=getCapabilities
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/6c86baac-c80a-46de-a087-8a32d7c5c8cd
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-04-14T20:45:03.202Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/services/snoscooterloyper/MapServer/WMSServer?service=wms&version=1.3.0&request=getCapabilities
+- id: miljodirektoratet-villreinomrader-rest-api
+  title: Villreinområder - REST-API
+  summary: Villreinområder - REST-API
+  title_en: Villreinområder - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/rest/services/villrein/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-10-04T21:45:02.82Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/rest/services/villrein/MapServer
+- id: miljodirektoratet-villreinomrader-wms
+  title: Villreinområder WMS
+  description: Se beskrivelse av datasettet.
+  summary: Se beskrivelse av datasettet.
+  title_en: Villreinområder WMS
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://kart.miljodirektoratet.no/arcgis/services/villrein/MapServer/WMSServer?request=GetCapabilities&service=WMS
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/c431a4c5-22fd-4f37-9040-5c38e3a8402e
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-04-15T20:45:03.456Z'
+  provider:
+    name: Miljødirektoratet
+    orgnr: '999601391'
+    org_path: /STAT/972417882/999601391
+    sector: stat
+  uri: https://kart.miljodirektoratet.no/arcgis/services/villrein/MapServer/WMSServer?request=GetCapabilities&service=WMS
+- id: norges-geologiske-undersokelse-biotoper-i-barentshavet-wms-tjeneste
+  title: Biotoper i Barentshavet - WMS-tjeneste
+  summary: Biotoper i Barentshavet - WMS-tjeneste
+  title_en: Biotoper i Barentshavet - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://geo.ngu.no/mapserver/NOR_RUS_BarentsSeaWMS/?request=getcapabilities&service=wms&version=1.3.0
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-29T21:45:02.829Z'
+  provider:
+    name: Norges geologiske undersøkelse
+    orgnr: '970188290'
+    org_path: /STAT/912660680/970188290
+    sector: stat
+  uri: https://geo.ngu.no/mapserver/NOR_RUS_BarentsSeaWMS/?request=getcapabilities&service=wms&version=1.3.0
+- id: norges-geologiske-undersokelse-bunnsedimenter-dannelse-detaljert-ogc-api-features
+  title: Bunnsedimenter (dannelse), detaljert - OGC API-Features
+  summary: Bunnsedimenter (dannelse), detaljert - OGC API-Features
+  title_en: Bunnsedimenter (dannelse), detaljert - OGC API-Features
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://ogcapitest.ngu.no/rest/services/bunnsedimentdannelsedetalj
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-29T21:45:02.829Z'
+  provider:
+    name: Norges geologiske undersøkelse
+    orgnr: '970188290'
+    org_path: /STAT/912660680/970188290
+    sector: stat
+  uri: https://ogcapitest.ngu.no/rest/services/bunnsedimentdannelsedetalj
+- id: norges-geologiske-undersokelse-bunnsedimenter-kornstorrelse-ogc-api-features
+  title: Bunnsedimenter - kornstørrelse - OGC API-Features
+  summary: Bunnsedimenter - kornstørrelse - OGC API-Features
+  title_en: Bunnsedimenter - kornstørrelse - OGC API-Features
+  access: open
+  auth: unknown
+  formats:
+  - GEOJSON
+  endpoints:
+  - https://ogcapitest.ngu.no/rest/services/bunnsedimentkornstorrelse
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-10-29T21:45:02.829Z'
+  provider:
+    name: Norges geologiske undersøkelse
+    orgnr: '970188290'
+    org_path: /STAT/912660680/970188290
+    sector: stat
+  uri: https://ogcapitest.ngu.no/rest/services/bunnsedimentkornstorrelse
+- id: norges-geologiske-undersokelse-gassoppkommer-wms-tjeneste
+  title: Gassoppkommer - WMS-tjeneste
+  summary: Gassoppkommer - WMS-tjeneste
+  title_en: Gassoppkommer - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - GML
+  endpoints:
+  - https://geo.ngu.no/mapserver/MarinGassoppkommerWMS/?request=getcapabilities&service=wms&version=1.3.0
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-29T21:45:02.829Z'
+  provider:
+    name: Norges geologiske undersøkelse
+    orgnr: '970188290'
+    org_path: /STAT/912660680/970188290
+    sector: stat
+  uri: https://geo.ngu.no/mapserver/MarinGassoppkommerWMS/?request=getcapabilities&service=wms&version=1.3.0
+- id: norges-geologiske-undersokelse-generelle-marine-biotoper-raster-wms-tjeneste
+  title: Generelle marine biotoper (raster) - WMS-tjeneste
+  summary: Generelle marine biotoper (raster) - WMS-tjeneste
+  title_en: Generelle marine biotoper (raster) - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://geo.ngu.no/mapserver/MarinNaturtyperWMS2?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-29T21:45:02.829Z'
+  provider:
+    name: Norges geologiske undersøkelse
+    orgnr: '970188290'
+    org_path: /STAT/912660680/970188290
+    sector: stat
+  uri: https://geo.ngu.no/mapserver/MarinNaturtyperWMS2?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+- id: norges-geologiske-undersokelse-lager-av-organisk-karbon-i-havbunnsedimenter-i-nor
+  title: Lager av organisk karbon i havbunnsedimenter i Nordsjøen og Skagerrak - WMS-tjeneste
+  summary: Lager av organisk karbon i havbunnsedimenter i Nordsjøen og Skagerrak - WMS-tjeneste
+  title_en: Lager av organisk karbon i havbunnsedimenter i Nordsjøen og Skagerrak - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://geo.ngu.no/mapserver/ModellertHavbunnsgeologiWMS/?request=getcapabilities&service=wms&version=1.3.0&
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-10-29T21:45:02.829Z'
+  provider:
+    name: Norges geologiske undersøkelse
+    orgnr: '970188290'
+    org_path: /STAT/912660680/970188290
+    sector: stat
+  uri: https://geo.ngu.no/mapserver/ModellertHavbunnsgeologiWMS/?request=getcapabilities&service=wms&version=1.3.0&
+- id: norges-geologiske-undersokelse-marine-biotoper-i-sor-troms-wms-tjeneste
+  title: Marine biotoper i Sør-Troms - WMS-tjeneste
+  summary: Marine biotoper i Sør-Troms - WMS-tjeneste
+  title_en: Marine biotoper i Sør-Troms - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://geo.ngu.no/mapserver/MarineGrunnkartWMS?REQUEST=GetCapabilities&SERVICE=WMS&VERSION=1.3.0
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-29T21:45:02.829Z'
+  provider:
+    name: Norges geologiske undersøkelse
+    orgnr: '970188290'
+    org_path: /STAT/912660680/970188290
+    sector: stat
+  uri: https://geo.ngu.no/mapserver/MarineGrunnkartWMS?REQUEST=GetCapabilities&SERVICE=WMS&VERSION=1.3.0
+- id: norges-geologiske-undersokelse-marine-landformer-wms-tjeneste
+  title: Marine landformer - WMS-tjeneste
+  summary: Marine landformer - WMS-tjeneste
+  title_en: Marine landformer - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - ZIP
+  endpoints:
+  - https://geo.ngu.no/mapserver/MarinTerrengWMS2?REQUEST=GetCapabilities&SERVICE=WMS&VERSION=1.3.0
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-29T21:45:02.829Z'
+  provider:
+    name: Norges geologiske undersøkelse
+    orgnr: '970188290'
+    org_path: /STAT/912660680/970188290
+    sector: stat
+  uri: https://geo.ngu.no/mapserver/MarinTerrengWMS2?REQUEST=GetCapabilities&SERVICE=WMS&VERSION=1.3.0
+- id: norges-geologiske-undersokelse-sedimentobservasjoner-bilder-wms-tjeneste
+  title: Sedimentobservasjoner - bilder - WMS-tjeneste
+  summary: Sedimentobservasjoner - bilder - WMS-tjeneste
+  title_en: Sedimentobservasjoner - bilder - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - GDB
+  endpoints:
+  - https://geo.ngu.no/mapserver/MarinGeofotoWMS/?request=getcapabilities&service=wms&version=1.3.0
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-29T21:45:02.829Z'
+  provider:
+    name: Norges geologiske undersøkelse
+    orgnr: '970188290'
+    org_path: /STAT/912660680/970188290
+    sector: stat
+  uri: https://geo.ngu.no/mapserver/MarinGeofotoWMS/?request=getcapabilities&service=wms&version=1.3.0
+- id: norges-geologiske-undersokelse-tungmetaller-og-andre-uorganiske-miljoelementer-i
+  title: Tungmetaller og andre uorganiske miljøelementer i marine sedimenter - WMS-tjeneste
+  summary: Tungmetaller og andre uorganiske miljøelementer i marine sedimenter - WMS-tjeneste
+  title_en: Tungmetaller og andre uorganiske miljøelementer i marine sedimenter - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - ZIP
+  endpoints:
+  - https://kartkatalog.geonorge.no/metadata/maringeokjemiwms/0008ba93-e528-456d-9687-c405b3ad6da8
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-29T21:45:02.829Z'
+  provider:
+    name: Norges geologiske undersøkelse
+    orgnr: '970188290'
+    org_path: /STAT/912660680/970188290
+    sector: stat
+  uri: https://kartkatalog.geonorge.no/metadata/maringeokjemiwms/0008ba93-e528-456d-9687-c405b3ad6da8
+- id: norges-geologiske-undersokelse-undersjoiske-fjell-wms-tjeneste
+  title: Undersjøiske fjell - WMS-tjeneste
+  summary: Undersjøiske fjell - WMS-tjeneste
+  title_en: Undersjøiske fjell - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://geo.ngu.no/mapserver/ModellertHavbunnsgeologiWMS?REQUEST=GetCapabilities&SERVICE=WMS&VERSION=1.3.0
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-10-29T21:45:02.829Z'
+  provider:
+    name: Norges geologiske undersøkelse
+    orgnr: '970188290'
+    org_path: /STAT/912660680/970188290
+    sector: stat
+  uri: https://geo.ngu.no/mapserver/ModellertHavbunnsgeologiWMS?REQUEST=GetCapabilities&SERVICE=WMS&VERSION=1.3.0
+- id: norges-geologiske-undersokelse-wms-tjeneste
+  title: WMS-tjeneste
+  summary: WMS-tjeneste
+  title_en: WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - XML
+  endpoints:
+  - http://geo.ngu.no/mapserver/MarinSannsynligeKorallrevWMS?request=GetCapabilities&service=WMS
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-10-29T21:45:02.829Z'
+  provider:
+    name: Norges geologiske undersøkelse
+    orgnr: '970188290'
+    org_path: /STAT/912660680/970188290
+    sector: stat
+  uri: http://geo.ngu.no/mapserver/MarinSannsynligeKorallrevWMS?request=GetCapabilities&service=WMS
+- id: norges-geologiske-undersokelse-wms-tjeneste-a98113
+  title: WMS-tjeneste
+  summary: WMS-tjeneste
+  title_en: WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - GDB
+  endpoints:
+  - https://geo.ngu.no/mapserver/MarinLinjerProverWMS2/?request=getcapabilities&service=wms&version=1.3.0
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-11-08T23:45:02.794Z'
+  provider:
+    name: Norges geologiske undersøkelse
+    orgnr: '970188290'
+    org_path: /STAT/912660680/970188290
+    sector: stat
+  uri: https://geo.ngu.no/mapserver/MarinLinjerProverWMS2/?request=getcapabilities&service=wms&version=1.3.0
+- id: norges-geologiske-undersokelse-wms-tjeneste-9f6a81
+  title: WMS-tjeneste
+  summary: WMS-tjeneste
+  title_en: WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - SHP
+  endpoints:
+  - https://geo.ngu.no/mapserver/MarinNaturtyperWMS2?REQUEST=GetCapabilities&SERVICE=WMS
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-10-29T21:45:02.829Z'
+  provider:
+    name: Norges geologiske undersøkelse
+    orgnr: '970188290'
+    org_path: /STAT/912660680/970188290
+    sector: stat
+  uri: https://geo.ngu.no/mapserver/MarinNaturtyperWMS2?REQUEST=GetCapabilities&SERVICE=WMS
+- id: norges-vassdrags-og-energidire-breer-i-norge-rest-api
+  title: Breer i Norge - REST-API
+  summary: Breer i Norge - REST-API
+  title_en: Breer i Norge - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - XML
+  endpoints:
+  - https://kart.nve.no/enterprise/rest/services/Bre2/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Norges vassdrags- og energidirektorat
+    orgnr: '970205039'
+    org_path: /STAT/977161630/970205039
+    sector: stat
+  uri: https://kart.nve.no/enterprise/rest/services/Bre2/MapServer
+- id: norges-vassdrags-og-energidire-deldatasett-aktsomhet-jord-og-flomskred-rest-api
+  title: Deldatasett aktsomhet jord- og flomskred - REST-API
+  summary: Deldatasett aktsomhet jord- og flomskred - REST-API
+  title_en: Deldatasett aktsomhet jord- og flomskred - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - ZIP
+  endpoints:
+  - https://kart.nve.no/enterprise/rest/services/JordFlomskredAktsomhet_del/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Norges vassdrags- og energidirektorat
+    orgnr: '970205039'
+    org_path: /STAT/977161630/970205039
+    sector: stat
+  uri: https://kart.nve.no/enterprise/rest/services/JordFlomskredAktsomhet_del/MapServer
+- id: norges-vassdrags-og-energidire-deldatasett-aktsomhet-mellomstore-flomskred-rest-a
+  title: Deldatasett aktsomhet mellomstore flomskred - REST-API
+  summary: Deldatasett aktsomhet mellomstore flomskred - REST-API
+  title_en: Deldatasett aktsomhet mellomstore flomskred - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - ZIP
+  endpoints:
+  - https://kart.nve.no/enterprise/rest/services/MellomstoreFlomskredAktsomhet_del/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Norges vassdrags- og energidirektorat
+    orgnr: '970205039'
+    org_path: /STAT/977161630/970205039
+    sector: stat
+  uri: https://kart.nve.no/enterprise/rest/services/MellomstoreFlomskredAktsomhet_del/MapServer
+- id: norges-vassdrags-og-energidire-deldatasett-aktsomhet-mellomstore-flomskred-wms-tj
+  title: Deldatasett aktsomhet mellomstore flomskred - WMS-tjeneste
+  summary: Deldatasett aktsomhet mellomstore flomskred - WMS-tjeneste
+  title_en: Deldatasett aktsomhet mellomstore flomskred - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - GEOJSON
+  endpoints:
+  - https://kart.nve.no/enterprise/services/MellomstoreFlomskredAktsomhet_del/MapServer/WMSServer?request=GetCapabilities&service=WMS
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Norges vassdrags- og energidirektorat
+    orgnr: '970205039'
+    org_path: /STAT/977161630/970205039
+    sector: stat
+  uri: https://kart.nve.no/enterprise/services/MellomstoreFlomskredAktsomhet_del/MapServer/WMSServer?request=GetCapabilities&service=WMS
+- id: norges-vassdrags-og-energidire-dybdekart-wms-tjeneste
+  title: Dybdekart - WMS-tjeneste
+  summary: Dybdekart - WMS-tjeneste
+  title_en: Dybdekart - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - ZIP
+  endpoints:
+  - https://gis3.nve.no/map/services/Innsjodatabase2/MapServer/WMSServer?request=GetCapabilities&service=WMS
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Norges vassdrags- og energidirektorat
+    orgnr: '970205039'
+    org_path: /STAT/977161630/970205039
+    sector: stat
+  uri: https://gis3.nve.no/map/services/Innsjodatabase2/MapServer/WMSServer?request=GetCapabilities&service=WMS
+- id: norges-vassdrags-og-energidire-nettomrader-rest-api
+  title: Nettområder - REST-API
+  summary: Nettområder - REST-API
+  title_en: Nettområder - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://kart.nve.no/enterprise/rest/services/Nettomraader/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Norges vassdrags- og energidirektorat
+    orgnr: '970205039'
+    org_path: /STAT/977161630/970205039
+    sector: stat
+  uri: https://kart.nve.no/enterprise/rest/services/Nettomraader/MapServer
+- id: norges-vassdrags-og-energidire-nettomrader-wms-tjeneste
+  title: Nettområder - WMS-tjeneste
+  summary: Nettområder - WMS-tjeneste
+  title_en: Nettområder - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - ZIP
+  endpoints:
+  - https://kart.nve.no/enterprise/services/Nettomraader/MapServer/WMSServer?request=GetCapabilities&service=WMS
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Norges vassdrags- og energidirektorat
+    orgnr: '970205039'
+    org_path: /STAT/977161630/970205039
+    sector: stat
+  uri: https://kart.nve.no/enterprise/services/Nettomraader/MapServer/WMSServer?request=GetCapabilities&service=WMS
+- id: norges-vassdrags-og-energidire-skredfaresoner-wms
+  title: Skredfaresoner WMS
+  description: NVE gjennomfører faresonekartlegging av skred i bratt terreng for utvalgte områder prioritert
+    for kartlegging, jfr Plan for skredfarekartlegging (NVE rapport 14/2011). Kartleggingen dekker skredtypene
+    snøskred, sørpeskred, steinsprang, jordskred og flomskred.
+  summary: NVE gjennomfører faresonekartlegging av skred i bratt terreng for utvalgte områder prioritert
+    for kartlegging, jfr Plan for skredfarekartlegging (NVE rapport 14/2011). Kartleggingen dekker skredtypene
+    snøskred, sørpeskred, steinsprang…
+  title_en: Skredfaresoner WMS
+  access: open
+  auth: unknown
+  formats:
+  - WMS_SRVC
+  endpoints:
+  - https://kart.nve.no/enterprise/services/Skredfaresoner1/MapServer/WMSServer?request=GetCapabilities&service=WMS
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/551ebd8b-d5e8-4304-a030-505b03dd8773
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Norges vassdrags- og energidirektorat
+    orgnr: '970205039'
+    org_path: /STAT/977161630/970205039
+    sector: stat
+  uri: https://kart.nve.no/enterprise/services/Skredfaresoner1/MapServer/WMSServer?request=GetCapabilities&service=WMS
+- id: norges-vassdrags-og-energidire-smakraftverk-ressurskartlegging-rest-api
+  title: Småkraftverk ressurskartlegging - REST-API
+  summary: Småkraftverk ressurskartlegging - REST-API
+  title_en: Småkraftverk ressurskartlegging - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - GEOJSON
+  endpoints:
+  - https://kart.nve.no/enterprise/rest/services/Smakraftverk1/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Norges vassdrags- og energidirektorat
+    orgnr: '970205039'
+    org_path: /STAT/977161630/970205039
+    sector: stat
+  uri: https://kart.nve.no/enterprise/rest/services/Smakraftverk1/MapServer
+- id: norges-vassdrags-og-energidire-smakraftverk-ressurskartlegging-wms-tjeneste
+  title: Småkraftverk ressurskartlegging - WMS-tjeneste
+  summary: Småkraftverk ressurskartlegging - WMS-tjeneste
+  title_en: Småkraftverk ressurskartlegging - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - PDF
+  - ZIP
+  endpoints:
+  - https://kart.nve.no/enterprise/services/Smakraftverk1/MapServer/WMSServer?request=GetCapabilities&service=WMS
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Norges vassdrags- og energidirektorat
+    orgnr: '970205039'
+    org_path: /STAT/977161630/970205039
+    sector: stat
+  uri: https://kart.nve.no/enterprise/services/Smakraftverk1/MapServer/WMSServer?request=GetCapabilities&service=WMS
+- id: norges-vassdrags-og-energidire-utredninger-av-skredfare-rest-api
+  title: Utredninger av skredfare - REST-API
+  summary: Utredninger av skredfare - REST-API
+  title_en: Utredninger av skredfare - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://gis3.nve.no/map/rest/services/Mapservices/Skredrapport/MapServer
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Norges vassdrags- og energidirektorat
+    orgnr: '970205039'
+    org_path: /STAT/977161630/970205039
+    sector: stat
+  uri: https://gis3.nve.no/map/rest/services/Mapservices/Skredrapport/MapServer
+- id: norsk-polarinstitutt-j1000-kartdata-np-basiskart-jan-mayen-wmts-25833
+  title: J1000 Kartdata - NP Basiskart Jan Mayen WMTS 25833
+  description: Tjenesten inneholder de offisielle topografiske data over Jan Mayen
+  summary: Tjenesten inneholder de offisielle topografiske data over Jan Mayen
+  title_en: J1000 Kartdata - NP Basiskart Jan Mayen WMTS 25833
+  access: open
+  auth: unknown
+  formats:
+  - WMS_SRVC
+  endpoints:
+  - https://geodata.npolar.no/arcgis/rest/services/Basisdata/NP_Basiskart_JanMayen_WMTS_25833/MapServer/WMTS/1.0.0/WMTSCapabilities.xml?
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/32165035-2d7b-4ac4-ba97-881b616e31b7
+  license: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Norsk Polarinstitutt
+    orgnr: '971022264'
+    org_path: /STAT/972417882/971022264
+    sector: stat
+  uri: https://geodata.npolar.no/arcgis/rest/services/Basisdata/NP_Basiskart_JanMayen_WMTS_25833/MapServer/WMTS/1.0.0/WMTSCapabilities.xml?
+- id: norsk-institutt-for-vannforskn-ferrybox-pa-ms-color-fantasy-daglige-data-opendap
+  title: FerryBox på MS Color Fantasy, daglige data - OPeNDAP
+  summary: FerryBox på MS Color Fantasy, daglige data - OPeNDAP
+  title_en: FerryBox på MS Color Fantasy, daglige data - OPeNDAP
+  access: open
+  auth: unknown
+  formats:
+  - NETCDF
+  endpoints:
+  - https://thredds.niva.no/thredds/dodsC/datasets/nrt/color_fantasy.nc
+  license: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  modified: '2026-09-22T20:45:02.506Z'
+  provider:
+    name: Norsk institutt for vannforskning
+    orgnr: '855869942'
+    org_path: /PRIVAT/855869942
+    sector: privat
+  uri: https://thredds.niva.no/thredds/dodsC/datasets/nrt/color_fantasy.nc
+- id: norsk-institutt-for-vannforskn-multisource-digiveivann-innlop-opendap
+  title: MULTISOURCE/DIGIVEIVANN Innløp - OPeNDAP
+  summary: MULTISOURCE/DIGIVEIVANN Innløp - OPeNDAP
+  title_en: MULTISOURCE/DIGIVEIVANN Innløp - OPeNDAP
+  access: open
+  auth: unknown
+  formats:
+  - NETCDF
+  endpoints:
+  - https://thredds.niva.no/thredds/dodsC/datasets/loggers/msource-inlet.nc
+  license: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  modified: '2026-09-22T20:45:02.506Z'
+  provider:
+    name: Norsk institutt for vannforskning
+    orgnr: '855869942'
+    org_path: /PRIVAT/855869942
+    sector: privat
+  uri: https://thredds.niva.no/thredds/dodsC/datasets/loggers/msource-inlet.nc
+- id: norsk-institutt-for-vannforskn-multisource-digiveivann-utlop-opendap
+  title: MULTISOURCE/DIGIVEIVANN Utløp - OPeNDAP
+  summary: MULTISOURCE/DIGIVEIVANN Utløp - OPeNDAP
+  title_en: MULTISOURCE/DIGIVEIVANN Utløp - OPeNDAP
+  access: open
+  auth: unknown
+  formats:
+  - NETCDF
+  endpoints:
+  - https://thredds.niva.no/thredds/dodsC/datasets/loggers/msource-outlet.nc
+  license: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  modified: '2026-09-18T20:45:02.574Z'
+  provider:
+    name: Norsk institutt for vannforskning
+    orgnr: '855869942'
+    org_path: /PRIVAT/855869942
+    sector: privat
+  uri: https://thredds.niva.no/thredds/dodsC/datasets/loggers/msource-outlet.nc
+- id: norsk-institutt-for-vannforskn-sios-oseanografisk-observasjoner-i-adventfjorden-o
+  title: SIOS oseanografisk observasjoner i Adventfjorden - OPeNDAP
+  summary: SIOS oseanografisk observasjoner i Adventfjorden - OPeNDAP
+  title_en: SIOS oseanografisk observasjoner i Adventfjorden - OPeNDAP
+  access: open
+  auth: unknown
+  formats:
+  - NETCDF
+  endpoints:
+  - https://thredds.niva.no/thredds/dodsC/datasets/loggers/sios.nc
+  license: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+  modified: '2026-09-18T20:45:02.574Z'
+  provider:
+    name: Norsk institutt for vannforskning
+    orgnr: '855869942'
+    org_path: /PRIVAT/855869942
+    sector: privat
+  uri: https://thredds.niva.no/thredds/dodsC/datasets/loggers/sios.nc
+- id: rogaland-fylkeskommune-kulturmiljo-av-regional-interesse-wfs-tjeneste
+  title: Kulturmiljø av regional interesse - WFS-tjeneste
+  summary: Kulturmiljø av regional interesse - WFS-tjeneste
+  title_en: Kulturmiljø av regional interesse - WFS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - GML
+  endpoints:
+  - https://kart.temakart-rogaland.no/wfs.ashx?service=WFS&request=GetCapabilities
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Rogaland fylkeskommune
+    orgnr: '971045698'
+    org_path: /FYLKE/971045698
+    sector: fylke
+  uri: https://kart.temakart-rogaland.no/wfs.ashx?service=WFS&request=GetCapabilities
+- id: rogaland-fylkeskommune-kulturmiljo-av-regional-interesse-wms-tjeneste
+  title: Kulturmiljø av regional interesse - WMS-tjeneste
+  summary: Kulturmiljø av regional interesse - WMS-tjeneste
+  title_en: Kulturmiljø av regional interesse - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - PNG
+  endpoints:
+  - https://kart.temakart-rogaland.no/wms.ashx?service=WMS&request=GetCapabilities
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Rogaland fylkeskommune
+    orgnr: '971045698'
+    org_path: /FYLKE/971045698
+    sector: fylke
+  uri: https://kart.temakart-rogaland.no/wms.ashx?service=WMS&request=GetCapabilities
+- id: sandnes-kommune-kommunal-veg-stoyvarslingskart-sandnes-wms-tjenest
+  title: Kommunal veg støyvarslingskart - Sandnes - WMS-tjeneste
+  summary: Kommunal veg støyvarslingskart - Sandnes - WMS-tjeneste
+  title_en: Kommunal veg støyvarslingskart - Sandnes - WMS-tjeneste
+  access: open
+  auth: unknown
+  formats:
+  - SHP
+  endpoints:
+  - https://kommunekart.com/klient/sandnes/publikum?urlid=a610ff43-869b-40c1-bacb-1dcf56855d1e
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Sandnes kommune
+    orgnr: '964965137'
+    org_path: /KOMMUNE/964965137
+    sector: kommune
+  uri: https://kommunekart.com/klient/sandnes/publikum?urlid=a610ff43-869b-40c1-bacb-1dcf56855d1e
+- id: sokkeldirektoratet-norwegian-offshore-directorate-factmapsdata-kvadra
+  title: Norwegian Offshore Directorate - FactMapsData - Kvadranter
+  description: Sokkeldirektoratets Faktakartteneste inneholder informasjon om blant annet lete- og utvinningsbrønner,
+    undersøkelser, funn og felt og utvinningstillatelser.
+  summary: Sokkeldirektoratets Faktakartteneste inneholder informasjon om blant annet lete- og utvinningsbrønner,
+    undersøkelser, funn og felt og utvinningstillatelser.
+  title_en: Norwegian Offshore Directorate - FactMapsData - Kvadranter
+  access: open
+  auth: unknown
+  formats:
+  - WMS_SRVC
+  endpoints:
+  - https://factmaps.sodir.no/api/rest/services/Factmaps/FactMapsED50UTM32/MapServer/803
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/65623857-b3e1-4e99-8b2e-aa0158fabf82
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_1_0
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Sokkeldirektoratet
+    orgnr: '870917732'
+    org_path: /STAT/977161630/870917732
+    sector: stat
+  uri: https://factmaps.sodir.no/api/rest/services/Factmaps/FactMapsED50UTM32/MapServer/803
+- id: sokkeldirektoratet-apningsomrader-pa-norsk-kontinentalsokkel-rest-api
+  title: Åpningsområder på norsk kontinentalsokkel - REST-API
+  summary: Åpningsområder på norsk kontinentalsokkel - REST-API
+  title_en: Åpningsområder på norsk kontinentalsokkel - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://factmaps.sodir.no/api/rest/services/Factmaps/FactMapsWGS84/FeatureServer/805
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Sokkeldirektoratet
+    orgnr: '870917732'
+    org_path: /STAT/977161630/870917732
+    sector: stat
+  uri: https://factmaps.sodir.no/api/rest/services/Factmaps/FactMapsWGS84/FeatureServer/805
+- id: statens-kartverk-bopliktomrader-ogc-api-features
+  title: Bopliktområder - OGC API-Features
+  summary: Bopliktområder - OGC API-Features
+  title_en: Bopliktområder - OGC API-Features
+  access: non-public
+  auth: unknown
+  formats:
+  - GEOJSON
+  endpoints:
+  - https://inndelinger.api.kartverket.no/
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-08-31T20:45:02.557Z'
+  provider:
+    name: Statens kartverk
+    orgnr: '971040238'
+    org_path: /STAT/972417858/971040238
+    sector: stat
+  uri: https://inndelinger.api.kartverket.no/
+- id: statens-kartverk-grunnboken-webservice
+  title: Grunnboken - Webservice
+  summary: Grunnboken - Webservice
+  title_en: Grunnboken - Webservice
+  access: restricted
+  auth: unknown
+  formats:
+  - XML
+  endpoints:
+  - https://www.grunnbok.no/grunnbok/
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-05-09T20:45:02.466Z'
+  provider:
+    name: Statens kartverk
+    orgnr: '971040238'
+    org_path: /STAT/972417858/971040238
+    sector: stat
+  uri: https://www.grunnbok.no/grunnbok/
+- id: statens-kartverk-skredfaresoner-wfs
+  title: Skredfaresoner WFS
+  description: Tjenesten leverer datasettet "Skredfaresoner" på GML-format i henhold til WFS-standarden.
+    Kartleggingen dekker skredtypene snøskred, sørpeskred, steinsprang, jordskred og flomskred. Faresonekartlegging
+    av skred i bratt terreng gjennomføres av NVE for utvalgte områder prioritert for kartlegging, jfr
+    Plan for skredfarekartlegging (NVE rapport 14/2011). NVEs kartlegging retter seg først og fremst mot
+    eksisterende bebyggelse. Ved identifisering og prioritering av områder er det derfor lagt vekt på
+    hvor det bor og oppholder seg mennesker innenfor potensielt skredfareutsatte områder
+  summary: Tjenesten leverer datasettet "Skredfaresoner" på GML-format i henhold til WFS-standarden. Kartleggingen
+    dekker skredtypene snøskred, sørpeskred, steinsprang, jordskred og flomskred. Faresonekartlegging
+    av skred i bratt terreng gjennomføres…
+  title_en: Skredfaresoner WFS
+  access: open
+  auth: unknown
+  formats:
+  - GML
+  endpoints:
+  - https://wfs.geonorge.no/skwms1/wfs.skredfaresoner?service=WFS&request=GetCapabilities
+  docs_url: https://kartkatalog.geonorge.no/Metadata/uuid/f5f79615-8ce0-49d5-995b-0674f046f435
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-10-28T21:45:03.855Z'
+  provider:
+    name: Statens kartverk
+    orgnr: '971040238'
+    org_path: /STAT/972417858/971040238
+    sector: stat
+  uri: https://wfs.geonorge.no/skwms1/wfs.skredfaresoner?service=WFS&request=GetCapabilities
+- id: statens-kartverk-stormflo-og-havniva-statistikk-over-berorte-objekt
+  title: Stormflo og havnivå – statistikk over berørte objekter og areal - REST-API
+  summary: Stormflo og havnivå – statistikk over berørte objekter og areal - REST-API
+  title_en: Stormflo og havnivå – statistikk over berørte objekter og areal - REST-API
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://stormflo-konsekvens.kartverket.no/index.html#tag/Konsekvenser-ved-stormflo-og-havniva
+  license: http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply
+  modified: '2026-03-20T12:59:06.114Z'
+  provider:
+    name: Statens kartverk
+    orgnr: '971040238'
+    org_path: /STAT/972417858/971040238
+    sector: stat
+  uri: https://stormflo-konsekvens.kartverket.no/index.html#tag/Konsekvenser-ved-stormflo-og-havniva
+- id: statens-vegvesen-nvdb-les-nasjonal-vegdatabank
+  title: NVDB Les (Nasjonal vegdatabank)
+  description: Statens vegvesen tilbyr et REST-basert API som kan benyttes for å få tilgang til informasjonen
+    som befinner seg i Nasjonal vegdatabank (NVDB).
+  summary: Statens vegvesen tilbyr et REST-basert API som kan benyttes for å få tilgang til informasjonen
+    som befinner seg i Nasjonal vegdatabank (NVDB).
+  title_en: NVDB Les (Nasjonal vegdatabank)
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://nvdbapiles-v3.atlas.vegvesen.no
+  spec_url: https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/openapi/openapi.yaml
+  docs_url: https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/
+  license: http://publications.europa.eu/resource/authority/licence/NLOD_2_0
+  modified: '2026-03-20T13:05:12.618Z'
+  provider:
+    name: Statens vegvesen
+    orgnr: '971032081'
+    org_path: /STAT/972417904/971032081
+    sector: stat
+  uri: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/61f8eca3b7cc0717962ce7b7
+- id: statens-vegvesen-register-for-parkeringstillatelser
+  title: Register for parkeringstillatelser
+  description: API-et kan benyttes av leverandører av parkeringssystemer til å melde inn nye parkeringstillatelser
+    for forflytningshemmede eller endringer i disse.
+  summary: API-et kan benyttes av leverandører av parkeringssystemer til å melde inn nye parkeringstillatelser
+    for forflytningshemmede eller endringer i disse.
+  title_en: Register for parkeringstillatelser
+  access: non-public
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://hcreg.atlas.vegvesen.no
+  spec_url: https://hcreg.atlas.vegvesen.no/swagger-ui/index.html
+  docs_url: https://www.vegvesen.no/om-oss/om-organisasjonen/apne-data/et-utvalg-apne-data/hc-reg/
+  keywords:
+  - parkeringstillatelse
+  - parkering
+  - funksjonshemmet
+  status: http://publications.europa.eu/resource/authority/distribution-status/COMPLETED
+  modified: '2026-03-20T13:05:12.618Z'
+  provider:
+    name: Statens vegvesen
+    orgnr: '971032081'
+    org_path: /STAT/972417904/971032081
+    sector: stat
+  uri: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/61c339cbb7cc0717962ce7b2
+- id: statens-vegvesen-register-for-parkeringstillatelser-sjekk-av-gyldig
+  title: Register for parkeringstillatelser - sjekk av gyldighet
+  description: API-et benyttes av parkeringsselskaper/parkeringsvakter for å gjøre oppslag på gyldigheten
+    til utstedte parkeringstillatelser.
+  summary: API-et benyttes av parkeringsselskaper/parkeringsvakter for å gjøre oppslag på gyldigheten
+    til utstedte parkeringstillatelser.
+  title_en: Register for parkeringstillatelser - sjekk av gyldighet
+  access: restricted
+  auth: unknown
+  endpoints:
+  - https://hcreg.atlas.vegvesen.no/
+  spec_url: https://hcreg.atlas.vegvesen.no/swagger-ui/index.html
+  docs_url: https://www.vegvesen.no/om-oss/om-organisasjonen/apne-data/et-utvalg-apne-data/hc-reg/
+  caveats:
+  - Krever en tjenestebruker fra Statens vegvesen (HTTP basic).
+  modified: '2026-03-20T13:05:12.618Z'
+  provider:
+    name: Statens vegvesen
+    orgnr: '971032081'
+    org_path: /STAT/972417904/971032081
+    sector: stat
+  uri: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/674d7117f28f306fd1b76146
+- id: statens-vegvesen-ecoc
+  title: eCoC
+  description: 'eCOC er a) en samsvarserklæring som bekrefter at det aktuelle kjøretøyet kjøretøy er i
+    samsvar med en bestemt typegodkjenning, og b) tekniske data for det aktuelle kjøretøyet. Importør
+    sender inn melding om preregistrering av kjøretøy inkludert eCoC i XML-format som definert av IVI-formatet
+    (Initial Vehicle Information). Innsender får tilbakemelding på fra tjenesten, positiv tilbakemelding
+    vil si at kjøretøyet er registrert i vår kjøretøydatabase. Ved negativ tilbakemelding vil de gis feilmeldinger
+    for felter som er påkrevet. Begge typer tilbakemeldinger vil kunne inneholde varsler på felter som
+    der er ønsket innhold i.
+
+
+    Tjenesten er tilgjengelig for norske kjøretøyimportører / fabrikanter med norsk organisasjonsnummer
+    som importerer eller produserer kjøretøy som skal førstegangsregistreres i Norge. Tjenesten legger
+    til rette for importører og deres forhandlere å enkelt, raskt og sikkert kunne gjennomføre førstegangsregistrering.'
+  summary: eCOC er a) en samsvarserklæring som bekrefter at det aktuelle kjøretøyet kjøretøy er i samsvar
+    med en bestemt typegodkjenning, og b) tekniske data for det aktuelle kjøretøyet. Importør sender inn
+    melding om preregistrering av kjøretøy…
+  title_en: eCoC
+  access: open
+  auth: unknown
+  formats:
+  - JSON
+  endpoints:
+  - https://www.vegvesen.no/ws/no/vegvesen/kjoretoy/felles/innmelding/meldingompreregistrering/v1/opprette
+  spec_url: https://akfell-innmelding.atlas.vegvesen.no/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/ecoc-resource
+  docs_url: https://autosys-kjoretoy-api.atlas.vegvesen.no/api-ui/index-ecoc.html
+  modified: '2026-03-20T13:05:12.618Z'
+  provider:
+    name: Statens vegvesen
+    orgnr: '971032081'
+    org_path: /STAT/972417904/971032081
+    sector: stat
+  uri: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/61c33802b7cc0717962ce7b1

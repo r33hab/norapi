@@ -47,3 +47,31 @@ apis:
       - Tjenesten bak rovbase.no, og den kan endres uten forvarsel.
     quick_start: |
       curl "https://rovbase.no/api/statistics/lists"
+
+  - id: miljodir-kartserver-arcgis-rest
+    title: Miljødirektoratets kartserver (ArcGIS Server REST)
+    title_en: Norwegian Environment Agency map server (ArcGIS Server REST)
+    description: >-
+      ArcGIS Server med Miljødirektoratets naturdata: verneområder, naturtyper, Ramsar-områder, villrein, friluftsliv
+      og anadrome laksefisk. Mange lag kan spørres som JSON via FeatureServer-query, uten nøkkel. Dette er REST-
+      grensesnittet mot tjenestemappen, mens de enkelte kartlagene som WMS er oppført for seg.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON, WMS]
+    endpoints:
+      - https://kart.miljodirektoratet.no/arcgis/rest/services
+      - https://kart2.miljodirektoratet.no/arcgis/rest/services
+      - https://kart3.miljodirektoratet.no/arcgis/rest/services
+    docs_url: https://kart.miljodirektoratet.no/arcgis/rest/services
+    probe_url: https://kart.miljodirektoratet.no/arcgis/rest/services?f=json
+    keywords: [miljødirektoratet, naturbase, arcgis, rest, verneområde, naturtyper, ramsar, villrein, friluftsliv, featureserver]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt på tjenestemappen.
+      - Tjenestene er fordelt på tre servere (kart, kart2 og kart3) med ulike mapper.
+      - Ikke alle MapServer-lag støtter query, FeatureServer-lagene gjør det.
+    quick_start: |
+      curl "https://kart.miljodirektoratet.no/arcgis/rest/services?f=json"
+      # Ramsar-områder, ett objekt
+      curl "https://kart.miljodirektoratet.no/arcgis/rest/services/ramsar/FeatureServer/0/query?where=1%3D1&outFields=norskNavn&resultRecordCount=1&returnGeometry=false&f=json"

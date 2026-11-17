@@ -1,0 +1,32 @@
+updated: 2026-11-16
+provider:
+  name: Ambita
+  orgnr: "945811714"
+  sector: privat
+apis:
+  - id: ambita-realty
+    title: Ambita Realty API (grunnbok og eiendomsdata)
+    title_en: Ambita Realty API (land registry and property data)
+    description: >-
+      REST-API fra Ambita med tekniske og juridiske eiendomsopplysninger (matrikkel og grunnbok), navigerbart via
+      ressurslenker. Bruker OAuth2 med Bearer-token og tilgangsområder (scopes) som tildeles ved avtale. Beta- og
+      produksjonsmiljøene har hver sine klienter, og Swagger-spesifikasjonen er åpen.
+    category: kart-og-geodata
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.ambita.com/realty/v1
+      - https://beta-api.ambita.com/realty/v1
+    spec_url: https://api.ambita.com/realty/api-docs
+    docs_url: https://ambita.atlassian.net/wiki/spaces/DOC/pages/1466236943
+    keywords: [ambita, eiendom, grunnbok, matrikkel, tinglysing, gnr, bnr, realty, property, land registry]
+    tags: [agreement, oauth2, private-provider]
+    caveats:
+      - Tilgang gis ved avtale med Ambita; klient-id og scopes bestilles hos Ambita.
+      - Ingen lisens oppgitt.
+      - Eiendomsdata kan inneholde opplysninger om eiere (personopplysninger); behandle etter GDPR.
+    quick_start: |
+      # token (klient-id og hemmelighet fra Ambita), se dokumentasjonen for beta:
+      #   POST https://beta-api.ambita.com/authentication/v2/token   (client credentials)
+      curl -H "Authorization: Bearer $TOKEN" "https://api.ambita.com/realty/v1/scopes/"

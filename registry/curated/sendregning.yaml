@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: SendRegning
+  sector: privat
+apis:
+  - id: sendregning-api
+    title: SendRegning API (fakturering)
+    title_en: SendRegning invoicing API
+    description: >-
+      REST-API mot faktureringstjenesten SendRegning: fakturaer, tilbud, ordrebekreftelser, kunder, produkter, purringer og
+      betalinger. Hver forespørsel sendes med Authorization (Basic) og Originator-Id i headeren. Det finnes ikke noe
+      testmiljø, så kall går mot produksjon. Kontakt SendRegning for en testkonto.
+    category: finans
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://www.sendregning.no
+    docs_url: https://sendregning.github.io
+    keywords: [sendregning, faktura, fakturering, tilbud, purring, invoice, kunder]
+    tags: [private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever SendRegning-konto. Ingen testmiljø, kall gir ekte effekt.
+    quick_start: |
+      curl -H "Authorization: Basic $BASE64_USER_PASSWORD" -H "Originator-Id: $ORIGINATOR_ID" \
+        "https://www.sendregning.no/originators/current"
+    behaviour: Docs eksempel bruker Basic-autentisering med brukernavn og passord, ikke en egen API-nøkkel.

@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: Conta
+  sector: privat
+apis:
+  - id: conta-api
+    title: Conta API (regnskap og fakturering)
+    title_en: Conta accounting and invoicing API
+    description: >-
+      REST-API mot regnskapssystemet Conta: leverandører, bilag og transaksjoner, rapporter (resultat, balanse, saldobalanse)
+      og fakturabetalinger per organisasjon. Du lager en API-nøkkel i Conta-appen under Bruker, Data og tilgang, og sender
+      den i headeren apiKey. Nøkkelen har samme rettigheter som brukeren som laget den. Gratis sandkasse finnes.
+    category: finans
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.gateway.conta.no
+    docs_url: https://hjelp.conta.no/api/
+    spec_url: https://docs.gateway.conta.no/docs/conta-external-api.json
+    keywords: [conta, regnskap, faktura, bilag, bokføring, accounting, invoice, transaksjoner]
+    tags: [private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever aktivt Conta-abonnement. Sandkassen (api.gateway.conta-sandbox.no) aktiveres via Contas kundeservice.
+    quick_start: |
+      curl -H "apiKey: $CONTA_API_KEY" "https://api.gateway.conta.no/accounting/organizations/$ORG_ID/suppliers"

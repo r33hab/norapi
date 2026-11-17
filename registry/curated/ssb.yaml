@@ -70,3 +70,25 @@ apis:
       curl "https://data.ssb.no/api/pxwebapi/v2/tables?query=befolkning&pageSize=3"
       # folketall i Oslo (0301), siste år
       curl "https://data.ssb.no/api/pxwebapi/v2/tables/07459/data?lang=no&valueCodes%5BRegion%5D=0301&valueCodes%5BTid%5D=top(1)&valueCodes%5BContentsCode%5D=Personer1"
+
+  - id: ssb-rss-nyheter
+    title: SSBs RSS-strøm (nyheter)
+    title_en: Statistics Norway news RSS feed
+    description: >-
+      Åpen RSS-strøm med SSBs nyheter og publiseringer, uten nøkkel. Hver post har tittel, kort tekst, emnekategori,
+      lenke og publiseringstidspunkt. Strømmen gir de ti siste postene, så den egner seg til varsling om nye
+      publiseringer, ikke til uttrekk av tall (bruk Statistikkbanken for det).
+    category: statistikk
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://www.ssb.no/rss
+    docs_url: https://www.ssb.no/omssb/tjenester-og-verktoy/api
+    probe_url: https://www.ssb.no/rss
+    keywords: [rss, nyheter, publiseringer, statistikk, ssb, varsling, news feed]
+    tags: [no-auth, feed]
+    caveats:
+      - Ingen lisens oppgitt for selve strømmen; innholdet er merket med opphavsrett til SSB.
+    quick_start: |
+      curl "https://www.ssb.no/rss"

@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: ITavisen
+  sector: privat
+apis:
+  - id: itavisen-rss
+    title: ITavisens RSS-strøm (IT-nyheter)
+    title_en: ITavisen IT news RSS feed
+    description: >-
+      Åpen RSS-strøm med IT-nyheter fra ITavisen i vanlig WordPress-format: tittel, ingress, lenke, forfatter og kategori. Ingen nøkkel. Adressen /feed/ er standard WordPress og er ikke dokumentert av utgiveren.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://www.itavisen.no/feed/
+    docs_url: https://www.itavisen.no/feed/
+    probe_url: https://www.itavisen.no/feed/
+    keywords: [rss, it-nyheter, itavisen, teknologi, news feed, wordpress]
+    tags: [no-auth, feed, undocumented, private-provider]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt; sjekk utgiverens vilkår før videre bruk av innholdet.
+    behaviour: >-
+      Svarer anonymt med HTTP 200 og RSS 2.0 uten nøkkel.
+    quick_start: |
+      curl "https://www.itavisen.no/feed/"

@@ -6,7 +6,11 @@ All notable changes to this project are documented here. The format follows
 ## 2026-11-17
 ### Added
 - `behaviour` and `owner_terms` fields on a registry entry: what the endpoint does in practice (for example, answers anonymously) and the owner's own stated terms (for example, asks for an app id, or points to a documented feed for redistribution), shown on the API page under "Oppførsel" and "Eierens vilkår". Set first on the entries where the two diverge: the Arbeidsplassen job search, Linticket events, Grünerløkkas kartkatalog and the Smilefjes inspection file.
+- `registry/retained.yaml` and the build step behind it: entries Felles datakatalog has dropped but whose service still answers are re-added to the registry, tagged `no-longer-in-catalogue` with a caveat, and dropped again automatically once the catalogue lists them or the service stops answering. Brought back 123 live services the last harvest had removed.
+- About 40 more curated APIs: private software (Visma Net, Severa and Business NXT, Conta, Sendregning, Pureservice, Fotoware, Strex, Pexip, Unleash), media (Tidal, Viaplay Norge, regional newsroom feeds), finance and property (Oslo Børs NewsWeb, Ambita eiendom, Gjeldsregisteret, Finansportalens bankfeed), research and culture (UniMus samlinger, UiB CHC and Samla, UiS open journals, NDLA frontpage), transport (Ruter trafikkstatus, Kystverket referanseruter) and energy, environment and marine (Gassco UMM, the NVE, Miljødirektoratet and Fiskeridirektoratet ArcGIS REST servers, NGU naturstein).
 ### Changed
+- Registry total 1 445 to 1 605: 37 newly curated entries and 123 retained delisted-but-alive ones.
+- OpenAPI index: 249 specifications and 6 475 operations (was 239 and 4 905).
 - Smilefjes inspection file (`mattilsynet-smilefjes-tilsyn`) recategorised from arbeid-og-velferd to offentlig-forvaltning.
 
 ## 2026-11-16

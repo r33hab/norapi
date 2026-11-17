@@ -80,3 +80,45 @@ def test_retired_entries_are_left_out_of_the_harvest(tmp_path, snapshot):
     retired_file.write_text("entries:\n  - uri: https://x.no/a\n", encoding="utf-8")
     with pytest.raises(ValueError, match="reason"):
         load_retired(retired_file)
+
+
+def test_retained_entries_are_added_unless_the_harvest_has_them(tmp_path, snapshot):
+    from norapi.curated import add_retained, load_retained
+
+    harvested = fdk.to_entries(snapshot)
+    existing_uri = harvested[0].source["uri"]
+
+    retained_file = tmp_path / "retained.yaml"
+    retained_file.write_text(
+        "checked: 2026-11-17\n"
+        "entries:\n"
+        "  - id: ghost-service\n"
+        "    title: Ghost service\n"
+        "    provider:\n"
+        "      name: Testetaten\n"
+        "    access: open\n"
+        "    auth: none\n"
+        "    endpoints:\n"
+        "      - https://ghost.example.no/api\n"
+        "    uri: https://ghost.example.no/api\n"
+        "  - id: already-here\n"
+        "    title: Already here\n"
+        "    provider:\n"
+        "      name: Testetaten\n"
+        f"    endpoints:\n      - {existing_uri}\n"
+        f"    uri: {existing_uri}\n",
+        encoding="utf-8",
+    )
+
+    retained, checked = load_retained(retained_file)
+    assert checked == "2026-11-17"
+
+    out = add_retained(harvested, retained, checked)
+    ghosts = [e for e in out if e.id == "ghost-service"]
+    assert len(ghosts) == 1
+    assert ghosts[0].source["kind"] == "fdk-delisted"
+    assert "no-longer-in-catalogue" in ghosts[0].tags
+    assert any("Felles datakatalog" in c for c in ghosts[0].caveats)
+    # one already in the harvest is not re-added
+    assert not any(e.id == "already-here" for e in out)
+    assert load_retained(tmp_path / "missing.yaml") == ([], "")

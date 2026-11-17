@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: Norges geologiske undersøkelse
+  orgnr: "970188290"
+  sector: stat
+apis:
+  - id: ngu-naturstein-wms
+    title: Naturstein WMS (NGU)
+    title_en: Natural stone WMS (NGU)
+    description: >-
+      Kartlag over natursteinforekomster i Norge som WMS 1.3.0, uten nøkkel: et oversiktslag og et lag med alle
+      forekomster som punkter. Tjenesten leverer kartbilder og støtter GetFeatureInfo, ikke vektordata.
+      Kartlagene bruker NGUs egen MapServer, og lagnavnene er NGU-spesifikke.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [WMS, XML, PNG]
+    endpoints:
+      - https://geo.ngu.no/mapserver/NatursteinWMS3
+    docs_url: https://geo.ngu.no/mapserver/NatursteinWMS3?request=GetCapabilities&service=WMS
+    probe_url: https://geo.ngu.no/mapserver/NatursteinWMS3?request=GetCapabilities&service=WMS
+    keywords: [naturstein, stein, forekomster, geologi, wms, ngu, mineralressurser, natural stone]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt; GetCapabilities oppgir bare opphavsrett til NGU.
+    quick_start: |
+      curl "https://geo.ngu.no/mapserver/NatursteinWMS3?service=WMS&version=1.3.0&request=GetMap&layers=Punkt_Naturstein&styles=&crs=EPSG:25833&bbox=200000,6500000,300000,6600000&width=256&height=256&format=image/png" -o naturstein.png

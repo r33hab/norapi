@@ -1,0 +1,147 @@
+updated: 2026-11-16
+provider:
+  name: Visma
+  sector: privat
+apis:
+  - id: visma-net-erp-api
+    title: Visma Net ERP API (økonomi og ERP)
+    title_en: Visma Net ERP API (finance and ERP)
+    description: >-
+      REST-API mot Visma Net ERP: kunder, leverandører, fakturaer, lager og hovedbok for hvert selskap. Du registrerer en
+      app i Visma Developer Portal og logger inn via Visma Connect med OAuth 2.0, enten som innlogget bruker eller som
+      tjenesteintegrasjon uten brukerinnlogging. Dokumentasjonen og Swagger-grensesnittet er åpne, men selve kallene krever
+      kundeavtale og token.
+    category: finans
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.finance.visma.net
+    docs_url: https://docs.vismasoftware.no/vismanetapi/
+    keywords: [visma, visma net, erp, regnskap, faktura, kunder, leverandører, hovedbok, accounting]
+    tags: [oauth2, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever Visma Net-kunde og en app registrert i Visma Developer Portal.
+      - Swagger-indeksen ligger på https://api.finance.visma.net/API-index/index.html, men det finnes ingen rå OpenAPI-fil uten innlogging.
+    quick_start: |
+      curl -H "Authorization: Bearer $VISMA_TOKEN" "https://api.finance.visma.net/API-index/index.html"
+      # Token hentes fra https://connect.visma.com/connect/token (client credentials for tjenesteintegrasjon).
+    probe_url: https://api.finance.visma.net/API-index/index.html
+  - id: visma-net-salesorder-api
+    title: Visma Net ERP SalesOrder API (salgsordrer)
+    title_en: Visma Net ERP SalesOrder API
+    description: >-
+      Egen tjeneste ved siden av hoved-APIet til Visma Net ERP, for salgsordrer. Samme oppsett som resten av Visma Net:
+      app i Visma Developer Portal og OAuth 2.0 via Visma Connect. Swagger-sidene er åpne, kallene krever token.
+    category: finans
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://salesorder.visma.net
+    docs_url: https://salesorder.visma.net/swagger/index.html
+    keywords: [visma, visma net, salgsordre, ordre, sales order, erp]
+    tags: [oauth2, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever Visma Net-kunde og token fra Visma Connect.
+    quick_start: |
+      curl -H "Authorization: Bearer $VISMA_TOKEN" "https://salesorder.visma.net/swagger/index.html"
+      # Se dokumentasjonen for ressursene under /API/ i Swagger-grensesnittet.
+    probe_url: https://salesorder.visma.net/swagger/index.html
+  - id: visma-net-journal-transactions-api
+    title: Visma Net ERP Journal Transactions API (bilag og posteringer)
+    title_en: Visma Net ERP Journal Transactions API
+    description: >-
+      Egen tjeneste i Visma Net ERP for å lese og opprette bilag og posteringer i hovedboken. Krever app i Visma Developer
+      Portal og OAuth 2.0 via Visma Connect. Swagger-grensesnittet er åpent.
+    category: finans
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://journaltx.visma.net
+    docs_url: https://journaltx.visma.net/swagger
+    keywords: [visma, visma net, bilag, postering, hovedbok, journal, general ledger]
+    tags: [oauth2, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever Visma Net-kunde og token fra Visma Connect.
+    quick_start: |
+      curl -H "Authorization: Bearer $VISMA_TOKEN" "https://journaltx.visma.net/swagger"
+      # Ressursene står i Swagger-grensesnittet.
+    probe_url: https://journaltx.visma.net/swagger
+  - id: visma-business-nxt-graphql
+    title: Visma Business NXT GraphQL API
+    title_en: Visma Business NXT GraphQL API
+    description: >-
+      GraphQL-API mot Visma Business NXT (ERP). To endepunkter: ett for kall i brukerkontekst (authorization code med
+      PKCE) og ett for tjenestekontekst (client credentials). Du registrerer appen i Visma Developer Portal. Uten token får
+      du 401, dokumentasjonen er åpen.
+    category: finans
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://business.visma.net/api/graphql-service
+      - https://business.visma.net/api/graphql
+    docs_url: https://docs.vismasoftware.no/businessnxtapi/intro/index.md
+    keywords: [visma, business nxt, graphql, erp, ordre, kunder, regnskap]
+    tags: [oauth2, graphql, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever Business NXT-kunde og en tjeneste registrert i Visma Developer Portal.
+    quick_start: |
+      curl -X POST "https://business.visma.net/api/graphql-service" \
+        -H "Authorization: Bearer $VISMA_TOKEN" -H "Content-Type: application/json" \
+        -d '{"query":"{ useCompany(no: $COMPANY_NO) { generalLedgerAccount { items { accountNo name } } } }"}'
+  - id: visma-connect-oidc
+    title: Visma Connect (OpenID Connect-innlogging)
+    title_en: Visma Connect (OpenID Connect sign-in)
+    description: >-
+      Felles innloggingstjeneste for Vismas API-er. Discovery-dokumentet er åpent og viser autorisasjons-, token- og
+      userinfo-endepunkter. For å få token må du registrere en app i Visma Developer Portal og få den godkjent per
+      integrasjon.
+    category: identitet-og-tilgang
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://connect.visma.com
+    docs_url: https://docs.connect.visma.com/docs/overview
+    keywords: [visma, visma connect, oidc, openid connect, oauth2, innlogging, sso]
+    tags: [oauth2, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Discovery-dokumentet er åpent, selve tokenutstedelsen krever registrert app.
+    quick_start: |
+      curl "https://connect.visma.com/.well-known/openid-configuration"
+    probe_url: https://connect.visma.com/.well-known/openid-configuration
+  - id: visma-severa-rest-api
+    title: Visma Severa REST API (prosjekt og ressursstyring)
+    title_en: Visma Severa REST API (project and resource management)
+    description: >-
+      REST-API mot Severa (prosjektstyring og tidsregistrering): kunder, prosjekter, timer, faktura og ressurser. En
+      administrator oppretter klient-ID og hemmelighet under Innstillinger, REST API i Severa, og henter OAuth 2.0-token
+      med client credentials. Åpen OpenAPI 3-fil og en egen testtjeneste (stag).
+    category: bedrift-og-organisasjon
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.severa.visma.com/rest-api/v1.0
+    docs_url: https://api.severa.visma.com/rest-api-doc
+    spec_url: https://api.severa.visma.com/rest-api/openapidocs/v1.0/doc.json
+    keywords: [severa, visma, prosjekt, timeføring, tidsregistrering, psa, project management]
+    tags: [oauth2, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Severa er opprinnelig et finsk produkt som nå eies av Visma.
+      - Token utløper etter 1 time, refresh token er gyldig i 24 timer som standard.
+    quick_start: |
+      curl -X POST "https://api.severa.visma.com/rest-api/v1.0/token" \
+        -H "Content-Type: application/json" \
+        -d '{"client_id":"$ID","client_secret":"$SECRET","scope":"customers:read"}'
+      curl -H "Authorization: Bearer $TOKEN" "https://api.severa.visma.com/rest-api/v1.0/customers"
+    probe_url: https://api.severa.visma.com/rest-api/openapidocs/v1.0/doc.json

@@ -1,0 +1,26 @@
+updated: 2026-11-16
+provider:
+  name: Unleash
+  sector: privat
+apis:
+  - id: unleash-admin-api
+    title: Unleash Admin API (feature-flagg)
+    title_en: Unleash Admin API (feature flags)
+    description: >-
+      REST-API for å administrere feature-flagg, prosjekter, miljøer, brukere og integrasjoner i Unleash. Kjører på din
+      egen Unleash-instans (selvhostet) eller Unleash Cloud under /api/admin, med OpenAPI-fil og Swagger på instansen.
+      Autentisering med service account-token eller personlig token i Authorization-headeren.
+    category: bedrift-og-organisasjon
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://{din-unleash}/api/admin
+    docs_url: https://docs.getunleash.io/api/admin-api-overview
+    keywords: [unleash, feature flags, feature toggles, funksjonsbrytere, utrulling, admin api]
+    tags: [private-provider]
+    caveats:
+      - Ingen lisens oppgitt for API-et.
+      - Krever en Unleash-instans, det finnes ingen felles offentlig adresse. OpenAPI-filen hentes fra din instans på /docs/openapi.json.
+    quick_start: |
+      curl -H "Authorization: $UNLEASH_TOKEN" "https://$UNLEASH_HOST/api/admin/projects"

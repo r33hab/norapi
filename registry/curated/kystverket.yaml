@@ -56,3 +56,28 @@ apis:
       - Tidlig versjon (0.1.0) uten oppgitt lisens.
     quick_start: |
       curl "https://api.kystverket.no/data/navigationwarnings/coastal/"
+
+  - id: kystverket-referanseruter
+    title: Referanseruter for navigasjon (RouteInfo API, RTZ)
+    title_en: Reference routes for navigation (RouteInfo API, RTZ)
+    description: >-
+      Kystverkets referanseruter for navigasjon langs kysten: liste over ruter med nummer, navn, retning, losområde og
+      gyldighetsperiode, søk på posisjon eller UN/LOCODE, og nedlasting av hver rute som RTZ-fil. Lesekallene under
+      /v1/rtz/routes svarer uten nøkkel. Swagger-filen viser også interne endepunkter for import og publisering
+      som ikke er åpne.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, RTZ]
+    endpoints:
+      - https://kystverket.avadaptive.no/api/kyv/routeinfo/
+    docs_url: https://kystverket.avadaptive.no/api/kyv/routeinfo/swagger
+    spec_url: https://kystverket.avadaptive.no/api/kyv/routeinfo/swagger/v1/swagger.json
+    probe_url: https://kystverket.avadaptive.no/api/kyv/routeinfo/v1/rtz/routes/list
+    keywords: [referanserute, rtz, navigasjon, skipsfart, los, kystverket, route exchange, maritime]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Ruter har gyldighetsperiode, så listen endrer seg.
+    quick_start: |
+      curl "https://kystverket.avadaptive.no/api/kyv/routeinfo/v1/rtz/routes/list"

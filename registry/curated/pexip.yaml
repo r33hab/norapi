@@ -1,0 +1,26 @@
+updated: 2026-11-16
+provider:
+  name: Pexip
+  sector: privat
+apis:
+  - id: pexip-infinity-management-api
+    title: Pexip Infinity management-API (videomøter)
+    title_en: Pexip Infinity management API
+    description: >-
+      REST-API for å konfigurere og overvåke Pexip Infinity-plattformen for videomøter: konferanser, enheter, nodeoppsett
+      og status. API-et kjører på kundens egen management-node (https://<adresse>/api/admin/configuration/v1/) og krever en
+      administratorkonto. Skjemaet ligger også på management-nodens webgrensesnitt.
+    category: bedrift-og-organisasjon
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://{management-node}/api/admin/configuration/v1/
+    docs_url: https://docs.pexip.com/api_manage/api_configuration.htm
+    keywords: [pexip, infinity, videomøte, video conferencing, konferanse, management api]
+    tags: [private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever egen Pexip Infinity-installasjon, det finnes ingen felles offentlig adresse.
+    quick_start: |
+      curl -u "$ADMIN_USER:$ADMIN_PASSWORD" "https://$MANAGER/api/admin/configuration/v1/conference/?limit=5"

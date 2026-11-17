@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Strex
+  sector: privat
+apis:
+  - id: strex-connect-target365-api
+    title: Strex Connect (Target365) API for SMS og betaling
+    title_en: Strex Connect (Target365) SMS and payment API
+    description: >-
+      REST-API for å sende og motta SMS, slå opp adresse på mobilnummer og gjennomføre Strex-betalinger som faktureres
+      på mobilregningen. Du registrerer organisasjonen i Strex Connect og oppretter en nøkkel (ECDSA P-256) som
+      signerer hver forespørsel. Offisielle SDK-er finnes for flere språk. Kun /api/ping svarer uten nøkkel.
+    category: finans
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://shared.target365.io
+    docs_url: https://github.com/Target365/sdk-for-python/blob/master/USERGUIDE.md
+    keywords: [strex, target365, sms, mobilbetaling, betaling, strex connect, pinkode]
+    tags: [private-provider]
+    caveats:
+      - Ingen lisens oppgitt. SDK-ene er MIT-lisensiert, ikke selve tjenesten.
+      - Krever avtale og registrering i Strex Connect, forespørsler må signeres med privat nøkkel.
+      - Ingen offentlig OpenAPI-fil, bruk SDK-ene som referanse.
+    quick_start: |
+      curl "https://shared.target365.io/api/ping"
+    probe_url: https://shared.target365.io/api/ping
+    behaviour: Ping-endepunktet svarer pong uten nøkkel, resten krever signerte kall.
