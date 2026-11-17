@@ -27,6 +27,6 @@ jobs:
           if git diff --quiet -- registry/; then
             echo "registry unchanged"; exit 0
           fi
-          git -c user.name=r33hAB -c user.email=48438582+r33hAB@users.noreply.github.com \
+          git -c user.name=r33hab -c user.email=48438582+r33hab@users.noreply.github.com \
             commit -am "Weekly harvest: refresh registry from Felles datakatalog"
           git push

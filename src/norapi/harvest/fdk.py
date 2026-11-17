@@ -41,7 +41,7 @@ log = logging.getLogger(__name__)
 
 SEARCH_URL = "https://search.api.fellesdatakatalog.digdir.no/search/data-services"
 SPARQL_URL = "https://sparql.fellesdatakatalog.digdir.no/"
-USER_AGENT = "norapi/0.1 (+https://github.com/r33hAB/norapi)"
+USER_AGENT = "norapi/0.1 (+https://github.com/r33hab/norapi)"
 
 PREDICATES: dict[str, str] = {
     "endpoints": "http://www.w3.org/ns/dcat#endpointURL",

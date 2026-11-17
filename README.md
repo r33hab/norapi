@@ -13,8 +13,8 @@
   <a href="https://r33hab.github.io/norapi/"><img alt="Live site" src="https://img.shields.io/badge/live-r33hab.github.io%2Fnorapi-1d5fd6"></a>
   <a href="https://r33hab.github.io/norapi/registry.json"><img alt="APIs in the registry" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fr33hab.github.io%2Fnorapi%2Fregistry.json&query=%24.count&label=API-er&color=1d5fd6"></a>
   <a href="https://r33hab.github.io/norapi/operations.json"><img alt="Operations indexed" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fr33hab.github.io%2Fnorapi%2Foperations.json&query=%24.count&label=endepunkter&color=1d5fd6"></a>
-  <a href="https://github.com/r33hAB/norapi/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/r33hAB/norapi/ci.yml?label=ci"></a>
-  <a href="https://github.com/r33hAB/norapi/actions/workflows/harvest.yml"><img alt="Weekly harvest" src="https://img.shields.io/github/actions/workflow/status/r33hAB/norapi/harvest.yml?label=weekly%20harvest"></a>
+  <a href="https://github.com/r33hab/norapi/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/r33hab/norapi/ci.yml?label=ci"></a>
+  <a href="https://github.com/r33hab/norapi/actions/workflows/harvest.yml"><img alt="Weekly harvest" src="https://img.shields.io/github/actions/workflow/status/r33hab/norapi/harvest.yml?label=weekly%20harvest"></a>
   <a href="LICENSE"><img alt="MIT" src="https://img.shields.io/badge/licence-MIT-24282f"></a>
 </p>
 
@@ -28,7 +28,7 @@
 
 > **Status: under active development.** Everything described here works and is deployed, but
 > the project is days old. Entry ids and the JSON shape may still change, and the curated list
-> wants to grow. If you know a Norwegian API that is missing, [suggest it](https://github.com/r33hAB/norapi/issues/new?template=nytt-api.yml).
+> wants to grow. If you know a Norwegian API that is missing, [suggest it](https://github.com/r33hab/norapi/issues/new?template=nytt-api.yml).
 
 <p align="center">
   <a href="https://r33hab.github.io/norapi/"><img src="docs/images/site.png" alt="The norapi front page: the search field next to a console replaying a real call to Enhetsregisteret and its answer, and the registry in numbers" width="900"></a>
@@ -56,7 +56,7 @@ fetches the OpenAPI documents where they exist, and serves the result four ways.
 ## Quick start
 
 ```sh
-git clone https://github.com/r33hAB/norapi && cd norapi
+git clone https://github.com/r33hab/norapi && cd norapi
 uv sync
 
 uv run norapi search "kjøretøy"                        # full text, Norwegian or English
@@ -132,7 +132,7 @@ All outbound fetches go through a guard that only talks to public hosts, pins th
 
 There are more open Norwegian APIs than this registry knows about. Three ways in:
 
-1. **No code:** [suggest an API](https://github.com/r33hAB/norapi/issues/new?template=nytt-api.yml) or [report a mistake](https://github.com/r33hAB/norapi/issues/new?template=feil-i-oppforing.yml). Every page on the site has a link that pre-fills the form.
+1. **No code:** [suggest an API](https://github.com/r33hab/norapi/issues/new?template=nytt-api.yml) or [report a mistake](https://github.com/r33hab/norapi/issues/new?template=feil-i-oppforing.yml). Every page on the site has a link that pre-fills the form.
 2. **A pull request:** add a file in `registry/curated/`, run `uv run norapi build && uv run norapi check --curated-only && uv run pytest -q`, and open the PR. The quality bar is in [CONTRIBUTING.md](CONTRIBUTING.md).
 3. **Register it at [data.norge.no](https://data.norge.no/data-services)** if you are the provider; the weekly harvest picks it up from there.
 

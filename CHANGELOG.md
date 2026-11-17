@@ -14,6 +14,8 @@ All notable changes to this project are documented here. The format follows
 - Registry total 1 445 to 1 616: 48 newly curated entries (eleven of them municipal map catalogs) and 123 retained delisted-but-alive ones.
 - OpenAPI index: 249 specifications and 6 475 operations (was 239 and 4 905).
 - Smilefjes inspection file (`mattilsynet-smilefjes-tilsyn`) recategorised from arbeid-og-velferd to offentlig-forvaltning.
+### Fixed
+- The maintainer handle is lowercase `r33hab` everywhere: README links and badges, issue-form links, LICENSE, `pyproject.toml` author, the harvest commit identity and every User-Agent.
 
 ## 2026-11-16
 ### Added

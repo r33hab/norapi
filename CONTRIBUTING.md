@@ -7,8 +7,8 @@ Alle som deltar følger [atferdsreglene](CODE_OF_CONDUCT.md) (Contributor Covena
 
 ## Tre måter å bidra på
 
-1. **Foreslå et API** uten å skrive kode: [skjema for nytt API](https://github.com/r33hAB/norapi/issues/new?template=nytt-api.yml).
-2. **Meld en feil** i en oppføring: [skjema for feil](https://github.com/r33hAB/norapi/issues/new?template=feil-i-oppforing.yml).
+1. **Foreslå et API** uten å skrive kode: [skjema for nytt API](https://github.com/r33hab/norapi/issues/new?template=nytt-api.yml).
+2. **Meld en feil** i en oppføring: [skjema for feil](https://github.com/r33hab/norapi/issues/new?template=feil-i-oppforing.yml).
    Hver side på nettstedet har en lenke som fyller ut skjemaet med riktig id.
 3. **Send en pull request** med en oppføring i `registry/curated/`. Resten av dette dokumentet handler om det.
 

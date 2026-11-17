@@ -34,7 +34,7 @@ SAMPLES = (
     ("nve-magasinstatistikk", "Fyllingsgrad i magasinene"),
 )
 SAMPLE_IDS = tuple(api_id for api_id, _ in SAMPLES)
-USER_AGENT = "norapi-samples/0.1 (+https://github.com/r33hAB/norapi)"
+USER_AGENT = "norapi-samples/0.1 (+https://github.com/r33hab/norapi)"
 MAX_LINES = 15
 MAX_KEYS = 12
 MAX_ITEMS = 1
