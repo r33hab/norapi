@@ -3,6 +3,8 @@
 Takk for at du vil hjelpe. Registeret blir bedre av hver håndplukkede oppføring: hva API-et
 faktisk gir, hvordan du får tilgang, og ett kall som virker.
 
+Alle som deltar følger [atferdsreglene](CODE_OF_CONDUCT.md) (Contributor Covenant 2.1).
+
 ## Tre måter å bidra på
 
 1. **Foreslå et API** uten å skrive kode: [skjema for nytt API](https://github.com/r33hAB/norapi/issues/new?template=nytt-api.yml).
