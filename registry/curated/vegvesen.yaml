@@ -1,4 +1,4 @@
-updated: 2026-11-16
+updated: 2026-11-17
 provider:
   name: Statens vegvesen
   orgnr: "971032081"
@@ -348,3 +348,302 @@ apis:
       curl "https://services-eu1.arcgis.com/Omqj1DhF7kfdN8lE/arcgis/rest/services?f=json"
       # antall objekter i ett lag
       curl "https://services-eu1.arcgis.com/Omqj1DhF7kfdN8lE/arcgis/rest/services/32_sykkeltilbud_Viken_fylke/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json"
+
+  - id: vegvesen-ruteplan
+    title: Ruteplan API for bil og tungbil (v3)
+    title_en: Route planner API for cars and heavy vehicles (v3)
+    merge_with: https://dataut.vegvesen.no/dataservice/900a21e4-dd97-4cf4-9fab-5661eb44db2c
+    description: >-
+      Beregner opptil tre reiseruter mellom to eller flere punkter på det navigerbare vegnettet fra NVDB. Har egne
+      endepunkter for vanlig bil, turistveger, og bruksklasser for spesialtransport, tømmer og modulvogntog, og tar
+      hensyn til vekt, høyde og lengde. Svaret er GeoJSON med kjøreinstruksjoner og objekter langs ruta, som bomstasjoner,
+      ferger og trafikkmeldinger. Åpent uten nøkkel på /open-stien, men datasettsiden oppgir også en dagskvote og at
+      misbruk kan gi blokkering.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://www.vegvesen.no/ws/no/vegvesen/ruteplan/routingservice_v3_0/open/routingservice/api
+    spec_url: https://www.vegvesen.no/ws/no/vegvesen/ruteplan/routingservice_v3_0/open/routingService/swagger/v1/swagger.json
+    docs_url: https://www.vegvesen.no/ws/no/vegvesen/ruteplan/routingservice_v3_0/open/routingService/openapi/index.html
+    probe_url: https://www.vegvesen.no/ws/no/vegvesen/ruteplan/routingservice_v3_0/open/routingservice/api/Route/best?Stops=236397.85827911127%2C6662445.118563663%3B237667.8608191164%2C6675145.143963715&ReturnFields=Geometry
+    license: NLOD 2.0
+    keywords: [ruteplan, rute, navigasjon, reiserute, bruksklasse, tungbil, routing, route planner]
+    tags: [no-auth, rate-limited]
+    caveats:
+      - Koordinater er UTM 33N (EPSG_25833) som standard; bruk InputSRS=EPSG_4326 for lengde og breddegrad.
+      - Datasettsiden sier at du må be Statens vegvesen om brukernavn og passord og at kvoten er 2500 kall per dag; /open-stien svarte uten innlogging da dette ble sjekket.
+      - Oppgi Statens vegvesen som kilde.
+    quick_start: |
+      # best rute mellom to punkter (UTM 33N), med geometri
+      curl "https://www.vegvesen.no/ws/no/vegvesen/ruteplan/routingservice_v3_0/open/routingservice/api/Route/best?Stops=236397.85827911127%2C6662445.118563663%3B237667.8608191164%2C6675145.143963715&ReturnFields=Geometry"
+
+  - id: vegvesen-tnits
+    title: NVDB TN-ITS eksport-API
+    title_en: NVDB TN-ITS export API
+    merge_with: https://dataut.vegvesen.no/dataservice/34c9b769-295e-4b98-bc1d-619bcbe8fd47
+    description: >-
+      Fullstendige snapshots og endringsfiler i TN-ITS-formatet (XML) for statiske vegdata som brukes i navigasjon og
+      ruteplanlegging: fartsgrenser, vegnavn, vegnummer og høydebegrensninger. API-et lister tilgjengelige filer og gir
+      nedlastingslenker. Åpent uten nøkkel. Snapshots beholdes i to måneder og endringer i 180 dager, og en
+      fartsgrense-snapshot er over 100 MB komprimert.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, XML]
+    endpoints:
+      - https://nvdb-tnits.atlas.vegvesen.no/api/v1/tnits
+    spec_url: https://nvdb-tnits.atlas.vegvesen.no/api-docs/public
+    docs_url: https://nvdb-tnits.atlas.vegvesen.no/api-docs.html
+    probe_url: https://nvdb-tnits.atlas.vegvesen.no/api/v1/tnits/types
+    license: NLOD 1.0
+    keywords: [tn-its, fartsgrense, vegnavn, vegnummer, høydebegrensning, navigasjon, nvdb, speed limit]
+    tags: [no-auth, data-files]
+    caveats:
+      - Filene er gzip-komprimert XML og store; hent bare det du trenger.
+    quick_start: |
+      curl "https://nvdb-tnits.atlas.vegvesen.no/api/v1/tnits/types"
+      # lenke til siste fartsgrense-snapshot og til endringer siden da
+      curl "https://nvdb-tnits.atlas.vegvesen.no/api/v1/tnits/SpeedLimit/snapshots/latest"
+
+  - id: vegvesen-nvdb-v3
+    title: NVDB API Les v3 (under avvikling)
+    title_en: NVDB API Read v3 (being retired)
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/61f8eca3b7cc0717962ce7b7
+    description: >-
+      Forrige versjon av lese-API-et til Nasjonal vegdatabank. Katalogen oppgir det som åpent, men v3 er under
+      avvikling, og kall får feilen 4018 med mindre X-Client-identifikatoren din er godkjent for midlertidig tilgang.
+      Bruk NVDB API Les v4 for ny utvikling, og be om midlertidig v3-tilgang bare hvis du ikke rekker å migrere.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: unknown
+    formats: [JSON, XML]
+    endpoints:
+      - https://nvdbapiles-v3.atlas.vegvesen.no
+    docs_url: https://www.nvdb.no/aktuelt/nedstenging-api-les-v3/
+    license: NLOD 2.0
+    keywords: [nvdb, veg, vegobjekter, vegnett, avvikling, v3]
+    tags: [agreement]
+    caveats:
+      - Under avvikling; ikke bygg nytt på v3. Se nvdb.no/aktuelt/nedstenging-api-les-v3 for tidsplan.
+      - Krever en godkjent X-Client-identifikator, og et anonymt kall avvises med feilkode 4017 eller 4018.
+
+  - id: vegvesen-kjoretoy-eierinformasjon
+    title: Kjøretøyopplysninger med eierinformasjon
+    title_en: Vehicle data with owner information
+    merge_with: https://dataut.vegvesen.no/dataservice/851a6f33-86e5-4c74-8abb-acf21d78b0aa
+    description: >-
+      Tekniske kjøretøydata med eieropplysninger fra Kjøretøyregisteret, slått opp på kjennemerke, understellsnummer eller
+      eier, også tilbake i tid. Åpent bare for virksomheter som har avtale med Statens vegvesen, og du bestiller i Din
+      side med BankID og riktige Altinn-rettigheter. Autentisering skjer med Maskinporten (scope
+      svv:kjoretoy/kjoretoyopplysninger), og tilgangen faktureres per måned etter oppslagskvote.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://akfell-datautlevering.atlas.vegvesen.no/kjoretoyoppslag/bulk/kjennemerke
+    docs_url: https://autosys-kjoretoy-api.atlas.vegvesen.no/api-ui/index-api.html?apiId=tekniske-kjoretoyopplysninger-med-eierinformasjon
+    keywords: [kjøretøy, eier, kjøretøyregisteret, kjennemerke, understellsnummer, vehicle owner]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - Leverer navn og adresse til eier, så virksomheten blir behandlingsansvarlig og må ha behandlingsgrunnlag.
+      - Du kan ikke bygge et historisk register av eieropplysninger; slå opp på nytt mot registeret.
+      - Testmiljøet er gratis, men krever en henvendelse til Statens vegvesen.
+
+  - id: vegvesen-kjoretoyhendelser
+    title: Utlevering av offentlige kjøretøyhendelser
+    title_en: Public vehicle events feed
+    description: >-
+      Hendelser i Kjøretøyregisteret, som nyregistrering, eierskifte, adresseendring og teknisk godkjenning, slik at du
+      kan holde en egen kopi oppdatert uten å slå opp alle kjøretøy hver dag. Brukes sammen med API-et for
+      kjøretøyopplysninger med eierinformasjon. Krever avtale med Statens vegvesen og Maskinporten med scope
+      svv:kjoretoy/kjoretoyopplysninger.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    docs_url: https://autosys-kjoretoy-api.atlas.vegvesen.no/api-ui/index-api.html?apiId=hendelse-utlevering-apen
+    keywords: [kjøretøy, hendelser, kjøretøyregisteret, eierskifte, nyregistrering, vehicle events]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - Testmiljøet er gratis, men krever en henvendelse til Statens vegvesen.
+
+  - id: vegvesen-kjoretoy-med-hjemmel
+    title: Kjøretøyregisteret, API med egen hjemmel (oppslag, søk og historikk)
+    title_en: Vehicle register APIs requiring a legal basis
+    description: >-
+      En serie REST-API-er for aktører med rettslig grunnlag (hjemmel): kjøretøyoppslag, søk på
+      navn eller organisasjon, kjøretøyhistorikk, kjennemerkehistorikk, tilleggsinformasjon (etterlyst, bruksforbud og
+      EU-kontroll), kjøretøyhendelser og kodeverk. Du søker med et skjema og får brukernavn, passord og URL, og
+      autentiserer med HTTP Basic. Tilgangen styres av roller per tjenestebruker.
+    category: transport-og-samferdsel
+    access: non-public
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://akfell-oppslag.atlas.vegvesen.no/rest/distribusjon/kjoretoy/v3.0
+    docs_url: https://autosys-kjoretoy-api.atlas.vegvesen.no/api-ui/hjemmel
+    keywords: [kjøretøy, kjøretøyregisteret, kjøretøyhistorikk, kjennemerke, hjemmel, vehicle register]
+    tags: [agreement, personal-data]
+    caveats:
+      - Krever hjemmel i lov, og Statens vegvesen vurderer søknaden.
+      - Autentisering er brukernavn og passord (Basic), ikke en API-nøkkel.
+
+  - id: vegvesen-eierskifte
+    title: Eierskifte og omregistrering API
+    title_en: Change of ownership and re-registration API
+    merge_with: https://dataut.vegvesen.no/dataservice/537aad72-e2c3-4af0-867a-ff6ae24282cb
+    description: >-
+      For tredjepartsaktører som legger til rette for kjøp og salg av kjøretøy: validér og gjennomfør eierskifte med
+      signert eierskiftemelding (PDF), og trigg omregistrering etterpå, alt via API. Omregistreringsavgift må være
+      betalt til Skatteetaten som del av prosessen. Du søker om en brukeravtale, og autentiserer med tildelt brukernavn
+      og passord (HTTP Basic).
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [JSON, PDF]
+    docs_url: https://autosys-kjoretoy-api.atlas.vegvesen.no/api-ui/index-api.html?apiId=eierskifte-og-omregistrering
+    keywords: [eierskifte, omregistrering, kjøretøy, kjøp og salg, change of ownership]
+    tags: [agreement, personal-data]
+    caveats:
+      - Saker som krever fremvisning av dokumentasjon, for eksempel mindreårige, dødsbo eller konkursbo, kan ikke gjennomføres.
+      - Autentisering er brukernavn og passord (Basic), ikke en API-nøkkel.
+
+  - id: vegvesen-leasingtaker
+    title: Endre leasingtaker API
+    title_en: Change lessee API
+    merge_with: https://dataut.vegvesen.no/dataservice/e8db0ffe-d914-4ebd-bf29-a1b150337d8f
+    description: >-
+      Leasingselskaper setter eller fjerner leasingtaker på egne kjøretøy i Kjøretøyregisteret fra sine fagsystemer.
+      Krever avtale med Statens vegvesen og Maskinporten med scope svv:kjoretoy/leasingtaker, eller
+      svv:kjoretoy/leasingtaker.delegert for en leverandør som handler på vegne av selskapet.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    docs_url: https://autosys-kjoretoy-api.atlas.vegvesen.no/api-ui/index-api.html?apiId=leasingtaker
+    keywords: [leasing, leasingtaker, kjøretøy, kjøretøyregisteret]
+    tags: [agreement, maskinporten]
+
+  - id: vegvesen-kjoreseddel
+    title: Kjøreseddel API (årsprøvekjennemerke)
+    title_en: Driving slip API (annual trial plates)
+    merge_with: https://dataut.vegvesen.no/dataservice/8d7cb8b3-4343-4779-9dc5-fea769a0c94c
+    description: >-
+      Innehavere av årsprøvekjennemerker oppretter og kansellerer kjøresedler (midlertidig brukstillatelse) digitalt, og
+      kan slå opp kjøretøy. Krever avtale med Statens vegvesen og Maskinporten med scope
+      svv:kjoretoy/midlertidigbrukstillatelse, eller svv:kjoretoy/midlertidigbrukstillatelse.delegert for en leverandør.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    docs_url: https://autosys-kjoretoy-api.atlas.vegvesen.no/api-ui/index-api.html?apiId=kjoreseddel
+    keywords: [kjøreseddel, prøvekjennemerke, midlertidig brukstillatelse, kjøretøy]
+    tags: [agreement, maskinporten]
+
+  - id: vegvesen-ecoc
+    title: eCoC (elektronisk samsvarserklæring) API
+    title_en: eCoC (electronic Certificate of Conformity) API
+    merge_with: https://dataut.vegvesen.no/dataservice/0687619b-e389-42d5-9e9b-fa90bc16bcbe
+    description: >-
+      Kjøretøyimportører og norske fabrikanter melder inn preregistrering med eCoC i IVI-formatet (XML) og får
+      tilbakemelding om kjøretøyet er registrert i Kjøretøyregisteret, eller feil og advarsler. En innsendt preregistrering
+      kan trekkes tilbake før førstegangsregistrering. Krever norsk organisasjonsnummer, avtale med Statens vegvesen og
+      Maskinporten med scope svv:kjoretoy/ecoc, eller svv:kjoretoy/ecoc.delegert for en leverandør.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: maskinporten
+    formats: [XML]
+    docs_url: https://autosys-kjoretoy-api.atlas.vegvesen.no/api-ui/index-api.html?apiId=ecoc
+    keywords: [ecoc, samsvarserklæring, import, preregistrering, kjøretøy, certificate of conformity]
+    tags: [agreement, maskinporten]
+    caveats:
+      - Feil data eller avgiftskoder kan gi feil krav om engangsavgift fra Skatteetaten.
+
+  - id: vegvesen-ferjepriser
+    title: Ferjepriser (AutoPASS PrisAPI)
+    title_en: Ferry fares (AutoPASS price API)
+    merge_with: https://dataut.vegvesen.no/dataservice/328cb665-240f-44f6-8455-e59e59c746f8
+    description: >-
+      Billettpriser for ferjesamband fra det nasjonale ferjebillettsystemet AutoPASS, slått opp per samband eller som
+      full liste over aktive priser. Katalogen oppgir åpen tilgang, men alle metoder krever et token fra POST /Login, og
+      tilgang gis etter henvendelse til driftsansvarlig. Dataene har CC BY 4.0.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://prisapi.autopassferje.no
+    spec_url: https://prisapi.autopassferje.no/swagger/docs/v1
+    docs_url: https://prisapi.autopassferje.no/swagger
+    license: CC BY 4.0
+    keywords: [ferje, ferjepriser, billettpris, autopass, samband, ferry fares]
+    tags: [registration]
+    caveats:
+      - Token fra POST /Login legges i Authorization-headeren; uten det svarer API-et 401.
+
+  - id: vegvesen-ferjedatabanken
+    title: Ferjedatabanken API
+    title_en: Ferry data bank API
+    merge_with: https://dataut.vegvesen.no/dataservice/73ed2094-a662-4a54-9829-55717ba314c6
+    description: >-
+      Trafikk- og inntektsstatistikk for Statens vegvesens ferjesamband fra AutoPASS-billetteringen, tilbake til 2007,
+      med profilkoder og samband som oppslag. Data publiseres den 16. i måneden etter. Alle metoder krever et token fra
+      POST /v1/Login, så tilgangen er ikke åpen slik katalogen oppgir. Dataene har CC BY 4.0.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.ferjedatabanken.no
+    spec_url: https://api.ferjedatabanken.no/swagger/docs/v1
+    docs_url: https://ferjedatabanken.no/info
+    license: CC BY 4.0
+    keywords: [ferje, ferjestatistikk, trafikkdata, inntekt, samband, ferjedatabanken, ferry statistics]
+    tags: [registration]
+    caveats:
+      - Token fra POST /v1/Login legges i Authorization-headeren; uten det svarer API-et 401.
+
+  - id: vegvesen-nvdb-skriv
+    title: NVDB API Skriv
+    title_en: NVDB API Write
+    merge_with: https://dataut.vegvesen.no/dataservice/122f4fe9-5974-4ebe-bcc7-a03af299659c
+    description: >-
+      REST-endepunkter for å registrere og vedlikeholde vegobjekter og vegnett i Nasjonal vegdatabank gjennom
+      endringssett som behandles asynkront, med støtte for låser, oppdrag, binære objekter og konvertering fra
+      SOSI-GeoJSON. Krever en bruker hos Statens vegvesen (ansatt eller partnerbruker) med riktige roller og
+      datarettigheter. Du bruker et Bearer-token fra ID-Bridge eller OpenID Connect.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON, XML]
+    endpoints:
+      - https://nvdbapiskriv.atlas.vegvesen.no
+    docs_url: https://nvdb-docs.atlas.vegvesen.no/category/nvdb-api-skriv
+    keywords: [nvdb, vegdatabank, endringssett, registrering, vegobjekter, veg, write]
+    tags: [agreement]
+    caveats:
+      - ID-Bridge-token varer i 8 timer; utenfor Statens vegvesens nett kan det kreves brannmuråpning.
+
+  - id: vegvesen-datafangst
+    title: NVDB Datafangst 2.0 API
+    title_en: NVDB Data capture 2.0 API
+    merge_with: https://dataut.vegvesen.no/dataservice/3b4da75d-d658-4acd-b9ad-4dbde5fdd896
+    description: >-
+      API-et til Datafangst 2.0, arbeidsflaten der entreprenører og vegeiere registrerer nye vegdata til Nasjonal
+      vegdatabank og Felles kartbase etter fysiske endringer på vegen. Brukes av tredjepartsapplikasjoner som henter ut
+      eller oppdaterer kontrakter og data. Du henter et Bearer-token i ID-Bridge, gyldig i 30 dager og bare for
+      Datafangst, og sender X-Client-header.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://datafangst.api.vegvesen.no
+    docs_url: https://nvdb-docs.atlas.vegvesen.no/category/nvdb-datafangst-20
+    keywords: [datafangst, nvdb, vegdata, kontrakter, fkb, data capture]
+    tags: [agreement]
+    caveats:
+      - API-et har rate limiting, og tokenet gjelder ikke for andre NVDB-API-er.

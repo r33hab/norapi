@@ -8,6 +8,8 @@ import logging
 import sys
 from pathlib import Path
 
+from norapi.authprobe import apply_review as apply_auth_review
+from norapi.authprobe import load_review as load_auth_review
 from norapi.build import REGISTRY_DIR, REGISTRY_JSON, attach_specs, write_registry
 from norapi.curated import (
     add_retained,
@@ -26,6 +28,7 @@ from norapi.search import Registry
 DEFAULT_RAW_DIR = Path("data/raw/fdk")
 DEFAULT_SPEC_CACHE = Path("data/specs")
 CURATED_DIR = REGISTRY_DIR / "curated"
+AUTH_REVIEW = REGISTRY_DIR / "auth-review.yaml"
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -59,6 +62,13 @@ def build_parser() -> argparse.ArgumentParser:
     check.add_argument("--curated-only", action="store_true")
     check.add_argument("--limit", type=int)
     check.add_argument("--timeout", type=float, default=15.0)
+
+    probe_auth = commands.add_parser(
+        "probe-auth",
+        help="call harvested entries with unknown auth anonymously -> registry/auth-review.yaml",
+    )
+    probe_auth.add_argument("--timeout", type=float, default=15.0)
+    probe_auth.add_argument("--workers", type=int, default=8)
 
     samples = commands.add_parser(
         "samples", help="run the front page's example calls, store the answers in samples.json"
@@ -122,6 +132,7 @@ def cmd_build(args: argparse.Namespace) -> int:
             harvested = drop_retired(harvested, load_retired(REGISTRY_DIR / "retired.yaml"))
             retained, checked = load_retained(REGISTRY_DIR / "retained.yaml")
             harvested = add_retained(harvested, retained, checked)
+            apply_auth_review(harvested, load_auth_review(AUTH_REVIEW))
         else:
             print(
                 f"no snapshot at {snapshot_file}; building from curated entries only",
@@ -198,6 +209,27 @@ def cmd_check(args: argparse.Namespace) -> int:
     )
     for api_id, name, status in missing:
         print(f"  {api_id}: {name} -> {status}")
+    return 0
+
+
+def cmd_probe_auth(args: argparse.Namespace) -> int:
+    from collections import Counter
+
+    from norapi.authprobe import probe_entries, write_review
+
+    entries = _load_entries()
+    # Re-probe what an earlier review settled too: the registry already carries its value.
+    for entry in entries:
+        if entry.source.get("auth_from") == "probe":
+            entry.auth = "unknown"
+    results = probe_entries(entries, timeout=args.timeout, workers=args.workers)
+    write_review(results, AUTH_REVIEW)
+    applied = apply_auth_review(entries, load_auth_review(AUTH_REVIEW))
+    write_registry(entries)
+    counts = Counter(r["auth"] for r in results)
+    print(f"probe-auth: {len(results)} probed, {dict(counts)}; {applied} set -> {AUTH_REVIEW}")
+    for observed, n in Counter(r["observed"].split(" (")[0] for r in results).most_common(12):
+        print(f"  {n:4d}  {observed}")
     return 0
 
 
@@ -312,6 +344,7 @@ def main(argv: list[str] | None = None) -> int:
         "enrich": cmd_enrich,
         "check": cmd_check,
         "samples": cmd_samples,
+        "probe-auth": cmd_probe_auth,
         "search": cmd_search,
         "ops": cmd_ops,
         "show": cmd_show,

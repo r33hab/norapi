@@ -30,6 +30,7 @@ from norapi.model import (
     ApiEntry,
     Provider,
     infer_auth,
+    is_capabilities,
     looks_like_spec,
     make_summary,
     normalise_format,
@@ -262,7 +263,11 @@ def _hit_to_entry(
     access, access_from = _resolve_access(hit, extra, geonorge_records)
 
     descriptions = [u for u in extra.get("endpoint_descriptions", []) if not _placeholder(u)]
-    spec_url = next((u for u in descriptions if looks_like_spec(u)), None)
+    spec_url = _pick_spec(descriptions)
+    # The rest may still lead to a document (a docs page with a Swagger UI); enrich tries them.
+    spec_candidates = [
+        u for u in descriptions if u != spec_url and u.startswith("http") and not is_capabilities(u)
+    ][:4]
     docs_candidates = extra.get("pages", []) + extra.get("landing_pages", [])
     docs_candidates += [u for u in descriptions if u != spec_url]
     docs_url = next(
@@ -303,5 +308,17 @@ def _hit_to_entry(
             "catalogue_url": f"https://data.norge.no/data-services/{hit.get('id')}",
             "harvested_at": harvested_at,
             **({"access_from": access_from} if access_from else {}),
+            **({"spec_candidates": spec_candidates} if spec_candidates else {}),
         },
     )
+
+
+_STRONG_SPEC_HINTS = ("openapi", "swagger", "api-docs", "apidocs")
+
+
+def _pick_spec(urls: list[str]) -> str | None:
+    """The link most likely to be the OpenAPI document: a strong hint (openapi, swagger,
+    api-docs) beats a bare `.json`/`.yaml` file, which is often a data file."""
+    hinted = [u for u in urls if looks_like_spec(u) and not is_capabilities(u)]
+    strong = [u for u in hinted if any(h in u.lower() for h in _STRONG_SPEC_HINTS)]
+    return (strong or hinted or [None])[0]

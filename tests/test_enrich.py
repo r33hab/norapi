@@ -3,6 +3,7 @@ import json
 import httpx
 
 from norapi.enrich import (
+    RESOLVE_BUDGET,
     SpecFetcher,
     candidate_urls,
     neighbour_urls,
@@ -10,6 +11,7 @@ from norapi.enrich import (
     operations,
     parse_document,
     summarise,
+    swagger_config_urls,
     urls_from_page,
 )
 from norapi.model import ApiEntry, Provider
@@ -170,4 +172,63 @@ def test_fetcher_gives_up_within_budget():
 
     fetcher = SpecFetcher(client=httpx.Client(transport=httpx.MockTransport(handler)))
     assert fetcher.resolve("https://x.no/docs/swagger") is None
-    assert len(calls) <= 8
+    assert len(calls) <= RESOLVE_BUDGET
+
+
+def test_fetcher_follows_a_springdoc_config_to_the_named_document(fixtures):
+    document = (fixtures / "specs" / "petstore-openapi.json").read_text()
+    config = {
+        "urls": [
+            {"url": "/app/v3/api-docs/monitor", "name": "Monitor"},
+            {"url": "/app/v3/api-docs/data", "name": "Data"},
+        ]
+    }
+    calls = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls.append(request.url.path)
+        if request.url.path == "/app/v3/api-docs/swagger-config":
+            return httpx.Response(200, json=config)
+        if request.url.path == "/app/v3/api-docs/data":
+            return httpx.Response(200, text=document, headers={"content-type": "application/json"})
+        return httpx.Response(404)
+
+    fetcher = SpecFetcher(client=httpx.Client(transport=httpx.MockTransport(handler)))
+    url = (
+        "https://x.no/app/swagger-ui/index.html"
+        "?configUrl=/app/v3/api-docs/swagger-config&urls.primaryName=Data"
+    )
+    resolved = fetcher.resolve(url)
+    assert resolved is not None and resolved[0] == "https://x.no/app/v3/api-docs/data"
+    assert calls[:2] == ["/app/v3/api-docs/swagger-config", "/app/v3/api-docs/data"]
+
+
+def test_swagger_config_urls_ignores_documents_and_non_configs():
+    assert swagger_config_urls('{"openapi": "3.0.0", "paths": {}}', "https://x.no/") == []
+    assert swagger_config_urls("<html></html>", "https://x.no/") == []
+    assert swagger_config_urls('{"url": "/v3/api-docs"}', "https://x.no/a/b") == [
+        "https://x.no/v3/api-docs"
+    ]
+
+
+def test_neighbours_start_next_to_the_app_a_swagger_ui_belongs_to():
+    neighbours = neighbour_urls("https://x.no/regnskap/swagger-ui/index.html")
+    assert neighbours[0] == "https://x.no/regnskap/openapi.json"
+    assert "https://x.no/regnskap/v3/api-docs" in neighbours[:9]
+    assert neighbour_urls("https://x.no/swagger/index.html")[0] == "https://x.no/openapi.json"
+
+
+def test_candidate_urls_add_catalogue_candidates_but_not_capabilities():
+    entry = ApiEntry(
+        id="c",
+        title="C",
+        provider=Provider(name="P"),
+        docs_url="https://x.no/om",
+        source={
+            "spec_candidates": [
+                "https://x.no/api/v1/",
+                "https://x.no/wms?service=WMS&request=GetCapabilities",
+            ]
+        },
+    )
+    assert candidate_urls(entry) == ["https://x.no/api/v1/"]

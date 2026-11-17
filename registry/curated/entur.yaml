@@ -1,4 +1,4 @@
-updated: 2026-11-16
+updated: 2026-11-17
 provider:
   name: Entur
   orgnr: "917422575"
@@ -434,3 +434,504 @@ apis:
     quick_start: |
       # uten token svarer API-et 401
       curl -H "Authorization: Bearer $TOKEN" -H "ET-Client-Name: firma-app" "https://api.entur.io/shared-mobility/v1/operators/availability"
+
+  - id: entur-geocoder-v3
+    title: Geocoder v3 (stedssøk og reverssøk)
+    title_en: Geocoder v3 (place search and reverse geocoding)
+    description: >-
+      Gjeldende versjon av Enturs geokoder: autofullføring, reverssøk fra koordinater og oppslag på id for adresser,
+      stoppesteder og andre steder, levert som GeoJSON. Kan filtrere på stedstype, fylke, kommune og takstsone, og
+      listes uten søketekst når minst ett filter er satt. Krever en ET-Client-Name-header. Parameteren heter q, ikke
+      text som i v1, og v1-endepunktet er et eget oppslag i registeret.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://api.entur.io/geocoder/v3
+    docs_url: https://developer.entur.no/docs/open-services/geocoder
+    spec_url: https://developer.entur.no/apis/geocoder/latest/openapi.json
+    license: NLOD 2.0
+    keywords: [geokoding, stedssøk, reverssøk, autocomplete, adresse, stoppested, geocoding, reverse geocoding]
+    tags: [no-auth]
+    quick_start: |
+      curl -H "ET-Client-Name: norapi-curation" "https://api.entur.io/geocoder/v3/autocomplete?q=Oslo%20S&lang=no"
+    probe_url: https://api.entur.io/geocoder/v3/autocomplete?q=Oslo%20S&lang=no
+
+  - id: entur-timetable-import-info
+    title: Timetable Import Info (siste import av rutedata)
+    title_en: Timetable Import Info (latest timetable import)
+    description: >-
+      Viser tidspunktet for siste vellykkede import av rutedata i Entur for hver dataleverandør, identifisert med
+      kodeområde (codespace). Nyttig for å sjekke om en NeTEx-fil du har lastet ned er nyere enn det som ligger
+      hos Entur. Åpent uten innlogging, og to GET-endepunkter: alle kodeområder eller ett.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/timetable-public/v1/timetable-import-info/import_date
+    docs_url: https://developer.entur.no/apis/timetable-import-info
+    spec_url: https://developer.entur.no/apis/timetable-import-info/latest/openapi.json
+    probe_url: https://api.entur.io/timetable-public/v1/timetable-import-info/import_date
+    keywords: [rutedata, netex, import, kodeområde, codespace, timetable]
+    tags: [no-auth]
+    quick_start: |
+      curl -H "ET-Client-Name: norapi-curation" "https://api.entur.io/timetable-public/v1/timetable-import-info/import_date/RUT"
+
+  - id: entur-transit-data-mcp
+    title: Transit Data MCP-server
+    title_en: Transit Data MCP server
+    description: >-
+      MCP-server (Streamable HTTP) som gir KI-agenter lesetilgang til det statiske kollektivdatasettet fra NeTEx:
+      linjer, stoppesteder, plattformer, turer, operatører og myndigheter. Samme data som Transit Data GraphQL.
+      Åpen uten nøkkel, men krever ET-Client-Name og JSON-RPC-kall med POST, og er markert beta.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/transit-data/v1beta/mcp
+    docs_url: https://developer.entur.no/docs/open-services/transit-data
+    license: NLOD 2.0
+    keywords: [mcp, kollektiv, netex, linjer, stoppesteder, agent, ki, model context protocol, transit]
+    tags: [no-auth, rate-limited]
+    caveats:
+      - Beta (v1beta); verktøy og skjema kan endres uten forvarsel.
+      - Kun JSON-RPC over POST; ingen GET-adresse som svarer med data.
+    quick_start: |
+      curl -X POST https://api.entur.io/transit-data/v1beta/mcp \
+        -H "Content-Type: application/json" -H "Accept: application/json, text/event-stream" \
+        -H "ET-Client-Name: norapi-curation" \
+        -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"demo","version":"1"}}}'
+
+  - id: entur-stop-place-data
+    title: Stoppestedsdata som filer (NeTEx og GTFS)
+    title_en: Stop place data as files (NeTEx and GTFS)
+    description: >-
+      Daglig oppdaterte uttrekk av alle stoppesteder og plattformer i Norge fra Nasjonalt stoppestedsregister, med
+      permanente nedlastingsadresser. NeTEx er det fullstendige formatet, GTFS er et mindre utvalg. Du kan velge bare
+      gjeldende stoppesteder, gjeldende og framtidige, eller alle versjoner, og det finnes også uttrekk per fylke.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [NeTEx, GTFS, ZIP]
+    endpoints:
+      - https://storage.googleapis.com/marduk-production/tiamat/Current_latest.zip
+      - https://storage.googleapis.com/marduk-production/tiamat/Current_latest-gtfs.zip
+    docs_url: https://developer.entur.no/open-data/stops
+    probe_url: https://storage.googleapis.com/marduk-production/tiamat/Current_latest-gtfs.zip
+    license: NLOD 2.0
+    keywords: [stoppested, holdeplass, nsr, netex, gtfs, datasett, stop places]
+    tags: [no-auth, data-files, reference-data]
+    quick_start: |
+      curl -O https://storage.googleapis.com/marduk-production/tiamat/Current_latest-gtfs.zip
+
+  - id: entur-timetable-management
+    title: Timetable Management (opplasting av rutedata)
+    title_en: Timetable Management (timetable dataset upload)
+    description: >-
+      API for dataleverandører som laster opp og laster ned NeTEx-rutedatasett per kodeområde, inkludert fleksibel
+      transport. Krever en tjenestekonto med OAuth2 client credentials fra Entur. Tilgang avtales med
+      kollektivdata-teamet hos Entur.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON, NeTEx]
+    endpoints:
+      - https://api.entur.io/timetable/v1/timetable-management
+    docs_url: https://developer.entur.no/apis/timetable-management
+    spec_url: https://developer.entur.no/apis/timetable-management/latest/openapi.json
+    keywords: [rutedata, netex, opplasting, kodeområde, dataleverandør, fleksibel transport, timetable]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever avtale med Entur og en egen tjenestekonto.
+      - Ingen lisens oppgitt.
+
+  - id: entur-timetable-delivery-status
+    title: Timetable Delivery Status (status på rutedata-leveranse)
+    title_en: Timetable Delivery Status (timetable delivery status)
+    description: >-
+      Gir status og framdrift for en leveranse av rutedata, slått opp med kodeområde og korrelasjons-id fra
+      opplastingen. Hører sammen med Timetable Management og er laget for dataleverandører. Spesifikasjonen oppgir
+      ingen sikkerhetsordning, men et anonymt kall gir 401, så regn med partneravtale og OAuth2.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/timetable/v1/timetable-events
+    docs_url: https://developer.entur.no/apis/timetable-delivery-status
+    spec_url: https://developer.entur.no/apis/timetable-delivery-status/latest/openapi.json
+    keywords: [rutedata, leveranse, status, kodeområde, korrelasjons-id, timetable]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Ingen lisens oppgitt.
+
+  - id: entur-raw-timetable-data
+    title: Raw Timetable Data (originale NeTEx-leveranser)
+    title_en: Raw Timetable Data (original NeTEx deliveries)
+    description: >-
+      Gir tilgang til de opprinnelige NeTEx-datasettene som dataleverandørene har lastet opp, per kodeområde: liste
+      over versjoner, en bestemt versjon eller siste versjon. Skiller seg fra de åpne rutedatafilene, som er
+      behandlet og samlet. Krever OAuth2 client credentials.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [NeTEx, ZIP]
+    endpoints:
+      - https://api.entur.io/timetable/v1/timetable-data
+    docs_url: https://developer.entur.no/apis/raw-timetable-data
+    spec_url: https://developer.entur.no/apis/raw-timetable-data/latest/openapi.json
+    keywords: [rutedata, netex, rådata, kodeområde, versjoner, timetable]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Ingen lisens oppgitt.
+
+  - id: entur-products
+    title: Products (produkter og takstdata)
+    title_en: Products (products and fare data)
+    description: >-
+      Partner-API for å lese og vedlikeholde produkter og takstdata for kollektivtrafikk i Norge, med mange
+      ressurstyper som tilgjengelighetsvilkår, ladeøyeblikk, ledsagerprofiler og dagtyper. Stort API med over 250
+      stier, der en del er administrative. Krever partneravtale og OAuth2 client credentials.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/products
+    docs_url: https://developer.entur.no/apis/products
+    spec_url: https://developer.entur.no/apis/products/latest/openapi.json
+    keywords: [produkter, takst, pris, billettprodukt, tilgjengelighetsvilkår, products, fare data]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Ingen lisens oppgitt.
+
+  - id: entur-customers
+    title: Customers (kundeprofiler)
+    title_en: Customers API (customer profiles)
+    description: >-
+      Oppretter og administrerer kundeprofiler i Enturs salgsplattform: profiler, preferanser, midlertidige profiler,
+      kundekontoer, reiseinformasjon og tilkoblinger mellom profiler. Behandler personopplysninger. Krever
+      partneravtale og OAuth2 client credentials, og noen endepunkter er merket som utfasede.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/customers/v2
+    docs_url: https://developer.entur.no/apis/customers
+    spec_url: https://developer.entur.no/apis/customers/latest/openapi.json
+    keywords: [kunde, kundeprofil, preferanser, kundekonto, passord, customers, profiles]
+    tags: [agreement, oauth2, personal-data]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Behandler personopplysninger om kunder.
+      - Ingen lisens oppgitt.
+
+  - id: entur-consents
+    title: Consents (samtykker i salgssystemene)
+    title_en: Consents API
+    description: >-
+      Lagrer og administrerer samtykkevilkår for en organisasjon og samtykkene kundene har gitt, med versjonering av
+      vilkårene og masseoppslag. Delt i klient-, administrasjons- og datavarehus-endepunkter. Krever partneravtale og
+      OAuth2 client credentials.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/customers/v2/consents
+    docs_url: https://developer.entur.no/apis/consents
+    spec_url: https://developer.entur.no/apis/consents/latest/openapi.json
+    keywords: [samtykke, vilkår, personvern, kunde, consents, gdpr]
+    tags: [agreement, oauth2, personal-data]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Behandler personopplysninger om kunder.
+      - Ingen lisens oppgitt.
+
+  - id: entur-personalisation-client
+    title: Personalisation Client Integration (lojalitetsprogram)
+    title_en: Personalisation Client Integration (loyalty programs)
+    description: >-
+      Lar salgsklienter vise kundens status i lojalitetsprogrammer: programmer, medlemskap, nivåoppsummeringer,
+      belønningsstige og transaksjoner. Hører til Enturs personalisering. Krever partneravtale og OAuth2 client
+      credentials.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/personalisation
+    docs_url: https://developer.entur.no/apis/personalisation-client
+    spec_url: https://developer.entur.no/apis/personalisation-client/latest/openapi.json
+    keywords: [personalisering, lojalitet, medlemskap, program, belønning, personalisation, loyalty]
+    tags: [agreement, oauth2, personal-data]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Behandler personopplysninger om medlemmer.
+      - Ingen lisens oppgitt.
+
+  - id: entur-personalisation-privacy
+    title: Personalisation Privacy (personvernuttrekk)
+    title_en: Personalisation Privacy
+    description: >-
+      Henter ut personvernopplysninger fra Enturs personalisering, slik at partnere kan etterleve GDPR for
+      medlemmer i lojalitetsprogrammer. Har to endepunkter, ett for uttrekk og ett per medlem i et program. Krever
+      partneravtale og OAuth2 client credentials.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/personalisation
+    docs_url: https://developer.entur.no/apis/personalisation-privacy
+    spec_url: https://developer.entur.no/apis/personalisation-privacy/latest/openapi.json
+    keywords: [personvern, gdpr, innsyn, medlem, personalisering, privacy]
+    tags: [agreement, oauth2, personal-data]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Returnerer personopplysninger.
+      - Ingen lisens oppgitt.
+
+  - id: entur-inventory
+    title: Inventory (kvoter og lager)
+    title_en: Inventory (quotas and stock)
+    description: >-
+      Håndterer lager i salgsplattformen: kvoter, kvotemaler og reservasjoner med reservasjonslinjer, altså en
+      grense for hvor mange enheter som kan reserveres samtidig. Har klient- og administrasjonsendepunkter. Krever
+      partneravtale og OAuth2 client credentials.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/inventory
+    docs_url: https://developer.entur.no/apis/inventory
+    spec_url: https://developer.entur.no/apis/inventory/latest/openapi.json
+    keywords: [kvote, lager, reservasjon, kapasitet, inventory, quota]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Ingen lisens oppgitt.
+
+  - id: entur-seating-manager
+    title: Seating Manager (setetilbud og reservasjoner)
+    title_en: Seating Manager (seating offers and reservations)
+    description: >-
+      Lager setetilbud per avgang og holder oversikt over hvilke seter som er reservert eller blokkert, også for
+      tredjepartsreservasjoner. Spesifikasjonen bruker stier med v1-beta. Krever partneravtale og OAuth2 client
+      credentials.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/seating-manager
+    docs_url: https://developer.entur.no/apis/seating-manager
+    spec_url: https://developer.entur.no/apis/seating-manager/latest/openapi.json
+    keywords: [sete, reservasjon, setetilbud, blokkering, tog, seating]
+    tags: [agreement, oauth2]
+    caveats:
+      - Beta (v1-beta); kan endre seg uten forvarsel.
+      - Krever partneravtale med Entur.
+      - Ingen lisens oppgitt.
+
+  - id: entur-order-notes
+    title: Order Notes (notater på ordre)
+    title_en: Order Notes
+    description: >-
+      Lagrer data som hører til en ordre-id og kan uttrykkes som tekst, for eksempel frist, kontaktinformasjon som
+      overstyrer leverandørens, nullbillett og tilleggsavgift. Bare én notat per type per ordre for noen typer.
+      Krever partneravtale og OAuth2 client credentials.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/sales/v1/order-notes
+    docs_url: https://developer.entur.no/apis/order-note-partner
+    spec_url: https://developer.entur.no/apis/order-note-partner/latest/openapi.json
+    keywords: [ordre, notat, frist, tilleggsavgift, order notes]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Ingen lisens oppgitt.
+
+  - id: entur-receipts
+    title: Receipt Partner (kvitteringer)
+    title_en: Receipt Partner
+    description: >-
+      Sender kvitteringer for kundeordre, finner hvilken kvitteringstype en ordre gir og henter meldinger med
+      hentekode på flere formater og språk. Er en del av partner-API-ene i salgsplattformen og krever
+      partneravtale og OAuth2 client credentials.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/sales/v1/receipts
+    docs_url: https://developer.entur.no/apis/receipt-partner
+    spec_url: https://developer.entur.no/apis/receipt-partner/latest/openapi.json
+    keywords: [kvittering, ordre, hentekode, billettsalg, receipts]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Ingen lisens oppgitt.
+
+  - id: entur-refunds
+    title: Refunds (refusjon og kompensasjon)
+    title_en: Refunds and compensations
+    description: >-
+      Sjekker hvilke refusjonsvalg en ordre har, forhåndsviser utfallet med dry-run og utfører refusjoner og
+      kompensasjoner som prisreduksjon. Del av salgsplattformens partner-API-er. Krever partneravtale og OAuth2
+      client credentials.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/sales/v1
+    docs_url: https://developer.entur.no/apis/refund-partner
+    spec_url: https://developer.entur.no/apis/refund-partner/latest/openapi.json
+    keywords: [refusjon, kompensasjon, ordre, billett, refunds, compensation]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Spesifikasjonen oppgir ingen sikkerhetsordning, men et anonymt kall på ordrenivå gir 401.
+      - Ingen lisens oppgitt.
+
+  - id: entur-reserve-offers
+    title: Reserve Offers (legg tilbud i ordre)
+    title_en: Reserve Offers
+    description: >-
+      Forenkler å legge tilbud inn i en ordre: reserverer tilbud, oppdaterer ordre med tilleggsprodukter og, i
+      beta-versjon, endringsvalg og tredjepartsprodukter. Del av salgsplattformens partner-API-er. Krever
+      partneravtale og OAuth2 client credentials.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/sales/v1
+    docs_url: https://developer.entur.no/apis/reserve-offers-partner
+    spec_url: https://developer.entur.no/apis/reserve-offers-partner/latest/openapi.json
+    keywords: [tilbud, reservasjon, ordre, tilleggsprodukt, reserve offers]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Noen endepunkter (v1beta) er beta og kan endre seg.
+      - Spesifikasjonen oppgir ingen sikkerhetsordning, men et anonymt kall gir 401.
+      - Ingen lisens oppgitt.
+
+  - id: entur-third-party-products
+    title: Third Party Product (tredjepartsprodukter i ordre)
+    title_en: Third Party Product
+    description: >-
+      Katalog for produkter som ikke finnes i Enturs standard produktdatabase. Produktene må oppgis av klienten når
+      ordren opprettes og knyttes til en bestemt ordrelinje, slik at et annet marked kan bruke Enturs ordre- og
+      betalings-API-er. Krever partneravtale og OAuth2 client credentials.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/sales/v1/third-party-products
+    docs_url: https://developer.entur.no/apis/third-party-product-partner
+    spec_url: https://developer.entur.no/apis/third-party-product-partner/latest/openapi.json
+    keywords: [tredjepartsprodukt, ordrelinje, ordre, markedsplass, third party products]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Ingen lisens oppgitt.
+
+  - id: entur-ticket-distributions
+    title: Ticket Distributions (billettdistribusjon)
+    title_en: Ticket Distributions
+    description: >-
+      Styrer og distribuerer nye billetter til billetteringssystemer, med distribusjonsgrupper og PDF-billetter som
+      kan opprettes, hentes og sendes per ordre. Del av salgsplattformens partner-API-er. Krever partneravtale og
+      OAuth2 client credentials.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON, PDF]
+    endpoints:
+      - https://api.entur.io/sales/v1
+    docs_url: https://developer.entur.no/apis/ticket-distribution-partner
+    spec_url: https://developer.entur.no/apis/ticket-distribution-partner/latest/openapi.json
+    keywords: [billett, distribusjon, pdf-billett, billettering, ticket distribution]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Spesifikasjonen oppgir ingen sikkerhetsordning, men et anonymt kall gir 401.
+      - Ingen lisens oppgitt.
+
+  - id: entur-clearing-reports
+    title: Clearing Reports (rapporter fra oppgjør)
+    title_en: Clearing Reports
+    description: >-
+      Lar partnere selv hente datasett og rapporter som Enturs oppgjørssystem lager: oppslag på datasett, bestilling
+      av rapport og nedlasting av dataprodukter. Brukes sammen med Clearing-API-et for generelle oppgjør. Krever
+      partneravtale og OAuth2 client credentials.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/cleos-reporting
+    docs_url: https://developer.entur.no/apis/clearing-reports
+    spec_url: https://developer.entur.no/apis/clearing-reports/latest/openapi.json
+    keywords: [oppgjør, rapport, dataprodukt, clearing, billettinntekt, reports]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Ingen lisens oppgitt.
+
+  - id: entur-shared-mobility-router
+    title: Shared Mobility Router (TOMP mot operatører)
+    title_en: Shared Mobility Router
+    description: >-
+      Ruter meldinger fra Enturs delingsmobilitetsplattform til de enkelte transportoperatørene og oversetter dem
+      til riktig TOMP-versjon (1.5.0, 1.6.0 og 1.6.1). Beregnet for operatører som skal gjøre produktene sine
+      tilgjengelige for salg gjennom Entur. Krever partneravtale og OAuth2.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/shared-mobility-router/v1
+    docs_url: https://developer.entur.no/apis/shared-mobility-router
+    spec_url: https://developer.entur.no/apis/shared-mobility-router/latest/openapi.json
+    keywords: [delingsmobilitet, tomp, operatør, ruting, sparkesykkel, bysykkel, shared mobility]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever partneravtale med Entur.
+      - Ingen lisens oppgitt.
+
+  - id: entur-skoleskyss
+    title: Skoleskyss (skyssrettigheter for elever)
+    title_en: Skoleskyss (school transport entitlements)
+    description: >-
+      Oppretter og sletter skyssrettigheter for elever i Skoleskyss, Enturs løsning for skoleskyss for
+      fylkeskommuner. Spesifikasjonen har ett endepunkt under /proff/skoleskyss. Behandler personopplysninger om
+      elever. Krever avtale og OAuth2.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.entur.io/proff/skoleskyss
+    docs_url: https://developer.entur.no/apis/skoleskyss
+    spec_url: https://developer.entur.no/apis/skoleskyss/latest/openapi.json
+    keywords: [skoleskyss, skyss, elev, fylkeskommune, skyssrettighet, school transport]
+    tags: [agreement, oauth2, personal-data]
+    caveats:
+      - Krever avtale med Entur, og tilgang gis til fylkeskommuner og deres leverandører.
+      - Behandler personopplysninger om elever.
+      - Ingen lisens oppgitt.
