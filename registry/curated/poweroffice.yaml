@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: PowerOffice
+  sector: privat
+apis:
+  - id: poweroffice-go-api
+    title: PowerOffice Go API
+    title_en: PowerOffice Go API
+    description: >-
+      REST-API mot regnskapssystemet PowerOffice Go: kunder, leverandører, fakturaer, bilag, produkter, prosjekter,
+      ansatte og kontoplan. Integrasjonspartnere får tilgang gjennom utviklerportalen, og hver kunde godkjenner
+      integrasjonen i sitt eget selskap. OpenAPI-spesifikasjoner publiseres per område på swagger.poweroffice.net.
+    category: finans
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://goapi.poweroffice.net
+    docs_url: https://developer.poweroffice.net/
+    probe_url: https://goapi.poweroffice.net/v2/Customers
+    keywords: [poweroffice, regnskap, faktura, bilag, accounting, go]
+    tags: [agreement, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever partneravtale og kundens godkjenning; verifisert er bare at dokumentasjonen er åpen.
+    quick_start: |
+      # token fra oppgitt token-endepunkt (se dokumentasjonen), deretter:
+      curl -H "Authorization: Bearer $POWEROFFICE_TOKEN" "https://goapi.poweroffice.net/v2/Customers"

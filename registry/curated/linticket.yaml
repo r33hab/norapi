@@ -1,0 +1,35 @@
+updated: 2026-11-16
+provider:
+  name: Linticket AS
+  orgnr: "995626039"
+  sector: privat
+apis:
+  - id: linticket-arrangementer
+    title: Linticket arrangementer (eventdata)
+    title_en: Linticket events (event data)
+    description: >-
+      JSON-liste over kommende arrangementer hos kunder av billettsystemet Linticket, over hele landet: navn,
+      spillested, dato og klokkeslett, posisjon, adresse, kategori og lenke til billettsalget. Svarer uten nøkkel,
+      men eieren ber om at bruk registreres med en appid.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.linticket.no/api/index.php3?action=events
+    docs_url: https://opencom.no/dataset/eventdata-fra-linticket
+    probe_url: https://www.linticket.no/api/index.php3?action=events
+    license: NLOD 2.0
+    keywords: [arrangement, event, kultur, billetter, konsert, spillested, kalender, events]
+    tags: [no-auth, private-provider, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Datasettbeskrivelsen sier at bruk krever en appid fra Linticket, selv om kallet svarer uten.
+      - Alle felt er tekst, også tall og koordinater.
+    behaviour: >-
+      Svarer anonymt med HTTP 200 og JSON, uten at det sendes noen appid.
+    owner_terms: >-
+      Datasettbeskrivelsen sier at bruk krever en appid fra Linticket. Lisens NLOD 2.0. Registrer deg hos Linticket
+      for å bruke endepunktet slik eieren ber om.
+    quick_start: |
+      curl "https://www.linticket.no/api/index.php3?action=events"

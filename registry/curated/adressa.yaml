@@ -1,0 +1,24 @@
+updated: 2026-11-16
+provider:
+  name: Adresseavisen
+  sector: privat
+apis:
+  - id: adressa-rss
+    title: Adresseavisens RSS-strøm (nyheter)
+    title_en: Adresseavisen (Adressa) news RSS feed
+    description: >-
+      Åpen RSS-strøm med nyheter fra Adresseavisen i Trondheim, uten nøkkel. Strømmen har rundt hundre poster om gangen.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://www.adressa.no/rss
+    docs_url: https://www.adressa.no/rss
+    probe_url: https://www.adressa.no/rss
+    keywords: [rss, nyheter, nyhetsstrøm, adressa, trondheim, news feed]
+    tags: [no-auth, feed, private-provider]
+    caveats:
+      - Ingen lisens oppgitt; sjekk utgiverens vilkår før videre bruk av innholdet.
+    quick_start: |
+      curl "https://www.adressa.no/rss"

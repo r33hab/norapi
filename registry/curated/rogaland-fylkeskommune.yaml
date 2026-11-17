@@ -1,0 +1,30 @@
+updated: 2026-11-16
+provider:
+  name: Rogaland fylkeskommune
+  orgnr: "971045698"
+  sector: fylke
+apis:
+  - id: rogaland-fylkeskommune-arcgis-online
+    title: Rogaland fylkeskommunes kartportal (ArcGIS Online)
+    title_en: Rogaland county map portal (ArcGIS Online)
+    description: >-
+      Fylkeskommunens hostede kartlag i ArcGIS Online, rundt 360 tjenester: arealregnskap per kommune, regionale
+      friluftslivsområder, naturkartlegging, arealbruksintensitet og planområder. Tjenestelisten er åpen og lagene
+      spørres med /query som JSON eller GeoJSON, men mange lag krever innlogging.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services-eu1.arcgis.com/YzR0XHtrk2g4Joz5/arcgis/rest/services
+    docs_url: https://temakart-rogaland.no/
+    probe_url: https://services-eu1.arcgis.com/YzR0XHtrk2g4Joz5/arcgis/rest/services?f=json
+    keywords: [rogaland, fylkeskommune, kart, arcgis online, arealregnskap, friluftsliv, naturkartlegging, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Mange tjenester krever innlogging og svarer med «Token Required»; bare en del av lagene er åpne.
+      - Temakart Rogaland er under overgang til ny plattform, så adresser kan endres.
+    quick_start: |
+      curl "https://services-eu1.arcgis.com/YzR0XHtrk2g4Joz5/arcgis/rest/services?f=json"
+      curl "https://services-eu1.arcgis.com/YzR0XHtrk2g4Joz5/arcgis/rest/services/Regionale_friluftslivsomr%C3%A5der/FeatureServer/0/query?where=1%3D1&outFields=*&resultRecordCount=1&f=geojson"

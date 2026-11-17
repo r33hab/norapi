@@ -1,0 +1,31 @@
+updated: 2026-11-16
+provider:
+  name: Elvia
+  orgnr: "980489698"
+  sector: privat
+apis:
+  - id: elvia-grid-tariff-api
+    title: Elvia Nettleie-API (Grid Tariff, DIGIN-standard)
+    title_en: Elvia Grid Tariff API (DIGIN standard)
+    description: >-
+      Nettleiepriser og tariffer for målepunkter i Elvias nett, levert etter den nasjonale DIGIN-standarden for
+      nettariff-API. Ment for smarthus og styring av forbruk, ikke for historisk fakturagrunnlag. Krever abonnement og
+      nøkkel fra Elvias utviklerportal, og målepunkt-ID (ikke målernummer) for oppslag.
+    category: natur-og-miljo
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://elvia.azure-api.net/grid-tariff/
+    docs_url: https://developers.elvia.no/api-details#api=gridtariff-api&operation=get-companyorgno-digin-api-v-tariffquery
+    probe_url: https://elvia.azure-api.net/grid-tariff/digin/api/1/tariffquery
+    keywords: [nettleie, nettariff, tariff, strøm, målepunkt, smarthus, digin, grid tariff, elvia]
+    tags: [agreement, registration, private-provider]
+    caveats:
+      - Dekker ikke alle tariffer, og tar ikke hensyn til redusert elavgift; kunden må trekke den fra selv.
+      - Krever registrering og abonnement på produktet GridTariff-Api i utviklerportalen; nøkkelen sendes i headeren X-API-Key.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # DIGIN-kall mot Elvia; bytt ut nøkkelen og målepunkt-ID
+      curl -H "X-API-Key: $ELVIA_KEY" \
+        "https://elvia.azure-api.net/grid-tariff/digin/api/1/tariffquery?meteringPointId=<målepunkt-ID>"

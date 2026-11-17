@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: Lime
+  sector: privat
+apis:
+  - id: lime-gbfs-oslo
+    title: Lime elsparkesykler i Oslo (GBFS)
+    title_en: Lime e-scooters in Oslo (GBFS)
+    description: >-
+      Sanntidsdata for Limes delte elsparkesykler i Oslo etter GBFS 2.2: systeminformasjon, kjøretøytyper og ledige
+      kjøretøy med posisjon og batterinivå når de er i drift. Åpent uten nøkkel. Listen over ledige kjøretøy kan
+      være tom utenom sesong.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, GBFS]
+    endpoints:
+      - https://data.lime.bike/api/partners/v2/gbfs/oslo/gbfs.json
+    docs_url: https://www.li.me/gbfs-terms
+    probe_url: https://data.lime.bike/api/partners/v2/gbfs/oslo/gbfs.json
+    keywords: [lime, elsparkesykkel, sparkesykkel, gbfs, oslo, delt mobilitet, e-scooter, micromobility]
+    tags: [no-auth, private-provider]
+    caveats:
+      - Vilkår for bruk av dataene står på li.me/gbfs-terms; sjekk dem før du bygger på feeden.
+      - Internasjonalt selskap; dette er bare Oslo-feeden. Samme data kommer også samlet gjennom Enturs Mobility-API.
+    quick_start: |
+      curl "https://data.lime.bike/api/partners/v2/gbfs/oslo/gbfs.json"
+      curl "https://data.lime.bike/api/partners/v2/gbfs/oslo/free_bike_status"

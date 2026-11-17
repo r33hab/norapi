@@ -1,0 +1,31 @@
+updated: 2026-11-16
+provider:
+  name: Trondheim kommune
+  orgnr: "942110464"
+  sector: kommune
+apis:
+  - id: trondheim-kommune-geoserver
+    title: Trondheim kommunes kartserver (GeoServer WMS)
+    title_en: Trondheim municipality map server (GeoServer WMS)
+    description: >-
+      WMS-tjeneste fra Trondheim kommune med temalag som bakgrunnskart, historiske ortofoto fra 1937 til i dag,
+      skyggemodell og relieff, bydeler, grunnkretser, skolekretser, gatelys, kommuneplanens arealdel, reguleringsplaner
+      og viltkart. Åpen uten nøkkel via GetCapabilities og GetMap. WFS-endepunktet på samme server krever pålogging.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [WMS, PNG]
+    endpoints:
+      - https://kart.trondheim.kommune.no/geoserver/ows
+    docs_url: https://kart.trondheim.kommune.no/geoserver/ows?service=WMS&request=GetCapabilities
+    probe_url: https://kart.trondheim.kommune.no/geoserver/ows?service=WMS&request=GetCapabilities
+    keywords: [trondheim, wms, geoserver, ortofoto, bydeler, grunnkretser, gatelys, kommuneplan, reguleringsplan, kart]
+    tags: [no-auth]
+    caveats:
+      - Kun WMS er åpent. WFS-forespørsler på serveren gir HTTP 401.
+      - Ingen lisens oppgitt.
+      - Lagnavn har arbeidsområde foran kolon, for eksempel abas:bydel eller Raster:ortofoto2024.
+    quick_start: |
+      curl "https://kart.trondheim.kommune.no/geoserver/ows?service=WMS&request=GetCapabilities"
+      # bydeler som PNG (EPSG:25832)
+      curl -o bydeler.png "https://kart.trondheim.kommune.no/geoserver/wms?service=WMS&version=1.1.1&request=GetMap&layers=abas:bydel&styles=&bbox=250000,7030000,280000,7050000&width=300&height=200&srs=EPSG:25832&format=image/png"

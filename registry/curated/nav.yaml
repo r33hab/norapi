@@ -1,4 +1,4 @@
-updated: 2026-10-19
+updated: 2026-11-16
 provider:
   name: Nav
   orgnr: "889640782"
@@ -46,3 +46,796 @@ apis:
     quick_start: |
       curl "https://g.nav.no/api/v1/grunnbeløp"
       curl "https://g.nav.no/api/v1/grunnbeløp?dato=2020-06-01"
+
+  - id: nav-hjelpemidler-import-api
+    title: Hjelpemiddeldatabasen Import-API (finnhjelpemiddel.nav.no)
+    title_en: Assistive devices import API (finnhjelpemiddel.nav.no)
+    description: >-
+      API for leverandører som laster opp og publiserer hjelpemidler på finnhjelpemiddel.nav.no: produkter, serier,
+      tilbehør, reservedeler, bilder og dokumenter, med godkjenningsstatus og HMS-nummer for rammeavtaler. Skriving
+      krever hemmelig nøkkel (bearer token) fra Nav. Referansedata som ISO-kategorier svarer uten innlogging.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://finnhjelpemiddel-api.nav.no/import/api/v1/
+    docs_url: https://navikt.github.io/hm-grunndata-import/
+    probe_url: https://finnhjelpemiddel-api.nav.no/import/api/v1/isocategories
+    keywords: [hjelpemidler, hjelpemiddeldatabasen, finnhjelpemiddel, iso 9999, rammeavtale, hms-nummer, assistive devices]
+    tags: [registration]
+    caveats:
+      - Laget for leverandører som skal publisere produkter; alle skrivekall krever Authorization med bearer-nøkkel.
+      - Noen leseendepunkter for referansedata (for eksempel isocategories) svarer anonymt, men er ikke lovet åpne.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # åpent referansekall
+      curl "https://finnhjelpemiddel-api.nav.no/import/api/v1/isocategories"
+      # opplasting krever nøkkel
+      # curl -X POST -H "Authorization: Bearer $NAV_KEY" -H "Content-Type: application/x-json-stream" \
+      #   "https://finnhjelpemiddel-api.nav.no/import/api/v1/products/transfers/"
+
+  - id: nav-pensjon-folketrygdbeholdning
+    title: "Pensjon: beregn folketrygdbeholdning"
+    title_en: "Pension: calculate national insurance balance"
+    description: >-
+      Beregner en persons folketrygdbeholdning (opptjent pensjonsbeholdning) for et gitt uttak og år. Tilgang krever
+      Maskinporten-scope nav:pensjon:folketrygdbeholdning og godkjenning fra Nav.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/pensjon/beregnFolketrygdbeholdning"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/alderspensjon/folketrygdbeholdning/folketrygdbeholdning.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/alderspensjon/folketrygdbeholdning/apidocFolketrygdbeholdning.yaml"
+    keywords: [pensjon, folketrygdbeholdning, alderspensjon, pensjonsopptjening, pension balance]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:pensjon:folketrygdbeholdning; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjon-gw.nav.no/pensjon/beregnFolketrygdbeholdning"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-pensjonssimulator
+    title: "Pensjonssimulator API"
+    title_en: "Pension simulator API"
+    description: >-
+      Simulerer alderspensjon, alderspensjon med AFP i privat sektor, tidligst mulig uttak og folketrygdbeholdning med
+      Navs regelverk, slik at andre kan vise pensjonsberegninger i egne tjenester. Flere versjonerte endepunkter under
+      /pensjonssimulator. Maskinporten kreves, med eget scope per tjeneste.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/pensjonssimulator/v4/simuler-alderspensjon"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/alderspensjon/simulering2025/simulering2025.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/alderspensjon/simulering2025/apidocSimulering2025.yaml"
+    keywords: [pensjonssimulator, alderspensjon, simulering, pensjonskalkulator, pension simulation, tidligst mulig uttak]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:pensjonssimulator (scope oppgis per tjeneste i dokumentasjonen); kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjon-gw.nav.no/pensjonssimulator/v4/simuler-alderspensjon"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-afp-etterfulgt-av-alderspensjon
+    title: "Pensjon: AFP etterfulgt av alderspensjon"
+    title_en: "Pension: AFP followed by old-age pension"
+    description: >-
+      Simulerer folketrygdberegnet AFP etterfulgt av alderspensjon fra folketrygden for personer født før 1963. Laget
+      for tjenestepensjonsordninger i offentlig sektor som veileder medlemmer. Ett endepunkt, Maskinporten kreves.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/pensjonssimulator/v0/simuler-afp-etterfulgt-av-alderspensjon"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/alderspensjon/simuler-afp-etterfulgt-av-alder/afpogalder.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/alderspensjon/simuler-afp-etterfulgt-av-alder/apidocAfpOgAlder.yaml"
+    keywords: [afp, avtalefestet pensjon, alderspensjon, simulering, offentlig tjenestepensjon]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope (se dokumentasjonen); kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjon-gw.nav.no/pensjonssimulator/v0/simuler-afp-etterfulgt-av-alderspensjon"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-vedtaksinformasjon
+    title: "Pensjon: vedtaksinformasjon"
+    title_en: "Pension: decision information"
+    description: >-
+      Returnerer samordningspliktige vedtak om pensjon og ytelser for en person, slik at tjenestepensjonsordninger kan
+      samordne utbetaling. Maskinporten-scope nav:pensjon/vedtaksinformasjon.read.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/pensjon/vedtak/informasjon"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/alderspensjon/vedtaksinformasjon/hentVedtaksinformasjon.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/alderspensjon/vedtaksinformasjon/apidocHentVedtaksinformasjon.yaml"
+    keywords: [vedtak, samordning, pensjon, vedtaksinformasjon, tjenestepensjon]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:pensjon/vedtaksinformasjon.read; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -H "Authorization: Bearer $TOKEN" "https://pensjon-gw.nav.no/pensjon/vedtak/informasjon"
+
+  - id: nav-pensjon-alderspensjon-status
+    title: "Pensjon: alderspensjon status"
+    title_en: "Pension: old-age pension status"
+    description: >-
+      Henter status på en persons alderspensjon på en gitt dato, for eksempel om vedkommende mottar alderspensjon. Ett
+      endepunkt, Maskinporten-scope nav:pensjon/alderspensjon/status.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/pensjon/alderspensjon/status"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/alderspensjon/status/alderspensjonStatus.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/alderspensjon/status/apidocAlderspensjonStatus.yaml"
+    keywords: [alderspensjon, status, pensjon, mottar pensjon]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:pensjon/alderspensjon/status; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjon-gw.nav.no/pensjon/alderspensjon/status"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-uforeopplysninger
+    title: "Pensjon: uføreopplysninger"
+    title_en: "Pension: disability benefit information"
+    description: >-
+      Finner uføreopplysninger på Nav-brukere. Hvem som har hentet opplysningene og når loggføres hos Nav, og brukeren
+      kan se det på nav.no. Maskinporten-scope nav:helse/v1/uforeopplysninger, som ikke gir tilgang til vedtaksdata.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/dsop-ufo/uforeopplysninger"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/uforeopplysninger/uforeopplysninger.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/uforeopplysninger/apidocUforeopplysninger.yaml"
+    keywords: [ufør, uføretrygd, uføreopplysninger, dsop, disability]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:helse/v1/uforeopplysninger; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -H "Authorization: Bearer $TOKEN" "https://pensjon-gw.nav.no/dsop-ufo/uforeopplysninger"
+
+  - id: nav-pensjon-uforetrygd-tp-ordninger
+    title: "Uføretrygd for TP-ordninger"
+    title_en: "Disability benefit lookups for occupational pension schemes"
+    description: >-
+      Spørringer om uføretrygd som tjenestepensjonsordninger trenger ved behandling av AFP i offentlig sektor: om
+      personen har mottatt uføre etter 62, har løpende vedtak, har søknad under behandling, og uføreperioder.
+      Maskinporten-scope nav:uforetrygd/tpordningene/harmottattuforeetter62.read.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/uforetrygd/tpordningene/harMottattUforeEtter62"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/uforetrygd/Uforetrygd.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/uforetrygd/uforetrygd-api.yaml"
+    keywords: [uføretrygd, afp, tjenestepensjon, ufør etter 62, disability]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:uforetrygd/tpordningene/harmottattuforeetter62.read; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjon-gw.nav.no/uforetrygd/tpordningene/harMottattUforeEtter62"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-uforetrygd-saralderspaslag
+    title: "Uføretrygd: særalderspåslag"
+    title_en: "Disability benefit: special age supplement"
+    description: >-
+      Tjenester for tjenestepensjonsordninger, med uføreperioder i forbindelse med særalderspåslag. Ett endepunkt,
+      /uforeperioder. Maskinporten-scope nav:uforetrygd/tpordningene/uforeperioder.read.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/uforetrygd/tpordningene/saralderspaslag/uforeperioder"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/uforetrygd-saralderspaslag/Uforetrygd-Saralderspaslag.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/uforetrygd-saralderspaslag/uforetrygd-saralderspaslag-api.yaml"
+    keywords: [uføretrygd, særalderspåslag, uføreperioder, tjenestepensjon]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:uforetrygd/tpordningene/uforeperioder.read; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjon-gw.nav.no/uforetrygd/tpordningene/saralderspaslag/uforeperioder"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-er-ung-ufor
+    title: "Uføretrygd: er ung ufør"
+    title_en: "Disability benefit: young disabled check"
+    description: >-
+      Svarer på om en person var innvilget ung ufør på en bestemt dato, enkeltvis eller i batch. Gjelder datoer fra og
+      med uførereformen 1. januar 2015. Maskinporten-scope nav:uforetrygd:erungufor.read.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/uforetrygd/erungufor"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/ufore/erungufor/ErUngUfor.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/ufore/erungufor/erungufor-api.yaml"
+    keywords: [ung ufør, uføretrygd, uførereformen, disability]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:uforetrygd:erungufor.read; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjon-gw.nav.no/uforetrygd/erungufor"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-uforetrygd-lanekassen
+    title: "Uføretrygd for Lånekassen (sletting av gjeld)"
+    title_en: "Disability benefit for Lånekassen (debt cancellation)"
+    description: >-
+      Gir Lånekassen opplysninger om en brukers uføretrygd (sak og barnetillegg) som grunnlag for å vurdere sletting
+      av studiegjeld. Maskinporten-scope nav:uforetrygd/lanekassen/gjeldssletting.read, og bare aktuelt for
+      Lånekassen.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/uforetrygd/lanekassen/sak"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/uforetrygd-lanekassen/Uforetrygd-lanekassen.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/uforetrygd-lanekassen/uforetrygd-lanekassen-api.yaml"
+    keywords: [lånekassen, sletting av gjeld, uføretrygd, studielån, student loan]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:uforetrygd/lanekassen/gjeldssletting.read; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjon-gw.nav.no/uforetrygd/lanekassen/sak"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-uforetrygd-vedtaksinformasjon
+    title: "Uførepensjon og uføretrygd: vedtaksinformasjon"
+    title_en: "Disability pension: decision information"
+    description: >-
+      Henter gjeldende vedtak, eller et bestemt vedtak på vedtaks-id, for uførepensjon og uføretrygd. Brukes til
+      samordning hos tjenestepensjonsordninger. Maskinporten-scope nav:pensjon/vedtaksinformasjon.read.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/uforetrygd/tpordningene/vedtaksinformasjon"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/uforetrygd-vedtaksinformasjon/uforetrygd-vedtaksinformasjon.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/uforetrygd-vedtaksinformasjon/uforetrygd-vedtaksinformasjon.yaml"
+    keywords: [uføretrygd, uførepensjon, vedtak, samordning]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:pensjon/vedtaksinformasjon.read; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjon-gw.nav.no/uforetrygd/tpordningene/vedtaksinformasjon"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-afp-privat
+    title: "Pensjon: AFP i privat sektor"
+    title_en: "Pension: private-sector AFP"
+    description: >-
+      Sjekker om en bruker mottar eller har mottatt AFP i privat sektor fra og med et gitt tidspunkt. To endepunkter
+      under /pensjon/afp-privat. Maskinporten kreves, scope oppgis i dokumentasjonen.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/pensjon/afp-privat/mottarAfpPrivat"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/afpprivat/AfpPrivat.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/afpprivat/apidocAfpPrivat.yaml"
+    keywords: [afp, avtalefestet pensjon, privat sektor, fellesordningen]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope (se dokumentasjonen); kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjon-gw.nav.no/pensjon/afp-privat/mottarAfpPrivat"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-har-afp-offentlig
+    title: "Pensjon: har AFP i offentlig sektor"
+    title_en: "Pension: has public-sector AFP"
+    description: >-
+      Brukes av Fellesordningen for AFP til å sjekke om en person har AFP eller livsvarig AFP i offentlig sektor, som
+      del av behandling av søknader om AFP i privat sektor. Ett GET-endepunkt. Maskinporten-scope
+      nav:pensjon/v1/afpoffentlig.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/tjenestepensjon/harAFPoffentlig"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/afpprivat/harAFPoffentlig.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/afpprivat/harAFPoffentlig.yaml"
+    keywords: [afp, offentlig sektor, fellesordningen, avtalefestet pensjon]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:pensjon/v1/afpoffentlig; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -H "Authorization: Bearer $TOKEN" "https://pensjon-gw.nav.no/tjenestepensjon/harAFPoffentlig"
+
+  - id: nav-pensjon-gjenlevendepensjon
+    title: "Pensjon: gjenlevendepensjon"
+    title_en: "Pension: survivor's pension"
+    description: >-
+      Henter gjeldende vedtak om gjenlevendepensjon for en person. Maskinporten-scope
+      nav:pensjon/vedtaksinformasjon.read.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/pensjon/gjenlevendepensjon"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/gjenlevendepensjon/gjenlevendepensjon.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/gjenlevendepensjon/gjenlevendepensjon.yaml"
+    keywords: [gjenlevendepensjon, vedtak, samordning, survivor pension]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:pensjon/vedtaksinformasjon.read; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjon-gw.nav.no/pensjon/gjenlevendepensjon"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-krigspensjon
+    title: "Pensjon: krigspensjon"
+    title_en: "Pension: war pension"
+    description: >-
+      Henter gjeldende vedtak om krigspensjon for en person. Maskinporten-scope nav:pensjon/vedtaksinformasjon.read.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/pensjon/krigspensjon"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/krigspensjon/krigspensjon.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/krigspensjon/krigspensjon.yaml"
+    keywords: [krigspensjon, vedtak, samordning, war pension]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:pensjon/vedtaksinformasjon.read; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjon-gw.nav.no/pensjon/krigspensjon"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-yrkesskade
+    title: "Pensjon: gammel yrkesskade"
+    title_en: "Pension: old occupational injury benefit"
+    description: >-
+      Henter gjeldende vedtak om gammel yrkesskade for en person. Maskinporten-scope
+      nav:pensjon/vedtaksinformasjon.read.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/pensjon/yrkesskade"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/yrkesskade/yrkesskade.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/yrkesskade/yrkesskade.yaml"
+    keywords: [yrkesskade, vedtak, samordning, occupational injury]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:pensjon/vedtaksinformasjon.read; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjon-gw.nav.no/pensjon/yrkesskade"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-folketrygdberegnet-afp
+    title: "Pensjon: folketrygdberegnet AFP i offentlig sektor"
+    title_en: "Pension: social-security-calculated public AFP"
+    description: >-
+      Beregner AFP i offentlig sektor basert på folketrygdberegningen. Ett endepunkt, /foreta-folketrygdberegnet-afp.
+      Maskinporten-scope nav:pensjon/afpoffentlig.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/pensjon/afp-offentlig/foreta-folketrygdberegnet-afp"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/afpoffentlig/foretaFolketrygdberegnetAfp.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/afpoffentlig/apidocForetaFolketrygdberegnetAfp.yaml"
+    keywords: [afp, offentlig sektor, folketrygdberegning, avtalefestet pensjon]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:pensjon/afpoffentlig; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjon-gw.nav.no/pensjon/afp-offentlig/foreta-folketrygdberegnet-afp"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-tp-registeret
+    title: "TP-registeret: forhold mellom person og ordning"
+    title_en: "Occupational pension register: person-to-scheme relations"
+    description: >-
+      Lar tjenestepensjonsordninger registrere, hente og oppdatere forhold mellom person og ordning i TP-registeret,
+      og gir innsyn i registrerte forhold og ytelser. Egen scope for readAll. Maskinporten-scope
+      nav:pensjon/v1/tpregisteret.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/tjenestepensjon/hasForhold"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/tjenestepensjon/tjenestepensjon.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/tjenestepensjon/tpregisteret-api.yaml"
+    keywords: [tp-registeret, tjenestepensjon, pensjonsordning, forhold, occupational pension register]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:pensjon/v1/tpregisteret; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjon-gw.nav.no/tjenestepensjon/hasForhold"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-samordning-hendelser
+    title: "Pensjon: samordningspliktige hendelser"
+    title_en: "Pension: coordination event queues"
+    description: >-
+      Hendelseskøer med samordningspliktige vedtak fra Nav (AP, AFP, AAP, uføre, gjenlevende m.fl.), ytelser
+      registrert av tjenestepensjonsordninger og personendringer som sivilstand og adresse. Pollet med GET under
+      /samordning/hendelser. Maskinporten-scope nav:pensjon/v1/samordning.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/samordning/hendelser"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/samordning/hendelser-api.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/samordning/hendelser-api.yaml"
+    keywords: [samordning, hendelser, vedtak, tjenestepensjon, event queue, feed]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:pensjon/v1/samordning; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -H "Authorization: Bearer $TOKEN" "https://pensjon-gw.nav.no/samordning/hendelser"
+
+  - id: nav-pensjon-refusjonskrav
+    title: "Pensjon: refusjonskrav for samordningspliktige vedtak"
+    title_en: "Pension: refund claims for coordinated decisions"
+    description: >-
+      REST-tjeneste for refusjonskrav knyttet til samordningspliktige vedtak, med /api/refusjonskrav og en ping-rute.
+      Maskinporten-scope nav:pensjon/refusjonskrav. Egen vert, ikke pensjon-gw.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-refusjonskrav.nav.no/api/refusjonskrav"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/refusjonskrav/refusjonskrav.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/refusjonskrav/refusjonskrav.yaml"
+    keywords: [refusjonskrav, samordning, vedtak, tjenestepensjon, refund]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:pensjon/refusjonskrav; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjon-refusjonskrav.nav.no/api/refusjonskrav"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-afp-beholdningsgrunnlag
+    title: "AFP beholdningsgrunnlag"
+    title_en: "AFP accrued-rights basis"
+    description: >-
+      Beregner og simulerer AFP-beholdningsgrunnlag fra pensjonsopptjeningen. To endepunkter under
+      /opptjening/afp/beholdningsgrunnlag (beregn og simuler). Egen vert, pensjonopptjening-gw. Maskinporten-scope
+      nav:pensjonopptjening:ekstern.afp.beholdningsgrunnlag.beregn.read.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjonopptjening-gw.nav.no/opptjening/afp/beholdningsgrunnlag/beregn"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/afpgrunnlagbeholdning/afp-grunnlag-beholdning.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/afpgrunnlagbeholdning/afp-grunnlag-beholdning-api.yaml"
+    keywords: [afp, beholdningsgrunnlag, pensjonsopptjening, opptjening]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:pensjonopptjening:ekstern.afp.beholdningsgrunnlag.beregn.read; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @foresporsel.json "https://pensjonopptjening-gw.nav.no/opptjening/afp/beholdningsgrunnlag/beregn"   # forespørselsskjema i spesifikasjonen
+
+  - id: nav-pensjon-ytelsehistorikk
+    title: "Pensjon: ytelsehistorikk"
+    title_en: "Pension: benefit history"
+    description: >-
+      Returnerer informasjon om en brukers ytelse (ytelsehistorikk) fra Nav. Ett GET-endepunkt. Maskinporten-scope
+      nav:pensjon/v1/ytelsehistorikk.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://pensjon-gw.nav.no/pensjon/ytelsehistorikk"
+    docs_url: "https://navikt.github.io/pensjon-ekstern-api/api/ytelsehistorikk/ytelsehistorikk.html"
+    spec_url: "https://navikt.github.io/pensjon-ekstern-api/api/ytelsehistorikk/apidocYtelsehistorikk.yaml"
+    keywords: [ytelsehistorikk, pensjon, ytelser, benefit history]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-scope og avtale med Nav (søknad), ikke åpent for alle."
+      - "Dokumentasjonen beskriver test og produksjon; test bruker syntetiske personer fra Test-Norge."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:pensjon/v1/ytelsehistorikk; kontoen må være godkjent hos Nav
+      TOKEN="<access_token fra Maskinporten>"
+      curl -H "Authorization: Bearer $TOKEN" "https://pensjon-gw.nav.no/pensjon/ytelsehistorikk"
+
+  - id: nav-aareg-arbeidsforhold-api
+    title: "Aa-registeret: arbeidsforhold (GraphQL)"
+    title_en: "Employment register (Aa-registeret): employment relations GraphQL API"
+    description: >-
+      GraphQL-API for maskinell tilgang til arbeidsforhold i Aa-registeret: søk på opplysningspliktig, arbeidssted
+      og/eller arbeidstaker, filtrert på type, rapporteringsordning og status, med valgfri historikk for
+      ansettelsesdetaljer. Krever søknad til Nav, Maskinporten-scope nav:aareg/v1/arbeidsforhold og Altinn-
+      rettigheter. Testmiljøet er periodevis utilgjengelig.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://aareg-dist-api.nav.no/graphql"
+    docs_url: "https://navikt.github.io/aareg/tjenester/integrasjon/api/"
+    spec_url: "https://navikt.github.io/aareg/files/aareg-dist-api-v1.graphqls"
+    keywords: [aareg, aa-registeret, arbeidsforhold, arbeidstaker, ansettelse, employment register, graphql, a-ordningen]
+    tags: [maskinporten, agreement, graphql, personal-data]
+    caveats:
+      - "Krever avtale med Nav og Maskinporten, ikke åpent for alle."
+      - "Skjemaet er GraphQL (SDL-fil), ikke OpenAPI."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:aareg/v1/arbeidsforhold
+      curl -X POST https://aareg-dist-api.nav.no/graphql \
+        -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d '{"query":"{ finnArbeidsforhold(finnArbeidsforholdVariabler: {arbeidsstedId: \"<orgnr underenhet>\", arbeidsforholdtype: [ordinaertArbeidsforhold], rapporteringsordning: [A_ORDNINGEN], arbeidsforholdstatus: [AKTIV]}) { __typename } }"}'
+
+  - id: nav-aareg-otp-api
+    title: "Aa-registeret: OTP-API for pensjonsinnretninger"
+    title_en: "Employment register: OTP API for pension providers"
+    description: >-
+      GraphQL-API som gir pensjonsinnretninger tilgang til arbeidsforhold i Aa-registeret for obligatorisk
+      tjenestepensjon (OTP). Egen vert og eget scope (nav:aareg/v1/arbeidsforhold/otp), og tilgang forutsetter avtale
+      med Nav og søknad via skjema for OTP-dataelementer. Skiller seg fra det generelle Aa-registeret-APIet.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://aareg-otp-api.nav.no/graphql"
+    docs_url: "https://navikt.github.io/aareg/tjenester/integrasjon/otp-api/"
+    keywords: [aareg, otp, obligatorisk tjenestepensjon, pensjonsinnretning, arbeidsforhold, graphql, occupational pension]
+    tags: [maskinporten, agreement, graphql, personal-data]
+    caveats:
+      - "Krever avtale med Nav og Maskinporten, kun for pensjonsinnretninger."
+      - "Skjemaet er GraphQL, ikke OpenAPI."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:aareg/v1/arbeidsforhold/otp
+      curl -X POST https://aareg-otp-api.nav.no/graphql \
+        -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d @sporring.json   # GraphQL-spørring, se skjemaet i dokumentasjonen
+
+  - id: nav-dagpenger-datadeling
+    title: "Dagpenger datadeling: rettighetsperioder"
+    title_en: "Unemployment benefit data sharing: entitlement periods"
+    description: >-
+      Deler dagpengedata med eksterne systemer: rettighetsperioder for ordinære dagpenger, permittering og verneplikt.
+      Kallet er asynkront: POST oppretter en ressurs, og klienten henter resultatet til status er FERDIG. Eksterne
+      kall bruker Maskinporten-scope nav:dagpenger:afpprivat.read, i dag bare Fellesordningen for AFP.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://www.nav.no/dagpenger/datadeling/v1/periode"
+    docs_url: "https://navikt.github.io/dp-datadeling/openapi.html"
+    spec_url: "https://navikt.github.io/dp-datadeling/datadeling-api.yaml"
+    keywords: [dagpenger, rettighetsperiode, datadeling, afp, permittering, unemployment benefit]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten og at organisasjonen er registrert som konsument hos Nav."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:dagpenger:afpprivat.read
+      curl -X POST https://www.nav.no/dagpenger/datadeling/v1/periode \
+        -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d @foresporsel.json   # 201 med URL til ressursen
+      curl -H "Authorization: Bearer $TOKEN" "<URL fra Location/respons>"   # gjenta til status er FERDIG
+
+  - id: nav-sykepenger-api
+    title: "Sykepenger API for lønns- og personalsystemer"
+    title_en: "Sickness benefit API for payroll and HR systems"
+    description: >-
+      Lar lønns- og personalsystemer (LPS) hente sykmeldinger, sykepengesøknader, forespørsler om inntektsmelding og
+      innsendte inntektsmeldinger på vegne av en bedrift, og sende inn inntektsmelding. Filtrering på underenhet,
+      fødselsnummer og dato, maks 1000 treff per kall. Maskinporten-scope nav:helseytelser/sykepenger. Swagger-siden
+      er åpen, selve kallene krever token.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://sykepenger-api.nav.no/v1/sykmeldinger"
+    docs_url: "https://sykepenger-api.nav.no/swagger"
+    spec_url: "https://sykepenger-api.nav.no/swagger/documentation.yaml"
+    probe_url: "https://sykepenger-api.nav.no/swagger"
+    keywords: [sykepenger, sykmelding, sykepengesøknad, inntektsmelding, lps, lønnssystem, sick leave]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-token for virksomheten med riktig scope."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token med scope nav:helseytelser/sykepenger
+      curl -X POST https://sykepenger-api.nav.no/v1/sykmeldinger \
+        -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d @filter.json
+
+  - id: nav-oppfolgingsplan-lps
+    title: "Innsending av oppfølgingsplan (LPS)"
+    title_en: "Follow-up plan submission (LPS)"
+    description: >-
+      Lar lønns- og personalsystemer sende inn oppfølgingsplaner for sykmeldte til Nav og/eller den ansattes fastlege,
+      hente sendingsstatus og verifisere integrasjonen. Maskinporten, og delegering til databehandler støttes.
+      Swagger-siden er åpen.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://lps-oppfolgingsplan-mottak.nav.no/api/v1/followupplan"
+    docs_url: "https://lps-oppfolgingsplan-mottak.nav.no/swagger"
+    spec_url: "https://lps-oppfolgingsplan-mottak.nav.no/swagger/documentation.yaml"
+    probe_url: "https://lps-oppfolgingsplan-mottak.nav.no/swagger"
+    keywords: [oppfølgingsplan, sykmeldt, lps, fastlege, arbeidsgiver, follow-up plan]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever avtale med Nav og Maskinporten, ikke åpent for alle."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token for virksomheten
+      curl -X POST https://lps-oppfolgingsplan-mottak.nav.no/api/v1/followupplan \
+        -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d @oppfolgingsplan.json
+      curl -H "Authorization: Bearer $TOKEN" https://lps-oppfolgingsplan-mottak.nav.no/api/v1/followupplan/verify-integration
+
+  - id: nav-kontantstotte-barnehagelister
+    title: "Kontantstøtte: innsending av barnehagelister"
+    title_en: "Cash-for-care: kindergarten list submission"
+    description: >-
+      API for kommuner som sender inn månedlige barnehagelister til Nav for kontroll av kontantstøtte, og henter
+      status med valideringsfeil. Innsending før den 1. hver måned, frist den 10., maks 5 MB per kall. Maskinporten
+      med delegering, og bruksvilkår som PDF. Swagger er åpen.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - "https://familie-ks-barnehagelister.nav.no/api/kindergartenlists/v1"
+    docs_url: "https://familie-ks-barnehagelister.nav.no/swagger-ui/index.html"
+    spec_url: "https://familie-ks-barnehagelister.nav.no/v3/api-docs"
+    probe_url: "https://familie-ks-barnehagelister.nav.no/v3/api-docs"
+    keywords: [kontantstøtte, barnehage, barnehagelister, kommune, cash-for-care, kindergarten]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever Maskinporten-token og avtale med Nav, gjelder kommuner."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # Maskinporten-token (kan delegeres)
+      curl -X POST https://familie-ks-barnehagelister.nav.no/api/kindergartenlists/v1 \
+        -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d @barnehagelister.json
+      curl -H "Authorization: Bearer $TOKEN" https://familie-ks-barnehagelister.nav.no/api/kindergartenlists/status/<id>
+
+  - id: nav-arbeidsplassen-stillingssok
+    title: Stillingssøk på arbeidsplassen.nav.no (nettsidens søke-API)
+    title_en: Job ad search on arbeidsplassen.nav.no (the site's search API)
+    description: >-
+      JSON-endepunktet som stillingssøket på arbeidsplassen.nav.no kaller: fritekstsøk i åpne stillingsannonser og
+      svar i Elasticsearch-format med treff, antall og fasetter (fylke, bransje, omfang, ansettelsesform m.m.).
+      Fungerer uten nøkkel, men er ikke dokumentert. For videredistribusjon av annonser gjelder Navs vilkår for det
+      dokumenterte stillingsfeedet.
+    category: arbeid-og-velferd
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://arbeidsplassen.nav.no/stillinger/api/search
+    docs_url: https://arbeidsplassen.nav.no/stillinger
+    probe_url: https://arbeidsplassen.nav.no/stillinger/api/search?q=sykepleier&size=1
+    keywords: [stillinger, stillingsannonser, ledige stillinger, jobbsøk, arbeidsmarked, elasticsearch, job search]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Annonsetekster kan inneholde kontaktpersoner; bruk dem bare til det de er publisert for.
+      - Ingen lisens oppgitt. For gjenbruk og republisering, bruk det dokumenterte stillingsfeedet og dets vilkår.
+    behaviour: >-
+      Svarer anonymt med HTTP 200 og JSON i Elasticsearch-format. Dette er endepunktet nettsidens eget søkefelt kaller;
+      det er ikke dokumentert og kan endres uten varsel.
+    owner_terms: >-
+      Nav dokumenterer ikke dette endepunktet. For å hente og videredistribuere stillingsannonser peker Nav på det
+      dokumenterte stillingsfeedet, som har egne vilkår. Annonsetekster kan inneholde kontaktpersoner.
+    quick_start: |
+      curl "https://arbeidsplassen.nav.no/stillinger/api/search?q=sykepleier&size=5"

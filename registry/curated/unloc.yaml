@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: Unloc
+  sector: privat
+  orgnr: "919424508"
+apis:
+  - id: unloc-api
+    title: Unloc API (mobilnøkler og adgangsstyring)
+    title_en: Unloc API (mobile keys and access control)
+    description: >-
+      REST-API mot Unloc-plattformen for mobilnøkler: organisasjoner, prosjekter, låser, tilgangsgrupper, dørklokke, adgangslogg og
+      webhooks, uavhengig av låsprodusent. Autentisering er OAuth 2.0 Client Credentials mot api.unloc.app/v2/auth/token, med
+      scope organization.admin eller project.admin, og tokenet sendes som Bearer. Klientnøkler utstedes av Unloc.
+    category: annet
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.unloc.app/v2/
+    docs_url: https://developer.unloc.app/
+    keywords: [unloc, mobilnøkkel, lås, adgangskontroll, dørlås, tilgangsstyring, smartlås, access control]
+    tags: [oauth2, registration, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever klient-ID og hemmelighet fra Unloc.
+    quick_start: |
+      curl -X POST "https://api.unloc.app/v2/auth/token/" -H "Content-Type: application/json" \
+        -d '{"grant_type":"client_credentials","client_id":"'$CLIENT_ID'","client_secret":"'$CLIENT_SECRET'","scope":"project.admin","project_id":"'$PROJECT_ID'"}'

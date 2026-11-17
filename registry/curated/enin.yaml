@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: Enin
+  sector: privat
+apis:
+  - id: enin-analysis-api
+    title: Enin Analysis API (selskapsdata og screening)
+    title_en: Enin Analysis API (company data and screening)
+    description: >-
+      Analyser og rådata om selskaper, roller og eiere, med PEP- og sanksjonsscreening og overvåkingslister. Egen
+      Dataset API gir bulknedlasting. Swagger-dokumentasjonen krever innlogging, og API-et svarer 401 med Basic-
+      utfordring uten brukernavn og passord.
+    category: bedrift-og-organisasjon
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.enin.ai/analysis/v1/
+    docs_url: https://api.enin.ai/
+    probe_url: https://api.enin.ai/analysis/v1/company
+    keywords: [enin, selskapsdata, pep, sanksjon, screening, kyc, aml, eierskap]
+    tags: [private-provider, agreement]
+    caveats:
+      - Krever kundeforhold med Enin; auth er HTTP Basic med kontoopplysninger (utleverte av Enin).
+      - Endepunktsstiene er ikke bekreftet utover base-URL; OpenAPI-filen ligger bak innlogging.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://api.enin.ai/analysis/v1/company" -u "<bruker>:<passord>"

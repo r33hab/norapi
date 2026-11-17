@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Ardoq
+  sector: privat
+  orgnr: "912017818"
+apis:
+  - id: ardoq-api-v2
+    title: Ardoq API v2 (enterprise architecture)
+    title_en: Ardoq API v2 (enterprise architecture)
+    description: >-
+      REST-API mot Ardoq, norsk verktøy for virksomhetsarkitektur: arbeidsområder, komponenter, referanser, vedlegg,
+      rapporter og et batch-API. Alle kall bruker Bearer-token generert i Ardoq-appen, pluss headeren X-org med
+      organisasjonens label når du ikke bruker eget domene. Vert er kundens egen Ardoq-adresse (for eksempel app.ardoq.com),
+      og Swagger 2.0-spesifikasjoner er publisert på utviklerportalen.
+    category: annet
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://app.ardoq.com/api/v2/
+    docs_url: https://developer.ardoq.com/
+    probe_url: https://app.ardoq.com/api/v2/workspaces
+    keywords: [ardoq, enterprise architecture, virksomhetsarkitektur, komponenter, workspaces, batch, arkitektur]
+    tags: [registration, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever Ardoq-konto og API-token fra appen.
+    quick_start: |
+      curl -H "Authorization: Bearer $ARDOQ_API_TOKEN" -H "X-org: $ORG_LABEL" "https://app.ardoq.com/api/v2/workspaces"

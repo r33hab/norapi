@@ -1,0 +1,30 @@
+updated: 2026-11-16
+provider:
+  name: Øystre Slidre kommune
+  orgnr: "961382068"
+  sector: kommune
+apis:
+  - id: oystre-slidre-kommune-agol
+    title: Øystre Slidre kommunes kartdata på ArcGIS Online (REST)
+    title_en: Øystre Slidre municipality map data on ArcGIS Online (REST)
+    description: >-
+      Øystre Slidre kommunes åpne tjenestekatalog på ArcGIS Online med 50 publiserte tjenester, blant annet skiløyper, omdisponert LNFR-areal, dialektnavn og forslag til kommuneplanens arealdel. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er et arbeidsområde, så lag kommer og går og innholdet varierer i kvalitet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services-eu1.arcgis.com/4ATr2KFvBpGckIoX/arcgis/rest/services
+    docs_url: https://services-eu1.arcgis.com/4ATr2KFvBpGckIoX/arcgis/rest/services
+    probe_url: https://services-eu1.arcgis.com/4ATr2KFvBpGckIoX/arcgis/rest/services?f=json
+    keywords: [øystre slidre, kommune, kart, arcgis, arcgis online, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Katalogen er et arbeidsområde der lag kommer og går, og noen lag er under arbeid eller test.
+      - Noen lag kan inneholde innspill fra innbyggere, så sjekk laget før du bruker det.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services-eu1.arcgis.com/4ATr2KFvBpGckIoX/arcgis/rest/services?f=json"
+      # antall objekter i ett lag
+      curl "https://services-eu1.arcgis.com/4ATr2KFvBpGckIoX/arcgis/rest/services/Sykkelsti_osk/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json"

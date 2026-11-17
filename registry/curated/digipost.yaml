@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Digipost
+  sector: privat
+apis:
+  - id: digipost-api
+    title: "Digipost API (digital post og innboks)"
+    title_en: "Digipost API (digital mail and inbox)"
+    description: >-
+      REST/XML-API for å sende digital post til Digipost-brukere, hente innboks, dokumenter og identifisere
+      mottakere, med fysisk post som fall-back. Krever virksomhetssertifikat og avtale, og klientbibliotek finnes
+      for Java og .NET. Det finnes egne varianter for helsesektoren via Norsk Helsenett.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: oauth2
+    formats: [XML]
+    endpoints:
+      - https://api.digipost.no
+      - https://api.test.digipost.no
+    docs_url: https://digipost.github.io/digipost-technical-docs/api/
+    keywords: [digipost, digital post, innboks, sending, virksomhetssertifikat, digital mail]
+    tags: [private-provider, agreement]
+    caveats:
+      - "Krever virksomhetssertifikat og avtale med Digipost."
+      - "Svarformatet er XML (vendor-spesifikt), ikke JSON."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # se klientbibliotekene (Java/.NET) for signering med virksomhetssertifikat
+      # eksempelkall: GET https://api.digipost.no/ med Accept: application/vnd.digipost-v8+xml

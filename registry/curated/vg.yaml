@@ -1,0 +1,24 @@
+updated: 2026-11-16
+provider:
+  name: VG
+  sector: privat
+apis:
+  - id: vg-rss
+    title: VGs RSS-strøm (siste nytt)
+    title_en: VG latest news RSS feed
+    description: >-
+      Åpen RSS-strøm med siste nyheter fra VG: tittel, ingress, lenke og bilde for rundt førti saker, uten nøkkel. Det finnes ikke dokumentasjon utover selve adressen.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://www.vg.no/rss/feed
+    docs_url: https://www.vg.no/rss/feed
+    probe_url: https://www.vg.no/rss/feed
+    keywords: [rss, nyheter, nyhetsstrøm, vg, news feed]
+    tags: [no-auth, feed, private-provider]
+    caveats:
+      - Ingen lisens oppgitt; sjekk utgiverens vilkår før videre bruk av innholdet.
+    quick_start: |
+      curl "https://www.vg.no/rss/feed"

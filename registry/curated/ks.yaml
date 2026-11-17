@@ -1,0 +1,32 @@
+updated: 2026-11-16
+provider:
+  name: KS (Kommunesektorens organisasjon)
+  orgnr: "971032146"
+  sector: privat
+apis:
+  - id: ks-statistikk-web-api
+    title: KS statistikk web-API (kommunedata)
+    title_en: KS statistics web API (municipal data)
+    description: >-
+      Web-API bak KS' statistikktjeneste for kommunesektoren, med Swagger-dokumentasjon i versjon 1 og 2. V1 gir blant
+      annet listen over gyldige måltall og regioninfo, v2 gir tall per måltall, region og år i JSON-stat-format og
+      navigasjon over måltall og regioner. V2-kallene krever parametrene Catalog og Cube, og navnene på dem er ikke
+      oppgitt i dokumentasjonen.
+    category: statistikk
+    access: open
+    auth: none
+    formats: [JSON, JSON-stat]
+    endpoints:
+      - https://statistikk.ks.no/api/ConnectionInfo/Validmeasures
+      - https://statistikk.ks.no/api/v2/data/measure-region-year
+    docs_url: https://statistikk.ks.no/index.html
+    spec_url: https://statistikk.ks.no/swagger/v2/swagger.json
+    probe_url: https://statistikk.ks.no/api/ConnectionInfo/Validmeasures
+    keywords: [KS, kommunesektoren, kommunedata, måltall, nøkkeltall, JSON-stat, municipal statistics]
+    tags: [no-auth, private-provider]
+    caveats:
+      - Catalog og Cube for v2-kall er ikke dokumentert; gjetting av Catalog ga HTTP 500.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://statistikk.ks.no/api/ConnectionInfo/Validmeasures"
+      curl "https://statistikk.ks.no/swagger/v2/swagger.json"

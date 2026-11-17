@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Norsk Tipping
+  orgnr: "925836613"
+  sector: statlig-selskap
+apis:
+  - id: norsk-tipping-spillresultater
+    title: "Spillresultater (LotteryGameInfo, utrekninger og premier)"
+    title_en: "Game results (LotteryGameInfo, draws and prizes)"
+    description: >-
+      JSON med trekninger og premiefordeling for Norsk Tippings lotterispill, hentet per spill og datoperiode, som
+      det samme API-et nettsidens resultatvisning bruker. Fungerer uten innlogging for blant annet Vikinglotto og
+      Lotto. Ikke alle spill svarer med samme parametere.
+    category: annet
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.norsk-tipping.no/LotteryGameInfo/v2/api/results
+    docs_url: https://www.norsk-tipping.no/lotteri/vikinglotto/resultater
+    probe_url: https://api.norsk-tipping.no/LotteryGameInfo/v2/api/results/vikinglotto?fromDate=2026-11-01&toDate=2026-11-17
+    keywords: [norsk tipping, lotto, vikinglotto, trekning, resultater, premier, lottery results]
+    tags: [no-auth, undocumented]
+    caveats:
+      - "Ikke dokumentert av eieren, og kan endres uten forvarsel."
+      - "Eurojackpot og Joker svarte 400 på samme parametere; spillnavn og parametere varierer."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      curl "https://api.norsk-tipping.no/LotteryGameInfo/v2/api/results/vikinglotto?fromDate=2026-11-01&toDate=2026-11-17"

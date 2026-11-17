@@ -1,4 +1,4 @@
-updated: 2026-10-21
+updated: 2026-11-16
 provider:
   name: Universitetet i Bergen
   orgnr: "874789542"
@@ -27,3 +27,48 @@ apis:
       - Jordskjelvkatalogen (FDSN event) finnes ikke her.
     quick_start: |
       curl "https://eida.geo.uib.no/fdsnws/station/1/query?network=NS&level=station&format=text"
+
+  - id: uib-boap-oai
+    title: Bergen Open Access Publishing (OAI-PMH)
+    title_en: Bergen Open Access Publishing at UiB (OAI-PMH)
+    description: >-
+      OAI-PMH-endepunkt for BOAP, UiBs åpne tidsskriftsplattform (Open Journal Systems). Høsting av metadata for
+      artikler og hefter fra tidsskrifter utgitt ved og i samarbeid med Universitetet i Bergen, uten nøkkel.
+      ListSets viser tidsskriftene, og ListRecords med metadataPrefix=oai_dc gir postene.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://boap.uib.no/index.php/index/oai
+    docs_url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+    probe_url: https://boap.uib.no/index.php/index/oai?verb=Identify
+    keywords: [oai-pmh, tidsskrift, artikler, åpen tilgang, open access, ojs, høsting, uib, harvesting]
+    tags: [no-auth, feed]
+    caveats:
+      - Ingen lisens oppgitt; lisensen følger det enkelte tidsskriftet og artikkelen.
+    quick_start: |
+      curl "https://boap.uib.no/index.php/index/oai?verb=Identify"
+      curl "https://boap.uib.no/index.php/index/oai?verb=ListSets"
+
+  - id: uib-clarino-repository-oai
+    title: CLARINO Bergen-arkivet (OAI-PMH, språkressurser)
+    title_en: CLARINO Bergen repository (OAI-PMH, language resources)
+    description: >-
+      OAI-PMH-endepunkt for CLARINO-arkivet ved UiB, som samler norske språkressurser som korpus, leksikon og
+      språkmodeller. Standardverbene Identify, ListSets, ListMetadataFormats og ListRecords svarer uten nøkkel, og
+      metadata kan høstes i oai_dc. Ressursene selv har egne lisenser.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://repo.clarino.uib.no/oai/request
+    docs_url: https://repo.clarino.uib.no/
+    probe_url: https://repo.clarino.uib.no/oai/request?verb=Identify
+    keywords: [clarino, clarin, språkressurser, korpus, oai-pmh, språkteknologi, norsk, language resources]
+    tags: [no-auth, feed]
+    caveats:
+      - Ingen lisens oppgitt for selve metadataene.
+    quick_start: |
+      curl "https://repo.clarino.uib.no/oai/request?verb=Identify"

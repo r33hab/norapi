@@ -1,0 +1,54 @@
+updated: 2026-11-16
+provider:
+  name: LINK Mobility
+  sector: privat
+  orgnr: "992434643"
+apis:
+  - id: link-mobility-mylink-sms-api
+    title: LINK Mobility MyLINK SMS API
+    title_en: LINK Mobility MyLINK SMS API
+    description: >-
+      REST-API for å sende og planlegge SMS via LINK Mobility sin MyLINK-plattform (Oslo-baserte LINK Mobility). Autentisering er
+      OAuth 2.0 Client Credentials mot sso.linkmobility.com, med klient-ID og hemmelighet som en administrator oppretter i
+      MyLINK-portalen. OpenAPI-filen er åpen. Husk avsender-ID-reglene i dokumentasjonen.
+    category: annet
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.linkmobility.com/sms/v1/
+    docs_url: https://docs.linkmobility.com/api-reference/mylink-sms-api
+    spec_url: https://docs.linkmobility.com/api/specs/file/MyLINK-SMS-API-1.json
+    probe_url: https://api.linkmobility.com/sms/v1/schedules
+    keywords: [link mobility, sms, tekstmelding, mylink, meldinger, messaging, avsender-id]
+    tags: [oauth2, registration, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever MyLINK-konto med SMS API-produkt og egne API-legitimasjoner.
+    quick_start: |
+      curl -X POST "https://sso.linkmobility.com/auth/realms/CPaaS/protocol/openid-connect/token" \
+        -d "grant_type=client_credentials&client_id=$CLIENT_ID&client_secret=$CLIENT_SECRET"
+      curl -H "Authorization: Bearer $TOKEN" "https://api.linkmobility.com/sms/v1/schedules"
+  - id: link-mobility-mylink-email-api
+    title: LINK Mobility MyLINK Email API
+    title_en: LINK Mobility MyLINK Email API
+    description: >-
+      REST-API for transaksjons-e-post via LINK Mobility sin MyLINK-plattform: send meldinger og administrer og verifiser
+      avsenderdomener. Bruker samme OAuth 2.0 Client Credentials mot sso.linkmobility.com som SMS-API-et, men med egen vert
+      (mail.linkmobility.com). OpenAPI-filen er åpen.
+    category: annet
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://mail.linkmobility.com/email/v1/
+    docs_url: https://docs.linkmobility.com/api-reference/mylink-email-api
+    spec_url: https://docs.linkmobility.com/api/specs/file/MyLINK-Email-API-1.json
+    probe_url: https://mail.linkmobility.com/email/v1/domains
+    keywords: [link mobility, e-post, email, mylink, transaksjonsmail, domener, messaging]
+    tags: [oauth2, registration, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever MyLINK-konto med Email API-produkt og egne API-legitimasjoner.
+    quick_start: |
+      curl -H "Authorization: Bearer $TOKEN" "https://mail.linkmobility.com/email/v1/domains"

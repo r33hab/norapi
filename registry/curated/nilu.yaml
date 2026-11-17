@@ -1,4 +1,4 @@
-updated: 2026-10-21
+updated: 2026-11-16
 provider:
   name: NILU
   orgnr: "941705561"
@@ -23,3 +23,27 @@ apis:
       - Datakallene krever brukernavn og passord (HTTP Basic) og svarer 401 uten.
       - Oppslagstjenestene under /lookup er avviklet og svarer 410.
       - Åpne luftmålinger uten innlogging finnes i Miljødirektoratets luftkvalitet-API (miljodir-luftkvalitet).
+
+  - id: nilu-thredds
+    title: NILU THREDDS (EBAS, ACTRIS og FLEXPART)
+    title_en: NILU THREDDS (EBAS, ACTRIS and FLEXPART)
+    description: >-
+      THREDDS-server hos NILU med atmosfæredata i NetCDF: EBAS-målinger av luft og nedbør fra stasjoner i Europa og
+      Arktis, ACTRIS-data i nær sanntid og FLEXPART-spredningsberegninger. Katalogen er åpen, og filene kan hentes
+      over OPeNDAP eller HTTP uten nøkkel. Katalogen Protected krever tilgang.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [XML, NetCDF]
+    endpoints:
+      - https://thredds.nilu.no/thredds/
+    docs_url: https://ebas-data.nilu.no/
+    probe_url: https://thredds.nilu.no/thredds/catalog/catalog.xml
+    keywords: [nilu, ebas, actris, flexpart, thredds, opendap, atmosfære, luftkjemi, netcdf, air quality]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Katalogen Protected er ikke åpen.
+      - Datasettene er ikke bare fra Norge, EBAS dekker stasjoner i hele Europa og Arktis.
+    quick_start: |
+      curl "https://thredds.nilu.no/thredds/catalog/catalog.xml"

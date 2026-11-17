@@ -1,0 +1,31 @@
+updated: 2026-11-16
+provider:
+  name: Sivilombudet
+  orgnr: "974761270"
+  sector: stat
+apis:
+  - id: sivilombudet-wp-api
+    title: Sivilombudet.no (innholds-API for uttalelser og besøksrapporter)
+    title_en: Parliamentary Ombud website content API (opinions and visit reports)
+    description: >-
+      WordPress REST-API på sivilombudet.no med nyheter og to egne innholdstyper: uttalelser i klagesaker og rapporter
+      fra besøk til steder der folk er fratatt friheten. Åpent uten nøkkel, men ikke dokumentert av eieren.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.sivilombudet.no/wp-json/wp/v2
+    docs_url: https://developer.wordpress.org/rest-api/reference/
+    probe_url: https://www.sivilombudet.no/wp-json/wp/v2/posts?per_page=1
+    keywords: [sivilombudet, ombud, uttalelser, besøksrapporter, forvaltning, klagesaker, ombudsman, wordpress]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Uttalelser er publisert av eieren, men bruk dem med omtanke; de kan omtale enkeltsaker.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # siste nyheter
+      curl "https://www.sivilombudet.no/wp-json/wp/v2/posts?per_page=5&_fields=id,date,link,title"
+      # uttalelser
+      curl "https://www.sivilombudet.no/wp-json/wp/v2/uttalelser?per_page=5&_fields=id,date,link,title"

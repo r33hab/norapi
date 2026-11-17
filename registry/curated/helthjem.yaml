@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Helthjem
+  sector: privat
+apis:
+  - id: helthjem-parcel-api
+    title: Helthjem API (pakkelevering, booking og sporing)
+    title_en: Helthjem API (parcel delivery, booking and tracking)
+    description: >-
+      Sjekker dekning for en adresse, finner hentesteder og pakkebokser, booker pakker, lager etiketter og sporer
+      leveranser hos Helthjem. OAuth2 client credentials mot /auth/oauth2/v1/token, med egne nøkler for pre-prod
+      (api.pre.helthjem.no) og produksjon. Krever kundeforhold; nøkler utleveres av Helthjems integrasjonsteam.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.helthjem.no/parcels/v1/bookings
+    docs_url: https://developer.helthjem.no/
+    keywords: [helthjem, pakke, levering, booking, etikett, sporing, hentested, pakkeboks]
+    tags: [private-provider, oauth2, agreement]
+    caveats:
+      - Du må være Helthjem-kunde for å få nøkler.
+      - Test mot pre-prod (api.pre.helthjem.no) før produksjon.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl -X POST "https://api.pre.helthjem.no/auth/oauth2/v1/token" -H "Content-Type: application/json" \
+        -d '{"client_id":"<id>","client_secret":"<secret>","grant_type":"client_credentials"}'
+      curl "https://api.pre.helthjem.no/parcels/v1/tracking/fetch/<parcelId>/EN/false" -H "Authorization: Bearer $TOKEN"

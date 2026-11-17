@@ -1,4 +1,4 @@
-updated: 2026-10-21
+updated: 2026-11-16
 provider:
   name: Meteorologisk institutt
   orgnr: "971274042"
@@ -101,3 +101,73 @@ apis:
       - MET kaller tjenesten «work in progress» og garanterer ikke at den alltid oppfører seg som dokumentert.
     quick_start: |
       curl "https://havvarsel-frost.met.no/api/v1/obs/badevann/get"
+
+  - id: met-senda-csw
+    title: S-ENDA metadatakatalog (CSW)
+    title_en: S-ENDA metadata catalogue (CSW)
+    description: >-
+      OGC CSW-katalog (pycsw) med metadata om norske meteorologiske, hav- og klimadatasett fra MET og partnere, i
+      ISO 19115- og Dublin Core-format. Åpen uten innlogging; brukes til å finne datasett og lenker til
+      nedlastings- og visningstjenester.
+    category: vaer-og-klima
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://csw.s-enda.k8s.met.no/
+    docs_url: https://csw.s-enda.k8s.met.no/?service=CSW&version=2.0.2&request=GetCapabilities
+    probe_url: https://csw.s-enda.k8s.met.no/?service=CSW&version=2.0.2&request=GetCapabilities
+    keywords: [csw, metadata, katalog, s-enda, iso 19115, meteorologi, datasett, pycsw]
+    tags: [no-auth, reference-data]
+    caveats:
+      - Ingen lisens oppgitt for selve katalogen.
+    quick_start: |
+      curl "https://csw.s-enda.k8s.met.no/?service=CSW&version=2.0.2&request=GetCapabilities"
+
+  - id: met-nbs-satellittdata-csw
+    title: Nasjonalt bakkesegment for satellittdata (CSW-katalog)
+    title_en: Norwegian National Ground Segment for Satellite Data (CSW catalogue)
+    description: >-
+      OGC CSW 2.0.2 og 3.0.0-katalog over Sentinel-data i det norske nasjonale bakkesegmentet, drevet av MET. Gir
+      metadata og nedlastingslenker for satellittscener over norske områder. Katalogen er åpen, men selve
+      dataproduktene kan kreve innlogging hos bakkesegmentet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://nbs.csw.met.no/
+    docs_url: https://www.satellittdata.no/
+    probe_url: https://nbs.csw.met.no/?service=CSW&version=2.0.2&request=GetCapabilities
+    keywords: [satellitt, sentinel, csw, metadata, jordobservasjon, bakkesegment, copernicus, earth observation]
+    tags: [no-auth, reference-data]
+    caveats:
+      - Nedlasting av selve dataproduktene kan kreve innlogging.
+      - Ingen lisens oppgitt for selve katalogen.
+    quick_start: |
+      curl "https://nbs.csw.met.no/?service=CSW&version=2.0.2&request=GetCapabilities"
+
+  - id: met-nbs-stac-test
+    title: Nasjonalt bakkesegment for satellittdata (STAC, testtjeneste)
+    title_en: Norwegian National Ground Segment for Satellite Data (STAC, test service)
+    description: >-
+      STAC 1.0.0 og OGC API Records (OARec) på pycsw for Sentinel-scener i det norske bakkesegmentet, i tillegg til
+      CSW, OpenSearch og OAI-PMH. Testtjeneste med bare de siste ukene av Sentinel-data fra 2026, og uten garanti
+      for tilgjengelighet. En STAC-nettleser finnes på stac-browser.wps.met.no.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://test-nbs.csw.met.no/stac
+    docs_url: https://www.satellittdata.no/en/node/1157
+    spec_url: https://test-nbs.csw.met.no/openapi?f=json
+    probe_url: https://test-nbs.csw.met.no/stac
+    keywords: [stac, satellitt, sentinel, ogc api records, jordobservasjon, bakkesegment, earth observation]
+    tags: [no-auth]
+    caveats:
+      - Testtjeneste uten leveringsgaranti; ikke hele katalogen.
+      - Eldre dataprodukter kan ha utdaterte nedlastingslenker.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://test-nbs.csw.met.no/stac/search?limit=1"

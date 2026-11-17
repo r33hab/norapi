@@ -1,4 +1,4 @@
-updated: 2026-11-10
+updated: 2026-11-16
 provider:
   name: Bergen kommune
   orgnr: "964338531"
@@ -29,3 +29,28 @@ apis:
       curl "https://kart.bergen.kommune.no/arcgis/rest/services?f=json"
       # badeplassene som GeoJSON
       curl "https://kart.bergen.kommune.no/arcgis/rest/services/Bymiljoetaten/Badeplasser_i_Bergen/MapServer/0/query?where=1%3D1&outFields=*&f=geojson"
+
+  - id: bergen-kommune-agol
+    title: Bergen kommunes kartdata på ArcGIS Online (REST)
+    title_en: Bergen municipality map data on ArcGIS Online (REST)
+    description: >-
+      Bergen kommunes åpne tjenestekatalog på ArcGIS Online, med omtrent 554 publiserte kartlag, blant annet sykkelnett, strandsone, arealplaner under arbeid, plangrenser og områdeplaner. Hvert lag
+      kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er kommunens arbeidsområde, så lag
+      kommer og går og innholdet varierer i kvalitet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services1.arcgis.com/pCNieVwmAdVi1Tec/arcgis/rest/services
+    docs_url: https://services1.arcgis.com/pCNieVwmAdVi1Tec/arcgis/rest/services
+    probe_url: https://services1.arcgis.com/pCNieVwmAdVi1Tec/arcgis/rest/services?f=json
+    keywords: [kommune, kart, arcgis, arcgis online, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Laglisten er kommunens arbeidskart og endres uten varsel; noen lag er under arbeid eller test.
+      - Noen lag kan inneholde innspill fra innbyggere eller andre persondata, så sjekk laget før du bruker det.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services1.arcgis.com/pCNieVwmAdVi1Tec/arcgis/rest/services?f=json"

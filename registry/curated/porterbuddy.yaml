@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: Porterbuddy
+  sector: privat
+apis:
+  - id: porterbuddy-api
+    title: Porterbuddy API (levering samme dag)
+    title_en: Porterbuddy delivery API
+    description: >-
+      Norsk budtjeneste for levering samme dag og med tidsvindu: sjekk tilgjengelige leveringsvinduer for en adresse,
+      opprett bestillinger, hent etiketter og status, og motta webhooks. Autentisering er API-nøkkel i headeren
+      x-api-key, og bestillinger krever også Idempotency-Key. Testmiljøet ligger på api.porterbuddy-test.com.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.porterbuddy.com
+    docs_url: https://developer.porterbuddy.com/
+    probe_url: https://api.porterbuddy.com/availability
+    keywords: [porterbuddy, levering, samme dag, bud, frakt, nettbutikk, delivery]
+    tags: [registration, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever kundeforhold; nøkkel hentes i partnerportalen etter invitasjon.
+    quick_start: |
+      curl -X POST -H "x-api-key: $PORTERBUDDY_KEY" -H "Content-Type: application/json" \
+        -d '<forespørsel som beskrevet i dokumentasjonen>' "https://api.porterbuddy.com/availability"

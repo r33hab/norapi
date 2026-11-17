@@ -1,0 +1,32 @@
+updated: 2026-11-16
+provider:
+  name: Statens arbeidsmiljøinstitutt (STAMI)
+  orgnr: "874761222"
+  sector: stat
+apis:
+  - id: stami-wp-api
+    title: STAMI.no (innholds-API for publikasjoner, prosjekter og nyheter)
+    title_en: STAMI website content API (publications, projects, news)
+    description: >-
+      WordPress REST-API på stami.no med nyheter, publikasjoner, prosjekter, fagemner, kurs, magasin og web-tv som
+      JSON. Åpent uten nøkkel, men ikke dokumentert av eieren. Typene «employee» og «contact» finnes også; ikke bruk
+      dem til å kartlegge enkeltpersoner. Robots.txt oppgir Crawl-delay 10 sekunder.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.stami.no/wp-json/wp/v2
+    docs_url: https://developer.wordpress.org/rest-api/reference/
+    probe_url: https://www.stami.no/wp-json/wp/v2/posts?per_page=1
+    keywords: [stami, arbeidsmiljø, forskning, publikasjoner, prosjekter, helse og arbeid, occupational health, wordpress]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Respekter Crawl-delay på 10 sekunder fra robots.txt.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # siste nyheter
+      curl "https://www.stami.no/wp-json/wp/v2/posts?per_page=5&_fields=id,date,link,title"
+      # publikasjoner
+      curl "https://www.stami.no/wp-json/wp/v2/publication?per_page=5&_fields=id,date,link,title"

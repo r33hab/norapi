@@ -1,4 +1,4 @@
-updated: 2026-10-21
+updated: 2026-11-16
 provider:
   name: NRK
   orgnr: "976390512"
@@ -27,3 +27,26 @@ apis:
       - Innhold og metadata er beskyttet av opphavsrett og skal merkes med NRK som kilde.
     quick_start: |
       curl "https://psapi.nrk.no/radio/search/search?q=norge&pageSize=2"
+
+  - id: nrk-rss
+    title: NRK RSS-strømmer
+    title_en: NRK RSS feeds
+    description: >-
+      Åpne RSS-strømmer fra nrk.no: toppsaker, siste nytt og egne strømmer per tema (sport, kultur, Urix, Viten, Sápmi)
+      og per distrikt, for eksempel /toppsaker.rss og /nyheter/siste.rss. Ingen nøkkel. Oversikten over strømmer
+      ligger på nrk.no/rss.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://www.nrk.no/toppsaker.rss
+    docs_url: https://www.nrk.no/rss/
+    probe_url: https://www.nrk.no/toppsaker.rss
+    keywords: [rss, nyheter, nrk, nyhetsstrøm, toppsaker, news feed]
+    tags: [no-auth, feed]
+    caveats:
+      - Ingen lisens oppgitt; sjekk NRKs vilkår før videre bruk av innholdet.
+    quick_start: |
+      curl "https://www.nrk.no/toppsaker.rss"
+      curl "https://www.nrk.no/nyheter/siste.rss"

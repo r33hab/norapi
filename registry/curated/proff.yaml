@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: Proff
+  sector: privat
+apis:
+  - id: proff-api
+    title: Proff API (firma- og regnskapsdata)
+    title_en: Proff company data API
+    description: >-
+      REST-API fra Proff.no med firmaoppslag, nøkkeltall, regnskap, roller og kontaktdata for norske selskaper,
+      bygget på åpne registre og Proffs egne data. Swagger-dokumentasjonen er åpen, men kall krever avtale og
+      API-nøkkel fra Proff.
+    category: bedrift-og-organisasjon
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.proff.no
+    docs_url: https://api.proff.no/swagger
+    keywords: [proff, firma, regnskap, nøkkeltall, kredittinformasjon, roller, company data]
+    tags: [agreement, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Endepunktene svarer 401 uten nøkkel; hvordan nøkkelen sendes står i Swagger-dokumentasjonen etter innlogging.
+    quick_start: |
+      # se https://api.proff.no/swagger for rute og nøkkelheader
+      curl -H "<nøkkelheader fra Swagger>: $PROFF_API_KEY" "https://api.proff.no/<rute fra Swagger>"

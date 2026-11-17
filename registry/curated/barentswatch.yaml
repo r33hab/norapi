@@ -1,0 +1,209 @@
+updated: 2026-11-16
+provider:
+  name: BarentsWatch
+  sector: stat
+apis:
+  - id: barentswatch-ais-live
+    title: "AIS Live (sanntids skipstrafikk)"
+    title_en: "AIS Live (real-time ship traffic)"
+    description: >-
+      Åpne AIS-data fra Kystverket for norsk økonomisk sone, Svalbard og Jan Mayen, som posisjoner og
+      skipsinformasjon, også som strøm. Fiskefartøy under 15 meter og fritidsbåter under 45 meter er utelatt. Du må
+      registrere bruker og API-klient på barentswatch.no og hente token fra id.barentswatch.no.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://live.ais.barentswatch.no
+    docs_url: https://developer.barentswatch.no/docs/AIS/live-ais-api
+    keywords: [ais, skip, fartøy, posisjon, kystverket, sanntid, vessel tracking]
+    tags: [oauth2, registration]
+    caveats:
+      - "Krever bruker på barentswatch.no og en selvregistrert API-klient; tokenet hentes med client credentials."
+      - "Åpne data har geografiske og størrelsesmessige begrensninger."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) token (klient opprettes under Min side på barentswatch.no)
+      curl -s -X POST https://id.barentswatch.no/connect/token -H 'Content-Type: application/x-www-form-urlencoded' \
+        --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" \
+        --data-urlencode "scope=ais" --data-urlencode "grant_type=client_credentials"
+      # 2) kall API-et med Authorization: Bearer <token>
+      curl -H "Authorization: Bearer $TOKEN" https://live.ais.barentswatch.no/v1/latest/combined
+  - id: barentswatch-ais-historic
+    title: "AIS Historisk"
+    title_en: "AIS Historic"
+    description: >-
+      Historiske AIS-posisjoner fra de samme åpne Kystverket-dataene som Live-API-et, men med dataene lagret over
+      tid. Samme begrensninger på fartøystyper og område gjelder, og dokumentasjonen oppgir at åpne data ikke er
+      eldre enn 14 dager. Registrering og token som for øvrige BarentsWatch-API-er.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://historic.ais.barentswatch.no
+    docs_url: https://developer.barentswatch.no/docs/AIS/historic-ais-api
+    keywords: [ais, historiske data, skip, fartøy, kystverket, vessel tracking]
+    tags: [oauth2, registration]
+    caveats:
+      - "Krever bruker på barentswatch.no og en selvregistrert API-klient; tokenet hentes med client credentials."
+      - "Dokumentasjonen nevner at åpne data ikke er eldre enn 14 dager; sjekk gjeldende begrensning."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) token (klient opprettes under Min side på barentswatch.no)
+      curl -s -X POST https://id.barentswatch.no/connect/token -H 'Content-Type: application/x-www-form-urlencoded' \
+        --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" \
+        --data-urlencode "scope=ais" --data-urlencode "grant_type=client_credentials"
+      # 2) kall API-et med Authorization: Bearer <token>
+      curl -H "Authorization: Bearer $TOKEN" https://historic.ais.barentswatch.no/index.html
+  - id: barentswatch-fishhealth
+    title: "Fiskehelse API"
+    title_en: "Fish Health API"
+    description: >-
+      Fiskehelsedata for akvakulturlokaliteter: lakselus, sykdommer og tiltak, rapportert til Mattilsynet. Dataene
+      er rådata fra oppdrettere og ikke manuelt kontrollert. Det meste er NLOD, men skipsinformasjon under
+      v1/shipinfo har kommersiell lisens. Det finnes også WFS og WMS på geoserver.barentswatch.no.
+    category: natur-og-miljo
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://www.barentswatch.no/bwapi/openapi/index.html?urls.primaryName=Fishhealth%20API
+    docs_url: https://developer.barentswatch.no/docs/fishhealth
+    license: "NLOD 2.0"
+    keywords: [fiskehelse, lakselus, akvakultur, oppdrett, sykdom, mattilsynet, fish health]
+    tags: [oauth2, registration]
+    caveats:
+      - "Krever bruker på barentswatch.no og en selvregistrert API-klient; tokenet hentes med client credentials."
+      - "Rådata fra oppdretterne; Mattilsynet er ansvarlig for forvaltningsbruk."
+    quick_start: |
+      # 1) token (klient opprettes under Min side på barentswatch.no)
+      curl -s -X POST https://id.barentswatch.no/connect/token -H 'Content-Type: application/x-www-form-urlencoded' \
+        --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" \
+        --data-urlencode "scope=api" --data-urlencode "grant_type=client_credentials"
+      # 2) kall API-et med Authorization: Bearer <token>
+      # endepunkter og skjema: se OpenAPI-visningen i endepunktlisten
+  - id: barentswatch-fiskinfo
+    title: "FiskInfo API"
+    title_en: "FishInfo API"
+    description: >-
+      Data for yrkesfiskere langs kysten, blant annet bøyer, redskap og rapportering. Datasettet fishingfacilities
+      med detaljert fartøysinformasjon er ikke åpent og krever egen avtale med Kystvakten. API-klienten registrerer
+      du selv under Min side.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://www.barentswatch.no/bwapi/openapi/index.html?urls.primaryName=FishInfo%20API
+    docs_url: https://developer.barentswatch.no/docs/FiskInfo/
+    keywords: [fiskeri, fiskeinfo, bøyer, redskap, fiskefartøy, kystvakt]
+    tags: [oauth2, registration]
+    caveats:
+      - "Krever bruker på barentswatch.no og en selvregistrert API-klient; tokenet hentes med client credentials."
+      - "Fishingfacilities med fartøysinformasjon er ikke åpne data."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) token (klient opprettes under Min side på barentswatch.no)
+      curl -s -X POST https://id.barentswatch.no/connect/token -H 'Content-Type: application/x-www-form-urlencoded' \
+        --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" \
+        --data-urlencode "scope=api" --data-urlencode "grant_type=client_credentials"
+      # 2) kall API-et med Authorization: Bearer <token>
+      # endepunkter og skjema: se OpenAPI-visningen i endepunktlisten
+  - id: barentswatch-polarlows
+    title: "Polare lavtrykk API"
+    title_en: "Polar Lows API"
+    description: >-
+      Aktive varsler om polare lavtrykk som API, samme data som tjenesten barentswatch.no/polarelavtrykk. Krever
+      registrert klient og token som øvrige BarentsWatch-API-er.
+    category: vaer-og-klima
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://www.barentswatch.no/bwapi/openapi/index.html?urls.primaryName=Polar%20Lows%20API
+    docs_url: https://developer.barentswatch.no/docs/polarlows
+    keywords: [polare lavtrykk, polar low, værvarsel, hav, kyst, varsel]
+    tags: [oauth2, registration]
+    caveats:
+      - "Krever bruker på barentswatch.no og en selvregistrert API-klient; tokenet hentes med client credentials."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) token (klient opprettes under Min side på barentswatch.no)
+      curl -s -X POST https://id.barentswatch.no/connect/token -H 'Content-Type: application/x-www-form-urlencoded' \
+        --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" \
+        --data-urlencode "scope=api" --data-urlencode "grant_type=client_credentials"
+      # 2) kall API-et med Authorization: Bearer <token>
+      # endepunkter og skjema: se OpenAPI-visningen i endepunktlisten
+  - id: barentswatch-saltstraumen
+    title: "Saltstraumen API"
+    title_en: "Saltstraumen API"
+    description: >-
+      Varsel for tidevannsstrømmen i Saltstraumen ved Bodø, samme data som tjenesten på
+      barentswatch.no/saltstraumen. Krever registrert klient og token.
+    category: vaer-og-klima
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://www.barentswatch.no/bwapi/openapi/index.html?urls.primaryName=Saltstraumen%20API
+    docs_url: https://developer.barentswatch.no/docs/saltstraumen
+    keywords: [saltstraumen, tidevann, strøm, bodø, dykking, tidal current]
+    tags: [oauth2, registration]
+    caveats:
+      - "Krever bruker på barentswatch.no og en selvregistrert API-klient; tokenet hentes med client credentials."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) token (klient opprettes under Min side på barentswatch.no)
+      curl -s -X POST https://id.barentswatch.no/connect/token -H 'Content-Type: application/x-www-form-urlencoded' \
+        --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" \
+        --data-urlencode "scope=api" --data-urlencode "grant_type=client_credentials"
+      # 2) kall API-et med Authorization: Bearer <token>
+      # endepunkter og skjema: se OpenAPI-visningen i endepunktlisten
+  - id: barentswatch-waveforecast
+    title: "Bølgevarsel API"
+    title_en: "Wave Forecast API"
+    description: >-
+      Bølgevarsel for særlig utsatte områder og strekninger langs norskekysten, som driver tjenesten
+      barentswatch.no/bolgevarsel. Krever registrert klient og token.
+    category: vaer-og-klima
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://www.barentswatch.no/bwapi/openapi/index.html?urls.primaryName=Waveforecast%20API
+    docs_url: https://developer.barentswatch.no/docs/waveforecast
+    keywords: [bølgevarsel, bølger, kyst, hav, sjø, wave forecast]
+    tags: [oauth2, registration]
+    caveats:
+      - "Krever bruker på barentswatch.no og en selvregistrert API-klient; tokenet hentes med client credentials."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) token (klient opprettes under Min side på barentswatch.no)
+      curl -s -X POST https://id.barentswatch.no/connect/token -H 'Content-Type: application/x-www-form-urlencoded' \
+        --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" \
+        --data-urlencode "scope=api" --data-urlencode "grant_type=client_credentials"
+      # 2) kall API-et med Authorization: Bearer <token>
+      # endepunkter og skjema: se OpenAPI-visningen i endepunktlisten
+  - id: barentswatch-geoserver
+    title: "BarentsWatch Geoserver (WFS og WMS)"
+    title_en: "BarentsWatch Geoserver (WFS and WMS)"
+    description: >-
+      Åpne kartlag fra BarentsWatch som WFS og WMS, blant annet for fiskehelse. GetCapabilities svarer uten
+      innlogging. Noen lag kan ha egne vilkår, så sjekk lisens per datasett.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [XML, GML]
+    endpoints:
+      - https://geoserver.barentswatch.no/geoserver/ows
+    docs_url: https://developer.barentswatch.no/docs/fishhealth
+    probe_url: https://geoserver.barentswatch.no/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities
+    keywords: [wfs, wms, geoserver, ogc, fiskehelse, kyst, barentswatch]
+    tags: [no-auth]
+    caveats:
+      - "Vilkår kan variere per lag."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      curl "https://geoserver.barentswatch.no/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities"

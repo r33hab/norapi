@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: Dintero
+  sector: privat
+apis:
+  - id: dintero-checkout-api
+    title: Dintero Checkout og betalings-API
+    title_en: Dintero Checkout API
+    description: >-
+      Norsk betalingsformidler: opprett betalingsøkter (checkout sessions), ta betalt med kort, Vipps, faktura og
+      delbetaling, og hent transaksjoner. Du får klient-ID og hemmelighet i Dintero-portalen og bytter dem mot et
+      OAuth-token. Dokumentasjonen har både API-referanse og guider, og det finnes testmiljø.
+    category: finans
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://checkout.dintero.com/v1
+    docs_url: https://docs.dintero.com/docs
+    probe_url: https://checkout.dintero.com/v1/sessions
+    keywords: [dintero, betaling, checkout, nettbutikk, kort, vipps, payment]
+    tags: [agreement, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever avtale og konto hos Dintero; endepunktet svarer 401 uten token.
+    quick_start: |
+      curl -H "Authorization: Bearer $DINTERO_TOKEN" "https://checkout.dintero.com/v1/sessions/<session-id>"

@@ -1,0 +1,30 @@
+updated: 2026-11-16
+provider:
+  name: Statsforvalteren
+  sector: stat
+apis:
+  - id: statsforvalteren-kartserver
+    title: Statsforvalterens kartserver (ArcGIS Server REST)
+    title_en: County Governor map server (ArcGIS Server REST)
+    description: >-
+      ArcGIS Server fra Statsforvalteren med kartlag for natur og miljø: biologisk mangfold, kalkede innsjøer,
+      verneområder, vernskog, rovdyr- og villreinområder, droneforbud i verneområder, flomutsatte arealer og
+      merkede stier. Svarer som REST (JSON, GeoJSON) uten nøkkel, og mappen Hosted har over hundre feature-lag
+      som kan spørres.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://kart.statsforvalteren.no/server/rest/services
+    docs_url: https://kart.statsforvalteren.no/server/rest/services
+    probe_url: https://kart.statsforvalteren.no/server/rest/services?f=json
+    keywords: [statsforvalteren, arcgis, rest, verneområder, vernskog, biologisk mangfold, flom, drone, featureserver]
+    tags: [no-auth]
+    caveats:
+      - Lagene lages av ulike statsforvalterembeter og endres uten varsel; navn og innhold varierer.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://kart.statsforvalteren.no/server/rest/services?f=json"
+      # kommuner og fylker som GeoJSON
+      curl "https://kart.statsforvalteren.no/server/rest/services/Hosted/Kommuner_og_fylker/FeatureServer/0/query?where=1%3D1&outFields=*&resultRecordCount=1&f=geojson"

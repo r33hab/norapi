@@ -1,0 +1,31 @@
+updated: 2026-11-16
+provider:
+  name: Catenda
+  sector: privat
+  orgnr: "994023977"
+apis:
+  - id: catenda-api
+    title: Catenda API (Hub, BIM-modeller og BCF-saker)
+    title_en: Catenda API (Hub, BIM models and BCF topics)
+    description: >-
+      REST-API mot Catenda Hub (tidligere Bimsync): prosjekter, dokumenter, modeller, BCF-saker (topics), brukere og
+      webhooks. Autentisering er OAuth 2.0 med enten Authorization Code (med PKCE) eller Client Credentials, og
+      applikasjonen registreres i Catenda Hub. Dokumentasjonen er åpen, og OpenAPI-filer kan lastes ned fra de enkelte
+      API-sidene.
+    category: annet
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.catenda.com/v2/
+    docs_url: https://developers.catenda.com/
+    probe_url: https://api.catenda.com/v2/projects
+    keywords: [catenda, bimsync, bim, ifc, bcf, byggeprosjekt, prosjektdokumenter, webhooks, openCDE]
+    tags: [oauth2, registration, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever Catenda Hub-konto og registrert applikasjon.
+    quick_start: |
+      # Token (Client Credentials), se https://developers.catenda.com/authentication
+      curl -X POST "https://api.catenda.com/oauth2/token" -d "grant_type=client_credentials" -u "$CLIENT_ID:$CLIENT_SECRET"
+      curl -H "Authorization: Bearer $TOKEN" "https://api.catenda.com/v2/projects"

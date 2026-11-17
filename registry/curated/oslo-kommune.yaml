@@ -1,4 +1,4 @@
-updated: 2026-10-21
+updated: 2026-11-16
 provider:
   name: Oslo kommune
   orgnr: "958935420"
@@ -29,3 +29,113 @@ apis:
       # Oslo kommunes driftsregnskap, alle år og nøkkeltall
       curl -X POST "https://statistikkbanken.oslo.kommune.no/statbank/api/v1/no/db1/Kommunal%20%C3%B8konomi%20og%20forvaltning/%C3%98konomi%20og%20regnskap/OK-KOM001.px" \
         -H "Content-Type: application/json" -d '{"query":[],"response":{"format":"json-stat2"}}'
+
+  - id: oslo-kommune-bymiljoetaten-agol
+    title: Bymiljøetatens kartdata på ArcGIS Online (REST)
+    title_en: Oslo Agency for Urban Environment (Oslo municipality) map data on ArcGIS Online (REST)
+    description: >-
+      Bymiljøetatens (Oslo kommune) tjenestekatalog på ArcGIS Online, med omtrent 132 publiserte kartlag, blant annet bydels- og delbydelsgrenser, Oslo Bysykkel-stasjoner, sykkelveinettet, parkanlegg, grønnstruktur og fartsgrenseanalyser. Hvert lag
+      kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er kommunens arbeidsområde, så lag
+      kommer og går og innholdet varierer i kvalitet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services1.arcgis.com/6Zl7StNfHYXR0QK8/arcgis/rest/services
+    docs_url: https://services1.arcgis.com/6Zl7StNfHYXR0QK8/arcgis/rest/services
+    probe_url: https://services1.arcgis.com/6Zl7StNfHYXR0QK8/arcgis/rest/services?f=json
+    keywords: [kommune, kart, arcgis, arcgis online, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Laglisten er kommunens arbeidskart og endres uten varsel; noen lag er under arbeid eller test.
+      - Noen lag kan inneholde innspill fra innbyggere eller andre persondata, så sjekk laget før du bruker det.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services1.arcgis.com/6Zl7StNfHYXR0QK8/arcgis/rest/services?f=json"
+      # fem objekter fra ett lag, som GeoJSON
+      curl "https://services1.arcgis.com/6Zl7StNfHYXR0QK8/arcgis/rest/services/Bydel_og_delbydelsgrenser/FeatureServer/0/query?where=1%3D1&outFields=*&resultRecordCount=5&f=geojson"
+
+  - id: oslo-kommune-bydel-grunerlokka-agol
+    title: Bydel Grünerløkkas kartdata på ArcGIS Online (REST)
+    title_en: Grünerløkka borough map data on ArcGIS Online (REST)
+    description: >-
+      Bydel Grünerløkkas åpne tjenestekatalog på ArcGIS Online med 166 publiserte tjenester, blant annet barnetråkk, adresser, aktiviteter og støystrekninger. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er et arbeidsområde, så lag kommer og går og innholdet varierer i kvalitet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services.arcgis.com/aoXlVJmUVK8WhTw5/arcgis/rest/services
+    docs_url: https://services.arcgis.com/aoXlVJmUVK8WhTw5/arcgis/rest/services
+    probe_url: https://services.arcgis.com/aoXlVJmUVK8WhTw5/arcgis/rest/services?f=json
+    keywords: [oslo kommune, kommune, kart, arcgis, arcgis online, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Katalogen er et arbeidsområde der lag kommer og går, og noen lag er under arbeid eller test.
+      - Noen lag kan inneholde innspill fra innbyggere, så sjekk laget før du bruker det.
+    behaviour: >-
+      Åpen ArcGIS Online-katalog; hvert lag svarer anonymt med HTTP 200, som JSON eller GeoJSON. Det er et
+      arbeidsområde, så lag kommer og går og kvaliteten varierer.
+    owner_terms: >-
+      Ingen lisens oppgitt. Katalogen kan inneholde lag med innbyggerinnspill, blant annet barnetråkk (barns egne
+      kartlegginger av skoleveg og nærmiljø). Sjekk det enkelte laget før bruk, og la være å videredistribuere lag
+      som kan inneholde persondata.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services.arcgis.com/aoXlVJmUVK8WhTw5/arcgis/rest/services?f=json"
+      # antall objekter i ett lag
+      curl "https://services.arcgis.com/aoXlVJmUVK8WhTw5/arcgis/rest/services/Anlegg_ekeplassTilBYM2019/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json"
+
+  - id: oslo-kommune-pbe-planinnsyn-wms
+    title: Plan- og bygningsetaten kartlag (WMS, Planinnsyn)
+    title_en: Planning and Building Agency map layers (WMS, Planinnsyn)
+    description: >-
+      MapServer-baserte WMS-tjenester bak Planinnsyn i Oslo: én tjeneste per tema, valgt med parameteren map. Temaene
+      inkluderer kommuneplan, reguleringsplaner, tilleggsregulering, flom, avrenning, blågrønn faktor, grunnforhold,
+      kartlagt skred, naturmangfold, fjernvarme, skilt og reklame, trafikktall og flyfoto. Åpne uten nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [WMS, PNG]
+    endpoints:
+      - https://od2.pbe.oslo.kommune.no/cgi-bin/wms
+    docs_url: https://od2.pbe.oslo.kommune.no/kart/
+    probe_url: https://od2.pbe.oslo.kommune.no/cgi-bin/wms?map=KOMMUNEPLAN&service=WMS&version=1.3.0&request=GetCapabilities
+    keywords: [oslo, plan- og bygningsetaten, planinnsyn, wms, mapserver, kommuneplan, regulering, flom, overvann, blågrønn faktor]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - "Hvert tema er en egen WMS-tjeneste og velges med map=TEMA (for eksempel KOMMUNEPLAN, FLOM, AVRENNING, VANN, AADT)."
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://od2.pbe.oslo.kommune.no/cgi-bin/wms?map=KOMMUNEPLAN&service=WMS&version=1.3.0&request=GetCapabilities"
+      # trafikktall (AADT) som PNG (EPSG:25832)
+      curl -o aadt.png "https://od2.pbe.oslo.kommune.no/cgi-bin/wms?map=AADT&service=WMS&version=1.3.0&request=GetMap&layers=AADT_fastskala&styles=&crs=EPSG:25832&bbox=260000,6640000,270000,6650000&width=300&height=300&format=image/png"
+  - id: oslo-kommune-pbe-planmetadata
+    title: Plan- og bygningsetaten planmetadata og søk (Planinnsyn)
+    title_en: Planning and Building Agency plan metadata and search (Planinnsyn)
+    description: >-
+      JSON-tjenester bak Planinnsyn i Oslo: oppslag av metadata for en reguleringsplan på plannavn (tittel,
+      plantype, vedtaksdato, instans, lovreferanse og koblinger), og et autocomplete-søk som foreslår stedsnavn, planer
+      og adresser. Åpne uten nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://od2.pbe.oslo.kommune.no/noden/Planmetadata/planmetadata
+      - https://od2.pbe.oslo.kommune.no/noden/getAutocompleteData
+    docs_url: https://od2.pbe.oslo.kommune.no/kart/
+    probe_url: https://od2.pbe.oslo.kommune.no/noden/Planmetadata/planmetadata?plannavn=S-4500
+    keywords: [oslo, reguleringsplan, planregister, plannavn, planinnsyn, plan- og bygningsetaten, autocomplete]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Planmetadata slås opp på plannavn (for eksempel S-4500), ikke med fritekstsøk.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://od2.pbe.oslo.kommune.no/noden/Planmetadata/planmetadata?plannavn=S-4500"
+      curl "https://od2.pbe.oslo.kommune.no/noden/getAutocompleteData?term=grefsen"

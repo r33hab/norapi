@@ -89,9 +89,9 @@ A GitHub Actions workflow does the same every Monday and commits the result.
 
 | Source | Entries | Notes |
 |---|---|---|
-| Felles datakatalog (Digdir) | about 1 080 | Everything agencies have registered as a data service, with endpoints, specs, licences and keywords pulled over SPARQL |
-| Curated YAML in `registry/curated/` | 177 | Brønnøysundregistrene, SSB, Entur, MET, Kartverket, Nav, Skatteetaten, Digdir, Altinn, Vegvesen, Norges Bank, Stortinget, NVE, Udir, FHI, Helsedirektoratet, Lovdata, Elhub, Sikt, NDLA, Nasjonalmuseet, Norid, bank and payment APIs (SpareBank 1, Vipps MobilePay, BankID, open banking aggregators), Tolletaten, Fiskeridirektoratet, Finanstilsynet, Vinmonopolet, Luftfartstilsynet, county and municipal map servers and more, each with access, auth, formats, docs and a `quick_start` that was run before it was committed |
-| OpenAPI documents | 143 specs, 2 199 operations | Resolved behind `spec_url` and Swagger UI pages; the Petstore sample that unconfigured Swagger UIs ship is filtered out |
+| Felles datakatalog (Digdir) | about 960 | Everything agencies have registered as a data service, with endpoints, specs, licences and keywords pulled over SPARQL |
+| Curated YAML in `registry/curated/` | 517 | Brønnøysundregistrene, SSB, Entur, MET, Kartverket, Nav, Skatteetaten, Digdir, Altinn, Vegvesen, Norges Bank, Stortinget, NVE, Udir, FHI, Helsedirektoratet, Lovdata, Elhub, Sikt, NDLA, Nasjonalmuseet, Norid, bank and payment APIs (SpareBank 1, Vipps MobilePay, BankID, open banking aggregators), Tolletaten, Fiskeridirektoratet, Finanstilsynet, Vinmonopolet, Luftfartstilsynet, county and municipal map servers and more, each with access, auth, formats, docs and a `quick_start` that was run before it was committed |
+| OpenAPI documents | 239 specs, 4 905 operations | Resolved behind `spec_url` and Swagger UI pages; the Petstore sample that unconfigured Swagger UIs ship is filtered out |
 
 Every curated entry is link-checked (`ok`, `answers`, `missing`) and the verdict is shown on its page.
 

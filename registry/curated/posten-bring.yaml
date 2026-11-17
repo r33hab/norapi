@@ -1,4 +1,4 @@
-updated: 2026-10-21
+updated: 2026-11-16
 provider:
   name: Posten Bring
   orgnr: "984661185"
@@ -37,3 +37,295 @@ apis:
     tags: [no-auth, data-files, reference-data]
     quick_start: |
       curl -O "https://www.bring.no/postnummerregister-ansi.txt"
+
+  - id: bring-shipping-guide
+    title: Bring Shipping Guide API (fraktpriser og tjenester)
+    title_en: Bring Shipping Guide API (freight prices and services)
+    description: >-
+      Henter tilgjengelige fraktprodukter, priser, leveringstid og miljødata for en sending mellom to adresser.
+      Kallene krever Mybring-bruker-ID og API-nøkkel i to headere; kundepriser krever kundenummer. Dokumentasjonen
+      varsler utfasing av enkelte tjenester, så sjekk endringsloggen.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.bring.com/shippingguide/api/v2/products
+    docs_url: https://developer.bring.com/api/shipping-guide_2/
+    spec_url: https://api.bring.com/shippingguide/api-docs
+    keywords: [bring, posten, frakt, fraktpris, leveringstid, shipping guide, fraktprodukt]
+    tags: [private-provider, registration]
+    caveats:
+      - Krever Mybring-konto med API-nøkkel (X-MyBring-API-Uid og X-MyBring-API-Key).
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://api.bring.com/shippingguide/api/v2/products?fromcountry=NO&tocountry=NO&frompostalcode=0150&topostalcode=5003&weight=1000" \
+        -H "X-Mybring-API-Uid: $BRING_UID" -H "X-Mybring-API-Key: $BRING_KEY" -H "Accept: application/json"
+
+  - id: bring-booking
+    title: Bring Booking API (book sendinger og etiketter)
+    title_en: Bring Booking API (shipments and labels)
+    description: >-
+      Oppretter sendinger hos Bring/Posten og returnerer etiketter og sporingsnummer. Krever kundeavtale med
+      kundenummer, i tillegg til Mybring API-nøkkel i to headere. Egen base-URL under api.bring.com/booking, atskilt
+      fra frakt- og sporings-API-ene.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.bring.com/booking/api/create
+    docs_url: https://developer.bring.com/api/booking/
+    spec_url: https://api.bring.com/booking/api-docs
+    keywords: [bring, posten, booking, etikett, sending, pakke, shipment, label]
+    tags: [private-provider, registration, agreement]
+    caveats:
+      - Krever kundeavtale med Bring/Posten og Mybring API-nøkkel.
+      - Kallet er en POST som oppretter ekte sendinger; bruk testindikatoren i dokumentasjonen først.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # oppretter en sending, se request-skjema i OpenAPI-filen
+      curl -X POST "https://api.bring.com/booking/api/create" \
+        -H "X-Mybring-API-Uid: $BRING_UID" -H "X-Mybring-API-Key: $BRING_KEY" -H "Content-Type: application/json" -d @booking.json
+
+  - id: bring-pickup
+    title: Bring Pickup API (bestill henting)
+    title_en: Bring Pickup API (order a pickup)
+    description: >-
+      Bestiller, endrer og kansellerer henting av sendinger hos kunden, og lister hentealternativer. Egen base-URL
+      under api.bring.com/pickup. Krever Mybring API-nøkkel og kundenummer.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.bring.com/pickup/api/pickup-options
+    docs_url: https://developer.bring.com/api/pickup/
+    spec_url: https://api.bring.com/pickup/api-docs
+    keywords: [bring, posten, henting, pickup, avhenting, hentebestilling]
+    tags: [private-provider, registration, agreement]
+    caveats:
+      - Krever kundeavtale og Mybring API-nøkkel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://api.bring.com/pickup/api/pickup-options" \
+        -H "X-Mybring-API-Uid: $BRING_UID" -H "X-Mybring-API-Key: $BRING_KEY" -H "Accept: application/json"
+
+  - id: bring-pickup-point
+    title: Bring Pickup Point API (hentesteder og pakkebokser)
+    title_en: Bring Pickup Point API (pickup points and parcel lockers)
+    description: >-
+      Slår opp hentesteder, postkontor og pakkebokser etter land, ID, postnummer eller koordinater, med åpningstider.
+      Egen base-URL under api.bring.com/pickuppoint og OpenAPI-fil. Krever Mybring API-nøkkel i to headere.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [JSON, XML]
+    endpoints:
+      - https://api.bring.com/pickuppoint/api/pickuppoint/NO/all
+    docs_url: https://developer.bring.com/api/pickup-point/
+    spec_url: https://api.bring.com/pickuppoint/openapi
+    keywords: [bring, posten, hentested, pakkeboks, postkontor, pickup point, utleveringssted]
+    tags: [private-provider, registration]
+    caveats:
+      - Krever Mybring-konto med API-nøkkel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://api.bring.com/pickuppoint/api/pickuppoint/NO/postalCode/0150.json" \
+        -H "X-Mybring-API-Uid: $BRING_UID" -H "X-Mybring-API-Key: $BRING_KEY"
+
+  - id: bring-address
+    title: Bring Address API (norske adresser)
+    title_en: Bring Address API (Norwegian addresses)
+    description: >-
+      Adresseoppslag og forslag til norske adresser for utfylling i skjema og kasse, med ID per adresse og lister over
+      gater og husnummer. Egen base-URL og OpenAPI-fil. Krever Mybring API-nøkkel i to headere.
+    category: kart-og-geodata
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.bring.com/address/api/no/addresses
+    docs_url: https://developer.bring.com/api/address/
+    spec_url: https://api.bring.com/address/api-docs/address
+    keywords: [bring, posten, adresse, adresseforslag, autocomplete, adressesøk, address lookup]
+    tags: [private-provider, registration]
+    caveats:
+      - Krever Mybring-konto med API-nøkkel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://api.bring.com/address/api/no/addresses/suggestions?query=Drammensveien%201" \
+        -H "X-Mybring-API-Uid: $BRING_UID" -H "X-Mybring-API-Key: $BRING_KEY" -H "Accept: application/json"
+
+  - id: bring-postal-code
+    title: Bring Postal Code API (postnummeroppslag)
+    title_en: Bring Postal Code API (postal code lookup)
+    description: >-
+      Oppslag og forslag til postnummer og poststed i Norge og andre land. Egen OpenAPI-fil og base-URL under
+      api.bring.com/address. Krever Mybring API-nøkkel i to headere; hele listen over postnummer finnes også som
+      tekstfil.
+    category: kart-og-geodata
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.bring.com/address/api/no/postal-codes
+    docs_url: https://developer.bring.com/api/postal-code/
+    spec_url: https://api.bring.com/address/api-docs/postalcode
+    probe_url: https://api.bring.com/address/api/no/postal-codes/0150
+    keywords: [bring, posten, postnummer, poststed, postal code, postcode]
+    tags: [private-provider, registration]
+    caveats:
+      - Krever Mybring-konto med API-nøkkel; uten nøkkel svarer API-et 401.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://api.bring.com/address/api/no/postal-codes/0150" \
+        -H "X-Mybring-API-Uid: $BRING_UID" -H "X-Mybring-API-Key: $BRING_KEY" -H "Accept: application/json"
+
+  - id: bring-tracking
+    title: Bring Tracking API (pakkesporing)
+    title_en: Bring Tracking API (parcel tracking)
+    description: >-
+      Sporer sendinger og kolli etter sporingsnummer, referanse eller kundenummer, med hendelser og estimert levering.
+      Kallene må gå fra server: Bring avviser nettleserkall med kundenummer siden mai 2024. Krever Mybring API-nøkkel.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [JSON, XML]
+    endpoints:
+      - https://api.bring.com/tracking/api/v2/tracking.json
+    docs_url: https://developer.bring.com/api/tracking/
+    spec_url: https://api.bring.com/tracking/api-docs
+    probe_url: https://api.bring.com/tracking/api/v2/tracking.json?q=TESTPACKAGE-AT-PICKUPPOINT
+    keywords: [bring, posten, sporing, pakkesporing, tracking, sendingsnummer, kolli]
+    tags: [private-provider, registration]
+    caveats:
+      - Krever Mybring API-nøkkel; uten nøkkel svarer API-et 401.
+      - Ikke kall API-et fra nettleser med kundenummer, og ikke legg nøkkelen i frontend-kode.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://api.bring.com/tracking/api/v2/tracking.json?q=TESTPACKAGE-AT-PICKUPPOINT" \
+        -H "X-Mybring-API-Uid: $BRING_UID" -H "X-Mybring-API-Key: $BRING_KEY"
+
+  - id: bring-reports
+    title: Bring Reports API (rapporter og statistikk)
+    title_en: Bring Reports API (reports and statistics)
+    description: >-
+      Genererer og henter rapporter om sendinger, fraktstatistikk og forhåndsvarsler som CSV, XLSX eller JSON per
+      kundenummer. Rapportene bygges asynkront: du ber om en rapport, sjekker status og laster ned. Krever Mybring
+      API-nøkkel og kundenummer.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [JSON, CSV, XLSX]
+    endpoints:
+      - https://www.mybring.com/reports/api/generate/
+    docs_url: https://developer.bring.com/api/reports/
+    spec_url: https://www.mybring.com/reports/api-docs
+    keywords: [bring, posten, rapport, statistikk, fraktstatistikk, reports, csv]
+    tags: [private-provider, registration, agreement]
+    caveats:
+      - Krever kundenummer hos Bring og Mybring API-nøkkel.
+      - Base-URL er www.mybring.com/reports, ikke api.bring.com.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # bestill rapport, hent status og last ned, se OpenAPI-filen for parametre
+      curl "https://www.mybring.com/reports/api/report/<reportId>/status" \
+        -H "X-Mybring-API-Uid: $BRING_UID" -H "X-Mybring-API-Key: $BRING_KEY"
+
+  - id: bring-invoice
+    title: Bring Invoice API (fakturaarkiv)
+    title_en: Bring Invoice API (invoice archive)
+    description: >-
+      Lister fakturaer fra Bring/Posten per kundenummer som XML eller JSON og henter faktura som PDF. Brukes til
+      automatisk avstemming. Krever Mybring API-nøkkel og kundenummer; base-URL er www.mybring.com/invoicearchive.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [JSON, XML, PDF]
+    endpoints:
+      - https://www.mybring.com/invoicearchive/api/invoices/
+    docs_url: https://developer.bring.com/api/invoice/
+    spec_url: https://www.mybring.com/invoicearchive/api-docs
+    keywords: [bring, posten, faktura, fakturaarkiv, invoice, avstemming]
+    tags: [private-provider, registration, agreement]
+    caveats:
+      - Krever kundenummer hos Bring og Mybring API-nøkkel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://www.mybring.com/invoicearchive/api/invoices/<kundenummer>.json" \
+        -H "X-Mybring-API-Uid: $BRING_UID" -H "X-Mybring-API-Key: $BRING_KEY"
+
+  - id: bring-event-cast
+    title: Bring Event Cast (webhooks for sendingshendelser)
+    title_en: Bring Event Cast (shipment event webhooks)
+    description: >-
+      Oppretter webhook-abonnement som sender hendelser for hver sending og kolli til din URL, per kundenummer, i
+      stedet for at du poller sporings-API-et. Administreres med API-nøkkel; egen OpenAPI-fil og base-URL under
+      api.bring.com/event-cast.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.bring.com/event-cast/api/v1/webhooks
+    docs_url: https://developer.bring.com/api/event-cast/
+    spec_url: https://api.bring.com/event-cast/api-docs
+    keywords: [bring, posten, webhook, hendelser, event cast, sporing, push]
+    tags: [private-provider, registration, agreement]
+    caveats:
+      - Krever Mybring-kundenummer ved registrering av abonnement.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://api.bring.com/event-cast/api/v1/webhooks" \
+        -H "X-Mybring-API-Uid: $BRING_UID" -H "X-Mybring-API-Key: $BRING_KEY" -H "Accept: application/json"
+
+  - id: bring-order-management
+    title: Bring Order Management API (innkjøpsordre og lager)
+    title_en: Bring Order Management API (purchase orders and warehousing)
+    description: >-
+      Sender innkjøpsordre, pakkelister og ordrebekreftelser til Brings lagertjenester, og leser ordrestatus. Finnes
+      også som SOAP (WSDL). Krever lageravtale og Mybring API-nøkkel; testmiljøet ligger på api.qa.bring.com.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [JSON, XML]
+    endpoints:
+      - https://api.bring.com/po/api/v1/packaginglist
+    docs_url: https://developer.bring.com/api/order-management/
+    spec_url: https://www.mybring.com/po/v2/api-docs
+    keywords: [bring, posten, lager, ordre, innkjøpsordre, warehousing, order management, pakkeliste]
+    tags: [private-provider, registration, agreement]
+    caveats:
+      - Krever lager- eller fulfillment-avtale med Bring.
+      - OpenAPI-filen peker på QA-serveren; produksjon er api.bring.com/po.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://api.bring.com/po/api/v1/omorder/<kundenr>/<ordrenr>" \
+        -H "X-Mybring-API-Uid: $BRING_UID" -H "X-Mybring-API-Key: $BRING_KEY"
+
+  - id: bring-customs
+    title: Bring Customs API (tolldeklarasjon)
+    title_en: Bring Customs API (customs declaration)
+    description: >-
+      Sender forhåndsvarsling og tolldeklarasjon for en sending til Bring/Posten og leser status. OpenAPI-fil i YAML
+      på api.bring.com/customs/v1. Krever Mybring API-nøkkel; kall uten nøkkel gir 401.
+    category: skatt-og-avgift
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.bring.com/customs/v1/declarations
+    docs_url: https://developer.bring.com/api/customs/
+    spec_url: https://api.bring.com/customs/v1/openapi
+    probe_url: https://api.bring.com/customs/v1/declarations
+    keywords: [bring, posten, toll, tolldeklarasjon, customs, forhåndsvarsling, import]
+    tags: [private-provider, registration, agreement]
+    caveats:
+      - Krever kundeavtale og Mybring API-nøkkel.
+      - Bruk headeren X-Bring-Test-Indicator for testsendinger.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # POST med deklarasjon som JSON, se OpenAPI-filen
+      curl -X POST "https://api.bring.com/customs/v1/declarations" \
+        -H "X-Mybring-API-Uid: $BRING_UID" -H "X-Mybring-API-Key: $BRING_KEY" -H "X-Bring-Test-Indicator: true" -H "Content-Type: application/json" -d @declaration.json

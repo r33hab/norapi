@@ -1,0 +1,31 @@
+updated: 2026-11-16
+provider:
+  name: GBIF Norge
+  sector: stat
+apis:
+  - id: gbif-norge-ipt
+    title: GBIF Norges IPT (artsdata som Darwin Core Archive)
+    title_en: GBIF Norway IPT (species data as Darwin Core Archive)
+    description: >-
+      Norges IPT-installasjon (Integrated Publishing Toolkit) publiserer norske biodiversitetsdatasett. En RSS-feed
+      lister alle ressurser med versjon og dato, og hver ressurs kan lastes ned som Darwin Core Archive (zip) og som
+      EML-metadata. Brukes til å hente rådata bak norske artsfunn, overvåking og samlinger.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [XML, ZIP]
+    endpoints:
+      - https://ipt.gbif.no/rss.do
+    docs_url: https://ipt.gbif.no/
+    probe_url: https://ipt.gbif.no/rss.do
+    keywords: [gbif, ipt, darwin core, biodiversitet, artsfunn, forekomst, eml, species occurrence]
+    tags: [no-auth, feed, data-files]
+    caveats:
+      - Ikke et API, bare filer til nedlasting.
+      - Lisens settes per datasett; sjekk EML-metadataene.
+      - Arkivene kan være store (titalls MB).
+    quick_start: |
+      # feed over alle ressurser
+      curl "https://ipt.gbif.no/rss.do"
+      # last ned ett datasett (Arealrepresentativ naturovervåking) som Darwin Core Archive
+      curl -o ano.zip "https://ipt.gbif.no/archive.do?r=ano"

@@ -1,0 +1,76 @@
+updated: 2026-11-16
+provider:
+  name: Universitetet i Oslo
+  orgnr: "971035854"
+  sector: stat
+apis:
+  - id: uio-apne-data-enhetsok
+    title: UiOs åpne data, enhetsøk
+    title_en: University of Oslo open data, organisational unit search
+    description: >-
+      Søk i UiOs organisasjonsenheter (fakultet, institutt, seksjoner) med akronym, navn og kontaktpunkter for enheten.
+      Søket tar en q-parameter med feltsyntaks, for eksempel name:inf*, og svarer med JSON uten nøkkel. Tjenesten ligger
+      på UiOs åpne datasider sammen med et pensum-API og et studie-API, men studie-API-et svarer 403 uten tilgang.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://data.uio.no/org/v1/units
+    docs_url: https://data.uio.no/
+    probe_url: https://data.uio.no/org/v1/units?q=name:inf*
+    license: NLOD 2.0
+    keywords: [uio, universitet, organisasjon, enhet, institutt, fakultet, enhetsøk, university units]
+    tags: [no-auth, reference-data]
+    caveats:
+      - Spørringen må ha q-parameteren med feltsyntaks (name:...); en vanlig streng gir 400.
+      - Dokumentasjonssiden er kort, og lenken til detaljert dokumentasjon hos USIT gir 404.
+    quick_start: |
+      curl -G "https://data.uio.no/org/v1/units" --data-urlencode "q=name:inf*"
+
+  - id: uio-ub-skosmos
+    title: Universitetsbiblioteket i Oslo, emneord og klassifikasjon (Skosmos)
+    title_en: University of Oslo Library subject vocabularies (Skosmos)
+    description: >-
+      Skosmos-API til Universitetsbiblioteket i Oslo med Humord (humanistiske emneord), Realfagstermer og Norsk
+      WebDewey som SKOS-data i JSON-LD. Du kan søke på termer, hente begreper med overordnede og underordnede
+      termer og slå opp i et bestemt vokabular. Åpent uten nøkkel, og Swagger-spesifikasjonen ligger på API-et.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON-LD, RDF]
+    endpoints:
+      - https://data.ub.uio.no/skosmos/rest/v1/
+    docs_url: https://data.ub.uio.no/
+    spec_url: https://data.ub.uio.no/skosmos/rest/v1/swagger.json
+    probe_url: https://data.ub.uio.no/skosmos/rest/v1/vocabularies?lang=nb
+    keywords: [humord, realfagstermer, dewey, emneord, skos, bibliotek, tesaurus, subject headings, vocabulary]
+    tags: [no-auth, reference-data]
+    caveats:
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://data.ub.uio.no/skosmos/rest/v1/vocabularies?lang=nb"
+      curl "https://data.ub.uio.no/skosmos/rest/v1/search?query=oslo*&lang=nb"
+
+  - id: uio-fritt-oai
+    title: FRITT, åpen publiseringstjeneste (OAI-PMH)
+    title_en: FRITT open publishing service at UiO (OAI-PMH)
+    description: >-
+      OAI-PMH-endepunkt for FRITT, UiOs åpne publiseringstjeneste for vitenskapelige tidsskrifter (Open Journal
+      Systems). Høsting av metadata for artikler og hefter fra norske og nordiske tidsskrifter, uten nøkkel. Bruk
+      ListSets for å se tidsskriftene og ListRecords med metadataPrefix=oai_dc for postene.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://journals.uio.no/index/oai
+    docs_url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+    probe_url: https://journals.uio.no/index/oai?verb=Identify
+    keywords: [oai-pmh, tidsskrift, artikler, åpen tilgang, open access, ojs, høsting, harvesting]
+    tags: [no-auth, feed]
+    caveats:
+      - Ingen lisens oppgitt; lisensen følger det enkelte tidsskriftet og artikkelen.
+    quick_start: |
+      curl "https://journals.uio.no/index/oai?verb=Identify"
+      curl "https://journals.uio.no/index/oai?verb=ListSets"

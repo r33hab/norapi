@@ -74,6 +74,8 @@ class ApiEntry:
     category: str | None = None
     tags: list[str] = field(default_factory=list)
     caveats: list[str] = field(default_factory=list)  # restrictions to respect before relying on it
+    behaviour: str | None = None  # what the endpoint does in practice, vs. its docs
+    owner_terms: str | None = None  # the owner's stated terms for using it
     quick_start: str | None = None
     status: str | None = None
     modified: str | None = None

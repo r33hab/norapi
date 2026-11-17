@@ -1,0 +1,26 @@
+updated: 2026-11-16
+provider:
+  name: Domeneshop
+  sector: privat
+apis:
+  - id: domeneshop-api
+    title: Domeneshop API (domener og DNS)
+    title_en: Domeneshop domain and DNS API
+    description: >-
+      REST-API fra den norske domeneleverandøren Domeneshop: list og hent domener, les og endre DNS-poster, og styr
+      videresending og e-postoppsett. Autentisering er HTTP Basic med et API-token og en hemmelighet som kunden lager
+      i kontrollpanelet. Dokumentasjonen er åpen og laget med OpenAPI.
+    category: annet
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.domeneshop.no/v0
+    docs_url: https://api.domeneshop.no/docs/
+    keywords: [domeneshop, domene, dns, dns-poster, domain, hosting, nameserver]
+    tags: [registration, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever kundekonto hos Domeneshop; endepunktet svarer 401 uten nøkkel.
+    quick_start: |
+      curl -u "$DOMENESHOP_TOKEN:$DOMENESHOP_SECRET" "https://api.domeneshop.no/v0/domains"

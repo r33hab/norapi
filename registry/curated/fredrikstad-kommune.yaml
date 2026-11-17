@@ -1,4 +1,4 @@
-updated: 2026-11-10
+updated: 2026-11-16
 provider:
   name: Fredrikstad kommune
   orgnr: "940039541"
@@ -28,3 +28,28 @@ apis:
       curl "https://arcgis.fredrikstad.kommune.no/server/rest/services?f=json"
       # skulpturer i Fredrikstad som GeoJSON
       curl "https://arcgis.fredrikstad.kommune.no/server/rest/services/Kulturetaten/Skulptur/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson"
+
+  - id: fredrikstad-kommune-agol
+    title: Fredrikstad kommunes kartdata på ArcGIS Online (REST)
+    title_en: Fredrikstad municipality map data on ArcGIS Online (REST)
+    description: >-
+      Fredrikstad kommunes åpne tjenestekatalog på ArcGIS Online med 59 publiserte tjenester, blant annet kommuneplan, planregister, planer på høring og landbasert industri. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er et arbeidsområde, så lag kommer og går og innholdet varierer i kvalitet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services5.arcgis.com/51HVp17hEG9cR3Vo/arcgis/rest/services
+    docs_url: https://services5.arcgis.com/51HVp17hEG9cR3Vo/arcgis/rest/services
+    probe_url: https://services5.arcgis.com/51HVp17hEG9cR3Vo/arcgis/rest/services?f=json
+    keywords: [fredrikstad, kommune, kart, arcgis, arcgis online, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Katalogen er et arbeidsområde der lag kommer og går, og noen lag er under arbeid eller test.
+      - Noen lag kan inneholde innspill fra innbyggere, så sjekk laget før du bruker det.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services5.arcgis.com/51HVp17hEG9cR3Vo/arcgis/rest/services?f=json"
+      # antall objekter i ett lag
+      curl "https://services5.arcgis.com/51HVp17hEG9cR3Vo/arcgis/rest/services/Kommuneplan/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json"

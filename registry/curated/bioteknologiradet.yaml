@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: Bioteknologirådet
+  orgnr: "980633446"
+  sector: stat
+apis:
+  - id: bioteknologiradet-wp-api
+    title: Bioteknologiradet.no (innholds-API for nyheter og uttalelser)
+    title_en: Norwegian Biotechnology Advisory Board website content API
+    description: >-
+      WordPress REST-API på bioteknologiradet.no med nyheter, sider og rådets publiserte innhold som JSON. Åpent uten
+      nøkkel, men ikke dokumentert av eieren. Nettstedet omdirigerer fra www til domenet uten www.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://bioteknologiradet.no/wp-json/wp/v2
+    docs_url: https://developer.wordpress.org/rest-api/reference/
+    probe_url: https://bioteknologiradet.no/wp-json/wp/v2/posts?per_page=1
+    keywords: [bioteknologi, genteknologi, bioteknologirådet, etikk, uttalelser, GMO, biotechnology, wordpress]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # siste nyheter
+      curl "https://bioteknologiradet.no/wp-json/wp/v2/posts?per_page=5&_fields=id,date,link,title"

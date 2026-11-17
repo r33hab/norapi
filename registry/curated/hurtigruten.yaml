@@ -1,0 +1,34 @@
+updated: 2026-11-16
+provider:
+  name: Hurtigruten Norway
+  sector: privat
+apis:
+  - id: hurtigruten-partner-api-v2
+    title: Hurtigruten Norway Partner API v2
+    title_en: Hurtigruten Norway Partner API v2
+    description: >-
+      Partner-API for bestilling og tilgjengelighet på Hurtigruten Norges kystreiser: reiser, pakker,
+      kampanjer, referansedata og hele bestillingsflyten (søk, reservasjon, endring og bekreftelse). Du får
+      klient-ID og hemmelighet gjennom B2B-supportportalen og henter et bearer-token fra Auth0. Staging og sandbox
+      finnes for testing uten ekte bestillinger.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://partner.hurtigruten.com/api/v2
+    docs_url: https://docs.partner.hurtigruten.com/HRN/V2/index.html
+    keywords: [hurtigruten, kystreise, cruise, booking, bestilling, ferge, reisebyrå, partner api]
+    tags: [agreement, oauth2, private-provider]
+    caveats:
+      - Krever avtale og opplæring som reisebyrå eller teknologipartner; ingen selvbetjent registrering.
+      - Gjelder bare Hurtigruten Norway (HRN); TravelHX har egen dokumentasjon og egne nøkler.
+      - Versjon 1 er eldre; v2 anbefales for nye integrasjoner.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # 1. Hent token fra Auth0 med klient-ID og hemmelighet (audience https://partner.hurtigruten.com/api)
+      curl -X POST https://b2b-portal-production.eu.auth0.com/oauth/token \
+        -H "Content-Type: application/json" \
+        -d '{"client_id":"ID","client_secret":"HEMMELIGHET","audience":"https://partner.hurtigruten.com/api","grant_type":"client_credentials"}'
+      # 2. Bruk tokenet mot API-et; stier står i dokumentasjonen
+      curl -H "Authorization: Bearer $TOKEN" "https://partner.hurtigruten.com/api/v2/..."

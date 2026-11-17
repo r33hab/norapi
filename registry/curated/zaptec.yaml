@@ -1,0 +1,32 @@
+updated: 2026-11-16
+provider:
+  name: Zaptec
+  orgnr: "999164137"
+  sector: privat
+apis:
+  - id: zaptec-api
+    title: Zaptec API (elbil-lading)
+    title_en: Zaptec API (EV charging)
+    description: >-
+      REST-API fra den norske laderprodusenten Zaptec: ladere, installasjoner, ladehistorikk og styring av
+      ladestrøm. Dokumentert som Swagger UI på api.zaptec.com/help. Kall uten token svarer 401, så du trenger en
+      Zaptec-portalkonto og en OAuth-token.
+    category: natur-og-miljo
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.zaptec.com/api
+    docs_url: https://api.zaptec.com/help/index.html
+    probe_url: https://api.zaptec.com/api/chargers
+    keywords: [zaptec, elbil, lading, lader, installasjon, ladehistorikk, ev charging, charger]
+    tags: [private-provider, registration, oauth2]
+    caveats:
+      - Krever Zaptec-portalkonto med tilgang til installasjonen.
+      - Swagger-siden er JavaScript-drevet, og OpenAPI-filen ligger ikke på en åpen standard-URL.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # token (passord-flyt), deretter ladere
+      curl -X POST "https://api.zaptec.com/oauth/token" \
+        -d "grant_type=password&username=<bruker>&password=<passord>"
+      curl "https://api.zaptec.com/api/chargers" -H "Authorization: Bearer $ZAPTEC_TOKEN"

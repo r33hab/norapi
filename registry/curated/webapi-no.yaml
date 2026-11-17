@@ -1,0 +1,31 @@
+updated: 2026-11-16
+provider:
+  name: Sandberg Software (Webapi.no)
+  orgnr: "920612261"
+  sector: privat
+apis:
+  - id: webapi-no
+    title: "Webapi.no (helligdager, flaggdager, navnedager, postnummer og mer)"
+    title_en: "Webapi.no (holidays, flag days, name days, postal codes and more)"
+    description: >-
+      Gratis JSON-API fra et norsk programvarefirma med norske helligdager, flaggdager, navnedager og kalender,
+      pluss oppslag mot Brønnøysundregistrene, valutakurser, land og postnummer. Fungerer uten nøkkel, men en
+      rate-grense gjelder. OpenAPI-spesifikasjon er publisert.
+    category: annet
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://webapi.no/api/v1
+    docs_url: https://webapi.no/
+    spec_url: https://webapi.no/openapi/v1.json
+    probe_url: https://webapi.no/api/v1/holidays/2026
+    keywords: [helligdager, flaggdager, navnedager, kalender, postnummer, valuta, holidays, flag days, name days]
+    tags: [no-auth, private-provider, rate-limited, reference-data]
+    caveats:
+      - "Privat tjeneste uten oppgitt SLA."
+      - "robots.txt ber roboter om å la være å crawle /api/ for å spare rate-grensen; bruk API-et som dokumentert, ikke i bulk."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      curl "https://webapi.no/api/v1/holidays/2026"
+      curl "https://webapi.no/api/v1/flagdays/2026"

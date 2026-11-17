@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Glommens og Laagens Brukseierforening (GLB)
+  orgnr: "948591898"
+  sector: privat
+apis:
+  - id: glb-vannstander
+    title: GLB vannstander og vannføring (Glomma og Lågen)
+    title_en: GLB water levels and discharge (Glomma and Lågen)
+    description: >-
+      JSON med daglige avlesninger av vannstand (moh) og vannføring for målepunkt i Glomma, Nedre Glomma og
+      Otta/Lågen, med normalverdi per punkt. Hver post har navn, gruppe, type, enhet og de siste dagenes avlesninger.
+      Filen som ligger bak vannstandssidene til GLB, åpen uten nøkkel.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://data.glb.no/json/vannstander.json
+    docs_url: https://glb.no/vannstander/
+    probe_url: https://data.glb.no/json/vannstander.json
+    keywords: [vannstand, vannføring, glomma, lågen, flom, magasin, brukseierforening, water level, river]
+    tags: [no-auth, private-provider, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Vannstander er oppgitt i NN54 (ikke NN2000), og filen starter med et byte order mark.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://data.glb.no/json/vannstander.json"

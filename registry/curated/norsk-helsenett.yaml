@@ -1,4 +1,4 @@
-updated: 2026-10-21
+updated: 2026-11-16
 provider:
   name: Norsk helsenett (helsenorge.no)
   orgnr: "994598759"
@@ -27,3 +27,230 @@ apis:
       - Ingen lisens oppgitt.
     quick_start: |
       curl "https://tjenester.helsenorge.no/proxy/velgbehandlingssted/api/v1/Behandlingssteder"
+
+  - id: nhn-helseid
+    title: HelseID (innlogging og API-sikring i helsesektoren)
+    title_en: HelseID (authentication and API security for healthcare)
+    description: >-
+      Norsk helsenetts OpenID Connect- og OAuth 2.0-tjeneste for innlogging av helsepersonell og sikring av helse-API-er.
+      Discovery-dokumentet er åpent; klienter opprettes i HelseID Selvbetjening, og produksjonsbruk krever at
+      virksomheten er godkjent leverandør og har signert NHNs leverandørvilkår. Brukes av de fleste NHN-API-ene under.
+    category: identitet-og-tilgang
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://helseid-sts.nhn.no
+    docs_url: https://utviklerportal.nhn.no/informasjonstjenester/helseid
+    probe_url: https://helseid-sts.nhn.no/.well-known/openid-configuration
+    keywords: [helseid, oidc, oauth, dpop, innlogging, helsepersonell, identitet, nhn, authentication]
+    tags: [registration, agreement, oauth2]
+    caveats:
+      - HelseID gir ikke innlogging for innbyggere; bruk ID-porten til det.
+      - Produksjon krever godkjent NHN-leverandør; testmiljø via HelseID Selvbetjening Test.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://helseid-sts.nhn.no/.well-known/openid-configuration"
+  - id: nhn-dodsmelding-api
+    title: Dødsmelding API
+    title_en: Death notification API
+    description: >-
+      API for at leger kan melde dødsfall og dødsårsaker elektronisk. Dødsfall går til Folkeregisteret, dødsårsaker til
+      Dødsårsaksregisteret. Versjon 2 bruker HelseID med DPoP, og tilgang settes opp i HelseID Selvbetjening.
+      OpenAPI-spesifikasjonen ligger åpent på testmiljøet.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.dodsmelding.test.nhn.no/
+    docs_url: https://utviklerportal.nhn.no/informasjonstjenester/doedsmelding
+    spec_url: https://api.dodsmelding.test.nhn.no/swagger/v2/swagger.json
+    probe_url: https://api.dodsmelding.test.nhn.no/swagger/v2/swagger.json
+    keywords: [dødsmelding, dødsårsak, dødsfall, folkeregisteret, dødsårsaksregisteret, helseid, dpop]
+    tags: [registration, oauth2, personal-data]
+    caveats:
+      - Behandler helseopplysninger og personopplysninger; krever HelseID med DPoP og godkjent tilgang.
+      - Spesifikasjonen som er åpen hører til testmiljøet; produksjonsadressen oppgis ved tilgang.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # spesifikasjonen (åpen)
+      curl "https://api.dodsmelding.test.nhn.no/swagger/v2/swagger.json"
+      # API-kall krever HelseID-token med DPoP-bevis
+      # curl -H "Authorization: DPoP $TOKEN" -H "DPoP: $PROOF" "https://api.dodsmelding.test.nhn.no/v2/dodsarsaker/nyeste"
+  - id: nhn-persontjenesten
+    title: Persontjenesten (folkeregisterdata for helsesektoren)
+    title_en: Person service (population register data for healthcare)
+    description: >-
+      Helsetjenestens kilde til folkeregisterinformasjon fra Skatteetaten, med person-API, søk, hendelser,
+      familierelasjoner og lokal kopi. Erstatter Personregisteret (PREG). Tilgang gis via HelseID, og testmiljø
+      bestilles med et webskjema pluss konfigurasjon i HelseID Selvbetjening.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://utviklerportal.nhn.no/informasjonstjenester/persontjenesten
+    docs_url: https://utviklerportal.nhn.no/informasjonstjenester/persontjenesten
+    keywords: [persontjenesten, folkeregister, preg, person, helseid, nhn, population register]
+    tags: [registration, agreement, oauth2, personal-data]
+    caveats:
+      - Behandler personopplysninger; kun for virksomheter med lovlig grunnlag og avtale med NHN.
+      - Dokumentasjonen oppgir ikke produksjonsadresser åpent; de gis ved tilgang.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # krever HelseID-token (se nhn-helseid); adresse gis ved tilgang
+      curl -H "Authorization: Bearer $HELSEID_TOKEN" "<adresse fra NHN>/person"
+  - id: nhn-syntpop
+    title: SyntPop (syntetiske testpersoner)
+    title_en: SyntPop (synthetic test persons)
+    description: >-
+      Selvbetjeningsløsning for å finne, opprette og redigere syntetiske testpersoner for test av digitale
+      helsetjenester, hentet fra Persontjenestens datamodell. Har web-grensesnitt og et API i beta som leser personer
+      fra egne SyntPop-lister. Alle som vil kan få tilgang; kontakt NHN.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://utviklerportal.nhn.no/informasjonstjenester/syntpop
+    docs_url: https://utviklerportal.nhn.no/informasjonstjenester/syntpop
+    keywords: [syntpop, syntetiske, testdata, testpersoner, testunivers, helse, synthetic data]
+    tags: [registration]
+    caveats:
+      - API-et er i beta; tilgang bestilles hos NHN (kundesenter eller Slack-kanalen oppgitt i dokumentasjonen).
+      - Syntetiske data, ikke ekte personer.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # adresse og tilgang oppgis av NHN
+      curl -H "Authorization: Bearer $HELSEID_TOKEN" "<SyntPop-adresse>/lists/<listeId>"
+  - id: nhn-fastlegeregisteret-offentlig-api
+    title: Fastlegeregisteret, offentlig API (Maskinporten)
+    title_en: GP register, public API (Maskinporten)
+    description: >-
+      REST-API til Fastlegeregisteret for virksomheter som ikke er helseaktører: alle data unntatt opplysninger om
+      innbyggere. Sikres med Maskinporten, og tilgang bes om i Maskinportens selvbetjening. Helseaktører bruker i stedet
+      FLR API med HelseID.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://utviklerportal.nhn.no/informasjonstjenester/fastlegeregisteret
+    docs_url: https://utviklerportal.nhn.no/informasjonstjenester/fastlegeregisteret
+    keywords: [fastlege, fastlegeregisteret, flr, lege, fastlegeliste, maskinporten, nhn, gp register]
+    tags: [maskinporten, registration]
+    caveats:
+      - Dokumentasjonssiden oppgir ikke produksjonsadressen åpent; scope og adresse fås via Maskinporten og NHN.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # hent Maskinporten-token med riktig scope, bruk det som bearer mot adressen fra NHN
+      curl -H "Authorization: Bearer $MASKINPORTEN_TOKEN" "<adresse fra NHN>/fastleger"
+  - id: nhn-helsepersonellregisteret-offentlig-api
+    title: Helsepersonellregisteret, offentlig API (Maskinporten)
+    title_en: Health personnel register, public API (Maskinporten)
+    description: >-
+      REST-API til Helsepersonellregisteret (HPR) tilgjengelig på internett med Maskinporten. Noen scopes er åpne,
+      andre krever godkjenning. SOAP-grensesnittet (HPRv2) og et kommende HelseID-API er begrenset til Helsenettet.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://utviklerportal.nhn.no/informasjonstjenester/helsepersonellregisteret
+    docs_url: https://utviklerportal.nhn.no/informasjonstjenester/helsepersonellregisteret
+    keywords: [helsepersonell, hpr, autorisasjon, lege, sykepleier, maskinporten, nhn, health personnel register]
+    tags: [maskinporten, registration, personal-data]
+    caveats:
+      - Inneholder opplysninger om navngitte helsepersonell; bruk krever lovlig formål.
+      - Scope legges til i Maskinportens selvbetjening; adresser står ikke åpent på portalsiden.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl -H "Authorization: Bearer $MASKINPORTEN_TOKEN" "<adresse fra NHN>/<ressurs>"
+  - id: nhn-legemiddelgrunndata-nompd
+    title: Legemiddelgrunndata, Nompd-API (behandlings- og refusjonsgrupper)
+    title_en: Medicinal product master data, Nompd API (treatment and reimbursement groups)
+    description: >-
+      REST-API (og FHIR R4-endepunkter) for behandlingsgrupper og refusjonsgrupper i nasjonale legemiddelgrunndata,
+      oppdatert en gang i døgnet. Versjon 1 bruker API-nøkkel i X-API-KEY, versjon 2 bruker HelseID med DPoP.
+      Nøkkel fås fra Nompd-teamet.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://utviklerportal.nhn.no/informasjonstjenester/legemiddelgrunndata/nompd
+    docs_url: https://utviklerportal.nhn.no/informasjonstjenester/legemiddelgrunndata/nompd/docs
+    keywords: [legemiddel, refusjon, behandlingsgruppe, refusjonsgruppe, fhir, nompd, legemiddelgrunndata, medicinal]
+    tags: [registration]
+    caveats:
+      - Produksjonsadressen står ikke på den åpne portalsiden; den og nøkkelen gis av Nompd-teamet.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl -H "X-API-KEY: $NOMPD_KEY" "<adresse fra NHN>/api/v1/treatment-group"
+  - id: nhn-pasientens-maaledata
+    title: Pasientens måledata (PMD-API)
+    title_en: Patient measurements (PMD API)
+    description: >-
+      FHIR Observation-API for å slå opp og hente pasientens målinger (vitale tegn), med samme datamodell som VKP.
+      Produksjon nås bare fra Helsenettet; sikret med HelseID og OAuth 2.0 token exchange, og klientkonfigurasjonen
+      godkjennes manuelt av NHN.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://pmd.nhn.no
+    docs_url: https://utviklerportal.nhn.no/informasjonstjenester/pasientens-maaledata
+    keywords: [måledata, pasient, målinger, fhir, observation, vitale tegn, helseid, vkp, patient measurements]
+    tags: [oauth2, agreement, personal-data]
+    caveats:
+      - Produksjonsadressen er bare nåbar fra Helsenettet; testmiljø finnes eksternt.
+      - Helseopplysninger; krever avtale mellom partene og godkjent HelseID-integrasjon.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # fra Helsenettet, med HelseID-token (token exchange, scope nhn:pmd)
+      curl -H "Authorization: Bearer $TOKEN" "https://pmd.nhn.no/Observation?patient=<id>"
+  - id: nhn-kjernejournal-codingsystems-api
+    title: Kjernejournal Codingsystems API (kodeverk for kritisk informasjon)
+    title_en: Core record Codingsystems API
+    description: >-
+      Tjeneste som samler kodeverk fra flere kilder (blant annet FEST og ATC fra DMP) i en felles datamodell, brukt av
+      Kjernejournals tjenester for kritisk informasjon og pasientinfo. Beregnet på å hentes en gang i døgnet og
+      mellomlagres. Dokumentasjonen er åpen, tilgangen styres av NHN.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://utviklerportal.nhn.no/informasjonstjenester/kjernejournal/codingsystems-api/codingsystems-api/hit-codingsystems
+    docs_url: https://utviklerportal.nhn.no/informasjonstjenester/kjernejournal/codingsystems-api/codingsystems-api/hit-codingsystems
+    keywords: [kodeverk, codingsystems, kjernejournal, fest, atc, kritisk informasjon, coding systems]
+    tags: [reference-data, oauth2]
+    caveats:
+      - Autentisering og adresser følger Kjernejournals miljøoversikt; dokumentasjonssiden åpner ikke selve tjenesten.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl -H "Authorization: Bearer $HELSEID_TOKEN" "<adresse fra NHN>/codingsystems"
+  - id: nhn-velferdsteknologisk-knutepunkt-vkp
+    title: Velferdsteknologisk knutepunkt (VKP)
+    title_en: Welfare technology hub (VKP)
+    description: >-
+      Tjeneste som standardiserer, oversetter og transporterer data fra velferdsteknologiske systemer til for eksempel
+      kommunens pasientjournal, basert på FHIR. HelseID brukes til sikring, med DPoP-validering i testmiljø siden
+      1. oktober 2026. En ny implementasjon av VKP er under utvikling.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://utviklerportal.nhn.no/informasjonstjenester/velferdsteknologisk-knutepunkt-vkp
+    docs_url: https://utviklerportal.nhn.no/informasjonstjenester/velferdsteknologisk-knutepunkt-vkp
+    keywords: [velferdsteknologi, vkp, fhir, kommune, journal, digital hjemmeoppfølging, welfare technology]
+    tags: [oauth2, agreement, personal-data]
+    caveats:
+      - Ny og gammel VKP-versjon lever side om side; les migreringsnotatet i dokumentasjonen.
+      - Helseopplysninger; krever avtale og godkjent HelseID-integrasjon.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl -H "Authorization: Bearer $TOKEN" "<adresse fra NHN>/<FHIR-ressurs>"

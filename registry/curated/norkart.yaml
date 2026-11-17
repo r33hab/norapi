@@ -1,0 +1,95 @@
+updated: 2026-11-16
+provider:
+  name: Norkart
+  sector: privat
+apis:
+  - id: norkart-bakgrunnskart
+    title: Norkart API Bakgrunnskart
+    title_en: Norkart background maps API
+    description: >-
+      Bakgrunnskart fra Norkart som flislag (TMS) og WMS: standardkart, gråtonekart og ortofoto. Nøkkelen sendes som
+      APITOKEN i URL-en. API-nøkkel bestilles hos Norkart Data og Analyse, og dokumentasjon med eksempler ligger åpent
+      på GitHub.
+    category: kart-og-geodata
+    access: restricted
+    auth: api-key
+    formats: [WMS, PNG, JPEG]
+    endpoints:
+      - https://waapi.webatlas.no/
+    docs_url: https://github.com/Norkart/API-documentation/blob/master/API%20Bakgrunnskart/README.md
+    keywords: [norkart, bakgrunnskart, wms, tms, kartfliser, ortofoto, webatlas, map tiles]
+    tags: [agreement, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever kommersiell avtale og API-nøkkel; endepunktet svarer 403 uten nøkkel.
+    quick_start: |
+      curl "https://waapi.webatlas.no/WMS-STANDARDKART/?APITOKEN=$NORKART_API_KEY&SERVICE=WMS&REQUEST=GetCapabilities"
+
+  - id: norkart-adresse-og-eiendomssok
+    title: Norkart API Adresse- og eiendomssøk
+    title_en: Norkart address and property search API
+    description: >-
+      Fritekstsøk og autocomplete (suggest) mot adresser og matrikkelenheter, med fuzzy-søk når brukeren skriver feil.
+      API-nøkkel sendes som api_key i URL-en og bestilles hos Norkart Data og Analyse. Dokumentasjon og
+      kodeeksempler ligger åpent på GitHub.
+    category: kart-og-geodata
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://fritekstsok.api.norkart.no/
+    docs_url: https://github.com/Norkart/API-documentation
+    probe_url: https://fritekstsok.api.norkart.no/suggest/matrikkel/adresse?Query=Oslovei
+    keywords: [norkart, adresse, adressesøk, eiendomssøk, matrikkel, autocomplete, geocoding]
+    tags: [agreement, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever kommersiell avtale og API-nøkkel; endepunktet svarer 401 uten nøkkel.
+    quick_start: |
+      curl "https://fritekstsok.api.norkart.no/suggest/matrikkel/adresse?Query=Oslovei&api_key=$NORKART_API_KEY"
+
+  - id: norkart-eiendomsdata
+    title: Norkart API Eiendomsdata
+    title_en: Norkart property data API
+    description: >-
+      Geografisk informasjon om matrikkelenheter og teiger, blant annet oppslag på koordinat som gir kommune,
+      gårds- og bruksnummer, areal og geometri som GeoJSON eller WKT. API-nøkkel (api_key i URL-en) bestilles hos
+      Norkart Data og Analyse.
+    category: kart-og-geodata
+    access: restricted
+    auth: api-key
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://matrikkelkart.api.norkart.no/
+    docs_url: https://github.com/Norkart/API-documentation/blob/master/API%20Eiendomsdata/README.md
+    probe_url: https://matrikkelkart.api.norkart.no/teig/punkt?X=10.3981875&Y=63.4267428
+    keywords: [norkart, matrikkel, teig, eiendom, gårdsnummer, bruksnummer, cadastre, geometri]
+    tags: [agreement, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever kommersiell avtale og API-nøkkel; endepunktet svarer 401 uten nøkkel.
+    quick_start: |
+      curl "https://matrikkelkart.api.norkart.no/teig/punkt?X=10.3981875&Y=63.4267428&api_key=$NORKART_API_KEY&GeometryTextFormat=GeoJson"
+
+  - id: norkart-takflater
+    title: Norkart API Takflater og solinnstråling
+    title_en: Norkart roof surfaces API
+    description: >-
+      Data om takflater i hele Norge: takdetaljer og utvidede detaljer for et koordinatpunkt, brukt blant annet til
+      beregning av solinnstråling. Nøkkelen sendes som api_key i URL-en og bestilles hos Norkart Data og Analyse.
+      Dokumentasjonen er åpen på GitHub.
+    category: kart-og-geodata
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://takflater.api.norkart.no/
+    docs_url: https://github.com/Norkart/API-documentation
+    probe_url: https://takflater.api.norkart.no/takflater/punkt?Y=59.908&X=10.767
+    keywords: [norkart, tak, takflate, solinnstråling, sol, solceller, roof, solar]
+    tags: [agreement, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever kommersiell avtale og API-nøkkel; endepunktet svarer 401 uten nøkkel.
+    quick_start: |
+      curl "https://takflater.api.norkart.no/takflater/punkt?Y=59.908&X=10.767&api_key=$NORKART_API_KEY"

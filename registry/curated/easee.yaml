@@ -1,0 +1,32 @@
+updated: 2026-11-16
+provider:
+  name: Easee
+  orgnr: "920292046"
+  sector: privat
+apis:
+  - id: easee-api
+    title: Easee API (elbil-lading)
+    title_en: Easee API (EV charging)
+    description: >-
+      REST-API fra den norske laderprodusenten Easee: ladere, anlegg, ladeøkter, strømgrenser og energimålinger for
+      hjem, borettslag og operatører. Du logger inn for å få en tilgangstoken (med oppfriskingstoken), og partnere kan
+      bruke OAuth 2.0. Dokumentasjonen på developer.easee.com har egne deler for hjem, partnere og operatører.
+    category: natur-og-miljo
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.easee.com/api
+    docs_url: https://developer.easee.com/
+    keywords: [easee, elbil, lading, lader, ladeøkt, energi, ev charging, charger]
+    tags: [private-provider, registration, oauth2]
+    caveats:
+      - Krever Easee-konto; ladere og anlegg du ikke har tilgang til, er utilgjengelige.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # 1. hent token med Easee-kontoens brukernavn og passord
+      curl -X POST "https://api.easee.com/api/accounts/login" \
+        -H "Content-Type: application/json" \
+        -d '{"userName":"<bruker>","password":"<passord>"}'
+      # 2. list laderne dine
+      curl "https://api.easee.com/api/chargers" -H "Authorization: Bearer $EASEE_TOKEN"

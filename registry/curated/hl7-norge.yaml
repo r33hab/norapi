@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: HL7 Norge
+  orgnr: "995726246"
+  sector: privat
+apis:
+  - id: hl7-norge-basisprofiler-fhir
+    title: HL7 Norge FHIR-basisprofiler (R4-pakke)
+    title_en: HL7 Norway FHIR base profiles (R4 package)
+    description: >-
+      Nasjonale FHIR R4-basisprofiler for helsesektoren (pakken hl7.fhir.no.basis): profiler, utvidelser og
+      kodeverkreferanser for blant annet Patient, Practitioner, Organization og Appointment. Lastes ned som FHIR-pakke
+      fra pakkeregisteret og leses som implementasjonsguide. Dette er profiler og ikke en datatjeneste.
+    category: arbeid-og-velferd
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://packages.fhir.org/hl7.fhir.no.basis
+    docs_url: https://hl7norway.github.io/basisprofiler-r4-fsh/
+    probe_url: https://packages.fhir.org/hl7.fhir.no.basis
+    keywords: [fhir, hl7, profiler, helse, basisprofil, implementasjonsguide, interoperabilitet, norwegian base profiles]
+    tags: [no-auth, reference-data, data-files, private-provider]
+    caveats:
+      - Ikke et API, bare filer til nedlasting.
+      - Pakkeregisteret packages.fhir.org er et internasjonalt FHIR-register; bare selve pakken er norsk.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://packages.fhir.org/hl7.fhir.no.basis"

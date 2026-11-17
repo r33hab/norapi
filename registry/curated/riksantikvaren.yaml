@@ -1,0 +1,56 @@
+updated: 2026-11-16
+provider:
+  name: Riksantikvaren
+  orgnr: "974760819"
+  sector: stat
+apis:
+  - id: riksantikvaren-wp-api
+    title: Riksantikvaren.no (innholds-API for nyheter, fredninger og veiledere)
+    title_en: Riksantikvaren.no content API (news, listings and guides)
+    description: >-
+      WordPress REST-API på riksantikvaren.no med nyheter, pressemeldinger, fredningssaker, veiledere, prosjekter,
+      kalender, nettutstillinger og ordliste som JSON. Åpent uten nøkkel, men ikke dokumentert av eieren. Typene
+      «ansatte» finnes også; ikke bruk dem til å kartlegge enkeltpersoner.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.riksantikvaren.no/wp-json/wp/v2
+    docs_url: https://developer.wordpress.org/rest-api/reference/
+    probe_url: https://www.riksantikvaren.no/wp-json/wp/v2/posts?per_page=1
+    keywords: [riksantikvaren, kulturminner, fredning, vern, pressemeldinger, veiledere, cultural heritage, wordpress]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # siste nyheter
+      curl "https://www.riksantikvaren.no/wp-json/wp/v2/posts?per_page=5&_fields=id,date,link,title"
+      # fredningssaker
+      curl "https://www.riksantikvaren.no/wp-json/wp/v2/fredning?per_page=5&_fields=id,date,link,title"
+
+  - id: riksantikvaren-kulturminnesok-wp-api
+    title: Kulturminnesøk.no (innholds-API for nyheter og kalender)
+    title_en: Kulturminnesok.no content API (news and calendar)
+    description: >-
+      WordPress REST-API på kulturminnesok.no, Riksantikvarens portal for kulturminner, med innlegg, pressemeldinger,
+      kalender og sider som JSON. Åpent uten nøkkel, men ikke dokumentert av eieren. Selve kulturminnedataene ligger
+      ikke her; bare nettstedets redaksjonelle innhold.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.kulturminnesok.no/wp-json/wp/v2
+    docs_url: https://developer.wordpress.org/rest-api/reference/
+    probe_url: https://www.kulturminnesok.no/wp-json/wp/v2/posts?per_page=1
+    keywords: [kulturminnesøk, kulturminner, pressemelding, kalender, riksantikvaren, cultural heritage, wordpress]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Bare redaksjonelt innhold; kulturminnedataene ligger ikke i dette API-et.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # siste nyheter
+      curl "https://www.kulturminnesok.no/wp-json/wp/v2/posts?per_page=5&_fields=id,date,link,title"

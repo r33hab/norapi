@@ -1,4 +1,4 @@
-updated: 2026-11-10
+updated: 2026-11-16
 provider:
   name: Vipps MobilePay
   orgnr: "918713867"
@@ -69,3 +69,176 @@ apis:
     caveats:
       - Bare for brukersteder med ePayment eller faste betalinger (egne salgsstednøkler), regnskapspartnere med regnskapsnøkler og innsamlingsorganisasjoner.
       - Brukersteder med VM-nummer kan ikke bruke API-et selv, men må gi en regnskapspartner tilgang.
+
+  - id: vipps-mobilepay-recurring
+    title: Vipps MobilePay Recurring API (faste betalinger)
+    title_en: Vipps MobilePay Recurring API (subscriptions)
+    description: >-
+      Oppretter betalingsavtaler (abonnement) og trekker faste eller variable beløp mot dem, med kampanjer og
+      avtalestatus. Brukes til abonnement og medlemskap. Krever bedriftsavtale; Bearer-token hentes med klient-ID og
+      hemmelighet fra Access Token API.
+    category: finans
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.vipps.no/recurring/v3/agreements
+    docs_url: https://developer.vippsmobilepay.com/docs/APIs/recurring-api/
+    spec_url: https://developer.vippsmobilepay.com/redocusaurus/recurring-swagger-id.yaml
+    keywords: [vipps, mobilepay, abonnement, faste betalinger, recurring, betalingsavtale, subscription]
+    tags: [private-provider, agreement]
+    caveats:
+      - Krever bedriftsavtale og API-nøkler fra Vipps MobilePay-portalen; testmiljøet apitest.vipps.no har egne nøkler.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      TOKEN=$(curl -s -X POST "https://apitest.vipps.no/accesstoken/get" -H "client_id: $VIPPS_CLIENT_ID" -H "client_secret: $VIPPS_CLIENT_SECRET" -H "Ocp-Apim-Subscription-Key: $VIPPS_SUBSCRIPTION_KEY" -d "" | jq -r .access_token)
+      curl "https://apitest.vipps.no/recurring/v3/agreements" \
+        -H "Authorization: Bearer $TOKEN" -H "Ocp-Apim-Subscription-Key: $VIPPS_SUBSCRIPTION_KEY" -H "Merchant-Serial-Number: $VIPPS_MSN"
+
+  - id: vipps-mobilepay-checkout
+    title: Vipps MobilePay Checkout API (ferdig kasseløsning)
+    title_en: Vipps MobilePay Checkout API (hosted checkout)
+    description: >-
+      Oppretter en kasse-sesjon der Vipps MobilePay håndterer adresse, frakt og betaling i én hostet kasse. Du får en
+      sesjons-URL og leser sesjonsstatus. Krever bedriftsavtale og Bearer-token fra Access Token API.
+    category: finans
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.vipps.no/checkout/v3/session
+    docs_url: https://developer.vippsmobilepay.com/docs/APIs/checkout-api/
+    probe_url: https://developer.vippsmobilepay.com/redocusaurus/checkout-swagger-id.yaml
+    spec_url: https://developer.vippsmobilepay.com/redocusaurus/checkout-swagger-id.yaml
+    keywords: [vipps, mobilepay, kasse, checkout, nettbutikk, frakt, betaling]
+    tags: [private-provider, agreement]
+    caveats:
+      - Krever bedriftsavtale og API-nøkler fra Vipps MobilePay-portalen; testmiljøet apitest.vipps.no har egne nøkler.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      TOKEN=$(curl -s -X POST "https://apitest.vipps.no/accesstoken/get" -H "client_id: $VIPPS_CLIENT_ID" -H "client_secret: $VIPPS_CLIENT_SECRET" -H "Ocp-Apim-Subscription-Key: $VIPPS_SUBSCRIPTION_KEY" -d "" | jq -r .access_token)
+      # opprett sesjon (POST), se OpenAPI-filen for body
+      curl -X POST "https://apitest.vipps.no/checkout/v3/session" \
+        -H "Authorization: Bearer $TOKEN" -H "Ocp-Apim-Subscription-Key: $VIPPS_SUBSCRIPTION_KEY" -H "Merchant-Serial-Number: $VIPPS_MSN" -H "Content-Type: application/json" -d @session.json
+
+  - id: vipps-mobilepay-qr
+    title: Vipps MobilePay QR API (QR-koder)
+    title_en: Vipps MobilePay QR API (QR codes)
+    description: >-
+      Oppretter og administrerer statiske QR-koder som sender kunden til Vipps MobilePay-appen for betaling, og lister
+      koder per salgssted. Eget base-URL under api.vipps.no/qr. Krever bedriftsavtale og nøkler.
+    category: finans
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.vipps.no/qr/v1
+    docs_url: https://developer.vippsmobilepay.com/docs/APIs/qr-api/
+    probe_url: https://developer.vippsmobilepay.com/redocusaurus/qr-swagger-id.yaml
+    spec_url: https://developer.vippsmobilepay.com/redocusaurus/qr-swagger-id.yaml
+    keywords: [vipps, mobilepay, qr, qr-kode, betaling, salgssted]
+    tags: [private-provider, agreement]
+    caveats:
+      - Krever bedriftsavtale og API-nøkler fra Vipps MobilePay-portalen; testmiljøet apitest.vipps.no har egne nøkler.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      TOKEN=$(curl -s -X POST "https://apitest.vipps.no/accesstoken/get" -H "client_id: $VIPPS_CLIENT_ID" -H "client_secret: $VIPPS_CLIENT_SECRET" -H "Ocp-Apim-Subscription-Key: $VIPPS_SUBSCRIPTION_KEY" -d "" | jq -r .access_token)
+      curl "https://apitest.vipps.no/qr/v1" \
+        -H "Authorization: Bearer $TOKEN" -H "Ocp-Apim-Subscription-Key: $VIPPS_SUBSCRIPTION_KEY" -H "Merchant-Serial-Number: $VIPPS_MSN"
+
+  - id: vipps-mobilepay-webhooks
+    title: Vipps MobilePay Webhooks API
+    title_en: Vipps MobilePay Webhooks API
+    description: >-
+      Registrerer webhook-abonnement som varsler systemet ditt om hendelser i betalinger og avtaler, med signatur du
+      må verifisere. Eget base-URL under api.vipps.no/webhooks. Krever bedriftsavtale og nøkler.
+    category: finans
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.vipps.no/webhooks/v1/webhooks
+    docs_url: https://developer.vippsmobilepay.com/docs/APIs/webhooks-api/
+    spec_url: https://developer.vippsmobilepay.com/redocusaurus/webhooks-swagger-id.yaml
+    keywords: [vipps, mobilepay, webhook, hendelser, varsling, callback]
+    tags: [private-provider, agreement]
+    caveats:
+      - Krever bedriftsavtale og API-nøkler fra Vipps MobilePay-portalen; testmiljøet apitest.vipps.no har egne nøkler.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      TOKEN=$(curl -s -X POST "https://apitest.vipps.no/accesstoken/get" -H "client_id: $VIPPS_CLIENT_ID" -H "client_secret: $VIPPS_CLIENT_SECRET" -H "Ocp-Apim-Subscription-Key: $VIPPS_SUBSCRIPTION_KEY" -d "" | jq -r .access_token)
+      curl "https://apitest.vipps.no/webhooks/v1/webhooks" \
+        -H "Authorization: Bearer $TOKEN" -H "Ocp-Apim-Subscription-Key: $VIPPS_SUBSCRIPTION_KEY" -H "Merchant-Serial-Number: $VIPPS_MSN"
+
+  - id: vipps-mobilepay-access-token
+    title: Vipps MobilePay Access Token API
+    title_en: Vipps MobilePay Access Token API
+    description: >-
+      Bytter klient-ID, hemmelighet og abonnementsnøkkel mot et kortlevd Bearer-token som de andre Vipps MobilePay-
+      API-ene krever. Samme server for test og produksjon, med separate nøkler. Krever bedriftsavtale.
+    category: identitet-og-tilgang
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.vipps.no/accesstoken/get
+    docs_url: https://developer.vippsmobilepay.com/docs/APIs/access-token-api/
+    probe_url: https://developer.vippsmobilepay.com/redocusaurus/access-token-swagger-id.yaml
+    spec_url: https://developer.vippsmobilepay.com/redocusaurus/access-token-swagger-id.yaml
+    keywords: [vipps, mobilepay, token, access token, autentisering, client credentials]
+    tags: [private-provider, agreement]
+    caveats:
+      - Krever bedriftsavtale og API-nøkler fra Vipps MobilePay-portalen; testmiljøet apitest.vipps.no har egne nøkler.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl -X POST "https://apitest.vipps.no/accesstoken/get" \
+        -H "client_id: $VIPPS_CLIENT_ID" -H "client_secret: $VIPPS_CLIENT_SECRET" \
+        -H "Ocp-Apim-Subscription-Key: $VIPPS_SUBSCRIPTION_KEY" -d ""
+
+  - id: vipps-mobilepay-management
+    title: Vipps MobilePay Management API (partner og salgssteder)
+    title_en: Vipps MobilePay Management API (partners and sales units)
+    description: >-
+      For partnere som onboarder brukersteder: bestill og hent salgssteder, API-nøkler, prispakker og
+      betalingsmetoder. Bare produksjonsserver i spesifikasjonen. Krever partneravtale og Bearer-token.
+    category: finans
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.vipps.no/management/v1/partners/price-packages
+    docs_url: https://developer.vippsmobilepay.com/docs/APIs/management-api/
+    spec_url: https://developer.vippsmobilepay.com/redocusaurus/management-swagger-id.yaml
+    keywords: [vipps, mobilepay, partner, onboarding, salgssted, prispakke, management]
+    tags: [private-provider, agreement]
+    caveats:
+      - Krever partneravtale med Vipps MobilePay.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      TOKEN=$(curl -s -X POST "https://apitest.vipps.no/accesstoken/get" -H "client_id: $VIPPS_CLIENT_ID" -H "client_secret: $VIPPS_CLIENT_SECRET" -H "Ocp-Apim-Subscription-Key: $VIPPS_SUBSCRIPTION_KEY" -d "" | jq -r .access_token)
+      curl "https://api.vipps.no/management/v1/partners/price-packages" \
+        -H "Authorization: Bearer $TOKEN" -H "Ocp-Apim-Subscription-Key: $VIPPS_SUBSCRIPTION_KEY" -H "Merchant-Serial-Number: $VIPPS_MSN"
+
+  - id: vipps-mobilepay-userinfo
+    title: Vipps MobilePay Userinfo API
+    title_en: Vipps MobilePay Userinfo API
+    description: >-
+      Henter brukeropplysninger (navn, telefon, e-post, adresse) for en bruker som har samtykket, i flyter som
+      ePayment og Checkout, via sub-identifikator. Krever bedriftsavtale og Bearer-token.
+    category: identitet-og-tilgang
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.vipps.no/vipps-userinfo-api/userinfo/{sub}
+    docs_url: https://developer.vippsmobilepay.com/docs/APIs/userinfo-api/
+    spec_url: https://developer.vippsmobilepay.com/redocusaurus/userinfo-swagger-id.yaml
+    keywords: [vipps, mobilepay, userinfo, brukeropplysninger, samtykke, sub]
+    tags: [private-provider, agreement, personal-data]
+    caveats:
+      - Krever bedriftsavtale; svarene er personopplysninger og krever samtykke fra brukeren.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      TOKEN=$(curl -s -X POST "https://apitest.vipps.no/accesstoken/get" -H "client_id: $VIPPS_CLIENT_ID" -H "client_secret: $VIPPS_CLIENT_SECRET" -H "Ocp-Apim-Subscription-Key: $VIPPS_SUBSCRIPTION_KEY" -d "" | jq -r .access_token)
+      curl "https://apitest.vipps.no/vipps-userinfo-api/userinfo/<sub>" \
+        -H "Authorization: Bearer $TOKEN" -H "Ocp-Apim-Subscription-Key: $VIPPS_SUBSCRIPTION_KEY" -H "Merchant-Serial-Number: $VIPPS_MSN"

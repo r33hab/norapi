@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: Sanity
+  orgnr: "918714529"
+  sector: privat
+apis:
+  - id: sanity-http-api
+    title: "Sanity HTTP API (innholds-API med GROQ)"
+    title_en: "Sanity HTTP API (content API with GROQ)"
+    description: >-
+      HTTP-API for Sanitys innholdsplattform: spørring med GROQ, mutasjoner, ressurser og prosjekter. Offentlige
+      datasett kan leses uten token via CDN, mens skriving og private datasett krever API-token. Versjoneres med
+      dato i URL-en.
+    category: annet
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.sanity.io
+      - https://{projectId}.api.sanity.io
+    docs_url: https://www.sanity.io/docs/http-reference
+    keywords: [sanity, cms, groq, innhold, headless cms, content api]
+    tags: [private-provider, agreement]
+    caveats:
+      - "Krever Sanity-prosjekt; lesing av offentlige datasett kan skje uten token."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      curl -H "Authorization: Bearer $SANITY_TOKEN" "https://$PROJECT_ID.api.sanity.io/v2021-06-07/data/query/production?query=*%5B0...3%5D"

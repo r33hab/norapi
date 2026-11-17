@@ -1,0 +1,54 @@
+updated: 2026-11-16
+provider:
+  name: Møre og Romsdal fylkeskommune
+  orgnr: "944183779"
+  sector: fylke
+apis:
+  - id: more-og-romsdal-fylkeskommune-kartserver
+    title: Møre og Romsdal fylkeskommunes kartserver (ArcGIS REST)
+    title_en: Møre og Romsdal county map server (ArcGIS REST)
+    description: >-
+      Fylkeskommunens kartlag i ArcGIS Server, ordnet i mapper: arealregnskap, basis geodata (blant annet eiendomskart),
+      friluftsliv, kulturminner, plan, veg og skoleskyss (skoler og soner). Hvert lag spørres med /query og svarer som
+      JSON eller GeoJSON. Åpent uten nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://arcgis.mrfylke.no/arcgis/rest/services
+    docs_url: https://arcgis.mrfylke.no/arcgis/rest/services
+    probe_url: https://arcgis.mrfylke.no/arcgis/rest/services?f=json
+    keywords: [møre og romsdal, fylkeskommune, kart, arcgis, skoleskyss, kulturminner, arealregnskap, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Noen lag støtter ikke paginering og gir feil 400 hvis du bruker resultRecordCount.
+    quick_start: |
+      curl "https://arcgis.mrfylke.no/arcgis/rest/services?f=json"
+      curl "https://arcgis.mrfylke.no/arcgis/rest/services/Skoleskyss/Skoler_MR/MapServer/0/query?where=1%3D1&outFields=*&resultRecordCount=2&f=geojson"
+
+  - id: more-og-romsdal-fylkeskommune-arcgis-online
+    title: Møre og Romsdal fylkeskommunes kartdata (ArcGIS Online)
+    title_en: Møre og Romsdal county map data (ArcGIS Online)
+    description: >-
+      Fylkeskommunens hostede kartlag i ArcGIS Online, rundt 270 tjenester: bussliner og bussruter, bruer, asfaltering,
+      belysningsstrekninger, friluftsliv (StikkUT), bedrifter og befolkning på rute. Lagene spørres med /query og svarer
+      som JSON eller GeoJSON. Tjenestelisten er åpen, men noen lag krever innlogging eller avviser enkelte spørringer.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services1.arcgis.com/wyuCvKcGprNllgyh/arcgis/rest/services
+    docs_url: https://services1.arcgis.com/wyuCvKcGprNllgyh/arcgis/rest/services
+    probe_url: https://services1.arcgis.com/wyuCvKcGprNllgyh/arcgis/rest/services?f=json
+    keywords: [møre og romsdal, fylkeskommune, kart, arcgis online, bussruter, bruer, fylkesveg, friluftsliv, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Flere lag vi prøvde svarte 400 på en enkel /query; sjekk lagets egenskaper først.
+      - Listen inneholder test- og arbeidskopier.
+    quick_start: |
+      curl "https://services1.arcgis.com/wyuCvKcGprNllgyh/arcgis/rest/services?f=json"
+      curl "https://services1.arcgis.com/wyuCvKcGprNllgyh/arcgis/rest/services/Bussliner/FeatureServer/0/query?where=1%3D1&outFields=*&resultRecordCount=2&f=geojson"

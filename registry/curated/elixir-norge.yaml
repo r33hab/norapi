@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: ELIXIR Norge (usegalaxy.no)
+  sector: stat
+apis:
+  - id: elixir-norge-usegalaxy-api
+    title: Galaxy Norge (usegalaxy.no), Galaxy-API for bioinformatikk
+    title_en: Galaxy Norway (usegalaxy.no), Galaxy API for bioinformatics
+    description: >-
+      Galaxy-API på den norske Galaxy-instansen for bioinformatiske analyser, drevet for norske forskere. Åpne oppslag uten
+      innlogging gir blant annet versjon, konfigurasjon, verktøyliste (/api/tools) og filformater, mens historikk,
+      jobber og opplasting krever konto og API-nøkkel. OpenAPI-spesifikasjonen og en Swagger-side ligger på tjenesten.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://usegalaxy.no/api/
+    docs_url: https://usegalaxy.no/api/docs
+    spec_url: https://usegalaxy.no/openapi.json
+    probe_url: https://usegalaxy.no/api/version
+    keywords: [galaxy, bioinformatikk, elixir, nels, verktøy, workflow, usegalaxy, life sciences]
+    tags: [no-auth]
+    caveats:
+      - Kun lesing av instansinformasjon og verktøykatalog er åpent, kjøring av analyser krever konto og API-nøkkel.
+      - Ingen lisens oppgitt.
+      - Spesifikasjonen er Galaxys generelle API, og mange ruter er merket undocumented.
+    quick_start: |
+      curl "https://usegalaxy.no/api/version"

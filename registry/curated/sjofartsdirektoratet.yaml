@@ -1,0 +1,55 @@
+updated: 2026-11-16
+provider:
+  name: Sjøfartsdirektoratet
+  orgnr: "974761262"
+  sector: stat
+apis:
+  - id: sjofartsdirektoratet-utviklerportal
+    title: Sjøfartsdirektoratets API-er (Sdir utviklerportal)
+    title_en: Norwegian Maritime Authority APIs (Sdir developer portal)
+    description: >-
+      REST-API-er for systemleverandører som skal sende og hente data hos Sjøfartsdirektoratet: fartøysertifikater,
+      forsikringssertifikat og radiolisens for fartøy, og for sjøfolk fartstid, kurs, tilleggskompetanse, bedømmelse,
+      helse, personlige sertifikater og påtegninger, samt sjømannserklæring for tilskudd. Alle kall krever
+      Maskinporten-token med scope med prefikset «sdir:», og virksomheten må søke om scopene. Portalen viser OpenAPI-referanse
+      per API.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://developer.sdir.no/api-reference
+    docs_url: https://developer.sdir.no/
+    keywords: [sjøfolk, fartøy, skip, sertifikat, fartstid, sjømannserklæring, maritim, sdir, seafarer, vessel certificate]
+    tags: [maskinporten, agreement]
+    caveats:
+      - Krever Maskinporten og tilgang til Sdir-scopene; se brukerveilederen for systemleverandører.
+      - Portalen oppgir ikke et felles base-URL i den offentlige referansen; endepunkter og skjemaer står per API i API-referansen.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # 1. Hent Maskinporten-token med scope fra https://developer.sdir.no/scopes, for eksempel sdir:seafarer.course.write
+      # 2. Se endepunkter og OpenAPI per API i referansen
+      curl -s "https://developer.sdir.no/api-reference"
+
+  - id: sjofartsdirektoratet-nettsok
+    title: Sjøfartsdirektoratets nettsøk (nettsidens søke-API)
+    title_en: Norwegian Maritime Authority site search (the site's search API)
+    description: >-
+      JSON-endepunktet bak søket på sdir.no: fritekstsøk i sider, nyheter og regelverk med tittel, ingress, sidetype,
+      lenke og publiserings- og oppdateringsdato, paginert. Åpent uten nøkkel, men ikke dokumentert av eieren.
+      Søkeparameteren heter Search.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.sdir.no/api/sdir/search
+    docs_url: https://www.sdir.no/sok/
+    probe_url: https://www.sdir.no/api/sdir/search?Search=fritidsbat
+    keywords: [sjøfart, fritidsbåt, regelverk, sertifikat, nyheter, søk, maritime, site search]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://www.sdir.no/api/sdir/search?Search=fritidsbat"

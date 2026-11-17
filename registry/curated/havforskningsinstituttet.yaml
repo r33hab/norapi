@@ -1,0 +1,30 @@
+updated: 2026-11-16
+provider:
+  name: Havforskningsinstituttet
+  orgnr: "971349077"
+  sector: stat
+apis:
+  - id: havforskningsinstituttet-erddap
+    title: Havforskningsinstituttets ERDDAP
+    title_en: Institute of Marine Research ERDDAP
+    description: >-
+      ERDDAP-server med havobservasjoner og modelldata: søk i datasett, hent tabell- eller rutenettdata som JSON, CSV
+      eller NetCDF med URL-parametre, og lag kart og grafer. Åpen uten innlogging. Antall datasett er lite, så sjekk
+      katalogen for hva som finnes (blant annet hydrografi og strøm fra Framstredet).
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON, CSV, NetCDF]
+    endpoints:
+      - https://erddap.hi.no/erddap/
+    docs_url: https://erddap.hi.no/erddap/information.html
+    probe_url: https://erddap.hi.no/erddap/info/index.json?page=1&itemsPerPage=5
+    keywords: [erddap, hav, oseanografi, hydrografi, temperatur, saltholdighet, strøm, griddap, tabledap, ocean data]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # liste over datasett som JSON
+      curl "https://erddap.hi.no/erddap/info/index.json?page=1&itemsPerPage=5"
+      # fritekstsøk
+      curl "https://erddap.hi.no/erddap/search/index.json?page=1&itemsPerPage=3&searchFor=temperature"

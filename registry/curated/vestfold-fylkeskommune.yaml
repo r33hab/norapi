@@ -1,0 +1,54 @@
+updated: 2026-11-16
+provider:
+  name: Vestfold fylkeskommune
+  orgnr: "929882385"
+  sector: fylke
+apis:
+  - id: vestfold-fylkeskommune-kartserver
+    title: Vestfold fylkeskommunes kartserver (ArcGIS REST)
+    title_en: Vestfold county map server (ArcGIS REST)
+    description: >-
+      Fylkeskommunens kartlag i ArcGIS Server: arealregnskap, driftskontrakter for veg, fjellplaner, historiske kart,
+      kommunekart og samferdselslag som sykkelvegnett. Hvert lag spørres med /query og svarer som JSON eller GeoJSON.
+      Åpent uten nøkkel, men mappene Hosted og Test er arbeidsområder.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://kart.vestfoldfylke.no/server/rest/services
+    docs_url: https://kart.vestfoldfylke.no/server/rest/services
+    probe_url: https://kart.vestfoldfylke.no/server/rest/services?f=json
+    keywords: [vestfold, fylkeskommune, kart, arcgis, arealregnskap, driftskontrakt, samferdsel, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Mappene Test og Hosted er arbeidsområder; bygg ikke på dem.
+    quick_start: |
+      curl "https://kart.vestfoldfylke.no/server/rest/services?f=json"
+      curl "https://kart.vestfoldfylke.no/server/rest/services/Arealregnskap/Utvidet_arealregnskap_K_SJ/MapServer/0/query?where=1%3D1&outFields=*&resultRecordCount=2&f=geojson"
+
+  - id: vestfold-fylkeskommune-arcgis-online
+    title: Vestfold fylkeskommunes kartdata (ArcGIS Online)
+    title_en: Vestfold county map data (ArcGIS Online)
+    description: >-
+      Fylkeskommunens hostede kartlag i ArcGIS Online, rundt 500 tjenester: kontraktsområder og vedlegg for
+      driftskontrakter på veg, fylkesgrense, byområder, sykkelavgrensninger, arbeidsplasser og arealnøytralitet. Lagene
+      spørres med /query og svarer som JSON eller GeoJSON. Omtrent halvparten av lagene vi prøvde er åpne uten nøkkel.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services-eu1.arcgis.com/kwAMxOduiEJAp7ld/arcgis/rest/services
+    docs_url: https://services-eu1.arcgis.com/kwAMxOduiEJAp7ld/arcgis/rest/services
+    probe_url: https://services-eu1.arcgis.com/kwAMxOduiEJAp7ld/arcgis/rest/services?f=json
+    keywords: [vestfold, fylkeskommune, kart, arcgis online, driftskontrakt, fylkesveg, sykkel, byområder, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Noen tjenester krever innlogging og svarer med «Token Required».
+      - Listen inneholder mange kopier av samme lag med hash-suffiks.
+    quick_start: |
+      curl "https://services-eu1.arcgis.com/kwAMxOduiEJAp7ld/arcgis/rest/services?f=json"
+      curl "https://services-eu1.arcgis.com/kwAMxOduiEJAp7ld/arcgis/rest/services/Fylkesgrense_Vestfold/FeatureServer/0/query?where=1%3D1&outFields=*&resultRecordCount=1&f=geojson"

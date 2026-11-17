@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: Xeneta
+  sector: privat
+  orgnr: "915736076"
+apis:
+  - id: xeneta-api
+    title: Xeneta API (fraktpriser sjø og luft)
+    title_en: Xeneta API (ocean and air freight rates)
+    description: >-
+      REST-API fra Oslo-selskapet Xeneta med markedspriser for sjø- og luftfrakt, estimerte priser, egne priser,
+      rederienes prisspenn, rutepunktlighet, kapasitet og karbonutslipp. Nøkkelen genereres under API Access i
+      Xeneta-kontoen og sendes i headeren X-Auth mot api.xeneta.com (versjon 3.0). Krever abonnement med API-tilgang.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.xeneta.com/v3.0/
+    docs_url: https://developers.xeneta.com/
+    probe_url: https://api.xeneta.com/v3.0/echo
+    keywords: [xeneta, frakt, containerfrakt, fraktpriser, sjøfrakt, luftfrakt, freight rates, shipping, benchmark]
+    tags: [registration, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever betalt Xeneta-abonnement med API-tilgang.
+    quick_start: |
+      curl -H "X-Auth: $XENETA_API_KEY" "https://api.xeneta.com/v3.0/echo"

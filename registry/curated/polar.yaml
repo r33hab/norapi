@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-11-16
 provider:
   name: Norsk Polarinstitutt
   orgnr: "971022264"
@@ -20,3 +20,28 @@ apis:
     license: CC BY 4.0
     keywords: [svalbard, antarktis, polar, stedsnavn, ekspedisjon, arktis]
     tags: [no-auth]
+
+  - id: npolar-geodata-arcgis-rest
+    title: Norsk Polarinstitutt kartserver (ArcGIS Server REST, Svalbard)
+    title_en: Norwegian Polar Institute map server (ArcGIS Server REST, Svalbard)
+    description: >-
+      ArcGIS Server med kartdata for Svalbard, Jan Mayen og polarområdene: basiskart og flyfoto som WMTS, og
+      temalag som sjøfuglkolonier, sjøpattedyr, reinsdyr, vegetasjon, fenologi og geologi. Åpen uten nøkkel, og
+      enkelte lag kan spørres som JSON via query.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, WMS, WMTS]
+    endpoints:
+      - https://geodata.npolar.no/arcgis/rest/services
+    docs_url: https://geodata.npolar.no/arcgis/rest/services
+    probe_url: https://geodata.npolar.no/arcgis/rest/services?f=json
+    keywords: [svalbard, jan mayen, arcgis, rest, sjøfugl, reinsdyr, vegetasjon, geologi, basiskart, polar]
+    tags: [no-auth]
+    caveats:
+      - Ikke alle MapServer-lag støtter query; sjekk lagets side for støttede operasjoner.
+      - Ingen lisens oppgitt på tjenestemappen.
+    quick_start: |
+      curl "https://geodata.npolar.no/arcgis/rest/services/Temadata?f=json"
+      # sjøfuglkolonier på Svalbard (lag 1)
+      curl "https://geodata.npolar.no/arcgis/rest/services/Temadata/F_Seabirds_Svalbard/MapServer/1/query?where=1%3D1&outFields=*&resultRecordCount=1&f=json"

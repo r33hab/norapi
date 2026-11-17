@@ -1,4 +1,4 @@
-updated: 2026-10-21
+updated: 2026-11-16
 provider:
   name: Stavanger kommune
   orgnr: "964965226"
@@ -24,3 +24,192 @@ apis:
     tags: [no-auth]
     quick_start: |
       curl "https://opencom.no/api/3/action/package_search?q=parkering&rows=3"
+
+  - id: stavanger-kommune-agol
+    title: Stavanger kommunes kartdata på ArcGIS Online (REST)
+    title_en: Stavanger municipality map data on ArcGIS Online (REST)
+    description: >-
+      Stavanger kommunes åpne tjenestekatalog på ArcGIS Online, med omtrent 167 publiserte kartlag, blant annet barnehager, barneskoler med inntaksområder, gang- og sykkelveier, kulturminner og sikringssoner. Hvert lag
+      kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er kommunens arbeidsområde, så lag
+      kommer og går og innholdet varierer i kvalitet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services5.arcgis.com/GStBPPXG2zAeErGC/arcgis/rest/services
+    docs_url: https://services5.arcgis.com/GStBPPXG2zAeErGC/arcgis/rest/services
+    probe_url: https://services5.arcgis.com/GStBPPXG2zAeErGC/arcgis/rest/services?f=json
+    keywords: [kommune, kart, arcgis, arcgis online, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Laglisten er kommunens arbeidskart og endres uten varsel; noen lag er under arbeid eller test.
+      - Noen lag kan inneholde innspill fra innbyggere eller andre persondata, så sjekk laget før du bruker det.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services5.arcgis.com/GStBPPXG2zAeErGC/arcgis/rest/services?f=json"
+      # fem objekter fra ett lag, som GeoJSON
+      curl "https://services5.arcgis.com/GStBPPXG2zAeErGC/arcgis/rest/services/Barnehager/FeatureServer/0/query?where=1%3D1&outFields=*&resultRecordCount=5&f=geojson"
+
+  - id: stavanger-kommune-parkering-sanntid
+    title: Stavanger Parkering (ledige plasser i parkeringshus)
+    title_en: Stavanger parking garages (free spaces, near real time)
+    description: >-
+      JSON-fil med sted, koordinater og antall ledige plasser i parkeringshusene til Stavanger Parkering, oppdatert
+      omtrent hvert andre minutt. Åpent uten nøkkel. Antallet kommer som tekst, og enkelte hus har teksten «Open»
+      i stedet for et tall.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, CSV]
+    endpoints:
+      - https://opencom.no/dataset/36ceda99-bbc3-4909-bc52-b05a6d634b3f/resource/d1bdc6eb-9b49-4f24-89c2-ab9f5ce2acce/download/parking.json
+    docs_url: https://opencom.no/dataset/stavanger-parkering
+    probe_url: https://opencom.no/dataset/36ceda99-bbc3-4909-bc52-b05a6d634b3f/resource/d1bdc6eb-9b49-4f24-89c2-ab9f5ce2acce/download/parking.json
+    license: NLOD 2.0
+    keywords: [parkering, parkeringshus, ledige plasser, stavanger, sanntid, parking]
+    tags: [no-auth, feed]
+    caveats:
+      - Ikke et API i streng forstand; en fil som oppdateres jevnlig, med en adresse som følger ressurs-ID-ene i CKAN.
+      - Feltene har norske navn og verdiene er tekst, også tallene.
+    quick_start: |
+      curl "https://opencom.no/dataset/36ceda99-bbc3-4909-bc52-b05a6d634b3f/resource/d1bdc6eb-9b49-4f24-89c2-ab9f5ce2acce/download/parking.json"
+
+  - id: stavanger-kommune-sykkeltellere
+    title: Sykkeltellere i Stavanger (timesvise passeringer)
+    title_en: Stavanger bicycle counters (hourly passages)
+    description: >-
+      Timesvise sykkelpasseringer per målestasjon, bane og retning fra sykkelsensorene til Stavanger kommune, med
+      antall, gjennomsnittsfart og temperatur. Oppdateres daglig, med én CSV-ressurs per år. Årsfilene ligger i
+      CKAN-datalageret og kan spørres med datastore_search; ressurs-ID-en må slås opp via package_show.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, CSV]
+    endpoints:
+      - https://opencom.no/api/3/action/datastore_search
+    docs_url: https://opencom.no/dataset/sykkeldata
+    probe_url: https://opencom.no/api/3/action/package_show?id=sykkeldata
+    license: NLOD 2.0
+    keywords: [sykkel, sykkelteller, sykkeltelling, stavanger, trafikktelling, cycling, counter]
+    tags: [no-auth, feed]
+    caveats:
+      - Hvert år er en egen ressurs med egen ID; hent riktig ID fra package_show.
+      - Plasseringen til tellerne ligger i et eget datasett, «Lokalisering sykkeltellere Stavanger», koblet på Station_id.
+    quick_start: |
+      # finn siste årsressurs
+      curl "https://opencom.no/api/3/action/package_show?id=sykkeldata"
+      # hent rader fra en ressurs (bytt inn resource_id fra svaret)
+      curl "https://opencom.no/api/3/action/datastore_search?resource_id=c584f88c-c967-4ced-9e47-4126eb7b1e14&limit=5"
+  - id: stavanger-kommune-regnsensorer
+    title: Regnsensordata i Stavanger
+    title_en: Stavanger rain sensor data
+    description: >-
+      Nedbør og nivå fra regnsensorer rundt om i Stavanger, som daglig JSON-fil og som historiske CSV-er og ZIP.
+      Dagsfilen har sensor-ID, sensornavn, nedbør siste minutt og siste ti minutter og måleenhet. Kan hentes uten
+      nøkkel.
+    category: vaer-og-klima
+    access: open
+    auth: none
+    formats: [JSON, CSV]
+    endpoints:
+      - https://opencom.no/dataset/5867e185-c8b4-4976-b720-219e2bf8d21f/resource/1a6038fd-7bd0-4a8e-a87a-a3de8b19d248/download/dailyrainsensordataoutfileformat1.json
+    docs_url: https://opencom.no/dataset/regnsensordata
+    probe_url: https://opencom.no/dataset/5867e185-c8b4-4976-b720-219e2bf8d21f/resource/1a6038fd-7bd0-4a8e-a87a-a3de8b19d248/download/dailyrainsensordataoutfileformat1.json
+    license: NLOD 2.0
+    keywords: [regn, nedbør, sensor, stavanger, overvann, rain, sensor data]
+    tags: [no-auth, feed]
+    caveats:
+      - En fil som overskrives daglig, ikke et spørre-API. Den historiske CSV-en kan spørres via datastore_search.
+      - Mange felt er tomme strenger for sensorer uten målinger.
+    quick_start: |
+      curl "https://opencom.no/dataset/5867e185-c8b4-4976-b720-219e2bf8d21f/resource/1a6038fd-7bd0-4a8e-a87a-a3de8b19d248/download/dailyrainsensordataoutfileformat1.json"
+  - id: stavanger-kommune-badetemperaturer
+    title: Badetemperaturer i Stavanger
+    title_en: Stavanger bathing water temperatures
+    description: >-
+      Badesteder i Stavanger med navn, posisjon, kommune, fylke og siste målte vanntemperatur med tidspunkt. Filen
+      leveres som JSON og GeoJSON, og oppdateres jevnlig. Åpent uten nøkkel.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON, CSV]
+    endpoints:
+      - https://opencom.no/dataset/55baed04-96f3-46ef-b74a-81de2f3f24dd/resource/1bd931c9-a2fc-44b5-9ecd-f196e17093f9/download/badetemperaturerstavanger.json
+    docs_url: https://opencom.no/dataset/badetemperaturer-stavanger-levert-av-yr
+    probe_url: https://opencom.no/dataset/55baed04-96f3-46ef-b74a-81de2f3f24dd/resource/1bd931c9-a2fc-44b5-9ecd-f196e17093f9/download/badetemperaturerstavanger.json
+    license: CC BY 4.0
+    keywords: [badetemperatur, badevann, badeplass, vanntemperatur, stavanger, bathing water]
+    tags: [no-auth, feed]
+    caveats:
+      - En fil, ikke et spørre-API. Tegnsettet i stedsnavn kan komme feil ut i enkelte klienter.
+    quick_start: |
+      curl "https://opencom.no/dataset/55baed04-96f3-46ef-b74a-81de2f3f24dd/resource/1bd931c9-a2fc-44b5-9ecd-f196e17093f9/download/badetemperaturerstavanger.json"
+  - id: stavanger-kommune-cruiseanlop
+    title: Cruiseanløp i Stavanger (Stavangerregionen Havn)
+    title_en: Cruise calls in Stavanger (Stavangerregionen Port)
+    description: >-
+      Fullstendige data om cruiseanløp i Stavanger: ankomst- og avgangstid, passasjerantall, fra- og tilhavn, skip
+      og miljøscore. Én JSON-, XML- og YAML-fil per år, i tillegg til flere sammendrag som CSV og Excel.
+      Publisert av Stavangerregionen Havn, åpent uten nøkkel.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON, XML, CSV, XLSX]
+    endpoints:
+      - https://opencom.no/dataset/8da76700-7c92-496e-b57b-140838b996e6/resource/141f7326-92a2-4d67-950e-fa159d074ed4/download/use2025cruisetrafikkstavanger.json
+    docs_url: https://opencom.no/dataset/cruiseanlop-i-stavanger
+    probe_url: https://opencom.no/dataset/8da76700-7c92-496e-b57b-140838b996e6/resource/141f7326-92a2-4d67-950e-fa159d074ed4/download/use2025cruisetrafikkstavanger.json
+    license: NLOD 2.0
+    keywords: [cruise, havn, anløp, skipsanløp, stavanger, passasjerer, port calls]
+    tags: [no-auth, data-files]
+    caveats:
+      - Ikke et API, bare filer til nedlasting.
+      - Hvert år har egen fil med egen adresse; finn nye via package_show på datasettet.
+    quick_start: |
+      curl "https://opencom.no/dataset/8da76700-7c92-496e-b57b-140838b996e6/resource/141f7326-92a2-4d67-950e-fa159d074ed4/download/use2025cruisetrafikkstavanger.json"
+  - id: stavanger-kommune-met-sensorer
+    title: Værsensorer i Stavanger (Meteorologisk institutt)
+    title_en: Weather sensors in Stavanger (MET Norway)
+    description: >-
+      Time for time-målinger fra fire værstasjoner i Stavanger (Kannik, Schancheholen, Vågen og Våland) med
+      lufttemperatur, fuktighet, vind, lufttrykk, nedbør, snø og stråling. Filene leveres som JSON, XML og YAML og
+      oppdateres daglig.
+    category: vaer-og-klima
+    access: open
+    auth: none
+    formats: [JSON, XML, YAML]
+    endpoints:
+      - https://opencom.no/dataset/e7787b28-e967-4583-96b7-f96ed519398f/resource/efcbeda3-1292-4c39-8893-250bc479c708/download/met_radidation_kannik.json
+    docs_url: https://opencom.no/dataset/sensordata-per-sensor-meteorologisk-institutt-stavanger
+    probe_url: https://opencom.no/dataset/e7787b28-e967-4583-96b7-f96ed519398f/resource/efcbeda3-1292-4c39-8893-250bc479c708/download/met_radidation_kannik.json
+    license: NLOD 2.0
+    keywords: [vær, værstasjon, sensor, stavanger, temperatur, vind, weather stations]
+    tags: [no-auth, feed]
+    caveats:
+      - En fil per sensor som overskrives daglig, ikke et spørre-API.
+    quick_start: |
+      curl "https://opencom.no/dataset/e7787b28-e967-4583-96b7-f96ed519398f/resource/efcbeda3-1292-4c39-8893-250bc479c708/download/met_radidation_kannik.json"
+  - id: stavanger-kommune-boligsoneparkering
+    title: Boligsoneparkering i Stavanger
+    title_en: Resident parking zones in Stavanger
+    description: >-
+      Soner for boligsoneparkering i Stavanger kommune som GeoJSON, KML og GPX, oppdatert daglig. Egnet for kartvisning
+      og analyse av hvor beboerparkering gjelder. Åpent uten nøkkel.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [GeoJSON, KML, GPX]
+    endpoints:
+      - https://opencom.no/dataset/52d0d63e-d26c-43b9-91e2-13b3b2a96c89/resource/591066cb-b056-4525-ae93-b54dffde9530/download/boligsoneparkering.json
+    docs_url: https://opencom.no/dataset/boligsoneparkering-i-stavanger
+    probe_url: https://opencom.no/dataset/52d0d63e-d26c-43b9-91e2-13b3b2a96c89/resource/591066cb-b056-4525-ae93-b54dffde9530/download/boligsoneparkering.json
+    license: NLOD 2.0
+    keywords: [boligsoneparkering, parkering, beboerparkering, stavanger, parkeringssone, geojson]
+    tags: [no-auth, data-files]
+    caveats:
+      - Ikke et API, bare filer til nedlasting.
+      - Filen er rundt 1 MB, og første feature er et tomt SOSI-hode uten geometri.
+    quick_start: |
+      curl "https://opencom.no/dataset/52d0d63e-d26c-43b9-91e2-13b3b2a96c89/resource/591066cb-b056-4525-ae93-b54dffde9530/download/boligsoneparkering.json"

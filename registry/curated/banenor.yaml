@@ -1,0 +1,32 @@
+updated: 2026-11-16
+provider:
+  name: Bane NOR
+  orgnr: "917082308"
+  sector: statlig-selskap
+apis:
+  - id: banenor-api-portal-siri
+    title: Bane NOR API-portal (SIRI og trafikkmeldinger)
+    title_en: Bane NOR API portal (SIRI and traffic messages)
+    description: >-
+      Sanntidsdata om togtrafikken fra Bane NOR: SIRI ET (prognoser for ankomst og avgang for person- og godstog),
+      SIRI SX (tiltaksmeldinger), SIRI PT (planlagt togplan) og SIRI SM (avganger per stasjon), pluss trafikkmeldinger
+      som JSON. Gratis, men du må logge inn i utviklerportalen og abonnere på produktet for å få en abonnementsnøkkel.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [XML, JSON, SIRI]
+    endpoints:
+      - https://api-portal.banenor.no/apis
+    docs_url: https://www.banenor.no/apne-data-fa-togtidene-gratis-pa-nett-og-skjermer
+    license: NLOD 2.0
+    keywords: [tog, jernbane, sanntid, siri, togtider, forsinkelser, trafikkmeldinger, bane nor, rail]
+    tags: [registration, feed]
+    caveats:
+      - Krever innlogging og abonnement i API-portalen; selve endepunktene er ikke synlige uten innlogging.
+      - Sanntidsstrømmene er beregnet på informasjonsskjermer og tilsvarende bruk; sjekk vilkårene på banenor.no.
+      - Navnet på nøkkel-headeren er ikke bekreftet i åpen dokumentasjon; Azure API Management bruker vanligvis Ocp-Apim-Subscription-Key.
+      - Lisensen NLOD er hentet fra datakatalogen for Bane NORs trafikkdata; sjekk den i portalen.
+    quick_start: |
+      # 1. Logg inn og abonner på produktet: https://api-portal.banenor.no/
+      # 2. Kall API-et med abonnementsnøkkelen (Azure API Management)
+      curl -H "Ocp-Apim-Subscription-Key: $BANENOR_KEY" "<endepunkt fra produktsiden i portalen>"

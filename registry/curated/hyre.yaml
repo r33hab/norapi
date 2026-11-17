@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Hyre
+  sector: privat
+  orgnr: "918719601"
+apis:
+  - id: hyre-broker-api
+    title: Hyre Broker API (bilutleie, tilgjengelighet og reservasjoner)
+    title_en: Hyre Broker API (car rental availability and reservations)
+    description: >-
+      REST-API for partnere (meglere) som kobler seg til Hyre sin bildelingsplattform: lokasjoner, tilgjengelighet, reservasjoner,
+      avbestilling og førerinformasjon. Hver partner får en egen basesti, api.hyre.no/{broker}, og en API-token som sendes i
+      Authorization-headeren som «Token ...». OpenAPI-filen er åpen, men Hyre skriver at endelig API kan tilpasses den enkelte partner.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.hyre.no/{broker}/
+    docs_url: https://api.hyre.no/brokers/docs/
+    probe_url: https://api.hyre.no/brokers/docs/openapi.json
+    spec_url: https://api.hyre.no/brokers/docs/openapi.json
+    keywords: [hyre, bilutleie, bildeling, billeie, reservasjon, tilgjengelighet, car rental, broker]
+    tags: [agreement, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever partneravtale og egen broker-ID fra Hyre.
+    quick_start: |
+      curl -H "Authorization: Token $HYRE_API_TOKEN" "https://api.hyre.no/$BROKER/locations/"

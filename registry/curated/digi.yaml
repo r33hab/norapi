@@ -1,0 +1,25 @@
+updated: 2026-11-16
+provider:
+  name: Digi.no (Teknisk Ukeblad Media)
+  orgnr: "919646683"
+  sector: privat
+apis:
+  - id: digi-rss
+    title: Digi.no RSS-strøm (IT-nyheter)
+    title_en: Digi.no IT news RSS feed
+    description: >-
+      Åpen RSS-strøm med artikler fra forsiden til Digi, nyhetssiden for IT-bransjen, uten nøkkel. Strømmen har flere hundre poster og bruker samme oppsett som Dagbladet og Dagsavisen.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://www.digi.no/?lab_viewport=rss
+    docs_url: https://www.digi.no/?lab_viewport=rss
+    probe_url: https://www.digi.no/?lab_viewport=rss
+    keywords: [rss, nyheter, nyhetsstrøm, digi, it-nyheter, news feed]
+    tags: [no-auth, feed, private-provider]
+    caveats:
+      - Ingen lisens oppgitt; sjekk utgiverens vilkår før videre bruk av innholdet.
+    quick_start: |
+      curl "https://www.digi.no/?lab_viewport=rss"

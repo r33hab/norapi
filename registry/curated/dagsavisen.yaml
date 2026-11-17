@@ -1,0 +1,25 @@
+updated: 2026-11-16
+provider:
+  name: Dagsavisen
+  orgnr: "980454347"
+  sector: privat
+apis:
+  - id: dagsavisen-rss
+    title: Dagsavisens RSS-strøm (forsiden)
+    title_en: Dagsavisen front page RSS feed
+    description: >-
+      Åpen RSS-strøm med artikler fra forsiden til Dagsavisen, uten nøkkel. Strømmen har flere hundre poster og bruker samme oppsett som Dagbladet og Digi.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://www.dagsavisen.no/?lab_viewport=rss
+    docs_url: https://www.dagsavisen.no/?lab_viewport=rss
+    probe_url: https://www.dagsavisen.no/?lab_viewport=rss
+    keywords: [rss, nyheter, nyhetsstrøm, dagsavisen, news feed]
+    tags: [no-auth, feed, private-provider]
+    caveats:
+      - Ingen lisens oppgitt; sjekk utgiverens vilkår før videre bruk av innholdet.
+    quick_start: |
+      curl "https://www.dagsavisen.no/?lab_viewport=rss"

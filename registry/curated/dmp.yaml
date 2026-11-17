@@ -1,0 +1,34 @@
+updated: 2026-11-16
+provider:
+  name: Direktoratet for medisinske produkter (DMP)
+  orgnr: "974761122"
+  sector: stat
+apis:
+  - id: dmp-fest-webtjeneste
+    title: FEST (forskrivnings- og ekspedisjonsstøtte), webtjeneste og filer
+    title_en: FEST prescription and dispensing support data (web service and files)
+    description: >-
+      Legemiddeldatabasen FEST fra DMP: legemidler, varer, pakninger, refusjon, interaksjoner og andre grunndata for
+      e-resept og apotek. Hentes som XML via en WCF/SOAP-tjeneste på internett (versjon 2.5.0 og 2.5.1) eller som
+      zip-filer. Uttrekkene for rekvirent, veterinær og institusjon er åpne; uttrekk med refusjonspriser for H-resepter
+      krever sertifikat.
+    category: arbeid-og-velferd
+    access: open
+    auth: none
+    formats: [XML, SOAP]
+    endpoints:
+      - https://fest.legemiddelverket.no/Fest/FestService251.svc
+    docs_url: https://www.dmp.no/en/about-us/distribution-of-data-on-medicinal-products/electronic-prescription-support-system-fest/downloading-fest-and-safest
+    probe_url: https://www.dmp.no/globalassets/documents/om-oss/distribusjon-av-legemiddeldata/fest/festfiler/fest251.zip
+    keywords: [fest, legemiddel, legemidler, apotek, e-resept, refusjon, atc, varenummer, medicinal products, prescribing]
+    tags: [no-auth, reference-data]
+    caveats:
+      - SOAP/WCF, ikke REST. WSDL ligger på ?singleWsdl bak tjenesteadressen.
+      - Oppdateres to ganger i måneden (1. og 15.); filen på ca. 15 MB er enklest for en lokal kopi.
+      - Uttrekk for Farmalogg og Nav/Helfo krever sertifikat verifisert av DMP.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # hent WSDL (versjon 2.5.1)
+      curl "https://fest.legemiddelverket.no/Fest/FestService251.svc?singleWsdl"
+      # eller last ned hele rekvirent-uttrekket som zip
+      curl -O "https://www.dmp.no/globalassets/documents/om-oss/distribusjon-av-legemiddeldata/fest/festfiler/fest251.zip"

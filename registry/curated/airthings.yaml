@@ -1,0 +1,31 @@
+updated: 2026-11-16
+provider:
+  name: Airthings
+  sector: privat
+apis:
+  - id: airthings-business-api
+    title: Airthings for Business API (inneklima og radon)
+    title_en: Airthings for Business API (indoor climate and radon)
+    description: >-
+      Henter enheter, lokasjoner, segmenter og siste målinger (radon, CO2, temperatur, fuktighet) fra Airthings-skyen
+      for bedriftskunder. Webhooks, MQTT og en MCP-server er også dokumentert. OAuth2 med klient opprettet i
+      Airthings-dashbordet; kall uten token gir 401.
+    category: natur-og-miljo
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://ext-api.airthings.com/v1/devices
+    docs_url: https://developer-business.airthings.com/
+    probe_url: https://ext-api.airthings.com/v1/devices
+    keywords: [airthings, radon, inneklima, co2, luftkvalitet, sensor, iot, indoor air]
+    tags: [private-provider, oauth2, registration]
+    caveats:
+      - Krever Airthings for Business-konto og en API-klient fra dashbordet.
+      - Forbruker-API-et har egen dokumentasjon (consumer-api-doc.airthings.com) og er ikke med her.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # token (client credentials), deretter enheter
+      curl -X POST "https://accounts-api.airthings.com/v1/token" -H "Content-Type: application/json" \
+        -d '{"grant_type":"client_credentials","client_id":"<id>","client_secret":"<secret>","scope":["read:device"]}'
+      curl "https://ext-api.airthings.com/v1/devices" -H "Authorization: Bearer $TOKEN"

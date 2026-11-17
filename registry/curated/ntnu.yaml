@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: Norges teknisk-naturvitenskapelige universitet (NTNU)
+  orgnr: "974767880"
+  sector: stat
+apis:
+  - id: ntnu-open-access-journals-oai
+    title: NTNU Open Access Journals (OAI-PMH)
+    title_en: NTNU Open Access Journals (OAI-PMH)
+    description: >-
+      OAI-PMH-endepunkt for NTNUs åpne tidsskriftsplattform (Open Journal Systems). Høsting av metadata for artikler
+      og hefter i tidsskrifter utgitt ved NTNU, uten nøkkel. ListSets viser tidsskriftene, og ListRecords med
+      metadataPrefix=oai_dc gir postene.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://www.ntnu.no/ojs/index.php/index/oai
+    docs_url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+    probe_url: https://www.ntnu.no/ojs/index.php/index/oai?verb=Identify
+    keywords: [oai-pmh, tidsskrift, artikler, åpen tilgang, open access, ojs, høsting, ntnu, harvesting]
+    tags: [no-auth, feed]
+    caveats:
+      - Ingen lisens oppgitt; lisensen følger det enkelte tidsskriftet og artikkelen.
+    quick_start: |
+      curl "https://www.ntnu.no/ojs/index.php/index/oai?verb=Identify"
+      curl "https://www.ntnu.no/ojs/index.php/index/oai?verb=ListSets"

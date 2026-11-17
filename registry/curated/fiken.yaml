@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: Fiken
+  sector: privat
+apis:
+  - id: fiken-api
+    title: Fiken API (regnskap og fakturering)
+    title_en: Fiken accounting and invoicing API
+    description: >-
+      REST-API mot regnskapssystemet Fiken: kontakter, produkter, fakturaer, salg, kjøp, bilag, bankkontoer og
+      kontoplan per selskap. Utviklere logger inn med OAuth 2.0 (authorization code), og enkeltbrukere kan lage et
+      personlig API-token i Fiken. Kallene gjelder alltid ett konkret selskap, så du trenger en Fiken-konto.
+    category: finans
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.fiken.no/api/v2
+    docs_url: https://api.fiken.no/api/v2/docs/
+    spec_url: https://api.fiken.no/api/v2/docs/swagger.yaml
+    keywords: [fiken, regnskap, faktura, bilag, bokføring, accounting, invoice, kontakter]
+    tags: [oauth2, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever Fiken-konto og tilgang til selskapet du kaller mot.
+    quick_start: |
+      curl -H "Authorization: Bearer $FIKEN_TOKEN" "https://api.fiken.no/api/v2/user"

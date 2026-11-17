@@ -1,0 +1,371 @@
+updated: 2026-11-16
+provider:
+  name: KS Digitale fellestjenester (Fiks-plattformen)
+  orgnr: "931796003"
+  sector: kommune
+apis:
+  - id: ks-fiks-io
+    title: "Fiks IO (sikker meldingsutveksling)"
+    title_en: "Fiks IO (secure message exchange)"
+    description: >-
+      Kø-basert maskin-til-maskin-kanal mellom fagsystemer og organisasjoner, bygget på RabbitMQ med
+      ende-til-ende-kryptering og signerte meldinger (ASiC-E). Meldingstypene defineres i Fiks Protokoll, for
+      eksempel arkiv, plan og matrikkelføring. Du trenger Maskinporten-scope ks:fiks og en konto i Fiks-plattformen,
+      og store filer går via Fiks Dokumentlager (opptil 5 GB). Ingen leveringsgaranti, meldinger har 7 dagers
+      levetid som standard.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/fiks-io/katalog/api/v1
+      - https://api.fiks.test.ks.no/fiks-io/katalog/api/v1
+    docs_url: https://developers.fiks.ks.no/tjenester/fiksprotokoll/fiksio/
+    spec_url: https://developers.fiks.ks.no/api/fiksio-katalog-api-v1.json
+    keywords: [fiks io, rabbitmq, amqp, meldingsutveksling, kommune, fiks protokoll, message queue]
+    tags: [maskinporten, agreement]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Selve meldingsutvekslingen går over AMQP (RabbitMQ), ikke HTTP; REST-API-et i spesifikasjonen er katalogen over kontoer."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) hent token fra Maskinporten med scope ks:fiks (virksomhetssertifikat)
+      # 2) bruk token og integrasjons-id/passord fra Fiks-plattformen på kallene
+      curl -H "Authorization: Bearer $MASKINPORTEN_TOKEN" -H "IntegrasjonId: $INTEGRASJON_ID" -H "IntegrasjonPassord: $INTEGRASJON_PASSORD" \
+        "https://api.fiks.test.ks.no/fiks-io/katalog/api/v1/kontoer/{kontoId}"
+  - id: ks-fiks-svarut
+    title: "SvarUt (sending av forsendelser, REST)"
+    title_en: "SvarUt (outgoing mail, REST)"
+    description: >-
+      Sender digital post, Altinn-melding eller fysisk post fra kommuner og andre virksomheter, med egne endepunkter
+      per mottakertype (person, virksomhet, Norsk Helsenett, rett til print). Auth er OAuth 2.0 med Fiks-integrasjon
+      og Maskinporten. Eldre SOAP-versjoner og REST v1 avvikles i 2027, så bruk v3 for sending.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://svarut.ks.no/api
+      - https://test.svarut.ks.no/api
+    docs_url: https://developers.fiks.ks.no/tjenester/svarut/rest/
+    spec_url: https://developers.fiks.ks.no/api/forsendelse-send-api-v3.json
+    keywords: [svarut, forsendelse, digital post, brev, kommune, altinn, fysisk post]
+    tags: [maskinporten, agreement]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) hent token fra Maskinporten med scope ks:fiks (virksomhetssertifikat)
+      # 2) bruk token og integrasjons-id/passord fra Fiks-plattformen på kallene
+      curl -H "Authorization: Bearer $MASKINPORTEN_TOKEN" -H "IntegrasjonId: $INTEGRASJON_ID" -H "IntegrasjonPassord: $INTEGRASJON_PASSORD" \
+        "https://test.svarut.ks.no/api/v3/kontoer/{kontoId}/forsendelser/{forsendelseId}/status"
+  - id: ks-fiks-svarinn
+    title: "SvarInn (mottak av forsendelser, REST)"
+    title_en: "SvarInn (incoming mail, REST)"
+    description: >-
+      Mottakersystemer henter forsendelser fra SvarUt og kvitterer dem ut, slik at sakssystemet kan importere dem
+      direkte. Autentisering er HTTP Basic med brukernavn og et generert service-passord fra et mottakersystem som
+      KS Digital oppretter. Forsendelsene er kryptert og må dekrypteres med din private nøkkel.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://svarut.ks.no/api
+      - https://test.svarut.ks.no/api
+    docs_url: https://developers.fiks.ks.no/tjenester/svarut/svarinn-rest/
+    spec_url: https://developers.fiks.ks.no/api/mottakersystem-api-v2.json
+    keywords: [svarinn, mottak, sakssystem, svarut, kommune, basic auth]
+    tags: [agreement]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Autentisering er HTTP Basic med service-passord, ikke en API-nøkkel i streng forstand."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      curl -u "$MOTTAKERSYSTEM:$SERVICEPASSORD" "https://test.svarut.ks.no/api/v2/mottakersystem"
+  - id: ks-fiks-digisos
+    title: "Fiks Digisos (digital sosialsøknad)"
+    title_en: "Fiks Digisos (digital social assistance applications)"
+    description: >-
+      API for kommunale fagsystemer som behandler sosialsøknader sendt fra nav.no, med innsending av
+      saksoppdateringer, filer og status tilbake til innbygger. Egne API-er for sak, mellomlagring og NAV-siden.
+      Tjenesten aktiveres per kommune i Fiks Konfigurasjon, og mottak skjer via Fiks IO eller SvarUt.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/digisos/api/v1
+      - https://api.fiks.test.ks.no/digisos/api/v1
+    docs_url: https://developers.fiks.ks.no/tjenester/digisos/
+    spec_url: https://developers.fiks.ks.no/api/digisos-sak-api-v1.json
+    keywords: [digisos, sosialhjelp, sosialsøknad, nav, kommune, økonomisk sosialhjelp]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) hent token fra Maskinporten med scope ks:fiks (virksomhetssertifikat)
+      # 2) bruk token og integrasjons-id/passord fra Fiks-plattformen på kallene
+      curl -H "Authorization: Bearer $MASKINPORTEN_TOKEN" -H "IntegrasjonId: $INTEGRASJON_ID" -H "IntegrasjonPassord: $INTEGRASJON_PASSORD" \
+        "https://api.fiks.test.ks.no/digisos/api/v1/{fiksOrgId}/{digisosId}"
+  - id: ks-fiks-folkeregister
+    title: "Fiks Folkeregister (oppvekst)"
+    title_en: "Fiks Population Register (child and family)"
+    description: >-
+      Speiler Skatteetatens Folkeregister-tjenester for kommuner på Fiks-plattformen: oppslag, uttrekk og
+      hendelseslister, her i varianten for oppvekstsektoren. Krever bruksavtaler både med Skatteetaten og KS,
+      Maskinporten-scope ks:fiks og en rolle i kommunens oppsett. Tjenesten gir personopplysninger og er underlagt
+      streng tilgangsstyring.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/folkeregister/api/v1
+      - https://api.fiks.test.ks.no/folkeregister/api/v1
+    docs_url: https://developers.fiks.ks.no/tjenester/register/folkeregister/
+    spec_url: https://developers.fiks.ks.no/api/folkeregister-oppvekst-api-v1.json
+    keywords: [folkeregister, freg, personopplysninger, kommune, oppvekst, fiks register]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Returnerer personopplysninger; bruk krever behandlingsgrunnlag og avtaler med Skatteetaten."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) hent token fra Maskinporten med scope ks:fiks (virksomhetssertifikat)
+      # 2) bruk token og integrasjons-id/passord fra Fiks-plattformen på kallene
+      curl -H "Authorization: Bearer $MASKINPORTEN_TOKEN" -H "IntegrasjonId: $INTEGRASJON_ID" -H "IntegrasjonPassord: $INTEGRASJON_PASSORD" \
+        "https://api.fiks.test.ks.no/folkeregister/api/v1/oppvekst/{fiksOrgId}/{rolleId}"
+  - id: ks-fiks-sms
+    title: "Fiks Send SMS (varsling)"
+    title_en: "Fiks Send SMS (notifications)"
+    description: >-
+      Sender SMS til innbyggere i kommunen, for eksempel ved flom eller nedetid på vann, enkeltvis eller som batch,
+      med oppslag på status. Brukes av flere Fiks-tjenester og kan kalles direkte fra egne integrasjoner. Meldinger
+      med tegn utenfor GSM-7 sendes som unicode og får færre tegn per SMS.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/varsling/api/v2/sms
+    docs_url: https://developers.fiks.ks.no/tjenester/fiksmelding/fiks-sms/
+    spec_url: https://developers.fiks.ks.no/api/varsling-sms-api-v2.json
+    keywords: [sms, varsling, tekstmelding, kommune, innbyggervarsling]
+    tags: [maskinporten, agreement]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) hent token fra Maskinporten med scope ks:fiks (virksomhetssertifikat)
+      # 2) bruk token og integrasjons-id/passord fra Fiks-plattformen på kallene
+      curl -H "Authorization: Bearer $MASKINPORTEN_TOKEN" -H "IntegrasjonId: $INTEGRASJON_ID" -H "IntegrasjonPassord: $INTEGRASJON_PASSORD" \
+        "https://api.fiks.ks.no/varsling/api/v2/sms/{kontoId}/oppslag"
+  - id: ks-fiks-eiendomsavtaler
+    title: "Fiks Eiendomsavtaler"
+    title_en: "Fiks Property Agreements"
+    description: >-
+      Felles register over eiendomsavtaler per matrikkelenhet, holdt oppdatert mot matrikkelen, som fagsystemer for
+      vann og avløp, feiing, renovasjon og eiendomsskatt kan fakturere etter. Kommunen kan legge til særavtaler
+      manuelt. Tjenesten er i pilot med Oslo kommune.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/eiendomsavtaler/offentlig/api/v1
+      - https://api.fiks.test.ks.no/eiendomsavtaler/offentlig/api/v1
+    docs_url: https://developers.fiks.ks.no/tjenester/eiendomsavtaler/
+    spec_url: https://developers.fiks.ks.no/api/eiendomsavtaler-offentlig-api-v1.json
+    keywords: [eiendomsavtale, matrikkel, faktura, kommunale gebyrer, vann og avløp, renovasjon]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Tjenesten er i pilot og kan endre seg."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) hent token fra Maskinporten med scope ks:fiks (virksomhetssertifikat)
+      # 2) bruk token og integrasjons-id/passord fra Fiks-plattformen på kallene
+      curl -H "Authorization: Bearer $MASKINPORTEN_TOKEN" -H "IntegrasjonId: $INTEGRASJON_ID" -H "IntegrasjonPassord: $INTEGRASJON_PASSORD" \
+        "https://api.fiks.ks.no/eiendomsavtaler/offentlig/api/v1/{fiksOrgId}/eiendomsavtaler"
+  - id: ks-fiks-min-kommune-oppgave
+    title: "Min kommune: Oppgave-API"
+    title_en: "Min kommune: Task API"
+    description: >-
+      Lar fagsystemer opprette oppgaver og oppdatere status for innbyggere i Min kommune, innbyggerportalen til KS.
+      Tilgang gis per kommune via Fiks-plattformen. Hører sammen med Fiks Innsyn for dokumenter og saker.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/min-kommune/api/v1
+    docs_url: https://developers.fiks.ks.no/tjenester/minkommune/oppgave/
+    probe_url: https://api.fiks.ks.no/min-kommune/api/v1/api/00000000-0000-0000-0000-000000000000/oppgaver
+    spec_url: https://developers.fiks.ks.no/api/min-kommune-oppgave-ekstern-api-v1.json
+    keywords: [min kommune, oppgave, innbyggerportal, kommune, innsyn]
+    tags: [maskinporten, agreement]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) hent token fra Maskinporten med scope ks:fiks (virksomhetssertifikat)
+      # 2) bruk token og integrasjons-id/passord fra Fiks-plattformen på kallene
+      curl -H "Authorization: Bearer $MASKINPORTEN_TOKEN" -H "IntegrasjonId: $INTEGRASJON_ID" -H "IntegrasjonPassord: $INTEGRASJON_PASSORD" \
+        "https://api.fiks.ks.no/min-kommune/api/v1/api/{fiksOrgId}/oppgaver"
+  - id: ks-fiks-innsyn
+    title: "Fiks Innsyn (indeksering og oppslag)"
+    title_en: "Fiks Insight (indexing and lookup)"
+    description: >-
+      Fagsystemer indekserer saker, journalposter, fakturaer og innsendte skjema som innbygger ser i Min kommune, og
+      slår dem opp igjen via oppslags- og søke-API-ene. Det finnes egne spesifikasjoner for indeksering, sletting og
+      søk, og for barnevern en egen variant. Tilgang er per kommune.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/innsyn-index/api/v2
+      - https://api.fiks.ks.no/innsyn-sok/api/v1
+    docs_url: https://developers.fiks.ks.no/tjenester/minkommune/innsyn/
+    spec_url: https://developers.fiks.ks.no/api/innsyn-index-api-v2.json
+    keywords: [innsyn, journalpost, sak, min kommune, indeksering, kommune]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) hent token fra Maskinporten med scope ks:fiks (virksomhetssertifikat)
+      # 2) bruk token og integrasjons-id/passord fra Fiks-plattformen på kallene
+      curl -H "Authorization: Bearer $MASKINPORTEN_TOKEN" -H "IntegrasjonId: $INTEGRASJON_ID" -H "IntegrasjonPassord: $INTEGRASJON_PASSORD" \
+        "https://api.fiks.ks.no/innsyn-sok/api/v1/oppslag/dokument"
+  - id: ks-fiks-bekymringsmelding
+    title: "Bekymringsmelding (kommune-API)"
+    title_en: "Concern reports (municipality API)"
+    description: >-
+      Oppslag på hvilke kommuner og bydeler som tar imot bekymringsmeldinger til barnevernet, brukt av systemer som
+      sender meldinger via Fiks IO. Det finnes også et mottaks-API for fagsystem. Versjon 2 er gjeldende, v1 er
+      beholdt for eldre integrasjoner.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/bekymringsmelding/api/v2
+    docs_url: https://developers.fiks.ks.no/tjenester/bekymringsmelding/
+    probe_url: https://api.fiks.ks.no/bekymringsmelding/api/v2/kommuner/0301/bydeler
+    spec_url: https://developers.fiks.ks.no/api/bekymringsmelding-kommune-api-v2.json
+    keywords: [bekymringsmelding, barnevern, kommune, bydel, kommunenummer]
+    tags: [maskinporten, agreement]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) hent token fra Maskinporten med scope ks:fiks (virksomhetssertifikat)
+      # 2) bruk token og integrasjons-id/passord fra Fiks-plattformen på kallene
+      curl -H "Authorization: Bearer $MASKINPORTEN_TOKEN" -H "IntegrasjonId: $INTEGRASJON_ID" -H "IntegrasjonPassord: $INTEGRASJON_PASSORD" \
+        "https://api.fiks.ks.no/bekymringsmelding/api/v2/kommuner/{kommunenummer}/bydeler"
+  - id: ks-fiks-besoksbidrag
+    title: "Besøksbidrag register"
+    title_en: "Visiting contribution register"
+    description: >-
+      Register og API for kommunale besøksbidrag til barn i barnevernet, med oppslag på kommuner og tilhørende data.
+      Spesifikasjonen er åpen, men kallene krever Fiks-tilgang og avtale. Tjenesten har egne test- og
+      produksjonsmiljøer.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/besoksbidrag-register/api/v1
+      - https://api.test.fiks.ks.no/besoksbidrag-register/api/v1
+    docs_url: https://developers.fiks.ks.no/tjenester/besoksbidrag/
+    probe_url: https://developers.fiks.ks.no/api/besoksbidrag-register-api-v1.json
+    spec_url: https://developers.fiks.ks.no/api/besoksbidrag-register-api-v1.json
+    keywords: [besøksbidrag, barnevern, kommune, register]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) hent token fra Maskinporten med scope ks:fiks (virksomhetssertifikat)
+      # 2) bruk token og integrasjons-id/passord fra Fiks-plattformen på kallene
+      curl -H "Authorization: Bearer $MASKINPORTEN_TOKEN" -H "IntegrasjonId: $INTEGRASJON_ID" -H "IntegrasjonPassord: $INTEGRASJON_PASSORD" \
+        "https://api.fiks.ks.no/besoksbidrag-register/api/v1/municipalities"
+  - id: ks-fiks-tilgangsstyring
+    title: "Fiks Tilgangsstyring for eksterne applikasjoner"
+    title_en: "Fiks access control for external applications"
+    description: >-
+      Lar eksterne applikasjoner og leverandører få styrt tilgang til brukere og tjenester på Fiks-plattformen, med
+      egne API-er for tilgang, konsumentbrukere og leverandørtjenester. Hører til oppsettet av integrasjoner i Fiks
+      Konfigurasjon.
+    category: identitet-og-tilgang
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/tilgang/api/v1
+      - https://api.fiks.test.ks.no/tilgang/api/v1
+    docs_url: https://developers.fiks.ks.no/tjenester/fiks-tilgangsstyring-til-eksterne-applikasjoner/
+    spec_url: https://developers.fiks.ks.no/api/fiks-tilgang-api-v1.json
+    keywords: [tilgangsstyring, autorisasjon, fiks, leverandør, applikasjon]
+    tags: [maskinporten, agreement]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      # 1) hent token fra Maskinporten med scope ks:fiks (virksomhetssertifikat)
+      # 2) bruk token og integrasjons-id/passord fra Fiks-plattformen på kallene
+      curl -H "Authorization: Bearer $MASKINPORTEN_TOKEN" -H "IntegrasjonId: $INTEGRASJON_ID" -H "IntegrasjonPassord: $INTEGRASJON_PASSORD" \
+        "https://api.fiks.ks.no/tilgang/api/v1/app/{appId}/tilganger"
+
+  - id: ks-fiks-samtykke
+    title: Fiks Samtykke (eksternt API)
+    title_en: Fiks Consent (external API)
+    description: >-
+      API for fagsystemer som skal opprette, endre, invalidere og slette samtykker innbyggere tar stilling til i
+      Fiks-portalen, og hente samtykkehistorikk. Kallene gjøres på vegne av en Fiks-organisasjon og krever
+      Maskinporten/ID-porten-token pluss integrasjons-ID og passord fra Fiks Konfigurasjon. Har OpenAPI-spesifikasjon
+      og testmiljø.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/samtykke/api/v1/ekstern
+    docs_url: https://developers.fiks.ks.no/tjenester/samtykke/index.html
+    spec_url: https://developers.fiks.ks.no/api/samtykke-ekstern-api-v1.json
+    keywords: [samtykke, innbygger, kommune, fiks, ks, consent, fiksOrgId]
+    tags: [maskinporten, agreement]
+    caveats:
+      - Krever avtale med KS og integrasjon opprettet i Fiks Konfigurasjon.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl -H "Authorization: Bearer $TOKEN" -H "IntegrasjonId: $ID" -H "IntegrasjonPassord: $PASSORD" \
+        "https://api.fiks.ks.no/samtykke/api/v1/ekstern/{fiksOrgId}/samtykkeHistorikk/{samtykkeId}"
+
+  - id: ks-fiks-dokumentlager
+    title: Fiks Dokumentlager
+    title_en: Fiks Document Store
+    description: >-
+      Sikker og tilgangsstyrt lagring av dokumenter i Fiks-plattformen: last opp dokumenter med metadata, styr hvilke
+      personer og organisasjoner som får tilgang, sett utløpstid, oppdater metadata og slett. Brukes av andre
+      Fiks-tjenester, men kan også kalles direkte. Krever Maskinporten/ID-porten-token og integrasjon fra Fiks Konfigurasjon.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/dokumentlager/api/v1
+    docs_url: https://developers.fiks.ks.no/tjenester/dokumentlager/index.html
+    keywords: [dokumentlager, dokumenter, opplasting, kommune, fiks, ks, document storage]
+    tags: [maskinporten, agreement]
+    caveats:
+      - Krever avtale med KS og integrasjon opprettet i Fiks Konfigurasjon.
+      - Ingen OpenAPI-spesifikasjon funnet; endepunkter er beskrevet i dokumentasjonen.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl -X POST -H "Authorization: Bearer $TOKEN" -H "IntegrasjonId: $ID" -H "IntegrasjonPassord: $PASSORD" \
+        -F "metadata=@metadata.json;type=application/json" -F "dokument=@fil.pdf" \
+        "https://api.fiks.ks.no/dokumentlager/api/v1/{fiksOrganisasjonId}/kontoer/{kontoId}/dokumenter/"

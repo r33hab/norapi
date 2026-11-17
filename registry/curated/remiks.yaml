@@ -1,0 +1,37 @@
+updated: 2026-11-16
+provider:
+  name: Remiks Husholdning AS
+  orgnr: "994900579"
+  sector: kommune
+apis:
+  - id: remiks-tommekalender
+    title: Remiks tømmedatoer (Min renovasjon)
+    title_en: Remiks collection dates (Min renovasjon)
+    description: >-
+      Neste tømmedatoer per adresse for husholdningsrenovasjon i Tromsø, som JSON fra nettstedet til Remiks. Kallet tar
+      gatenavn, adressekode, husnummer og kommunenummer, og svarer med fraksjons-ID og datoer. Et andre endepunkt gir
+      en lenke til hele årskalenderen for inneværende eller neste år. Åpent uten nøkkel.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.remiks.no/wp-json/min-renovasjon/v1/dates
+      - https://www.remiks.no/wp-json/min-renovasjon/v1/calendar
+    docs_url: https://www.remiks.no/wp-json/min-renovasjon/v1
+    probe_url: https://www.remiks.no/wp-json/min-renovasjon/v1/dates?streetName=Storgata&streetCode=38500&houseNumber=70&munNumber=5501
+    keywords: [renovasjon, tømmekalender, avfall, tømmedag, tromsø, remiks, waste collection]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Adressekoden er vegkoden fra adresseregisteret (Kartverkets adresse-API gir den som adressekode).
+      - Fraksjonene kommer som numeriske ID-er uten navn i svaret.
+      - Parameteren year i calendar godtar bare current og next.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # finn adressekode (adressekode) for adressen
+      curl "https://ws.geonorge.no/adresser/v1/sok?sok=Storgata%2070&kommunenummer=5501&treffPerSide=1"
+      # hent tømmedatoer
+      curl "https://www.remiks.no/wp-json/min-renovasjon/v1/dates?streetName=Storgata&streetCode=38500&houseNumber=70&munNumber=5501"
+      # lenke til årskalender
+      curl "https://www.remiks.no/wp-json/min-renovasjon/v1/calendar?streetName=Storgata&streetCode=38500&houseNumber=70&munNumber=5501&year=current"

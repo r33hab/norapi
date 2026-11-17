@@ -1,0 +1,26 @@
+updated: 2026-11-16
+provider:
+  name: Whereby
+  orgnr: "997742346"
+  sector: privat
+apis:
+  - id: whereby-rest-api
+    title: "Whereby REST API (videomøterom)"
+    title_en: "Whereby REST API (video meeting rooms)"
+    description: >-
+      Oppretter og styrer videomøterom hos Whereby, med webhooks og embedding. Auth er API-nøkkel som bearer-token,
+      og nøkkel får du fra Whereby-kontoen. Dokumentasjonen er åpen.
+    category: annet
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.whereby.dev/v1
+    docs_url: https://docs.whereby.com/reference/whereby-rest-api-reference
+    keywords: [whereby, videomøte, video, møterom, embed, video meetings]
+    tags: [private-provider, agreement]
+    caveats:
+      - "Krever Whereby-konto med API-tilgang."
+      - "Ingen lisens oppgitt."
+    quick_start: |
+      curl -H "Authorization: Bearer $WHEREBY_API_KEY" "https://api.whereby.dev/v1/meetings"

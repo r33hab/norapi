@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Crystallize
+  sector: privat
+  orgnr: "919134216"
+apis:
+  - id: crystallize-catalogue-api
+    title: Crystallize Catalogue API (GraphQL, produktkatalog)
+    title_en: Crystallize Catalogue API (GraphQL product catalogue)
+    description: >-
+      GraphQL-API for å hente produkter, mapper, dokumenter og priser fra en Crystallize-tenant (norsk headless
+      PIM og handelsplattform). Adressen er per tenant: api.crystallize.com/{tenant}/catalogue. API-et er åpent som
+      standard, men kan låses med statisk token i headeren X-Crystallize-Static-Auth-Token. Core-, PIM- og Shop-API bruker
+      i stedet tilgangsnøkkelpar (X-Crystallize-Access-Token-Id og -Secret).
+    category: annet
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.crystallize.com/{tenant}/catalogue
+    docs_url: https://crystallize.com/learn/developer-guides/api-overview/authentication
+    keywords: [crystallize, graphql, pim, headless, produktkatalog, handel, ecommerce, catalogue]
+    tags: [graphql, registration, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever en Crystallize-tenant. Åpen eller låst avhengig av tenantens innstillinger.
+    quick_start: |
+      curl -X POST "https://api.crystallize.com/$TENANT/catalogue" -H "Content-Type: application/json" \
+        -H "X-Crystallize-Static-Auth-Token: $TOKEN" -d '{"query":"{ catalogue(path:\"/\", language:\"en\") { name path } }"}'

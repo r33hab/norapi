@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: Norsk institutt for vannforskning (NIVA)
+  sector: privat
+apis:
+  - id: niva-thredds
+    title: NIVA THREDDS (vannmiljødata fra loggere, ferrybox og modeller)
+    title_en: NIVA THREDDS (water monitoring data from loggers, ferryboxes and models)
+    description: >-
+      THREDDS-server hos NIVA med observasjoner og modelldata for vann og hav, delt i katalogene loggers, ferryboxes,
+      models, samples og archive. Datasettene kan hentes som NetCDF over OPeNDAP, DAP4 og HTTP uten nøkkel. Katalogen
+      er XML, og hvilke datasett som finnes varierer med pågående prosjekter.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [XML, NetCDF]
+    endpoints:
+      - https://thredds.niva.no/thredds/
+    docs_url: https://thredds.niva.no/thredds/catalog.html
+    probe_url: https://thredds.niva.no/thredds/catalog/catalog.xml
+    keywords: [niva, thredds, opendap, ferrybox, vannkvalitet, havobservasjoner, netcdf, water quality]
+    tags: [no-auth, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - "Rotkatalogen /thredds/catalog.xml omdirigerer (302) til /thredds/catalog/catalog.xml."
+    quick_start: |
+      curl -L "https://thredds.niva.no/thredds/catalog.xml"

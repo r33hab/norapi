@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: mnemonic
+  sector: privat
+apis:
+  - id: mnemonic-argus-api
+    title: Argus API (sikkerhetsovervåking)
+    title_en: Argus API (security monitoring)
+    description: >-
+      REST-API for mnemonics Argus-plattform: saker, alarmer, eiendeler, kundenettverk og søk. Autentisering med
+      brukerens API-nøkkel i headeren Argus-API-Key; nøkler lages i Argus eller av en administrator. Svarer 401 uten
+      sesjon. Det finnes også et OAuth2-oppsett for integrasjoner.
+    category: annet
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.mnemonic.no/assets/v1/host
+    docs_url: https://docs.mnemonic.no/general_integration_guide/02-authentication.html
+    probe_url: https://api.mnemonic.no/authentication/v1/user/current
+    keywords: [mnemonic, argus, sikkerhet, soc, alarm, sak, cyber, threat]
+    tags: [private-provider, agreement]
+    caveats:
+      - Krever Argus-kundeforhold og API-nøkkel; bruk av nøkler må være aktivert for brukeren.
+      - Noen dokumentasjonssider er merket ufullstendige.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl --header "Argus-API-Key: <nøkkel>" "https://api.mnemonic.no/assets/v1/host"

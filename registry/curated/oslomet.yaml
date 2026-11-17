@@ -1,0 +1,27 @@
+updated: 2026-11-16
+provider:
+  name: OsloMet - storbyuniversitetet
+  sector: stat
+apis:
+  - id: oslomet-periodika-oai
+    title: OsloMet Periodika (OAI-PMH)
+    title_en: OsloMet Periodika journal platform (OAI-PMH)
+    description: >-
+      OAI-PMH-endepunkt for OsloMet Periodika, universitetets åpne tidsskriftsplattform (Open Journal Systems). Du
+      høster metadata om artikler og hefter fra tidsskriftene som utgis ved OsloMet, uten nøkkel. ListSets viser
+      tidsskriftene, og ListRecords med metadataPrefix=oai_dc gir postene.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://journals.oslomet.no/index.php/index/oai
+    docs_url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+    probe_url: https://journals.oslomet.no/index.php/index/oai?verb=Identify
+    keywords: [oai-pmh, tidsskrift, artikler, åpen tilgang, open access, ojs, høsting, oslomet, harvesting]
+    tags: [no-auth, feed]
+    caveats:
+      - Ingen lisens oppgitt; lisensen følger det enkelte tidsskriftet og artikkelen.
+    quick_start: |
+      curl "https://journals.oslomet.no/index.php/index/oai?verb=Identify"
+      curl "https://journals.oslomet.no/index.php/index/oai?verb=ListSets"

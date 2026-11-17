@@ -1,0 +1,25 @@
+updated: 2026-11-16
+provider:
+  name: TV 2
+  orgnr: "979484534"
+  sector: privat
+apis:
+  - id: tv2-rss
+    title: TV 2 RSS-strøm (nyheter)
+    title_en: TV 2 news RSS feed
+    description: >-
+      Åpen RSS-strøm med aktuelle nyhetssaker fra TV 2, uten nøkkel. Strømmen har rundt tjue saker om gangen og har copyright satt til TV 2 AS.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://www.tv2.no/rss/nyheter
+    docs_url: https://www.tv2.no/rss/nyheter
+    probe_url: https://www.tv2.no/rss/nyheter
+    keywords: [rss, nyheter, nyhetsstrøm, tv2, news feed]
+    tags: [no-auth, feed, private-provider]
+    caveats:
+      - Ingen lisens oppgitt; sjekk utgiverens vilkår før videre bruk av innholdet.
+    quick_start: |
+      curl "https://www.tv2.no/rss/nyheter"
