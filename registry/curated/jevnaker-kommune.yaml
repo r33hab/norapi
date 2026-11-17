@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Jevnaker kommune
+  orgnr: "961381363"
+  sector: kommune
+apis:
+  - id: jevnaker-kommune-agol
+    title: Jevnaker kommunes kartdata på ArcGIS Online (REST)
+    title_en: Jevnaker municipality map data on ArcGIS Online (REST)
+    description: >-
+      Jevnaker kommunes åpne tjenestekatalog på ArcGIS Online med 17 publiserte tjenester, i hovedsak planlag: kommuneplan og reguleringsplaner. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Mange lag er tomme maler eller arbeidslag, så sjekk antall objekter før du bruker et lag.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services-eu1.arcgis.com/OuHykelPzDHoitaG/arcgis/rest/services
+    docs_url: https://services-eu1.arcgis.com/OuHykelPzDHoitaG/arcgis/rest/services
+    probe_url: https://services-eu1.arcgis.com/OuHykelPzDHoitaG/arcgis/rest/services?f=json
+    keywords: [jevnaker, kommune, kart, arcgis, arcgis online, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Laglisten er kommunens arbeidskart og endres uten varsel.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services-eu1.arcgis.com/OuHykelPzDHoitaG/arcgis/rest/services?f=json"
+      # antall objekter i ett lag (reguleringsplan)
+      curl "https://services-eu1.arcgis.com/OuHykelPzDHoitaG/arcgis/rest/services/Reguleringsplan_VN2/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json"

@@ -28,3 +28,27 @@ apis:
       curl "https://services-eu1.arcgis.com/Q7w7sXevXH7cs2Gl/arcgis/rest/services?f=json"
       # antall objekter i ett lag
       curl "https://services-eu1.arcgis.com/Q7w7sXevXH7cs2Gl/arcgis/rest/services/Naturtyper_p%C3%A5_land_%28NiN%29/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json"
+
+  - id: volda-kommune-agol-sentrumsplan-3d
+    title: Volda kommunes plan- og 3D-kartdata på ArcGIS Online (REST)
+    title_en: Volda municipality planning and 3D map data on ArcGIS Online (REST)
+    description: >-
+      Voldas andre åpne ArcGIS Online-katalog med 46 tjenester, i hovedsak underlag for sentrumsplanlegging og 3D-modellering: bygningsflater fra FKB, høyder, takform, akser, utbyggingstomter og kommuneplansoner. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er kommunens arbeidskart, så lag kommer og går og navnene er lite beskrivende.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services-eu1.arcgis.com/cQuv4IteGgu1IZ7b/arcgis/rest/services
+    docs_url: https://services-eu1.arcgis.com/cQuv4IteGgu1IZ7b/arcgis/rest/services
+    probe_url: https://services-eu1.arcgis.com/cQuv4IteGgu1IZ7b/arcgis/rest/services?f=json
+    keywords: [volda, kommune, kart, arcgis, arcgis online, bygninger, 3d, sentrumsplan, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Laglisten er kommunens arbeidskart og endres uten varsel.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services-eu1.arcgis.com/cQuv4IteGgu1IZ7b/arcgis/rest/services?f=json"
+      # antall bygningsflater i ett lag
+      curl "https://services-eu1.arcgis.com/cQuv4IteGgu1IZ7b/arcgis/rest/services/FKB_BygningFlate_typebygg/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json"

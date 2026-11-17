@@ -1,0 +1,33 @@
+updated: 2026-11-16
+provider:
+  name: Sortland kommune
+  sector: kommune
+  orgnr: "847737492"
+apis:
+  - id: sortland-kommune-agol
+    title: Sortland kommunes kartdata på ArcGIS Online (REST)
+    title_en: Sortland municipality map data on ArcGIS Online (REST)
+    description: >-
+      Sortland kommunes åpne tjenestekatalog på ArcGIS Online, med rundt 130 publiserte lag, blant annet kommuneplan,
+      kommunedelplaner, reguleringsplaner, kulturminner, kommunale eiendommer, brøyting og tilstandsklasse for vei.
+      Hvert lag kan spørres med /query og gir JSON uten nøkkel. Katalogen er kommunens arbeidsområde, så lag kommer og
+      går og innholdet varierer i kvalitet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services1.arcgis.com/q09XLHaUBmUQnmCf/arcgis/rest/services
+    docs_url: https://services1.arcgis.com/q09XLHaUBmUQnmCf/arcgis/rest/services
+    probe_url: https://services1.arcgis.com/q09XLHaUBmUQnmCf/arcgis/rest/services?f=json
+    keywords: [kommune, kart, arcgis, arcgis online, kartlag, gis, geodata, feature service, kommuneplan, Sortland]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Laglisten er kommunens arbeidskart og endres uten varsel.
+      - Noen lag er skjemabaserte innspill eller felt-data og kan inneholde persondata, så sjekk laget før du bruker det.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services1.arcgis.com/q09XLHaUBmUQnmCf/arcgis/rest/services?f=json"
+      # kommuneplanens hensynssoner, uten geometri
+      curl "https://services1.arcgis.com/q09XLHaUBmUQnmCf/arcgis/rest/services/Kommuneplan/FeatureServer/0/query?where=1%3D1&outFields=OBJTYPE,AREALST&resultRecordCount=1&returnGeometry=false&f=json"

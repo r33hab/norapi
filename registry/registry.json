@@ -1,10 +1,10 @@
 {
  "name": "norapi",
  "version": "0.1.0",
- "generated_at": "2026-11-17T11:36:37+00:00",
- "count": 1605,
+ "generated_at": "2026-11-17T11:51:42+00:00",
+ "count": 1616,
  "sources": {
-  "curated": 525,
+  "curated": 536,
   "fdk": 928,
   "curated+fdk": 29,
   "fdk-delisted": 123
@@ -1437,6 +1437,66 @@
      "final_url": "https://services-eu1.arcgis.com/daKdR0LxHVx1kYzT/arcgis/rest/services?f=json"
     }
    }
+  },
+  {
+   "id": "askoy-kommune-agol",
+   "title": "Askøy kommunes kartdata på ArcGIS Online (REST)",
+   "provider": {
+    "name": "Askøy kommune",
+    "orgnr": "964338442",
+    "org_path": null,
+    "sector": "kommune"
+   },
+   "description": "Askøy kommunes åpne tjenestekatalog på ArcGIS Online med 13 publiserte tjenester, blant annet kommuneplanens arealdel, kommuneplanforslag, kulturminneplan og planområder for reguleringsplaner. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er kommunens arbeidskart, så lag kommer og går og innholdet varierer i kvalitet.",
+   "summary": "Askøy kommunes åpne tjenestekatalog på ArcGIS Online med 13 publiserte tjenester, blant annet kommuneplanens arealdel, kommuneplanforslag, kulturminneplan og planområder for reguleringsplaner. Hvert lag kan spørres med /query og gir JSON…",
+   "title_en": "Askøy municipality map data on ArcGIS Online (REST)",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "GeoJSON"
+   ],
+   "endpoints": [
+    "https://services7.arcgis.com/3GtbOB1aBnkz0CUj/arcgis/rest/services"
+   ],
+   "spec_url": null,
+   "docs_url": "https://services7.arcgis.com/3GtbOB1aBnkz0CUj/arcgis/rest/services",
+   "probe_url": "https://services7.arcgis.com/3GtbOB1aBnkz0CUj/arcgis/rest/services?f=json",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "askøy",
+    "kommune",
+    "kart",
+    "arcgis",
+    "arcgis online",
+    "kommuneplan",
+    "reguleringsplan",
+    "kartlag",
+    "gis",
+    "geodata",
+    "feature service"
+   ],
+   "category": "kart-og-geodata",
+   "tags": [
+    "no-auth"
+   ],
+   "caveats": [
+    "Ingen lisens oppgitt.",
+    "Laglisten er kommunens arbeidskart og endres uten varsel."
+   ],
+   "behaviour": null,
+   "owner_terms": null,
+   "quick_start": "# tjenestene i organisasjonens katalog\ncurl \"https://services7.arcgis.com/3GtbOB1aBnkz0CUj/arcgis/rest/services?f=json\"\n# antall planområder i ett lag\ncurl \"https://services7.arcgis.com/3GtbOB1aBnkz0CUj/arcgis/rest/services/BebyggelseKPAh%C3%B8ring_og_regplan_WFL1/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "askoy-kommune.yaml",
+    "merge_with": null,
+    "updated": "2026-11-16"
+   },
+   "checks": null
   },
   {
    "id": "autopay-public-apis",
@@ -10378,6 +10438,63 @@
    }
   },
   {
+   "id": "halden-kommune-agol",
+   "title": "Halden kommunes kartdata på ArcGIS Online (REST)",
+   "provider": {
+    "name": "Halden kommune",
+    "orgnr": "959159092",
+    "org_path": null,
+    "sector": "kommune"
+   },
+   "description": "Halden kommunes åpne tjenestekatalog på ArcGIS Online, med omtrent 450 publiserte kartlag, blant annet kommunegrense, kommuneplan, reguleringsplaner, skolekretser, bygninger og sykkelplan. Hvert lag kan spørres med /query og gir JSON, uten nøkkel. Katalogen er kommunens arbeidsområde, så lag kommer og går og innholdet varierer i kvalitet.",
+   "summary": "Halden kommunes åpne tjenestekatalog på ArcGIS Online, med omtrent 450 publiserte kartlag, blant annet kommunegrense, kommuneplan, reguleringsplaner, skolekretser, bygninger og sykkelplan. Hvert lag kan spørres med /query og gir JSON, uten…",
+   "title_en": "Halden municipality map data on ArcGIS Online (REST)",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://services5.arcgis.com/11d3pK26AR5cueFZ/arcgis/rest/services"
+   ],
+   "spec_url": null,
+   "docs_url": "https://services5.arcgis.com/11d3pK26AR5cueFZ/arcgis/rest/services",
+   "probe_url": "https://services5.arcgis.com/11d3pK26AR5cueFZ/arcgis/rest/services?f=json",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "kommune",
+    "kart",
+    "arcgis",
+    "arcgis online",
+    "kartlag",
+    "gis",
+    "geodata",
+    "feature service",
+    "Halden"
+   ],
+   "category": "kart-og-geodata",
+   "tags": [
+    "no-auth"
+   ],
+   "caveats": [
+    "Ingen lisens oppgitt.",
+    "Laglisten er kommunens arbeidskart og endres uten varsel; noen lag er under arbeid eller test."
+   ],
+   "behaviour": null,
+   "owner_terms": null,
+   "quick_start": "# kommunegrensen som JSON (lag 1 i Halden_kommune)\ncurl \"https://services5.arcgis.com/11d3pK26AR5cueFZ/arcgis/rest/services/Halden_kommune/FeatureServer/1/query?where=1=1&outFields=*&returnGeometry=false&f=json\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "halden-kommune.yaml",
+    "merge_with": null,
+    "updated": "2026-11-16"
+   },
+   "checks": null
+  },
+  {
    "id": "hamar-kommune-agol",
    "title": "Hamar kommunes kartdata på ArcGIS Online (REST)",
    "provider": {
@@ -11091,6 +11208,65 @@
      "final_url": "https://api.helthjem.no/parcels/v1/bookings"
     }
    }
+  },
+  {
+   "id": "hemsedal-kommune-agol",
+   "title": "Hemsedal kommunes kartdata på ArcGIS Online (REST)",
+   "provider": {
+    "name": "Hemsedal kommune",
+    "orgnr": "964952701",
+    "org_path": null,
+    "sector": "kommune"
+   },
+   "description": "Hemsedal kommunes åpne tjenestekatalog på ArcGIS Online med sju publiserte tjenester, blant annet lag for landbruk i kommuneplanens arealdel og et prosjektlag. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er et lite arbeidsområde, så lag kommer og går.",
+   "summary": "Hemsedal kommunes åpne tjenestekatalog på ArcGIS Online med sju publiserte tjenester, blant annet lag for landbruk i kommuneplanens arealdel og et prosjektlag. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel…",
+   "title_en": "Hemsedal municipality map data on ArcGIS Online (REST)",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "GeoJSON"
+   ],
+   "endpoints": [
+    "https://services-eu1.arcgis.com/y91OdYXqptgOACtV/arcgis/rest/services"
+   ],
+   "spec_url": null,
+   "docs_url": "https://services-eu1.arcgis.com/y91OdYXqptgOACtV/arcgis/rest/services",
+   "probe_url": "https://services-eu1.arcgis.com/y91OdYXqptgOACtV/arcgis/rest/services?f=json",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "hemsedal",
+    "kommune",
+    "kart",
+    "arcgis",
+    "arcgis online",
+    "kartlag",
+    "gis",
+    "geodata",
+    "feature service",
+    "kommuneplan"
+   ],
+   "category": "kart-og-geodata",
+   "tags": [
+    "no-auth"
+   ],
+   "caveats": [
+    "Ingen lisens oppgitt.",
+    "Laglisten er kommunens arbeidskart og endres uten varsel."
+   ],
+   "behaviour": null,
+   "owner_terms": null,
+   "quick_start": "# tjenestene i organisasjonens katalog\ncurl \"https://services-eu1.arcgis.com/y91OdYXqptgOACtV/arcgis/rest/services?f=json\"\n# antall objekter i prosjektlaget\ncurl \"https://services-eu1.arcgis.com/y91OdYXqptgOACtV/arcgis/rest/services/Prosjekter_punkt/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "hemsedal-kommune.yaml",
+    "merge_with": null,
+    "updated": "2026-11-16"
+   },
+   "checks": null
   },
   {
    "id": "hjartdal-kommune-agol",
@@ -11957,6 +12133,64 @@
      "final_url": "https://www.jernbanedirektoratet.no/wp-json/wp/v2/posts?per_page=1"
     }
    }
+  },
+  {
+   "id": "jevnaker-kommune-agol",
+   "title": "Jevnaker kommunes kartdata på ArcGIS Online (REST)",
+   "provider": {
+    "name": "Jevnaker kommune",
+    "orgnr": "961381363",
+    "org_path": null,
+    "sector": "kommune"
+   },
+   "description": "Jevnaker kommunes åpne tjenestekatalog på ArcGIS Online med 17 publiserte tjenester, i hovedsak planlag: kommuneplan og reguleringsplaner. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Mange lag er tomme maler eller arbeidslag, så sjekk antall objekter før du bruker et lag.",
+   "summary": "Jevnaker kommunes åpne tjenestekatalog på ArcGIS Online med 17 publiserte tjenester, i hovedsak planlag: kommuneplan og reguleringsplaner. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Mange lag er tomme maler…",
+   "title_en": "Jevnaker municipality map data on ArcGIS Online (REST)",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "GeoJSON"
+   ],
+   "endpoints": [
+    "https://services-eu1.arcgis.com/OuHykelPzDHoitaG/arcgis/rest/services"
+   ],
+   "spec_url": null,
+   "docs_url": "https://services-eu1.arcgis.com/OuHykelPzDHoitaG/arcgis/rest/services",
+   "probe_url": "https://services-eu1.arcgis.com/OuHykelPzDHoitaG/arcgis/rest/services?f=json",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "jevnaker",
+    "kommune",
+    "kart",
+    "arcgis",
+    "arcgis online",
+    "kartlag",
+    "gis",
+    "geodata",
+    "feature service"
+   ],
+   "category": "kart-og-geodata",
+   "tags": [
+    "no-auth"
+   ],
+   "caveats": [
+    "Ingen lisens oppgitt.",
+    "Laglisten er kommunens arbeidskart og endres uten varsel."
+   ],
+   "behaviour": null,
+   "owner_terms": null,
+   "quick_start": "# tjenestene i organisasjonens katalog\ncurl \"https://services-eu1.arcgis.com/OuHykelPzDHoitaG/arcgis/rest/services?f=json\"\n# antall objekter i ett lag (reguleringsplan)\ncurl \"https://services-eu1.arcgis.com/OuHykelPzDHoitaG/arcgis/rest/services/Reguleringsplan_VN2/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "jevnaker-kommune.yaml",
+    "merge_with": null,
+    "updated": "2026-11-16"
+   },
+   "checks": null
   },
   {
    "id": "ks-statistikk-web-api",
@@ -13285,6 +13519,67 @@
      "final_url": "https://svarut.ks.no/api"
     }
    }
+  },
+  {
+   "id": "karlsoy-kommune-agol",
+   "title": "Karlsøy kommunes kartdata på ArcGIS Online (REST)",
+   "provider": {
+    "name": "Karlsøy kommune",
+    "orgnr": "940330408",
+    "org_path": null,
+    "sector": "kommune"
+   },
+   "description": "Karlsøy kommunes tjenestekatalog på ArcGIS Online, med rundt 60 lag. Innholdet er mest naturkartlegging (myr, kelp, verneområder, viltområder, hekkende sjøfugl) pluss kommuneplanens arealformål. Hvert lag kan spørres med /query og gir JSON uten nøkkel.",
+   "summary": "Karlsøy kommunes tjenestekatalog på ArcGIS Online, med rundt 60 lag. Innholdet er mest naturkartlegging (myr, kelp, verneområder, viltområder, hekkende sjøfugl) pluss kommuneplanens arealformål. Hvert lag kan spørres med /query og gir JSON…",
+   "title_en": "Karlsøy municipality map data on ArcGIS Online (REST)",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "GeoJSON"
+   ],
+   "endpoints": [
+    "https://services-eu1.arcgis.com/n6x4811rArpOOeaT/arcgis/rest/services"
+   ],
+   "spec_url": null,
+   "docs_url": "https://services-eu1.arcgis.com/n6x4811rArpOOeaT/arcgis/rest/services",
+   "probe_url": "https://services-eu1.arcgis.com/n6x4811rArpOOeaT/arcgis/rest/services?f=json",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "kommune",
+    "kart",
+    "arcgis",
+    "arcgis online",
+    "kartlag",
+    "gis",
+    "geodata",
+    "feature service",
+    "kommuneplan",
+    "naturtyper",
+    "Karlsøy"
+   ],
+   "category": "kart-og-geodata",
+   "tags": [
+    "no-auth"
+   ],
+   "caveats": [
+    "Ingen lisens oppgitt.",
+    "Laglisten er kommunens arbeidskart og endres uten varsel.",
+    "Noen lag er lokale innspill fra innbyggere, så sjekk laget før du bruker det."
+   ],
+   "behaviour": null,
+   "owner_terms": null,
+   "quick_start": "# tjenestene i organisasjonens katalog\ncurl \"https://services-eu1.arcgis.com/n6x4811rArpOOeaT/arcgis/rest/services?f=json\"\n# kommuneplanens arealformål, uten geometri\ncurl \"https://services-eu1.arcgis.com/n6x4811rArpOOeaT/arcgis/rest/services/KpArealform%C3%A5lOmr%C3%A5de_ny/FeatureServer/0/query?where=1%3D1&outFields=OBJTYPE,AREALST&resultRecordCount=1&returnGeometry=false&f=json\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "karlsoy-kommune.yaml",
+    "merge_with": null,
+    "updated": "2026-11-16"
+   },
+   "checks": null
   },
   {
    "id": "geonorge-adresser",
@@ -15900,6 +16195,64 @@
      "final_url": "https://services-eu1.arcgis.com/fQyOHegUAD8uhRWM/arcgis/rest/services?f=json"
     }
    }
+  },
+  {
+   "id": "loten-kommune-agol",
+   "title": "Løten kommunes kartdata på ArcGIS Online (REST)",
+   "provider": {
+    "name": "Løten kommune",
+    "orgnr": "964950679",
+    "org_path": null,
+    "sector": "kommune"
+   },
+   "description": "Løten kommunes åpne tjenestekatalog på ArcGIS Online med 59 publiserte tjenester, blant annet veger, turstier, skolekretser, kommuneplan og reguleringsplaner. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Mange lag er tomme maler eller arbeidslag, så sjekk antall objekter før du bruker et lag.",
+   "summary": "Løten kommunes åpne tjenestekatalog på ArcGIS Online med 59 publiserte tjenester, blant annet veger, turstier, skolekretser, kommuneplan og reguleringsplaner. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Mange…",
+   "title_en": "Løten municipality map data on ArcGIS Online (REST)",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "GeoJSON"
+   ],
+   "endpoints": [
+    "https://services-eu1.arcgis.com/355yvIqJ6dNm0GTh/arcgis/rest/services"
+   ],
+   "spec_url": null,
+   "docs_url": "https://services-eu1.arcgis.com/355yvIqJ6dNm0GTh/arcgis/rest/services",
+   "probe_url": "https://services-eu1.arcgis.com/355yvIqJ6dNm0GTh/arcgis/rest/services?f=json",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "loten",
+    "kommune",
+    "kart",
+    "arcgis",
+    "arcgis online",
+    "kartlag",
+    "gis",
+    "geodata",
+    "feature service"
+   ],
+   "category": "kart-og-geodata",
+   "tags": [
+    "no-auth"
+   ],
+   "caveats": [
+    "Ingen lisens oppgitt.",
+    "Laglisten er kommunens arbeidskart og endres uten varsel."
+   ],
+   "behaviour": null,
+   "owner_terms": null,
+   "quick_start": "# tjenestene i organisasjonens katalog\ncurl \"https://services-eu1.arcgis.com/355yvIqJ6dNm0GTh/arcgis/rest/services?f=json\"\n# antall objekter i ett lag (veger)\ncurl \"https://services-eu1.arcgis.com/355yvIqJ6dNm0GTh/arcgis/rest/services/Veger_WFL1/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "loten-kommune.yaml",
+    "merge_with": null,
+    "updated": "2026-11-16"
+   },
+   "checks": null
   },
   {
    "id": "makeplans-api",
@@ -30516,6 +30869,125 @@
    }
   },
   {
+   "id": "sola-kommune-agol",
+   "title": "Sola kommunes kartdata på ArcGIS Online (REST)",
+   "provider": {
+    "name": "Sola kommune",
+    "orgnr": "948243113",
+    "org_path": null,
+    "sector": "kommune"
+   },
+   "description": "Sola kommunes åpne tjenestekatalog på ArcGIS Online, med omtrent 250 publiserte kartlag, blant annet kommuneplan, reguleringsplaner, kommunegrense, eiendommer, veg og 3D-modeller av planer. Hvert lag kan spørres med /query og gir JSON, uten nøkkel. Katalogen er kommunens arbeidsområde, så lag kommer og går, og mange lag er planversjoner med datostempel.",
+   "summary": "Sola kommunes åpne tjenestekatalog på ArcGIS Online, med omtrent 250 publiserte kartlag, blant annet kommuneplan, reguleringsplaner, kommunegrense, eiendommer, veg og 3D-modeller av planer. Hvert lag kan spørres med /query og gir JSON…",
+   "title_en": "Sola municipality map data on ArcGIS Online (REST)",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON"
+   ],
+   "endpoints": [
+    "https://services-eu1.arcgis.com/VvNOCxiLGodW0Moz/arcgis/rest/services"
+   ],
+   "spec_url": null,
+   "docs_url": "https://services-eu1.arcgis.com/VvNOCxiLGodW0Moz/arcgis/rest/services",
+   "probe_url": "https://services-eu1.arcgis.com/VvNOCxiLGodW0Moz/arcgis/rest/services?f=json",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "kommune",
+    "kart",
+    "arcgis",
+    "arcgis online",
+    "kartlag",
+    "gis",
+    "geodata",
+    "feature service",
+    "reguleringsplan",
+    "kommuneplan",
+    "Sola"
+   ],
+   "category": "kart-og-geodata",
+   "tags": [
+    "no-auth"
+   ],
+   "caveats": [
+    "Ingen lisens oppgitt.",
+    "Laglisten er kommunens arbeidskart og endres uten varsel."
+   ],
+   "behaviour": null,
+   "owner_terms": null,
+   "quick_start": "# tjenestene i organisasjonens katalog\ncurl \"https://services-eu1.arcgis.com/VvNOCxiLGodW0Moz/arcgis/rest/services?f=json\"\n# kommunegrensen (antall objekter)\ncurl \"https://services-eu1.arcgis.com/VvNOCxiLGodW0Moz/arcgis/rest/services/kommunegrense/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "sola-kommune.yaml",
+    "merge_with": null,
+    "updated": "2026-11-16"
+   },
+   "checks": null
+  },
+  {
+   "id": "sortland-kommune-agol",
+   "title": "Sortland kommunes kartdata på ArcGIS Online (REST)",
+   "provider": {
+    "name": "Sortland kommune",
+    "orgnr": "847737492",
+    "org_path": null,
+    "sector": "kommune"
+   },
+   "description": "Sortland kommunes åpne tjenestekatalog på ArcGIS Online, med rundt 130 publiserte lag, blant annet kommuneplan, kommunedelplaner, reguleringsplaner, kulturminner, kommunale eiendommer, brøyting og tilstandsklasse for vei. Hvert lag kan spørres med /query og gir JSON uten nøkkel. Katalogen er kommunens arbeidsområde, så lag kommer og går og innholdet varierer i kvalitet.",
+   "summary": "Sortland kommunes åpne tjenestekatalog på ArcGIS Online, med rundt 130 publiserte lag, blant annet kommuneplan, kommunedelplaner, reguleringsplaner, kulturminner, kommunale eiendommer, brøyting og tilstandsklasse for vei. Hvert lag kan…",
+   "title_en": "Sortland municipality map data on ArcGIS Online (REST)",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "GeoJSON"
+   ],
+   "endpoints": [
+    "https://services1.arcgis.com/q09XLHaUBmUQnmCf/arcgis/rest/services"
+   ],
+   "spec_url": null,
+   "docs_url": "https://services1.arcgis.com/q09XLHaUBmUQnmCf/arcgis/rest/services",
+   "probe_url": "https://services1.arcgis.com/q09XLHaUBmUQnmCf/arcgis/rest/services?f=json",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "kommune",
+    "kart",
+    "arcgis",
+    "arcgis online",
+    "kartlag",
+    "gis",
+    "geodata",
+    "feature service",
+    "kommuneplan",
+    "Sortland"
+   ],
+   "category": "kart-og-geodata",
+   "tags": [
+    "no-auth"
+   ],
+   "caveats": [
+    "Ingen lisens oppgitt.",
+    "Laglisten er kommunens arbeidskart og endres uten varsel.",
+    "Noen lag er skjemabaserte innspill eller felt-data og kan inneholde persondata, så sjekk laget før du bruker det."
+   ],
+   "behaviour": null,
+   "owner_terms": null,
+   "quick_start": "# tjenestene i organisasjonens katalog\ncurl \"https://services1.arcgis.com/q09XLHaUBmUQnmCf/arcgis/rest/services?f=json\"\n# kommuneplanens hensynssoner, uten geometri\ncurl \"https://services1.arcgis.com/q09XLHaUBmUQnmCf/arcgis/rest/services/Kommuneplan/FeatureServer/0/query?where=1%3D1&outFields=OBJTYPE,AREALST&resultRecordCount=1&returnGeometry=false&f=json\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "sortland-kommune.yaml",
+    "merge_with": null,
+    "updated": "2026-11-16"
+   },
+   "checks": null
+  },
+  {
    "id": "sparebank1-personlig-api",
    "title": "SpareBank 1 personlig API (egne kontoer)",
    "provider": {
@@ -33364,6 +33836,64 @@
      "final_url": "https://sveve.no/login"
     }
    }
+  },
+  {
+   "id": "sondre-land-kommune-agol",
+   "title": "Søndre Land kommunes kartdata på ArcGIS Online (REST)",
+   "provider": {
+    "name": "Søndre Land kommune",
+    "orgnr": "961381630",
+    "org_path": null,
+    "sector": "kommune"
+   },
+   "description": "Søndre Land kommunes åpne tjenestekatalog på ArcGIS Online med 17 publiserte tjenester, i hovedsak planlag: kommuneplan og reguleringsplaner. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Mange lag er tomme maler eller arbeidslag, så sjekk antall objekter før du bruker et lag.",
+   "summary": "Søndre Land kommunes åpne tjenestekatalog på ArcGIS Online med 17 publiserte tjenester, i hovedsak planlag: kommuneplan og reguleringsplaner. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Mange lag er tomme maler…",
+   "title_en": "Søndre Land municipality map data on ArcGIS Online (REST)",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "GeoJSON"
+   ],
+   "endpoints": [
+    "https://services-eu1.arcgis.com/GImaXVg4IB4Ohn5b/arcgis/rest/services"
+   ],
+   "spec_url": null,
+   "docs_url": "https://services-eu1.arcgis.com/GImaXVg4IB4Ohn5b/arcgis/rest/services",
+   "probe_url": "https://services-eu1.arcgis.com/GImaXVg4IB4Ohn5b/arcgis/rest/services?f=json",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "sondre-land",
+    "kommune",
+    "kart",
+    "arcgis",
+    "arcgis online",
+    "kartlag",
+    "gis",
+    "geodata",
+    "feature service"
+   ],
+   "category": "kart-og-geodata",
+   "tags": [
+    "no-auth"
+   ],
+   "caveats": [
+    "Ingen lisens oppgitt.",
+    "Laglisten er kommunens arbeidskart og endres uten varsel."
+   ],
+   "behaviour": null,
+   "owner_terms": null,
+   "quick_start": "# tjenestene i organisasjonens katalog\ncurl \"https://services-eu1.arcgis.com/GImaXVg4IB4Ohn5b/arcgis/rest/services?f=json\"\n# antall objekter i ett lag (reguleringsplan)\ncurl \"https://services-eu1.arcgis.com/GImaXVg4IB4Ohn5b/arcgis/rest/services/Reguleringsplan_VN2/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "sondre-land-kommune.yaml",
+    "merge_with": null,
+    "updated": "2026-11-16"
+   },
+   "checks": null
   },
   {
    "id": "sor-aurdal-kommune-agol",
@@ -37258,6 +37788,64 @@
    }
   },
   {
+   "id": "vestre-toten-kommune-agol",
+   "title": "Vestre Toten kommunes kartdata på ArcGIS Online (REST)",
+   "provider": {
+    "name": "Vestre Toten kommune",
+    "orgnr": "971028300",
+    "org_path": null,
+    "sector": "kommune"
+   },
+   "description": "Vestre Toten kommunes åpne tjenestekatalog på ArcGIS Online med 147 publiserte tjenester, blant annet kommuneplan, reguleringsplaner, veger, stier og trafikktellinger. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Mange lag er tomme maler eller arbeidslag, så sjekk antall objekter før du bruker et lag.",
+   "summary": "Vestre Toten kommunes åpne tjenestekatalog på ArcGIS Online med 147 publiserte tjenester, blant annet kommuneplan, reguleringsplaner, veger, stier og trafikktellinger. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten…",
+   "title_en": "Vestre Toten municipality map data on ArcGIS Online (REST)",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "GeoJSON"
+   ],
+   "endpoints": [
+    "https://services-eu1.arcgis.com/DXXr4lb5mZYaElUa/arcgis/rest/services"
+   ],
+   "spec_url": null,
+   "docs_url": "https://services-eu1.arcgis.com/DXXr4lb5mZYaElUa/arcgis/rest/services",
+   "probe_url": "https://services-eu1.arcgis.com/DXXr4lb5mZYaElUa/arcgis/rest/services?f=json",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "vestre-toten",
+    "kommune",
+    "kart",
+    "arcgis",
+    "arcgis online",
+    "kartlag",
+    "gis",
+    "geodata",
+    "feature service"
+   ],
+   "category": "kart-og-geodata",
+   "tags": [
+    "no-auth"
+   ],
+   "caveats": [
+    "Ingen lisens oppgitt.",
+    "Laglisten er kommunens arbeidskart og endres uten varsel."
+   ],
+   "behaviour": null,
+   "owner_terms": null,
+   "quick_start": "# tjenestene i organisasjonens katalog\ncurl \"https://services-eu1.arcgis.com/DXXr4lb5mZYaElUa/arcgis/rest/services?f=json\"\n# antall objekter i ett lag (kommuneplan)\ncurl \"https://services-eu1.arcgis.com/DXXr4lb5mZYaElUa/arcgis/rest/services/Kommuneplan/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "vestre-toten-kommune.yaml",
+    "merge_with": null,
+    "updated": "2026-11-16"
+   },
+   "checks": null
+  },
+  {
    "id": "viaplay-content-no",
    "title": "Viaplay innholdskatalog Norge (HAL JSON)",
    "provider": {
@@ -38748,6 +39336,67 @@
      "final_url": "https://services-eu1.arcgis.com/Q7w7sXevXH7cs2Gl/arcgis/rest/services?f=json"
     }
    }
+  },
+  {
+   "id": "volda-kommune-agol-sentrumsplan-3d",
+   "title": "Volda kommunes plan- og 3D-kartdata på ArcGIS Online (REST)",
+   "provider": {
+    "name": "Volda kommune",
+    "orgnr": "939760946",
+    "org_path": null,
+    "sector": "kommune"
+   },
+   "description": "Voldas andre åpne ArcGIS Online-katalog med 46 tjenester, i hovedsak underlag for sentrumsplanlegging og 3D-modellering: bygningsflater fra FKB, høyder, takform, akser, utbyggingstomter og kommuneplansoner. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er kommunens arbeidskart, så lag kommer og går og navnene er lite beskrivende.",
+   "summary": "Voldas andre åpne ArcGIS Online-katalog med 46 tjenester, i hovedsak underlag for sentrumsplanlegging og 3D-modellering: bygningsflater fra FKB, høyder, takform, akser, utbyggingstomter og kommuneplansoner. Hvert lag kan spørres med /query…",
+   "title_en": "Volda municipality planning and 3D map data on ArcGIS Online (REST)",
+   "access": "open",
+   "auth": "none",
+   "formats": [
+    "JSON",
+    "GeoJSON"
+   ],
+   "endpoints": [
+    "https://services-eu1.arcgis.com/cQuv4IteGgu1IZ7b/arcgis/rest/services"
+   ],
+   "spec_url": null,
+   "docs_url": "https://services-eu1.arcgis.com/cQuv4IteGgu1IZ7b/arcgis/rest/services",
+   "probe_url": "https://services-eu1.arcgis.com/cQuv4IteGgu1IZ7b/arcgis/rest/services?f=json",
+   "spec": null,
+   "license": null,
+   "keywords": [
+    "volda",
+    "kommune",
+    "kart",
+    "arcgis",
+    "arcgis online",
+    "bygninger",
+    "3d",
+    "sentrumsplan",
+    "kartlag",
+    "gis",
+    "geodata",
+    "feature service"
+   ],
+   "category": "kart-og-geodata",
+   "tags": [
+    "no-auth"
+   ],
+   "caveats": [
+    "Ingen lisens oppgitt.",
+    "Laglisten er kommunens arbeidskart og endres uten varsel."
+   ],
+   "behaviour": null,
+   "owner_terms": null,
+   "quick_start": "# tjenestene i organisasjonens katalog\ncurl \"https://services-eu1.arcgis.com/cQuv4IteGgu1IZ7b/arcgis/rest/services?f=json\"\n# antall bygningsflater i ett lag\ncurl \"https://services-eu1.arcgis.com/cQuv4IteGgu1IZ7b/arcgis/rest/services/FKB_BygningFlate_typebygg/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json\"\n",
+   "status": null,
+   "modified": null,
+   "source": {
+    "kind": "curated",
+    "file": "volda-kommune.yaml",
+    "merge_with": null,
+    "updated": "2026-11-16"
+   },
+   "checks": null
   },
   {
    "id": "vaga-kommune-agol",

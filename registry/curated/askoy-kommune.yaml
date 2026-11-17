@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Askøy kommune
+  orgnr: "964338442"
+  sector: kommune
+apis:
+  - id: askoy-kommune-agol
+    title: Askøy kommunes kartdata på ArcGIS Online (REST)
+    title_en: Askøy municipality map data on ArcGIS Online (REST)
+    description: >-
+      Askøy kommunes åpne tjenestekatalog på ArcGIS Online med 13 publiserte tjenester, blant annet kommuneplanens arealdel, kommuneplanforslag, kulturminneplan og planområder for reguleringsplaner. Hvert lag kan spørres med /query og gir JSON eller GeoJSON, uten nøkkel. Katalogen er kommunens arbeidskart, så lag kommer og går og innholdet varierer i kvalitet.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, GeoJSON]
+    endpoints:
+      - https://services7.arcgis.com/3GtbOB1aBnkz0CUj/arcgis/rest/services
+    docs_url: https://services7.arcgis.com/3GtbOB1aBnkz0CUj/arcgis/rest/services
+    probe_url: https://services7.arcgis.com/3GtbOB1aBnkz0CUj/arcgis/rest/services?f=json
+    keywords: [askøy, kommune, kart, arcgis, arcgis online, kommuneplan, reguleringsplan, kartlag, gis, geodata, feature service]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Laglisten er kommunens arbeidskart og endres uten varsel.
+    quick_start: |
+      # tjenestene i organisasjonens katalog
+      curl "https://services7.arcgis.com/3GtbOB1aBnkz0CUj/arcgis/rest/services?f=json"
+      # antall planområder i ett lag
+      curl "https://services7.arcgis.com/3GtbOB1aBnkz0CUj/arcgis/rest/services/BebyggelseKPAh%C3%B8ring_og_regplan_WFL1/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json"
