@@ -35,7 +35,10 @@ def check_entries(entries: list[ApiEntry], timeout: float = 15.0, limit: int | N
             for name, url in targets.items():
                 if not url:
                     continue
-                results[name] = _probe(client, url)
+                result = _probe(client, url)
+                if name == "endpoint" and _unverifiable(entry, result):
+                    continue
+                results[name] = result
             entry.checks = {
                 "checked_at": datetime.now(UTC).isoformat(timespec="seconds"),
                 **results,
@@ -43,6 +46,18 @@ def check_entries(entries: list[ApiEntry], timeout: float = 15.0, limit: int | N
             checked += 1
             log.info("%s: %s", entry.id, {k: v.get("status") for k, v in results.items()})
     return checked
+
+
+_CREDENTIALED = ("maskinporten", "id-porten", "oauth2", "api-key")
+
+
+def _unverifiable(entry: ApiEntry, result: dict[str, Any]) -> bool:
+    """A login-only API's base URL often answers 404 to an anonymous GET: the gateway routes
+    only full resource paths. Without a `probe_url` that is no evidence either way, so it is
+    not recorded as missing. A host that does not answer at all still is."""
+    return (
+        entry.auth in _CREDENTIALED and not entry.probe_url and result.get("status") in (404, 405)
+    )
 
 
 def verdict(status: int | None) -> str:

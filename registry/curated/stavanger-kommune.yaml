@@ -1,4 +1,4 @@
-updated: 2026-11-16
+updated: 2026-11-17
 provider:
   name: Stavanger kommune
   orgnr: "964965226"
@@ -213,3 +213,49 @@ apis:
       - Filen er rundt 1 MB, og første feature er et tomt SOSI-hode uten geometri.
     quick_start: |
       curl "https://opencom.no/dataset/52d0d63e-d26c-43b9-91e2-13b3b2a96c89/resource/591066cb-b056-4525-ae93-b54dffde9530/download/boligsoneparkering.json"
+
+  - id: stavanger-kommune-innbyggertall
+    title: Innbyggere i Stavanger (folkeregisterdata, datastore)
+    title_en: Residents of Stavanger (population register aggregates, datastore)
+    description: >-
+      Antall innbyggere i Stavanger kommune som aggregerte tall fra folkeregisteret, oppdatert daglig, med historikk i en
+      egen ressurs. Dataene kan spørres rett i tabellen med CKAN-ets datastore_search og filtre, uten nøkkel. Tallene er
+      samlet per kategori, ikke per person. Datasettet har søsterdatasett for alder, kjønn, sivilstand og nasjonalitet.
+    category: statistikk
+    access: open
+    auth: none
+    formats: [JSON, CSV]
+    endpoints:
+      - https://opencom.no/api/3/action/datastore_search
+    docs_url: https://opencom.no/dataset/folkeregisterdata-stavanger-total-antall-innbyggere
+    probe_url: https://opencom.no/api/3/action/datastore_search?resource_id=6a559604-edbe-4c93-8faf-591533597a74&limit=1
+    license: NLOD 2.0
+    keywords: [innbyggere, folkeregister, befolkning, stavanger, ckan, datastore, statistikk]
+    tags: [no-auth]
+    caveats:
+      - Ressurs-ID-en er knyttet til dagens fil og kan bytte når datasettet oppdateres; slå opp gjeldende ID med package_show.
+    quick_start: |
+      curl "https://opencom.no/api/3/action/datastore_search?resource_id=6a559604-edbe-4c93-8faf-591533597a74&limit=1"
+
+  - id: stavanger-kommune-nedgravde-containere
+    title: Nedgravde søppelcontainere på Nord-Jæren
+    title_en: Underground waste containers in the Nord-Jæren area
+    description: >-
+      Over 3000 nedgravde avfallscontainere på Nord-Jæren med containernummer, gateadresse, koordinater, avfallstype,
+      fyllingsgrad og dato, oppdatert daglig. Filene ligger som GeoJSON, JSON, CSV, XML og XLSX og krever ingen nøkkel.
+      Adressene er containerplasseringer, ikke boliger.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [GeoJSON, JSON, CSV, XML, XLSX]
+    endpoints:
+      - https://opencom.no/dataset/8c10f9c2-d0f1-4ef6-91ac-9094acfe55f7/resource/482a4fdd-13c1-4289-9c69-2174f40d15c3/download/ren_nedgravde-containere.geojson
+    docs_url: https://opencom.no/dataset/nedgravde-containere
+    probe_url: https://opencom.no/dataset/8c10f9c2-d0f1-4ef6-91ac-9094acfe55f7/resource/482a4fdd-13c1-4289-9c69-2174f40d15c3/download/ren_nedgravde-containere.geojson
+    license: NLOD 2.0
+    keywords: [avfall, søppel, container, nedgravd, fyllingsgrad, renovasjon, nord-jæren]
+    tags: [no-auth, data-files]
+    caveats:
+      - Ikke et API, bare filer til nedlasting; filen erstattes daglig.
+    quick_start: |
+      curl "https://opencom.no/dataset/8c10f9c2-d0f1-4ef6-91ac-9094acfe55f7/resource/482a4fdd-13c1-4289-9c69-2174f40d15c3/download/ren_nedgravde-containere.geojson"

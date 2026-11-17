@@ -171,4 +171,6 @@ def _overlay(curated: ApiEntry, harvested: ApiEntry) -> ApiEntry:
         "catalogue_url": harvested.source.get("catalogue_url"),
         "harvested_at": harvested.source.get("harvested_at"),
     }
+    if harvested.source.get("spec_candidates"):
+        data["source"]["spec_candidates"] = harvested.source["spec_candidates"]
     return ApiEntry.from_dict(data)

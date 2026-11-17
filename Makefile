@@ -1,6 +1,6 @@
 UV ?= uv
 
-.PHONY: setup lint test harvest build enrich check samples refresh search site serve mcp clean
+.PHONY: setup lint test harvest build enrich check probe-auth samples refresh search site serve mcp clean
 
 setup:
 	$(UV) sync
@@ -22,6 +22,9 @@ enrich:           ## fetch OpenAPI documents, index their operations
 
 check:            ## probe docs/spec/endpoint URLs of the curated entries
 	$(UV) run norapi check --curated-only
+
+probe-auth:       ## call harvested entries with unknown auth anonymously -> registry/auth-review.yaml
+	$(UV) run norapi probe-auth
 
 samples:          ## run the front page's example calls, store the answers
 	$(UV) run norapi samples

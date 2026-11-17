@@ -1,4 +1,4 @@
-updated: 2026-11-16
+updated: 2026-11-17
 provider:
   name: KS Digitale fellestjenester (Fiks-plattformen)
   orgnr: "931796003"
@@ -369,3 +369,148 @@ apis:
       curl -X POST -H "Authorization: Bearer $TOKEN" -H "IntegrasjonId: $ID" -H "IntegrasjonPassord: $PASSORD" \
         -F "metadata=@metadata.json;type=application/json" -F "dokument=@fil.pdf" \
         "https://api.fiks.ks.no/dokumentlager/api/v1/{fiksOrganisasjonId}/kontoer/{kontoId}/dokumenter/"
+
+  - id: ks-fiks-protokoll-konfigurasjon
+    title: "Fiks Protokoll Konfigurasjon-API"
+    title_en: "Fiks Protocol Configuration API"
+    description: >-
+      Lar leverandører sette opp protokollsystemer i Fiks IO via API i stedet for webgrensesnittet: opprette og
+      slette kontoer, laste opp offentlig nøkkel, sette parter, gi og be om tilganger mellom systemer og søke etter
+      systemer og kontoer. Selve protokollsystemet må opprettes av en administrator i kundens Fiks-organisasjon. Auth
+      er Maskinporten med scope ks:fiks pluss integrasjons-id og passord, og integrasjonen må ha privilegiet
+      FIKS.KONFIGURER.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://forvaltning.fiks.ks.no/fiks-protokoll/api/v1/konfigurasjon
+    docs_url: https://developers.fiks.ks.no/tjenester/fiksprotokoll/konfigurasjon-api/
+    spec_url: https://developers.fiks.ks.no/api/fiks-protokoll-konfigurasjon-api-v1.json
+    keywords: [fiks protokoll, fiks io, konfigurasjon, konto, protokollsystem, leverandør]
+    tags: [maskinporten, agreement]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Spesifikasjonen har også et sett endepunkter (kun-person) som Fiks Forvaltning selv bruker, og som leverandører ikke skal kalle."
+      - "Ingen lisens oppgitt."
+
+  - id: ks-fiks-kontaktregisteret
+    title: "Fiks Kontaktregisteret (KRR)"
+    title_en: "Fiks Contact Register (KRR)"
+    description: >-
+      Oppslag i Digdirs kontakt- og reservasjonsregister for personer, gjennom Fiks register. Alle kall gjøres i
+      kontekst av en rolle som er satt opp i Fiks, og oppsettet for Fiks folkeregister må være på plass først. Auth er
+      Maskinporten med scope ks:fiks pluss integrasjons-id og passord. Returnerer personopplysninger.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/register/api/v1
+      - https://api.fiks.test.ks.no/register/api/v1
+    docs_url: https://developers.fiks.ks.no/tjenester/register/kontaktregisteret/
+    spec_url: https://developers.fiks.ks.no/api/register-krr-api-v1.json
+    keywords: [krr, kontaktregisteret, reservasjon, kontaktinformasjon, fiks register, kommune]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Returnerer personopplysninger; bruk krever behandlingsgrunnlag og en rolle i Fiks."
+      - "Ingen lisens oppgitt."
+
+  - id: ks-fiks-skatteoginntektsopplysninger
+    title: "Fiks Skatte- og inntektsopplysninger"
+    title_en: "Fiks Tax and Income Information"
+    description: >-
+      Gir kommunale fagsystemer skatte- og inntektsopplysninger fra Skatteetaten for søkere av kommunale tjenester,
+      for eksempel redusert foreldrebetaling i SFO og barnehage, praktisk bistand og langtidsopphold i institusjon.
+      Fiks har et eget overbygg som regner sammen poster for flere personer, i tillegg til en proxy mot
+      Skatteetatens delingstjeneste. Rollen som brukes må ligge i riktig tjenesteområde, og tilgangen er Maskinporten
+      med scope ks:fiks pluss integrasjons-id og passord.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/register/api/v1
+      - https://api.fiks.test.ks.no/register/api/v1
+    docs_url: https://developers.fiks.ks.no/tjenester/register/skatteoginntektsopplysninger/
+    spec_url: https://developers.fiks.ks.no/api/register-skatteoginntektsopplysninger-beregning-api-v1.json
+    keywords: [skatt, inntekt, skatteoppgjør, foreldrebetaling, praktisk bistand, fiks register, kommune]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Returnerer personopplysninger; bruk krever behandlingsgrunnlag og avtale med Skatteetaten."
+      - "Proxyen mot Skatteetaten har ingen egen OpenAPI-spesifikasjon hos Fiks; spesifikasjonen gjelder overbygget."
+      - "Ingen lisens oppgitt."
+
+  - id: ks-fiks-kjoretoyregister
+    title: "Fiks Kjøretøyregister"
+    title_en: "Fiks Vehicle Register"
+    description: >-
+      Speiler Statens vegvesens kjøretøyoppslag og kjøretøysøk på Fiks-plattformen, slik at kommunale fagsystemer kan
+      slå opp kjøretøy med eierforhold på et gitt tidspunkt. Spesifikasjonen har oppslag på person og på
+      organisasjon, og tjenesten er bare maskin-til-maskin, uten webgrensesnitt. Auth er Maskinporten med scope
+      ks:fiks pluss integrasjons-id og passord.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/kjoretoyregister/api/v1
+      - https://api.fiks.test.ks.no/kjoretoyregister/api/v1
+    docs_url: https://developers.fiks.ks.no/tjenester/kjoretoyregister/
+    spec_url: https://developers.fiks.ks.no/api/kjoretoyregister-api-v1.json
+    keywords: [kjøretøy, kjennemerke, understellsnummer, eier, autosys, vegvesen, kommune]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Dokumentasjonssiden beskriver oppslag etter Vegvesens egen spesifikasjon under /kjoretoyregister/api/{fiksOrgId}, mens den publiserte OpenAPI-filen har andre stier; sjekk hvilken som gjelder."
+      - "Returnerer eierforhold og dermed personopplysninger."
+      - "Ingen lisens oppgitt."
+
+  - id: ks-fiks-nav-hjelpemiddel
+    title: "Fiks Nav hjelpemiddel"
+    title_en: "Fiks Nav assistive devices"
+    description: >-
+      Gir kommunale lager- og logistikkløsninger tilgang til Navs hjelpemiddel-API gjennom Fiks-plattformen:
+      grunndata om hjelpemidler, oversikt over digitale søknader, kvitteringer og kommende leveringer fra Nav, med
+      automatisk mottaksordre. Tjenesten må aktiveres i Fiks Konfigurasjon, og mottakerløsningen må oppfylle de
+      juridiske kravene i avtalen med Nav. Auth er Maskinporten med scope ks:fiks pluss integrasjons-id og passord.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/nav-hjelpemiddel/api
+      - https://api.fiks.test.ks.no/nav-hjelpemiddel/api
+    docs_url: https://developers.fiks.ks.no/tjenester/fiks-nav-hjelpemiddel-api/
+    spec_url: https://developers.fiks.ks.no/api/nav-hjelpemiddel-v3.yaml
+    keywords: [hjelpemidler, nav, logistikk, lager, mottaksordre, behovsmelding, kommune]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Krever også avtale med Nav; koblingen mellom brukernummer og fødselsnummer gir personopplysninger."
+      - "Testmiljøet har lite data, og logistikk-endepunktet krever et kjent kommunenummer."
+
+  - id: ks-fiks-matrikkel-eier
+    title: "Fiks Matrikkel-eier (eiendomsoppslag)"
+    title_en: "Fiks Cadastre owner lookup"
+    description: >-
+      Oppslag i matrikkelen for å finne hvilke eiendommer en person eller organisasjon eier, eller hvem som eier en
+      bestemt eiendom. Brukes av Min kommune til Mine eiendommer. Integrasjonen må ha privilegiet MATRIKKEL.QUERY på
+      tjenesten Minside: Mine Eiendommer, og auth er Maskinporten med scope ks:fiks pluss integrasjons-id og passord.
+    category: offentlig-forvaltning
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.fiks.ks.no/matrikkel-eier/api/v1
+    docs_url: https://developers.fiks.ks.no/tjenester/minkommune/matrikkel/
+    spec_url: https://developers.fiks.ks.no/api/matrikkel-eier-oppslag-api-v1.json
+    keywords: [matrikkel, eiendom, eier, matrikkelenhet, min kommune, kommune]
+    tags: [maskinporten, agreement, personal-data]
+    caveats:
+      - "Krever avtale med KS og tilgang til Fiks-plattformen før du får brukt API-et, og tilgang gis per kommune eller virksomhet."
+      - "Spesifikasjonen oppgir en intern klyngeadresse som server; bruk api.fiks.ks.no."
+      - "Returnerer eierforhold og dermed personopplysninger."
+      - "Ingen lisens oppgitt."

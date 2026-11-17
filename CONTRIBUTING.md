@@ -55,6 +55,11 @@ Regler som holder kvaliteten oppe:
 - **Tilgang som katalogene ikke oppgir** (verken Felles datakatalog, Geonorge eller datasettene tjenesten leverer)
   sjekkes for hånd og føres i `registry/access-review.yaml` med katalogens URI, verdien, og en kort `reason` om hva
   du så: et anonymt kall, dokumentasjonen. Gir katalogene en verdi senere, vinner den over gjennomgangen.
+- **Autentisering for høstede oppføringer** står ikke i Felles datakatalog. `make probe-auth` gjør ett anonymt kall
+  mot hver høstet oppføring med ukjent autentisering og skriver `registry/auth-review.yaml`. Bare et svar med
+  tjenestens eget innhold (capabilities, JSON, data) gir `auth: none`; en avvisning, en innloggingsside eller
+  ingen svar lar verdien stå som ukjent. Kartjenester med begrenset tilgang regnes ikke som åpne selv om
+  capabilities svarer.
 - **Tjenester som er borte** (vertsnavnet finnes ikke lenger) men fortsatt står i katalogen, føres i
   `registry/retired.yaml` med katalogens URI og en kort `reason`. Da holdes de utenfor registeret til linjen fjernes.
 - **Private tjenester** tas med når de er åpne og brukes mye av norske utviklere, med `sector: privat`.

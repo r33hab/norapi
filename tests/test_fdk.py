@@ -155,3 +155,16 @@ def test_geonorge_uuids_only_for_services_without_own_access(snapshot):
     ]
     patched = {**snapshot, "extras": {**snapshot["extras"], "pages": pages}}
     assert fdk.geonorge_uuids(patched) == [UUID]
+
+
+def test_spec_pick_prefers_a_strong_hint_and_keeps_other_links_as_candidates(snapshot):
+    uri = "https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/ddd"
+    descriptions = snapshot["extras"]["endpoint_descriptions"]
+    descriptions.insert(0, [uri, "https://x.no/api/v1/families.json"])
+    descriptions.insert(1, [uri, "https://x.no/api/v3/api-docs"])
+    descriptions.insert(2, [uri, "https://x.no/wms?service=WMS&request=GetCapabilities"])
+    entry = next(e for e in fdk.to_entries(snapshot) if e.source["uri"] == uri)
+    assert entry.spec_url == "https://x.no/api/v3/api-docs", "api-docs beats a bare .json file"
+    candidates = entry.source["spec_candidates"]
+    assert "https://x.no/api/v1/families.json" in candidates
+    assert not any("GetCapabilities" in u for u in candidates), "map services are never specs"

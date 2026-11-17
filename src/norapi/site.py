@@ -617,13 +617,22 @@ class Site:
             "conflict": "Geonorge og datasettene er uenige; den strengeste verdien er brukt",
             "review": f"sjekket for hånd {source.get('access_checked', '')}: {source.get('access_note', '')}",
         }.get(source.get("access_from") or "")
+        auth_from = (
+            f"sjekket med et anonymt kall {source.get('auth_checked', '')}"
+            if source.get("auth_from") == "probe"
+            else None
+        )
         facts: list[tuple[str, str]] = [
             (
                 "Tilgang",
                 e(ACCESS_LABEL[api["access"]])
                 + (f'<br><span class="meta">{e(access_from)}</span>' if access_from else ""),
             ),
-            ("Autentisering", e(AUTH_LABEL[api["auth"]])),
+            (
+                "Autentisering",
+                e(AUTH_LABEL[api["auth"]])
+                + (f'<br><span class="meta">{e(auth_from)}</span>' if auth_from else ""),
+            ),
         ]
         if api.get("formats"):
             facts.append(("Formater", e(", ".join(api["formats"]))))
@@ -744,13 +753,13 @@ class Site:
             sections.append(
                 '<section class="prose" aria-labelledby="behaviour-h">'
                 '<h2 id="behaviour-h">Oppførsel</h2>'
-                f'<p>{e(api["behaviour"])}</p></section>'
+                f"<p>{e(api['behaviour'])}</p></section>"
             )
         if api.get("owner_terms"):
             sections.append(
                 '<section class="prose" aria-labelledby="terms-h">'
                 '<h2 id="terms-h">Eierens vilkår</h2>'
-                f'<p>{e(api["owner_terms"])}</p></section>'
+                f"<p>{e(api['owner_terms'])}</p></section>"
             )
         description = (api.get("description") or "").strip()
         long_description = len(description) > 420

@@ -119,6 +119,15 @@ def stable_suffix(value: str, length: int = 6) -> str:
     return hashlib.sha1(value.encode("utf-8")).hexdigest()[:length]
 
 
+_CAPABILITIES = ("getcapabilities", "service=wms", "service=wfs", "service=wmts", "service=wcs")
+
+
+def is_capabilities(url: str) -> bool:
+    """An OGC GetCapabilities link (WMS, WFS, ...) describes a map service, never OpenAPI."""
+    lowered = url.lower()
+    return any(hint in lowered for hint in _CAPABILITIES)
+
+
 def looks_like_spec(url: str) -> bool:
     lowered = url.lower()
     return any(hint in lowered for hint in _SPEC_HINTS)

@@ -8,7 +8,12 @@ the document is fetched, parsed, and reduced to two things: a short summary stor
 Resolution is forgiving, because catalogues rarely link the raw document:
 - SwaggerHub UI links (`app.swaggerhub.com`) become API links (`api.swaggerhub.com`).
 - A Swagger UI or ReDoc page is read for the document URL it loads.
-- Failing that, the usual neighbours are tried (`openapi.json`, `v3/api-docs`, ...).
+- A springdoc link (`?configUrl=...`) or a `swagger-config` document is followed to the
+  documents it lists, the one named by `urls.primaryName` first.
+- Failing that, the usual neighbours are tried (`openapi.json`, `v3/api-docs`, ...), next to
+  the application a `/swagger-ui/` or `/swagger/` path belongs to first.
+- Felles datakatalog entries also carry their other `endpointDescription` links
+  (`source.spec_candidates`); a docs page there often leads to the document.
 
 Raw documents are cached under data/specs/ so re-runs do not hit the network again.
 """
@@ -23,12 +28,12 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
-from urllib.parse import urljoin, urlparse
+from urllib.parse import parse_qs, urljoin, urlparse
 
 import httpx
 import yaml
 
-from norapi.model import ApiEntry
+from norapi.model import ApiEntry, is_capabilities
 from norapi.netguard import get_capped, public_client
 
 log = logging.getLogger(__name__)
@@ -53,6 +58,8 @@ _URL_IN_PAGE = re.compile(
     re.IGNORECASE,
 )
 _INITIALIZER = re.compile(r"""["']([^"']*swagger-initializer\.js[^"']*)["']""")
+_UI_SEGMENT = re.compile(r"/(?:swagger-ui|swagger|redoc)(?:/|\.html|$)", re.IGNORECASE)
+RESOLVE_BUDGET = 14
 
 
 class SpecFetcher:
@@ -66,10 +73,11 @@ class SpecFetcher:
             },
         )
 
-    def resolve(self, url: str, budget: int = 8) -> tuple[str, dict[str, Any]] | None:
+    def resolve(self, url: str, budget: int = RESOLVE_BUDGET) -> tuple[str, dict[str, Any]] | None:
         """Return (final_url, document) for the first OpenAPI document reachable from url."""
         tried: set[str] = set()
-        queue = [normalise_url(url)]
+        preferred = _query_value(url, "urls.primaryName")
+        queue = [normalise_url(u) for u in config_urls(url)] + [normalise_url(url)]
         while queue and budget > 0:
             candidate = queue.pop(0)
             if candidate in tried:
@@ -94,6 +102,10 @@ class SpecFetcher:
             if document is not None:
                 log.debug("%s: sample document, ignored", candidate)
                 continue
+            listed = swagger_config_urls(text, final_url, preferred)
+            if listed:
+                queue = [u for u in listed if u not in tried] + queue
+                continue
             # Not a document: maybe a UI page that tells us where the document is. What the
             # page itself points at goes to the front of the queue; guessed neighbours last.
             discovered = [u for u in urls_from_page(text, final_url) if u not in tried]
@@ -108,6 +120,39 @@ def normalise_url(url: str) -> str:
     if parsed.netloc == "app.swaggerhub.com":
         return url.replace("app.swaggerhub.com", "api.swaggerhub.com", 1)
     return url
+
+
+def _query_value(url: str, name: str) -> str | None:
+    values = parse_qs(urlparse(url).query).get(name)
+    return values[0] if values else None
+
+
+def config_urls(url: str) -> list[str]:
+    """A springdoc Swagger UI link names its config in the query: `?configUrl=/v3/api-docs/...`."""
+    value = _query_value(url, "configUrl")
+    return [urljoin(url, value)] if value else []
+
+
+def swagger_config_urls(text: str, page_url: str, preferred: str | None = None) -> list[str]:
+    """The documents a Swagger UI config lists (`{"urls": [{"url", "name"}]}` or `{"url"}`),
+    the one named `preferred` first. Empty for anything that is not such a config."""
+    if not text.lstrip().startswith("{"):
+        return []
+    try:
+        data = json.loads(text)
+    except json.JSONDecodeError:
+        return []
+    if not isinstance(data, dict) or "paths" in data:
+        return []
+    found: list[str] = []
+    items = [
+        u for u in data.get("urls") or [] if isinstance(u, dict) and isinstance(u.get("url"), str)
+    ]
+    items.sort(key=lambda u: u.get("name") != preferred)
+    found += [urljoin(page_url, u["url"]) for u in items]
+    if isinstance(data.get("url"), str):
+        found.append(urljoin(page_url, data["url"]))
+    return [u for u in found if "petstore" not in u.lower()][:4]
 
 
 def looks_like_ui(url: str) -> bool:
@@ -216,9 +261,15 @@ def urls_from_page(html: str, page_url: str) -> list[str]:
 def neighbour_urls(url: str) -> list[str]:
     parsed = urlparse(url)
     origin = f"{parsed.scheme}://{parsed.netloc}/"
-    directory = url if url.endswith("/") else url.rsplit("/", 1)[0] + "/"
+    directory = url.split("?", 1)[0].split("#", 1)[0]
+    directory = directory if directory.endswith("/") else directory.rsplit("/", 1)[0] + "/"
+    bases = [directory, origin]
+    ui = _UI_SEGMENT.search(parsed.path)
+    if ui:  # .../app/swagger-ui/index.html: the documents live next to the app, not the UI
+        app = parsed.path[: ui.start()].strip("/")
+        bases.insert(0, f"{origin}{app}/" if app else origin)
     candidates: list[str] = []
-    for base in (directory, origin):
+    for base in dict.fromkeys(bases):
         for name in NEIGHBOURS:
             candidate = urljoin(base, name)
             if candidate not in candidates:
@@ -273,6 +324,9 @@ def candidate_urls(entry: ApiEntry) -> list[str]:
         urls.append(entry.spec_url)
     if entry.docs_url and looks_like_ui(entry.docs_url) and entry.docs_url not in urls:
         urls.append(entry.docs_url)
+    for url in entry.source.get("spec_candidates") or []:
+        if url not in urls and not is_capabilities(url):
+            urls.append(url)
     return urls
 
 

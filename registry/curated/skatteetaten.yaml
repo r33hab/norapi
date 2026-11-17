@@ -1,4 +1,4 @@
-updated: 2026-10-15
+updated: 2026-11-17
 provider:
   name: Skatteetaten
   orgnr: "974761076"
@@ -34,3 +34,1866 @@ apis:
     docs_url: https://skatteetaten.github.io/folkeregisteret-api-dokumentasjon/
     keywords: [folkeregister, fødselsnummer, d-nummer, bosted, personopplysninger, population register]
     tags: [agreement, maskinporten, personal-data]
+
+  - id: skatteetaten-innrapportering-amelding
+    title: Innrapportering A-melding API
+    description: >-
+      REST-API for innrapportering av a-meldingen fra lønns- og regnskapssystemer (tidligere A02), med et eget
+      filopplastings-API og et tilbakemeldings-API. Krever Maskinporten med scope
+      `skatteetaten:innrapporteringamelding` og systembruker i Altinn. Tilbakemeldingen fra Skatteetaten hentes
+      ved å lytte på hendelser i Dialogporten.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringamelding.api.skatteetaten.no
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-amelding-api/0.1.2
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-amelding
+    keywords: [a-melding, a-ordningen, lønn, innrapportering, arbeidsgiver]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-amelding-filopplasting
+    title: Innrapportering A-melding filopplasting API
+    description: >-
+      Tjeneste for innrapportering av a-meldingen ved filopplasting, med samme innhold som REST-API-et for
+      a-melding. Scopet `skatteetaten:innrapporteringamelding` brukes også her, sammen med Maskinporten og
+      systembruker i Altinn. Skatteetaten må gi virksomheten tilgang, og tilbakemelding kommer via Dialogporten.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringameldingfilopplasting.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-amelding-filopplasting-api/1.0.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-amelding-filopplasting
+    keywords: [a-melding, filopplasting, a-ordningen, innrapportering]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-avstemmingsrapport-amelding
+    title: Avstemmingsrapport A-melding API
+    description: >-
+      Tjeneste for avstemmingsrapporten til a-meldingen (tidligere A06 og A07). Krever Maskinporten med scope
+      `skatteetaten:innrapporteringamelding` og systembruker i Altinn. Skatteetaten må gi virksomheten tilgang
+      til scopet.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://ameldingavstemmingsrapport.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/avstemmingsrapport-amelding-api/1.0.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/avstemmingsrapport-amelding
+    keywords: [a-melding, avstemming, a-ordningen]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-mva-melding-innsending
+    title: Mva-melding innsending API
+    description: >-
+      Innsending av mva-melding fra sluttbrukersystem: ordinær mva-melding (RF-0002/0004), omvendt avgiftsplikt
+      (RF-0005) og skattemelding for merverdiavgiftskompensasjon (RF-0009). Innsendingen går mot en Altinn 3-app
+      via instans-API-et, og du veksler ID-porten-token til Altinn-token (scope `altinn:instances.read` og
+      `altinn:instances.write`). Skatteetaten har et eget validerings-API du bør kalle først.
+    category: skatt-og-avgift
+    access: restricted
+    auth: id-porten
+    formats: [JSON]
+    endpoints:
+      - https://skd.apps.altinn.no/skd/mva-melding-innsending-v1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/mvameldinginnsending
+    keywords: [mva-melding, merverdiavgift, innsending, altinn, RF-0002]
+    tags: [agreement, id-porten]
+    caveats:
+      - "Testmiljøet ligger i Altinn tt02 (skd.apps.tt02.altinn.no) og krever syntetiske organisasjoner."
+
+  - id: skatteetaten-mva-melding-validering
+    title: Mva-melding validering API
+    description: >-
+      Validerer en mva-melding som XML før innsending, med POST til valideringstjenesten. Krever ID-porten-token
+      med scope `skatteetaten:mvameldingvalidering`, og tilgang bestilles hos Skatteetaten. Testmiljøet ligger
+      på idporten-api-test.sits.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: id-porten
+    formats: [XML, JSON]
+    endpoints:
+      - https://idporten.api.skatteetaten.no/api/mva/grensesnittstoette/mva-melding/valider
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/mvameldingvalidering
+    keywords: [mva-melding, validering, merverdiavgift]
+    tags: [agreement, id-porten]
+
+  - id: skatteetaten-innrapportering-skattemelding
+    title: Innrapportering skattemelding API
+    description: >-
+      Innsending av skattemelding og næringsspesifikasjon fra sluttbrukersystem, med egne utfyllings- og
+      valideringstjenester. Krever Maskinporten med scope `skatteetaten:formueinntekt/skattemelding`, og selve
+      innsendingen går mot en Altinn 3-app. Signering og videresending fra skattepliktig eller revisor krever
+      ID-porten, siden Skatteetaten må vite hvem som handler. Dokumentasjon og spesifikasjoner ligger på GitHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [XML]
+    endpoints:
+      - https://skd.apps.altinn.no/skd/formueinntekt-skattemelding-v2
+      - https://idporten.api.skatteetaten.no/api/skattemelding/v2
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-skattemelding
+    keywords: [skattemelding, næringsspesifikasjon, innsending, sluttbrukersystem, altinn]
+    tags: [agreement, maskinporten, id-porten]
+
+  - id: skatteetaten-skattekort-til-arbeidsgiver
+    title: Skattekort til arbeidsgiver API
+    description: >-
+      Arbeidsgivere og lønnssystemer henter skattekort for sine ansatte: du bestiller skattekort og henter svar
+      og endringer. Krever Maskinporten med scope `skatteetaten:skattekorttilarbeidsgiver` og systembruker i
+      Altinn. Tilgang bestilles via Skatteetatens servicedesk.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON, XML]
+    endpoints:
+      - https://api.skatteetaten.no/api/forskudd
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/skattekort-til-arbeidsgiver/3.0.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/skattekorttilarbeidsgiver
+    keywords: [skattekort, forskuddstrekk, arbeidsgiver, lønn]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Leverer skattekort for enkeltpersoner, så virksomheten må ha behandlingsgrunnlag."
+
+  - id: skatteetaten-innkrevingsoppdrag
+    title: Innkrevingsoppdrag API
+    description: >-
+      Oppdragsgivere som bruker Skatteetaten til innkreving av pengekrav oppretter, endrer og avskriver
+      innkrevingsoppdrag, avstemmer dem og henter oversikt over egne krav. Målgruppen er i hovedsak offentlige
+      virksomheter. Krever Maskinporten med scope `skatteetaten:innkrevingsoppdrag` og en rettighetspakke etter
+      kontakt med Skatteetaten.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/oppdragsinnkreving-api/1.0.6
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innkrevingsoppdrag
+    keywords: [innkreving, innkrevingsoppdrag, krav, oppdragsgiver]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-utleggsbegjaering-elan
+    title: "ELAN Utleggsbegjæring API (innsending, innsyn og status)"
+    description: >-
+      ELAN sender utleggsbegjæringer til namsmannen gjennom Skatteetatens systemløsninger, med egne tjenester
+      for innsyn i trekk og status på sak. Målgruppen er inkassosystemer, kommuner og andre systemleverandører.
+      Krever Maskinporten med scope `skatteetaten:utleggsbegjaering` og systembruker (ressurs `ske-
+      utleggsbegjaering`), og tilgang avtales med Skatteetaten.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.skatteetaten.no/api/utleggsbegjaering/v2
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/utleggsbegjaering-api/2.1.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/utleggsbegjaering
+    keywords: [utleggsbegjæring, namsmann, innkreving, ELAN, utleggstrekk]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Testmiljøet ligger på api-test.sits.no, og enkelte av tjenestene er ikke ferdig implementert."
+
+  - id: skatteetaten-utleggstrekk-fra-kommune
+    title: Utleggstrekkbeslutning fra kommune API
+    description: >-
+      For kommuner som bruker særnamsmyndigheten og behandler utlegg etter nytt regelverk: kommunen sender
+      utleggstrekkbeslutninger til Skatteetaten. Krever Maskinporten med scope
+      `skatteetaten:utleggstrekkbeslutningkommune` og systembruker. OpenAPI-spesifikasjonen ligger på
+      SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/utleggsbegjaering-kommune-api/2.0.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/utleggstrekkfrakommune
+    keywords: [utleggstrekk, kommune, særnamsmyndighet, innkreving]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Dokumentasjonen oppgir ennå ikke ressurs-id for systembruker (står som TIL AVKLARING)."
+
+  - id: skatteetaten-trekkpaalegg
+    title: Trekkpålegg API
+    description: >-
+      Grensesnitt der lønns- og personalsystemer henter trekkpålegg om utleggstrekk i lønn fra Skatteetaten på
+      vegne av trekkpliktige arbeidsgivere. Krever Maskinporten med scope `skatteetaten:trekkpaalegg` og
+      systembruker med ressurs `ske-informasjon-om-trekkpaalegg`. Arbeidsgiver kan fortsatt hente de samme
+      trekkpåleggene fra Altinn-innboksen.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.skatteetaten.no/api/trekkpaalegg/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/trekkpaalegg-app/1.5.2
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/trekkpaalegg
+    keywords: [trekkpålegg, utleggstrekk, lønn, arbeidsgiver]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Grensesnittet tilbys først i test og piloter, og supplerer det eksisterende grensesnittet for trekkformidling."
+
+  - id: skatteetaten-skatt-dialogdokumenter
+    title: Skatt dialogdokumenter API
+    description: >-
+      Henter dokumenter som Skatteetaten legger ved dialoger i Dialogporten for formues- og inntektsskatt, for
+      eksempel skatteoppgjør og brev om skattemeldingen. URL-en til dokumentet står i dialogen og skal ikke
+      settes sammen selv. Krever Maskinporten med systembruker og scope `skatteetaten:skattdialogdokument`.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.skatteetaten.no/api/skatt-dialog-dokumenter/v1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/skattdialogdokumenter
+    keywords: [dialogporten, skatteoppgjør, skattemelding, dokumenter]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Scopet `skatteetaten:formueinntekt/skattemelding` gir tilgang i en overgangsperiode."
+
+  - id: skatteetaten-utlegg-dataprodukter
+    title: Utlegg dataprodukter API
+    description: >-
+      Henter fortløpende data og hendelser om utleggsbegjæringssaker og utleggssaker som Namsfogden har
+      behandlet i systemet SIRO, med sekvensnummer og paginering. Målgruppen er Namsfogden og Politiet, og
+      tilgang søkes hos Skatteetaten etter at bruksvilkår er godtatt. Maskinporten med scope
+      `skatteetaten:innkrevingsaksgangan` brukes for saksgang-tjenesten.
+    category: skatt-og-avgift
+    access: non-public
+    auth: maskinporten
+    formats: [JSON]
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/dataprodukt-saksgang-siro-api/1.0.11
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/utlegg-dataprodukter-namsfogden
+    keywords: [utlegg, namsfogden, SIRO, saksgang, politiet]
+    tags: [agreement, maskinporten]
+    caveats:
+      - Scope for tjenesten utlegg for part er ikke bestemt ennå.
+
+  - id: skatteetaten-forsendelse-aapnet
+    title: Forsendelse Åpnet API
+    description: >-
+      Markerer en forsendelse i en Dialogporten-dialog som åpnet, slik at den også regnes som åpnet i Altinn og
+      Skatteetatens innboks. Endepunktet står i forsendelsens contentReference, og du skal bare bruke API-et når
+      URL-en der peker til tjenesten. Autentisering skjer med et dialogtoken fra Dialogporten, gyldig for én
+      dialog.
+    category: skatt-og-avgift
+    access: restricted
+    auth: unknown
+    formats: [JSON]
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/forsendelseaapnet
+    keywords: [dialogporten, forsendelse, åpnet, altinn]
+    tags: [agreement]
+
+  - id: skatteetaten-siste-tilgjengelige-skatteoppgjoer
+    title: Siste tilgjengelige skatteoppgjør API
+    description: >-
+      Oppgir siste inntektsår det foreligger skatteoppgjør for en person, oppslått med personidentifikator.
+      Støttetjeneste til oppslagstjenestene for skatteoppgjør, og den bruker samme scope som dem
+      (`skatteetaten:summertskattegrunnlag` eller `skatteetaten:spesifisertsummertskattegrunnlag`). Skatteetaten
+      trenger ikke gi egen tilgang utover den du har til oppslagstjenesten.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://sistetilgjengeligeskatteoppgjoer.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/siste-tilgjengelige-skatteoppgjoer/1.1.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/sistetilgjengeligeskatteoppgjoer
+    keywords: [skatteoppgjør, inntektsår, skattegrunnlag]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Oppslag skjer på personidentifikator, så virksomheten må ha behandlingsgrunnlag."
+
+  - id: skatteetaten-hendelser
+    title: "Hendelseslister (Skatteetatens datatjenester)"
+    description: >-
+      Tynne hendelseslister som varsler om at data er nye, endret eller slettet for en person eller virksomhet,
+      og som du følger med sekvensnummer. Det finnes en liste per datatjeneste, blant andre for inntekt, mva-
+      melding, skattemelding, skatteoppgjør, næringsspesifikasjon og utleggstrekk. Listene bruker samme scope
+      som den tilhørende oppslagstjenesten, så du trenger ikke egen tilgang. Skatteetaten ber om at du bruker
+      listene i stedet for periodiske oppslag.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/hendelser
+    keywords: [hendelser, sekvensnummer, varsling, endringer, feed]
+    tags: [agreement, maskinporten, feed]
+    caveats:
+      - "Det er flere separate API-er, hver med egen spesifikasjon på SwaggerHub og eget vertsnavn (for eksempel inntekthendelser.api.skatteetaten.no)."
+
+  - id: skatteetaten-innrapportering-godtgjoerelse-aandsverk
+    title: Innrapportering av godtgjøring til opphaver til åndsverk API
+    description: >-
+      Tjeneste for innrapportering av godtgjøring til opphaver til åndsverk (RF-1357). Krever Maskinporten med
+      scope `skatteetaten:innrapporteringgodtgjoeringopphaveraandsverk`. Systembruker i Altinn brukes for
+      tilgang, og Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser
+      i Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringaandsverk.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-aandsverk-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-aandsverk
+    keywords: [åndsverk, opphaver, godtgjøring]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-aksjesparekonto
+    title: Innrapportering aksjesparekonto API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om aksjesparekonto (RF-1301). Krever Maskinporten
+      med scope `skatteetaten:innrapporteringaksjesparekonto`. Systembruker i Altinn brukes for tilgang, og
+      Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i
+      Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringaksjesparekonto.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-aksjesparekonto-api/1.1.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-aksjesparekonto
+    keywords: [aksjesparekonto, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-betalinger-naeringsdrivende
+    title: Innrapportering betalinger til selvstendig næringsdrivende API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om betalinger til selvstendig næringsdrivende (
+      RF-1321). Krever Maskinporten med scope
+      `skatteetaten:innrapporteringbetalingerselvstendignaeringsdrivende`. Systembruker i Altinn brukes for
+      tilgang, og Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser
+      i Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringbetalingernaeringsdrivende.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-betalinger-naeringsdrivende-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-betalingernaeringsdrivende
+    keywords: [næringsdrivende, betalinger, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-boligsameie
+    title: Innrapportering boligsameie API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger for boligsameie (RF-1140). Krever Maskinporten med
+      scope `skatteetaten:innrapporteringboligsameie`. Systembruker i Altinn brukes for tilgang, og Skatteetaten
+      må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i Dialogporten, og
+      OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringboligsameie.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/boligsameie-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-boligsameie
+    keywords: [boligsameie, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-boligselskap
+    title: Innrapportering boligselskap API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger for boligselskap (RF-1139). Krever Maskinporten
+      med scope `skatteetaten:innrapporteringboligselskap`. Systembruker i Altinn brukes for tilgang, og
+      Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i
+      Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringboligselskap.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/boligselskap-api/1.0.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-boligselskap
+    keywords: [boligselskap, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-bsu
+    title: Innrapportering BSU API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger for Boligsparing for ungdom (RF-1360). Krever
+      Maskinporten med scope `skatteetaten:innrapporteringboligsparingungdom`. Systembruker i Altinn brukes for
+      tilgang, og Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser
+      i Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringbsu.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-bsu-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-bsu
+    keywords: [bsu, boligsparing for ungdom, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-drosjetjenester
+    title: Innrapportering drosjetjenester API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om drosjetjenester (RF-1301). Krever Maskinporten
+      med scope `skatteetaten:innrapporteringdrosjetjenester`. Systembruker i Altinn brukes for tilgang, og
+      Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i
+      Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringdrosjetjenester.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-drosjetjenester-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-drosjetjenester
+    keywords: [drosje, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-primaernaering-egg
+    title: Innrapportering egg API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om egg. Krever Maskinporten med scope
+      `skatteetaten:innrapporteringprimaernaeringegg`. Systembruker i Altinn brukes for tilgang, og Skatteetaten
+      må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i Dialogporten, og
+      OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringprimaernaeringegg.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-egg-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-egg
+    keywords: [egg, primærnæring, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-fagforeningskontingent
+    title: Innrapportering fagforeningskontingent API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om fagforeningskontingent (RF-1301). Krever
+      Maskinporten med scope `skatteetaten:innrapporteringfagforeningskontingent`. Systembruker i Altinn brukes
+      for tilgang, og Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med
+      forsendelser i Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringfagforeningskontingent.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-fagforeningskontingent-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-fagforeningskontingent
+    keywords: [fagforeningskontingent, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-finansprodukter
+    title: Innrapportering finansprodukter API
+    description: >-
+      Tjeneste for innrapportering av finansprodukter (RF-1301). Krever Maskinporten med scope
+      `skatteetaten:innrapporteringfinansprodukter`. Systembruker i Altinn brukes for tilgang, og Skatteetaten
+      må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i Dialogporten, og
+      OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringfinansprodukter.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-finansprodukter-api/1.0.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-finansprodukter
+    keywords: [finansprodukter, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-primaernaering-fisk
+    title: Innrapportering fisk API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om fisk. Krever Maskinporten med scope
+      `skatteetaten:innrapporteringprimaernaeringfisk`. Systembruker i Altinn brukes for tilgang, og
+      Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i
+      Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringprimaernaeringfisk.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-fisk-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-fisk
+    keywords: [fisk, primærnæring, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-fondskonto
+    title: Innrapportering fondskonto API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om fondskonto. Krever Maskinporten med scope
+      `skatteetaten:innrapporteringfondskonto`. Systembruker i Altinn brukes for tilgang, og Skatteetaten må
+      først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i Dialogporten, og OpenAPI-
+      spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringfondskonto.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-fondskonto-api/1.0.2
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-fondskonto
+    keywords: [fondskonto, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-gaver-frivillige-organisasjoner
+    title: Innrapportering gaver til frivillige API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger for gaver til visse frivillige organisasjoner og
+      enkelte tros og livssynssamfunn (RF-1310). Krever Maskinporten med scope
+      `skatteetaten:innrapporteringgaverfrivilligeorganisasjoner`. Systembruker i Altinn brukes for tilgang, og
+      Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i
+      Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringgavertilfrivillige.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-gavertilfrivillige-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-gavertilfrivillige
+    keywords: [gaver, frivillige organisasjoner, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-individuelle-pensjonsordninger
+    title: Innrapportering individuelle pensjonsordninger API
+    description: >-
+      Tjeneste for innrapportering av individuelle pensjonsordninger (RF-1301). Krever Maskinporten med scope
+      `skatteetaten:innrapporteringindividuellepensjonsordninger`. Systembruker i Altinn brukes for tilgang, og
+      Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i
+      Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringindividuellepensjonsordninger.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-individuelle-pensjonsordninger-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-individuellepensjonsordninger
+    keywords: [individuell pensjonsordning, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-innskudd-utlaan-renter
+    title: "Innrapportering innskudd, utlån og renter API"
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om innskudd, utlån og renter (RF-1183). Krever
+      Maskinporten med scope `skatteetaten:innrapporteringinnskuddutlaanrenter`. Systembruker i Altinn brukes
+      for tilgang, og Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med
+      forsendelser i Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringinnskuddutlaanrenter.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-innskuddutlaanrenter-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-innskuddutlaanrenter
+    keywords: [innskudd, utlån, renter, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-internasjonal-rapportering
+    title: "Innrapportering internasjonal rapportering (CRS/FATCA) API"
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om internasjonal rapportering (CRS/FATCA)
+      (RF-1183). Krever Maskinporten med scope `skatteetaten:innrapporteringinternasjonalrapportering`.
+      Systembruker i Altinn brukes for tilgang, og Skatteetaten må først gi virksomheten tilgang til scopet.
+      Skatteetaten svarer med forsendelser i Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringinternasjonalrapportering.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-internasjonalrapportering-api/2.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-internasjonalrapportering
+    keywords: [CRS, FATCA, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-primaernaering-jordbruk
+    title: "Innrapportering frukt, bær, poteter og grønnsaker (jord- og hagebruk) API"
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om frukt, bær, poteter og grønnsaker (jord- og
+      hagebruk). Krever Maskinporten med scope `skatteetaten:innrapporteringprimaernaeringjordbruk`.
+      Systembruker i Altinn brukes for tilgang, og Skatteetaten må først gi virksomheten tilgang til scopet.
+      Skatteetaten svarer med forsendelser i Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringprimaernaeringjordbruk.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-jordbruk-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-jordbruk
+    keywords: [jordbruk, hagebruk, primærnæring]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-primaernaering-korn
+    title: Innrapportering korn API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om korn. Krever Maskinporten med scope
+      `skatteetaten:innrapporteringprimaernaeringkorn`. Systembruker i Altinn brukes for tilgang, og
+      Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i
+      Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringprimaernaeringkorn.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-korn-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-korn
+    keywords: [korn, primærnæring, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-livsforsikring
+    title: Innrapportering livsforsikring API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om livsforsikring (RF-1301). Krever Maskinporten
+      med scope `skatteetaten:innrapporteringlivsforsikring`. Systembruker i Altinn brukes for tilgang, og
+      Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i
+      Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringlivsforsikring.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-livsforsikring-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-livsforsikring
+    keywords: [livsforsikring, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-primaernaering-melk
+    title: Innrapportering melk API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om melk (RF-1301). Krever Maskinporten med scope
+      `skatteetaten:innrapporteringmelk`. Systembruker i Altinn brukes for tilgang, og Skatteetaten må først gi
+      virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i Dialogporten, og OpenAPI-
+      spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringprimaernaeringmelk.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-melk-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-melk
+    keywords: [melk, primærnæring, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-overskuddsstroem
+    title: Innrapportering overskuddsstrøm API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om overskuddsstrøm. Krever Maskinporten med scope
+      `skatteetaten:innrapporteringoverskuddsstroem`. Systembruker i Altinn brukes for tilgang, og Skatteetaten
+      må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i Dialogporten, og
+      OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringoverskuddsstroem.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-overskuddsstroem-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-overskuddsstroem
+    keywords: [overskuddsstrøm, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-pass-og-stell
+    title: Innrapportering pass og stell API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger for pass og stell av barn (RF-1241). Krever
+      Maskinporten med scope `skatteetaten:innrapporteringpassogstell`. Systembruker i Altinn brukes for
+      tilgang, og Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser
+      i Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringpassogstell.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-passogstell-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-passogstell
+    keywords: [pass og stell, barn, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-skadeforsikring
+    title: Innrapportering skadeforsikring API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om skadeforsikring (RF-1310). Krever Maskinporten
+      med scope `skatteetaten:innrapporteringskadeforsikring`. Systembruker i Altinn brukes for tilgang, og
+      Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i
+      Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringskadeforsikring.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-skadeforsikring-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-skadeforsikring
+    keywords: [skadeforsikring, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-skattefrie-utbetalinger
+    title: Innrapportering skattefrie utbetalinger fra offentlige myndigheter API
+    description: >-
+      Tjeneste for innrapportering av skattefrie utbetalinger fra offentlige myndigheter (RF-1319). Krever
+      Maskinporten med scope `skatteetaten:innrapporteringskattefrieutbetalinger`. Systembruker i Altinn brukes
+      for tilgang, og Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med
+      forsendelser i Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringskattefrieutbetalinger.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-skattefrie-utbetalinger-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-skattefrieutbetalinger
+    keywords: [skattefrie utbetalinger, offentlige myndigheter]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-skattepliktig-kundeutbytte
+    title: Innrapportering skattepliktig kundeutbytte API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om skattepliktig kundeutbytte (RF-1301). Krever
+      Maskinporten med scope `skatteetaten:innrapporteringskattepliktigkundeutbytte`. Systembruker i Altinn
+      brukes for tilgang, og Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med
+      forsendelser i Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringskattepliktigkundeutbytte.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-skattepliktig-kundeutbytte-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-skattepliktigkundeutbytte
+    keywords: [kundeutbytte, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-primaernaering-slakt
+    title: Innrapportering slakt API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om slakt. Krever Maskinporten med scope
+      `skatteetaten:innrapporteringprimaernaeringslakt`. Systembruker i Altinn brukes for tilgang, og
+      Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i
+      Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringprimaernaeringslakt.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-slakt-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-slakt
+    keywords: [slakt, primærnæring, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-tilskudd-forskning-yrkesopplaering
+    title: Innrapportering tilskudd til vitenskapelig forskning eller yrkesopplæring API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger for tilskudd til vitenskapelig forskning eller
+      yrkesopplæring (RF-1309). Krever Maskinporten med scope
+      `skatteetaten:innrapporteringtilskuddforskningyrkesopplaering`. Systembruker i Altinn brukes for tilgang,
+      og Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i
+      Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringtilskuddforskningyrkesopplaering.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-tilskudd-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-tilskudd
+    keywords: [tilskudd, forskning, yrkesopplæring]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-primaernaering-tilskudd
+    title: "Innrapportering tilskudd, erstatning mv. innen primærnæringene API"
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om tilskudd, erstatning mv. innen primærnæringene.
+      Krever Maskinporten med scope `skatteetaten:innrapporteringprimaernaeringtilskudd`. Systembruker i Altinn
+      brukes for tilgang, og Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med
+      forsendelser i Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringprimaernaeringtilskudd.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-tilskudd-erstatning-mv-primaer-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-tilskudd-prim
+    keywords: [tilskudd, erstatning, primærnæring]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-primaernaering-toemmer
+    title: Innrapportering tømmer API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger om tømmer. Krever Maskinporten med scope
+      `skatteetaten:innrapporteringprimaernaeringtoemmer`. Systembruker i Altinn brukes for tilgang, og
+      Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i
+      Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringprimaernaeringtoemmer.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-toemmer-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-toemmer
+    keywords: [tømmer, primærnæring, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-tpo-filmottak
+    title: Innrapportering TPO filmottak API
+    description: >-
+      Tjeneste for innrapportering av tredjepartsopplysninger ved maskinell filopplasting. Krever Maskinporten
+      med scope `skatteetaten:innrapporteringtpofilopplasting`. Systembruker i Altinn brukes for tilgang, og
+      Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i
+      Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringtpofilmottak.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-tpo-filmottak-api/1.1.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-tpo-filmottak
+    keywords: [filopplasting, tredjepartsopplysninger, filmottak]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-verdipapirfond
+    title: Innrapportering Verdipapirfond API
+    description: >-
+      Tjeneste for innrapportering av Verdipapirfond (RF-1301). Krever Maskinporten med scope
+      `skatteetaten:innrapporteringverdipapirfond`. Systembruker i Altinn brukes for tilgang, og Skatteetaten må
+      først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i Dialogporten, og OpenAPI-
+      spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringverdipapirfond.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-verdipapirfond-api/1.0.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-verdipapirfond
+    keywords: [verdipapirfond, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-verdipapirfondshistorikk
+    title: Innrapportering verdipapirfondshistorikk API
+    description: >-
+      Tjeneste for innrapportering av verdipapirfondshistorikk (RF-1301). Krever Maskinporten med scope
+      `skatteetaten:innrapporteringverdipapirfondhistorikk`. Systembruker i Altinn brukes for tilgang, og
+      Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i
+      Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringverdipapirfondshistorikk.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-verdipapirfondshistorikk-api/1.0.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-verdipapirfondshistorikk
+    keywords: [verdipapirfondshistorikk, tredjepartsopplysninger]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-aksjonaerregisteroppgave
+    title: Innrapportering aksjonærregisteroppgave API
+    description: >-
+      Tjeneste for innrapportering av aksjonærregisteroppgaven (RF-1086). Krever Maskinporten med scope
+      `skatteetaten:innrapporteringaksjonaerregisteroppgave`. Systembruker i Altinn brukes for tilgang, og
+      Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i
+      Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://api.skatteetaten.no/api/aksjonaerregister/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-aksjonaerregister-api/1.3.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-aksjonaerregisteroppgave
+    keywords: [aksjonærregisteroppgave, aksjonærregister, RF-1086]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-innrapportering-oppdrag-utenlandske-oppdragstakere
+    title: Innrapportering oppdrag til utenlandske oppdragstakere API
+    description: >-
+      Tjeneste for å rapportere til Oppdrags- og arbeidsforholdsregisteret (OAR). Krever Maskinporten med scope
+      `skatteetaten:innrapporteringoppdragutenlandskeoppdragstakere`. Systembruker i Altinn brukes for tilgang,
+      og Skatteetaten må først gi virksomheten tilgang til scopet. Skatteetaten svarer med forsendelser i
+      Dialogporten, og OpenAPI-spesifikasjonen ligger på SwaggerHub.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://innrapporteringoppdragsregister.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/innrapportering-oppdrag-til-utenlandske-oppdragstakere-api/0.0.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-oppdrag-til-utenlandske-oppdragstakere-api
+    keywords: [oppdragsregisteret, utenlandske oppdragstakere]
+    tags: [agreement, maskinporten]
+    caveats:
+      - Test er foreløpig bare åpent for et utvalg leverandører som har avtale med Skatteetaten.
+
+  - id: skatteetaten-aksjebeholdning-api
+    title: Aksjebeholdning API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/651bdcede79420195108fb8f
+    description: >-
+      Tjenesten leverer informasjon om en person eller en virksomhet sin aksjebeholdning pr. 31.12 sist
+      kalenderår. Krever Maskinporten med scope `skatteetaten:aksjebeholdning` og en rettighetspakke fra
+      Skatteetaten, som du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på
+      skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://aksjebeholdning.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/aksjebeholdning-api/1.1.2
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/aksjebeholdning
+    keywords: [aksjer, aksjonærregister, aksjebeholdning]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-aksjonaer-i-virksomhet-api
+    title: Aksjonær i virksomhet API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/651bdd32e79420195108fb90
+    description: >-
+      Tjenesten leverer informasjon om en virksomhets aksjonærer pr. 31.12 sist kalenderår. Krever Maskinporten
+      med scope `skatteetaten:aksjonaer` og en rettighetspakke fra Skatteetaten, som du søker om via
+      skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://aksjonaerivirksomhet.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/aksjonaer-i-virksomhet-api/1.1.2
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/aksjonaerivirksomhet
+    keywords: [aksjonær, aksjonærregister, virksomhet]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-aktiv-konto-api
+    title: Aktiv konto API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/651bdbc4e79420195108fb8c
+    description: >-
+      Tjenesten leverer informasjon om valgt konto for utbetalinger av beløp til gode fra Skatteetaten. Krever
+      Maskinporten med scope `skatteetaten:aktivkonto` og en rettighetspakke fra Skatteetaten, som du søker om
+      via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://aktivkonto.api.skatteetaten.no/v3
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/aktiv-konto-api/3.2.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/aktivkonto
+    keywords: [kontonummer, utbetaling, beløp til gode]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-arbeidsforhold-api
+    title: Arbeidsforhold API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/681477254133496c9249ac7e
+    description: >-
+      Tjenesten leverer informasjon om arbeidsgivers (opplysningspliktiges) innrapporterte
+      arbeidsforholdsopplysninger for en inntektsmottaker for en gitt periode. Kun tilgjengelig for NAV og SSB i
+      forbindelse med innrapportering av data fra a-ordningen, siden andre virksomheter ikke har lovhjemmel til
+      å hente dataene. Tilgangen går via Maskinporten med scope `skatteetaten:arbeidsforhold`. Svarer JSON, og
+      det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: non-public
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://arbeidsforhold.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/arbeidsforhold-api/1.0.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/arbeidsforhold
+    keywords: [arbeidsforhold, a-ordningen, a-melding]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Bare NAV og SSB har lovhjemmel til tilgang, så API-et er ikke åpent for andre virksomheter."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-arbeidsforhold-i-oppdrag-api
+    title: Arbeidsforhold i oppdrag API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/6524e22ae79420195108fb92
+    description: >-
+      Tjenesten leverer informasjon om hvorvidt det foreligger, og ev. perioden for, et arbeidsforhold og mellom
+      angitt oppdragsgiver og en angitt arbeidstaker. Krever Maskinporten med scope
+      `skatteetaten:arbeidsforhold` og en rettighetspakke fra Skatteetaten, som du søker om via
+      skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://arbeidsforholdioppdrag.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/arbeidsforhold-i-oppdrag-api/1.3.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/arbeidsforholdioppdrag
+    keywords: [oppdrag, arbeidsforhold, oppdragsregisteret]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-arbeidsgiveravgift-api
+    title: Arbeidsgiveravgift API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/6295dd86bbebf02b4378474d
+    description: >-
+      Tjenesten leverer informasjon om en virksomhet sitt grunnlag for arbeidsgiveravgift pr. 2 måneds termin
+      for de siste tre terminer. Krever Maskinporten med scope `skatteetaten:arbeidsgiveravgift` og en
+      rettighetspakke fra Skatteetaten, som du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes
+      et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://arbeidsgiveravgift.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/arbeidsgiveravgift-api/1.2.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/arbeidsgiveravgift
+    keywords: [arbeidsgiveravgift, a-melding, termin]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-avregning-api
+    title: Avregning API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/6295de12bbebf02b4378474e
+    description: >-
+      Tjenesten leverer informasjon om forskuddstrekk og restskatt eller beløp til gode i skatteoppgjøret.
+      Krever Maskinporten med scope `skatteetaten:avregning` og en rettighetspakke fra Skatteetaten, som du
+      søker om via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://avregning.api.skatteetaten.no/v2
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/avregning-api/2.3.2
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/avregning
+    keywords: [skatteoppgjør, restskatt, forskuddstrekk]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-beregnet-skatt-api
+    title: Beregnet skatt API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/624fd0e355af870b827f5c4b
+    description: >-
+      Tjenesten leverer informasjon om inntekt, fradrag, formue, gjeld og beregnet skatt. Krever Maskinporten
+      med scope `skatteetaten:beregnetskatt` og en rettighetspakke fra Skatteetaten, som du søker om via
+      skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://beregnetskatt.api.skatteetaten.no/v2
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/beregnet-skatt-api/2.5.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/beregnetskatt
+    keywords: [beregnet skatt, skatteoppgjør, inntekt, formue]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-beregnet-skatt-upersonlig-api
+    title: Beregnet skatt upersonlig API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/6458a67fcdffab6c5e1278b1
+    description: >-
+      Tjenesten leverer informasjon om inntekt, fradrag, formue, gjeld og beregnet skatt for en virksomhet.
+      Krever Maskinporten med scope `skatteetaten:beregnetskattupersonlig` og en rettighetspakke fra
+      Skatteetaten, som du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på
+      skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://beregnetskattupersonlig.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/beregnet-skatt-upersonlig-api/1.3.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/beregnetskattupersonlig
+    keywords: [beregnet skatt, virksomhet, upersonlig]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-beregningsgrunnlag-vannkraftanlegg-api
+    title: Beregningsgrunnlag vannkraftanlegg API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/a679a198-aa20-4889-8c46-bbb40a91a73a
+    description: >-
+      Tjenesten leverer informasjon om grunnlaget for det kommunefordelte eiendomsskattegrunnlaget for
+      vannkraftanlegg til kommunene og grunnlaget for beregning av kommunefordelte fordelingsnøkler til NVE.
+      Krever Maskinporten med scope `skatteetaten:beregningsgrunnlagvannkraftanlegg` og en rettighetspakke fra
+      Skatteetaten, som du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på
+      skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://beregningsgrunnlagvannkraftanlegg.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/beregningsgrunnlag-vannkraftanlegg-api/1.3.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/beregningsgrunnlagvannkraftanlegg
+    keywords: [vannkraft, eiendomsskatt, kraftselskap]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-boligsparing-for-ungdom-api
+    title: Boligsparing for ungdom API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/624fd13855af870b827f5c4c
+    description: >-
+      Tjenesten leverer informasjon om BSU renteinntekter pr kalenderår for en person. Krever Maskinporten med
+      scope `skatteetaten:boligsparingforungdom` og en rettighetspakke fra Skatteetaten, som du søker om via
+      skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://bsu.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/boligsparing-for-ungdom-api/1.2.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/bsu
+    keywords: [bsu, boligsparing for ungdom, renteinntekter]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-eiendomsskattegrunnlag-vannkraftanlegg-api
+    title: Eiendomsskattegrunnlag vannkraftanlegg API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/0b7a293a-349f-4b4d-a0c5-e91aaccda96f
+    description: >-
+      Tjenesten leverer informasjon om eiendomsskattegrunnlag og anvendt fordelingsnøkkel per vannkraftanlegg
+      til kommunene. Krever Maskinporten med scope `skatteetaten:eiendomsskattegrunnlagvannkraftanlegg` og en
+      rettighetspakke fra Skatteetaten, som du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes
+      et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://eiendomsskattegrunnlagvannkraftanlegg.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/eiendomsskattegrunnlag-vannkraftanlegg-api/1.1.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/eiendomsskattegrunnlagvannkraftanlegg
+    keywords: [vannkraft, eiendomsskatt, fordelingsnøkkel]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-formuesgrunnlag-for-eiendomsskatt-api
+    title: Formuesgrunnlag for eiendomsskatt API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/651bdcb6e79420195108fb8e
+    description: >-
+      Tjenesten leverer fastsatte formuesgrunnlag for fast eiendom som grunnlag for eiendomsskatt, og inneholder
+      informasjon om eiendomsopplysninger, adresseopplysninger og eiendomsrelasjoner for fast eiendom, samt
+      beregnede markedsverdier med tilhørende grunnlag for boliger. Krever Maskinporten med scope
+      `skatteetaten:formuesgrunnlageiendomsskatt` og en rettighetspakke fra Skatteetaten, som du søker om via
+      skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://formuesgrunnlageiendomsskatt.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/formuesgrunnlag-for-eiendomsskatt-api/1.2.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/formuesgrunnlageiendomsskatt
+    keywords: [eiendomsskatt, formuesgrunnlag, fast eiendom]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-formuesobjekt-fast-eiendom-api
+    title: Formuesobjekt fast eiendom API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/45986a0b-d3a5-40e3-b246-8abd580769d8
+    description: >-
+      Tjenesten leverer forretningshendelser knyttet til formuesobjekter for fast eiendom og rettighetshavere
+      til formuesobjektene. Tjenesten leverer klassifisering av formuesobjektene og eiendommens relasjoner.
+      Krever Maskinporten med scope `skatteetaten:formuesobjektfasteiendom` og en rettighetspakke fra
+      Skatteetaten, som du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på
+      skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://formuesobjektfasteiendom.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/formuesobjekt-fast-eiendom-api/1.1.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/formuesobjektfasteiendom
+    keywords: [fast eiendom, formuesobjekt, rettighetshaver]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-formuesverdi-fast-eiendom-api
+    title: Formuesverdi fast eiendom API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/620be450-7ed7-4a2a-af7b-e33eb72c28c0
+    description: >-
+      Tjenesten leverer formuesverdier ved oppslag for én eiers faste eiendom eller andel i boligselskap.
+      Verdiene beregnes basert på boligbruk (primærbolig og sekundærbolig), eller som generell formuesverdi for
+      eiendom som ikke er bolig, der boligbruk ikke er aktuelt. Krever Maskinporten med scope
+      `skatteetaten:formuesverdifasteiendom` og en rettighetspakke fra Skatteetaten, som du søker om via
+      skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://formuesverdifasteiendom.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/formuesverdi-fast-eiendom-api/1.2.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/formuesverdifasteiendom
+    keywords: [fast eiendom, formuesverdi, boligselskap]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-frister-api
+    title: Frister API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/2aba6273-fc7d-45b0-9b33-730038e7daa9
+    description: >-
+      Tjeneste som gir næringsdrivende oversikt over sine fremtidige forpliktelser overfor Skatteetaten.
+      Inneholder frist for mva-melding og for skattemelding næring. Krever Maskinporten med scope
+      `skatteetaten:frister` og en rettighetspakke fra Skatteetaten, som du søker om via skatteetaten.no/deling.
+      Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://frister.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/frister-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/frister
+    keywords: [frister, mva-melding, skattemelding]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-inntekt-api
+    title: Inntekt API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/63720af102da6d779a65108f
+    description: >-
+      Tjenesten leverer informasjon om arbeidsgivers (opplysningspliktiges) innrapporterte inntektsopplysninger
+      for en inntektsmottaker for en gitt periode. Krever Maskinporten med scope `skatteetaten:inntekt` og en
+      rettighetspakke fra Skatteetaten, som du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes
+      et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://inntekt.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/inntekt-api/1.7.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/inntekt
+    keywords: [inntekt, a-ordningen, a-melding]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-inntektsmottakere-api
+    title: Inntektsmottakere API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/62b031233e53054cb802740b
+    description: >-
+      Tjenesten leverer en liste over inntektsmottakere der arbeidsgiver (opplysningspliktig), via a-ordningen,
+      har rapportert pensjonsavtale med pensjonsinnretningen som utfører kallet. Krever Maskinporten med scope
+      `skatteetaten:inntektsmottakere` og en rettighetspakke fra Skatteetaten, som du søker om via
+      skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://inntektsmottakere.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/inntektsmottakere-api/1.1.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/inntektsmottakere
+    keywords: [inntektsmottaker, a-melding, arbeidsgiver]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-krav-og-betalinger-api
+    title: Krav og betalinger API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/662907037321ef0080ea8cbe
+    description: >-
+      Tjeneste som tilbyr oversikt av krav, innbetalinger og utbetalinger tilhørende en part. Krever
+      Maskinporten med scope `skatteetaten:kravogbetalinger` og en rettighetspakke fra Skatteetaten, som du
+      søker om via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://kravogbetalinger.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/krav-og-betalinger-api/1.5.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/kravogbetalinger
+    keywords: [krav, innbetaling, utbetaling, reskontro]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-mva-fastsetting-api
+    title: Mva fastsetting API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/4348446e-df5e-4be7-8183-73b97fe6c199
+    description: >-
+      Tjenesten leverer opplysninger om fastsatt merverdiavgift. Krever Maskinporten med scope
+      `skatteetaten:mvafastsetting` og en rettighetspakke fra Skatteetaten, som du søker om via
+      skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://mvafastsetting.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/mva-fastsetting-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/mvafastsetting
+    keywords: [mva, merverdiavgift, fastsetting]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-mva-meldingsopplysning-api
+    title: Mva meldingsopplysning API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/62a8604e3e53054cb8027407
+    description: >-
+      Tjenesten leverer status på mva-melding og informasjon fra reskontro for en virksomhet for de siste tre
+      terminene. Krever Maskinporten med scope `skatteetaten:mvameldingsopplysning` og en rettighetspakke fra
+      Skatteetaten, som du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på
+      skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://mvameldingsopplysning.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/mva-meldingsopplysning-api/1.2.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/mva_meldingsopplysning
+    keywords: [mva, mva-melding, reskontro]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-mva-melding-api
+    title: Mva-melding API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/6372063902da6d779a65108d
+    description: >-
+      Tjenesten leverer fastsatte mva-meldinger. Fastsatt betyr at skattemeldingen er myndighetsfastsatt,
+      manuelt innlevert, eller automatisk innlevert ved utløp av innleveringsfrist. Krever Maskinporten med
+      scope `skatteetaten:mvamelding` og en rettighetspakke fra Skatteetaten, som du søker om via
+      skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://mvamelding.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/mva-melding-api/1.1.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/mvamelding
+    keywords: [mva, mva-melding, merverdiavgift]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-mva-register-avgiftssubjekter-med-skattemeldingspl
+    title: "Mva-register – avgiftssubjekter med skattemeldingsplikt API"
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/63da592465054c2f88dd0fd3
+    description: >-
+      Tjenesten leverer infomasjon fra mva-register om avgiftssubjekter med skatteplikt. Krever Maskinporten med
+      scope `skatteetaten:mvaregisteravgiftssubjekt` og en rettighetspakke fra Skatteetaten, som du søker om via
+      skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://mvaregister.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/mva-register-avgiftssubjekter-med-skattemeldingsplikt-api/1.1.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/mvaregisteravgiftssubjekt
+    keywords: [mva-register, avgiftssubjekt, merverdiavgift]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-naeringsspesifikasjon-api
+    title: Næringsspesifikasjon API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/6295de63bbebf02b4378474f
+    description: >-
+      Tjenesten leverer næringsopplysninger som enkeltpersonforetak og selskaper har innrapportert til
+      Skatteetaten i forbindelse med skattemeldingen. Krever Maskinporten med scope
+      `skatteetaten:naeringsspesifikasjon` og en rettighetspakke fra Skatteetaten, som du søker om via
+      skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://naeringsspesifikasjon.api.skatteetaten.no/v5
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/naeringsspesifikasjon-api/5.1.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/naeringsspesifikasjon
+    keywords: [næringsspesifikasjon, enkeltpersonforetak, skattemelding]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-omregistreringsavgift-api
+    title: Omregistreringsavgift API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/62b030d83e53054cb802740a
+    description: >-
+      Tjenesten leverer omregistreringsavgiften for kjøretøy spesifisert av kjennemerke og eventuelt
+      omregistreringsdato. Krever Maskinporten med scope `skatteetaten:omregistreringsavgift` og en
+      rettighetspakke fra Skatteetaten, som du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes
+      et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://omregistreringsavgift.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/omregistreringsavgift-api/1.1.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/omregistreringsavgift
+    keywords: [omregistreringsavgift, kjøretøy, kjennemerke]
+    tags: [agreement, maskinporten]
+
+  - id: skatteetaten-oppdrag-utenlandske-virksomheter-api
+    title: Oppdrag utenlandske virksomheter API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/6295debcbbebf02b43784750
+    description: >-
+      Tjenesten leverer informasjon fra Oppdrags- og arbeidsforholdsregisteret om utenlandske virksomheters
+      oppdrag i Norge. Krever Maskinporten med scope `skatteetaten:oppdragutenlandskevirksomheter` og en
+      rettighetspakke fra Skatteetaten, som du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes
+      et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://oppdragutenlandskevirksomheter.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/oppdrag-utenlandske-virksomheter-api/1.2.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/oppdragutenlandskevirksomheter
+    keywords: [oppdragsregisteret, utenlandske virksomheter, oppdrag]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-opplysningspliktig-api
+    title: Opplysningspliktig API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/681476c64133496c9249ac7d
+    description: >-
+      Tjenesten leverer informasjon om opplysningspliktiges innrapporterte opplysninger for en gitt periode. Kun
+      tilgjengelig for NAV og SSB i forbindelse med innrapportering av data fra a-ordningen, siden andre
+      virksomheter ikke har lovhjemmel til å hente dataene. Tilgangen går via Maskinporten med scope
+      `skatteetaten:opplysningspliktig`. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: non-public
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://opplysningspliktig.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/opplysningspliktig-api/1.0.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/opplysningspliktig
+    keywords: [opplysningspliktig, a-melding, a-ordningen]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Bare NAV og SSB har lovhjemmel til tilgang, så API-et er ikke åpent for andre virksomheter."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-opptjeningsgrunnlag-arbeidsforhold-api
+    title: Opptjeningsgrunnlag arbeidsforhold API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/681477464133496c9249ac7f
+    description: >-
+      Tjenesten leverer informasjon om arbeidsgivers (opplysningspliktiges) innrapporterte inntektsopplysninger
+      som er relevante for arbeidsforholdet for en inntektsmottaker for en gitt periode. Kun tilgjengelig for
+      NAV og SSB i forbindelse med innrapportering av data fra a-ordningen, siden andre virksomheter ikke har
+      lovhjemmel til å hente dataene. Tilgangen går via Maskinporten med scope
+      `skatteetaten:opptjeningsgrunnlagarbeidsforhold`. Svarer JSON, og det finnes et testmiljø på skatteetaten-
+      test.no.
+    category: skatt-og-avgift
+    access: non-public
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://opptjeningsgrunnlagarbeidsforhold.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/opptjeningsgrunnlag-arbeidsforhold-api/1.1.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/opptjeningsgrunnlagarbeidsforhold
+    keywords: [opptjeningsgrunnlag, arbeidsforhold, a-ordningen]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Bare NAV og SSB har lovhjemmel til tilgang, så API-et er ikke åpent for andre virksomheter."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-pensjonsgivende-inntekt-api
+    title: Pensjonsgivende inntekt API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/6295def5bbebf02b43784751
+    description: >-
+      Tjenesten leverer informasjon om grunnlag for pensjonsopptjening for pensjonsinnretningene. Krever
+      Maskinporten med scope `skatteetaten:pensjonsgivendeinntekt` og en rettighetspakke fra Skatteetaten, som
+      du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://pgi.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/pensjonsgivendeinntekt-api/1.2.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/pgi
+    keywords: [pensjonsgivende inntekt, pensjonsopptjening, pensjonsinnretning]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-pensjonsgivendeinntekt-for-folketrygden-api
+    title: Pensjonsgivendeinntekt for folketrygden API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/651bdc5de79420195108fb8d
+    description: >-
+      Tjenesten leverer informasjon om grunnlag for pensjonsopptjening i folketrygden. Krever Maskinporten med
+      scope `skatteetaten:pensjonsgivendeinntektforfolketrygden` og en rettighetspakke fra Skatteetaten, som du
+      søker om via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://pgiforfolketrygden.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/pensjonsgivendeinntekt-for-folketrygden-api/1.1.3
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/pgi_folketrygden
+    keywords: [pensjonsgivende inntekt, folketrygden, nav]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-restanser-api
+    title: Restanser API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/60b0e76736cf5b684c212eb5
+    description: >-
+      Tjenesten leverer informasjon om forfalte og ubetalte skatter og avgifter for en virksomhet. Krever
+      Maskinporten med scope `skatteetaten:restanser` og en rettighetspakke fra Skatteetaten, som du søker om
+      via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://restanser.api.skatteetaten.no/v2
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/restanser-api/2.3.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/restanser
+    keywords: [restanser, forfalt skatt, ubetalt]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-rettsinformasjon-api
+    title: Rettsinformasjon API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/b6f75a2a-be9c-46cd-b901-f96a28df3213
+    description: >-
+      Tjenesten leverer innhold fra rettsinformasjon som Skatteetaten publiserer på sine nettsider, for eksempel
+      innhold i håndbøker. Krever Maskinporten med scope `skatteetaten:rettsinformasjon` og en rettighetspakke
+      fra Skatteetaten, som du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på
+      skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://rettsinformasjon.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/rettsinformasjon-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/rettsinformasjon
+    keywords: [rettsinformasjon, rettskilder, skatterett]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-selskapsmelding-api
+    title: Selskapsmelding API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/66602478f92ddf67bf17460d
+    description: >-
+      Tjenesten leverer informasjon om selskapsmelding for selskaper med deltakerfastsetting. Krever
+      Maskinporten med scope `skatteetaten:selskapsmelding` og en rettighetspakke fra Skatteetaten, som du søker
+      om via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://selskapsmelding.api.skatteetaten.no/v2
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/selskapsmelding-api/2.1.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/selskapsmelding
+    keywords: [selskapsmelding, deltakerfastsetting, selskap]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-skatteberegningsgrunnlag-upersonlig-api
+    title: Skatteberegningsgrunnlag upersonlig API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/64589ce7cdffab6c5e1278ad
+    description: >-
+      Tjenesten leverer opplysninger som fremkommer i skatteberegningsgrunnlaget for en virksomhet. Krever
+      Maskinporten med scope `skatteetaten:skatteberegningsgrunnlagupersonlig` og en rettighetspakke fra
+      Skatteetaten, som du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på
+      skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://skatteberegningsgrunnlagupersonlig.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/skatteberegningsgrunnlag-upersonlig-api/1.3.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/skatteberegningsgrunnlagupersonlig
+    keywords: [skatteberegningsgrunnlag, virksomhet, upersonlig]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-skatteetaten-registrert-selskap-api
+    title: Skatteetaten-registrert selskap API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/681488b24133496c9249ac80
+    description: >-
+      Tjenesten leverer informasjon om Skatteetaten-registrerte selskap, som er selskap med plikter ovenfor
+      Skatteetaten uten å være registreringspliktige til Enhetsregisteret. Krever Maskinporten med scope
+      `skatteetaten:skatteetatenregistrertselskap` og en rettighetspakke fra Skatteetaten, som du søker om via
+      skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://skatteetatenregistrertselskap.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/skatteetaten-registrert-selskap-api/1.0.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/skatteetatenregistrertselskap
+    keywords: [skatteetaten-registrert selskap, selskap, plikter]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-skattemelding-api
+    title: Skattemelding API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/6295df0abbebf02b43784752
+    description: >-
+      Tjenesten leverer informasjon som fremkommer i skattemelding for en person. Krever Maskinporten med scope
+      `skatteetaten:skattemelding` og en rettighetspakke fra Skatteetaten, som du søker om via
+      skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://skattemelding.api.skatteetaten.no/v5
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/skattemelding-api/5.1.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/skattemelding
+    keywords: [skattemelding, fastsatt, inntekt, formue]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-skattemelding-upersonlig-api
+    title: Skattemelding upersonlig API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/63720ada02da6d779a65108e
+    description: >-
+      Tjenesten leverer opplysninger som fremkommer i skattemeldingen for en virksomhet. Krever Maskinporten med
+      scope `skatteetaten:skattemeldingupersonlig` og en rettighetspakke fra Skatteetaten, som du søker om via
+      skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://skattemeldingupersonlig.api.skatteetaten.no/v4
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/skattemelding-upersonlig-api/4.1.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/skattemeldingupersonlig
+    keywords: [skattemelding, virksomhet, upersonlig]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-skatteplikt-api
+    title: Skatteplikt API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/6295df24bbebf02b43784753
+    description: >-
+      Tjenesten leverer informasjon om type skatteplikt og grunnlag for vurdering av skatteplikten for en
+      person. Krever Maskinporten med scope `skatteetaten:skatteplikt` og en rettighetspakke fra Skatteetaten,
+      som du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-
+      test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://skatteplikt.api.skatteetaten.no/v2
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/skatteplikt-api/2.4.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/skatteplikt
+    keywords: [skatteplikt, skattemelding]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-skatteplikt-upersonlig-api
+    title: Skatteplikt upersonlig API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/64589d11cdffab6c5e1278ae
+    description: >-
+      Tjenesten leverer informasjon om type skatteplikt og grunnlag for vurdering av skatteplikten for en
+      virksomhet. Krever Maskinporten med scope `skatteetaten:skattepliktupersonlig` og en rettighetspakke fra
+      Skatteetaten, som du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på
+      skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://skattepliktupersonlig.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/skatteplikt-upersonlig-api/1.3.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/skattepliktupersonlig
+    keywords: [skatteplikt, virksomhet, upersonlig]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-summert-skattegrunnlag-api
+    title: Summert skattegrunnlag API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/60acd56736cf5b684c212eb2
+    description: >-
+      Tjenesten leverer en oppsummering av grunnlag for skatt for en person, inkludert spesifisering av hvilke
+      opplysninger fra skattemeldingen som ligger til grunn. Krever Maskinporten med scope
+      `skatteetaten:summertskattegrunnlag` og en rettighetspakke fra Skatteetaten, som du søker om via
+      skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://summertskattegrunnlag.api.skatteetaten.no/v2
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/summert-skattegrunnlag-api/2.3.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/summertskattegrunnlag
+    keywords: [skattegrunnlag, skatteoppgjør, inntekt, formue]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-summert-skattegrunnlag-upersonlig-api
+    title: Summert skattegrunnlag upersonlig API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/64589d2bcdffab6c5e1278af
+    description: >-
+      Tjenesten leverer en oppsummering av formue, gjeld, inntekt og fradrag for en virksomhet. Krever
+      Maskinporten med scope `skatteetaten:summertskattegrunnlagupersonlig` og en rettighetspakke fra
+      Skatteetaten, som du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på
+      skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://summertskattegrunnlagupersonlig.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/summert-skattegrunnlag-upersonlig-api/1.2.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/summertskattegrunnlagupersonlig
+    keywords: [skattegrunnlag, virksomhet, upersonlig]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+
+  - id: skatteetaten-tilleggsskatt-api
+    title: Tilleggsskatt API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/62a860983e53054cb8027408
+    description: >-
+      Tjenesten leverer informasjon om ilagt tilleggsskatt ved uriktig, eller manglende innlevering av
+      skattemelding. Krever Maskinporten med scope `skatteetaten:tilleggsskatt` og en rettighetspakke fra
+      Skatteetaten, som du søker om via skatteetaten.no/deling. Svarer JSON, og det finnes et testmiljø på
+      skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://tilleggsskatt.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/tilleggsskatt-api/1.2.2
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/tilleggsskatt
+    keywords: [tilleggsskatt, skattemelding]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-tjenestepensjonsavtale-api
+    title: Tjenestepensjonsavtale API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/62b030893e53054cb8027409
+    description: >-
+      Tjeneste hvor pensjonsinnretninger kan registrere, oppdatere og slette opplysninger om
+      pensjonsavtaleforhold. Tjenesten kan også levere informasjon om det foreligger gyldig avtaleforhold mellom
+      arbeidsgiver og pensjonsinnretning. Krever Maskinporten med scope `skatteetaten:tjenestepensjonsavtale` og
+      en rettighetspakke fra Skatteetaten, som du søker om via skatteetaten.no/deling. Svarer JSON, og det
+      finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: restricted
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://tjenestepensjonsavtale.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/tjenestepensjonsavtale-api/1.1.1
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/tjenestepensjonsavtale
+    keywords: [tjenestepensjon, pensjonsavtale, pensjonsinnretning]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Opplysningene er taushetsbelagte, og tilgang for videre bruk forutsetter behandlingsgrunnlag i lov, ikke samtykke."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
+
+  - id: skatteetaten-underenhet-fra-a-ordningen-api
+    title: Underenhet fra a-ordningen API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/668654e542440f0801f5fcb6
+    description: >-
+      Tjenesten gir oppslag på underenheter fra a-ordningen for en gitt identifikator og periode. Kun
+      tilgjengelig for NAV og SSB i forbindelse med innrapportering av data fra a-ordningen, siden andre
+      virksomheter ikke har lovhjemmel til å hente dataene. Tilgangen går via Maskinporten med scope
+      `skatteetaten:underenhetaordningen`. Svarer JSON, og det finnes et testmiljø på skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: non-public
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://underenhetaordningen.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/underenhet-fra-a-ordningen-api/1.1.2
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/underenhetaordningen
+    keywords: [underenhet, a-ordningen, virksomhet]
+    tags: [agreement, maskinporten]
+    caveats:
+      - "Bare NAV og SSB har lovhjemmel til tilgang, så API-et er ikke åpent for andre virksomheter."
+
+  - id: skatteetaten-utleggstrekk-api
+    title: Utleggstrekk API
+    merge_with: https://dataservice-catalog.fellesdatakatalog.digdir.no/data-services/47272aab-3a19-4b18-b0f4-e65bbdc5bea3
+    description: >-
+      Tjenesten leverer informasjon om arbeidsgivers (opplysningspliktiges) innrapporterte utleggstrekk for en
+      inntektsmottaker for en gitt periode. Kun tilgjengelig for SSB i forbindelse med innrapportering av data
+      fra a-ordningen, siden andre virksomheter ikke har lovhjemmel til å hente dataene. Tilgangen går via
+      Maskinporten med scope `skatteetaten:utleggstrekk`. Svarer JSON, og det finnes et testmiljø på
+      skatteetaten-test.no.
+    category: skatt-og-avgift
+    access: non-public
+    auth: maskinporten
+    formats: [JSON]
+    endpoints:
+      - https://utleggstrekk.api.skatteetaten.no/v1
+    spec_url: https://api.swaggerhub.com/apis/skatteetaten/utleggstrekk-api/1.0.0
+    docs_url: https://skatteetaten.github.io/api-dokumentasjon/api/utleggstrekk
+    keywords: [utleggstrekk, innkreving, arbeidsgiver]
+    tags: [agreement, maskinporten, personal-data]
+    caveats:
+      - "Bare SSB har lovhjemmel til tilgang, så API-et er ikke åpent for andre virksomheter."
+      - "Leverer personopplysninger, så virksomheten må ha behandlingsgrunnlag for oppslagene."
