@@ -26,3 +26,32 @@ apis:
       - Ingen datalisens oppgitt (MIT-lisensen i spesifikasjonen gjelder koden).
     quick_start: |
       curl "https://strom-api.forbrukerradet.no/municipalities"
+
+  - id: forbrukerradet-finansportalen-bank-feed
+    title: Finansportalen bank-feed (priser på lån, innskudd og kredittkort)
+    title_en: Finansportalen bank data feed (loan, deposit and credit card prices)
+    description: >-
+      REST-feed med JSON fra Finansportalen med bankenes priser og vilkår for boliglån, smålån, innskudd,
+      kredittkort og dagligbank, pluss bankliste og pakker. Gratis, men krever en signert distribusjonsavtale
+      med Forbrukerrådet; da får du klient-id og hemmelighet til /auth/token og en Bearer-token med 60 minutters levetid.
+      Swagger-dokumentasjonen er åpen. Uten avtale kan du bare bruke de innebygde sammenligningsverktøyene (iframe).
+    category: finans
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://finans-api.forbrukerradet.no/
+    docs_url: https://docs.forbrukerradet.no/en/docs/finansportalen/bank/bruk_av_vare_data
+    keywords: [finansportalen, boliglån, rente, innskudd, kredittkort, dagligbank, bank, prissammenligning, lånerente]
+    tags: [agreement, oauth2]
+    caveats:
+      - Krever distribusjonsavtale med Finansportalen (støtte via e-post oppgitt i dokumentasjonen).
+      - Avtalen forbyr å ta data ut av sammenheng og krever at dataene holdes oppdatert, og distributører skal vise Finansportalens logo.
+      - Ingen lisens oppgitt utover distribusjonsavtalen.
+    behaviour: Alle feed-endepunkter svarer 403 uten gyldig Bearer-token (bekreftet på /feed/banks).
+    owner_terms: Rådata er gratis for eksterne applikasjoner mot signert distribusjonsavtale. De portable kalkulatorene kan brukes uten avtale så lenge de kjøres uendret.
+    quick_start: |
+      # 1. Hent token (clientId/clientSecret kommer med avtalen), se Swagger for nøyaktig body:
+      #    POST https://finans-api.forbrukerradet.no/auth/token   (grantType: external_consumer)
+      # 2. Kall feeden:
+      curl -H "Authorization: Bearer $TOKEN" "https://finans-api.forbrukerradet.no/feed/banks"

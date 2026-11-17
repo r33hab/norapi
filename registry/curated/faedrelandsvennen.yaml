@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: Fædrelandsvennen
+  orgnr: "990413045"
+  sector: privat
+apis:
+  - id: faedrelandsvennen-rss
+    title: Fædrelandsvennens RSS-strøm (nyheter)
+    title_en: Fædrelandsvennen news RSS feed
+    description: >-
+      Åpen RSS-strøm med siste nyheter fra Fædrelandsvennen i Kristiansand: tittel, lenke, publiseringstid og bilde. Ingen nøkkel, og ingen dokumentasjon utover selve adressen. Saker bak betalingsmur er med i strømmen.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://www.fvn.no/rss
+    docs_url: https://www.fvn.no/rss
+    probe_url: https://www.fvn.no/rss
+    keywords: [rss, nyheter, kristiansand, fvn, agder, news feed]
+    tags: [no-auth, feed, undocumented, private-provider]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt; sjekk utgiverens vilkår før videre bruk av innholdet.
+    behaviour: >-
+      Svarer anonymt med HTTP 200 og RSS 2.0 uten nøkkel.
+    quick_start: |
+      curl "https://www.fvn.no/rss"

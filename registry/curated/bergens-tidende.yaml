@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: Bergens Tidende
+  orgnr: "890413102"
+  sector: privat
+apis:
+  - id: bergens-tidende-rss
+    title: Bergens Tidendes RSS-strøm (siste nyheter)
+    title_en: Bergens Tidende latest news RSS feed
+    description: >-
+      Åpen RSS-strøm med siste nyheter fra Bergens Tidende: tittel, lenke, publiseringstid og bilde, og ingress på en del saker. Ingen nøkkel, og ingen dokumentasjon utover selve adressen. Betalingsmurte-saker er med i strømmen, men innholdet er bare tilgjengelig for abonnenter.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://www.bt.no/rss
+    docs_url: https://www.bt.no/rss
+    probe_url: https://www.bt.no/rss
+    keywords: [rss, nyheter, bergen, bt, news feed, vestland]
+    tags: [no-auth, feed, undocumented, private-provider]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt; sjekk utgiverens vilkår før videre bruk av innholdet.
+    behaviour: >-
+      Svarer anonymt med HTTP 200 og RSS 2.0 uten nøkkel.
+    quick_start: |
+      curl "https://www.bt.no/rss"

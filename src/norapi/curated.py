@@ -69,6 +69,38 @@ def drop_retired(harvested: list[ApiEntry], retired: dict[str, dict[str, Any]]) 
     return [e for e in harvested if (e.source.get("uri") or "") not in retired]
 
 
+def load_retained(path: Path) -> tuple[list[dict[str, Any]], str]:
+    """registry/retained.yaml: entries Felles datakatalog dropped but whose service still answered
+    on `checked`. Re-added and marked, unless the current harvest already lists them."""
+    if not path.exists():
+        return [], ""
+    document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return list(document.get("entries") or []), str(document.get("checked") or "")
+
+
+def add_retained(
+    harvested: list[ApiEntry], retained: list[dict[str, Any]], checked: str
+) -> list[ApiEntry]:
+    """Append retained entries whose catalogue URI (or endpoint) is not in the current harvest.
+    The harvest wins: if the catalogue lists one again, that version is kept, not this copy."""
+    present = {e.source.get("uri") for e in harvested if e.source.get("uri")}
+    present |= {u.rstrip("/") for e in harvested for u in e.endpoints}
+    out = list(harvested)
+    for item in retained:
+        raw = dict(item)
+        uri = raw.pop("uri", None)
+        if uri in present or any(u.rstrip("/") in present for u in (raw.get("endpoints") or [])):
+            continue
+        raw.setdefault("summary", make_summary(raw.get("description"), raw["title"]))
+        note = f"Ikke lenger i Felles datakatalog (sjekket {checked}), men tjenesten svarte da."
+        raw["caveats"] = [*(raw.get("caveats") or []), note]
+        raw["tags"] = [*(raw.get("tags") or []), "no-longer-in-catalogue"]
+        provider = raw.pop("provider", {})
+        raw["source"] = {"kind": "fdk-delisted", "uri": uri, "delisted_checked": checked}
+        out.append(ApiEntry(provider=Provider(**provider), **raw))
+    return out
+
+
 def load_curated(curated_dir: Path) -> list[ApiEntry]:
     entries: list[ApiEntry] = []
     for file in sorted(curated_dir.glob("*.yaml")):

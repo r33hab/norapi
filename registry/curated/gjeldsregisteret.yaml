@@ -1,0 +1,32 @@
+updated: 2026-11-16
+provider:
+  name: Gjeldsregisteret AS
+  orgnr: "920210023"
+  sector: privat
+apis:
+  - id: gjeldsregisteret-gjeldsinformasjon
+    title: Gjeldsregisteret, utveksling av gjeldsinformasjon
+    title_en: Gjeldsregisteret debt information exchange API
+    description: >-
+      API-et finansinstitusjoner og tjenesteleverandører bruker for å sende lån og kreditter til Gjeldsregisteret
+      (push) eller la registeret hente dem (pull). Dokumentasjonen (onboarding, teststandard, sikkerhetsdokument)
+      er åpen, men selve API-et er bare for godkjente aktører og krever virksomhetssertifikat med toveis TLS.
+      Testmiljøet har et ping-endepunkt.
+    category: finans
+    access: restricted
+    auth: unknown
+    formats: [JSON]
+    endpoints:
+      - https://api-test.gjeldsregisteret.com/mottak/debt-information/v1/
+    docs_url: https://gjeldsregisteret.github.io/
+    keywords: [gjeldsregisteret, gjeld, lån, kreditt, finansinstitusjon, usikret gjeld, mTLS, virksomhetssertifikat]
+    tags: [agreement, personal-data, private-provider]
+    caveats:
+      - Krever virksomhetssertifikat (Buypass eller Commfides) og toveis TLS; autentiseringsmetoden er ikke OAuth.
+      - Datamodellen inneholder kunde- og lånedata om privatpersoner; test bare med syntetiske data.
+      - Bare finansinstitusjoner og deres tjenesteleverandører får tilgang.
+      - Endepunktet i oppføringen er testmiljøet; produksjons-URL oppgis ved onboarding.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # Krever klientsertifikat (toveis TLS), testmiljø:
+      curl --cert klient.pem --key klient.key "https://api-test.gjeldsregisteret.com/mottak/debt-information/v1/ping/hello"

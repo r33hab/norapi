@@ -10,10 +10,12 @@ from pathlib import Path
 
 from norapi.build import REGISTRY_DIR, REGISTRY_JSON, attach_specs, write_registry
 from norapi.curated import (
+    add_retained,
     apply_access_review,
     drop_retired,
     load_access_review,
     load_curated,
+    load_retained,
     load_retired,
     merge,
 )
@@ -118,12 +120,19 @@ def cmd_build(args: argparse.Namespace) -> int:
             )
             apply_access_review(harvested, load_access_review(REGISTRY_DIR / "access-review.yaml"))
             harvested = drop_retired(harvested, load_retired(REGISTRY_DIR / "retired.yaml"))
+            retained, checked = load_retained(REGISTRY_DIR / "retained.yaml")
+            harvested = add_retained(harvested, retained, checked)
         else:
             print(
                 f"no snapshot at {snapshot_file}; building from curated entries only",
                 file=sys.stderr,
             )
     entries = merge(curated, harvested)
+    # A retained (delisted) entry must never shadow a live one that shares its id.
+    seen: dict[str, ApiEntry] = {}
+    for entry in sorted(entries, key=lambda e: e.source.get("kind") == "fdk-delisted"):
+        seen.setdefault(entry.id, entry)
+    entries = list(seen.values())
     # Keep link-check results and spec summaries from the previous registry.
     previous: dict[str, ApiEntry] = {}
     if REGISTRY_JSON.exists():

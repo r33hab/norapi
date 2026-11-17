@@ -228,3 +228,29 @@ apis:
       curl "https://services.arcgis.com/RZqsZuJkqUIXKe8f/arcgis/rest/services?f=json"
       # antall objekter i ett lag
       curl "https://services.arcgis.com/RZqsZuJkqUIXKe8f/arcgis/rest/services/Feltregistrering_flomvoller_2017/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json"
+
+  - id: nve-kartserver-arcgis-rest
+    title: NVE kartserver (ArcGIS Server REST)
+    title_en: NVE map server (ArcGIS Server REST)
+    description: >-
+      NVEs ArcGIS Enterprise-server med kart- og feature-tjenester for vannkraft, vindkraft, nettanlegg, flom, skred,
+      elvenett, innsjøer og nedbørfelt. Lagene kan spørres som JSON via query-operasjonen, uten nøkkel. Dette er REST-
+      grensesnittet mot hele tjenestemappen, ikke ett enkelt tema.
+    category: kart-og-geodata
+    access: open
+    auth: none
+    formats: [JSON, WMS]
+    endpoints:
+      - https://kart.nve.no/enterprise/rest/services
+    docs_url: https://kart.nve.no/enterprise/rest/services
+    probe_url: https://kart.nve.no/enterprise/rest/services?f=json
+    keywords: [nve, arcgis, rest, vannkraft, vindkraft, nettanlegg, flom, skred, elvenett, nedbørfelt, innsjø, mapserver]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt på tjenestemappen.
+      - Lag og tjenestenavn har versjonsnummer (for eksempel Vannkraft1) og kan bytte navn når datasett oppdateres.
+      - Servere har en grense på antall objekter per svar, bruk resultOffset for å bla.
+    quick_start: |
+      curl "https://kart.nve.no/enterprise/rest/services?f=json"
+      # vannkraftverk (lag 0), ett objekt
+      curl "https://kart.nve.no/enterprise/rest/services/Vannkraft1/MapServer/0/query?where=1%3D1&outFields=vannkraftverknavn,maksytelse_mw&resultRecordCount=1&returnGeometry=false&f=json"

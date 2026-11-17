@@ -1,0 +1,30 @@
+updated: 2026-11-16
+provider:
+  name: Fotoware
+  sector: privat
+apis:
+  - id: fotoware-api
+    title: Fotoware API (digital ressursforvaltning, DAM)
+    title_en: Fotoware digital asset management API
+    description: >-
+      REST-API mot Fotoware (DAM): arkiver, filer og metadata, opplasting, eksport, bestillinger, merknader og
+      brukeradministrasjon. API-et ligger på hver kundes egen Fotoware-adresse, og OpenAPI-filen er åpen. Du registrerer
+      en applikasjon i Fotoware og bruker OAuth 2.0 for å få token.
+    category: kultur-og-kunnskap
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://{kunde}.fotoware.com/fotoweb
+    docs_url: https://learn.fotoware.com/Integrations_and_APIs/001_The_Fotoware_API/Fotoware_API_Overview/Exploring_the_Fotoware_API_with_Swagger
+    spec_url: https://api.fotoware.com/spec.yaml
+    keywords: [fotoware, fotoweb, dam, bildearkiv, mediearkiv, digital asset management, metadata]
+    tags: [oauth2, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Krever Fotoware-installasjon (sky eller egen server) og en registrert applikasjon.
+      - Fotoware advarer mot å bruke udokumenterte endepunkter.
+    quick_start: |
+      curl -H "Authorization: Bearer $FOTOWARE_TOKEN" -H "Accept: application/vnd.fotoware.collectionlist+json" \
+        "https://$TENANT.fotoware.com/fotoweb/archives/"
+    probe_url: https://api.fotoware.com/spec.yaml

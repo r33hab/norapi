@@ -1,0 +1,28 @@
+updated: 2026-11-16
+provider:
+  name: Gassco
+  orgnr: "983452841"
+  sector: statlig-selskap
+apis:
+  - id: gassco-umm-atom
+    title: Gassco UMM (markedsmeldinger for gasstransport, Atom-feed)
+    title_en: Gassco UMM (urgent market messages for gas transport, Atom feed)
+    description: >-
+      Åpen Atom-feed med Urgent Market Messages (UMM) fra Gassco, operatør av gasstransportsystemet fra norsk sokkel.
+      Hver oppføring melder planlagte og uplanlagte hendelser ved felt, anlegg og rørledninger, med REMIT-XML (ACER
+      REMITUMMGasSchema) i feltet summary. Ingen nøkkel, men feeden er ren XML og må parses selv.
+    category: annet
+    access: open
+    auth: none
+    formats: [XML, Atom]
+    endpoints:
+      - https://umm.gassco.no/atom.xml
+    docs_url: https://umm.gassco.no/
+    probe_url: https://umm.gassco.no/atom.xml
+    keywords: [gassco, umm, remit, gass, gasstransport, markedsmeldinger, urgent market messages, atom, energi, natural gas]
+    tags: [no-auth, feed]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Ingen OpenAPI eller annen teknisk spesifikasjon, bare feeden og et PDF-dokument om publiseringsprinsipper.
+    quick_start: |
+      curl "https://umm.gassco.no/atom.xml"

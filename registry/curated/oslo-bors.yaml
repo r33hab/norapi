@@ -1,0 +1,31 @@
+updated: 2026-11-16
+provider:
+  name: Oslo Børs (Euronext Oslo)
+  orgnr: "983268633"
+  sector: privat
+apis:
+  - id: oslo-bors-newsweb
+    title: Euronext Oslo NewsWeb (børsmeldinger, nettsidens JSON-API)
+    title_en: Euronext Oslo NewsWeb stock exchange announcements (website JSON API)
+    description: >-
+      JSON-tjenesten bak newsweb.oslobors.no med børsmeldinger fra utstedere på Oslo Børs: liste med filtre på dato,
+      utsteder, kategori og marked (for eksempel XOSL), og enkeltmeldinger med full tekst. Svarer uten nøkkel. API-et
+      er ikke dokumentert av eieren; parameterne er hentet fra nettsidens egne kall.
+    category: finans
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api3.oslo.oslobors.no/v1/newsreader
+    docs_url: https://newsweb.oslobors.no/
+    probe_url: https://api3.oslo.oslobors.no/v1/newsreader/list?category=&issuer=&fromDate=2026-11-17&toDate=2026-11-17&market=&messageTitle=
+    keywords: [børsmelding, oslo børs, euronext, newsweb, utsteder, aksje, markedsmelding, stock exchange announcements]
+    tags: [no-auth, undocumented, private-provider]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt; sjekk Euronexts vilkår før kommersiell viderebruk.
+      - Alle datoer er UTC; bruk fromDate og toDate (YYYY-MM-DD) for å avgrense listen.
+    behaviour: Bare GET på /list og /message støttes; andre stier som /categories gir 405.
+    quick_start: |
+      curl "https://api3.oslo.oslobors.no/v1/newsreader/list?category=&issuer=&fromDate=2026-11-17&toDate=2026-11-17&market=XOSL&messageTitle="
+      curl "https://api3.oslo.oslobors.no/v1/newsreader/message?messageId=686692"

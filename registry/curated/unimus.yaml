@@ -1,0 +1,30 @@
+updated: 2026-11-16
+provider:
+  name: UniMus (Universitetsmuseene i Norge)
+  sector: stat
+apis:
+  - id: unimus-samlings-api
+    title: UniMus samlings-API (gjenstander og foto fra universitetsmuseene)
+    title_en: UniMus collections API (objects and photos from the university museums)
+    description: >-
+      Søk i gjenstandssamlingene (arkeologi, etnografi, numismatikk) og fotosamlingen ved universitetsmuseene i Oslo,
+      Bergen, Stavanger, Tromsø og Trondheim. GET-kall uten nøkkel gir JSON med treffliste, sammendrag per gjenstand og
+      full post på UUID; søk på term, fritekst, museumsnummer, museum og samling. Bruk limit og offset for å bla.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.unimus.no/api/things/search
+      - https://www.unimus.no/api/media/search
+    docs_url: https://unimus.no/UniMus-API-dokumentasjon.pdf
+    probe_url: https://www.unimus.no/api/things/search?term=sverd&limit=1
+    keywords: [museum, gjenstander, arkeologi, etnografi, numismatikk, fotosamling, kulturarv, universitetsmuseene, museum objects]
+    tags: [no-auth]
+    caveats:
+      - Dokumentasjonen er en PDF fra 2021; Swagger-siden den peker til svarte ikke da vi sjekket.
+      - Fotosamlingen har færre søkemuligheter enn gjenstandssamlingene.
+      - Lisensen står per bilde i feltet license; sjekk den før gjenbruk.
+    quick_start: |
+      curl "https://www.unimus.no/api/things/search?term=sverd&limit=3"
+      curl "https://www.unimus.no/api/media/search?freetext=maske&limit=3"

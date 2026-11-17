@@ -1,0 +1,35 @@
+updated: 2026-11-16
+provider:
+  name: TIDAL
+  orgnr: "993741345"
+  sector: privat
+apis:
+  - id: tidal-api
+    title: TIDAL API (musikkatalog, JSON:API)
+    title_en: TIDAL API (music catalogue, JSON:API)
+    description: >-
+      Musikkatalogen til strømmetjenesten TIDAL: artister, album, spor, videoer og spillelister, i JSON:API-format med
+      OpenAPI-spesifikasjon. Krever en klient registrert på developer.tidal.com og OAuth 2.0 (client credentials for
+      katalogdata, authorization code med PKCE for brukerdata). Tjenesten er internasjonal, med norsk selskap bak
+      (TIDAL Music AS), så landkode angis i kallene.
+    category: kultur-og-kunnskap
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://openapi.tidal.com/v2
+    docs_url: https://developer.tidal.com/documentation
+    spec_url: https://tidal-music.github.io/tidal-api-reference/tidal-api-oas.json
+    keywords: [tidal, musikk, strømming, artister, album, spor, music streaming, catalogue]
+    tags: [oauth2, private-provider]
+    caveats:
+      - Tjenesten er internasjonal; bare selskapet bak er norsk.
+      - Brukerdata-endepunkt (samling, spillelister) gir personopplysninger og krever brukerens samtykke.
+    owner_terms: >-
+      Registrer en app på developer.tidal.com for klient-id og hemmelighet. Noen scopes krever høyere tilgangsnivå enn
+      tredjepart, se spesifikasjonen.
+    behaviour: >-
+      Uten Authorization-header svarer API-et HTTP 401 med en JSON-feilmelding; dokumentasjon og spesifikasjon er åpne.
+    quick_start: |
+      # 1. hent token (client credentials) fra https://auth.tidal.com/v1/oauth2/token
+      curl -H "Authorization: Bearer $TOKEN" "https://openapi.tidal.com/v2/artists/1566?countryCode=NO"

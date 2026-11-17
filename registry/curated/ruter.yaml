@@ -1,0 +1,29 @@
+updated: 2026-11-16
+provider:
+  name: Ruter
+  orgnr: "991609407"
+  sector: statlig-selskap
+apis:
+  - id: ruter-trafikkstatus
+    title: Ruter trafikkstatus (JSON-feed med avvik)
+    title_en: Ruter traffic status (JSON feed of disruptions)
+    description: >-
+      Maskinlesbar feed med aktive avvik for buss, trikk, T-bane, tog og båt i Oslo og Akershus, pluss planlagte
+      endringer. Hvert avvik har gyldighetsperiode, berørte linjer og stoppesteder. Feeden oppdateres hvert 60. sekund og
+      har feltene fetchedAt og staleAfter. Ruters robots.txt tillater bare denne feeden under /api/; andre /api/-stier
+      er ikke åpnet for automatisert bruk. For avganger og reiseforslag, bruk Entur.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://ruter.no/api/traffic-status.json
+    docs_url: https://ruter.no/llms.txt
+    probe_url: https://ruter.no/api/traffic-status.json
+    keywords: [ruter, avvik, trafikkstatus, kollektiv, sanntid, oslo, akershus, disruptions, public transport]
+    tags: [no-auth, feed]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Dokumentert bare i Ruters llms.txt, ikke i en egen utviklerportal.
+    quick_start: |
+      curl "https://ruter.no/api/traffic-status.json"

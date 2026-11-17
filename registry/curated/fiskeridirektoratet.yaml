@@ -47,3 +47,28 @@ apis:
     tags: [no-auth]
     quick_start: |
       curl "https://api.fiskeridir.no/pub-aqua/api/v1/sites?range=0-2"
+
+  - id: fiskeridir-kartserver-arcgis-rest
+    title: Fiskeridirektoratets kartserver (ArcGIS Server REST)
+    title_en: Directorate of Fisheries map server (ArcGIS Server REST)
+    description: >-
+      ArcGIS Server hos Fiskeridirektoratet med kartlag for fiskeri og havbruk, blant annet verneområder, stengte
+      områder, akvakulturlokaliteter og AIS-baserte aktivitetslag. Lagene kan spørres som JSON via query-operasjonen
+      uten nøkkel. Dette er REST-grensesnittet mot tjenestemappen, mens WFS- og WMS-variantene er oppført for seg.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON, WMS]
+    endpoints:
+      - https://gis.fiskeridir.no/server/rest/services
+    docs_url: https://gis.fiskeridir.no/server/rest/services
+    probe_url: https://gis.fiskeridir.no/server/rest/services?f=json
+    keywords: [fiskeridirektoratet, arcgis, rest, fiskeri, havbruk, akvakultur, kysttorsk, verneområde, mapserver, gis]
+    tags: [no-auth]
+    caveats:
+      - Ingen lisens oppgitt på tjenestemappen.
+      - Svar er avkortet av serverens grense på antall objekter, bruk resultOffset for å bla.
+    quick_start: |
+      curl "https://gis.fiskeridir.no/server/rest/services?f=json"
+      # stengte områder for kysttorsk (lag 2), ett objekt
+      curl "https://gis.fiskeridir.no/server/rest/services/Fiskeridir_vern/MapServer/2/query?where=1%3D1&outFields=omraade&resultRecordCount=1&returnGeometry=false&f=json"

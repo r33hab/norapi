@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-16T21:43:23+00:00",
- "count": 239,
+ "generated_at": "2026-11-17T11:36:15+00:00",
+ "count": 249,
  "specs": {
   "altinn-correspondence": {
    "format": "openapi 3.0.4",
@@ -16,6 +16,59 @@
    ],
    "source_url": "https://platform.altinn.no/correspondence/api/v1/swagger/v1/swagger.json",
    "fetched_at": "2026-11-16T21:37:07+00:00"
+  },
+  "ambita-realty": {
+   "format": "swagger 2.0",
+   "title": "Realty",
+   "version": "1.0",
+   "servers": [
+    "https://api.ambita.com/realty/"
+   ],
+   "operations": 253,
+   "tags": [
+    "Accountant Housing Data",
+    "AccountantData",
+    "Addresses",
+    "Addresses Search",
+    "Affairs",
+    "Building Changes",
+    "Buildings",
+    "Cadastre Conveyances",
+    "Cadastre Document Copy Existence",
+    "Cadastre Housing Values",
+    "Cadastre Land Registry",
+    "Cadastre Liens Calculations",
+    "Cadastre Ownerships",
+    "Cadastre Scores",
+    "CadastreExtended",
+    "Cadastres",
+    "Cadastres Search",
+    "Code Fields",
+    "Complaints",
+    "ConglomerateOwnerships",
+    "Coop Internals",
+    "Coordinates",
+    "Creation Of Rights",
+    "Cultural Heritages",
+    "Customer Scores",
+    "CustomerScoreCoOwner",
+    "Deprecated",
+    "Dictionary",
+    "Districts",
+    "Floors",
+    "Geometries",
+    "Home Equities",
+    "Housing Cooperatives",
+    "Housing Cooperatives Search",
+    "Housing Corporation Shares",
+    "Municipalities",
+    "Offices",
+    "Operating Units",
+    "Organization",
+    "PDF Orders"
+   ],
+   "source_url": "https://api.ambita.com/realty/api-docs",
+   "fetched_at": "2026-11-17T11:36:12+00:00"
   },
   "artsdatabanken-nortaxa": {
    "format": "swagger 2.0",
@@ -70,6 +123,20 @@
    ],
    "source_url": "https://stottetiltak-registerinfo-api.app.brreg.no/v3/api-docs",
    "fetched_at": "2026-11-16T21:37:07+00:00"
+  },
+  "conta-api": {
+   "format": "openapi 3.0.3",
+   "title": "Conta API",
+   "version": "1.0.0",
+   "servers": [
+    "https://api.gateway.conta.no"
+   ],
+   "operations": 76,
+   "tags": [
+    "ext"
+   ],
+   "source_url": "https://docs.gateway.conta.no/docs/conta-external-api.json",
+   "fetched_at": "2026-11-17T11:36:13+00:00"
   },
   "digdir-elma-rest-api": {
    "format": "openapi 3.1.0",
@@ -462,19 +529,29 @@
    "source_url": "https://api.fiken.no/api/v2/docs/swagger.yaml",
    "fetched_at": "2026-11-16T21:37:08+00:00"
   },
-  "fiskeridir-fartoyregisteret": {
-   "format": "openapi 3.1.0",
-   "title": "Fartøyregisteret",
+  "fotoware-api": {
+   "format": "openapi 3.0.1",
+   "title": "Fotoware API",
    "version": "1.0.0",
-   "servers": [
-    "/"
-   ],
-   "operations": 2,
+   "servers": [],
+   "operations": 119,
    "tags": [
-    "Vessels"
+    "API Entry Points",
+    "Albums",
+    "Albums sharing",
+    "Annotations",
+    "Archives",
+    "Assets and Metadata",
+    "Background tasks",
+    "Group Management (Beta)",
+    "Orders",
+    "Renditions",
+    "Taxonomies",
+    "Upload",
+    "User Management (Beta)"
    ],
-   "source_url": "https://api.fiskeridir.no/vessel-api/api/openapi",
-   "fetched_at": "2026-11-16T21:37:07+00:00"
+   "source_url": "https://api.fotoware.com/spec.yaml",
+   "fetched_at": "2026-11-17T11:36:13+00:00"
   },
   "hyre-broker-api": {
    "format": "openapi 3.1.0",
@@ -777,6 +854,27 @@
    "source_url": "https://api.kystverket.no/openapi.json",
    "fetched_at": "2026-11-16T21:37:08+00:00"
   },
+  "kystverket-referanseruter": {
+   "format": "openapi 3.0.4",
+   "title": "RouteInfoApi",
+   "version": "1.0",
+   "servers": [
+    "/api/kyv/routeinfo"
+   ],
+   "operations": 25,
+   "tags": [
+    "Anchorage",
+    "Hooks",
+    "Kystverket",
+    "Migrate",
+    "Rtz",
+    "RtzInternal",
+    "Setup",
+    "Status"
+   ],
+   "source_url": "https://kystverket.avadaptive.no/api/kyv/routeinfo/swagger/v1/swagger.json",
+   "fetched_at": "2026-11-17T11:36:12+00:00"
+  },
   "link-mobility-mylink-email-api": {
    "format": "openapi 3.1.0",
    "title": "MyLINK EMAIL API",
@@ -952,6 +1050,34 @@
    ],
    "source_url": "https://api.ndla.no/taxonomy/api-docs",
    "fetched_at": "2026-11-16T21:37:13+00:00"
+  },
+  "ndla-frontpage-api": {
+   "format": "openapi 3.1.0",
+   "title": "frontpage-api",
+   "version": "1.0",
+   "servers": [],
+   "operations": 11,
+   "tags": [
+    "filmfrontpage",
+    "frontpage",
+    "subjectpage"
+   ],
+   "source_url": "https://api.ndla.no/frontpage-api/api-docs",
+   "fetched_at": "2026-11-17T11:36:12+00:00"
+  },
+  "ndla-draft-api": {
+   "format": "openapi 3.1.0",
+   "title": "draft-api",
+   "version": "1.0",
+   "servers": [],
+   "operations": 30,
+   "tags": [
+    "drafts",
+    "files",
+    "user-data"
+   ],
+   "source_url": "https://api.ndla.no/draft-api/api-docs",
+   "fetched_at": "2026-11-17T11:36:12+00:00"
   },
   "ndla-learningpath-api": {
    "format": "openapi 3.1.0",
@@ -1941,6 +2067,59 @@
    "source_url": "https://road-weather-and-view.atlas.vegvesen.no/v3/api-docs",
    "fetched_at": "2026-11-16T21:37:12+00:00"
   },
+  "tidal-api": {
+   "format": "openapi 3.0.1",
+   "title": "TIDAL API",
+   "version": "1.10.254",
+   "servers": [
+    "https://openapi.tidal.com/v2"
+   ],
+   "operations": 465,
+   "tags": [
+    "acceptedTerms",
+    "albumStatistics",
+    "albums",
+    "appreciations",
+    "artistBiographies",
+    "artistClaimStatuses",
+    "artistClaims",
+    "artistRoles",
+    "artistSalesStatistics",
+    "artistStreamsStatistics",
+    "artists",
+    "artworkLibraries",
+    "artworks",
+    "clientCertificates",
+    "clients",
+    "collaborationInviteRedemptions",
+    "collaborationInvites",
+    "commentSummaries",
+    "comments",
+    "contentClaims",
+    "credits",
+    "downloads",
+    "dspSharingLinks",
+    "dynamicModules",
+    "dynamicPages",
+    "folderItems",
+    "folders",
+    "genres",
+    "groups",
+    "installations",
+    "lyrics",
+    "manualArtistClaims",
+    "offlineTasks",
+    "playQueues",
+    "playlistGenerationSchedules",
+    "playlistGenerations",
+    "playlists",
+    "priceConfigurations",
+    "providerOwners",
+    "providerProductInfos"
+   ],
+   "source_url": "https://tidal-music.github.io/tidal-api-reference/tidal-api-oas.json",
+   "fetched_at": "2026-11-17T11:36:12+00:00"
+  },
   "tripletex-api": {
    "format": "openapi 3.0.1",
    "title": "Tripletex API",
@@ -2012,6 +2191,39 @@
    ],
    "source_url": "https://docs.two.inc/openapi/checkout-api.yaml",
    "fetched_at": "2026-11-16T21:37:12+00:00"
+  },
+  "uib-samla-goobi-viewer-api": {
+   "format": "openapi 3.0.1",
+   "title": "Goobi viewer API.",
+   "version": "v2",
+   "servers": [
+    "https://samla.no/viewer/api/v2"
+   ],
+   "operations": 26,
+   "tags": [
+    "annotations",
+    "iiif",
+    "records"
+   ],
+   "source_url": "https://samla.no/viewer/api/v2/openapi.json",
+   "fetched_at": "2026-11-17T11:36:12+00:00"
+  },
+  "uib-ub-chc-api": {
+   "format": "openapi 3.1.0",
+   "title": "UiB-UB API",
+   "version": "0.0.1",
+   "servers": [
+    "https://api.ub.uib.no"
+   ],
+   "operations": 5,
+   "tags": [
+    "Group",
+    "Object",
+    "Person",
+    "Set"
+   ],
+   "source_url": "https://api.ub.uib.no/openapi",
+   "fetched_at": "2026-11-17T11:36:12+00:00"
   },
   "uio-ub-skosmos": {
    "format": "swagger 2.0",
@@ -2204,6 +2416,55 @@
    "source_url": "https://developer.vippsmobilepay.com/redocusaurus/epayment-swagger-id.yaml",
    "fetched_at": "2026-11-16T21:37:13+00:00"
   },
+  "visma-severa-rest-api": {
+   "format": "openapi 3.0.0",
+   "title": "Severa Public Rest API Documentation",
+   "version": "1.0",
+   "servers": [
+    "https://api.severa.visma.com/rest-api"
+   ],
+   "operations": 560,
+   "tags": [
+    "ActivitiesDelete",
+    "ActivitiesRead",
+    "ActivitiesWrite",
+    "CustomersDelete",
+    "CustomersRead",
+    "CustomersWrite",
+    "FeesDelete",
+    "FeesRead",
+    "FeesWrite",
+    "FilesDelete",
+    "FilesRead",
+    "FilesWrite",
+    "HoursDelete",
+    "HoursRead",
+    "HoursWrite",
+    "InvoicesDelete",
+    "InvoicesRead",
+    "InvoicesWrite",
+    "NoScope",
+    "OrganizationRead",
+    "OrganizationWrite",
+    "ProjectsDelete",
+    "ProjectsRead",
+    "ProjectsWrite",
+    "ResourceallocationsDelete",
+    "ResourceallocationsRead",
+    "ResourceallocationsWrite",
+    "SettingsDelete",
+    "SettingsRead",
+    "SettingsWrite",
+    "TravelsDelete",
+    "TravelsRead",
+    "TravelsWrite",
+    "UsersDelete",
+    "UsersRead",
+    "UsersWrite"
+   ],
+   "source_url": "https://api.severa.visma.com/rest-api/openapidocs/v1.0/doc.json",
+   "fetched_at": "2026-11-17T11:36:13+00:00"
+  },
   "brreg-enhetsregisteret": {
    "format": "openapi 3.0.0",
    "title": "Åpne Data fra Enhetsregisteret - API Dokumentasjon",
@@ -2392,6 +2653,20 @@
    ],
    "source_url": "https://api.fiskeridir.no/pub-aqua/api/api-docs",
    "fetched_at": "2026-11-16T21:37:13+00:00"
+  },
+  "fiskeridir-fartoyregisteret": {
+   "format": "openapi 3.1.0",
+   "title": "Fartøyregisteret",
+   "version": "1.0.0",
+   "servers": [
+    "/"
+   ],
+   "operations": 2,
+   "tags": [
+    "Vessels"
+   ],
+   "source_url": "https://api.fiskeridir.no/vessel-api/api/openapi",
+   "fetched_at": "2026-11-16T21:37:07+00:00"
   },
   "geonorge-kommuneinfo": {
    "format": "openapi 3.0.3",

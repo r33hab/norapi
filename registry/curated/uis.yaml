@@ -1,0 +1,25 @@
+updated: 2026-11-16
+provider:
+  name: Universitetet i Stavanger
+  sector: stat
+apis:
+  - id: uis-openjournals-oai
+    title: uisOpenJournals (OAI-PMH)
+    title_en: uisOpenJournals (OAI-PMH)
+    description: >-
+      OAI-PMH-endepunkt for UiS' åpne tidsskriftsplattform (OJS). Verbene Identify, ListSets, ListMetadataFormats og
+      ListRecords svarer uten nøkkel, og metadata kan høstes i oai_dc. Hvert tidsskrift er et eget sett.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [XML]
+    endpoints:
+      - https://journals.uis.no/index.php/index/oai
+    docs_url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+    probe_url: https://journals.uis.no/index.php/index/oai?verb=Identify
+    keywords: [uis, stavanger, tidsskrift, oai-pmh, ojs, open access, vitenskapelige artikler, journals]
+    tags: [no-auth, feed]
+    caveats:
+      - Ingen lisens oppgitt for selve metadataene.
+    quick_start: |
+      curl "https://journals.uis.no/index.php/index/oai?verb=ListSets"

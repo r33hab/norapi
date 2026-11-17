@@ -1,0 +1,34 @@
+updated: 2026-11-16
+provider:
+  name: Viaplay Norge
+  orgnr: "912213714"
+  sector: privat
+apis:
+  - id: viaplay-content-no
+    title: Viaplay innholdskatalog Norge (HAL JSON)
+    title_en: Viaplay Norway content catalogue (HAL JSON)
+    description: >-
+      Åpne JSON-sider (HAL) bak Viaplays norske nettklient: forside og seksjoner for serier, filmer og sport, med titler,
+      beskrivelser og lenker videre til innholdskort. Svarer uten nøkkel på seksjonene, mens søk og enkelte baner svarer
+      403 eller feilkode. Ikke dokumentert, og avspilling krever abonnement.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://content.viaplay.no/pc-no
+    docs_url: https://content.viaplay.no/pc-no
+    probe_url: https://content.viaplay.no/pc-no/serier
+    keywords: [viaplay, streaming, serier, filmer, sport, innholdskatalog, hal, vod]
+    tags: [no-auth, undocumented, private-provider]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt; innhold og metadata er opphavsrettsbeskyttet.
+      - Søk og mange underbaner svarer 403 eller feil uten enhetsnøkkel.
+    behaviour: >-
+      Rot og seksjoner (/pc-no, /pc-no/serier) svarer anonymt med HTTP 200 og JSON. /pc-no/search svarer 403, og
+      robots.txt på verten svarer med JSON-feilen "No valid devicekey", så retningslinjer for roboter finnes ikke.
+    owner_terms: >-
+      Ingen offentlige vilkår for endepunktet funnet. Viaplay-tjenestens alminnelige vilkår gjelder for innholdet.
+    quick_start: |
+      curl "https://content.viaplay.no/pc-no/serier"
