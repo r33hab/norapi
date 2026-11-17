@@ -33,7 +33,7 @@ from norapi.netguard import get_capped, public_client
 
 log = logging.getLogger(__name__)
 
-USER_AGENT = "norapi-enrich/0.1 (+https://github.com/r33hAB/norapi)"
+USER_AGENT = "norapi-enrich/0.1 (+https://github.com/r33hab/norapi)"
 MAX_BYTES = 8 * 1024 * 1024  # a specification larger than this is not worth indexing
 METHODS = ("get", "post", "put", "patch", "delete", "head", "options")
 NEIGHBOURS = (

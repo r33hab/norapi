@@ -22,7 +22,7 @@ from norapi import __version__
 from norapi.model import CATEGORIES, slugify
 
 ASSETS = Path(__file__).resolve().parents[2] / "site" / "assets"
-REPO = "https://github.com/r33hAB/norapi"
+REPO = "https://github.com/r33hab/norapi"
 ISSUES = f"{REPO}/issues/new"
 
 ACCESS_LABEL = {

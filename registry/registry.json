@@ -16991,7 +16991,7 @@
    "caveats": [],
    "behaviour": null,
    "owner_terms": null,
-   "quick_start": "curl -H \"User-Agent: norapi-demo/0.1 github.com/r33hAB/norapi\" \\\n  \"https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=59.91&lon=10.75\"\n",
+   "quick_start": "curl -H \"User-Agent: norapi-demo/0.1 github.com/r33hab/norapi\" \\\n  \"https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=59.91&lon=10.75\"\n",
    "status": null,
    "modified": null,
    "source": {

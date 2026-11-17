@@ -21,7 +21,7 @@ import httpx
 log = logging.getLogger(__name__)
 
 METADATA_URL = "https://kartkatalog.geonorge.no/api/getdata/{uuid}"
-USER_AGENT = "norapi/0.1 (+https://github.com/r33hAB/norapi)"
+USER_AGENT = "norapi/0.1 (+https://github.com/r33hab/norapi)"
 SNAPSHOT = "geonorge.json"
 
 _UUID = re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}")

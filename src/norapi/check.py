@@ -17,7 +17,7 @@ from norapi.model import ApiEntry
 from norapi.netguard import get_capped, public_client
 
 log = logging.getLogger(__name__)
-USER_AGENT = "norapi-linkcheck/0.1 (+https://github.com/r33hAB/norapi)"
+USER_AGENT = "norapi-linkcheck/0.1 (+https://github.com/r33hab/norapi)"
 
 
 def check_entries(entries: list[ApiEntry], timeout: float = 15.0, limit: int | None = None) -> int:
