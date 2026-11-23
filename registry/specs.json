@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T13:15:51+00:00",
+ "generated_at": "2026-11-23T14:40:26+00:00",
  "count": 340,
  "specs": {
   "altinn-correspondence": {
@@ -15,7 +15,7 @@
     "Correspondence"
    ],
    "source_url": "https://platform.altinn.no/correspondence/api/v1/swagger/v1/swagger.json",
-   "fetched_at": "2026-11-17T13:09:48+00:00"
+   "fetched_at": "2026-11-23T14:39:18+00:00"
   },
   "ambita-realty": {
    "format": "swagger 2.0",
@@ -68,7 +68,7 @@
     "PDF Orders"
    ],
    "source_url": "https://api.ambita.com/realty/api-docs",
-   "fetched_at": "2026-11-17T13:09:48+00:00"
+   "fetched_at": "2026-11-23T14:39:18+00:00"
   },
   "artsdatabanken-nortaxa": {
    "format": "swagger 2.0",
@@ -84,7 +84,7 @@
     "TaxonomicOperations"
    ],
    "source_url": "https://nortaxa.artsdatabanken.no/swagger/v1/swagger.json",
-   "fetched_at": "2026-11-17T13:09:48+00:00"
+   "fetched_at": "2026-11-23T14:39:18+00:00"
   },
   "brreg-reelle-rettighetshavere": {
    "format": "openapi 3.1.0",
@@ -99,12 +99,12 @@
     "virksomheter"
    ],
    "source_url": "https://rrh.brreg.no/api/oppslag/v3/api-docs",
-   "fetched_at": "2026-11-17T13:09:48+00:00"
+   "fetched_at": "2026-11-23T14:39:18+00:00"
   },
   "brreg-stottetiltak-registerinfo": {
    "format": "openapi 3.1.0",
    "title": "Registerinfo API for støtteregisteret",
-   "version": "stottetiltak-registerinfo-api-2.3.15",
+   "version": "stottetiltak-registerinfo-api-2.3.16",
    "servers": [
     "https://stottetiltak-registerinfo-api.app.brreg.no"
    ],
@@ -122,7 +122,7 @@
     "problem-api"
    ],
    "source_url": "https://stottetiltak-registerinfo-api.app.brreg.no/v3/api-docs",
-   "fetched_at": "2026-11-17T13:09:48+00:00"
+   "fetched_at": "2026-11-23T14:39:18+00:00"
   },
   "conta-api": {
    "format": "openapi 3.0.3",
@@ -136,7 +136,7 @@
     "ext"
    ],
    "source_url": "https://docs.gateway.conta.no/docs/conta-external-api.json",
-   "fetched_at": "2026-11-17T13:09:48+00:00"
+   "fetched_at": "2026-11-23T14:39:19+00:00"
   },
   "digdir-elma-rest-api": {
    "format": "openapi 3.1.0",
@@ -154,7 +154,7 @@
     "process-controller"
    ],
    "source_url": "https://elma-smp.no/rest/v3/api-docs",
-   "fetched_at": "2026-11-17T13:09:48+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "digdir-selvbetjening-api": {
    "format": "openapi 3.1.0",
@@ -188,7 +188,7 @@
     "enriched-scope-controller"
    ],
    "source_url": "https://api.samarbeid.digdir.no/v3/api-docs",
-   "fetched_at": "2026-11-17T13:10:00+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "digdir-einnsyn": {
    "format": "openapi 3.0.0",
@@ -231,7 +231,7 @@
     "Votering"
    ],
    "source_url": "https://raw.githubusercontent.com/felleslosninger/einnsyn-api-spec/main/openapi/einnsyn.openapi.yml",
-   "fetched_at": "2026-11-17T13:09:48+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "hkdir-utdanning-no": {
    "format": "openapi 3.1.0",
@@ -266,7 +266,7 @@
     "YrkeArbeidsliv"
    ],
    "source_url": "https://api.utdanning.no/openapi.json",
-   "fetched_at": "2026-11-17T13:09:48+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "elixir-norge-usegalaxy-api": {
    "format": "openapi 3.1.0",
@@ -317,7 +317,7 @@
     "visualizations"
    ],
    "source_url": "https://usegalaxy.no/openapi.json",
-   "fetched_at": "2026-11-17T13:09:48+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "entur-clearing": {
    "format": "openapi 3.1.0",
@@ -333,7 +333,7 @@
     "Incoming Settlements"
    ],
    "source_url": "https://developer.entur.no/apis/clearing/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:48+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "entur-clearing-reports": {
    "format": "openapi 3.1.0",
@@ -349,7 +349,7 @@
     "Outgoing Data Products"
    ],
    "source_url": "https://developer.entur.no/apis/clearing-reports/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:48+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "entur-consents": {
    "format": "openapi 3.1.1",
@@ -365,7 +365,7 @@
     "Consents client"
    ],
    "source_url": "https://developer.entur.no/apis/consents/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:48+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "entur-customers": {
    "format": "openapi 3.1.1",
@@ -386,7 +386,7 @@
     "Traveller information"
    ],
    "source_url": "https://developer.entur.no/apis/customers/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:48+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "entur-shared-mobility-tomp": {
    "format": "openapi 3.1.0",
@@ -404,7 +404,7 @@
     "Support"
    ],
    "source_url": "https://developer.entur.no/apis/shared-mobility/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "entur-geocoder-v3": {
    "format": "openapi 3.1.1",
@@ -420,7 +420,7 @@
     "Reverse"
    ],
    "source_url": "https://developer.entur.no/apis/geocoder/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:48+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "entur-inventory": {
    "format": "openapi 3.1.0",
@@ -436,12 +436,12 @@
     "readiness-controller"
    ],
    "source_url": "https://developer.entur.no/apis/inventory/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "entur-offers": {
    "format": "openapi 3.1.0",
    "title": "Offers V3 beta",
-   "version": "2026.11.0",
+   "version": "2026.11.10",
    "servers": [
     "https://api.entur.io",
     "https://api.staging.entur.io",
@@ -452,7 +452,7 @@
     "Search offers"
    ],
    "source_url": "https://developer.entur.no/apis/offers-partner/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "entur-order-notes": {
    "format": "openapi 3.1.1",
@@ -468,12 +468,12 @@
     "Order Notes"
    ],
    "source_url": "https://developer.entur.no/apis/order-note-partner/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "entur-orders": {
    "format": "openapi 3.1.1",
    "title": "Orders",
-   "version": "2026.11.0",
+   "version": "2026.11.1",
    "servers": [
     "https://api.staging.entur.io/sales",
     "https://api.dev.entur.io/sales",
@@ -489,12 +489,12 @@
     "Travellers"
    ],
    "source_url": "https://developer.entur.no/apis/order-partner/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "entur-payments": {
    "format": "openapi 3.1.1",
    "title": "Payments",
-   "version": "2026.11.3",
+   "version": "2026.11.5",
    "servers": [
     "https://api.entur.io/sales",
     "https://api.staging.entur.io/sales",
@@ -510,7 +510,7 @@
     "Recurring Payments"
    ],
    "source_url": "https://developer.entur.no/apis/payment-partner/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "entur-personnel-tickets": {
    "format": "openapi 3.1.1",
@@ -533,12 +533,12 @@
     "Ticket rights"
    ],
    "source_url": "https://developer.entur.no/apis/personnel-tickets/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "entur-personalisation-client": {
    "format": "openapi 3.1.1",
    "title": "Personalisation Client Integration",
-   "version": "2026.11.0",
+   "version": "2026.11.1",
    "servers": [
     "https://api.entur.io/personalisation"
    ],
@@ -550,7 +550,7 @@
     "Programs"
    ],
    "source_url": "https://developer.entur.no/apis/personalisation-client/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "entur-personalisation-privacy": {
    "format": "openapi 3.1.1",
@@ -565,12 +565,12 @@
     "Privacy"
    ],
    "source_url": "https://developer.entur.no/apis/personalisation-privacy/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "entur-products": {
    "format": "openapi 3.1.1",
    "title": "Products",
-   "version": "2026.11.3",
+   "version": "2026.11.4",
    "servers": [
     "https://api.entur.io/products",
     "https://api.staging.entur.io/products",
@@ -620,7 +620,7 @@
     "meta-data"
    ],
    "source_url": "https://developer.entur.no/apis/products/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "entur-raw-timetable-data": {
    "format": "openapi 3.1.0",
@@ -636,7 +636,7 @@
     "Raw Timetable Data"
    ],
    "source_url": "https://developer.entur.no/apis/raw-timetable-data/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "entur-receipts": {
    "format": "openapi 3.1.1",
@@ -652,7 +652,7 @@
     "Partner Receipts"
    ],
    "source_url": "https://developer.entur.no/apis/receipt-partner/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "entur-refunds": {
    "format": "openapi 3.1.2",
@@ -669,7 +669,7 @@
     "Refund"
    ],
    "source_url": "https://developer.entur.no/apis/refund-partner/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "entur-reserve-offers": {
    "format": "openapi 3.1.1",
@@ -687,7 +687,7 @@
     "Reserve Third Party Products"
    ],
    "source_url": "https://developer.entur.no/apis/reserve-offers-partner/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:20+00:00"
   },
   "entur-sales-v2": {
    "format": "openapi 3.1.1",
@@ -706,16 +706,16 @@
     "processes"
    ],
    "source_url": "https://developer.entur.no/apis/sales/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "entur-seating-manager": {
    "format": "openapi 3.1.1",
    "title": "Seating manager",
-   "version": "2026.10.0",
+   "version": "2026.11.0",
    "servers": [
     "https://api.entur.io/seating-manager"
    ],
-   "operations": 50,
+   "operations": 51,
    "tags": [
     "capacities-controller",
     "capacity-controller-v-1",
@@ -727,10 +727,11 @@
     "seat-display-controller",
     "seating-offer-controller",
     "sorting-controller",
-    "third-party-reservation-controller"
+    "third-party-reservation-controller",
+    "travel-intention-controller"
    ],
    "source_url": "https://developer.entur.no/apis/seating-manager/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "entur-seating-services": {
    "format": "openapi 3.1.0",
@@ -753,7 +754,7 @@
     "swagger-controller"
    ],
    "source_url": "https://developer.entur.no/apis/seatingservices/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "entur-shared-mobility-router": {
    "format": "openapi 3.1.0",
@@ -768,7 +769,7 @@
     "TOMP endpoints 1.6.x"
    ],
    "source_url": "https://developer.entur.no/apis/shared-mobility-router/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "entur-skoleskyss": {
    "format": "openapi 3.1.0",
@@ -783,7 +784,7 @@
     "Skoleskyss"
    ],
    "source_url": "https://developer.entur.no/apis/skoleskyss/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "entur-third-party-products": {
    "format": "openapi 3.1.1",
@@ -799,25 +800,25 @@
     "Third Party Products by Order"
    ],
    "source_url": "https://developer.entur.no/apis/third-party-product-partner/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "entur-ticket-distributions": {
    "format": "openapi 3.1.1",
    "title": "Ticket Distributions",
-   "version": "2026.11.0",
+   "version": "2026.11.1",
    "servers": [
     "https://api.staging.entur.io/sales",
     "https://api.dev.entur.io/sales",
     "https://api.entur.io/sales"
    ],
-   "operations": 15,
+   "operations": 16,
    "tags": [
     "PDF Tickets",
     "Ticket Distribution Groups",
     "Ticket Distributions"
    ],
    "source_url": "https://developer.entur.no/apis/ticket-distribution-partner/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "entur-timetable-delivery-status": {
    "format": "openapi 3.1.1",
@@ -833,7 +834,7 @@
     "timetable-delivery-status"
    ],
    "source_url": "https://developer.entur.no/apis/timetable-delivery-status/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "entur-timetable-import-info": {
    "format": "openapi 3.1.1",
@@ -849,7 +850,7 @@
     "timetable-import-info"
    ],
    "source_url": "https://developer.entur.no/apis/timetable-import-info/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "entur-timetable-management": {
    "format": "openapi 3.1.1",
@@ -866,7 +867,7 @@
     "Flexible Transport"
    ],
    "source_url": "https://developer.entur.no/apis/timetable-management/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "entur-emissions-calculator": {
    "format": "openapi 3.1.0",
@@ -882,7 +883,7 @@
     "Emissions"
    ],
    "source_url": "https://developer.entur.no/apis/emissions-calculator/latest/openapi.json",
-   "fetched_at": "2026-11-17T13:09:49+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "fiken-api": {
    "format": "openapi 3.0.2",
@@ -919,7 +920,7 @@
     "user"
    ],
    "source_url": "https://api.fiken.no/api/v2/docs/swagger.yaml",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:23+00:00"
   },
   "fotoware-api": {
    "format": "openapi 3.0.1",
@@ -943,7 +944,7 @@
     "User Management (Beta)"
    ],
    "source_url": "https://api.fotoware.com/spec.yaml",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:22+00:00"
   },
   "hyre-broker-api": {
    "format": "openapi 3.1.0",
@@ -957,7 +958,7 @@
     "brokers"
    ],
    "source_url": "https://api.hyre.no/brokers/docs/openapi.json",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "ks-statistikk-web-api": {
    "format": "openapi 3.0.4",
@@ -970,7 +971,7 @@
     "Navigation"
    ],
    "source_url": "https://statistikk.ks.no/swagger/v2/swagger.json",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:22+00:00"
   },
   "ks-fiks-bekymringsmelding": {
    "format": "openapi 3.0.1",
@@ -984,7 +985,7 @@
     "bekymringsmeldingKommune"
    ],
    "source_url": "https://developers.fiks.ks.no/api/bekymringsmelding-kommune-api-v2.json",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:21+00:00"
   },
   "ks-fiks-besoksbidrag": {
    "format": "openapi 3.0.3",
@@ -999,7 +1000,7 @@
     "register"
    ],
    "source_url": "https://developers.fiks.ks.no/api/besoksbidrag-register-api-v1.json",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:22+00:00"
   },
   "ks-fiks-digisos": {
    "format": "openapi 3.0.1",
@@ -1013,7 +1014,7 @@
     "DigisosSaksoppdatering"
    ],
    "source_url": "https://developers.fiks.ks.no/api/digisos-sak-api-v1.json",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:22+00:00"
   },
   "ks-fiks-eiendomsavtaler": {
    "format": "openapi 3.0.3",
@@ -1028,7 +1029,7 @@
     "Eiendomsavtale offentlig"
    ],
    "source_url": "https://developers.fiks.ks.no/api/eiendomsavtaler-offentlig-api-v1.json",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:22+00:00"
   },
   "ks-fiks-folkeregister": {
    "format": "openapi 3.0.1",
@@ -1043,7 +1044,7 @@
     "oppvekst"
    ],
    "source_url": "https://developers.fiks.ks.no/api/folkeregister-oppvekst-api-v1.json",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:22+00:00"
   },
   "ks-fiks-io": {
    "format": "openapi 3.0.1",
@@ -1057,7 +1058,7 @@
     "FiksIoKatalog"
    ],
    "source_url": "https://developers.fiks.ks.no/api/fiksio-katalog-api-v1.json",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:22+00:00"
   },
   "ks-fiks-innsyn": {
    "format": "openapi 3.0.1",
@@ -1072,7 +1073,7 @@
     "Index"
    ],
    "source_url": "https://developers.fiks.ks.no/api/innsyn-index-api-v2.json",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:22+00:00"
   },
   "ks-fiks-kjoretoyregister": {
    "format": "openapi 3.0.1",
@@ -1087,7 +1088,7 @@
     "Kjoretoyregister"
    ],
    "source_url": "https://developers.fiks.ks.no/api/kjoretoyregister-api-v1.json",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:22+00:00"
   },
   "ks-fiks-kontaktregisteret": {
    "format": "openapi 3.0.1",
@@ -1102,7 +1103,7 @@
     "krr"
    ],
    "source_url": "https://developers.fiks.ks.no/api/register-krr-api-v1.json",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:22+00:00"
   },
   "ks-fiks-matrikkel-eier": {
    "format": "openapi 3.0.1",
@@ -1116,7 +1117,7 @@
     "MatrikkelEierOppslag"
    ],
    "source_url": "https://developers.fiks.ks.no/api/matrikkel-eier-oppslag-api-v1.json",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:22+00:00"
   },
   "ks-fiks-nav-hjelpemiddel": {
    "format": "openapi 3.0.3",
@@ -1133,7 +1134,7 @@
     "Logistikk"
    ],
    "source_url": "https://developers.fiks.ks.no/api/nav-hjelpemiddel-v3.yaml",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:23+00:00"
   },
   "ks-fiks-protokoll-konfigurasjon": {
    "format": "openapi 3.0.1",
@@ -1144,11 +1145,16 @@
    ],
    "operations": 31,
    "tags": [
+    "Protokoll-forespurte-tilganger",
     "Protokoll-konfigurasjon",
-    "Protokoll-konfigurasjon-kun-person"
+    "Protokoll-konfigurasjon-kun-person",
+    "Protokoll-konto-konfigurasjon",
+    "Protokoll-protokoller",
+    "Protokoll-system-konfigurasjon",
+    "Protokoll-tilganger"
    ],
    "source_url": "https://developers.fiks.ks.no/api/fiks-protokoll-konfigurasjon-api-v1.json",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:23+00:00"
   },
   "ks-fiks-samtykke": {
    "format": "openapi 3.0.1",
@@ -1163,7 +1169,7 @@
     "samtykke-ekstern"
    ],
    "source_url": "https://developers.fiks.ks.no/api/samtykke-ekstern-api-v1.json",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:23+00:00"
   },
   "ks-fiks-sms": {
    "format": "openapi 3.0.1",
@@ -1177,7 +1183,7 @@
     "SmsV2"
    ],
    "source_url": "https://developers.fiks.ks.no/api/varsling-sms-api-v2.json",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:23+00:00"
   },
   "ks-fiks-skatteoginntektsopplysninger": {
    "format": "openapi 3.0.1",
@@ -1192,7 +1198,7 @@
     "Beregning"
    ],
    "source_url": "https://developers.fiks.ks.no/api/register-skatteoginntektsopplysninger-beregning-api-v1.json",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:23+00:00"
   },
   "ks-fiks-tilgangsstyring": {
    "format": "openapi 3.0.0",
@@ -1208,7 +1214,7 @@
     "tilgang"
    ],
    "source_url": "https://developers.fiks.ks.no/api/fiks-tilgang-api-v1.json",
-   "fetched_at": "2026-11-17T13:09:50+00:00"
+   "fetched_at": "2026-11-23T14:39:23+00:00"
   },
   "ks-fiks-min-kommune-oppgave": {
    "format": "openapi 3.0.1",
@@ -1222,7 +1228,7 @@
     "OppgaveEkstern"
    ],
    "source_url": "https://developers.fiks.ks.no/api/min-kommune-oppgave-ekstern-api-v1.json",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:23+00:00"
   },
   "ks-fiks-svarinn": {
    "format": "openapi 3.0.1",
@@ -1237,7 +1243,7 @@
     "Mottakersystem"
    ],
    "source_url": "https://developers.fiks.ks.no/api/mottakersystem-api-v2.json",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:23+00:00"
   },
   "ks-fiks-svarut": {
    "format": "openapi 3.0.1",
@@ -1252,7 +1258,7 @@
     "SendForsendelse"
    ],
    "source_url": "https://developers.fiks.ks.no/api/forsendelse-send-api-v3.json",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:23+00:00"
   },
   "kartverket-havnedata-ogcapi": {
    "format": "openapi 3.0.3",
@@ -1269,7 +1275,7 @@
     "Discover data collections"
    ],
    "source_url": "https://ogcapitest.kartverket.no/rest/services/havnedata3_0/api?f=json",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:24+00:00"
   },
   "geonorge-kartkatalog": {
    "format": "openapi 3.0.4",
@@ -1281,7 +1287,7 @@
     "ApiSearch"
    ],
    "source_url": "https://kartkatalog.geonorge.no/swagger/v1/swagger.json",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:24+00:00"
   },
   "geonorge-register": {
    "format": "swagger 2.0",
@@ -1298,7 +1304,7 @@
     "OrganizationsApi"
    ],
    "source_url": "https://register.geonorge.no/swagger/docs/v1",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:24+00:00"
   },
   "kystverket-kystdatahuset": {
    "format": "openapi 3.0.1",
@@ -1307,12 +1313,13 @@
    "servers": [
     "/ws"
    ],
-   "operations": 165,
+   "operations": 167,
    "tags": [
     "Ais",
     "AisRealTime",
     "AisStatic",
     "Anchorage",
+    "AnchoringAreaImport",
     "Auth",
     "Bunkers",
     "DashboardDraft",
@@ -1335,7 +1342,7 @@
     "Voyage"
    ],
    "source_url": "https://kystdatahuset.kystverket.no/ws/swagger/v1/swagger.json",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:25+00:00"
   },
   "kystverket-navigasjonsvarsler": {
    "format": "openapi 3.1.0",
@@ -1347,7 +1354,7 @@
     "navigationwarnings"
    ],
    "source_url": "https://api.kystverket.no/openapi.json",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:24+00:00"
   },
   "kystverket-referanseruter": {
    "format": "openapi 3.0.4",
@@ -1368,7 +1375,7 @@
     "Status"
    ],
    "source_url": "https://kystverket.avadaptive.no/api/kyv/routeinfo/swagger/v1/swagger.json",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:25+00:00"
   },
   "link-mobility-mylink-email-api": {
    "format": "openapi 3.1.0",
@@ -1383,7 +1390,7 @@
     "Send Messages"
    ],
    "source_url": "https://docs.linkmobility.com/api/specs/file/MyLINK-Email-API-1.json",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:30+00:00"
   },
   "link-mobility-mylink-sms-api": {
    "format": "openapi 3.0.1",
@@ -1398,7 +1405,7 @@
     "SmsScheduling"
    ],
    "source_url": "https://docs.linkmobility.com/api/specs/file/MyLINK-SMS-API-1.json",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:24+00:00"
   },
   "hjorteviltregisteret-fallvilt": {
    "format": "openapi 3.0.1",
@@ -1410,7 +1417,7 @@
     "Fallvilt Innsyn"
    ],
    "source_url": "https://www.hjorteviltregisteret.no/swagger/FallviltAPI/swagger.json",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:26+00:00"
   },
   "hjorteviltregisteret-jaktdata": {
    "format": "openapi 3.0.1",
@@ -1429,7 +1436,7 @@
     "Opplysninger jeger"
    ],
    "source_url": "https://www.hjorteviltregisteret.no/swagger/JaktdataAPIv1/swagger.json",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:26+00:00"
   },
   "lovdata-public-data": {
    "format": "openapi 3.1.0",
@@ -1449,12 +1456,12 @@
     "Vocabularies"
    ],
    "source_url": "https://api.lovdata.no/swagger/api.json",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:26+00:00"
   },
   "mattilsynet-akvakultur-offentlig-api": {
    "format": "openapi 3.1.0",
    "title": "akvakultur-offentlig-api: API Dokumentasjon",
-   "version": "ea1be5e",
+   "version": "24f77ca",
    "servers": [],
    "operations": 26,
    "tags": [
@@ -1465,7 +1472,7 @@
     "Sykdomstilfeller"
    ],
    "source_url": "https://akvakultur-offentlig-api.fisk.mattilsynet.io/q/openapi",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:28+00:00"
   },
   "mattilsynet-kjottkontroll-kodeverk": {
    "format": "openapi 3.1.0",
@@ -1481,7 +1488,7 @@
     "index-controller"
    ],
    "source_url": "https://kodeverk.kjottkontroll.mattilsynet.io/v3/api-docs",
-   "fetched_at": "2026-11-17T13:09:55+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "mattilsynet-plantevernmidler": {
    "format": "openapi 3.0.0",
@@ -1491,7 +1498,7 @@
    "operations": 16,
    "tags": [],
    "source_url": "https://api.plantevernmidler.mattilsynet.io/json",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:26+00:00"
   },
   "met-nbs-stac-test": {
    "format": "openapi 3.0.2",
@@ -1508,7 +1515,7 @@
     "metadata"
    ],
    "source_url": "https://test-nbs.csw.met.no/openapi?f=json",
-   "fetched_at": "2026-11-17T13:09:51+00:00"
+   "fetched_at": "2026-11-23T14:39:27+00:00"
   },
   "ndla-taxonomy": {
    "format": "openapi 3.1.0",
@@ -1544,7 +1551,7 @@
     "versions"
    ],
    "source_url": "https://api.ndla.no/taxonomy/api-docs",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:27+00:00"
   },
   "ndla-frontpage-api": {
    "format": "openapi 3.1.0",
@@ -1558,7 +1565,7 @@
     "subjectpage"
    ],
    "source_url": "https://api.ndla.no/frontpage-api/api-docs",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:27+00:00"
   },
   "ndla-draft-api": {
    "format": "openapi 3.1.0",
@@ -1572,7 +1579,7 @@
     "user-data"
    ],
    "source_url": "https://api.ndla.no/draft-api/api-docs",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:27+00:00"
   },
   "ndla-learningpath-api": {
    "format": "openapi 3.1.0",
@@ -1585,7 +1592,7 @@
     "stats"
    ],
    "source_url": "https://api.ndla.no/learningpath-api/api-docs",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:27+00:00"
   },
   "nb-dhlab": {
    "format": "swagger 2.0",
@@ -1597,7 +1604,7 @@
    "operations": 21,
    "tags": [],
    "source_url": "https://api.nb.no/dhlab/apispec_1.json",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:28+00:00"
   },
   "nb-dps-submission": {
    "format": "openapi 3.1.0",
@@ -1614,7 +1621,7 @@
     "Submissions"
    ],
    "source_url": "https://api.nb.no/dps-submission/v1/api-docs",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:28+00:00"
   },
   "nb-iiif-content-search": {
    "format": "openapi 3.1.0",
@@ -1628,7 +1635,7 @@
     "contentsearch"
    ],
    "source_url": "https://api.nb.no/catalog/v1/contentsearch/api-docs",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:28+00:00"
   },
   "nb-iiif-presentation": {
    "format": "openapi 3.1.0",
@@ -1642,7 +1649,7 @@
     "presentation"
    ],
    "source_url": "https://api.nb.no/catalog/v1/iiif/api-docs",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:28+00:00"
   },
   "nb-metadata": {
    "format": "openapi 3.1.0",
@@ -1656,7 +1663,7 @@
     "metadata"
    ],
    "source_url": "https://api.nb.no/catalog/v1/metadata/api-docs",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nb-nbvok": {
    "format": "swagger 2.0",
@@ -1670,12 +1677,12 @@
     "Vocabulary-specific methods"
    ],
    "source_url": "https://api.nb.no/nbvok/rest/v1/swagger.json",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nasjonalmuseet-api": {
    "format": "openapi 3.1.0",
    "title": "National Museum Public API",
-   "version": "3.19.0",
+   "version": "3.20.0",
    "servers": [],
    "operations": 20,
    "tags": [
@@ -1687,7 +1694,7 @@
     "System"
    ],
    "source_url": "https://api.nasjonalmuseet.no/api/openapi.json",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nav-pensjon-afp-beholdningsgrunnlag": {
    "format": "openapi 3.0.1",
@@ -1700,7 +1707,7 @@
    "operations": 2,
    "tags": [],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/afpgrunnlagbeholdning/afp-grunnlag-beholdning-api.yaml",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nav-dagpenger-datadeling": {
    "format": "openapi 3.0.0",
@@ -1721,7 +1728,7 @@
     "Rettighetsperioder"
    ],
    "source_url": "https://navikt.github.io/dp-datadeling/datadeling-api.yaml",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nav-oppfolgingsplan-lps": {
    "format": "openapi 3.0.3",
@@ -1736,7 +1743,7 @@
     "Followup-plan API"
    ],
    "source_url": "https://lps-oppfolgingsplan-mottak.nav.no/swagger/documentation.yaml",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nav-kontantstotte-barnehagelister": {
    "format": "openapi 3.1.0",
@@ -1751,7 +1758,7 @@
     "task-controller-spring-security"
    ],
    "source_url": "https://familie-ks-barnehagelister.nav.no/v3/api-docs",
-   "fetched_at": "2026-11-17T13:09:55+00:00"
+   "fetched_at": "2026-11-23T14:39:31+00:00"
   },
   "nav-pensjon-afp-etterfulgt-av-alderspensjon": {
    "format": "openapi 3.0.1",
@@ -1766,7 +1773,7 @@
     "afp-etterfulgt-av-alderspensjon-controller"
    ],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/alderspensjon/simuler-afp-etterfulgt-av-alder/apidocAfpOgAlder.yaml",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nav-pensjon-afp-privat": {
    "format": "openapi 3.0.1",
@@ -1779,7 +1786,7 @@
    "operations": 2,
    "tags": [],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/afpprivat/apidocAfpPrivat.yaml",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nav-pensjon-alderspensjon-status": {
    "format": "openapi 3.0.1",
@@ -1792,7 +1799,7 @@
    "operations": 1,
    "tags": [],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/alderspensjon/status/apidocAlderspensjonStatus.yaml",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nav-pensjon-folketrygdbeholdning": {
    "format": "openapi 3.0.1",
@@ -1807,7 +1814,7 @@
     "Folketrygdbeholdning"
    ],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/alderspensjon/folketrygdbeholdning/apidocFolketrygdbeholdning.yaml",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nav-pensjon-folketrygdberegnet-afp": {
    "format": "openapi 3.0.1",
@@ -1820,7 +1827,7 @@
    "operations": 1,
    "tags": [],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/afpoffentlig/apidocForetaFolketrygdberegnetAfp.yaml",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nav-pensjon-yrkesskade": {
    "format": "openapi 3.0.1",
@@ -1833,7 +1840,7 @@
    "operations": 1,
    "tags": [],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/yrkesskade/yrkesskade.yaml",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nav-pensjon-gjenlevendepensjon": {
    "format": "openapi 3.0.1",
@@ -1846,7 +1853,7 @@
    "operations": 1,
    "tags": [],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/gjenlevendepensjon/gjenlevendepensjon.yaml",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nav-pensjon-har-afp-offentlig": {
    "format": "openapi 3.0.1",
@@ -1861,7 +1868,7 @@
    "operations": 1,
    "tags": [],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/afpprivat/harAFPoffentlig.yaml",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nav-pensjon-krigspensjon": {
    "format": "openapi 3.0.1",
@@ -1874,7 +1881,7 @@
    "operations": 1,
    "tags": [],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/krigspensjon/krigspensjon.yaml",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nav-pensjon-refusjonskrav": {
    "format": "openapi 3.0.1",
@@ -1887,7 +1894,7 @@
    "operations": 2,
    "tags": [],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/refusjonskrav/refusjonskrav.yaml",
-   "fetched_at": "2026-11-17T13:09:52+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nav-pensjon-samordning-hendelser": {
    "format": "openapi 3.0.1",
@@ -1900,7 +1907,7 @@
    "operations": 5,
    "tags": [],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/samordning/hendelser-api.yaml",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:29+00:00"
   },
   "nav-pensjon-uforeopplysninger": {
    "format": "openapi 3.0.1",
@@ -1915,7 +1922,7 @@
     "Uforeopplysninger"
    ],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/uforeopplysninger/apidocUforeopplysninger.yaml",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:30+00:00"
   },
   "nav-pensjon-vedtaksinformasjon": {
    "format": "openapi 3.0.1",
@@ -1930,7 +1937,7 @@
     "Vedtaksinformasjon"
    ],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/alderspensjon/vedtaksinformasjon/apidocHentVedtaksinformasjon.yaml",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:30+00:00"
   },
   "nav-pensjon-ytelsehistorikk": {
    "format": "openapi 3.0.1",
@@ -1945,7 +1952,7 @@
     "Ytelsehistorikk"
    ],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/ytelsehistorikk/apidocYtelsehistorikk.yaml",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:30+00:00"
   },
   "nav-pensjon-pensjonssimulator": {
    "format": "openapi 3.1.0",
@@ -1966,7 +1973,7 @@
     "Uttak"
    ],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/alderspensjon/simulering2025/apidocSimulering2025.yaml",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:30+00:00"
   },
   "nav-sykepenger-api": {
    "format": "openapi 3.1.1",
@@ -1982,7 +1989,7 @@
     "Sykmelding"
    ],
    "source_url": "https://sykepenger-api.nav.no/swagger/documentation.yaml",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:31+00:00"
   },
   "nav-pensjon-tp-registeret": {
    "format": "openapi 3.0.1",
@@ -2000,7 +2007,7 @@
     "Ytelse"
    ],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/tjenestepensjon/tpregisteret-api.yaml",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:30+00:00"
   },
   "nav-pensjon-uforetrygd-vedtaksinformasjon": {
    "format": "openapi 3.0.1",
@@ -2013,7 +2020,7 @@
    "operations": 2,
    "tags": [],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/uforetrygd-vedtaksinformasjon/uforetrygd-vedtaksinformasjon.yaml",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:30+00:00"
   },
   "nav-pensjon-uforetrygd-lanekassen": {
    "format": "openapi 3.1.0",
@@ -2026,7 +2033,7 @@
    "operations": 2,
    "tags": [],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/uforetrygd-lanekassen/uforetrygd-lanekassen-api.yaml",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:30+00:00"
   },
   "nav-pensjon-uforetrygd-tp-ordninger": {
    "format": "openapi 3.0.1",
@@ -2039,7 +2046,7 @@
    "operations": 4,
    "tags": [],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/uforetrygd/uforetrygd-api.yaml",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:30+00:00"
   },
   "nav-pensjon-er-ung-ufor": {
    "format": "openapi 3.0.3",
@@ -2052,7 +2059,7 @@
    "operations": 2,
    "tags": [],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/ufore/erungufor/erungufor-api.yaml",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:30+00:00"
   },
   "nav-pensjon-uforetrygd-saralderspaslag": {
    "format": "openapi 3.0.1",
@@ -2065,7 +2072,7 @@
    "operations": 1,
    "tags": [],
    "source_url": "https://navikt.github.io/pensjon-ekstern-api/api/uforetrygd-saralderspaslag/uforetrygd-saralderspaslag-api.yaml",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:30+00:00"
   },
   "nordic-semiconductor-nrf-cloud-rest-api": {
    "format": "openapi 3.0.0",
@@ -2096,7 +2103,7 @@
     "Wi-Fi Location"
    ],
    "source_url": "https://api-docs.nrfcloud.com/openapi.json",
-   "fetched_at": "2026-11-17T13:09:54+00:00"
+   "fetched_at": "2026-11-23T14:39:30+00:00"
   },
   "nve-regobs": {
    "format": "swagger 2.0",
@@ -2117,7 +2124,7 @@
     "Trip"
    ],
    "source_url": "https://api.regobs.no/v5/swagger/docs/v5",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:31+00:00"
   },
   "nhn-dodsmelding-api": {
    "format": "openapi 3.0.4",
@@ -2133,7 +2140,7 @@
     "Tilleggsmeldinger"
    ],
    "source_url": "https://api.dodsmelding.test.nhn.no/swagger/v2/swagger.json",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:31+00:00"
   },
   "politiet-politiloggen": {
    "format": "openapi 3.0.4",
@@ -2148,7 +2155,7 @@
     "MessageThread"
    ],
    "source_url": "https://api.politiloggen.politiet.no/swagger/v1/swagger.json",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:31+00:00"
   },
   "bring-address": {
    "format": "openapi 3.1.0",
@@ -2166,7 +2173,7 @@
     "Validate address"
    ],
    "source_url": "https://api.bring.com/address/api-docs/address",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:31+00:00"
   },
   "bring-booking": {
    "format": "openapi 3.1.0",
@@ -2181,7 +2188,7 @@
     "error-messages-resource"
    ],
    "source_url": "https://api.bring.com/booking/api-docs",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:32+00:00"
   },
   "bring-customs": {
    "format": "openapi 3.0.1",
@@ -2193,7 +2200,7 @@
    "operations": 1,
    "tags": [],
    "source_url": "https://api.bring.com/customs/v1/openapi",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:31+00:00"
   },
   "bring-event-cast": {
    "format": "openapi 3.1.0",
@@ -2210,7 +2217,7 @@
     "webhook-verification-controller"
    ],
    "source_url": "https://api.bring.com/event-cast/api-docs",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:32+00:00"
   },
   "bring-invoice": {
    "format": "openapi 3.1.0",
@@ -2226,7 +2233,7 @@
     "internal-fetch-invoice-controller"
    ],
    "source_url": "https://www.mybring.com/invoicearchive/api-docs",
-   "fetched_at": "2026-11-17T13:09:54+00:00"
+   "fetched_at": "2026-11-23T14:39:32+00:00"
   },
   "bring-order-management": {
    "format": "openapi 3.1.0",
@@ -2241,7 +2248,7 @@
     "packaging-list-resource"
    ],
    "source_url": "https://www.mybring.com/po/v2/api-docs",
-   "fetched_at": "2026-11-17T13:09:55+00:00"
+   "fetched_at": "2026-11-23T14:39:34+00:00"
   },
   "bring-pickup": {
    "format": "openapi 3.1.0",
@@ -2257,7 +2264,7 @@
     "pickup-order-api-resource"
    ],
    "source_url": "https://api.bring.com/pickup/api-docs",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:32+00:00"
   },
   "bring-pickup-point": {
    "format": "openapi 3.1.0",
@@ -2271,7 +2278,7 @@
     "Pickup point"
    ],
    "source_url": "https://api.bring.com/pickuppoint/openapi",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:32+00:00"
   },
   "bring-postal-code": {
    "format": "openapi 3.1.0",
@@ -2285,7 +2292,7 @@
     "Postal code"
    ],
    "source_url": "https://api.bring.com/address/api-docs/postalcode",
-   "fetched_at": "2026-11-17T13:09:53+00:00"
+   "fetched_at": "2026-11-23T14:39:32+00:00"
   },
   "bring-reports": {
    "format": "openapi 3.1.0",
@@ -2299,7 +2306,7 @@
     "API"
    ],
    "source_url": "https://www.mybring.com/reports/api-docs",
-   "fetched_at": "2026-11-17T13:09:54+00:00"
+   "fetched_at": "2026-11-23T14:39:32+00:00"
   },
   "bring-shipping-guide": {
    "format": "openapi 3.1.0",
@@ -2313,7 +2320,7 @@
     "ShippingGuide"
    ],
    "source_url": "https://api.bring.com/shippingguide/api-docs",
-   "fetched_at": "2026-11-17T13:09:54+00:00"
+   "fetched_at": "2026-11-23T14:39:32+00:00"
   },
   "bring-tracking": {
    "format": "openapi 3.1.0",
@@ -2327,7 +2334,7 @@
     "Open/Mybring tracking API"
    ],
    "source_url": "https://api.bring.com/tracking/api-docs",
-   "fetched_at": "2026-11-17T13:09:54+00:00"
+   "fetched_at": "2026-11-23T14:39:32+00:00"
   },
   "webapi-no": {
    "format": "openapi 3.2.0",
@@ -2363,7 +2370,7 @@
     "ZipCode"
    ],
    "source_url": "https://webapi.no/openapi/v1.json",
-   "fetched_at": "2026-11-17T13:09:54+00:00"
+   "fetched_at": "2026-11-23T14:39:32+00:00"
   },
   "sikt-nva-publiseringskanaler": {
    "format": "openapi 3.0.0",
@@ -2381,7 +2388,7 @@
     "NVA verified funding sources API"
    ],
    "source_url": "https://swagger-ui.nva.unit.no/docs/openapi.yaml",
-   "fetched_at": "2026-11-17T13:09:55+00:00"
+   "fetched_at": "2026-11-23T14:39:35+00:00"
   },
   "sikt-nva-cristin-register": {
    "format": "openapi 3.0.0",
@@ -2399,7 +2406,7 @@
     "NVA verified funding sources API"
    ],
    "source_url": "https://swagger-ui.nva.unit.no/docs/openapi.yaml",
-   "fetched_at": "2026-11-17T13:09:54+00:00"
+   "fetched_at": "2026-11-23T14:39:34+00:00"
   },
   "sikt-nva": {
    "format": "openapi 3.0.0",
@@ -2417,7 +2424,7 @@
     "NVA verified funding sources API"
    ],
    "source_url": "https://swagger-ui.nva.unit.no/docs/openapi.yaml",
-   "fetched_at": "2026-11-17T13:09:55+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-avstemmingsrapport-amelding": {
    "format": "openapi 3.0.3",
@@ -2432,7 +2439,7 @@
     "avstemmingsrapport"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/avstemmingsrapport-amelding-api/1.0.1",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:35+00:00"
   },
   "skatteetaten-utleggsbegjaering-elan": {
    "format": "openapi 3.1.0",
@@ -2446,7 +2453,7 @@
     "Mottak"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/utleggsbegjaering-api/2.1.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:35+00:00"
   },
   "skatteetaten-innkrevingsoppdrag": {
    "format": "openapi 3.1.0",
@@ -2465,7 +2472,7 @@
     "Valideringsfeil"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/oppdragsinnkreving-api/1.0.6",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:35+00:00"
   },
   "skatteetaten-innrapportering-amelding": {
    "format": "openapi 3.0.3",
@@ -2480,7 +2487,7 @@
     "amelding"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-amelding-api/0.1.2",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:35+00:00"
   },
   "skatteetaten-innrapportering-amelding-filopplasting": {
    "format": "openapi 3.0.3",
@@ -2495,7 +2502,7 @@
     "filopplasting"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-amelding-filopplasting-api/1.0.1",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:35+00:00"
   },
   "skatteetaten-innrapportering-bsu": {
    "format": "openapi 3.0.3",
@@ -2510,7 +2517,7 @@
     "bsu"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-bsu-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:35+00:00"
   },
   "skatteetaten-innrapportering-tpo-filmottak": {
    "format": "openapi 3.0.3",
@@ -2525,7 +2532,7 @@
     "filmottak"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-tpo-filmottak-api/1.1.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:35+00:00"
   },
   "skatteetaten-innrapportering-verdipapirfond": {
    "format": "openapi 3.0.3",
@@ -2540,7 +2547,7 @@
     "verdipapirfond"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-verdipapirfond-api/1.0.1",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:35+00:00"
   },
   "skatteetaten-innrapportering-aksjesparekonto": {
    "format": "openapi 3.0.3",
@@ -2555,7 +2562,7 @@
     "aksjesparekonto"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-aksjesparekonto-api/1.1.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-aksjonaerregisteroppgave": {
    "format": "openapi 3.0.3",
@@ -2570,7 +2577,7 @@
     "aksjonaerregister"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-aksjonaerregister-api/1.3.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-godtgjoerelse-aandsverk": {
    "format": "openapi 3.0.3",
@@ -2585,7 +2592,7 @@
     "Aandsverk"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-aandsverk-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-betalinger-naeringsdrivende": {
    "format": "openapi 3.0.3",
@@ -2600,7 +2607,7 @@
     "betalingerNaeringsdrivende"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-betalinger-naeringsdrivende-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-boligsameie": {
    "format": "openapi 3.0.3",
@@ -2615,7 +2622,7 @@
     "boligsameie"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/boligsameie-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-boligselskap": {
    "format": "openapi 3.0.3",
@@ -2630,7 +2637,7 @@
     "boligselskap"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/boligselskap-api/1.0.1",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-drosjetjenester": {
    "format": "openapi 3.0.3",
@@ -2645,7 +2652,7 @@
     "drosjetjenester"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-drosjetjenester-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-primaernaering-egg": {
    "format": "openapi 3.0.3",
@@ -2660,7 +2667,7 @@
     "egg"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-egg-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-fagforeningskontingent": {
    "format": "openapi 3.0.3",
@@ -2675,7 +2682,7 @@
     "fagforeningskontingent"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-fagforeningskontingent-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-finansprodukter": {
    "format": "openapi 3.0.3",
@@ -2690,7 +2697,7 @@
     "finansprodukter"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-finansprodukter-api/1.0.1",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-primaernaering-fisk": {
    "format": "openapi 3.0.3",
@@ -2705,7 +2712,7 @@
     "fisk"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-fisk-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-fondskonto": {
    "format": "openapi 3.0.3",
@@ -2720,7 +2727,7 @@
     "fondskonto"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-fondskonto-api/1.0.2",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-primaernaering-jordbruk": {
    "format": "openapi 3.0.3",
@@ -2735,7 +2742,7 @@
     "jordbruk"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-jordbruk-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-gaver-frivillige-organisasjoner": {
    "format": "openapi 3.0.3",
@@ -2750,7 +2757,7 @@
     "gaverTilFrivillige"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-gavertilfrivillige-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-individuelle-pensjonsordninger": {
    "format": "openapi 3.0.3",
@@ -2765,7 +2772,7 @@
     "individuellepensjonsordninger"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-individuelle-pensjonsordninger-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-innskudd-utlaan-renter": {
    "format": "openapi 3.0.3",
@@ -2780,7 +2787,7 @@
     "innskuddUtlaanRenter"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-innskuddutlaanrenter-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-internasjonal-rapportering": {
    "format": "openapi 3.0.3",
@@ -2795,7 +2802,7 @@
     "internasjonalRapportering"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-internasjonalrapportering-api/2.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-primaernaering-korn": {
    "format": "openapi 3.0.3",
@@ -2810,7 +2817,7 @@
     "korn"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-korn-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-livsforsikring": {
    "format": "openapi 3.0.3",
@@ -2825,7 +2832,7 @@
     "livsforsikring"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-livsforsikring-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-primaernaering-melk": {
    "format": "openapi 3.0.3",
@@ -2840,7 +2847,7 @@
     "melk"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-melk-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-oppdrag-utenlandske-oppdragstakere": {
    "format": "openapi 3.0.3",
@@ -2855,7 +2862,7 @@
     "Oppdragsregister"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-oppdrag-til-utenlandske-oppdragstakere-api/0.0.1",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-overskuddsstroem": {
    "format": "openapi 3.0.3",
@@ -2870,7 +2877,7 @@
     "overskuddsstroem"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-overskuddsstroem-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-pass-og-stell": {
    "format": "openapi 3.0.3",
@@ -2885,7 +2892,7 @@
     "passOgStell"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-passogstell-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-skadeforsikring": {
    "format": "openapi 3.0.3",
@@ -2900,7 +2907,7 @@
     "skadeforsikring"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-skadeforsikring-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-skattefrie-utbetalinger": {
    "format": "openapi 3.0.3",
@@ -2915,7 +2922,7 @@
     "skattefrieutbetalinger"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-skattefrie-utbetalinger-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-skattepliktig-kundeutbytte": {
    "format": "openapi 3.0.3",
@@ -2930,7 +2937,7 @@
     "skattepliktigkundeutbytte"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-skattepliktig-kundeutbytte-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-primaernaering-slakt": {
    "format": "openapi 3.0.3",
@@ -2945,7 +2952,7 @@
     "slakt"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-slakt-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-tilskudd-forskning-yrkesopplaering": {
    "format": "openapi 3.0.3",
@@ -2960,7 +2967,7 @@
     "tilskudd"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-tilskudd-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-primaernaering-tilskudd": {
    "format": "openapi 3.0.3",
@@ -2975,7 +2982,7 @@
     "tilskuddprim"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-tilskudd-erstatning-mv-primaer-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-primaernaering-toemmer": {
    "format": "openapi 3.0.3",
@@ -2990,7 +2997,7 @@
     "toemmer"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-toemmer-api/1.0.0",
-   "fetched_at": "2026-11-17T13:15:49+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-innrapportering-verdipapirfondshistorikk": {
    "format": "openapi 3.0.3",
@@ -3005,7 +3012,7 @@
     "verdipapirfondshistorikk"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/innrapportering-verdipapirfondshistorikk-api/1.0.1",
-   "fetched_at": "2026-11-17T13:15:50+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-siste-tilgjengelige-skatteoppgjoer": {
    "format": "openapi 3.0.3",
@@ -3020,7 +3027,7 @@
     "SisteTilgjengeligeSkatteoppgjoer"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/siste-tilgjengelige-skatteoppgjoer/1.1.1",
-   "fetched_at": "2026-11-17T13:15:50+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-skattekort-til-arbeidsgiver": {
    "format": "openapi 3.1.0",
@@ -3036,7 +3043,7 @@
     "Skattekort til arbeidsgiver"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/skattekort-til-arbeidsgiver/3.0.1",
-   "fetched_at": "2026-11-17T13:15:50+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-trekkpaalegg": {
    "format": "openapi 3.0.1",
@@ -3051,7 +3058,7 @@
     "Trekkpålegg"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/trekkpaalegg-app/1.5.2",
-   "fetched_at": "2026-11-17T13:15:50+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-utlegg-dataprodukter": {
    "format": "openapi 3.1.0",
@@ -3065,7 +3072,7 @@
     "dataprodukt-ekstern-api"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/dataprodukt-saksgang-siro-api/1.0.11",
-   "fetched_at": "2026-11-17T13:15:50+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "skatteetaten-utleggstrekk-fra-kommune": {
    "format": "openapi 3.1.0",
@@ -3079,7 +3086,7 @@
     "Kommune"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/utleggsbegjaering-kommune-api/2.0.1",
-   "fetched_at": "2026-11-17T13:15:50+00:00"
+   "fetched_at": "2026-11-23T14:39:36+00:00"
   },
   "smartdok-api": {
    "format": "openapi 3.0.4",
@@ -3130,7 +3137,7 @@
     "Wages"
    ],
    "source_url": "https://api.smartdok.no/docs/v1",
-   "fetched_at": "2026-11-17T13:09:55+00:00"
+   "fetched_at": "2026-11-23T14:39:38+00:00"
   },
   "vegvesen-ferjer": {
    "format": "openapi 3.0.1",
@@ -3146,7 +3153,7 @@
     "Ferry quays API (v1)"
    ],
    "source_url": "https://ferry.atlas.vegvesen.no/v3/api-docs",
-   "fetched_at": "2026-11-17T13:09:55+00:00"
+   "fetched_at": "2026-11-23T14:39:38+00:00"
   },
   "vegvesen-parkeringsregisteret": {
    "format": "openapi 3.0.3",
@@ -3161,7 +3168,7 @@
     "parkeringstilbyder"
    ],
    "source_url": "https://parkreg-open.atlas.vegvesen.no/ws/docs/openapi",
-   "fetched_at": "2026-11-17T13:09:55+00:00"
+   "fetched_at": "2026-11-23T14:39:37+00:00"
   },
   "vegvesen-rasteplasser-og-hoydebegrensninger": {
    "format": "openapi 3.0.1",
@@ -3177,7 +3184,7 @@
     "NVDB rest areas API (v1)"
    ],
    "source_url": "https://ft-nvdb-objects.atlas.vegvesen.no/v3/api-docs",
-   "fetched_at": "2026-11-17T13:09:55+00:00"
+   "fetched_at": "2026-11-23T14:39:38+00:00"
   },
   "vegvesen-sok": {
    "format": "openapi 3.0.1",
@@ -3191,7 +3198,7 @@
     "Search service endpoint (v1)"
    ],
    "source_url": "https://search.atlas.vegvesen.no/v3/api-docs",
-   "fetched_at": "2026-11-17T13:09:55+00:00"
+   "fetched_at": "2026-11-23T14:39:38+00:00"
   },
   "vegvesen-trafikkmeldinger": {
    "format": "openapi 3.0.1",
@@ -3206,7 +3213,7 @@
     "Traffic Messages endpoint (v2)"
    ],
    "source_url": "https://traffic-info.atlas.vegvesen.no/v3/api-docs",
-   "fetched_at": "2026-11-17T13:09:55+00:00"
+   "fetched_at": "2026-11-23T14:39:38+00:00"
   },
   "vegvesen-vegvaer-og-kamera": {
    "format": "openapi 3.0.1",
@@ -3222,16 +3229,16 @@
     "Weather information (v1)"
    ],
    "source_url": "https://road-weather-and-view.atlas.vegvesen.no/v3/api-docs",
-   "fetched_at": "2026-11-17T13:09:55+00:00"
+   "fetched_at": "2026-11-23T14:39:38+00:00"
   },
   "tidal-api": {
    "format": "openapi 3.0.1",
    "title": "TIDAL API",
-   "version": "1.10.254",
+   "version": "1.10.259",
    "servers": [
     "https://openapi.tidal.com/v2"
    ],
-   "operations": 465,
+   "operations": 468,
    "tags": [
     "acceptedTerms",
     "albumStatistics",
@@ -3275,7 +3282,7 @@
     "providerProductInfos"
    ],
    "source_url": "https://tidal-music.github.io/tidal-api-reference/tidal-api-oas.json",
-   "fetched_at": "2026-11-17T13:09:55+00:00"
+   "fetched_at": "2026-11-23T14:39:38+00:00"
   },
   "tripletex-api": {
    "format": "openapi 3.0.1",
@@ -3284,7 +3291,7 @@
    "servers": [
     "https://tripletex.no/v2"
    ],
-   "operations": 818,
+   "operations": 819,
    "tags": [
     ".well-known",
     "accountantDashboard/news",
@@ -3328,7 +3335,7 @@
     "employee/employment/leaveOfAbsenceType"
    ],
    "source_url": "https://tripletex.no/v2/openapi.json",
-   "fetched_at": "2026-11-17T13:09:57+00:00"
+   "fetched_at": "2026-11-23T14:39:40+00:00"
   },
   "two-b2b-payments-api": {
    "format": "openapi 3.1.0",
@@ -3347,7 +3354,7 @@
     "Settlement report"
    ],
    "source_url": "https://docs.two.inc/openapi/checkout-api.yaml",
-   "fetched_at": "2026-11-17T13:09:56+00:00"
+   "fetched_at": "2026-11-23T14:39:40+00:00"
   },
   "uib-samla-goobi-viewer-api": {
    "format": "openapi 3.0.1",
@@ -3363,7 +3370,7 @@
     "records"
    ],
    "source_url": "https://samla.no/viewer/api/v2/openapi.json",
-   "fetched_at": "2026-11-17T13:09:55+00:00"
+   "fetched_at": "2026-11-23T14:39:39+00:00"
   },
   "uib-ub-chc-api": {
    "format": "openapi 3.1.0",
@@ -3380,7 +3387,7 @@
     "Set"
    ],
    "source_url": "https://api.ub.uib.no/openapi",
-   "fetched_at": "2026-11-17T13:09:55+00:00"
+   "fetched_at": "2026-11-23T14:39:40+00:00"
   },
   "uio-ub-skosmos": {
    "format": "swagger 2.0",
@@ -3394,7 +3401,7 @@
     "Vocabulary-specific methods"
    ],
    "source_url": "https://data.ub.uio.no/skosmos/rest/v1/swagger.json",
-   "fetched_at": "2026-11-17T13:09:56+00:00"
+   "fetched_at": "2026-11-23T14:39:40+00:00"
   },
   "udir-barnehagefakta": {
    "format": "swagger 2.0",
@@ -3411,7 +3418,7 @@
     "Location"
    ],
    "source_url": "https://www.barnehagefakta.no/swagger/docs/v1",
-   "fetched_at": "2026-11-17T13:09:56+00:00"
+   "fetched_at": "2026-11-23T14:39:39+00:00"
   },
   "vipps-mobilepay-access-token": {
    "format": "openapi 3.0.0",
@@ -3427,7 +3434,7 @@
     "Token endpoint"
    ],
    "source_url": "https://developer.vippsmobilepay.com/redocusaurus/access-token-swagger-id.yaml",
-   "fetched_at": "2026-11-17T13:09:56+00:00"
+   "fetched_at": "2026-11-23T14:39:40+00:00"
   },
   "vipps-mobilepay-checkout": {
    "format": "openapi 3.0.1",
@@ -3442,7 +3449,7 @@
     "Session"
    ],
    "source_url": "https://developer.vippsmobilepay.com/redocusaurus/checkout-swagger-id.yaml",
-   "fetched_at": "2026-11-17T13:09:57+00:00"
+   "fetched_at": "2026-11-23T14:39:41+00:00"
   },
   "vipps-mobilepay-login": {
    "format": "openapi 3.0.0",
@@ -3455,7 +3462,7 @@
    "operations": 8,
    "tags": [],
    "source_url": "https://developer.vippsmobilepay.com/redocusaurus/login-swagger-id.yaml",
-   "fetched_at": "2026-11-17T13:09:56+00:00"
+   "fetched_at": "2026-11-23T14:39:40+00:00"
   },
   "vipps-mobilepay-management": {
    "format": "openapi 3.0.0",
@@ -3472,7 +3479,7 @@
     "Sales units"
    ],
    "source_url": "https://developer.vippsmobilepay.com/redocusaurus/management-swagger-id.yaml",
-   "fetched_at": "2026-11-17T13:09:57+00:00"
+   "fetched_at": "2026-11-23T14:39:41+00:00"
   },
   "vipps-mobilepay-qr": {
    "format": "openapi 3.0.0",
@@ -3492,7 +3499,7 @@
     "QR Exchange"
    ],
    "source_url": "https://developer.vippsmobilepay.com/redocusaurus/qr-swagger-id.yaml",
-   "fetched_at": "2026-11-17T13:09:56+00:00"
+   "fetched_at": "2026-11-23T14:39:41+00:00"
   },
   "vipps-mobilepay-recurring": {
    "format": "openapi 3.0.0",
@@ -3509,7 +3516,7 @@
     "Charge v4 endpoints"
    ],
    "source_url": "https://developer.vippsmobilepay.com/redocusaurus/recurring-swagger-id.yaml",
-   "fetched_at": "2026-11-17T13:09:57+00:00"
+   "fetched_at": "2026-11-23T14:39:42+00:00"
   },
   "vipps-mobilepay-report": {
    "format": "openapi 3.0.2",
@@ -3524,7 +3531,7 @@
     "/settlement/v1"
    ],
    "source_url": "https://developer.vippsmobilepay.com/redocusaurus/report-swagger-id.yaml",
-   "fetched_at": "2026-11-17T13:09:57+00:00"
+   "fetched_at": "2026-11-23T14:39:41+00:00"
   },
   "vipps-mobilepay-userinfo": {
    "format": "openapi 3.0.0",
@@ -3537,7 +3544,7 @@
    "operations": 1,
    "tags": [],
    "source_url": "https://developer.vippsmobilepay.com/redocusaurus/userinfo-swagger-id.yaml",
-   "fetched_at": "2026-11-17T13:09:57+00:00"
+   "fetched_at": "2026-11-23T14:39:41+00:00"
   },
   "vipps-mobilepay-webhooks": {
    "format": "openapi 3.0.1",
@@ -3552,7 +3559,7 @@
     "v1"
    ],
    "source_url": "https://developer.vippsmobilepay.com/redocusaurus/webhooks-swagger-id.yaml",
-   "fetched_at": "2026-11-17T13:09:57+00:00"
+   "fetched_at": "2026-11-23T14:39:41+00:00"
   },
   "vipps-mobilepay-epayment": {
    "format": "openapi 3.0.0",
@@ -3571,7 +3578,7 @@
     "QueryPayments"
    ],
    "source_url": "https://developer.vippsmobilepay.com/redocusaurus/epayment-swagger-id.yaml",
-   "fetched_at": "2026-11-17T13:09:57+00:00"
+   "fetched_at": "2026-11-23T14:39:42+00:00"
   },
   "visma-net-journal-transactions-api": {
    "format": "openapi 3.0.4",
@@ -3584,7 +3591,7 @@
     "Vouchers"
    ],
    "source_url": "https://journaltx.visma.net/swagger/v1/swagger.json",
-   "fetched_at": "2026-11-17T13:10:00+00:00"
+   "fetched_at": "2026-11-23T14:39:45+00:00"
   },
   "visma-severa-rest-api": {
    "format": "openapi 3.0.0",
@@ -3633,7 +3640,7 @@
     "UsersWrite"
    ],
    "source_url": "https://api.severa.visma.com/rest-api/openapidocs/v1.0/doc.json",
-   "fetched_at": "2026-11-17T13:09:57+00:00"
+   "fetched_at": "2026-11-23T14:39:42+00:00"
   },
   "brreg-enhetsregisteret": {
    "format": "openapi 3.0.0",
@@ -3645,7 +3652,7 @@
    "operations": 11,
    "tags": [],
    "source_url": "https://raw.githubusercontent.com/brreg/openAPI/master/specs/enhetsregisteret.json",
-   "fetched_at": "2026-11-17T13:09:57+00:00"
+   "fetched_at": "2026-11-23T14:39:43+00:00"
   },
   "brreg-regnskapsregisteret": {
    "format": "openapi 3.1.0",
@@ -3662,7 +3669,7 @@
     "statistikk"
    ],
    "source_url": "https://data.brreg.no/regnskapsregisteret/regnskap/v3/api-docs",
-   "fetched_at": "2026-11-17T13:09:57+00:00"
+   "fetched_at": "2026-11-23T14:39:43+00:00"
   },
   "digitaliseringsdirektoratet-data-altinn-no": {
    "format": "openapi 3.0.1",
@@ -3674,7 +3681,7 @@
    "operations": 14,
    "tags": [],
    "source_url": "https://api.data.altinn.no/v1/public/metadata/oas/json",
-   "fetched_at": "2026-11-17T13:09:57+00:00"
+   "fetched_at": "2026-11-23T14:39:44+00:00"
   },
   "digitaliseringsdirektoratet-dialogporten": {
    "format": "openapi 3.0.0",
@@ -3690,7 +3697,7 @@
     "Serviceowner"
    ],
    "source_url": "https://platform.altinn.no/dialogporten/swagger/v1/swagger.json",
-   "fetched_at": "2026-11-17T13:09:57+00:00"
+   "fetched_at": "2026-11-23T14:39:44+00:00"
   },
   "digitaliseringsdirektoratet-felles-datakatalogs-begrepshoster": {
    "format": "openapi 3.0.2",
@@ -3708,7 +3715,7 @@
     "update"
    ],
    "source_url": "https://raw.githubusercontent.com/Informasjonsforvaltning/fdk-concept-harvester/main/src/main/resources/specification/specification.yaml",
-   "fetched_at": "2026-11-17T13:09:58+00:00"
+   "fetched_at": "2026-11-23T14:39:43+00:00"
   },
   "digitaliseringsdirektoratet-felles-datakatalogs-informasjonsmodellhoster": {
    "format": "openapi 3.0.2",
@@ -3723,7 +3730,7 @@
     "dcat-ap-no-informationmodels"
    ],
    "source_url": "https://raw.githubusercontent.com/Informasjonsforvaltning/fdk-informationmodel-harvester/master/src/main/resources/specification/specification.yaml",
-   "fetched_at": "2026-11-17T13:09:58+00:00"
+   "fetched_at": "2026-11-23T14:39:44+00:00"
   },
   "digitaliseringsdirektoratet-felles-datakatalogs-organisasjonskatalog": {
    "format": "openapi 3.0.2",
@@ -3737,7 +3744,7 @@
     "organization-catalog"
    ],
    "source_url": "https://raw.githubusercontent.com/Informasjonsforvaltning/organization-catalog/main/src/main/resources/specification/organization-catalog.yaml",
-   "fetched_at": "2026-11-17T13:09:58+00:00"
+   "fetched_at": "2026-11-23T14:39:44+00:00"
   },
   "digitaliseringsdirektoratet-felles-datasettkatalogs-datasetthoster": {
    "format": "openapi 3.0.2",
@@ -3753,7 +3760,7 @@
     "update"
    ],
    "source_url": "https://raw.githubusercontent.com/Informasjonsforvaltning/fdk-dataset-harvester/main/src/main/resources/specification/fdk-dataset-harvester.yaml",
-   "fetched_at": "2026-11-17T13:09:58+00:00"
+   "fetched_at": "2026-11-23T14:39:44+00:00"
   },
   "digitaliseringsdirektoratet-felles-datasettkatalogs-datatjenestehoster": {
    "format": "openapi 3.0.2",
@@ -3769,7 +3776,7 @@
     "update"
    ],
    "source_url": "https://raw.githubusercontent.com/Informasjonsforvaltning/fdk-dataservice-harvester/master/src/main/resources/specification/fdk-dataservice-harvester.yaml",
-   "fetched_at": "2026-11-17T13:09:58+00:00"
+   "fetched_at": "2026-11-23T14:39:44+00:00"
   },
   "direktoratet-for-byggkvalitet-sgregister-register-over-foretak-med-sentral-godkj": {
    "format": "openapi 3.1.0",
@@ -3784,7 +3791,7 @@
     "v2"
    ],
    "source_url": "https://sgregister.dibk.no/apidocs/openapi.yaml",
-   "fetched_at": "2026-11-17T13:09:58+00:00"
+   "fetched_at": "2026-11-23T14:39:44+00:00"
   },
   "direktoratet-for-samfunnssikke-natur-og-vannskader-fra-forsikringsselskap": {
    "format": "openapi 3.1.0",
@@ -3803,7 +3810,7 @@
     "Sivilforsvaret"
    ],
    "source_url": "https://data-api.dsb.no/openapi.json",
-   "fetched_at": "2026-11-17T13:09:58+00:00"
+   "fetched_at": "2026-11-23T14:39:45+00:00"
   },
   "finanstilsynet-finanstilsynet-sitt-opne-api-for-shortsalregistere": {
    "format": "openapi 3.0.0",
@@ -3817,7 +3824,7 @@
     "Instruments"
    ],
    "source_url": "https://ssr.finanstilsynet.no/api/v2/openapi.json",
-   "fetched_at": "2026-11-17T13:09:58+00:00"
+   "fetched_at": "2026-11-23T14:39:46+00:00"
   },
   "finanstilsynet-registry": {
    "format": "openapi 3.0.0",
@@ -3832,7 +3839,7 @@
     "Reports"
    ],
    "source_url": "https://api.finanstilsynet.no/registry/swagger/v2/swagger.json",
-   "fetched_at": "2026-11-17T13:09:58+00:00"
+   "fetched_at": "2026-11-23T14:39:46+00:00"
   },
   "fiskeridir-akvakulturregisteret": {
    "format": "openapi 3.1.0",
@@ -3853,7 +3860,7 @@
     "xlsx-dump-resource"
    ],
    "source_url": "https://api.fiskeridir.no/pub-aqua/api/api-docs",
-   "fetched_at": "2026-11-17T13:09:58+00:00"
+   "fetched_at": "2026-11-23T14:39:46+00:00"
   },
   "fiskeridir-fartoyregisteret": {
    "format": "openapi 3.1.0",
@@ -3867,7 +3874,7 @@
     "Vessels"
    ],
    "source_url": "https://api.fiskeridir.no/vessel-api/api/openapi",
-   "fetched_at": "2026-11-17T13:09:58+00:00"
+   "fetched_at": "2026-11-23T14:39:46+00:00"
   },
   "geonorge-hoydedata": {
    "format": "openapi 3.0.3",
@@ -3879,7 +3886,7 @@
    "operations": 5,
    "tags": [],
    "source_url": "https://ws.geonorge.no/hoydedata/v1/openapi.json",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:48+00:00"
   },
   "geonorge-kommuneinfo": {
    "format": "openapi 3.0.3",
@@ -3891,7 +3898,7 @@
    "operations": 11,
    "tags": [],
    "source_url": "https://ws.geonorge.no/kommuneinfo/v1/static/openapi_doc.json",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:48+00:00"
   },
   "geonorge-stedsnavn": {
    "format": "openapi 3.0.3",
@@ -3903,7 +3910,7 @@
    "operations": 5,
    "tags": [],
    "source_url": "https://ws.geonorge.no/stedsnavn/v1/openapi.json",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:48+00:00"
   },
   "geonorge-transformasjon": {
    "format": "openapi 3.1.0",
@@ -3918,7 +3925,7 @@
     "transformering"
    ],
    "source_url": "https://ws.geonorge.no/transformering/v1/openapi.json",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:48+00:00"
   },
   "mattilsynet-kjottkontroll-historikk-api-pm": {
    "format": "openapi 3.1.0",
@@ -3938,7 +3945,7 @@
     "index-controller"
    ],
    "source_url": "https://api.ekstern.kjottkontroll.mattilsynet.io/v1/kjoettkontrollhistorikk/v3/api-docs",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:49+00:00"
   },
   "meteorologisk-institutt-airqualityforecast": {
    "format": "swagger 2.0",
@@ -3951,7 +3958,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/airqualityforecast/0.1/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:49+00:00"
   },
   "meteorologisk-institutt-aviationforecast": {
    "format": "swagger 2.0",
@@ -3964,7 +3971,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/aviationforecast/2.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:49+00:00"
   },
   "meteorologisk-institutt-frost": {
    "format": "swagger 2.0",
@@ -3985,7 +3992,7 @@
     "sources"
    ],
    "source_url": "https://frost.met.no/swagger.json",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:49+00:00"
   },
   "meteorologisk-institutt-geosatellite": {
    "format": "swagger 2.0",
@@ -3998,7 +4005,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/geosatellite/1.4/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:49+00:00"
   },
   "meteorologisk-institutt-gribfiles": {
    "format": "swagger 2.0",
@@ -4011,7 +4018,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/gribfiles/1.1/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:49+00:00"
   },
   "meteorologisk-institutt-icemap": {
    "format": "swagger 2.0",
@@ -4024,7 +4031,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/icemap/1.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-isobaricgrib": {
    "format": "swagger 2.0",
@@ -4037,7 +4044,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/isobaricgrib/1.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:49+00:00"
   },
   "meteorologisk-institutt-locationforecast": {
    "format": "swagger 2.0",
@@ -4050,7 +4057,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/locationforecast/2.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:49+00:00"
   },
   "meteorologisk-institutt-metalerts": {
    "format": "swagger 2.0",
@@ -4063,7 +4070,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/metalerts/2.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:49+00:00"
   },
   "meteorologisk-institutt-metgc": {
    "format": "swagger 2.0",
@@ -4076,7 +4083,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/metgc/1.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-metgm": {
    "format": "swagger 2.0",
@@ -4089,7 +4096,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/metgm/1.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-ncagalewarnings": {
    "format": "swagger 2.0",
@@ -4102,7 +4109,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/ncagalewarnings/1.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-nlaroutes": {
    "format": "swagger 2.0",
@@ -4115,7 +4122,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/nlaroutes/1.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-nowcast": {
    "format": "swagger 2.0",
@@ -4128,7 +4135,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/nowcast/2.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-oceanforecast": {
    "format": "swagger 2.0",
@@ -4141,7 +4148,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/oceanforecast/2.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-offshoremaps": {
    "format": "swagger 2.0",
@@ -4154,7 +4161,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/offshoremaps/1.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-polarsatellite": {
    "format": "swagger 2.0",
@@ -4167,7 +4174,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/polarsatellite/1.1/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-radar": {
    "format": "swagger 2.0",
@@ -4180,7 +4187,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/radar/2.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-routeforecast": {
    "format": "swagger 2.0",
@@ -4193,7 +4200,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/routeforecast/2.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-sigcharts": {
    "format": "swagger 2.0",
@@ -4206,7 +4213,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/sigcharts/2.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-sigmets": {
    "format": "swagger 2.0",
@@ -4219,7 +4226,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/sigmets/2.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-soundprofile": {
    "format": "swagger 2.0",
@@ -4232,7 +4239,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/soundprofile/1.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-spotwind": {
    "format": "swagger 2.0",
@@ -4245,7 +4252,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/spotwind/1.1/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-subjectiveforecast": {
    "format": "swagger 2.0",
@@ -4258,7 +4265,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/subjectiveforecast/1.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-subseasonal": {
    "format": "swagger 2.0",
@@ -4271,7 +4278,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/subseasonal/1.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-sunrise": {
    "format": "swagger 2.0",
@@ -4284,7 +4291,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/sunrise/3.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-tafmetar": {
    "format": "swagger 2.0",
@@ -4297,7 +4304,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/tafmetar/1.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-textforecast": {
    "format": "swagger 2.0",
@@ -4310,7 +4317,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/textforecast/3.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-tidalwater": {
    "format": "swagger 2.0",
@@ -4323,7 +4330,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/tidalwater/1.1/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-turbulence": {
    "format": "swagger 2.0",
@@ -4336,7 +4343,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/turbulence/2.0/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:50+00:00"
   },
   "meteorologisk-institutt-volcanicashforecast": {
    "format": "swagger 2.0",
@@ -4349,7 +4356,7 @@
     "metadata"
    ],
    "source_url": "https://api.met.no/weatherapi/volcanicashforecast/0.1/swagger",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:51+00:00"
   },
   "miljodir-luftkvalitet": {
    "format": "openapi 3.0.4",
@@ -4364,7 +4371,7 @@
     "Observations"
    ],
    "source_url": "https://api-luftmalinger.miljodirektoratet.no/swagger/v1-public/swagger.json",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:51+00:00"
   },
   "ndla-image-api": {
    "format": "openapi 3.1.0",
@@ -4379,7 +4386,7 @@
     "raw"
    ],
    "source_url": "https://api.ndla.no/image-api/api-docs",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:52+00:00"
   },
   "ndla-article-api": {
    "format": "openapi 3.1.0",
@@ -4391,7 +4398,7 @@
     "articles"
    ],
    "source_url": "https://api.ndla.no/article-api/api-docs",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:52+00:00"
   },
   "ndla-concept-api": {
    "format": "openapi 3.1.0",
@@ -4404,7 +4411,7 @@
     "drafts"
    ],
    "source_url": "https://api.ndla.no/concept-api/api-docs",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:52+00:00"
   },
   "ndla-audio-api": {
    "format": "openapi 3.1.0",
@@ -4418,7 +4425,7 @@
     "transcription"
    ],
    "source_url": "https://api.ndla.no/audio-api/api-docs",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:52+00:00"
   },
   "ndla-oembed-proxy": {
    "format": "openapi 3.1.0",
@@ -4430,7 +4437,7 @@
     "oembed"
    ],
    "source_url": "https://api.ndla.no/oembed-proxy/api-docs",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:52+00:00"
   },
   "ndla-search-api": {
    "format": "openapi 3.1.0",
@@ -4442,7 +4449,7 @@
     "search"
    ],
    "source_url": "https://api.ndla.no/search-api/api-docs",
-   "fetched_at": "2026-11-17T13:09:59+00:00"
+   "fetched_at": "2026-11-23T14:39:52+00:00"
   },
   "nve-magasinstatistikk": {
    "format": "openapi 3.0.1",
@@ -4456,7 +4463,7 @@
     "Magasinstatistikk"
    ],
    "source_url": "https://biapi.nve.no/magasinstatistikk/swagger/v1/swagger.json",
-   "fetched_at": "2026-11-17T13:10:00+00:00"
+   "fetched_at": "2026-11-23T14:39:55+00:00"
   },
   "norges-vassdrags-og-energidire-hydapi": {
    "format": "openapi 3.0.1",
@@ -4473,7 +4480,7 @@
     "Stations"
    ],
    "source_url": "https://hydapi.nve.no/swagger/v1/swagger.json",
-   "fetched_at": "2026-11-17T13:10:00+00:00"
+   "fetched_at": "2026-11-23T14:39:56+00:00"
   },
   "norges-vassdrags-og-energidire-inntektsrammer-for-nettselskaper": {
    "format": "openapi 3.0.1",
@@ -4487,7 +4494,7 @@
     "Inntektsrammer"
    ],
    "source_url": "https://biapi.nve.no/inntektsrammer/swagger/v1/swagger.json",
-   "fetched_at": "2026-11-17T13:10:00+00:00"
+   "fetched_at": "2026-11-23T14:39:56+00:00"
   },
   "norges-vassdrags-og-energidire-nettleietariffer": {
    "format": "openapi 3.1.0",
@@ -4502,7 +4509,7 @@
     "nettleietariffer"
    ],
    "source_url": "https://nettleietariffer.dataplattform.nve.no/v1/openapi.json",
-   "fetched_at": "2026-11-17T13:10:00+00:00"
+   "fetched_at": "2026-11-23T14:39:56+00:00"
   },
   "norsk-pensjon-as-oed-api": {
    "format": "openapi 3.1.0",
@@ -4516,7 +4523,7 @@
     "OED API"
    ],
    "source_url": "https://webservice.preprod.norskpensjon.no/oed/v3/api-docs",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "fetched_at": "2026-11-23T14:39:58+00:00"
   },
   "registerenheten-i-bronnoysund-tilda-deling-av-tilsynsdata-api": {
    "format": "openapi 3.0.1",
@@ -4529,12 +4536,12 @@
    "operations": 12,
    "tags": [],
    "source_url": "https://api.swaggerhub.com/apis/Altinn/data.altinn.no/1.0/",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "fetched_at": "2026-11-23T14:39:58+00:00"
   },
   "skatteetaten-aksjebeholdning-api": {
-   "format": "openapi 3.1.0",
+   "format": "openapi 3.0.3",
    "title": "Aksjebeholdning API",
-   "version": "1.1.0",
+   "version": "1.1.2",
    "servers": [
     "https://aksjebeholdning.api.skatteetaten-test.no/v1",
     "https://aksjebeholdning.api.skatteetaten.no/v1"
@@ -4543,13 +4550,13 @@
    "tags": [
     "aksjebeholdning"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/aksjebeholdning-api/1.1.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/aksjebeholdning-api/1.1.2",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-aksjonaer-i-virksomhet-api": {
-   "format": "openapi 3.1.0",
+   "format": "openapi 3.0.3",
    "title": "Aksjonær i virksomhet API",
-   "version": "1.1.0",
+   "version": "1.1.2",
    "servers": [
     "https://aksjonaerivirksomhet.api.skatteetaten-test.no/v1",
     "https://aksjonaerivirksomhet.api.skatteetaten.no/v1"
@@ -4558,13 +4565,13 @@
    "tags": [
     "aksjonaerIVirksomhet"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/aksjonaer-i-virksomhet-api/1.1.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/aksjonaer-i-virksomhet-api/1.1.2",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-aktiv-konto-api": {
    "format": "openapi 3.0.3",
    "title": "Aktiv konto API",
-   "version": "3.2.0",
+   "version": "3.2.1",
    "servers": [
     "https://aktivkonto.api.skatteetaten-test.no/v3",
     "https://aktivkonto.api.skatteetaten.no/v3"
@@ -4573,13 +4580,13 @@
    "tags": [
     "AktivKonto V3"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/aktiv-konto-api/3.2.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/aktiv-konto-api/3.2.1",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-arbeidsforhold-api": {
    "format": "openapi 3.0.3",
    "title": "Arbeidsforhold API",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "servers": [
     "https://arbeidsforhold.api.skatteetaten-test.no/v1",
     "https://arbeidsforhold.api.skatteetaten.no/v1"
@@ -4588,13 +4595,13 @@
    "tags": [
     "arbeidsforhold"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/arbeidsforhold-api/1.0.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/arbeidsforhold-api/1.0.1",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-arbeidsforhold-i-oppdrag-api": {
    "format": "openapi 3.0.3",
    "title": "Arbeidsforhold i oppdrag API",
-   "version": "1.3.0",
+   "version": "1.3.1",
    "servers": [
     "https://arbeidsforholdioppdrag.api.skatteetaten-test.no/v1",
     "https://arbeidsforholdioppdrag.api.skatteetaten.no/v1"
@@ -4603,13 +4610,13 @@
    "tags": [
     "ArbeidsforholdIOppdrag"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/arbeidsforhold-i-oppdrag-api/1.3.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/arbeidsforhold-i-oppdrag-api/1.3.1",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-arbeidsgiveravgift-api": {
    "format": "openapi 3.0.3",
    "title": "Arbeidsgiveravgift API",
-   "version": "1.1.0",
+   "version": "1.2.0",
    "servers": [
     "https://arbeidsgiveravgift.api.skatteetaten-test.no/v1",
     "https://arbeidsgiveravgift.api.skatteetaten.no/v1"
@@ -4618,13 +4625,13 @@
    "tags": [
     "Arbeidsgiveravgift"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/arbeidsgiveravgift-api/1.1.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/arbeidsgiveravgift-api/1.2.0",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-avregning-api": {
    "format": "openapi 3.0.3",
    "title": "Avregning API",
-   "version": "2.3.1",
+   "version": "2.3.2",
    "servers": [
     "https://avregning.api.skatteetaten-test.no/v2",
     "https://avregning.api.skatteetaten.no/v2"
@@ -4633,13 +4640,13 @@
    "tags": [
     "Avregning"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/avregning-api/2.3.1",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/avregning-api/2.3.2",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-beregnet-skatt-api": {
-   "format": "openapi 3.0.3",
+   "format": "openapi 3.1.0",
    "title": "Beregnet skatt API",
-   "version": "2.3.2",
+   "version": "2.5.0",
    "servers": [
     "https://beregnetskatt.api.skatteetaten-test.no/v2",
     "https://beregnetskatt.api.skatteetaten.no/v2"
@@ -4648,13 +4655,13 @@
    "tags": [
     "BeregnetSkatt V2"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/beregnet-skatt-api/2.3.2",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/beregnet-skatt-api/2.5.0",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-beregnet-skatt-upersonlig-api": {
    "format": "openapi 3.0.3",
    "title": "Beregnet skatt upersonlig API",
-   "version": "1.3.0",
+   "version": "1.3.1",
    "servers": [
     "https://beregnetskattupersonlig.api.skatteetaten-test.no/v1",
     "https://beregnetskattupersonlig.api.skatteetaten.no/v1"
@@ -4663,13 +4670,13 @@
    "tags": [
     "BeregnetSkatt"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/beregnet-skatt-upersonlig-api/1.3.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/beregnet-skatt-upersonlig-api/1.3.1",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-beregningsgrunnlag-vannkraftanlegg-api": {
    "format": "openapi 3.1.0",
    "title": "Beregningsgrunnlag vannkraftanlegg API",
-   "version": "1.1.0",
+   "version": "1.3.0",
    "servers": [
     "https://beregningsgrunnlagvannkraftanlegg.api.skatteetaten-test.no/v1",
     "https://beregningsgrunnlagvannkraftanlegg.api.skatteetaten.no/v1"
@@ -4678,13 +4685,13 @@
    "tags": [
     "BeregningsgrunnlagVannkraftanlegg"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/beregningsgrunnlag-vannkraftanlegg-api/1.1.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/beregningsgrunnlag-vannkraftanlegg-api/1.3.0",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-boligsparing-for-ungdom-api": {
    "format": "openapi 3.0.3",
    "title": "Boligsparing for ungdom API",
-   "version": "1.2.0",
+   "version": "1.2.1",
    "servers": [
     "https://bsu.api.skatteetaten-test.no/v1",
     "https://bsu.api.skatteetaten.no/v1"
@@ -4693,13 +4700,13 @@
    "tags": [
     "Boligsparing for ungdom"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/boligsparing-for-ungdom-api/1.2.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/boligsparing-for-ungdom-api/1.2.1",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-eiendomsskattegrunnlag-vannkraftanlegg-api": {
    "format": "openapi 3.1.0",
    "title": "Eiendomsskattegrunnlag vannkraftanlegg API",
-   "version": "1.0.0",
+   "version": "1.1.0",
    "servers": [
     "https://eiendomsskattegrunnlagvannkraftanlegg.api.skatteetaten-test.no/v1",
     "https://eiendomsskattegrunnlagvannkraftanlegg.api.skatteetaten.no/v1"
@@ -4708,13 +4715,13 @@
    "tags": [
     "EiendomskattegrunnlagVannkraftanlegg"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/eiendomsskattegrunnlag-vannkraftanlegg-api/1.0.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/eiendomsskattegrunnlag-vannkraftanlegg-api/1.1.0",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-formuesgrunnlag-for-eiendomsskatt-api": {
    "format": "openapi 3.0.3",
    "title": "Formuesgrunnlag for eiendomsskatt API",
-   "version": "1.2.0",
+   "version": "1.2.1",
    "servers": [
     "https://formuesgrunnlageiendomsskatt.api.skatteetaten-test.no/v1",
     "https://formuesgrunnlageiendomsskatt.api.skatteetaten.no/v1"
@@ -4723,8 +4730,8 @@
    "tags": [
     "Formuesgrunnlag eiendomsskatt"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/formuesgrunnlag-for-eiendomsskatt-api/1.2.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/formuesgrunnlag-for-eiendomsskatt-api/1.2.1",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-formuesobjekt-fast-eiendom-api": {
    "format": "openapi 3.0.3",
@@ -4739,7 +4746,7 @@
     "Formuesobjekt fast eiendom"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/formuesobjekt-fast-eiendom-api/1.1.1",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-formuesverdi-fast-eiendom-api": {
    "format": "openapi 3.0.3",
@@ -4754,7 +4761,7 @@
     "Formuesverdi fast eiendom"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/formuesverdi-fast-eiendom-api/1.2.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-frister-api": {
    "format": "openapi 3.1.0",
@@ -4769,7 +4776,7 @@
     "Frister"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/frister-api/1.0.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-inntekt-api": {
    "format": "openapi 3.0.3",
@@ -4784,12 +4791,12 @@
     "Inntekt"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/inntekt-api/1.7.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-inntektsmottakere-api": {
    "format": "openapi 3.0.3",
    "title": "Inntektsmottakere API",
-   "version": "1.1.0",
+   "version": "1.1.1",
    "servers": [
     "https://inntektsmottakere.api.skatteetaten-test.no/v1",
     "https://inntektsmottakere.api.skatteetaten.no/v1"
@@ -4798,23 +4805,23 @@
    "tags": [
     "Inntektsmottakere"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/inntektsmottakere-api/1.1.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/inntektsmottakere-api/1.1.1",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-krav-og-betalinger-api": {
    "format": "openapi 3.0.3",
    "title": "Krav og betalinger API",
-   "version": "1.2.0",
+   "version": "1.5.0",
    "servers": [
     "https://kravogbetalinger.api.skatteetaten-test.no/v1",
     "https://kravogbetalinger.api.skatteetaten.no/v1"
    ],
-   "operations": 4,
+   "operations": 8,
    "tags": [
     "Krav og betalinger"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/krav-og-betalinger-api/1.2.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/krav-og-betalinger-api/1.5.0",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-mva-fastsetting-api": {
    "format": "openapi 3.1.0",
@@ -4829,12 +4836,12 @@
     "Mva fastsetting"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/mva-fastsetting-api/1.0.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-mva-meldingsopplysning-api": {
    "format": "openapi 3.0.3",
    "title": "Mva meldingsopplysning API",
-   "version": "1.1.0",
+   "version": "1.2.0",
    "servers": [
     "https://mvameldingsopplysning.api.skatteetaten-test.no/v1",
     "https://mvameldingsopplysning.api.skatteetaten.no/v1"
@@ -4843,13 +4850,13 @@
    "tags": [
     "Mva meldingsopplysninger"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/mva-meldingsopplysning-api/1.1.0",
-   "fetched_at": "2026-11-17T13:10:01+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/mva-meldingsopplysning-api/1.2.0",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-mva-melding-api": {
    "format": "openapi 3.0.3",
    "title": "Mva-melding API",
-   "version": "1.1.0",
+   "version": "1.1.1",
    "servers": [
     "https://mvamelding.api.skatteetaten-test.no/v1",
     "https://mvamelding.api.skatteetaten.no/v1"
@@ -4858,13 +4865,13 @@
    "tags": [
     "MVA melding"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/mva-melding-api/1.1.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/mva-melding-api/1.1.1",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-mva-register-avgiftssubjekter-med-skattemeldingspl": {
    "format": "openapi 3.0.3",
    "title": "Mva-register – avgiftssubjekter med skattemeldingsplikt API",
-   "version": "1.1.0",
+   "version": "1.1.1",
    "servers": [
     "https://mvaregister.api.skatteetaten-test.no/v1",
     "https://mvaregister.api.skatteetaten.no/v1"
@@ -4873,13 +4880,13 @@
    "tags": [
     "avgiftssubjekter"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/mva-register-avgiftssubjekter-med-skattemeldingsplikt-api/1.1.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/mva-register-avgiftssubjekter-med-skattemeldingsplikt-api/1.1.1",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-naeringsspesifikasjon-api": {
-   "format": "openapi 3.0.3",
+   "format": "openapi 3.1.0",
    "title": "Næringsspesifikasjon API",
-   "version": "5.0.1",
+   "version": "5.1.0",
    "servers": [
     "https://naeringsspesifikasjon.api.skatteetaten-test.no/v5",
     "https://naeringsspesifikasjon.api.skatteetaten.no/v5"
@@ -4888,13 +4895,13 @@
    "tags": [
     "Naeringsspesifikasjon"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/naeringsspesifikasjon-api/5.0.1",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/naeringsspesifikasjon-api/5.1.0",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-omregistreringsavgift-api": {
    "format": "openapi 3.0.3",
    "title": "Omregistreringsavgift API",
-   "version": "1.1.0",
+   "version": "1.1.1",
    "servers": [
     "https://omregistreringsavgift.api.skatteetaten-test.no/v1",
     "https://omregistreringsavgift.api.skatteetaten.no/v1"
@@ -4903,13 +4910,13 @@
    "tags": [
     "Omregistreringsavgift"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/omregistreringsavgift-api/1.1.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/omregistreringsavgift-api/1.1.1",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-oppdrag-utenlandske-virksomheter-api": {
    "format": "openapi 3.0.3",
    "title": "Oppdrag utenlandske virksomheter API",
-   "version": "1.1.0",
+   "version": "1.2.0",
    "servers": [
     "https://oppdragutenlandskevirksomheter.api.skatteetaten-test.no/v1",
     "https://oppdragutenlandskevirksomheter.api.skatteetaten.no/v1"
@@ -4918,13 +4925,13 @@
    "tags": [
     "Hent oppdrag for enhet"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/oppdrag-utenlandske-virksomheter-api/1.1.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/oppdrag-utenlandske-virksomheter-api/1.2.0",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-opplysningspliktig-api": {
    "format": "openapi 3.0.3",
    "title": "Opplysningspliktig API",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "servers": [
     "https://opplysningspliktig.api.skatteetaten-test.no/v1",
     "https://opplysningspliktig.api.skatteetaten.no/v1"
@@ -4933,13 +4940,13 @@
    "tags": [
     "opplysningspliktig"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/opplysningspliktig-api/1.0.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/opplysningspliktig-api/1.0.1",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-opptjeningsgrunnlag-arbeidsforhold-api": {
    "format": "openapi 3.0.3",
    "title": "Opptjeningsgrunnlag arbeidsforhold API",
-   "version": "1.0.0",
+   "version": "1.1.0",
    "servers": [
     "https://opptjeningsgrunnlagarbeidsforhold.api.skatteetaten-test.no/v1",
     "https://opptjeningsgrunnlagarbeidsforhold.api.skatteetaten.no/v1"
@@ -4948,13 +4955,13 @@
    "tags": [
     "opptjeningsgrunnlag arbeidsforhold"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/opptjeningsgrunnlag-arbeidsforhold-api/1.0.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/opptjeningsgrunnlag-arbeidsforhold-api/1.1.0",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-pensjonsgivende-inntekt-api": {
    "format": "openapi 3.0.3",
    "title": "Pensjonsgivende inntekt API",
-   "version": "1.2.0",
+   "version": "1.2.1",
    "servers": [
     "https://pgi.api.skatteetaten-test.no/v1",
     "https://pgi.api.skatteetaten.no/v1"
@@ -4963,13 +4970,13 @@
    "tags": [
     "Pensjonsgivende inntekt"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/pensjonsgivendeinntekt-api/1.2.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/pensjonsgivendeinntekt-api/1.2.1",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-pensjonsgivendeinntekt-for-folketrygden-api": {
-   "format": "openapi 3.0.3",
+   "format": "openapi 3.1.1",
    "title": "Pensjonsgivendeinntekt for folketrygden API",
-   "version": "1.1.0",
+   "version": "1.1.3",
    "servers": [
     "https://pgiforfolketrygden.api.skatteetaten-test.no/v1",
     "https://pgiforfolketrygden.api.skatteetaten.no/v1"
@@ -4978,13 +4985,13 @@
    "tags": [
     "Pensjonsgivende inntekt for folketrygden"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/pensjonsgivendeinntekt-for-folketrygden-api/1.1.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/pensjonsgivendeinntekt-for-folketrygden-api/1.1.3",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-restanser-api": {
    "format": "openapi 3.0.3",
    "title": "Restanser API",
-   "version": "2.2.0",
+   "version": "2.3.0",
    "servers": [
     "https://restanser.api.skatteetaten-test.no/v2",
     "https://restanser.api.skatteetaten.no/v2"
@@ -4993,8 +5000,8 @@
    "tags": [
     "Restanser"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/restanser-api/2.2.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/restanser-api/2.3.0",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-rettsinformasjon-api": {
    "format": "openapi 3.1.0",
@@ -5009,12 +5016,12 @@
     "Rettsinformasjon"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/rettsinformasjon-api/1.0.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-selskapsmelding-api": {
-   "format": "openapi 3.0.3",
+   "format": "openapi 3.1.0",
    "title": "Selskapsmelding API",
-   "version": "2.0.0",
+   "version": "2.1.0",
    "servers": [
     "https://selskapsmelding.api.skatteetaten-test.no/v2",
     "https://selskapsmelding.api.skatteetaten.no/v2"
@@ -5023,13 +5030,13 @@
    "tags": [
     "selskapsmelding"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/selskapsmelding-api/2.0.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/selskapsmelding-api/2.1.0",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-skatteberegningsgrunnlag-upersonlig-api": {
    "format": "openapi 3.0.3",
    "title": "Skatteberegningsgrunnlag upersonlig API",
-   "version": "1.3.0",
+   "version": "1.3.1",
    "servers": [
     "https://skatteberegningsgrunnlagupersonlig.api.skatteetaten-test.no/v1",
     "https://skatteberegningsgrunnlagupersonlig.api.skatteetaten.no/v1"
@@ -5038,13 +5045,13 @@
    "tags": [
     "skatteberegningsgrunnlag"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/skatteberegningsgrunnlag-upersonlig-api/1.3.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/skatteberegningsgrunnlag-upersonlig-api/1.3.1",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-skatteetaten-registrert-selskap-api": {
    "format": "openapi 3.0.3",
    "title": "Skatteetaten-registrert selskap API",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "servers": [
     "https://skatteetatenregistrertselskap.api.skatteetaten-test.no/v1",
     "https://skatteetatenregistrertselskap.api.skatteetaten.no/v1"
@@ -5053,13 +5060,13 @@
    "tags": [
     "skatteetaten registrert selskap"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/skatteetaten-registrert-selskap-api/1.0.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/skatteetaten-registrert-selskap-api/1.0.1",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-skattemelding-api": {
-   "format": "openapi 3.0.3",
+   "format": "openapi 3.1.0",
    "title": "Skattemelding API",
-   "version": "5.0.0",
+   "version": "5.1.0",
    "servers": [
     "https://skattemelding.api.skatteetaten-test.no/v5",
     "https://skattemelding.api.skatteetaten.no/v5"
@@ -5068,13 +5075,13 @@
    "tags": [
     "skattemelding"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/skattemelding-api/5.0.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/skattemelding-api/5.1.0",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-skattemelding-upersonlig-api": {
-   "format": "openapi 3.0.3",
+   "format": "openapi 3.1.0",
    "title": "Skattemelding upersonlig API",
-   "version": "4.0.0",
+   "version": "4.1.0",
    "servers": [
     "https://skattemeldingupersonlig.api.skatteetaten-test.no/v4",
     "https://skattemeldingupersonlig.api.skatteetaten.no/v4"
@@ -5083,13 +5090,13 @@
    "tags": [
     "skattemelding"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/skattemelding-upersonlig-api/4.0.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/skattemelding-upersonlig-api/4.1.0",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-skatteplikt-api": {
-   "format": "openapi 3.0.3",
+   "format": "openapi 3.1.0",
    "title": "Skatteplikt API",
-   "version": "2.3.0",
+   "version": "2.4.0",
    "servers": [
     "https://skatteplikt.api.skatteetaten-test.no/v2",
     "https://skatteplikt.api.skatteetaten.no/v2"
@@ -5098,13 +5105,13 @@
    "tags": [
     "Skatteplikt"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/skatteplikt-api/2.3.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/skatteplikt-api/2.4.0",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-skatteplikt-upersonlig-api": {
    "format": "openapi 3.0.3",
    "title": "Skatteplikt upersonlig API",
-   "version": "1.3.0",
+   "version": "1.3.1",
    "servers": [
     "https://skattepliktupersonlig.api.skatteetaten-test.no/v1",
     "https://skattepliktupersonlig.api.skatteetaten.no/v1"
@@ -5113,13 +5120,13 @@
    "tags": [
     "Skatteplikt"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/skatteplikt-upersonlig-api/1.3.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/skatteplikt-upersonlig-api/1.3.1",
+   "fetched_at": "2026-11-23T14:39:59+00:00"
   },
   "skatteetaten-summert-skattegrunnlag-api": {
-   "format": "openapi 3.0.3",
+   "format": "openapi 3.1.0",
    "title": "Summert skattegrunnlag API",
-   "version": "2.1.0",
+   "version": "2.3.1",
    "servers": [
     "https://summertskattegrunnlag.api.skatteetaten-test.no/v2",
     "https://summertskattegrunnlag.api.skatteetaten.no/v2"
@@ -5128,13 +5135,13 @@
    "tags": [
     "Summertskattegrunnlag"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/summert-skattegrunnlag-api/2.1.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/summert-skattegrunnlag-api/2.3.1",
+   "fetched_at": "2026-11-23T14:40:00+00:00"
   },
   "skatteetaten-summert-skattegrunnlag-upersonlig-api": {
    "format": "openapi 3.0.3",
    "title": "Summert skattegrunnlag upersonlig API",
-   "version": "1.2.0",
+   "version": "1.2.1",
    "servers": [
     "https://summertskattegrunnlagupersonlig.api.skatteetaten-test.no/v1",
     "https://summertskattegrunnlagupersonlig.api.skatteetaten.no/v1"
@@ -5143,13 +5150,13 @@
    "tags": [
     "SummertSkattegrunnlag"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/summert-skattegrunnlag-upersonlig-api/1.2.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/summert-skattegrunnlag-upersonlig-api/1.2.1",
+   "fetched_at": "2026-11-23T14:40:00+00:00"
   },
   "skatteetaten-tilleggsskatt-api": {
    "format": "openapi 3.0.3",
    "title": "Tilleggsskatt API",
-   "version": "1.2.1",
+   "version": "1.2.2",
    "servers": [
     "https://tilleggsskatt.api.skatteetaten-test.no/v1",
     "https://tilleggsskatt.api.skatteetaten.no/v1"
@@ -5158,13 +5165,13 @@
    "tags": [
     "Tilleggsskatt"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/tilleggsskatt-api/1.2.1",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/tilleggsskatt-api/1.2.2",
+   "fetched_at": "2026-11-23T14:40:00+00:00"
   },
   "skatteetaten-tjenestepensjonsavtale-api": {
    "format": "openapi 3.0.3",
    "title": "Tjenestepensjonsavtale API",
-   "version": "1.1.0",
+   "version": "1.1.1",
    "servers": [
     "https://tjenestepensjonsavtale.api.skatteetaten-test.no/v1",
     "https://tjenestepensjonsavtale.api.skatteetaten.no/v1"
@@ -5173,13 +5180,13 @@
    "tags": [
     "Tjenestepensjonsavtale"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/tjenestepensjonsavtale-api/1.1.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/tjenestepensjonsavtale-api/1.1.1",
+   "fetched_at": "2026-11-23T14:40:00+00:00"
   },
   "skatteetaten-underenhet-fra-a-ordningen-api": {
    "format": "openapi 3.0.3",
    "title": "Underenhet fra a-ordningen API",
-   "version": "1.1.1",
+   "version": "1.1.2",
    "servers": [
     "https://underenhetaordningen.api.skatteetaten-test.no/v1",
     "https://underenhetaordningen.api.skatteetaten.no/v1"
@@ -5188,8 +5195,8 @@
    "tags": [
     "UnderenhetAordningen"
    ],
-   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/underenhet-fra-a-ordningen-api/1.1.1",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "source_url": "https://api.swaggerhub.com/apis/skatteetaten/underenhet-fra-a-ordningen-api/1.1.2",
+   "fetched_at": "2026-11-23T14:40:00+00:00"
   },
   "skatteetaten-utleggstrekk-api": {
    "format": "openapi 3.0.3",
@@ -5204,7 +5211,7 @@
     "utleggstrekk"
    ],
    "source_url": "https://api.swaggerhub.com/apis/skatteetaten/utleggstrekk-api/1.0.0",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "fetched_at": "2026-11-23T14:40:00+00:00"
   },
   "statens-kartverk-administrative-inndelinger-rest-api": {
    "format": "openapi 3.0.3",
@@ -5216,7 +5223,7 @@
    "operations": 11,
    "tags": [],
    "source_url": "https://ws.geonorge.no/kommuneinfo/v1/openapi.json",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "fetched_at": "2026-11-23T14:40:02+00:00"
   },
   "statens-kartverk-adresse-rest-api": {
    "format": "swagger 2.0",
@@ -5226,9 +5233,9 @@
    "operations": 2,
    "tags": [],
    "source_url": "https://api.kartverket.no/adresser/v1/openapi.json",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "fetched_at": "2026-11-23T14:40:01+00:00"
   },
-  "statens-kartverk-eiendom-rest-api-for-lokalisering": {
+  "statens-kartverk-matrikkelen-eiendomskart-teig-eiendom-rest-api-for": {
    "format": "openapi 3.0.3",
    "title": "Åpent eiendoms-API for lokalisering",
    "version": "1.1.0",
@@ -5238,7 +5245,7 @@
    "operations": 3,
    "tags": [],
    "source_url": "https://api.kartverket.no/eiendom/v1/openapi.json",
-   "fetched_at": "2026-11-17T13:10:02+00:00"
+   "fetched_at": "2026-11-23T14:40:04+00:00"
   },
   "statens-kartverk-soketjeneste-for-stedsnavn": {
    "format": "openapi 3.0.3",
@@ -5250,7 +5257,7 @@
    "operations": 5,
    "tags": [],
    "source_url": "https://ws.geonorge.no/stedsnavn/v1/openapi.json",
-   "fetched_at": "2026-11-17T13:10:03+00:00"
+   "fetched_at": "2026-11-23T14:40:04+00:00"
   },
   "statens-kartverk-valgdata-rest-api": {
    "format": "openapi 3.1.0",
@@ -5264,7 +5271,7 @@
     "Valgdata API"
    ],
    "source_url": "https://api.kartverket.no/valgdata/v1/v3/api-docs",
-   "fetched_at": "2026-11-17T13:10:04+00:00"
+   "fetched_at": "2026-11-23T14:40:05+00:00"
   },
   "statens-kartverk-apent-adresse-api-fra-kartverket": {
    "format": "swagger 2.0",
@@ -5274,7 +5281,7 @@
    "operations": 2,
    "tags": [],
    "source_url": "https://ws.geonorge.no/adresser/v1/docs.json",
-   "fetched_at": "2026-11-17T13:10:03+00:00"
+   "fetched_at": "2026-11-23T14:40:05+00:00"
   },
   "statens-lanekasse-for-utdannin-kontoinformasjonapi": {
    "format": "swagger 2.0",
@@ -5288,7 +5295,7 @@
     "Test"
    ],
    "source_url": "https://data.lanekassen.no/open/dataset/kontoinformasjon-sbanken-poc-v1.json",
-   "fetched_at": "2026-11-17T13:10:03+00:00"
+   "fetched_at": "2026-11-23T14:40:05+00:00"
   },
   "vegvesen-ferjedatabanken": {
    "format": "swagger 2.0",
@@ -5305,7 +5312,7 @@
     "Trafikkdata"
    ],
    "source_url": "https://api.ferjedatabanken.no/swagger/docs/v1",
-   "fetched_at": "2026-11-17T13:15:50+00:00"
+   "fetched_at": "2026-11-23T14:40:06+00:00"
   },
   "vegvesen-ferjepriser": {
    "format": "swagger 2.0",
@@ -5321,7 +5328,7 @@
     "Samband"
    ],
    "source_url": "https://prisapi.autopassferje.no/swagger/docs/v1",
-   "fetched_at": "2026-11-17T13:15:50+00:00"
+   "fetched_at": "2026-11-23T14:40:06+00:00"
   },
   "vegvesen-kjoreseddel": {
    "format": "openapi 3.1.0",
@@ -5335,7 +5342,7 @@
     "midlertidig-brukstillatelse-resource"
    ],
    "source_url": "https://akfell-oppslag.atlas.vegvesen.no/v3/api-docs/J. Midlertidig brukstillatelse",
-   "fetched_at": "2026-11-17T13:15:50+00:00"
+   "fetched_at": "2026-11-23T14:40:08+00:00"
   },
   "statens-vegvesen-kjoretoyopplysninger-tekniske-data-enkeltoppslag": {
    "format": "openapi 3.1.0",
@@ -5351,7 +5358,7 @@
     "kjoretoy-oppslag-resource"
    ],
    "source_url": "https://akfell-datautlevering.atlas.vegvesen.no/v3/api-docs/Default",
-   "fetched_at": "2026-11-17T13:10:04+00:00"
+   "fetched_at": "2026-11-23T14:40:07+00:00"
   },
   "vegvesen-nvdb": {
    "format": "openapi 3.1.0",
@@ -5365,7 +5372,7 @@
     "auth-config-controller"
    ],
    "source_url": "https://nvdbapiles.atlas.vegvesen.no/api-docs",
-   "fetched_at": "2026-11-17T13:10:04+00:00"
+   "fetched_at": "2026-11-23T14:40:08+00:00"
   },
   "vegvesen-datafangst": {
    "format": "openapi 3.1.0",
@@ -5379,7 +5386,7 @@
     "status-controller"
    ],
    "source_url": "https://datafangst.api.vegvesen.no/public/apidoc/api-docs",
-   "fetched_at": "2026-11-17T13:15:50+00:00"
+   "fetched_at": "2026-11-23T14:40:09+00:00"
   },
   "vegvesen-tnits": {
    "format": "openapi 3.1.0",
@@ -5394,7 +5401,7 @@
     "TN-ITS"
    ],
    "source_url": "https://nvdb-tnits.atlas.vegvesen.no/api-docs/public",
-   "fetched_at": "2026-11-17T13:15:50+00:00"
+   "fetched_at": "2026-11-23T14:40:08+00:00"
   },
   "vegvesen-ruteplan": {
    "format": "swagger 2.0",
@@ -5410,7 +5417,7 @@
     "Route"
    ],
    "source_url": "https://www.vegvesen.no/ws/no/vegvesen/ruteplan/routingservice_v3_0/open/routingService/swagger/v1/swagger.json",
-   "fetched_at": "2026-11-17T13:15:50+00:00"
+   "fetched_at": "2026-11-23T14:40:09+00:00"
   },
   "statens-vegvesen-ecoc": {
    "format": "openapi 3.1.0",
@@ -5430,7 +5437,7 @@
     "vognkortproduksjon"
    ],
    "source_url": "https://akfell-innmelding.atlas.vegvesen.no/v3/api-docs/Default",
-   "fetched_at": "2026-11-17T13:10:04+00:00"
+   "fetched_at": "2026-11-23T14:40:10+00:00"
   },
   "statistisk-sentralbyra-ssbs-klassifikasjoner-og-kodelister-api": {
    "format": "openapi 3.1.0",
@@ -5453,7 +5460,7 @@
     "Versions"
    ],
    "source_url": "https://data.ssb.no/api/klass/v3/api-docs",
-   "fetched_at": "2026-11-17T13:10:06+00:00"
+   "fetched_at": "2026-11-23T14:40:12+00:00"
   },
   "utdanningsdirektoratet-grep-api-v201906": {
    "format": "swagger 2.0",
@@ -5465,7 +5472,7 @@
     "201906"
    ],
    "source_url": "https://data.udir.no/swagger/docs/201906",
-   "fetched_at": "2026-11-17T13:10:05+00:00"
+   "fetched_at": "2026-11-23T14:40:12+00:00"
   },
   "utdanningsdirektoratet-nxr-fellestjeneste-api": {
    "format": "openapi 3.0.1",
@@ -5483,7 +5490,7 @@
     "SupportData"
    ],
    "source_url": "https://data-nxr-fellestjeneste.udir.no/swagger/v2/swagger.json",
-   "fetched_at": "2026-11-17T13:10:05+00:00"
+   "fetched_at": "2026-11-23T14:40:12+00:00"
   },
   "udir-nbr": {
    "format": "openapi 3.0.1",
@@ -5497,7 +5504,7 @@
     "Typer"
    ],
    "source_url": "https://data-nbr.udir.no/swagger/v4/swagger.json",
-   "fetched_at": "2026-11-17T13:10:05+00:00"
+   "fetched_at": "2026-11-23T14:40:12+00:00"
   },
   "utdanningsdirektoratet-nasjonalt-register-for-pp-tjenester-npr-api": {
    "format": "openapi 3.0.1",
@@ -5511,7 +5518,7 @@
     "Typer"
    ],
    "source_url": "https://data-npr.udir.no/swagger/v4/swagger.json",
-   "fetched_at": "2026-11-17T13:10:05+00:00"
+   "fetched_at": "2026-11-23T14:40:12+00:00"
   },
   "utdanningsdirektoratet-nasjonalt-register-for-laerebedrifter-nlr-api": {
    "format": "openapi 3.0.1",
@@ -5524,7 +5531,7 @@
     "Typer"
    ],
    "source_url": "https://data-nlr.udir.no/swagger/v4/swagger.json",
-   "fetched_at": "2026-11-17T13:10:05+00:00"
+   "fetched_at": "2026-11-23T14:40:12+00:00"
   },
   "utdanningsdirektoratet-nasjonalt-register-for-opplaeringskontorer-nor-api": {
    "format": "openapi 3.0.1",
@@ -5537,7 +5544,7 @@
     "Typer"
    ],
    "source_url": "https://data-nor.udir.no/swagger/v4/swagger.json",
-   "fetched_at": "2026-11-17T13:10:05+00:00"
+   "fetched_at": "2026-11-23T14:40:13+00:00"
   },
   "utdanningsdirektoratet-nasjonalt-register-for-skolefritidsordningen-nfr-a": {
    "format": "openapi 3.0.1",
@@ -5551,7 +5558,7 @@
     "Typer"
    ],
    "source_url": "https://data-nfr.udir.no/swagger/v4/swagger.json",
-   "fetched_at": "2026-11-17T13:10:05+00:00"
+   "fetched_at": "2026-11-23T14:40:13+00:00"
   },
   "udir-nsr": {
    "format": "openapi 3.0.1",
@@ -5565,7 +5572,7 @@
     "Typer"
    ],
    "source_url": "https://data-nsr.udir.no/swagger/v4/swagger.json",
-   "fetched_at": "2026-11-17T13:10:05+00:00"
+   "fetched_at": "2026-11-23T14:40:13+00:00"
   }
  }
 }

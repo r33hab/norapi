@@ -1,6 +1,6 @@
 {
-"generated_at": "2026-11-17T13:15:51+00:00",
-"count": 7416,
+"generated_at": "2026-11-23T14:40:26+00:00",
+"count": 7428,
 "operations": [
 {
 "api_id": "altinn-correspondence",
@@ -209,409 +209,37 @@
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/streets/{streetKey}",
-"summary": "Get street",
-"description": "Returns street",
+"path": "/v1/culturalheritages/{culturalHeritageKey}",
+"summary": "Get cultural heritage",
+"description": "Returns cultural heritage",
 "tags": [
-"Streets"
+"Cultural Heritages"
 ],
-"operation_id": "getStreet",
+"operation_id": "getCulturalHeritage",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/streets/",
-"summary": "Get streets",
-"description": "Returns streets",
+"path": "/v1/culturalheritages/",
+"summary": "Get cultural heritages",
+"description": "Returns cultural heritages",
 "tags": [
-"Streets"
+"Cultural Heritages"
 ],
-"operation_id": "listStreets",
+"operation_id": "listCulturalHeritages",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/addresses/{addressKey}/streets/",
-"summary": "Get streets for an address",
+"path": "/v1/buildings/{buildingKey}/culturalheritages/",
+"summary": "Get cultural heritages related to a building",
 "description": null,
 "tags": [
-"Streets"
+"Cultural Heritages"
 ],
-"operation_id": "listStreetsByAddress",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/districts/{districtKey}/streets/",
-"summary": "Get streets for a district",
-"description": null,
-"tags": [
-"Streets"
-],
-"operation_id": "listStreetsByDistrict",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastre/unregisteredownerships/{unregisteredOwnershipKey}",
-"summary": "Get unregistered ownership",
-"description": "Returns unregistered ownership",
-"tags": [
-"Unregistered Ownerships"
-],
-"operation_id": "getUnregisteredOwnership",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastre/unregisteredownerships/",
-"summary": "Get unregistered ownerships",
-"description": "Returns unregistered ownerships",
-"tags": [
-"Unregistered Ownerships"
-],
-"operation_id": "listUnregisteredOwnerships",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/unregisteredownershipsowningthiscadastre/",
-"summary": "Get unregistered ownerships by cadastre",
-"description": null,
-"tags": [
-"Unregistered Ownerships"
-],
-"operation_id": "listUnregisteredOwnershipsByCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/unregisteredownershipsownedbythiscadastre/",
-"summary": "Get unregistered ownerships owned by this cadastre",
-"description": null,
-"tags": [
-"Unregistered Ownerships"
-],
-"operation_id": "listUnregisteredOwnershipsOwnedByCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/persons/{personKey}/unregisteredcadastreownerships/",
-"summary": "Get unregistered ownerships by person",
-"description": null,
-"tags": [
-"Unregistered Ownerships"
-],
-"operation_id": "listUnregisteredOwnershipsByPerson",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/addresses/{addressId}",
-"summary": "Get a unique address",
-"description": "Returns address",
-"tags": [
-"Addresses"
-],
-"operation_id": "getAddress",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/addresses/",
-"summary": "Get addresses by other keys",
-"description": "Returns addresses",
-"tags": [
-"Addresses"
-],
-"operation_id": "listAddresses",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/addresses/",
-"summary": "Get addresses related to a cadastre",
-"description": null,
-"tags": [
-"Addresses"
-],
-"operation_id": "listAddressesByCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/buildings/{buildingKey}/addresses/",
-"summary": "Get addresses related to a building",
-"description": null,
-"tags": [
-"Addresses"
-],
-"operation_id": "listAddressesByBuilding",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/buildingchanges/{buildingChangeKey}/addresses/",
-"summary": "Get addresses related to a building change",
-"description": null,
-"tags": [
-"Addresses"
-],
-"operation_id": "listAddressesByBuildingChange",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/streets/{streetKey}/addresses/",
-"summary": "Get addresses in a street",
-"description": null,
-"tags": [
-"Addresses"
-],
-"operation_id": "listAddressesByStreet",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/districts/{districtKey}/addresses/",
-"summary": "Get addresses in a district",
-"description": null,
-"tags": [
-"Addresses"
-],
-"operation_id": "listAddressesByDistrict",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/positions/{x},{y},{inputDatum}/nearbyaddresses/",
-"summary": "Get addresses near position",
-"description": "The list is sorted by distance",
-"tags": [
-"Addresses"
-],
-"operation_id": "listAddressesNearPosition",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/separatelyoccupiedunits/{unitKey}/address/",
-"summary": "Get the address for a separately occupied unit",
-"description": "The address for the unit is not always present",
-"tags": [
-"Addresses"
-],
-"operation_id": "getAddressByUnit",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/shares/{shareKey}/address/",
-"summary": "Get the address for a housing cooperative share",
-"description": "The address for the share is not always present",
-"tags": [
-"Addresses"
-],
-"operation_id": "getAddressByShare",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/presentationaddress/",
-"summary": "Get the presentation address for a cadastre",
-"description": "The presentation address for the cadastre is not always present",
-"tags": [
-"Addresses"
-],
-"operation_id": "getPresentationAddressByCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/landregistry/",
-"summary": "Generates a Land Registry report for the cadastre",
-"description": null,
-"tags": [
-"Cadastre Land Registry"
-],
-"operation_id": "getCadastreLandRegistry",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/scopes/",
-"summary": "Get scope list",
-"description": "Returns scope list",
-"tags": [
-"Scope"
-],
-"operation_id": "scope",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/compound/customerscorecoowner/{personKey}",
-"summary": "Get customerscore coowner",
-"description": "Returns customerscore coowner",
-"tags": [
-"CustomerScoreCoOwner"
-],
-"operation_id": "getCustomerScoreCoOwner",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastre/ownerships/{ownershipKey}",
-"summary": "Get ownership",
-"description": "Returns ownership",
-"tags": [
-"Cadastre Ownerships"
-],
-"operation_id": "getCadastreOwnership",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/ownershipsowningthiscadastre/",
-"summary": "Get ownerships by cadastre",
-"description": null,
-"tags": [
-"Cadastre Ownerships"
-],
-"operation_id": "listOwnershipsByCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/ownershipsownedbythiscadastre/",
-"summary": "Get ownerships owned by this cadastre",
-"description": null,
-"tags": [
-"Cadastre Ownerships"
-],
-"operation_id": "listOwnershipsOwnedByThisCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/persons/{personKey}/cadastreownerships/",
-"summary": "Get ownerships by person",
-"description": null,
-"tags": [
-"Cadastre Ownerships"
-],
-"operation_id": "listOwnershipsByPerson",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/objectscore/",
-"summary": "Get object score for a cadastre",
-"description": null,
-"tags": [
-"Cadastre Scores"
-],
-"operation_id": "getCadastreObjectScore",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/compound/personscore/{socialSecurityNumber}",
-"summary": "Get person score",
-"description": "Returns a person score including customer score and home equity for the supplied social security number.",
-"tags": [
-"PersonScore"
-],
-"operation_id": "getPersonScore",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/lienscalculation/",
-"summary": "Get liens calculation for cadastre",
-"description": null,
-"tags": [
-"Cadastre Liens Calculations"
-],
-"operation_id": "getCadastreLiensCalculation",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/technicalcadastrepdf/",
-"summary": "Get Technical PDF by cadastre",
-"description": null,
-"tags": [
-"PDF Orders"
-],
-"operation_id": "getTechnicalPDFByCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/pdfs/technical/{cadastreKey}",
-"summary": "Get Technical PDF by cadastre",
-"description": null,
-"tags": [
-"PDF Orders"
-],
-"operation_id": "getTechnicalPDF",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/simpletechnicalcadastrepdf/",
-"summary": "Get Simple Technical PDF by cadastre",
-"description": null,
-"tags": [
-"PDF Orders"
-],
-"operation_id": "getSimpleTechnicalPDFByCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/pdfs/simpletechnical/{cadastreKey}",
-"summary": "Get Simple Technical PDF by cadastre",
-"description": null,
-"tags": [
-"PDF Orders"
-],
-"operation_id": "getSimpleTechnicalPDF",
+"operation_id": "listCulturalHeritagesByBuilding",
 "deprecated": false
 },
 {
@@ -629,13 +257,325 @@
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/shares/{shareKey}/objectscore/",
-"summary": "Get object score for a share",
+"path": "/v1/search/persons/",
+"summary": "Get persons",
+"description": "Search for persons. Requires at least one letter in query string to do search.",
+"tags": [
+"Persons Search"
+],
+"operation_id": "searchForPersonsV2",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/positions/{x},{y},{datum}/plot/polygon/",
+"summary": "Get plot-polygons by position",
+"description": "Returns polygons as geojson",
+"tags": [
+"Geometries"
+],
+"operation_id": "getPlotPolygonsByPosition",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/polygon/",
+"summary": "Get polygons for cadastre",
+"description": "Returns polygons as geojson",
+"tags": [
+"Geometries"
+],
+"operation_id": "getPolygonsByCadastre",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/position/",
+"summary": "Get position for cadastre",
+"description": "Returns position as geojson point",
+"tags": [
+"Geometries"
+],
+"operation_id": "getPositionByCadastre",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/streets/{streetKey}/linestring/",
+"summary": "Get linestring for a street",
+"description": "Returns linestring as geojson",
+"tags": [
+"Geometries"
+],
+"operation_id": "getLineStringByStreet",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/plots/{plotKey}/polygon/",
+"summary": "Get polygon for plot",
+"description": "Returns polygon as geojson",
+"tags": [
+"Geometries"
+],
+"operation_id": "getPolygonByPlot",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/housingcooperatives/{housingCooperativeKey}",
+"summary": "Get housing cooperative",
+"description": "Search for housing cooperative",
+"tags": [
+"Housing Cooperatives"
+],
+"operation_id": "getHousingCooperative",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/accountants/housingdata/{housingKey}",
+"summary": "Get Accountant Housing Data",
+"description": "Returns an Accountant Housing Data for specified key",
+"tags": [
+"Accountant Housing Data"
+],
+"operation_id": "getAccountantHousingDataOfficialKey",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/accountants/housingdata/",
+"summary": "Find Accountant Housing Data",
+"description": "Returns a list of Accountant Housing Data for specified parameters",
+"tags": [
+"Accountant Housing Data"
+],
+"operation_id": "getAccountantHousingData",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/accountantdata/",
+"summary": "Get Accountant Housing Data by cadastre",
+"description": "Returns an Accountant Housing Data for specified cadastre",
+"tags": [
+"Accountant Housing Data"
+],
+"operation_id": "getAccountantHousingDataByCadastre",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/shares/{shareKey}/accountantdata/",
+"summary": "Get Accountant Housing Data by share",
+"description": "Returns an Accountant Housing Data for specified share",
+"tags": [
+"Accountant Housing Data"
+],
+"operation_id": "getAccountantHousingDataByShare",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/persons/{personKey}/customerscore/",
+"summary": "Get customerscore by person",
 "description": null,
 "tags": [
-"Share Scores"
+"Customer Scores"
 ],
-"operation_id": "getShareObjectScore",
+"operation_id": "getCustomerScore",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/compound/reports",
+"summary": "Get compound report",
+"description": "Returns a property report of the requested type. The reportName parameter selects which report is generated. cadastreKey is required for: adresseopplysninger, bygningsopplysninger, eiendomsopplysninger, matrikkelutskrift, enkelmatrikkelutsk",
+"tags": [
+"Reports"
+],
+"operation_id": "getReport",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/shares/{shareKey}/landregistry/",
+"summary": "Generates a Land Registry report for the share",
+"description": null,
+"tags": [
+"Share Land Registry"
+],
+"operation_id": "getLandRegistryForShare",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/historicalcadastrepdf/",
+"summary": "Get Historical Cadastre PDF by cadastre",
+"description": null,
+"tags": [
+"PDF Orders"
+],
+"operation_id": "getHistoricalCadastrePDFByCadastre",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/pdfs/historicalcadastre/{cadastreKey}",
+"summary": "Get Historical Cadastre PDF by cadastre",
+"description": null,
+"tags": [
+"PDF Orders"
+],
+"operation_id": "getHistoricalCadastrePDF",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/shares/{shareKey}/historicalsharepdf/",
+"summary": "Get Historical Share PDF by share",
+"description": null,
+"tags": [
+"PDF Orders"
+],
+"operation_id": "getHistoricalSharePDFByShare",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/pdfs/historicalshare/{shareKey}",
+"summary": "Get Historical Share PDF by share",
+"description": null,
+"tags": [
+"PDF Orders"
+],
+"operation_id": "getHistoricalSharePDF",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/shares/{shareKey}/titlepdf/",
+"summary": "Get title for Share PDF by share",
+"description": null,
+"tags": [
+"PDF Orders"
+],
+"operation_id": "getTitleSharePDFByShare",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/shares/{shareKey}/mortgagepdf/",
+"summary": "Get mortgage for Share PDF by share",
+"description": null,
+"tags": [
+"PDF Orders"
+],
+"operation_id": "getMortgageSharePDFByShare",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/shares/{shareKey}/shareinfopdf/",
+"summary": "Get share info PDF by share",
+"description": null,
+"tags": [
+"PDF Orders"
+],
+"operation_id": "getShareInfoPDFByShare",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/share/creationofrights/{shareRightKey}/pdf/",
+"summary": "Get CreationOfRight for share PDF by rightKey",
+"description": null,
+"tags": [
+"PDF Orders"
+],
+"operation_id": "getShareRightPDFByRight",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastre/creationofrights/{cadastreRightKey}/pdf/",
+"summary": "Get CreationOfRight for cadastre PDF by rightKey",
+"description": null,
+"tags": [
+"PDF Orders"
+],
+"operation_id": "getCadastreRightPDFByRight",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/dictionary/",
+"summary": "Get dictionary",
+"description": "Returns dictionary",
+"tags": [
+"Dictionary"
+],
+"operation_id": "dictionary",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/homeequities/{personKey}",
+"summary": "Get home equity",
+"description": "DEPRECATED: see Home Equities",
+"tags": [
+"Deprecated"
+],
+"operation_id": "deprecatedGetHomeEquity",
+"deprecated": true
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/operatingunits/{cadastreKey}",
+"summary": "Get operating unit",
+"description": "Find operating unit",
+"tags": [
+"Operating Units"
+],
+"operation_id": "getOperatingUnit",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/operatingunit/",
+"summary": "Get operating unit by any unit",
+"description": "Find operating unit by any unit",
+"tags": [
+"Operating Units"
+],
+"operation_id": "getOperatingUnitByCadastre",
 "deprecated": false
 },
 {
@@ -725,181 +665,121 @@
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/shares/{shareKey}/creationofrights/",
-"summary": "Get creation of rights related to a share",
+"path": "/v1/search/streets/",
+"summary": "Get streets",
+"description": "Search for streets",
+"tags": [
+"Streets Search"
+],
+"operation_id": "searchForStreetsV2",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/shares/{shareKey}/objectscore/",
+"summary": "Get object score for a share",
 "description": null,
 "tags": [
-"Creation Of Rights"
+"Share Scores"
 ],
-"operation_id": "getRightsForShare",
+"operation_id": "getShareObjectScore",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/persons/{personKey}/homeequity/",
-"summary": "Get home equity by person",
+"path": "/v1/cadastre/unregisteredownerships/{unregisteredOwnershipKey}",
+"summary": "Get unregistered ownership",
+"description": "Returns unregistered ownership",
+"tags": [
+"Unregistered Ownerships"
+],
+"operation_id": "getUnregisteredOwnership",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastre/unregisteredownerships/",
+"summary": "Get unregistered ownerships",
+"description": "Returns unregistered ownerships",
+"tags": [
+"Unregistered Ownerships"
+],
+"operation_id": "listUnregisteredOwnerships",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/unregisteredownershipsowningthiscadastre/",
+"summary": "Get unregistered ownerships by cadastre",
 "description": null,
 "tags": [
-"Home Equities"
+"Unregistered Ownerships"
 ],
-"operation_id": "getHomeEquityByPerson",
+"operation_id": "listUnregisteredOwnershipsByCadastre",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/shares/{shareKey}/titlepdf/",
-"summary": "Get title for Share PDF by share",
+"path": "/v1/cadastres/{cadastreKey}/unregisteredownershipsownedbythiscadastre/",
+"summary": "Get unregistered ownerships owned by this cadastre",
 "description": null,
 "tags": [
-"PDF Orders"
+"Unregistered Ownerships"
 ],
-"operation_id": "getTitleSharePDFByShare",
+"operation_id": "listUnregisteredOwnershipsOwnedByCadastre",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/shares/{shareKey}/mortgagepdf/",
-"summary": "Get mortgage for Share PDF by share",
+"path": "/v1/persons/{personKey}/unregisteredcadastreownerships/",
+"summary": "Get unregistered ownerships by person",
 "description": null,
 "tags": [
-"PDF Orders"
+"Unregistered Ownerships"
 ],
-"operation_id": "getMortgageSharePDFByShare",
+"operation_id": "listUnregisteredOwnershipsByPerson",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/shares/{shareKey}/shareinfopdf/",
-"summary": "Get share info PDF by share",
+"path": "/v1/cadastres/{cadastreKey}/validation/",
+"summary": "Validate the cadastre",
 "description": null,
 "tags": [
-"PDF Orders"
+"Validate Cadastre Land Registry"
 ],
-"operation_id": "getShareInfoPDFByShare",
+"operation_id": "validateCadastre",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/share/creationofrights/{shareRightKey}/pdf/",
-"summary": "Get CreationOfRight for share PDF by rightKey",
+"path": "/v1/cadastres/{cadastreKey}/objectscore/",
+"summary": "Get object score for a cadastre",
 "description": null,
 "tags": [
-"PDF Orders"
+"Cadastre Scores"
 ],
-"operation_id": "getShareRightPDFByRight",
+"operation_id": "getCadastreObjectScore",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/cadastre/creationofrights/{cadastreRightKey}/pdf/",
-"summary": "Get CreationOfRight for cadastre PDF by rightKey",
-"description": null,
-"tags": [
-"PDF Orders"
-],
-"operation_id": "getCadastreRightPDFByRight",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/shares/{shareKey}/housingvalue/",
-"summary": "Get housing value for a share",
-"description": null,
-"tags": [
-"Share Housing Values"
-],
-"operation_id": "getShareHousingValue",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/housingcooperatives/{housingCooperativeKey}",
-"summary": "Get housing cooperative",
-"description": "Search for housing cooperative",
-"tags": [
-"Housing Cooperatives"
-],
-"operation_id": "getHousingCooperative",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/systemping/",
-"summary": "System ping",
-"description": "Returns comprehensive status data about the Realty application including version information, system health, database status, and performance metrics. This endpoint is used for health checks and monitoring.",
-"tags": [
-"Systemping"
-],
-"operation_id": "getSystemPing",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/search/addresses/",
-"summary": "Get addresses",
-"description": "Search for addresses",
-"tags": [
-"Addresses Search"
-],
-"operation_id": "searchForAddressesV",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/search/shares/",
-"summary": "Get shares",
-"description": "Search for shares",
-"tags": [
-"Shares Search"
-],
-"operation_id": "searchForShares",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/housingcorporationshares/{housingCorporationShareKey}",
-"summary": "Get housing corporation share",
-"description": "Returns the specified housing corporation share (aksjeleilighet)",
-"tags": [
-"Housing Corporation Shares"
-],
-"operation_id": "getHousingCorporationShare",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cooperative/conveyances/",
-"summary": "Get conveyances",
-"description": "DEPRECATED: see Share Conveyances",
+"path": "/v1/customerscores/{personKey}",
+"summary": "Get customerscore",
+"description": "DEPRECATED: see Customer Scores",
 "tags": [
 "Deprecated"
 ],
-"operation_id": "deprecatedListShareConveyancesByParam",
-"deprecated": true
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cooperative/conveyances/{conveyanceKey}",
-"summary": "Get conveyance",
-"description": "DEPRECATED: see Share Conveyances",
-"tags": [
-"Deprecated"
-],
-"operation_id": "deprecatedListShareConveyances",
+"operation_id": "deprecatedGetCustomerScore",
 "deprecated": true
 },
 {
@@ -965,145 +845,193 @@
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/housingvalue/",
-"summary": "Get housing value for a cadastre",
+"path": "/v1/search/addresses/",
+"summary": "Get addresses",
+"description": "Search for addresses",
+"tags": [
+"Addresses Search"
+],
+"operation_id": "searchForAddressesV",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastre/conveyances/{conveyanceKey}",
+"summary": "Get conveyance",
+"description": "Returns conveyance",
+"tags": [
+"Cadastre Conveyances"
+],
+"operation_id": "getCadastreConveyance",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/conveyances/",
+"summary": "Get conveyances for a cadastre",
 "description": null,
 "tags": [
-"Cadastre Housing Values"
+"Cadastre Conveyances"
 ],
-"operation_id": "getCadastreHousingValue",
+"operation_id": "listCadastreConveyancesByCadastre",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/surroundinghousingvalues/",
-"summary": "Get surrounding housing values for a cadastre",
-"description": "Returns housing values",
-"tags": [
-"Cadastre Housing Values"
-],
-"operation_id": "listSurroundingCadastreHousingValues",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/shares/{shareKey}/lienscalculation/",
-"summary": "Get liens calculation for a share",
+"path": "/v1/pocs/{pocKey}/cadastreconveyances/",
+"summary": "Get conveyances for a poc",
 "description": null,
 "tags": [
-"Share Liens Calculations"
+"Cadastre Conveyances"
 ],
-"operation_id": "getShareLiensCalculation",
+"operation_id": "listCadastreConveyancesByPoc",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/search/streets/",
-"summary": "Get streets",
-"description": "Search for streets",
+"path": "/v1/share/conveyances/{conveyanceKey}",
+"summary": "Get conveyance",
+"description": "Returns conveyance",
 "tags": [
-"Streets Search"
+"Share Conveyances"
 ],
-"operation_id": "searchForStreetsV2",
+"operation_id": "getShareConveyance",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/municipalities/{municipalityKey}",
-"summary": "Get municipality",
-"description": "Returns municipality",
+"path": "/v1/poc/{pocKey}/shareconveyances/",
+"summary": "Get conveyances for a poc",
+"description": null,
 "tags": [
-"Municipalities"
+"Share Conveyances"
 ],
-"operation_id": "getMunicipality",
+"operation_id": "listShareConveyancesByPoc",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/municipalities/",
-"summary": "Get municipalities",
-"description": "Returns municipalities",
+"path": "/v1/shares/{shareKey}/conveyances/",
+"summary": "Get conveyances for a share",
+"description": null,
 "tags": [
-"Municipalities"
+"Share Conveyances"
 ],
-"operation_id": "listMunicipalities",
+"operation_id": "listShareConveyancesByShare",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/oldcadastrepdf/",
-"summary": "Get Old Cadastre PDF ByCadastre",
+"path": "/v1/cadastres/{cadastreKey}/technicalcadastrepdf/",
+"summary": "Get Technical PDF by cadastre",
 "description": null,
 "tags": [
 "PDF Orders"
 ],
-"operation_id": "getOldCadastrePDFByCadastre",
+"operation_id": "getTechnicalPDFByCadastre",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/pdfs/oldcadastre/{cadastreKey}",
-"summary": "Get Old Cadastre PDF by cadastre",
+"path": "/v1/pdfs/technical/{cadastreKey}",
+"summary": "Get Technical PDF by cadastre",
 "description": null,
 "tags": [
 "PDF Orders"
 ],
-"operation_id": "getOldCadastrePDF",
+"operation_id": "getTechnicalPDF",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/accountants/housingdata/{housingKey}",
-"summary": "Get Accountant Housing Data",
-"description": "Returns an Accountant Housing Data for specified key",
+"path": "/v1/cadastres/{cadastreKey}/simpletechnicalcadastrepdf/",
+"summary": "Get Simple Technical PDF by cadastre",
+"description": null,
 "tags": [
-"Accountant Housing Data"
+"PDF Orders"
 ],
-"operation_id": "getAccountantHousingDataOfficialKey",
+"operation_id": "getSimpleTechnicalPDFByCadastre",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/accountants/housingdata/",
-"summary": "Find Accountant Housing Data",
-"description": "Returns a list of Accountant Housing Data for specified parameters",
+"path": "/v1/pdfs/simpletechnical/{cadastreKey}",
+"summary": "Get Simple Technical PDF by cadastre",
+"description": null,
 "tags": [
-"Accountant Housing Data"
+"PDF Orders"
 ],
-"operation_id": "getAccountantHousingData",
+"operation_id": "getSimpleTechnicalPDF",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/accountantdata/",
-"summary": "Get Accountant Housing Data by cadastre",
-"description": "Returns an Accountant Housing Data for specified cadastre",
+"path": "/v1/floors/{floorKey}",
+"summary": "Get floor",
+"description": "Returns floor",
 "tags": [
-"Accountant Housing Data"
+"Floors"
 ],
-"operation_id": "getAccountantHousingDataByCadastre",
+"operation_id": "getFloor",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/shares/{shareKey}/accountantdata/",
-"summary": "Get Accountant Housing Data by share",
-"description": "Returns an Accountant Housing Data for specified share",
+"path": "/v1/floors/",
+"summary": "Get floors",
+"description": "Returns floors",
 "tags": [
-"Accountant Housing Data"
+"Floors"
 ],
-"operation_id": "getAccountantHousingDataByShare",
+"operation_id": "listFloors",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/buildings/{buildingKey}/floors/",
+"summary": "Get floors related to a building",
+"description": null,
+"tags": [
+"Floors"
+],
+"operation_id": "listFloorsByBuilding",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/buildingchanges/{buildingChangeKey}/floors/",
+"summary": "Get floors related to a buildingchange",
+"description": null,
+"tags": [
+"Floors"
+],
+"operation_id": "listFloorsByBuildingChange",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/coordinates/",
+"summary": "Get coordinates for cadastre",
+"description": "Returns coordinates for a given cadastre",
+"tags": [
+"Coordinates"
+],
+"operation_id": "listCadastreCoordinates",
 "deprecated": false
 },
 {
@@ -1145,61 +1073,253 @@
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v2/shares/{shareKey}/objectscore/",
-"summary": "Get object score for a share",
+"path": "/v1/creationofrights/{rightKey}",
+"summary": "Get creation of right",
 "description": null,
 "tags": [
-"Share Scores"
+"Creation Of Rights"
 ],
-"operation_id": "getShareObjectScoreV2",
+"operation_id": "getRight",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/districts/{districtKey}",
-"summary": "Get district",
-"description": "Returns district",
-"tags": [
-"Districts"
-],
-"operation_id": "getDistrict",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/districts/",
-"summary": "Get districts",
-"description": "Returns districts",
-"tags": [
-"Districts"
-],
-"operation_id": "listDistricts",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/addresses/{addressKey}/districts/",
-"summary": "Get districts related to a address",
+"path": "/v1/documents/{documentKey}/creationofrights/",
+"summary": "Get creation of rights by document key",
 "description": null,
 "tags": [
-"Districts"
+"Creation Of Rights"
 ],
-"operation_id": "listDistrictsByAddress",
+"operation_id": "listRightsByDocument",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/streets/{streetKey}/districts/",
-"summary": "Get districts related to a street",
+"path": "/v1/share/documentcopyexistence/{shareDocumentKey}",
+"summary": "Get document copy existences",
+"description": "Returns document copy existences",
+"tags": [
+"Share Document Copy Existence"
+],
+"operation_id": "getShareDocumentCopyExistence",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/persons/{personKey}/homeequity/",
+"summary": "Get home equity by person",
 "description": null,
 "tags": [
-"Districts"
+"Home Equities"
 ],
-"operation_id": "listDistrictsByStreet",
+"operation_id": "getHomeEquityByPerson",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/scopes/",
+"summary": "Get scope list",
+"description": "Returns scope list",
+"tags": [
+"Scope"
+],
+"operation_id": "scope",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/mapfeatures/",
+"summary": "Get cadastral map features for a cadastre",
+"description": "Returns plot polygons, border lines, border points and the cadastre representation point as a single GeoJSON FeatureCollection. Each feature carries a featureType property: plot, borderline, borderpoint or cadastrePoint. Geometry is in the ",
+"tags": [
+"Geometries"
+],
+"operation_id": "getMapFeaturesByCadastre",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/mapfeatures/",
+"summary": "Get cadastral map features within an extent",
+"description": "Returns plot polygons, border lines, border points, cadastre representation points, buildings and street links within a bounding box, as a single GeoJSON FeatureCollection. This is what a map view or a map page draws from: it includes neigh",
+"tags": [
+"Geometries"
+],
+"operation_id": "getMapFeaturesByExtent",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/shares/{shareKey}/creationofrights/",
+"summary": "Get creation of rights related to a share",
+"description": null,
+"tags": [
+"Creation Of Rights"
+],
+"operation_id": "getRightsForShare",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/buildings/{buildingKey}",
+"summary": "Get building",
+"description": "Returns building",
+"tags": [
+"Buildings"
+],
+"operation_id": "getBuilding",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/buildings/",
+"summary": "Get buildings",
+"description": "Returns buildings",
+"tags": [
+"Buildings"
+],
+"operation_id": "listBuildings",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/buildings/",
+"summary": "Get buildings for a cadastre",
+"description": null,
+"tags": [
+"Buildings"
+],
+"operation_id": "listBuildingsByCadastre",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/addresses/{addressKey}/buildings/",
+"summary": "Get buildings for an address",
+"description": null,
+"tags": [
+"Buildings"
+],
+"operation_id": "listBuildingsByAddress",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/singleheritages/{singleHeritageKey}/buildings/",
+"summary": "Get buildings for a single heritage",
+"description": null,
+"tags": [
+"Buildings"
+],
+"operation_id": "listBuildingsBySingleHeritage",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/separatelyoccupiedunits/{unitKey}/building/",
+"summary": "Get the building for a separately occupied unit",
+"description": null,
+"tags": [
+"Buildings"
+],
+"operation_id": "getBuildingByUnit",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/culturalheritages/{culturalHeritageKey}/buildings/",
+"summary": "Get buildings for a cultural heritage",
+"description": null,
+"tags": [
+"Buildings"
+],
+"operation_id": "listBuildingsByCulturalHeritage",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/buildingchanges/{buildingChangeKey}/building/",
+"summary": "Get the building for a building change",
+"description": null,
+"tags": [
+"Buildings"
+],
+"operation_id": "getBuildingByBuildingChange",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/shares/{shareKey}/building/",
+"summary": "Get the building for a share",
+"description": null,
+"tags": [
+"Buildings"
+],
+"operation_id": "getBuildingByShare",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/coopinternals/{coopInternalKey}",
+"summary": "Get coop internal",
+"description": "Returns coop internal - Internal index-data for housing cooperative holders",
+"tags": [
+"Coop Internals"
+],
+"operation_id": "getCoopInternal",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/coopinternals/",
+"summary": "Get coop internals",
+"description": "Returns coop internals - Internal index-data for housing cooperative holders",
+"tags": [
+"Coop Internals"
+],
+"operation_id": "listCoopInternals",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/coopinternals/",
+"summary": "Get coop internals for a cadastre",
+"description": null,
+"tags": [
+"Coop Internals"
+],
+"operation_id": "listCoopInternalsForCadastre",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/shares/{shareKey}/coopinternals/",
+"summary": "Get coop internals for a share",
+"description": null,
+"tags": [
+"Coop Internals"
+],
+"operation_id": "listCoopInternalsForShare",
 "deprecated": false
 },
 {
@@ -1229,409 +1349,25 @@
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/compound/cadastreextended/{cadastreKey}",
-"summary": "Get extended information about a cadastre",
+"path": "/v1/cadastres/{cadastreKey}/creationofrights/",
+"summary": "Get creation of rights related to a cadastre",
 "description": null,
 "tags": [
-"CadastreExtended"
+"Creation Of Rights"
 ],
-"operation_id": "getCadastreExtended",
+"operation_id": "getCadastreRight",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/positions/{x},{y},{datum}/plot/polygon/",
-"summary": "Get plot-polygons by position",
-"description": "Returns polygons as geojson",
+"path": "/v1/search/shares/",
+"summary": "Get shares",
+"description": "Search for shares",
 "tags": [
-"Geometries"
+"Shares Search"
 ],
-"operation_id": "getPlotPolygonsByPosition",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/polygon/",
-"summary": "Get polygons for cadastre",
-"description": "Returns polygons as geojson",
-"tags": [
-"Geometries"
-],
-"operation_id": "getPolygonsByCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/position/",
-"summary": "Get position for cadastre",
-"description": "Returns position as geojson point",
-"tags": [
-"Geometries"
-],
-"operation_id": "getPositionByCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/streets/{streetKey}/linestring/",
-"summary": "Get linestring for a street",
-"description": "Returns linestring as geojson",
-"tags": [
-"Geometries"
-],
-"operation_id": "getLineStringByStreet",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/plots/{plotKey}/polygon/",
-"summary": "Get polygon for plot",
-"description": "Returns polygon as geojson",
-"tags": [
-"Geometries"
-],
-"operation_id": "getPolygonByPlot",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/homeequities/{personKey}",
-"summary": "Get home equity",
-"description": "DEPRECATED: see Home Equities",
-"tags": [
-"Deprecated"
-],
-"operation_id": "deprecatedGetHomeEquity",
-"deprecated": true
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/sectionings/{sectioningKey}",
-"summary": "Get sectioning",
-"description": "Returns sectioning",
-"tags": [
-"Sectionings"
-],
-"operation_id": "getSectioning",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/sectionings/",
-"summary": "Get sectionings",
-"description": "Returns sectionings",
-"tags": [
-"Sectionings"
-],
-"operation_id": "listSectionings",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/sectionings/",
-"summary": "Get sectionings for a cadastre",
-"description": null,
-"tags": [
-"Sectionings"
-],
-"operation_id": "listSectioningsByCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/share/documentcopyexistence/{shareDocumentKey}",
-"summary": "Get document copy existences",
-"description": "Returns document copy existences",
-"tags": [
-"Share Document Copy Existence"
-],
-"operation_id": "getShareDocumentCopyExistence",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/organizations/{organizationKey}",
-"summary": "Get organization",
-"description": "Returns organization",
-"tags": [
-"Organization"
-],
-"operation_id": "getOrganization",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/organizations/",
-"summary": "Get organizations",
-"description": "Returns organizations by industry code or parent",
-"tags": [
-"Organization"
-],
-"operation_id": "listOrganizations",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/organizations/{organizationKey}/root/",
-"summary": "Get root level organization",
-"description": "Returns root in conglomerate",
-"tags": [
-"Organization"
-],
-"operation_id": "getRootOrganization",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/organizations/{organizationKey}/accountant/",
-"summary": "Get accountant organization for a Housing Cooperative/ Corporation",
-"description": null,
-"tags": [
-"Organization"
-],
-"operation_id": "getAccountantOrganizationForCooperative",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/accountant/",
-"summary": "Get accountant organization for a cadastre",
-"description": null,
-"tags": [
-"Organization"
-],
-"operation_id": "getAccountantOrganizationForCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/shares/{shareKey}/accountant/",
-"summary": "Get accountant organization for a cooperative share",
-"description": null,
-"tags": [
-"Organization"
-],
-"operation_id": "getAccountantOrganizationForShare",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/simpleorganizations/",
-"summary": "Get organizations as simple list",
-"description": "Returns organizations by industry code as simple list",
-"tags": [
-"Organization"
-],
-"operation_id": "simplelistOrganizations",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/codefields/{codefieldKey}",
-"summary": "Get codefield",
-"description": "Returns codefield",
-"tags": [
-"Code Fields"
-],
-"operation_id": "getCodeField",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/codefields/",
-"summary": "Get all codefields",
-"description": "Returns all codefields",
-"tags": [
-"Code Fields"
-],
-"operation_id": "listCodeFields",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/realtyestateunits/{realtyEstateUnitKey}",
-"summary": "Get realty estate unit",
-"description": "Returns realty estate unit",
-"tags": [
-"Realty Estate Units"
-],
-"operation_id": "getRealtyEstateUnit",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/realtyestateunits/",
-"summary": "Get realty estate unit",
-"description": "Returns realty estate unit",
-"tags": [
-"Realty Estate Units"
-],
-"operation_id": "getRealtyEstateUnitByCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/realtyestateunits/",
-"summary": "Get realty estate units for a cadastre",
-"description": null,
-"tags": [
-"Realty Estate Units"
-],
-"operation_id": "listRealtyEstateUnitsByCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/compound/reports",
-"summary": "Get compound report",
-"description": "Returns a property report of the requested type. The reportName parameter selects which report is generated. cadastreKey is required for: adresseopplysninger, bygningsopplysninger, eiendomsopplysninger, matrikkelutskrift, enkelmatrikkelutsk",
-"tags": [
-"Reports"
-],
-"operation_id": "getReport",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/customerscores/{personKey}",
-"summary": "Get customerscore",
-"description": "DEPRECATED: see Customer Scores",
-"tags": [
-"Deprecated"
-],
-"operation_id": "deprecatedGetCustomerScore",
-"deprecated": true
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/dictionary/",
-"summary": "Get dictionary",
-"description": "Returns dictionary",
-"tags": [
-"Dictionary"
-],
-"operation_id": "dictionary",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/culturalheritages/{culturalHeritageKey}",
-"summary": "Get cultural heritage",
-"description": "Returns cultural heritage",
-"tags": [
-"Cultural Heritages"
-],
-"operation_id": "getCulturalHeritage",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/culturalheritages/",
-"summary": "Get cultural heritages",
-"description": "Returns cultural heritages",
-"tags": [
-"Cultural Heritages"
-],
-"operation_id": "listCulturalHeritages",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/buildings/{buildingKey}/culturalheritages/",
-"summary": "Get cultural heritages related to a building",
-"description": null,
-"tags": [
-"Cultural Heritages"
-],
-"operation_id": "listCulturalHeritagesByBuilding",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/search/housingcooperatives/",
-"summary": "Get housing cooperatives",
-"description": "Search for housing cooperatives",
-"tags": [
-"Housing Cooperatives Search"
-],
-"operation_id": "searchForHousingCooperatives",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/compound/accountantdata",
-"summary": "Get accountant data",
-"description": "Returns aggregated housing and cooperative data for accountants. Exactly one of ownerOfficialNumber, cadastreKey, shareKey, or ownerKey must be provided.",
-"tags": [
-"AccountantData"
-],
-"operation_id": "getAccountantData",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/affairs/{affairKey}",
-"summary": "Get affair",
-"description": "Returns affair",
-"tags": [
-"Affairs"
-],
-"operation_id": "getAffair",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/affairs/",
-"summary": "Get affairs",
-"description": "Returns affairs",
-"tags": [
-"Affairs"
-],
-"operation_id": "listAffairs",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/affairs/",
-"summary": "Get affairs for a cadastre",
-"description": null,
-"tags": [
-"Affairs"
-],
-"operation_id": "listAffairsByCadastre",
+"operation_id": "searchForShares",
 "deprecated": false
 },
 {
@@ -1769,325 +1505,265 @@
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/persons/{personKey}/creationofrights/",
-"summary": "Get creation of rights for a person",
+"path": "/v1/affairs/{affairKey}",
+"summary": "Get affair",
+"description": "Returns affair",
+"tags": [
+"Affairs"
+],
+"operation_id": "getAffair",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/affairs/",
+"summary": "Get affairs",
+"description": "Returns affairs",
+"tags": [
+"Affairs"
+],
+"operation_id": "listAffairs",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/affairs/",
+"summary": "Get affairs for a cadastre",
 "description": null,
 "tags": [
-"Creation Of Rights"
+"Affairs"
 ],
-"operation_id": "listRightsForPerson",
+"operation_id": "listAffairsByCadastre",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/historicalcadastrepdf/",
-"summary": "Get Historical Cadastre PDF by cadastre",
+"path": "/v1/realtyestateunits/{realtyEstateUnitKey}",
+"summary": "Get realty estate unit",
+"description": "Returns realty estate unit",
+"tags": [
+"Realty Estate Units"
+],
+"operation_id": "getRealtyEstateUnit",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/realtyestateunits/",
+"summary": "Get realty estate unit",
+"description": "Returns realty estate unit",
+"tags": [
+"Realty Estate Units"
+],
+"operation_id": "getRealtyEstateUnitByCadastre",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/realtyestateunits/",
+"summary": "Get realty estate units for a cadastre",
 "description": null,
 "tags": [
-"PDF Orders"
+"Realty Estate Units"
 ],
-"operation_id": "getHistoricalCadastrePDFByCadastre",
+"operation_id": "listRealtyEstateUnitsByCadastre",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/pdfs/historicalcadastre/{cadastreKey}",
-"summary": "Get Historical Cadastre PDF by cadastre",
-"description": null,
-"tags": [
-"PDF Orders"
-],
-"operation_id": "getHistoricalCadastrePDF",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/shares/{shareKey}/historicalsharepdf/",
-"summary": "Get Historical Share PDF by share",
-"description": null,
-"tags": [
-"PDF Orders"
-],
-"operation_id": "getHistoricalSharePDFByShare",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/pdfs/historicalshare/{shareKey}",
-"summary": "Get Historical Share PDF by share",
-"description": null,
-"tags": [
-"PDF Orders"
-],
-"operation_id": "getHistoricalSharePDF",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/compound/personsownings/{personKeys}",
-"summary": "Get persons ownings",
-"description": "Returns persons ownings for supplied person keys. personKeys is a list delimited by underscore, for instance F31929900068_S123456785. Each key is either F followed by a 10 or 11 digit national identity number, S followed by a 9 digit organi",
-"tags": [
-"PersonsOwnings"
-],
-"operation_id": "getPersonsOwnings",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/simplemappdf/",
-"summary": "Get Simple Technical PDF by cadastre",
-"description": null,
-"tags": [
-"PDF Orders"
-],
-"operation_id": "getSimpleMapPDFByCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/mappdf/",
-"summary": "Get Technical PDF by cadastre",
+"path": "/v1/shares/{shareKey}/historicaltitlepdf/",
+"summary": "Get historical title for Share PDF by share",
 "description": null,
 "tags": [
 "PDF Orders"
 ],
-"operation_id": "getMapPDFByCadastre",
+"operation_id": "getHistoricalTitleSharePDFByShare",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/buildingchanges/{buildingChangeKey}",
-"summary": "Get building change",
-"description": "Returns building change",
-"tags": [
-"Building Changes"
-],
-"operation_id": "getBuildingChange",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/buildingchanges/",
-"summary": "Get building changes",
-"description": "Returns building changes",
-"tags": [
-"Building Changes"
-],
-"operation_id": "listBuildingChanges",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/buildingchanges/",
-"summary": "Get building changes for a cadastre",
+"path": "/v1/shares/{shareKey}/historicalmortgagepdf/",
+"summary": "Get historical mortgage for Share PDF by share",
 "description": null,
 "tags": [
-"Building Changes"
+"PDF Orders"
 ],
-"operation_id": "listBuildingChangesByCadastre",
+"operation_id": "getHistoricalMortgageSharePDFByShare",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/buildings/{buildingKey}/changes/",
-"summary": "Get building changes for building",
+"path": "/v1/shares/{shareKey}/historicalshareinfopdf/",
+"summary": "Get historical share info PDF by share",
 "description": null,
 "tags": [
-"Building Changes"
+"PDF Orders"
 ],
-"operation_id": "listBuildingChangesByBuilding",
+"operation_id": "getHistoricalShareInfoPDFByShare",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/separatelyoccupiedunits/{unitKey}/buildingchange/",
-"summary": "Get the building change for a separately occupied unit",
+"path": "/v1/organizations/{organizationKey}",
+"summary": "Get organization",
+"description": "Returns organization",
+"tags": [
+"Organization"
+],
+"operation_id": "getOrganization",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/organizations/",
+"summary": "Get organizations",
+"description": "Returns organizations by industry code or parent",
+"tags": [
+"Organization"
+],
+"operation_id": "listOrganizations",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/organizations/{organizationKey}/root/",
+"summary": "Get root level organization",
+"description": "Returns root in conglomerate",
+"tags": [
+"Organization"
+],
+"operation_id": "getRootOrganization",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/organizations/{organizationKey}/accountant/",
+"summary": "Get accountant organization for a Housing Cooperative/ Corporation",
 "description": null,
 "tags": [
-"Building Changes"
+"Organization"
 ],
-"operation_id": "getBuildingChangeByUnit",
+"operation_id": "getAccountantOrganizationForCooperative",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/buildings/{buildingKey}/changes/{version}",
-"summary": "Get building change",
-"description": "Returns building change",
-"tags": [
-"Building Changes"
-],
-"operation_id": "deprecatedGetBuildingChange",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/complaints/{complaintKey}",
-"summary": "Get complaint",
-"description": "Returns complaint",
-"tags": [
-"Complaints"
-],
-"operation_id": "getComplaint",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/complaints/",
-"summary": "Get complaints",
-"description": "Returns complaints",
-"tags": [
-"Complaints"
-],
-"operation_id": "listComplaints",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/complaints/",
-"summary": "Get complaints for a cadastre",
+"path": "/v1/cadastres/{cadastreKey}/accountant/",
+"summary": "Get accountant organization for a cadastre",
 "description": null,
 "tags": [
-"Complaints"
+"Organization"
 ],
-"operation_id": "listComplaintsByCadastre",
+"operation_id": "getAccountantOrganizationForCadastre",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/buildings/{buildingKey}",
-"summary": "Get building",
-"description": "Returns building",
-"tags": [
-"Buildings"
-],
-"operation_id": "getBuilding",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/buildings/",
-"summary": "Get buildings",
-"description": "Returns buildings",
-"tags": [
-"Buildings"
-],
-"operation_id": "listBuildings",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/buildings/",
-"summary": "Get buildings for a cadastre",
+"path": "/v1/shares/{shareKey}/accountant/",
+"summary": "Get accountant organization for a cooperative share",
 "description": null,
 "tags": [
-"Buildings"
+"Organization"
 ],
-"operation_id": "listBuildingsByCadastre",
+"operation_id": "getAccountantOrganizationForShare",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/addresses/{addressKey}/buildings/",
-"summary": "Get buildings for an address",
+"path": "/v1/simpleorganizations/",
+"summary": "Get organizations as simple list",
+"description": "Returns organizations by industry code as simple list",
+"tags": [
+"Organization"
+],
+"operation_id": "simplelistOrganizations",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/sectionings/{sectioningKey}",
+"summary": "Get sectioning",
+"description": "Returns sectioning",
+"tags": [
+"Sectionings"
+],
+"operation_id": "getSectioning",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/sectionings/",
+"summary": "Get sectionings",
+"description": "Returns sectionings",
+"tags": [
+"Sectionings"
+],
+"operation_id": "listSectionings",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/sectionings/",
+"summary": "Get sectionings for a cadastre",
 "description": null,
 "tags": [
-"Buildings"
+"Sectionings"
 ],
-"operation_id": "listBuildingsByAddress",
+"operation_id": "listSectioningsByCadastre",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/singleheritages/{singleHeritageKey}/buildings/",
-"summary": "Get buildings for a single heritage",
-"description": null,
+"path": "/v1/housingcorporationshares/{housingCorporationShareKey}",
+"summary": "Get housing corporation share",
+"description": "Returns the specified housing corporation share (aksjeleilighet)",
 "tags": [
-"Buildings"
+"Housing Corporation Shares"
 ],
-"operation_id": "listBuildingsBySingleHeritage",
+"operation_id": "getHousingCorporationShare",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/separatelyoccupiedunits/{unitKey}/building/",
-"summary": "Get the building for a separately occupied unit",
-"description": null,
+"path": "/v1/cadastre/documentcopyexistence/{cadastreDocumentKey}",
+"summary": "Get document copy existence",
+"description": "Returns document copy existence for property",
 "tags": [
-"Buildings"
+"Cadastre Document Copy Existence"
 ],
-"operation_id": "getBuildingByUnit",
+"operation_id": "getCadastreDocumentCopyExistence",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/culturalheritages/{culturalHeritageKey}/buildings/",
-"summary": "Get buildings for a cultural heritage",
-"description": null,
+"path": "/v1/compound/customerscorecoowner/{personKey}",
+"summary": "Get customerscore coowner",
+"description": "Returns customerscore coowner",
 "tags": [
-"Buildings"
+"CustomerScoreCoOwner"
 ],
-"operation_id": "listBuildingsByCulturalHeritage",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/buildingchanges/{buildingChangeKey}/building/",
-"summary": "Get the building for a building change",
-"description": null,
-"tags": [
-"Buildings"
-],
-"operation_id": "getBuildingByBuildingChange",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/shares/{shareKey}/building/",
-"summary": "Get the building for a share",
-"description": null,
-"tags": [
-"Buildings"
-],
-"operation_id": "getBuildingByShare",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/search/persons/",
-"summary": "Get persons",
-"description": "Search for persons. Requires at least one letter in query string to do search.",
-"tags": [
-"Persons Search"
-],
-"operation_id": "searchForPersonsV2",
+"operation_id": "getCustomerScoreCoOwner",
 "deprecated": false
 },
 {
@@ -2117,61 +1793,13 @@
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/search/places/",
-"summary": "Get places",
-"description": "Search for places",
+"path": "/v1/user",
+"summary": "Get logged in user",
+"description": "Returns logged in user",
 "tags": [
-"Places Search"
+"Users"
 ],
-"operation_id": "searchForPlacesV2",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/floors/{floorKey}",
-"summary": "Get floor",
-"description": "Returns floor",
-"tags": [
-"Floors"
-],
-"operation_id": "getFloor",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/floors/",
-"summary": "Get floors",
-"description": "Returns floors",
-"tags": [
-"Floors"
-],
-"operation_id": "listFloors",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/buildings/{buildingKey}/floors/",
-"summary": "Get floors related to a building",
-"description": null,
-"tags": [
-"Floors"
-],
-"operation_id": "listFloorsByBuilding",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/buildingchanges/{buildingChangeKey}/floors/",
-"summary": "Get floors related to a buildingchange",
-"description": null,
-"tags": [
-"Floors"
-],
-"operation_id": "listFloorsByBuildingChange",
+"operation_id": "getLoggedInUser",
 "deprecated": false
 },
 {
@@ -2201,109 +1829,73 @@
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/soilcontaminations/{soilContaminationKey}",
-"summary": "Get soil contamination",
-"description": "Returns soil contamination",
+"path": "/v1/cadastre/ownerships/{ownershipKey}",
+"summary": "Get ownership",
+"description": "Returns ownership",
 "tags": [
-"Soil Contaminations"
+"Cadastre Ownerships"
 ],
-"operation_id": "getSoilcontamination",
+"operation_id": "getCadastreOwnership",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/soilcontaminations/",
-"summary": "Get soil contamination items",
-"description": "Returns soil contamination items",
-"tags": [
-"Soil Contaminations"
-],
-"operation_id": "listSoilContaminations",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/soilcontaminations/",
-"summary": "Get soil contamination items for a cadastre",
+"path": "/v1/cadastres/{cadastreKey}/ownershipsowningthiscadastre/",
+"summary": "Get ownerships by cadastre",
 "description": null,
 "tags": [
-"Soil Contaminations"
+"Cadastre Ownerships"
 ],
-"operation_id": "listSoilContaminationsByCadastre",
+"operation_id": "listOwnershipsByCadastre",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/validation/",
-"summary": "Validate the cadastre",
+"path": "/v1/cadastres/{cadastreKey}/ownershipsownedbythiscadastre/",
+"summary": "Get ownerships owned by this cadastre",
 "description": null,
 "tags": [
-"Validate Cadastre Land Registry"
+"Cadastre Ownerships"
 ],
-"operation_id": "validateCadastre",
+"operation_id": "listOwnershipsOwnedByThisCadastre",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/cadastre/offices/{cadastreDocumentKey}",
-"summary": "Get document ident based on key",
-"description": "Returns document ident based on key",
-"tags": [
-"Offices"
-],
-"operation_id": "getCadastreOffice",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/persons/{personKey}/customerscore/",
-"summary": "Get customerscore by person",
+"path": "/v1/persons/{personKey}/cadastreownerships/",
+"summary": "Get ownerships by person",
 "description": null,
 "tags": [
-"Customer Scores"
+"Cadastre Ownerships"
 ],
-"operation_id": "getCustomerScore",
+"operation_id": "listOwnershipsByPerson",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/creationofrights/",
-"summary": "Get creation of rights related to a cadastre",
-"description": null,
+"path": "/v1/search/places/",
+"summary": "Get places",
+"description": "Search for places",
 "tags": [
-"Creation Of Rights"
+"Places Search"
 ],
-"operation_id": "getCadastreRight",
+"operation_id": "searchForPlacesV2",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/creationofrights/{rightKey}",
-"summary": "Get creation of right",
-"description": null,
+"path": "/v1/compound/accountantdata",
+"summary": "Get accountant data",
+"description": "Returns aggregated housing and cooperative data for accountants. Exactly one of ownerOfficialNumber, cadastreKey, shareKey, or ownerKey must be provided.",
 "tags": [
-"Creation Of Rights"
+"AccountantData"
 ],
-"operation_id": "getRight",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/documents/{documentKey}/creationofrights/",
-"summary": "Get creation of rights by document key",
-"description": null,
-"tags": [
-"Creation Of Rights"
-],
-"operation_id": "listRightsByDocument",
+"operation_id": "getAccountantData",
 "deprecated": false
 },
 {
@@ -2393,498 +1985,6 @@
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/pocs/{pocId}",
-"summary": "Get POC",
-"description": "Returns POC",
-"tags": [
-"Points of Conveyances"
-],
-"operation_id": "getPoc",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/pocs/",
-"summary": "Get POCs",
-"description": "Returns POCs",
-"tags": [
-"Points of Conveyances"
-],
-"operation_id": "listPocs",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/user",
-"summary": "Get logged in user",
-"description": "Returns logged in user",
-"tags": [
-"Users"
-],
-"operation_id": "getLoggedInUser",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastre/documentcopyexistence/{cadastreDocumentKey}",
-"summary": "Get document copy existence",
-"description": "Returns document copy existence for property",
-"tags": [
-"Cadastre Document Copy Existence"
-],
-"operation_id": "getCadastreDocumentCopyExistence",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/share/conveyances/{conveyanceKey}",
-"summary": "Get conveyance",
-"description": "Returns conveyance",
-"tags": [
-"Share Conveyances"
-],
-"operation_id": "getShareConveyance",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/poc/{pocKey}/shareconveyances/",
-"summary": "Get conveyances for a poc",
-"description": null,
-"tags": [
-"Share Conveyances"
-],
-"operation_id": "listShareConveyancesByPoc",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/shares/{shareKey}/conveyances/",
-"summary": "Get conveyances for a share",
-"description": null,
-"tags": [
-"Share Conveyances"
-],
-"operation_id": "listShareConveyancesByShare",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/compound/conglomerateownerships/{organizationKey}",
-"summary": "Get conglomerate ownerships",
-"description": "Returns aggregated ownership information across an organization and all related sub-organizations.",
-"tags": [
-"ConglomerateOwnerships"
-],
-"operation_id": "getConglomerateOwnerships",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/shares/{shareKey}/historicaltitlepdf/",
-"summary": "Get historical title for Share PDF by share",
-"description": null,
-"tags": [
-"PDF Orders"
-],
-"operation_id": "getHistoricalTitleSharePDFByShare",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/shares/{shareKey}/historicalmortgagepdf/",
-"summary": "Get historical mortgage for Share PDF by share",
-"description": null,
-"tags": [
-"PDF Orders"
-],
-"operation_id": "getHistoricalMortgageSharePDFByShare",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/shares/{shareKey}/historicalshareinfopdf/",
-"summary": "Get historical share info PDF by share",
-"description": null,
-"tags": [
-"PDF Orders"
-],
-"operation_id": "getHistoricalShareInfoPDFByShare",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastre/conveyances/{conveyanceKey}",
-"summary": "Get conveyance",
-"description": "Returns conveyance",
-"tags": [
-"Cadastre Conveyances"
-],
-"operation_id": "getCadastreConveyance",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/conveyances/",
-"summary": "Get conveyances for a cadastre",
-"description": null,
-"tags": [
-"Cadastre Conveyances"
-],
-"operation_id": "listCadastreConveyancesByCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/pocs/{pocKey}/cadastreconveyances/",
-"summary": "Get conveyances for a poc",
-"description": null,
-"tags": [
-"Cadastre Conveyances"
-],
-"operation_id": "listCadastreConveyancesByPoc",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/persons/{personKey}",
-"summary": "Get person",
-"description": "Get person",
-"tags": [
-"Persons"
-],
-"operation_id": "getPerson",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/persons/",
-"summary": "Get persons",
-"description": "Returns persons",
-"tags": [
-"Persons"
-],
-"operation_id": "listPersons",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/creationofrights/{rightKey}/currentmortgagees/",
-"summary": "Get current mortgagees of a right",
-"description": null,
-"tags": [
-"Persons"
-],
-"operation_id": "getCurrentMortgagees",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/addresses/{addressKey}/residents/",
-"summary": "Get the residents of an address",
-"description": null,
-"tags": [
-"Persons"
-],
-"operation_id": "listResidentsOfAddress",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/owners/",
-"summary": "Get the owners of a cadastre",
-"description": null,
-"tags": [
-"Persons"
-],
-"operation_id": "listOwnersOfCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/shares/{shareKey}/owners/",
-"summary": "Get the owners of a share",
-"description": null,
-"tags": [
-"Persons"
-],
-"operation_id": "listOwnersOfShare",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastre/conveyances/{conveyanceKey}/buyers/",
-"summary": "Get the buyers participating in a conveyance  of cadastres",
-"description": null,
-"tags": [
-"Persons"
-],
-"operation_id": "listBuyersOfConveyanceOfCadastres",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastre/conveyances/{conveyanceKey}/sellers/",
-"summary": "Get the sellers participating in a conveyance of cadastres",
-"description": null,
-"tags": [
-"Persons"
-],
-"operation_id": "listSellersOfConveyanceOfCadastres",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/share/conveyances/{conveyanceKey}/buyers/",
-"summary": "Get the buyers participating in a conveyance of shares",
-"description": null,
-"tags": [
-"Persons"
-],
-"operation_id": "listBuyersOfConveyanceOfShares",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/share/conveyances/{conveyanceKey}/sellers/",
-"summary": "Get the sellers participating in a conveyance of shares",
-"description": null,
-"tags": [
-"Persons"
-],
-"operation_id": "listSellersOfConveyanceOfShares",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/buildings/{buildingKey}/developers/",
-"summary": "Get persons with a role as developer of a building",
-"description": null,
-"tags": [
-"Persons"
-],
-"operation_id": "listDevelopersOfBuilding",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/buildings/{buildingKey}/contacts/",
-"summary": "Get persons with the role as contact person of a building",
-"description": null,
-"tags": [
-"Persons"
-],
-"operation_id": "listContactsOfBuilding",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/buildingchanges/{buildingChangeKey}/developers/",
-"summary": "Get persons with a role as developer of a building change",
-"description": null,
-"tags": [
-"Persons"
-],
-"operation_id": "listDevelopersOfBuildingChange",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/buildingchanges/{buildingChangeKey}/contacts/",
-"summary": "Get persons with the role as contact person of a building change",
-"description": null,
-"tags": [
-"Persons"
-],
-"operation_id": "listContactsOfBuildingChange",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastre/ownerships/{ownershipKey}/owningperson/",
-"summary": "Get the owning person for a cadastre ownership",
-"description": null,
-"tags": [
-"Persons"
-],
-"operation_id": "getOwnerOfOwnershipOnCadastres",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/share/ownerships/{ownershipKey}/owningperson/",
-"summary": "Get the owning person for a share ownership",
-"description": null,
-"tags": [
-"Persons"
-],
-"operation_id": "getOwnerOfOwnershipOnShares",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/coopinternals/{coopInternalKey}",
-"summary": "Get coop internal",
-"description": "Returns coop internal - Internal index-data for housing cooperative holders",
-"tags": [
-"Coop Internals"
-],
-"operation_id": "getCoopInternal",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/coopinternals/",
-"summary": "Get coop internals",
-"description": "Returns coop internals - Internal index-data for housing cooperative holders",
-"tags": [
-"Coop Internals"
-],
-"operation_id": "listCoopInternals",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/coopinternals/",
-"summary": "Get coop internals for a cadastre",
-"description": null,
-"tags": [
-"Coop Internals"
-],
-"operation_id": "listCoopInternalsForCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/shares/{shareKey}/coopinternals/",
-"summary": "Get coop internals for a share",
-"description": null,
-"tags": [
-"Coop Internals"
-],
-"operation_id": "listCoopInternalsForShare",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/search/cadastres/",
-"summary": "Get cadastres",
-"description": "Search for cadastres",
-"tags": [
-"Cadastres Search"
-],
-"operation_id": "searchForCadastres",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/mapfeatures/",
-"summary": "Get cadastral map features for a cadastre",
-"description": "Returns plot polygons, border lines, border points and the cadastre representation point as a single GeoJSON FeatureCollection. Each feature carries a featureType property: plot, borderline, borderpoint or cadastrePoint. Geometry is in the ",
-"tags": [
-"Geometries"
-],
-"operation_id": "getMapFeaturesByCadastre",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/mapfeatures/",
-"summary": "Get cadastral map features within an extent",
-"description": "Returns plot polygons, border lines, border points, cadastre representation points, buildings and street links within a bounding box, as a single GeoJSON FeatureCollection. This is what a map view or a map page draws from: it includes neigh",
-"tags": [
-"Geometries"
-],
-"operation_id": "getMapFeaturesByExtent",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/share/ownerships/{ownershipKey}",
-"summary": "Get ownership",
-"description": "Returns ownership",
-"tags": [
-"Share Ownerships"
-],
-"operation_id": "getShareOwnership",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/shares/{shareKey}/ownershipsowningthisshare/",
-"summary": "Get ownerships by share",
-"description": null,
-"tags": [
-"Share Ownerships"
-],
-"operation_id": "listShareOwnershipsByShare",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/persons/{personKey}/shareownerships/",
-"summary": "Get ownerships by person",
-"description": null,
-"tags": [
-"Share Ownerships"
-],
-"operation_id": "listShareOwnershipsByPerson",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/coordinates/",
-"summary": "Get coordinates for cadastre",
-"description": "Returns coordinates for a given cadastre",
-"tags": [
-"Coordinates"
-],
-"operation_id": "listCadastreCoordinates",
-"deprecated": false
-},
-{
-"api_id": "ambita-realty",
-"method": "GET",
 "path": "/v1/singleheritages/{singleHeritageKey}",
 "summary": "Get single heritage",
 "description": "Returns single heritage",
@@ -2933,13 +2033,61 @@
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/shares/{shareKey}/landregistry/",
-"summary": "Generates a Land Registry report for the share",
+"path": "/v1/soilcontaminations/{soilContaminationKey}",
+"summary": "Get soil contamination",
+"description": "Returns soil contamination",
+"tags": [
+"Soil Contaminations"
+],
+"operation_id": "getSoilcontamination",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/soilcontaminations/",
+"summary": "Get soil contamination items",
+"description": "Returns soil contamination items",
+"tags": [
+"Soil Contaminations"
+],
+"operation_id": "listSoilContaminations",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/soilcontaminations/",
+"summary": "Get soil contamination items for a cadastre",
 "description": null,
 "tags": [
-"Share Land Registry"
+"Soil Contaminations"
 ],
-"operation_id": "getLandRegistryForShare",
+"operation_id": "listSoilContaminationsByCadastre",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/simplemappdf/",
+"summary": "Get Simple Technical PDF by cadastre",
+"description": null,
+"tags": [
+"PDF Orders"
+],
+"operation_id": "getSimpleMapPDFByCadastre",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/mappdf/",
+"summary": "Get Technical PDF by cadastre",
+"description": null,
+"tags": [
+"PDF Orders"
+],
+"operation_id": "getMapPDFByCadastre",
 "deprecated": false
 },
 {
@@ -3221,25 +2369,877 @@
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/operatingunits/{cadastreKey}",
-"summary": "Get operating unit",
-"description": "Find operating unit",
+"path": "/v1/compound/personscore/{socialSecurityNumber}",
+"summary": "Get person score",
+"description": "Returns a person score including customer score and home equity for the supplied social security number.",
 "tags": [
-"Operating Units"
+"PersonScore"
 ],
-"operation_id": "getOperatingUnit",
+"operation_id": "getPersonScore",
 "deprecated": false
 },
 {
 "api_id": "ambita-realty",
 "method": "GET",
-"path": "/v1/cadastres/{cadastreKey}/operatingunit/",
-"summary": "Get operating unit by any unit",
-"description": "Find operating unit by any unit",
+"path": "/v1/buildingchanges/{buildingChangeKey}",
+"summary": "Get building change",
+"description": "Returns building change",
 "tags": [
-"Operating Units"
+"Building Changes"
 ],
-"operation_id": "getOperatingUnitByCadastre",
+"operation_id": "getBuildingChange",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/buildingchanges/",
+"summary": "Get building changes",
+"description": "Returns building changes",
+"tags": [
+"Building Changes"
+],
+"operation_id": "listBuildingChanges",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/buildingchanges/",
+"summary": "Get building changes for a cadastre",
+"description": null,
+"tags": [
+"Building Changes"
+],
+"operation_id": "listBuildingChangesByCadastre",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/buildings/{buildingKey}/changes/",
+"summary": "Get building changes for building",
+"description": null,
+"tags": [
+"Building Changes"
+],
+"operation_id": "listBuildingChangesByBuilding",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/separatelyoccupiedunits/{unitKey}/buildingchange/",
+"summary": "Get the building change for a separately occupied unit",
+"description": null,
+"tags": [
+"Building Changes"
+],
+"operation_id": "getBuildingChangeByUnit",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/buildings/{buildingKey}/changes/{version}",
+"summary": "Get building change",
+"description": "Returns building change",
+"tags": [
+"Building Changes"
+],
+"operation_id": "deprecatedGetBuildingChange",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/compound/conglomerateownerships/{organizationKey}",
+"summary": "Get conglomerate ownerships",
+"description": "Returns aggregated ownership information across an organization and all related sub-organizations.",
+"tags": [
+"ConglomerateOwnerships"
+],
+"operation_id": "getConglomerateOwnerships",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/addresses/{addressId}",
+"summary": "Get a unique address",
+"description": "Returns address",
+"tags": [
+"Addresses"
+],
+"operation_id": "getAddress",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/addresses/",
+"summary": "Get addresses by other keys",
+"description": "Returns addresses",
+"tags": [
+"Addresses"
+],
+"operation_id": "listAddresses",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/addresses/",
+"summary": "Get addresses related to a cadastre",
+"description": null,
+"tags": [
+"Addresses"
+],
+"operation_id": "listAddressesByCadastre",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/buildings/{buildingKey}/addresses/",
+"summary": "Get addresses related to a building",
+"description": null,
+"tags": [
+"Addresses"
+],
+"operation_id": "listAddressesByBuilding",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/buildingchanges/{buildingChangeKey}/addresses/",
+"summary": "Get addresses related to a building change",
+"description": null,
+"tags": [
+"Addresses"
+],
+"operation_id": "listAddressesByBuildingChange",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/streets/{streetKey}/addresses/",
+"summary": "Get addresses in a street",
+"description": null,
+"tags": [
+"Addresses"
+],
+"operation_id": "listAddressesByStreet",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/districts/{districtKey}/addresses/",
+"summary": "Get addresses in a district",
+"description": null,
+"tags": [
+"Addresses"
+],
+"operation_id": "listAddressesByDistrict",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/positions/{x},{y},{inputDatum}/nearbyaddresses/",
+"summary": "Get addresses near position",
+"description": "The list is sorted by distance",
+"tags": [
+"Addresses"
+],
+"operation_id": "listAddressesNearPosition",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/separatelyoccupiedunits/{unitKey}/address/",
+"summary": "Get the address for a separately occupied unit",
+"description": "The address for the unit is not always present",
+"tags": [
+"Addresses"
+],
+"operation_id": "getAddressByUnit",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/shares/{shareKey}/address/",
+"summary": "Get the address for a housing cooperative share",
+"description": "The address for the share is not always present",
+"tags": [
+"Addresses"
+],
+"operation_id": "getAddressByShare",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/presentationaddress/",
+"summary": "Get the presentation address for a cadastre",
+"description": "The presentation address for the cadastre is not always present",
+"tags": [
+"Addresses"
+],
+"operation_id": "getPresentationAddressByCadastre",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/codefields/{codefieldKey}",
+"summary": "Get codefield",
+"description": "Returns codefield",
+"tags": [
+"Code Fields"
+],
+"operation_id": "getCodeField",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/codefields/",
+"summary": "Get all codefields",
+"description": "Returns all codefields",
+"tags": [
+"Code Fields"
+],
+"operation_id": "listCodeFields",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/pocs/{pocId}",
+"summary": "Get POC",
+"description": "Returns POC",
+"tags": [
+"Points of Conveyances"
+],
+"operation_id": "getPoc",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/pocs/",
+"summary": "Get POCs",
+"description": "Returns POCs",
+"tags": [
+"Points of Conveyances"
+],
+"operation_id": "listPocs",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cooperative/conveyances/",
+"summary": "Get conveyances",
+"description": "DEPRECATED: see Share Conveyances",
+"tags": [
+"Deprecated"
+],
+"operation_id": "deprecatedListShareConveyancesByParam",
+"deprecated": true
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cooperative/conveyances/{conveyanceKey}",
+"summary": "Get conveyance",
+"description": "DEPRECATED: see Share Conveyances",
+"tags": [
+"Deprecated"
+],
+"operation_id": "deprecatedListShareConveyances",
+"deprecated": true
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastre/offices/{cadastreDocumentKey}",
+"summary": "Get document ident based on key",
+"description": "Returns document ident based on key",
+"tags": [
+"Offices"
+],
+"operation_id": "getCadastreOffice",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/lienscalculation/",
+"summary": "Get liens calculation for cadastre",
+"description": null,
+"tags": [
+"Cadastre Liens Calculations"
+],
+"operation_id": "getCadastreLiensCalculation",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/persons/{personKey}/creationofrights/",
+"summary": "Get creation of rights for a person",
+"description": null,
+"tags": [
+"Creation Of Rights"
+],
+"operation_id": "listRightsForPerson",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v2/shares/{shareKey}/objectscore/",
+"summary": "Get object score for a share",
+"description": null,
+"tags": [
+"Share Scores"
+],
+"operation_id": "getShareObjectScoreV2",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/oldcadastrepdf/",
+"summary": "Get Old Cadastre PDF ByCadastre",
+"description": null,
+"tags": [
+"PDF Orders"
+],
+"operation_id": "getOldCadastrePDFByCadastre",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/pdfs/oldcadastre/{cadastreKey}",
+"summary": "Get Old Cadastre PDF by cadastre",
+"description": null,
+"tags": [
+"PDF Orders"
+],
+"operation_id": "getOldCadastrePDF",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/share/ownerships/{ownershipKey}",
+"summary": "Get ownership",
+"description": "Returns ownership",
+"tags": [
+"Share Ownerships"
+],
+"operation_id": "getShareOwnership",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/shares/{shareKey}/ownershipsowningthisshare/",
+"summary": "Get ownerships by share",
+"description": null,
+"tags": [
+"Share Ownerships"
+],
+"operation_id": "listShareOwnershipsByShare",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/persons/{personKey}/shareownerships/",
+"summary": "Get ownerships by person",
+"description": null,
+"tags": [
+"Share Ownerships"
+],
+"operation_id": "listShareOwnershipsByPerson",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/landregistry/",
+"summary": "Generates a Land Registry report for the cadastre",
+"description": null,
+"tags": [
+"Cadastre Land Registry"
+],
+"operation_id": "getCadastreLandRegistry",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/compound/cadastreextended/{cadastreKey}",
+"summary": "Get extended information about a cadastre",
+"description": null,
+"tags": [
+"CadastreExtended"
+],
+"operation_id": "getCadastreExtended",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/districts/{districtKey}",
+"summary": "Get district",
+"description": "Returns district",
+"tags": [
+"Districts"
+],
+"operation_id": "getDistrict",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/districts/",
+"summary": "Get districts",
+"description": "Returns districts",
+"tags": [
+"Districts"
+],
+"operation_id": "listDistricts",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/addresses/{addressKey}/districts/",
+"summary": "Get districts related to a address",
+"description": null,
+"tags": [
+"Districts"
+],
+"operation_id": "listDistrictsByAddress",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/streets/{streetKey}/districts/",
+"summary": "Get districts related to a street",
+"description": null,
+"tags": [
+"Districts"
+],
+"operation_id": "listDistrictsByStreet",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/search/housingcooperatives/",
+"summary": "Get housing cooperatives",
+"description": "Search for housing cooperatives",
+"tags": [
+"Housing Cooperatives Search"
+],
+"operation_id": "searchForHousingCooperatives",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/persons/{personKey}",
+"summary": "Get person",
+"description": "Get person",
+"tags": [
+"Persons"
+],
+"operation_id": "getPerson",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/persons/",
+"summary": "Get persons",
+"description": "Returns persons",
+"tags": [
+"Persons"
+],
+"operation_id": "listPersons",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/creationofrights/{rightKey}/currentmortgagees/",
+"summary": "Get current mortgagees of a right",
+"description": null,
+"tags": [
+"Persons"
+],
+"operation_id": "getCurrentMortgagees",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/addresses/{addressKey}/residents/",
+"summary": "Get the residents of an address",
+"description": null,
+"tags": [
+"Persons"
+],
+"operation_id": "listResidentsOfAddress",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/owners/",
+"summary": "Get the owners of a cadastre",
+"description": null,
+"tags": [
+"Persons"
+],
+"operation_id": "listOwnersOfCadastre",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/shares/{shareKey}/owners/",
+"summary": "Get the owners of a share",
+"description": null,
+"tags": [
+"Persons"
+],
+"operation_id": "listOwnersOfShare",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastre/conveyances/{conveyanceKey}/buyers/",
+"summary": "Get the buyers participating in a conveyance  of cadastres",
+"description": null,
+"tags": [
+"Persons"
+],
+"operation_id": "listBuyersOfConveyanceOfCadastres",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastre/conveyances/{conveyanceKey}/sellers/",
+"summary": "Get the sellers participating in a conveyance of cadastres",
+"description": null,
+"tags": [
+"Persons"
+],
+"operation_id": "listSellersOfConveyanceOfCadastres",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/share/conveyances/{conveyanceKey}/buyers/",
+"summary": "Get the buyers participating in a conveyance of shares",
+"description": null,
+"tags": [
+"Persons"
+],
+"operation_id": "listBuyersOfConveyanceOfShares",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/share/conveyances/{conveyanceKey}/sellers/",
+"summary": "Get the sellers participating in a conveyance of shares",
+"description": null,
+"tags": [
+"Persons"
+],
+"operation_id": "listSellersOfConveyanceOfShares",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/buildings/{buildingKey}/developers/",
+"summary": "Get persons with a role as developer of a building",
+"description": null,
+"tags": [
+"Persons"
+],
+"operation_id": "listDevelopersOfBuilding",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/buildings/{buildingKey}/contacts/",
+"summary": "Get persons with the role as contact person of a building",
+"description": null,
+"tags": [
+"Persons"
+],
+"operation_id": "listContactsOfBuilding",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/buildingchanges/{buildingChangeKey}/developers/",
+"summary": "Get persons with a role as developer of a building change",
+"description": null,
+"tags": [
+"Persons"
+],
+"operation_id": "listDevelopersOfBuildingChange",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/buildingchanges/{buildingChangeKey}/contacts/",
+"summary": "Get persons with the role as contact person of a building change",
+"description": null,
+"tags": [
+"Persons"
+],
+"operation_id": "listContactsOfBuildingChange",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastre/ownerships/{ownershipKey}/owningperson/",
+"summary": "Get the owning person for a cadastre ownership",
+"description": null,
+"tags": [
+"Persons"
+],
+"operation_id": "getOwnerOfOwnershipOnCadastres",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/share/ownerships/{ownershipKey}/owningperson/",
+"summary": "Get the owning person for a share ownership",
+"description": null,
+"tags": [
+"Persons"
+],
+"operation_id": "getOwnerOfOwnershipOnShares",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/streets/{streetKey}",
+"summary": "Get street",
+"description": "Returns street",
+"tags": [
+"Streets"
+],
+"operation_id": "getStreet",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/streets/",
+"summary": "Get streets",
+"description": "Returns streets",
+"tags": [
+"Streets"
+],
+"operation_id": "listStreets",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/addresses/{addressKey}/streets/",
+"summary": "Get streets for an address",
+"description": null,
+"tags": [
+"Streets"
+],
+"operation_id": "listStreetsByAddress",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/districts/{districtKey}/streets/",
+"summary": "Get streets for a district",
+"description": null,
+"tags": [
+"Streets"
+],
+"operation_id": "listStreetsByDistrict",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/municipalities/{municipalityKey}",
+"summary": "Get municipality",
+"description": "Returns municipality",
+"tags": [
+"Municipalities"
+],
+"operation_id": "getMunicipality",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/municipalities/",
+"summary": "Get municipalities",
+"description": "Returns municipalities",
+"tags": [
+"Municipalities"
+],
+"operation_id": "listMunicipalities",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/systemping/",
+"summary": "System ping",
+"description": "Returns comprehensive status data about the Realty application including version information, system health, database status, and performance metrics. This endpoint is used for health checks and monitoring.",
+"tags": [
+"Systemping"
+],
+"operation_id": "getSystemPing",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/search/cadastres/",
+"summary": "Get cadastres",
+"description": "Search for cadastres",
+"tags": [
+"Cadastres Search"
+],
+"operation_id": "searchForCadastres",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/shares/{shareKey}/lienscalculation/",
+"summary": "Get liens calculation for a share",
+"description": null,
+"tags": [
+"Share Liens Calculations"
+],
+"operation_id": "getShareLiensCalculation",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/compound/personsownings/{personKeys}",
+"summary": "Get persons ownings",
+"description": "Returns persons ownings for supplied person keys. personKeys is a list delimited by underscore, for instance F31929900068_S123456785. Each key is either F followed by a 10 or 11 digit national identity number, S followed by a 9 digit organi",
+"tags": [
+"PersonsOwnings"
+],
+"operation_id": "getPersonsOwnings",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/complaints/{complaintKey}",
+"summary": "Get complaint",
+"description": "Returns complaint",
+"tags": [
+"Complaints"
+],
+"operation_id": "getComplaint",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/complaints/",
+"summary": "Get complaints",
+"description": "Returns complaints",
+"tags": [
+"Complaints"
+],
+"operation_id": "listComplaints",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/complaints/",
+"summary": "Get complaints for a cadastre",
+"description": null,
+"tags": [
+"Complaints"
+],
+"operation_id": "listComplaintsByCadastre",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/housingvalue/",
+"summary": "Get housing value for a cadastre",
+"description": null,
+"tags": [
+"Cadastre Housing Values"
+],
+"operation_id": "getCadastreHousingValue",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/cadastres/{cadastreKey}/surroundinghousingvalues/",
+"summary": "Get surrounding housing values for a cadastre",
+"description": "Returns housing values",
+"tags": [
+"Cadastre Housing Values"
+],
+"operation_id": "listSurroundingCadastreHousingValues",
+"deprecated": false
+},
+{
+"api_id": "ambita-realty",
+"method": "GET",
+"path": "/v1/shares/{shareKey}/housingvalue/",
+"summary": "Get housing value for a share",
+"description": null,
+"tags": [
+"Share Housing Values"
+],
+"operation_id": "getShareHousingValue",
 "deprecated": false
 },
 {
@@ -5550,7 +5550,7 @@
 "method": "POST",
 "path": "/internal/api/v1/scope_prefix",
 "summary": "Opprett prefix",
-"description": "Lage et ny scope-prefiks. Krever write-rolle i Azure AD for Forvaltningsadmin.",
+"description": "Lage et ny scope-prefiks. Krever write-rolle i Azure AD for Forvaltningsadmin. Svarer 409 hvis prefikset finnes.",
 "tags": [
 "Scope - prefixes"
 ],
@@ -18615,7 +18615,7 @@
 "method": "GET",
 "path": "/v1/payment-methods",
 "summary": "Find all Payment Methods.",
-"description": "Find all Payment Methods for a specific clientId. This method uses the Entur-Distribution-Channel header as a filter to show only those payment methods with the distributionChannelId matching this header.",
+"description": "Find all Payment Methods for the distribution channel given in the Entur-Distribution-Channel header.",
 "tags": [
 "Payments"
 ],
@@ -24804,6 +24804,18 @@
 },
 {
 "api_id": "entur-seating-manager",
+"method": "PATCH",
+"path": "/v1-beta/travel-intentions/{travelIntentionReference}",
+"summary": "Update TravelIntention and its reservations",
+"description": "Updates state of a TravelIntention and its associated reservations in a single call. See field descriptions for supported fields and validation rules.",
+"tags": [
+"travel-intention-controller"
+],
+"operation_id": "updateTravelIntention",
+"deprecated": false
+},
+{
+"api_id": "entur-seating-manager",
 "method": "GET",
 "path": "/v1-beta/seating-offers/{datedServiceJourneyId}",
 "summary": "Fetch journey metadata about a given dated service journey",
@@ -26012,6 +26024,18 @@
 "Ticket Distribution Groups"
 ],
 "operation_id": "transferDistributionHolder",
+"deprecated": false
+},
+{
+"api_id": "entur-ticket-distributions",
+"method": "POST",
+"path": "/v1/ticket-distribution-groups/redistribute",
+"summary": "Redistribute NOD tickets",
+"description": "Distributes the ticket distributions to NOD again with a new orderGroupId and pickup code, and cancels the old orderGroup with cancellationReason REDISTRIBUTED. Used to recover tickets that have ended up in an unusable state in NOD, e.g. a ",
+"tags": [
+"Ticket Distribution Groups"
+],
+"operation_id": "redistributeTicketDistributions",
 "deprecated": false
 },
 {
@@ -30437,7 +30461,8 @@
 "summary": null,
 "description": "Opprett konto på system",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-konto-konfigurasjon"
 ],
 "operation_id": "createKonto",
 "deprecated": false
@@ -30449,7 +30474,8 @@
 "summary": null,
 "description": "Forespør tilgang til ekstern konto for system",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-forespurte-tilganger"
 ],
 "operation_id": "createTilgangForesporselTilKonto",
 "deprecated": false
@@ -30461,7 +30487,8 @@
 "summary": null,
 "description": "Fjern forespørsel på tilgang til konto",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-forespurte-tilganger"
 ],
 "operation_id": "removeTilgangForesporselTilKonto",
 "deprecated": false
@@ -30473,7 +30500,8 @@
 "summary": null,
 "description": "Gi tilgang til system på konto",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-tilganger"
 ],
 "operation_id": "createTilgangTilSystem",
 "deprecated": false
@@ -30485,7 +30513,8 @@
 "summary": null,
 "description": "Fjern tilgang fra system på konto",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-tilganger"
 ],
 "operation_id": "removeTilgangTilSystem",
 "deprecated": false
@@ -30497,7 +30526,8 @@
 "summary": null,
 "description": "Hent protokollkonto",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-konto-konfigurasjon"
 ],
 "operation_id": "getKonto",
 "deprecated": false
@@ -30509,7 +30539,8 @@
 "summary": null,
 "description": "Slett konto fra system",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-konto-konfigurasjon"
 ],
 "operation_id": "deleteKonto",
 "deprecated": false
@@ -30521,7 +30552,8 @@
 "summary": null,
 "description": "Henter organisasjoner som har systemer som kan gis tilgang til konto",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-tilganger"
 ],
 "operation_id": "getFiksOrgsMedSystemer",
 "deprecated": false
@@ -30533,7 +30565,8 @@
 "summary": null,
 "description": "Hent systemer som har forespurt tilgang",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-forespurte-tilganger"
 ],
 "operation_id": "getForespurteTilgangerPaaKonto",
 "deprecated": false
@@ -30545,7 +30578,8 @@
 "summary": null,
 "description": "Henter parter",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-protokoller"
 ],
 "operation_id": "getParterForProtokoll",
 "deprecated": false
@@ -30557,7 +30591,8 @@
 "summary": null,
 "description": "Henter protokolldefinisjon",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-protokoller"
 ],
 "operation_id": "getProtokollDefinisjon",
 "deprecated": false
@@ -30569,7 +30604,8 @@
 "summary": null,
 "description": "Henter alle definerte protokoller",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-protokoller"
 ],
 "operation_id": "getProtokollDefinisjoner",
 "deprecated": false
@@ -30581,7 +30617,8 @@
 "summary": null,
 "description": "Hent system på fiksOrg med systemId",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-system-konfigurasjon"
 ],
 "operation_id": "getSystem",
 "deprecated": false
@@ -30605,7 +30642,8 @@
 "summary": null,
 "description": "Hent systemer med tilganger på konto",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-tilganger"
 ],
 "operation_id": "getSystemerMedTilgangTilKonto",
 "deprecated": false
@@ -30617,7 +30655,8 @@
 "summary": null,
 "description": "Søk etter kontoer som systemet kan forespør tilgang til",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-forespurte-tilganger"
 ],
 "operation_id": "kontoSok",
 "deprecated": false
@@ -30629,7 +30668,8 @@
 "summary": null,
 "description": "Fjern forespurt tilgang fra system på konto",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-forespurte-tilganger"
 ],
 "operation_id": "removeForespurtTilgangTilKonto",
 "deprecated": false
@@ -30641,7 +30681,8 @@
 "summary": null,
 "description": "Fjern system sin tilgang til konto",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-tilganger"
 ],
 "operation_id": "removeTilgangTilKontoForSystem",
 "deprecated": false
@@ -30653,7 +30694,8 @@
 "summary": null,
 "description": "Søk etter systemer som kontoen kan gi tilgang til",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-tilganger"
 ],
 "operation_id": "systemSok",
 "deprecated": false
@@ -30665,7 +30707,8 @@
 "summary": null,
 "description": "Oppdater konto info",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-konto-konfigurasjon"
 ],
 "operation_id": "updateKontoInfo",
 "deprecated": false
@@ -30677,7 +30720,8 @@
 "summary": null,
 "description": "Oppdater offentlig nøkkel på konto",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-konto-konfigurasjon"
 ],
 "operation_id": "updateKontoOffentligNokkel",
 "deprecated": false
@@ -30689,7 +30733,8 @@
 "summary": null,
 "description": "Oppdater parter på konto",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-konto-konfigurasjon"
 ],
 "operation_id": "updateParter",
 "deprecated": false
@@ -30701,7 +30746,8 @@
 "summary": null,
 "description": "Oppdater info på system",
 "tags": [
-"Protokoll-konfigurasjon"
+"Protokoll-konfigurasjon",
+"Protokoll-system-konfigurasjon"
 ],
 "operation_id": "updateSystemInfo",
 "deprecated": false
@@ -33157,6 +33203,18 @@
 {
 "api_id": "kystverket-kystdatahuset",
 "method": "POST",
+"path": "/api/anchorage/import",
+"summary": "Import anchoring areas from Adaptive. Areas are compared by dok_id and dok_status: new areas are added,\r\nareas that no longer exist are flagged deleted, and areas with a changed geometry or newer properties are updated. (Auth)",
+"description": null,
+"tags": [
+"AnchoringAreaImport"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
 "path": "/api/auth/federated-login",
 "summary": "Login with a token issued by a federated identity provider for Kystverket-internal employees\r\nto retrieve a JWT-token for consequtive requests.",
 "description": null,
@@ -33556,6 +33614,18 @@
 "path": "/api/martraf-tracks/passline-crossings",
 "summary": "Return the crossings of a passline within a time period, one item per crossing (Auth)",
 "description": "The crossing time is interpolated from the M values (Unix epoch seconds) of the MarTraf LineStringM tracks, and crossings are selected by that time. Per crossing: time (epoch seconds), speed (knots) and cog (degrees) over +/- SpeedWindowSec",
+"tags": [
+"MarTraf"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "kystverket-kystdatahuset",
+"method": "POST",
+"path": "/api/martraf-tracks/ship-proximity",
+"summary": "Return when a set of ships have been near one another during a period (up to a year), one item per encounter (Auth)",
+"description": "Every pair of the 2 to 5 ships is compared. Two ships are near each other when they have been at most distanceMeters (default 250) from each other at most timeLagSeconds (default 3600) apart in time, so ships that follow the same route an h",
 "tags": [
 "MarTraf"
 ],
@@ -45753,7 +45823,7 @@
 "method": "GET",
 "path": "/approval/{approvalId}",
 "summary": "Get Approval",
-"description": "Get approval by ID. JSON responses carry an `ETag`; send it back in `If-None-Match` to get `304 Not Modified` when the approval is unchanged. HTML responses carry no `ETag`.",
+"description": "Get approval by ID. Responses carry an `ETag`; send it back in `If-None-Match` to get `304 Not Modified` when the approval is unchanged.",
 "tags": [
 "NVA Approval API"
 ],
@@ -45765,7 +45835,7 @@
 "method": "PUT",
 "path": "/approval/{approvalId}",
 "summary": "Update Approval",
-"description": "Replaces the writable state of an existing approval. The submitted identifiers and source overwrite the stored values. The handle and the approval identifier are assigned on creation and cannot be changed.",
+"description": "Replaces the writable state of an existing approval. The submitted identifiers and source overwrite the stored values. The handle and the approval identifier are assigned on creation and cannot be changed. The request must carry `If-Match` ",
 "tags": [
 "NVA Approval API"
 ],
@@ -46257,7 +46327,7 @@
 "method": "GET",
 "path": "/approval/{approvalId}",
 "summary": "Get Approval",
-"description": "Get approval by ID. JSON responses carry an `ETag`; send it back in `If-None-Match` to get `304 Not Modified` when the approval is unchanged. HTML responses carry no `ETag`.",
+"description": "Get approval by ID. Responses carry an `ETag`; send it back in `If-None-Match` to get `304 Not Modified` when the approval is unchanged.",
 "tags": [
 "NVA Approval API"
 ],
@@ -46269,7 +46339,7 @@
 "method": "PUT",
 "path": "/approval/{approvalId}",
 "summary": "Update Approval",
-"description": "Replaces the writable state of an existing approval. The submitted identifiers and source overwrite the stored values. The handle and the approval identifier are assigned on creation and cannot be changed.",
+"description": "Replaces the writable state of an existing approval. The submitted identifiers and source overwrite the stored values. The handle and the approval identifier are assigned on creation and cannot be changed. The request must carry `If-Match` ",
 "tags": [
 "NVA Approval API"
 ],
@@ -46761,7 +46831,7 @@
 "method": "GET",
 "path": "/approval/{approvalId}",
 "summary": "Get Approval",
-"description": "Get approval by ID. JSON responses carry an `ETag`; send it back in `If-None-Match` to get `304 Not Modified` when the approval is unchanged. HTML responses carry no `ETag`.",
+"description": "Get approval by ID. Responses carry an `ETag`; send it back in `If-None-Match` to get `304 Not Modified` when the approval is unchanged.",
 "tags": [
 "NVA Approval API"
 ],
@@ -46773,7 +46843,7 @@
 "method": "PUT",
 "path": "/approval/{approvalId}",
 "summary": "Update Approval",
-"description": "Replaces the writable state of an existing approval. The submitted identifiers and source overwrite the stored values. The handle and the approval identifier are assigned on creation and cannot be changed.",
+"description": "Replaces the writable state of an existing approval. The submitted identifiers and source overwrite the stored values. The handle and the approval identifier are assigned on creation and cannot be changed. The request must carry `If-Match` ",
 "tags": [
 "NVA Approval API"
 ],
@@ -55054,6 +55124,18 @@
 {
 "api_id": "tidal-api",
 "method": "GET",
+"path": "/studioHomeInsightTiles/{id}/relationships/items",
+"summary": "Get items relationship (\"to-many\").",
+"description": "The streams statistics of the user's artist over the last 28 days.",
+"tags": [
+"studioHomeInsightTiles"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "tidal-api",
+"method": "GET",
 "path": "/studioHomeMerchTiles/{id}",
 "summary": "Get single studioHomeMerchTile.",
 "description": "Retrieves single studioHomeMerchTile by id.",
@@ -55078,9 +55160,33 @@
 {
 "api_id": "tidal-api",
 "method": "GET",
+"path": "/studioHomeMerchTiles/{id}/relationships/squareConnection",
+"summary": "Get squareConnection relationship (\"to-one\").",
+"description": "The seller's Square connection; empty when they have none.",
+"tags": [
+"studioHomeMerchTiles"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "tidal-api",
+"method": "GET",
 "path": "/studioHomeMusicTiles/{id}",
 "summary": "Get single studioHomeMusicTile.",
 "description": "Retrieves single studioHomeMusicTile by id.",
+"tags": [
+"studioHomeMusicTiles"
+],
+"operation_id": null,
+"deprecated": false
+},
+{
+"api_id": "tidal-api",
+"method": "GET",
+"path": "/studioHomeMusicTiles/{id}/relationships/items",
+"summary": "Get items relationship (\"to-many\").",
+"description": "The user's uploaded albums, newest first.",
 "tags": [
 "studioHomeMusicTiles"
 ],
@@ -57115,6 +57221,18 @@
 "salary/holidayAllowance/reconciliation"
 ],
 "operation_id": "SalaryHolidayAllowanceReconciliationHolidayAllowanceSummary_getHolidayAllowanceSummary",
+"deprecated": false
+},
+{
+"api_id": "tripletex-api",
+"method": "GET",
+"path": "/salary/holidayAllowance/reconciliation/{reconciliationId}/overview",
+"summary": "Holiday allowance reconciliation overview: the components, the sum rows, the earned section and the per-employee breakdown",
+"description": null,
+"tags": [
+"salary/holidayAllowance/reconciliation"
+],
+"operation_id": "SalaryHolidayAllowanceReconciliationOverview_getOverview",
 "deprecated": false
 },
 {
@@ -64766,7 +64884,7 @@
 "api_id": "tripletex-api",
 "method": "POST",
 "path": "/supplierInvoice/{invoiceId}/:addPayment",
-"summary": "Register payment, paymentType == 0 finds the last paymentType for this vendor.Use of this method requires setup done by Tripletex.",
+"summary": "Register payment, paymentType == 0 finds the last paymentType for this vendor. This endpoint is for internal Tripletex use only.",
 "description": null,
 "tags": [
 "supplierInvoice"
@@ -78471,73 +78589,13 @@
 {
 "api_id": "meteorologisk-institutt-frost",
 "method": "GET",
-"path": "/frequencies/rainfall/v0.{format}",
-"summary": "Get rainfall IDF data.",
-"description": "This endpoint has been deprecated due to technical limitations. A response that used to return data with status 200 Ok will now instead return a descriptive error message with status 404 Not Found. Updated IDF data can for now be retrieved ",
-"tags": [
-"frequencies (DEPRECATED)"
-],
-"operation_id": "getRainfallIDF",
-"deprecated": false
-},
-{
-"api_id": "meteorologisk-institutt-frost",
-"method": "GET",
-"path": "/frequencies/rainfall/availableSources/v0.{format}",
-"summary": "Get available sources for rainfall IDF data.",
-"description": "This endpoint has been deprecated due to technical limitations. A response that used to return data with status 200 Ok will now instead return a descriptive error message with status 404 Not Found. Updated IDF data can for now be retrieved ",
-"tags": [
-"frequencies (DEPRECATED)"
-],
-"operation_id": "getRainfallIDFSources",
-"deprecated": false
-},
-{
-"api_id": "meteorologisk-institutt-frost",
-"method": "GET",
-"path": "/locations/v0.{format}",
-"summary": "Get metada for Frost API locations.",
-"description": "Get metadata for the location names defined in the Frost API. Use the query parameters to filter the set of location names returned. Leave the query parameters blank to select **all** location names.",
-"tags": [
-"locations"
-],
-"operation_id": "getLocations",
-"deprecated": false
-},
-{
-"api_id": "meteorologisk-institutt-frost",
-"method": "GET",
-"path": "/sources/v0.{format}",
-"summary": "Get metada for Frost API sources.",
-"description": "Get metadata for the source entitites defined in the Frost API. Use the query parameters to filter the set of sources returned. Leave the query parameters blank to select **all** sources.",
-"tags": [
-"sources"
-],
-"operation_id": "getSources",
-"deprecated": false
-},
-{
-"api_id": "meteorologisk-institutt-frost",
-"method": "GET",
-"path": "/observations/availableTimeSeries/v0.{format}",
-"summary": "Find timeseries metadata by source and/or element",
+"path": "/observations/lastupdate/v0",
+"summary": null,
 "description": null,
 "tags": [
 "observations"
 ],
-"operation_id": "timeSeries",
-"deprecated": false
-},
-{
-"api_id": "meteorologisk-institutt-frost",
-"method": "GET",
-"path": "/observations/v0.{format}",
-"summary": "Get observation data from the Frost API.",
-"description": "This is the core resource for retrieving the actual observation data from MET Norway's data storage systems. The query parameters act as a filter; if all were left blank (not allowed in practice), one would retrieve all of the observation d",
-"tags": [
-"observations"
-],
-"operation_id": "observations",
+"operation_id": "lastUpdate",
 "deprecated": false
 },
 {
@@ -78579,49 +78637,37 @@
 {
 "api_id": "meteorologisk-institutt-frost",
 "method": "GET",
-"path": "/observations/lastupdate/v0",
-"summary": null,
+"path": "/observations/availableTimeSeries/v0.{format}",
+"summary": "Find timeseries metadata by source and/or element",
 "description": null,
 "tags": [
 "observations"
 ],
-"operation_id": "lastUpdate",
+"operation_id": "timeSeries",
 "deprecated": false
 },
 {
 "api_id": "meteorologisk-institutt-frost",
 "method": "GET",
-"path": "/records/countyExtremes/v0.{format}",
-"summary": "Get records.",
-"description": "Get records. To be expanded.",
+"path": "/observations/v0.{format}",
+"summary": "Get observation data from the Frost API.",
+"description": "This is the core resource for retrieving the actual observation data from MET Norway's data storage systems. The query parameters act as a filter; if all were left blank (not allowed in practice), one would retrieve all of the observation d",
 "tags": [
-"records"
+"observations"
 ],
-"operation_id": "getRecords",
+"operation_id": "observations",
 "deprecated": false
 },
 {
 "api_id": "meteorologisk-institutt-frost",
 "method": "GET",
-"path": "/elements/v0.{format}",
-"summary": "Get metadata about Frost API elements.",
-"description": "Get metadata about the weather and climate elements that are defined for use in the Frost API. Use the query parameters to filter which elements to return and what fields to include for each element. Leave the query parameters blank to sele",
+"path": "/locations/v0.{format}",
+"summary": "Get metada for Frost API locations.",
+"description": "Get metadata for the location names defined in the Frost API. Use the query parameters to filter the set of location names returned. Leave the query parameters blank to select **all** location names.",
 "tags": [
-"elements"
+"locations"
 ],
-"operation_id": "getElements",
-"deprecated": false
-},
-{
-"api_id": "meteorologisk-institutt-frost",
-"method": "GET",
-"path": "/elements/codeTables/v0.{format}",
-"summary": "Get metadata about Frost API code tables.",
-"description": "Get metadata about the code tables available in the Frost API. A code table defines a small number of discrete values for an element. Use the query parameters to filter which code tables to return and what fields to include for each one. Le",
-"tags": [
-"elements"
-],
-"operation_id": "getCodeTables",
+"operation_id": "getLocations",
 "deprecated": false
 },
 {
@@ -78658,6 +78704,78 @@
 "lightning"
 ],
 "operation_id": "getLightning",
+"deprecated": false
+},
+{
+"api_id": "meteorologisk-institutt-frost",
+"method": "GET",
+"path": "/sources/v0.{format}",
+"summary": "Get metada for Frost API sources.",
+"description": "Get metadata for the source entitites defined in the Frost API. Use the query parameters to filter the set of sources returned. Leave the query parameters blank to select **all** sources.",
+"tags": [
+"sources"
+],
+"operation_id": "getSources",
+"deprecated": false
+},
+{
+"api_id": "meteorologisk-institutt-frost",
+"method": "GET",
+"path": "/elements/codeTables/v0.{format}",
+"summary": "Get metadata about Frost API code tables.",
+"description": "Get metadata about the code tables available in the Frost API. A code table defines a small number of discrete values for an element. Use the query parameters to filter which code tables to return and what fields to include for each one. Le",
+"tags": [
+"elements"
+],
+"operation_id": "getCodeTables",
+"deprecated": false
+},
+{
+"api_id": "meteorologisk-institutt-frost",
+"method": "GET",
+"path": "/elements/v0.{format}",
+"summary": "Get metadata about Frost API elements.",
+"description": "Get metadata about the weather and climate elements that are defined for use in the Frost API. Use the query parameters to filter which elements to return and what fields to include for each element. Leave the query parameters blank to sele",
+"tags": [
+"elements"
+],
+"operation_id": "getElements",
+"deprecated": false
+},
+{
+"api_id": "meteorologisk-institutt-frost",
+"method": "GET",
+"path": "/frequencies/rainfall/availableSources/v0.{format}",
+"summary": "Get available sources for rainfall IDF data.",
+"description": "This endpoint has been deprecated due to technical limitations. A response that used to return data with status 200 Ok will now instead return a descriptive error message with status 404 Not Found. Updated IDF data can for now be retrieved ",
+"tags": [
+"frequencies (DEPRECATED)"
+],
+"operation_id": "getRainfallIDFSources",
+"deprecated": false
+},
+{
+"api_id": "meteorologisk-institutt-frost",
+"method": "GET",
+"path": "/frequencies/rainfall/v0.{format}",
+"summary": "Get rainfall IDF data.",
+"description": "This endpoint has been deprecated due to technical limitations. A response that used to return data with status 200 Ok will now instead return a descriptive error message with status 404 Not Found. Updated IDF data can for now be retrieved ",
+"tags": [
+"frequencies (DEPRECATED)"
+],
+"operation_id": "getRainfallIDF",
+"deprecated": false
+},
+{
+"api_id": "meteorologisk-institutt-frost",
+"method": "GET",
+"path": "/records/countyExtremes/v0.{format}",
+"summary": "Get records.",
+"description": "Get records. To be expanded.",
+"tags": [
+"records"
+],
+"operation_id": "getRecords",
 "deprecated": false
 },
 {
@@ -84784,8 +84902,8 @@
 "api_id": "skatteetaten-krav-og-betalinger-api",
 "method": "GET",
 "path": "/{rettighetspakke}/{norskidentifikator}/utbetalinger",
-"summary": "Hent utbetalinger for part",
-"description": "Hent utbetalinger for en part identifisert av organisasjonsnummer, fødselsnummer eller D-nummer innenfor en valgt periode.",
+"summary": "Hent utbetalinger for virksomhet",
+"description": "Hent utbetalinger for en part identifisert av organisasjonsnummer innenfor en valgt periode.",
 "tags": [
 "Krav og betalinger"
 ],
@@ -84796,8 +84914,8 @@
 "api_id": "skatteetaten-krav-og-betalinger-api",
 "method": "GET",
 "path": "/{rettighetspakke}/{norskidentifikator}/innbetalinger",
-"summary": "Hent innbetalinger for part",
-"description": "Hent innbetalinger for en part identifisert av organisasjonsnummer, fødselsnummer eller dnummer innenfor en valgt periode. Du får oversikt over innbetalinger som er gjort, og hvilke krav som har blitt dekket.",
+"summary": "Hent innbetalinger for virksomhet",
+"description": "Hent innbetalinger for en part identifisert av organisasjonsnummer innenfor en valgt periode. Du får oversikt over innbetalinger som er gjort, og hvilke krav som har blitt dekket.",
 "tags": [
 "Krav og betalinger"
 ],
@@ -84808,8 +84926,8 @@
 "api_id": "skatteetaten-krav-og-betalinger-api",
 "method": "GET",
 "path": "/{rettighetspakke}/{norskidentifikator}/aapnekrav",
-"summary": "Hent oversikt over åpne krav for part",
-"description": "Hent kravoversikt over gjeld, tilgodebeløp og betalinger mellom part identifisert av organisasjonsnummer, fødselsnummer eller dnummer og Skatteetaten.",
+"summary": "Hent oversikt over åpne krav for virksomhet",
+"description": "Hent kravoversikt over gjeld, tilgodebeløp og betalinger mellom part identifisert av organisasjonsnummer og Skatteetaten.",
 "tags": [
 "Krav og betalinger"
 ],
@@ -84820,12 +84938,60 @@
 "api_id": "skatteetaten-krav-og-betalinger-api",
 "method": "GET",
 "path": "/{rettighetspakke}/{norskidentifikator}/krav",
-"summary": "Hent krav for part",
-"description": "Hent kravoversikt over gjeld, tilgodebeløp og betalinger mellom part identifisert av organisasjonsnummer, fødselsnummer eller dnummer og Skatteetaten innenfor en valgt periode.",
+"summary": "Hent krav for virksomhet",
+"description": "Hent kravoversikt over gjeld, tilgodebeløp og betalinger mellom part identifisert av organisasjonsnummer og Skatteetaten innenfor en valgt periode.",
 "tags": [
 "Krav og betalinger"
 ],
 "operation_id": "hentKravForPart",
+"deprecated": false
+},
+{
+"api_id": "skatteetaten-krav-og-betalinger-api",
+"method": "GET",
+"path": "/person/{rettighetspakke}/{norskidentifikator}/utbetalinger",
+"summary": "Hent utbetalinger for person",
+"description": "Hent utbetalinger for en person identifisert av fødselsnummer eller D-nummer innenfor en valgt periode.",
+"tags": [
+"Krav og betalinger"
+],
+"operation_id": "hentUtbetalingerForPerson",
+"deprecated": false
+},
+{
+"api_id": "skatteetaten-krav-og-betalinger-api",
+"method": "GET",
+"path": "/person/{rettighetspakke}/{norskidentifikator}/innbetalinger",
+"summary": "Hent innbetalinger for person",
+"description": "Hent innbetalinger for en person identifisert av fødselsnummer eller dnummer innenfor en valgt periode. Du får oversikt over innbetalinger som er gjort, og hvilke krav som har blitt dekket.",
+"tags": [
+"Krav og betalinger"
+],
+"operation_id": "hentInnbetalingerForPerson",
+"deprecated": false
+},
+{
+"api_id": "skatteetaten-krav-og-betalinger-api",
+"method": "GET",
+"path": "/person/{rettighetspakke}/{norskidentifikator}/aapnekrav",
+"summary": "Hent oversikt over åpne krav for person",
+"description": "Hent kravoversikt over gjeld, tilgodebeløp og betalinger mellom person identifisert av fødselsnummer eller dnummer og Skatteetaten.",
+"tags": [
+"Krav og betalinger"
+],
+"operation_id": "hentAapneKravForPerson",
+"deprecated": false
+},
+{
+"api_id": "skatteetaten-krav-og-betalinger-api",
+"method": "GET",
+"path": "/person/{rettighetspakke}/{norskidentifikator}/krav",
+"summary": "Hent krav for person",
+"description": "Hent kravoversikt over gjeld, tilgodebeløp og betalinger mellom person identifisert av fødselsnummer eller dnummer og Skatteetaten innenfor en valgt periode.",
+"tags": [
+"Krav og betalinger"
+],
+"operation_id": "hentKravForPerson",
 "deprecated": false
 },
 {
@@ -85367,7 +85533,7 @@
 "deprecated": false
 },
 {
-"api_id": "statens-kartverk-eiendom-rest-api-for-lokalisering",
+"api_id": "statens-kartverk-matrikkelen-eiendomskart-teig-eiendom-rest-api-for",
 "method": "GET",
 "path": "/geokoding",
 "summary": "Finn representasjonspunkt eller område for et spesifikt matrikkelnummer.",
@@ -85377,7 +85543,7 @@
 "deprecated": false
 },
 {
-"api_id": "statens-kartverk-eiendom-rest-api-for-lokalisering",
+"api_id": "statens-kartverk-matrikkelen-eiendomskart-teig-eiendom-rest-api-for",
 "method": "GET",
 "path": "/punkt",
 "summary": "Finn eiendommer nær et gitt geografisk punkt.",
@@ -85387,7 +85553,7 @@
 "deprecated": false
 },
 {
-"api_id": "statens-kartverk-eiendom-rest-api-for-lokalisering",
+"api_id": "statens-kartverk-matrikkelen-eiendomskart-teig-eiendom-rest-api-for",
 "method": "GET",
 "path": "/punkt/omrader",
 "summary": "Returnerer GeoJSON med områder nær et gitt geografisk punkt.",
