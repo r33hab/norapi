@@ -1,0 +1,24 @@
+updated: 2026-11-24
+provider:
+  name: Khrono
+  sector: privat
+apis:
+  - id: khrono-rss
+    title: Khrono RSS-strøm (universiteter og høgskoler)
+    title_en: Khrono higher education news RSS feed
+    description: >-
+      Åpen RSS-strøm med artikler fra forsiden til Khrono, avisen for universiteter, høgskoler og forskning, uten nøkkel.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://www.khrono.no/?lab_viewport=rss
+    docs_url: https://www.khrono.no/?lab_viewport=rss
+    probe_url: https://www.khrono.no/?lab_viewport=rss
+    keywords: [rss, nyheter, nyhetsstrøm, khrono, universitet, høgskole, forskning, news feed]
+    tags: [no-auth, feed, private-provider]
+    caveats:
+      - Ingen lisens oppgitt; sjekk utgiverens vilkår før videre bruk av innholdet.
+    quick_start: |
+      curl "https://www.khrono.no/?lab_viewport=rss"

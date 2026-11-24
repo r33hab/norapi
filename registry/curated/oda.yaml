@@ -1,0 +1,30 @@
+updated: 2026-11-24
+provider:
+  name: Oda
+  orgnr: "912262510"
+  sector: privat
+apis:
+  - id: oda-produktsok
+    title: Oda produktsøk
+    title_en: Oda grocery product search
+    description: >-
+      JSON bak nettbutikken oda.com: fritekstsøk i dagligvarer med navn, merke, pris, enhetspris og bilde. Svarer
+      anonymt. Ikke dokumentert av Oda. Eierens robots.txt ber automatiske klienter sende en User-Agent med navn og
+      kontaktinfo, og bruke eksponentiell backoff ved 429 og 5xx.
+    category: annet
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://oda.com/api/v1/search/
+    docs_url: https://oda.com/robots.txt
+    probe_url: https://oda.com/api/v1/search/?q=melk
+    keywords: [oda, dagligvare, matpris, pris, nettbutikk, produkt, grocery, product search]
+    tags: [no-auth, private-provider, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - robots.txt krever User-Agent med programnavn og kontaktinfo, og backoff ved 429 og 5xx; brudd kan gi blokkering.
+      - robots.txt blokkerer KI-treningsroboter.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl -A "mittprogram-bot (kontakt@example.com)" "https://oda.com/api/v1/search/?q=melk"

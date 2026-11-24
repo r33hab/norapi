@@ -1,0 +1,27 @@
+updated: 2026-11-24
+provider:
+  name: NIFS
+  sector: privat
+apis:
+  - id: nifs-fotball
+    title: NIFS fotball-API (turneringer, kamper og tabeller)
+    title_en: NIFS Norwegian football API
+    description: >-
+      Norsk og internasjonal fotballstatistikk: land, turneringer, sesonger, runder, kamper og lag, med
+      Eliteserien og resten av det norske seriesystemet. Roten på api.nifs.no beskriver seg selv med lenker til
+      ressursene. Svarer anonymt. Ikke dokumentert utover dette, og nettstedets robots.txt stenger for roboter.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.nifs.no/
+    docs_url: https://api.nifs.no/
+    probe_url: https://api.nifs.no/countries/1/tournaments/
+    keywords: [fotball, eliteserien, obos-ligaen, kamp, tabell, turnering, nifs, football, fixtures, standings]
+    tags: [no-auth, private-provider, undocumented]
+    caveats:
+      - Ingen vilkår eller lisens oppgitt; robots.txt på www.nifs.no har Disallow for alle roboter.
+      - Kan endres uten forvarsel.
+    quick_start: |
+      curl "https://api.nifs.no/tournaments/5/stages/"

@@ -1,0 +1,28 @@
+updated: 2026-11-24
+provider:
+  name: TicketCo
+  orgnr: "999104134"
+  sector: privat
+apis:
+  - id: ticketco-public-api
+    title: TicketCo Public API (arrangementer og billetter)
+    title_en: TicketCo public API
+    description: >-
+      Arrangementer, status, salgstall, kunder og medlemskap for en arrangør i billettsystemet TicketCo. Nøkkelen
+      sendes som token i spørringen. Arrangører får nøkkel ved å be kundeservice om det fra e-postadressen som er
+      knyttet til TicketCo-brukeren; det finnes ingen selvbetjent utstedelse.
+    category: kultur-og-kunnskap
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://ticketco.events/api/public/v1
+    docs_url: https://ticketco.io/en/support/accessing-and-testing-the-ticketco-public-api
+    spec_url: https://apidoc.ticketco.events/
+    keywords: [ticketco, billett, arrangement, konsert, billettsalg, arrangør, ticketing, events]
+    tags: [private-provider, registration]
+    caveats:
+      - Nøkkel utstedes på forespørsel til kundeservice og gjelder arrangørens egne data.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://ticketco.events/api/public/v1/events?token=$TICKETCO_TOKEN"

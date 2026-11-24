@@ -1,0 +1,26 @@
+updated: 2026-11-24
+provider:
+  name: Fantasy Eliteserien
+  sector: privat
+apis:
+  - id: eliteserien-fantasy
+    title: Fantasy Eliteserien (spillere, lag og runder)
+    title_en: Fantasy Eliteserien data
+    description: >-
+      JSON bak fantasy.eliteserien.no: alle spillere i Eliteserien med pris, poeng og statistikk, lagene, rundene
+      med frister og spillets regler. Svarer anonymt. Ikke dokumentert, og kan endres uten forvarsel.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://fantasy.eliteserien.no/api/bootstrap-static/
+    docs_url: https://fantasy.eliteserien.no/
+    probe_url: https://fantasy.eliteserien.no/api/bootstrap-static/
+    keywords: [eliteserien, fantasy, fotball, spillere, poeng, runde, lag, fantasy football]
+    tags: [no-auth, private-provider, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://fantasy.eliteserien.no/api/bootstrap-static/"

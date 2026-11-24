@@ -1,0 +1,25 @@
+updated: 2026-11-24
+provider:
+  name: Statens helsetilsyn
+  orgnr: "974761394"
+  sector: stat
+apis:
+  - id: helsetilsynet-rss
+    title: Helsetilsynet nyheter og rapporter (RSS)
+    title_en: Norwegian Board of Health Supervision feed
+    description: >-
+      RSS-strøm med nyheter, tilsynsrapporter og uttalelser fra Statens helsetilsyn. Ingen nøkkel.
+    category: arbeid-og-velferd
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://www.helsetilsynet.no/rss
+    docs_url: https://www.helsetilsynet.no/rss
+    probe_url: https://www.helsetilsynet.no/rss
+    keywords: [helsetilsynet, tilsyn, tilsynsrapport, helse, barnevern, sosiale tjenester, health supervision]
+    tags: [no-auth, feed]
+    caveats:
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://www.helsetilsynet.no/rss"

@@ -1,0 +1,28 @@
+updated: 2026-11-24
+provider:
+  name: Norsk Rikstoto
+  orgnr: "956444586"
+  sector: privat
+apis:
+  - id: rikstoto-racedays
+    title: Rikstoto løpsdager og løp
+    title_en: Norsk Rikstoto race days
+    description: >-
+      JSON bak rikstoto.no med dagens og kommende løpsdager i trav og galopp: bane, starttid, løp, spillformer og
+      status per løp. Svarer anonymt med en konvolutt (result, success, errorCode). Ikke dokumentert av Rikstoto,
+      og kan endres uten forvarsel.
+    category: annet
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.rikstoto.no/api/racedays
+    docs_url: https://www.rikstoto.no/
+    probe_url: https://www.rikstoto.no/api/racedays
+    keywords: [rikstoto, trav, galopp, hesteløp, løpsdag, spill, v75, horse racing]
+    tags: [no-auth, private-provider, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens eller vilkår oppgitt.
+    quick_start: |
+      curl "https://www.rikstoto.no/api/racedays"

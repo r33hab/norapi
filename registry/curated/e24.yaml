@@ -1,0 +1,24 @@
+updated: 2026-11-24
+provider:
+  name: E24
+  sector: privat
+apis:
+  - id: e24-rss
+    title: E24 RSS-strøm (økonominyheter)
+    title_en: E24 business news RSS feed
+    description: >-
+      Åpen RSS-strøm med siste nytt fra E24, nettavisen for økonomi og næringsliv, uten nøkkel.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://e24.no/rss2/
+    docs_url: https://e24.no/rss2/
+    probe_url: https://e24.no/rss2/
+    keywords: [rss, nyheter, nyhetsstrøm, e24, økonomi, næringsliv, børs, business news, news feed]
+    tags: [no-auth, feed, private-provider]
+    caveats:
+      - Ingen lisens oppgitt; sjekk utgiverens vilkår før videre bruk av innholdet.
+    quick_start: |
+      curl "https://e24.no/rss2/"

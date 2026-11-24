@@ -1,0 +1,28 @@
+updated: 2026-11-24
+provider:
+  name: Arkivportalen
+  sector: stat
+apis:
+  - id: arkivportalen-sok
+    title: Arkivportalen søk i arkivkataloger
+    title_en: Norwegian archive portal search
+    description: >-
+      JSON bak arkivportalen.no: søk på tvers av katalogene til norske arkivinstitusjoner, rundt 11,8 millioner
+      arkivenheter med navn, identifikator, institusjon, periode, sted og antall digitaliserte dokumenter.
+      Svarer anonymt i Elasticsearch-form. Ikke dokumentert, og kan endres uten forvarsel.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://www.arkivportalen.no/api/search
+    docs_url: https://www.arkivportalen.no/
+    probe_url: https://www.arkivportalen.no/api/search?text=bergen&size=1
+    keywords: [arkiv, arkivportalen, arkivverket, katalog, arkivenhet, slektsforskning, historie, archives]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Hvem som drifter tjenesten er ikke kontrollert; sektoren er satt til stat som en antakelse.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://www.arkivportalen.no/api/search?text=bergen&size=1"

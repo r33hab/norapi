@@ -1,0 +1,25 @@
+updated: 2026-11-24
+provider:
+  name: Teknisk Ukeblad (Teknisk Ukeblad Media)
+  orgnr: "919646683"
+  sector: privat
+apis:
+  - id: tu-rss
+    title: Teknisk Ukeblad RSS-strøm (teknologinyheter)
+    title_en: Teknisk Ukeblad technology news RSS feed
+    description: >-
+      Åpen RSS-strøm med artikler fra forsiden til Teknisk Ukeblad, uten nøkkel. Samme oppsett som Digi.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://www.tu.no/?lab_viewport=rss
+    docs_url: https://www.tu.no/?lab_viewport=rss
+    probe_url: https://www.tu.no/?lab_viewport=rss
+    keywords: [rss, nyheter, nyhetsstrøm, teknisk ukeblad, teknologi, ingeniør, news feed]
+    tags: [no-auth, feed, private-provider]
+    caveats:
+      - Ingen lisens oppgitt; sjekk utgiverens vilkår før videre bruk av innholdet.
+    quick_start: |
+      curl "https://www.tu.no/?lab_viewport=rss"

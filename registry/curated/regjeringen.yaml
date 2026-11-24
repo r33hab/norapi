@@ -1,0 +1,184 @@
+updated: 2026-11-24
+provider:
+  name: Departementenes digitaliseringsorganisasjon (regjeringen.no)
+  orgnr: "932931311"
+  sector: stat
+apis:
+  - id: regjeringen-datakatalog-dcat
+    title: Regjeringen.no datakatalog (DCAT)
+    title_en: Government.no data catalogue (DCAT)
+    description: >-
+      DCAT-AP-NO-katalog over departementenes åpne data fra portalen data.regjeringen.no. Eneste API i portalen
+      som ikke krever nøkkel, med egen grense på 60 kall per minutt per IP-adresse. Vertsnavnet svarte 502 da
+      oppføringen ble kontrollert, så kallet er ikke bekreftet.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [RDF/XML, JSON-LD]
+    endpoints:
+      - https://api.data.regjeringen.no/dcat
+    docs_url: https://data.regjeringen.no/reference/dcat-api
+    license: NLOD
+    keywords: [regjeringen, departement, datakatalog, dcat, åpne data, datasett, government, data catalogue]
+    tags: [no-auth]
+    caveats:
+      - api.data.regjeringen.no svarte 502 ved kontroll 2026-11-24; endepunktet er hentet fra dokumentasjonen.
+      - Formatene er antatt ut fra DCAT-AP-NO og ikke sett i et svar.
+      - Regjeringen.no skal oppgis som kilde.
+    quick_start: |
+      curl "https://api.data.regjeringen.no/dcat"
+  - id: regjeringen-innholdsoversikt
+    title: Regjeringen.no innholdsoversikt
+    title_en: Government.no content API
+    description: >-
+      Publisert innhold, dokumenter og metadata fra regjeringen.no, for eksempel pressemeldinger filtrert på type,
+      dato og departement. Gratis nøkkel sendes til e-postadressen din fra forsiden av data.regjeringen.no, uten
+      annen registrering, og leses i headeren Ocp-Apim-Subscription-Key. Nattlige eksporter kan lastes ned uten nøkkel.
+    category: offentlig-forvaltning
+    access: open
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.data.regjeringen.no/content
+    docs_url: https://data.regjeringen.no/reference/content-api
+    license: NLOD
+    keywords: [regjeringen, departement, pressemelding, dokument, nyheter, metadata, government, press release]
+    tags: [registration]
+    caveats:
+      - Felles grense på 100 kall per minutt og 10 000 per døgn per nøkkel, delt med MCP-serveren.
+      - api.data.regjeringen.no svarte 502 ved kontroll 2026-11-24.
+      - Regjeringen.no skal oppgis som kilde.
+    quick_start: |
+      curl -H "Ocp-Apim-Subscription-Key: $REGJERINGEN_KEY" \
+        "https://api.data.regjeringen.no/content/GetDocList?language=nb&pageSize=10"
+  - id: regjeringen-horingssvar
+    title: Regjeringen.no høringer og innspill (publiserte svar)
+    title_en: Government.no consultation responses
+    description: >-
+      Publiserte høringssvar og innspill til høringer på regjeringen.no som strukturert JSON. Krever den samme
+      gratis nøkkelen som resten av portalen. Svarene kan inneholde navn på privatpersoner som har sendt innspill.
+    category: offentlig-forvaltning
+    access: open
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.data.regjeringen.no/consultationresponse
+    docs_url: https://data.regjeringen.no/reference/svar-api
+    license: NLOD
+    keywords: [høring, høringssvar, innspill, regjeringen, departement, consultation, responses]
+    tags: [registration]
+    caveats:
+      - Kan inneholde navn på privatpersoner som har svart på en høring.
+      - Felles grense på 100 kall per minutt og 10 000 per døgn per nøkkel.
+      - Basisstien er hentet fra API-referansen og ikke kalt.
+    quick_start: |
+      # endepunktene står i API-referansen
+      curl -H "Ocp-Apim-Subscription-Key: $REGJERINGEN_KEY" "https://api.data.regjeringen.no/consultationresponse"
+  - id: regjeringen-kalender
+    title: Regjeringen.no kalenderhendelser
+    title_en: Government.no calendar events
+    description: >-
+      Kalenderhendelser fra regjeringen og markeringer i regjeringskvartalet som strukturert JSON. Krever den
+      samme gratis nøkkelen som resten av portalen.
+    category: politikk-og-valg
+    access: open
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.data.regjeringen.no/calendar
+    docs_url: https://data.regjeringen.no/reference/calendar-event-api
+    license: NLOD
+    keywords: [regjeringen, kalender, statsråd, program, hendelser, calendar, government events]
+    tags: [registration]
+    caveats:
+      - Felles grense på 100 kall per minutt og 10 000 per døgn per nøkkel.
+      - Basisstien er hentet fra API-referansen og ikke kalt.
+    quick_start: |
+      curl -H "Ocp-Apim-Subscription-Key: $REGJERINGEN_KEY" "https://api.data.regjeringen.no/calendar"
+  - id: regjeringen-offisielt-fra-statsradet
+    title: Offisielt frå statsrådet
+    title_en: Official announcements from the Council of State
+    description: >-
+      «Offisielt frå statsrådet» som strukturert JSON: vedtak, utnevnelser og saker fra statsråd på Slottet.
+      Krever den samme gratis nøkkelen som resten av portalen.
+    category: politikk-og-valg
+    access: open
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.data.regjeringen.no/councilofstate
+    docs_url: https://data.regjeringen.no/reference/offisielt-fra-statsrad-api
+    license: NLOD
+    keywords: [statsråd, offisielt fra statsrådet, utnevnelser, vedtak, regjeringen, council of state]
+    tags: [registration]
+    caveats:
+      - Inneholder navn på personer som er utnevnt eller omtalt i statsråd.
+      - Felles grense på 100 kall per minutt og 10 000 per døgn per nøkkel.
+      - Basisstien er hentet fra API-referansen og ikke kalt.
+    quick_start: |
+      curl -H "Ocp-Apim-Subscription-Key: $REGJERINGEN_KEY" "https://api.data.regjeringen.no/councilofstate"
+  - id: regjeringen-organisasjonsinformasjon
+    title: Regjeringen.no organisasjonsinformasjon
+    title_en: Government.no organisation information
+    description: >-
+      Informasjon om departementene, Statsministerens kontor og enkelte underliggende etater som strukturert
+      JSON. Krever den samme gratis nøkkelen som resten av portalen.
+    category: offentlig-forvaltning
+    access: open
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.data.regjeringen.no/organisations
+    docs_url: https://data.regjeringen.no/reference/dep-info-api
+    license: NLOD
+    keywords: [departement, statsministerens kontor, organisasjon, regjeringen, ministry, organisation]
+    tags: [registration]
+    caveats:
+      - Felles grense på 100 kall per minutt og 10 000 per døgn per nøkkel.
+      - Basisstien er hentet fra API-referansen og ikke kalt.
+    quick_start: |
+      curl -H "Ocp-Apim-Subscription-Key: $REGJERINGEN_KEY" "https://api.data.regjeringen.no/organisations"
+  - id: regjeringen-reiseinformasjon
+    title: Reiseinformasjon fra Utenriksdepartementet
+    title_en: Travel information per country
+    description: >-
+      Reiseinformasjon per land som strukturert JSON: innreise, sikkerhet, helse, kriminalitet, naturforhold,
+      lover og regler og kontaktinformasjon. Krever den samme gratis nøkkelen som resten av portalen.
+    category: offentlig-forvaltning
+    access: open
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.data.regjeringen.no/travel
+    docs_url: https://data.regjeringen.no/reference/travel-info-api
+    license: NLOD
+    keywords: [reiseinformasjon, reiseråd, utenriksdepartementet, land, sikkerhet, innreise, travel advice]
+    tags: [registration]
+    caveats:
+      - Felles grense på 100 kall per minutt og 10 000 per døgn per nøkkel.
+      - Basisstien er hentet fra API-referansen og ikke kalt.
+    quick_start: |
+      curl -H "Ocp-Apim-Subscription-Key: $REGJERINGEN_KEY" "https://api.data.regjeringen.no/travel"
+  - id: regjeringen-mcp
+    title: Regjeringen.no MCP-server
+    title_en: Government.no MCP server
+    description: >-
+      MCP-server som gir KI-agenter verktøy for å søke i og lese de åpne dataene fra regjeringen.no, blant annet
+      høringer, kalenderhendelser og Offisielt frå statsrådet. Deler nøkkel og trafikkgrense med API-ene, og ett
+      MCP-kall kan utløse flere API-kall.
+    category: offentlig-forvaltning
+    access: open
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.data.regjeringen.no/mcp
+    docs_url: https://data.regjeringen.no/ki-agenter
+    license: NLOD
+    keywords: [mcp, ki-agent, regjeringen, høringer, kalender, statsråd, model context protocol]
+    tags: [registration, mcp]
+    caveats:
+      - Felles grense på 100 kall per minutt og 10 000 per døgn per nøkkel, delt med API-ene.
+      - api.data.regjeringen.no svarte 502 ved kontroll 2026-11-24.
+    quick_start: |
+      # legg til https://api.data.regjeringen.no/mcp i MCP-klienten, se veiledningen for nøkkel
+      curl -I "https://api.data.regjeringen.no/mcp"

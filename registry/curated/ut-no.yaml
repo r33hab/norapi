@@ -1,0 +1,30 @@
+updated: 2026-11-24
+provider:
+  name: UT.no (Den Norske Turistforening)
+  orgnr: "979469241"
+  sector: privat
+apis:
+  - id: ut-no-graphql
+    title: UT.no GraphQL (hytter, turer og områder)
+    title_en: UT.no hiking GraphQL API
+    description: >-
+      GraphQL bak ut.no: hytter med fasiliteter og betjeningsgrad, hytter i nærheten av et punkt, turområder,
+      fylker, turlag og høydeoppslag. Svarer anonymt på POST, og skjemaet kan leses med introspeksjon. Deler av
+      skjemaet gjelder innloggede brukere. Ikke dokumentert, og kan endres uten forvarsel.
+    category: natur-og-miljo
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://ut.no/api/graphql
+    docs_url: https://ut.no/
+    keywords: [ut.no, dnt, hytte, tur, turforslag, fjell, friluftsliv, cabins, hiking, graphql]
+    tags: [no-auth, graphql, private-provider, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Bare POST; GET svarer 405.
+      - Felt for innsjekkinger og egne lister gjelder innloggede brukere.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl -X POST -H "Content-Type: application/json" \
+        -d '{"query":"{__schema{queryType{fields{name}}}}"}' "https://ut.no/api/graphql"

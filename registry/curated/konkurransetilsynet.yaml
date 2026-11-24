@@ -1,0 +1,26 @@
+updated: 2026-11-24
+provider:
+  name: Konkurransetilsynet
+  orgnr: "974761246"
+  sector: stat
+apis:
+  - id: konkurransetilsynet-rss
+    title: Konkurransetilsynet nyheter og vedtak (RSS)
+    title_en: Norwegian Competition Authority feed
+    description: >-
+      RSS-strøm med nyheter, vedtak og uttalelser fra Konkurransetilsynet, blant annet om fusjoner og
+      overtredelsessaker. Ingen nøkkel.
+    category: bedrift-og-organisasjon
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://konkurransetilsynet.no/feed/
+    docs_url: https://konkurransetilsynet.no/
+    probe_url: https://konkurransetilsynet.no/feed/
+    keywords: [konkurransetilsynet, konkurranse, fusjon, vedtak, kartell, competition authority, merger]
+    tags: [no-auth, feed]
+    caveats:
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://konkurransetilsynet.no/feed/"

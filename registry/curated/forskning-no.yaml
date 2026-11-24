@@ -1,0 +1,24 @@
+updated: 2026-11-24
+provider:
+  name: Forskning.no
+  sector: privat
+apis:
+  - id: forskning-no-rss
+    title: Forskning.no RSS-strøm (forskningsnyheter)
+    title_en: Forskning.no science news RSS feed
+    description: >-
+      Åpen RSS-strøm med artikler fra forsiden til Forskning.no, nettavisen for norsk og internasjonal forskning, uten nøkkel.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://www.forskning.no/?lab_viewport=rss
+    docs_url: https://www.forskning.no/?lab_viewport=rss
+    probe_url: https://www.forskning.no/?lab_viewport=rss
+    keywords: [rss, nyheter, nyhetsstrøm, forskning, vitenskap, science news, news feed]
+    tags: [no-auth, feed, private-provider]
+    caveats:
+      - Ingen lisens oppgitt; sjekk utgiverens vilkår før videre bruk av innholdet.
+    quick_start: |
+      curl "https://www.forskning.no/?lab_viewport=rss"

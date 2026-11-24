@@ -1,4 +1,4 @@
-updated: 2026-11-16
+updated: 2026-11-24
 provider:
   name: NTB (Norsk Telegrambyrå)
   sector: privat
@@ -28,3 +28,27 @@ apis:
         --header "Content-Type: application/x-www-form-urlencoded" \
         --data grant_type=client_credentials --data client_id=$CLIENT_ID \
         --data client_secret=$CLIENT_SECRET --data audience=https://api.ntb.no
+  - id: ntb-kommunikasjon-pressemeldinger
+    title: NTB Kommunikasjon pressemeldinger
+    title_en: NTB Kommunikasjon press releases
+    description: >-
+      Pressemeldinger publisert gjennom NTB Kommunikasjon, fra norske virksomheter og offentlige etater, som JSON
+      med tittel, ingress, brødtekst, utgiver, bilder, vedlegg og kontaktpersoner, og som RSS. Svarer anonymt med
+      sideinndeling (nextPage). Ikke omtalt i NTBs API-portal.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON, RSS]
+    endpoints:
+      - https://kommunikasjon.ntb.no/json/v2/releases
+      - https://kommunikasjon.ntb.no/rss/releases/latest
+    docs_url: https://kommunikasjon.ntb.no/
+    probe_url: https://kommunikasjon.ntb.no/json/v2/releases
+    keywords: [pressemelding, ntb kommunikasjon, pressemeldinger, nyheter, virksomhet, press releases, newsroom]
+    tags: [no-auth, feed, private-provider, undocumented]
+    caveats:
+      - Pressemeldingene inneholder navn og kontaktinfo til pressekontakter.
+      - robots.txt ber om ett sekund mellom kallene (Crawl-delay 1).
+      - Ingen lisens oppgitt; rettighetene til innholdet ligger hos utgiverne.
+    quick_start: |
+      curl "https://kommunikasjon.ntb.no/json/v2/releases"
