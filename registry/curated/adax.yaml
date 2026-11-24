@@ -1,0 +1,31 @@
+updated: 2026-11-24
+provider:
+  name: Adax
+  orgnr: "992122110"
+  sector: privat
+apis:
+  - id: adax-client-api
+    title: Adax API (Wi-Fi-termostater)
+    title_en: Adax remote client API
+    description: >-
+      Les måltemperatur og målt temperatur per rom, sett ny måltemperatur, og hent energibruk per time for
+      Adax-ovner med Wi-Fi. Eieren av ovnene lager selv en legitimasjon i Adax WiFi-appen (Account, Remote user
+      client API) og bytter den i et token med OAuth2 password grant. Gjelder bare egne ovner.
+    category: natur-og-miljo
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api-1.adax.no/client-api
+    docs_url: https://adax.no/en/wi-fi/api-development/
+    spec_url: https://api-1.adax.no/client-api/openapi
+    keywords: [adax, panelovn, termostat, oppvarming, smarthus, temperatur, energibruk, heater, smart home]
+    tags: [private-provider, registration, oauth2]
+    caveats:
+      - Krever Adax-konto med egne ovner og Adax WiFi-appen versjon 3.7 eller nyere.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # konto-ID og legitimasjon hentes i Adax WiFi-appen
+      TOKEN=$(curl -s -d "grant_type=password&username=$ADAX_ACCOUNT_ID&password=$ADAX_CREDENTIAL" \
+        "https://api-1.adax.no/client-api/auth/token" | jq -r .access_token)
+      curl -H "Authorization: Bearer $TOKEN" "https://api-1.adax.no/client-api/rest/v1/content/"

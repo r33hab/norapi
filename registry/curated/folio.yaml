@@ -1,0 +1,28 @@
+updated: 2026-11-24
+provider:
+  name: Folio
+  orgnr: "919638095"
+  sector: privat
+apis:
+  - id: folio-api
+    title: Folio API (bedriftskonto og transaksjoner)
+    title_en: Folio business account API
+    description: >-
+      Hent transaksjoner fra bedriftskontoen i Folio, med dato-filter og valgfri informasjon om brukersted.
+      Kunder lager en API-nøkkel i Folio-appen og sender den som Bearer-token. Selskaper som bygger integrasjoner
+      for flere kunder kan bruke en OAuth2-flyt, beskrevet i en egen spesifikasjon.
+    category: finans
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.folio.no/v2
+    docs_url: https://api.folio.no/v2/api
+    spec_url: https://api.folio.no/v2/api.yml
+    keywords: [folio, bedriftskonto, bank, transaksjoner, kvittering, regnskap, business account, transactions]
+    tags: [private-provider, registration]
+    caveats:
+      - Krever kundeforhold i Folio; nøkkelen lages under API-tilgang i appen.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl -H "Authorization: Bearer $FOLIO_API_KEY" "https://api.folio.no/v2/transactions?startDate=2026-01-01"

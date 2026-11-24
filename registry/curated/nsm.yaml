@@ -1,0 +1,28 @@
+updated: 2026-11-24
+provider:
+  name: Nasjonal sikkerhetsmyndighet (NSM)
+  orgnr: "985165262"
+  sector: stat
+apis:
+  - id: nsm-sarbarhetsvarsler-rss
+    title: NSM sårbarhetsvarsler (RSS)
+    title_en: NSM vulnerability alerts feed
+    description: >-
+      RSS-strøm med sårbarhetsvarsler fra NSM, for eksempel kritiske sårbarheter i mye brukt programvare og
+      Microsofts månedlige oppdateringer. Egne strømmer finnes for nyheter og for alle oppdateringer. Ingen nøkkel.
+    category: offentlig-forvaltning
+    access: open
+    auth: none
+    formats: [RSS, XML]
+    endpoints:
+      - https://nsm.no/rss/sarbarhetsvarsler-fra-nsm/
+      - https://nsm.no/rss/nyheter-fra-nsm/
+      - https://nsm.no/rss/alle-oppdateringer-fra-nsm/
+    docs_url: https://nsm.no/rss/
+    probe_url: https://nsm.no/rss/sarbarhetsvarsler-fra-nsm/
+    keywords: [nsm, sårbarhet, varsel, cybersikkerhet, ncsc, digital sikkerhet, vulnerability, security advisory]
+    tags: [no-auth, feed]
+    caveats:
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://nsm.no/rss/sarbarhetsvarsler-fra-nsm/"

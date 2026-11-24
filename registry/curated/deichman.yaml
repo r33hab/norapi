@@ -1,0 +1,27 @@
+updated: 2026-11-24
+provider:
+  name: Deichman (Oslo kommune)
+  sector: kommune
+apis:
+  - id: deichman-sok
+    title: Deichman katalogsøk
+    title_en: Oslo public library catalogue search
+    description: >-
+      JSON bak deichman.no: søk i katalogen til Oslos folkebibliotek med tittel, medietype, opphavspersoner,
+      verk og andre utgaver, og filtre per filial. Svarer anonymt, og robots.txt tillater alt. Ikke dokumentert,
+      og kan endres uten forvarsel.
+    category: kultur-og-kunnskap
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://deichman.no/api/search
+    docs_url: https://deichman.no/
+    probe_url: https://deichman.no/api/search?search=ibsen
+    keywords: [deichman, bibliotek, bok, katalog, oslo, utlån, library, catalogue search]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://deichman.no/api/search?search=ibsen"

@@ -1,0 +1,28 @@
+updated: 2026-11-24
+provider:
+  name: Logistra
+  orgnr: "929585836"
+  sector: privat
+apis:
+  - id: cargonizer-api
+    title: Cargonizer API (fraktbestilling og etiketter)
+    title_en: Cargonizer shipping API
+    description: >-
+      Bestill frakt, hent fraktavtaler, skriv ut etiketter og beregn pris på tvers av transportører gjennom
+      Cargonizer fra Logistra. Hvert kall trenger API-nøkkel i X-Cargonizer-Key, og de fleste trenger også
+      avsender-ID i X-Cargonizer-Sender. Utviklere kan be om testkonto i sandkassen.
+    category: transport-og-samferdsel
+    access: restricted
+    auth: api-key
+    formats: [XML, JSON]
+    endpoints:
+      - https://api.cargonizer.no
+    docs_url: https://github.com/logistra/cargonizer-documentation/wiki
+    keywords: [cargonizer, logistra, frakt, sending, etikett, transportør, fraktbestilling, shipping, consignment]
+    tags: [private-provider, agreement]
+    caveats:
+      - Krever Cargonizer-konto; testkonto i sandkassen gis på forespørsel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl -H "X-Cargonizer-Key: $CARGONIZER_KEY" -H "X-Cargonizer-Sender: $CARGONIZER_SENDER" \
+        "https://api.cargonizer.no/transport_agreements.xml"

@@ -1,0 +1,28 @@
+updated: 2026-11-24
+provider:
+  name: KeySMS
+  sector: privat
+apis:
+  - id: keysms-api
+    title: KeySMS API (SMS-utsending)
+    title_en: KeySMS messaging API
+    description: >-
+      Send SMS fra egne systemer gjennom den norske SMS-tjenesten KeySMS. API-nøkkelen sendes enten som passord
+      i Basic-autentisering eller som apiKey i spørringen. Konto får du ved å be om en gratis demonstrasjon;
+      utsending koster per melding.
+    category: annet
+    access: restricted
+    auth: api-key
+    formats: [JSON]
+    endpoints:
+      - https://api.keysms.no/v1
+    docs_url: https://keysms.no/api
+    spec_url: https://api.keysms.no/KeySMS.yml
+    license: MIT (OpenAPI-spesifikasjonen)
+    keywords: [keysms, sms, tekstmelding, varsling, gateway, utsending, sms gateway, messaging]
+    tags: [private-provider, registration]
+    caveats:
+      - Krever konto; utsending er en betalt tjeneste.
+    quick_start: |
+      curl -u "$KEYSMS_USER:$KEYSMS_API_KEY" -H "Content-Type: application/json" \
+        -d '{"message":"Hei","receivers":["+4712345678"]}' "https://api.keysms.no/v1/messages"

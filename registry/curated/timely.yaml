@@ -1,0 +1,27 @@
+updated: 2026-11-24
+provider:
+  name: Timely
+  sector: privat
+apis:
+  - id: timely-api
+    title: Timely API (timeføring og prosjekter)
+    title_en: Timely time tracking API
+    description: >-
+      REST-API for timeføringsverktøyet Timely: kontoer, kunder, prosjekter, brukere, timer og rapporter.
+      Innlogging skjer med OAuth2 authorization code; du registrerer en applikasjon i en Timely-konto og får
+      klient-ID og hemmelighet.
+    category: arbeid-og-velferd
+    access: restricted
+    auth: oauth2
+    formats: [JSON]
+    endpoints:
+      - https://api.timelyapp.com/1.1
+    docs_url: https://developer.timely.com/
+    keywords: [timely, timeføring, timer, prosjekt, timeliste, rapport, time tracking, timesheet]
+    tags: [private-provider, registration, oauth2]
+    caveats:
+      - Krever Timely-konto og en registrert OAuth-applikasjon.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # token hentes med OAuth2 via https://api.timelyapp.com/1.1/oauth/authorize og /oauth/token
+      curl -H "Authorization: Bearer $TIMELY_TOKEN" "https://api.timelyapp.com/1.1/accounts"

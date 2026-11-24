@@ -1,0 +1,30 @@
+updated: 2026-11-24
+provider:
+  name: Kolumbus
+  orgnr: "914749360"
+  sector: fylke
+apis:
+  - id: kolumbus-api
+    title: Kolumbus API (holdeplasser og kjøretøy i Rogaland)
+    title_en: Kolumbus stops and vehicles API
+    description: >-
+      JSON bak Kolumbus sine tjenester for kollektivtrafikken i Rogaland: plattformer med NSR-id, navn, posisjon og
+      transportmiddel, og en liste over kjøretøy. Svarer anonymt, men sertifikatet på vertsnavnet var utløpt da
+      oppføringen ble kontrollert, så kallet går bare gjennom uten sertifikatkontroll. Ikke dokumentert av Kolumbus.
+    category: transport-og-samferdsel
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.kolumbus.no/api/platforms
+      - https://api.kolumbus.no/api/vehicles
+    docs_url: https://www.kolumbus.no/
+    keywords: [kolumbus, rogaland, buss, holdeplass, plattform, kjøretøy, kollektiv, public transport, stops]
+    tags: [no-auth, undocumented]
+    caveats:
+      - Utløpt sertifikat på api.kolumbus.no ved kontroll 2026-11-24; kallet krever at sertifikatkontrollen slås av.
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      # -k slår av sertifikatkontrollen; bruk Entur for produksjon
+      curl -k "https://api.kolumbus.no/api/platforms"

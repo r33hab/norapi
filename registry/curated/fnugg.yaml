@@ -1,0 +1,27 @@
+updated: 2026-11-24
+provider:
+  name: Fnugg
+  sector: privat
+apis:
+  - id: fnugg-api
+    title: Fnugg API (skianlegg, føre og heiser)
+    title_en: Fnugg ski resort API
+    description: >-
+      Søk i norske skianlegg bak fnugg.no: føremelding, snødybde, temperatur, åpne heiser og løyper, åpningstider
+      og kontaktinfo. Svarer anonymt med JSON i Elasticsearch-form (hits og _source), og feltene kan avgrenses med
+      sourceFields. Ikke dokumentert av eieren, og kan endres uten forvarsel.
+    category: vaer-og-klima
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.fnugg.no/search
+    docs_url: https://fnugg.no/
+    probe_url: https://api.fnugg.no/search?size=1
+    keywords: [ski, skianlegg, alpint, føre, snødybde, heiser, løyper, fnugg, ski resort, snow report]
+    tags: [no-auth, private-provider, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens eller vilkår oppgitt.
+    quick_start: |
+      curl "https://api.fnugg.no/search?size=1&sourceFields=name,conditions.combined.top.temperature,lifts.count"

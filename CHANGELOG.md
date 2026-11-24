@@ -3,6 +3,12 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com), newest first, grouped by date.
 
+## 2026-11-24
+### Added
+- 35 more curated entries with Norwegian data, each probed live or read from the owner's reference. Public sector: the government's new open data portal (data catalogue, content, consultation responses, calendar, Council of State, organisations, travel information and its MCP server), NSM vulnerability alerts, and the Helsetilsynet and Konkurransetilsynet feeds. Culture and outdoors: Arkivportalen search, Deichman catalogue search, UT.no GraphQL, Fnugg ski resorts. Sport and retail: NIFS football, Fantasy Eliteserien, Rikstoto race days, NorgesGruppen store register, Oda product search. Media: NTB Kommunikasjon press releases and the Teknisk Ukeblad, Kode24, Forskning.no, Khrono, E24 and Altinget feeds. Finance and transport: NBX market list, Kolumbus stops and vehicles. Account-based: Adax, Folio, Timely, TicketCo, KeySMS and Cargonizer. Undocumented ones carry the `undocumented` tag and caveats.
+### Changed
+- Registry total 1 724 to 1 763: the 35 above and what the catalogue harvest added since the last weekly run.
+
 ## 2026-11-17
 ### Added
 - `behaviour` and `owner_terms` fields on a registry entry: what the endpoint does in practice (for example, answers anonymously) and the owner's own stated terms (for example, asks for an app id, or points to a documented feed for redistribution), shown on the API page under "Oppførsel" and "Eierens vilkår". Set first on the entries where the two diverge: the Arbeidsplassen job search, Linticket events, Grünerløkkas kartkatalog and the Smilefjes inspection file.

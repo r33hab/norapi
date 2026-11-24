@@ -1,0 +1,30 @@
+updated: 2026-11-24
+provider:
+  name: Norwegian Block Exchange (NBX)
+  orgnr: "920245676"
+  sector: privat
+apis:
+  - id: nbx-api
+    title: NBX API (kryptobørs)
+    title_en: NBX exchange API
+    description: >-
+      Norsk kryptobørs. Listen over markeder (par som BTC-NOK, med tikkstørrelser og minstevolum) og listen over
+      eiendeler svarer uten innlogging. Tjenesten ligger bak Cloudflare, som avviste gjentatte anonyme kall med 403
+      under kontrollen, så regn med å måtte sende en vanlig User-Agent og holde frekvensen lav.
+    category: finans
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.nbx.com/markets
+      - https://api.nbx.com/assets
+    docs_url: https://app.nbx.com/developers
+    probe_url: https://api.nbx.com/markets
+    keywords: [nbx, krypto, bitcoin, kryptobørs, markeder, kurs, exchange, market data]
+    tags: [no-auth, private-provider]
+    caveats:
+      - Ingen lisens oppgitt.
+      - Cloudflare kan avvise anonyme kall med 403 ved gjentatte forespørsler.
+      - Bare markeds- og eiendelslistene er kontrollert anonymt; konto og handel krever innlogging.
+    quick_start: |
+      curl "https://api.nbx.com/markets"

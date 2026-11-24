@@ -1,0 +1,28 @@
+updated: 2026-11-24
+provider:
+  name: NorgesGruppen
+  orgnr: "819731322"
+  sector: privat
+apis:
+  - id: norgesgruppen-butikker
+    title: NorgesGruppen butikkregister (Meny, Kiwi, Spar)
+    title_en: NorgesGruppen store locator data
+    description: >-
+      JSON bak butikksøket til kjedene i NorgesGruppen: alle butikker i en kjede med GLN, navn, posisjon,
+      kommune, fylke, tjenester og åpningstider. Kjeden velges med chainId; 1300 ga Meny, 1100 Kiwi og 1210 Spar
+      da oppføringen ble kontrollert. Svarer anonymt. Ikke dokumentert, og kan endres uten forvarsel.
+    category: bedrift-og-organisasjon
+    access: open
+    auth: none
+    formats: [JSON]
+    endpoints:
+      - https://api.ngdata.no/sylinder/stores/v1/extended-info
+    docs_url: https://www.norgesgruppen.no/
+    probe_url: https://api.ngdata.no/sylinder/stores/v1/extended-info?chainId=1300
+    keywords: [butikk, dagligvare, åpningstider, meny, kiwi, spar, norgesgruppen, store locator, opening hours]
+    tags: [no-auth, private-provider, undocumented]
+    caveats:
+      - Ikke dokumentert av eieren, og kan endres uten forvarsel.
+      - Ingen lisens oppgitt.
+    quick_start: |
+      curl "https://api.ngdata.no/sylinder/stores/v1/extended-info?chainId=1300"
